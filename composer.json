@@ -1,0 +1,46 @@
+{
+    "name": "uvdesk/community-skeleton",
+    "description": "UVDesk Community Helpdesk Project Skeleton",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "php": "^7.0",
+        "uvdesk/composer-package-manager": "^0.1",
+        "symfony/flex": "^1.0",
+        "uvdesk/core-framework": "^0.1",
+        "uvdesk/automation-bundle": "^0.1",
+        "uvdesk/support-center-bundle": "^0.1"
+    },
+    "require-dev": {
+        "symfony/dotenv": "^3.4",
+        "symfony/var-dumper": "^3.4",
+        "symfony/web-server-bundle": "^3.4"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*",
+        "symfony/website-skeleton": "*"
+    },
+    "minimum-stability": "dev"
+}
