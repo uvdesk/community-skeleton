@@ -1,0 +1,3 @@
+uvdesk_community_installation_wizard:
+    path:     /setup/installation-wizard/{_locale}
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizard::wizard

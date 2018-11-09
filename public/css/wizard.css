@@ -1,0 +1,103 @@
+/* Community Style Rules */
+
+body {
+    color: #24292e;
+    width: 100%;
+    height: 100vh;
+    background: whitesmoke;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    line-height: 1.4em;
+}
+
+.container {
+    width: 60%;
+    background: white;
+    padding: 40px;
+    margin: 0 auto;
+    border-radius: 3px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.uvdesk-logo {
+    margin-bottom: 20px;
+}
+
+.content h1 {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.community-header {
+    font-size: 24px;
+    line-height: 1.4em;
+}
+
+.brand-theme {
+    color: #8b6bfa;
+}
+
+.helpdesk-version-tag {
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+.line-break {
+    height: 1px;
+    width: 100px;
+    background: #b5b5b5;
+    margin: 20px 0px 20px;
+}
+
+.code-snippet {
+    font-size: 16px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+.code-snippet > pre {
+    background: #f6f8fa;
+    padding: 12px 15px 13px;
+    border-radius: 3px;
+    font-size: 14px;
+    overflow: auto;
+}
+
+.setup-instructions {
+    font-size: 14px;
+    list-style: circle;
+    padding-left: 18px;
+}
+
+.helpdesk-panel-navigation {
+    font-size: 14px;
+    display: inline-block;
+}
+
+.helpdesk-panel-navigation > li {
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.helpdesk-panel-navigation > li::after {
+    content: "-";
+    margin-left: 8px;
+}
+
+.helpdesk-panel-navigation > li:first-child::after, .helpdesk-panel-navigation > li:last-child::after {
+    content: "";
+    margin-left: unset;
+}
+
+.helpdesk-panel-navigation a {
+    color: #8b6bfa;
+    text-decoration: none;
+}
+
+.helpdesk-panel-navigation a:hover {
+    color: #8b6bfa;
+    text-decoration: underline;
+}
