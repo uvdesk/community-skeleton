@@ -3,101 +3,122 @@
 body {
     color: #24292e;
     width: 100%;
-    height: 100vh;
-    background: whitesmoke;
+    max-width: 1440px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     font-size: 16px;
     line-height: 1.4em;
-}
-
-.container {
-    width: 60%;
-    background: white;
-    padding: 40px;
     margin: 0 auto;
-    border-radius: 3px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.uvdesk-logo {
-    margin-bottom: 20px;
-}
-
-.content h1 {
-    font-size: 21px;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.community-header {
-    font-size: 24px;
-    line-height: 1.4em;
 }
 
 .brand-theme {
     color: #8b6bfa;
 }
 
-.helpdesk-version-tag {
-    letter-spacing: 1px;
-    word-spacing: 1px;
+/* Wizard Header */
+#wizard-header {
+    text-align: center;
+    padding: 20px 40px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
 }
 
-.line-break {
+#wizard-header .uvdesk-logo {
+    width: 58px;
+    line-height: 1em;
+    overflow: hidden;
+    margin: 0px auto 10px;
+}
+
+#wizard-header h1 {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+
+#wizard-header .line-break {
     height: 1px;
-    width: 100px;
+    width: 40px;
     background: #b5b5b5;
-    margin: 20px 0px 20px;
+    margin: 10px auto 20px;
 }
 
-.code-snippet {
-    font-size: 16px;
-    letter-spacing: 1px;
-    word-spacing: 1px;
+/* Wizard Container */
+#wizard-container {
+    padding: 40px;
 }
 
-.code-snippet > pre {
-    background: #f6f8fa;
-    padding: 12px 15px 13px;
-    border-radius: 3px;
-    font-size: 14px;
-    overflow: auto;
+ul.button-groups {
+    list-style: none;
 }
 
-.setup-instructions {
-    font-size: 14px;
-    list-style: circle;
-    padding-left: 18px;
-}
-
-.helpdesk-panel-navigation {
-    font-size: 14px;
+ul.button-groups > li {
+    line-height: 1em;
     display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
 }
 
-.helpdesk-panel-navigation > li {
-    display: inline-block;
-    margin-right: 4px;
+ul.button-groups > li:last-child {
+    margin-right: unset;
 }
 
-.helpdesk-panel-navigation > li::after {
-    content: "-";
-    margin-left: 8px;
+.wizard-button {
+    color: #24292e;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 14px;
+    border: 1px solid #24292e;
+    border-radius: 4px;
+    background: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color linear 0.2s, background-color linear 0.2s;
 }
 
-.helpdesk-panel-navigation > li:first-child::after, .helpdesk-panel-navigation > li:last-child::after {
-    content: "";
-    margin-left: unset;
+.wizard-button:hover {
+    color: white;
+    background: #24292e;
+    transition: color linear 0.2s, background-color linear 0.2s;
 }
 
-.helpdesk-panel-navigation a {
-    color: #8b6bfa;
-    text-decoration: none;
+.wizard-button.button-theme-setup {
+    color: #2ED04C;
+    border: 1px solid #2ED04C;
 }
 
-.helpdesk-panel-navigation a:hover {
-    color: #8b6bfa;
-    text-decoration: underline;
+.wizard-button.button-theme-neutral {
+    color: #24292e;
+    border: 1px solid #24292e;
 }
+
+.wizard-button.button-theme-uvdesk {
+    color: #7C70F4;
+    border: 1px solid #7C70F4;
+}
+
+.wizard-button.solid.button-theme-setup, .wizard-button.button-theme-setup:hover {
+    color: white;
+    background: #2ED04C;
+}
+
+.wizard-button.solid.button-theme-neutral, .wizard-button.button-theme-neutral:hover {
+    color: white;
+    background: #24292e;
+}
+
+.wizard-button.solid.button-theme-uvdesk, .wizard-button.button-theme-uvdesk:default {
+    color: white;
+    background: #7C70F4;
+}
+
+/* Installation Step 0: Authorize */
+#start-installation {
+    width: 60%;
+    text-align: center;
+    margin: 0px auto;
+}
+
+#start-installation ul.button-groups {
+    margin-top: 20px;
+}
+
