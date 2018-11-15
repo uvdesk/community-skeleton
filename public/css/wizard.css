@@ -15,27 +15,27 @@ body {
 }
 
 /* Wizard Header */
-#wizard-header {
+.wizard-header {
     text-align: center;
     padding: 20px 40px;
     background: #f5f5f5;
     border-bottom: 1px solid #ddd;
 }
 
-#wizard-header .uvdesk-logo {
+.wizard-header .uvdesk-logo {
     width: 58px;
     line-height: 1em;
     overflow: hidden;
     margin: 0px auto 10px;
 }
 
-#wizard-header h1 {
+.wizard-header h1 {
     font-size: 2em;
     font-weight: bold;
     line-height: 1.4em;
 }
 
-#wizard-header .line-break {
+.wizard-header .line-break {
     height: 1px;
     width: 40px;
     background: #b5b5b5;
@@ -43,7 +43,7 @@ body {
 }
 
 /* Wizard Container */
-#wizard-container {
+.wizard-container {
     padding: 40px;
 }
 
