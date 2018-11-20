@@ -1,7 +1,15 @@
 uvdesk_community_installation_wizard:
     path:     /setup/
-    controller: Webkul\UVDesk\Setup\Controller\InstallationWizard::wizard
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizard::loadWizard
 
 uvdesk_community_installation_wizard_locale:
     path:     /setup/{_locale}/
-    controller: Webkul\UVDesk\Setup\Controller\InstallationWizard::wizard
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizard::loadWizard
+
+uvdesk_community_installation_wizard_check_requirements:
+    path:     /setup/xhr/check-requirements/{criteria}
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::evaluateSystemRequirements
+
+uvdesk_community_installation_wizard_verify_database_credentials:
+    path:     /setup/xhr/verify-database-credentials
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::verifyDatabaseCredentials

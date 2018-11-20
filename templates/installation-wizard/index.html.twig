@@ -41,7 +41,62 @@
                 <p>Welcome to the helpdesk installation wizard. <br/>This wizard will help guide you in setting up the UVDesk Community Edition on your system.</p>
 
                 <ul class="button-groups">
-                    <li><button id="wizardInstallationCTA" class="wizard-button solid button-theme-uvdesk">Setup UVDesk</button></li>
+                    <li><button id="wizardCTA-StartInstallation" class="wizard-button solid button-theme-uvdesk">Setup UVDesk</button></li>
+                </ul>
+            </div>
+        </script>
+
+        <script id="installationWizard-SystemRequirementsTemplate-PHPVersion" type="text/template">
+            <label>PHP Version Check</label>
+        </script>
+
+        <script id="installationWizard-SystemRequirementsTemplate-PHPExtensions" type="text/template">
+            <label>Checking PHP Extensions</label>
+        </script>
+
+        <script id="installationWizard-SystemRequirementsTemplate" type="text/template">
+            <div id="wizard-systemRequirements">
+                <h2>Evaluating System Requirements</h2>
+                <p>The wizard will check your system for necessary extensions that are needed by the application:</p>
+
+                <ul class="criteria-checklist">
+                    <li id="systemCriteria-PHPVersion" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPExtensions" class="fetching-details"></li>
+                </ul>
+
+                <ul class="button-groups">
+                    <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
+                    <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk" disabled>Proceed</button></li>
+                </ul>
+            </div>
+        </script>
+
+        <script id="installationWizard-DatabaseConfigurationTemplate" type="text/template">
+            <div id="wizard-systemRequirements">
+                <h2>Add Database</h2>
+
+                <form>
+                    <div>
+                        <label>Database Host</label>
+                        <input name="db_host" type="text" placeholder="localhost" />
+                    </div>
+                    <div>
+                        <label>Database Username</label>
+                        <input name="db_username" type="text" placeholder="root" />
+                    </div>
+                    <div>
+                        <label>Database Password</label>
+                        <input name="db_password" type="password" placeholder="" />
+                    </div>
+                    <div>
+                        <label>Database Name</label>
+                        <input name="db_name" type="text" placeholder="" />
+                    </div>
+                </form>
+
+                <ul class="button-groups">
+                    <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
+                    <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
                 </ul>
             </div>
         </script>
