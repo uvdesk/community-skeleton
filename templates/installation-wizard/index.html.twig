@@ -72,32 +72,68 @@
         </script>
 
         <script id="installationWizard-DatabaseConfigurationTemplate" type="text/template">
-            <div id="wizard-systemRequirements">
+            <div id="wizard-configureDatabase">
                 <h2>Add Database</h2>
 
-                <form>
+                <form name="wizardForm-ConfigureDatabase" method="post">
                     <div>
                         <label>Database Host</label>
-                        <input name="db_host" type="text" placeholder="localhost" />
+                        <input name="hostname" type="text" value="<%- credentials.hostname %>" placeholder="localhost" />
                     </div>
+                    
                     <div>
                         <label>Database Username</label>
-                        <input name="db_username" type="text" placeholder="root" />
+                        <input name="username" type="text" value="<%- credentials.username %>" placeholder="root" />
                     </div>
+                    
                     <div>
                         <label>Database Password</label>
-                        <input name="db_password" type="password" placeholder="" />
+                        <input name="password" type="password" placeholder="" />
                     </div>
+
                     <div>
                         <label>Database Name</label>
-                        <input name="db_name" type="text" placeholder="" />
+                        <input name="database" type="text" value="<%- credentials.database %>" placeholder="" />
                     </div>
-                </form>
 
-                <ul class="button-groups">
-                    <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                    <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
-                </ul>
+                    <ul class="button-groups">
+                        <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
+                        <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                    </ul>
+                </form>
+            </div>
+        </script>
+
+        <script id="installationWizard-AccountConfigurationTemplate" type="text/template">
+            <div id="wizard-configureDatabase">
+                <h2>Create Super Admin Account</h2>
+
+                <form name="wizardForm-ConfigureAccount" method="post">
+                    <div>
+                        <label>Name</label>
+                        <input name="name" type="text" value="<%- user.name %>" placeholder="Name" />
+                    </div>
+                    
+                    <div>
+                        <label>Email</label>
+                        <input name="username" type="text" value="<%- user.email %>" placeholder="Email" />
+                    </div>
+                    
+                    <div>
+                        <label>Password</label>
+                        <input name="password" type="password" placeholder="Password" />
+                    </div>
+
+                    <div>
+                        <label>Confirm Password</label>
+                        <input name="confirm_password" type="password" placeholder="Confirm Password" />
+                    </div>
+
+                    <ul class="button-groups">
+                        <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
+                        <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                    </ul>
+                </form>
             </div>
         </script>
     </body>

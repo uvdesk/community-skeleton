@@ -7,9 +7,11 @@ uvdesk_community_installation_wizard_locale:
     controller: Webkul\UVDesk\Setup\Controller\InstallationWizard::loadWizard
 
 uvdesk_community_installation_wizard_check_requirements:
-    path:     /setup/xhr/check-requirements/{criteria}
+    path:     /setup/xhr/check-requirements
     controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::evaluateSystemRequirements
+    methods: [POST]
 
 uvdesk_community_installation_wizard_verify_database_credentials:
     path:     /setup/xhr/verify-database-credentials
     controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::verifyDatabaseCredentials
+    methods: [POST]

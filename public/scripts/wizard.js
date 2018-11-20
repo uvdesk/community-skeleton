@@ -1,6 +1,78 @@
 (function ($) {
     // Wait for all assets to load
     $(window).bind("load", function() {
+        var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
+            view: undefined,
+            defaults: {
+                user: {
+                    name: null,
+                    email: null,
+                    password: null,
+                    confirmPassword: null,
+                }
+            },
+            initialize: function (attributes) {
+                this.view = attributes.view;
+            },
+            fetch: function() {
+                let self = this;
+
+                $.post('/setup/xhr/retrieve-super-admin', function (response) {
+                    self.view.navigateToInstallation();
+                }).fail(function(response) {
+                    self.view.renderSettings();
+                });
+            },
+            verifyAccountDetails: function() {
+                let self = this;
+                
+                return false;
+            },
+        });
+
+        var UVDeskCommunityAccountConfigurationView = Backbone.View.extend({
+            el: '#wizardContent',
+            model: undefined,
+            wizard: undefined,
+            account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
+            events: {
+                'click #wizardCTA-CancelInstallation': 'abortInstallation',
+                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
+                'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
+            },
+            initialize: function(params) {
+                let self = this;
+
+                this.wizard = params.wizard;
+                this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });
+
+                // Render Initial Template
+                this.wizard.reference_nodes.content.html(this.account_settings_template());
+                this.model.fetch();
+            },
+            renderSettings: function() {
+                this.wizard.reference_nodes.content.html(this.account_settings_template(this.model.attributes));
+            },
+            abort: function() {
+                this.wizard.router.navigate('welcome', { trigger: true });
+            },
+            navigateToInstallation: function() {
+                this.wizard.router.navigate('install', { trigger: true });
+            },
+            disableNextStep: function() {
+                this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
+            },
+            processAccountConfiguration: function(e) {
+                e.preventDefault();
+
+                if (this.model.verifyAccountDetails()) {
+                    this.navigateToInstallation();
+                }
+
+                return false;
+            },
+        });
+
         var UVDeskCommunityDatabaseConfigurationModel = Backbone.Model.extend({
             view: undefined,
             defaults: {
@@ -19,45 +91,31 @@
                 let self = this;
 
                 this.set('credentials', {
-                    hostname: this.view.$el.find('input[name="db_host"]').val(),
-                    username: this.view.$el.find('input[name="db_username"]').val(),
-                    password: this.view.$el.find('input[name="db_password"]').val(),
-                    database: this.view.$el.find('input[name="db_name"]').val(),
+                    hostname: this.view.$el.find('input[name="hostname"]').val(),
+                    username: this.view.$el.find('input[name="username"]').val(),
+                    password: this.view.$el.find('input[name="password"]').val(),
+                    database: this.view.$el.find('input[name="database"]').val(),
                 });
 
                 $.post('/setup/xhr/verify-database-credentials', self.get('credentials'), function (response) {
-                    console.log('success:', response);
-                    // self.set('php-version', response);
-                    // self.view.renderPHPVersion();
+                    if (typeof response.status != 'undefined' && true === response.status) {
+                        self.view.navigateToAccountConfiguration();
+                    }
                 }).fail(function(response) {
                     console.log('fail:', response);
-                    // self.set('php-version', { status: false });
-                    // self.view.renderPHPVersion();
-                }).always(function() {
-                    console.log('always:', response);
-                    // self.validateSystemRequirements();
                 });
             },
         });
 
-        UVDeskCommunityDatabaseConfigurationView = Backbone.View.extend({
+        var UVDeskCommunityDatabaseConfigurationView = Backbone.View.extend({
             el: '#wizardContent',
             model: undefined,
             wizard: undefined,
-            reference_nodes: {
-            },
-            wizard_database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
+            database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
             events: {
-                'click #wizardCTA-CancelInstallation': function() {
-                    this.wizard.router.navigate('welcome', { trigger: true });
-                },
-                'click #wizardCTA-IterateInstallation': function() {
-                    this.enableVerificationLoader();
-                    this.model.verifyDatabaseCredentials();
-                    // if (this.model.validateDatabaseCredentials()) {
-                    //     this.wizard.router.navigate('setup-admin', { trigger: true });
-                    // }
-                },
+                'click #wizardCTA-CancelInstallation': 'abort',
+                'click #wizardCTA-IterateInstallation': 'processDatabaseConfiguration',
+                'submit form[name="wizardForm-ConfigureDatabase"]': 'processDatabaseConfiguration',
             },
             initialize: function(params) {
                 let self = this;
@@ -66,17 +124,23 @@
                 this.model = new UVDeskCommunityDatabaseConfigurationModel({ view: self });
 
                 // Render Initial Template
-                this.wizard.reference_nodes.content.html(this.wizard_database_configuration_template(this.model));
+                this.wizard.reference_nodes.content.html(this.database_configuration_template(this.model.attributes));
             },
-            enableNextStep: function() {
-                this.$el.find('#wizardCTA-IterateInstallation').removeAttr('disabled');
+            abort: function() {
+                this.wizard.router.navigate('welcome', { trigger: true });
+            },
+            navigateToAccountConfiguration: function() {
+                this.wizard.router.navigate('create-admin', { trigger: true });
             },
             disableNextStep: function() {
                 this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
             },
-            enableVerificationLoader: function () {
-                console.log('Verifying details');
-            }
+            processDatabaseConfiguration: function(e) {
+                e.preventDefault();
+                this.model.verifyDatabaseCredentials();
+
+                return false;
+            },
         });
 
         var UVDeskCommunitySystemRequirementsModel = Backbone.Model.extend({
@@ -116,8 +180,11 @@
             },
             checkPHP: function() {
                 let self = this;
+                let postData = {
+                    specification: 'php-version',
+                };
 
-                $.post('/setup/xhr/check-requirements/php-version', function (response) {
+                $.post('/setup/xhr/check-requirements', postData, function (response) {
                     self.set('php-version', response);
                     self.view.renderPHPVersion();
                 }).fail(function(response) {
@@ -129,8 +196,11 @@
             },
             evaluatePHPExtensions: function() {
                 let self = this;
+                let postData = {
+                    specification: 'php-extensions',
+                };
 
-                $.post('/setup/xhr/check-requirements/php-extensions', function (response) {
+                $.post('/setup/xhr/check-requirements', postData, function (response) {
                     self.set('php-extensions', response);
                     self.view.renderPHPExtensionsCriteria();
                 }).fail(function() {
@@ -159,6 +229,7 @@
                 },
                 'click #wizardCTA-IterateInstallation': function() {
                     if (this.model.validateSystemRequirements()) {
+                        this.wizard.timeline[0].isChecked = true;
                         this.wizard.router.navigate('configure-database', { trigger: true });
                     }
                 },
@@ -198,6 +269,7 @@
         var InstallationWizard = Backbone.View.extend({
             el: '#wizard',
             router: {},
+            enabled: false,
             reference_nodes: {
                 header: undefined,
                 content: undefined,
@@ -206,25 +278,32 @@
             wizard_default_content_template: _.template($("#installationWizard-DefaultContentTemplate").html()),
             events: {
                 'click #wizardCTA-StartInstallation': function() {
+                    this.enabled = true;
                     this.router.navigate('check-requirements', { trigger: true });
                 },
             },
             timeline: [
                 {
+                    isChecked: false,
                     path: 'check-requirements',
                     view: UVDeskCommunitySystemRequirementsView,
                 },
                 {
+                    isChecked: false,
                     path: 'configure-database',
                     view: UVDeskCommunityDatabaseConfigurationView,
                 },
                 {
+                    isChecked: false,
                     path: 'configure-website',
                 },
                 {
-                    path: 'setup-admin',
+                    isChecked: false,
+                    path: 'create-admin',
+                    view: UVDeskCommunityAccountConfigurationView,
                 },
                 {
+                    isChecked: false,
                     path: 'install',
                 },
             ],
@@ -237,15 +316,35 @@
             },
             iterateInstallationSteps: function(iteration) {
                 if ('welcome' === iteration) {
+                    this.enabled = false;
+
+                    this.timeline[0].isChecked = false;
+                    this.timeline[1].isChecked = false;
+                    this.timeline[2].isChecked = false;
+                    this.timeline[3].isChecked = false;
+                    this.timeline[4].isChecked = false;
+
                     this.renderWizard();
                 } else {
-                    let self = this;
+                    if (!this.enabled) {
+                        this.router.navigate('welcome', { trigger: true });
+                    } else {
+                        let self = this;
     
-                    this.timeline.forEach(function (procedure) {
-                        if (iteration == procedure.path && typeof procedure.view != 'undefined') {
-                            self.renderWizardInstallationStep(procedure.view);
-                        }
-                    });
+                        this.timeline.every(function (installationStep) {
+                            if (iteration == installationStep.path && typeof installationStep.view != 'undefined') {
+                                self.renderWizardInstallationStep(installationStep.view);
+
+                                return false;
+                            } else if (installationStep.isChecked) {
+                                return true;
+                            }
+
+                            this.router.navigate('welcome', { trigger: true });
+
+                            return false;
+                        });
+                    }
                 }
             },
             renderWizard: function() {
