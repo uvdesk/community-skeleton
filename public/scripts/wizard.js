@@ -5,17 +5,18 @@
             el: '#wizardContent',
             wizard: undefined,
             installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
+            installation_process_template: _.template($("#installationWizard-InstallSetupTemplate-ProcessingItem").html()),
             events: {
-                'click #wizardCTA-CancelInstallation': 'abortInstallation',
-                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
+                'click #wizardCTA-StartInstallation': 'installHelpdesk',
             },
             initialize: function(params) {
                 this.wizard = params.wizard;
                 this.wizard.reference_nodes.content.html(this.installation_setup_template());
             },
-            abort: function() {
-                this.wizard.router.navigate('welcome', { trigger: true });
+            installHelpdesk: function(params) {
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template());
             },
+            setupConfig: function(params) {}
         });
 
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
