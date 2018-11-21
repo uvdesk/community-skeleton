@@ -16,7 +16,18 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.validation/0.7.1/backbone-validation-min.js"></script>
         <script src="{{ asset('scripts/wizard.js') }}"></script>
+        <style>
+        .error_message {
+            color: red;
+            margin-left: 20px;
+            font-size: 15px;
+        }
+        .error_border{
+            border:1px solid red;
+        }
+        </style>
     </head>
     <body>
         <div id="wizard">
@@ -108,32 +119,43 @@
             <div id="wizard-configureDatabase">
                 <h2>Create Super Admin Account</h2>
 
-                <form name="wizardForm-ConfigureAccount" method="post">
-                    <div>
+                <form name="wizardForm-ConfigureAccount" method="post" class="ConfigureAccount">
+                    <div class="form-group">
                         <label>Name</label>
-                        <input name="name" type="text" value="<%- user.name %>" placeholder="Name" />
-                    </div>
+                        <input name="name" type="text" value="<%- user.name %>"  id="name" placeholder="Name" />
+                    </div >
                     
-                    <div>
+                    <div class="form-group">
                         <label>Email</label>
-                        <input name="username" type="text" value="<%- user.email %>" placeholder="Email" />
+                        <input name="username" type="text" value="<%- user.email %>" id="username" placeholder="Email" />
                     </div>
                     
-                    <div>
+                    <div class="form-group">
                         <label>Password</label>
-                        <input name="password" type="password" placeholder="Password" />
+                        <input name="password" type="password"  id="password" placeholder="Password" />
                     </div>
 
-                    <div>
+                    <div class="form-group">
                         <label>Confirm Password</label>
-                        <input name="confirm_password" type="password" placeholder="Confirm Password" />
+                        <input name="confirm_password" type="password" id="confirm_password" placeholder="Confirm Password" />
                     </div>
 
                     <ul class="button-groups">
                         <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                        <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                        <li><button id="wizardCTA-IterateAdminAccount" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
                     </ul>
                 </form>
+            </div>
+        </script>
+        <script id="installationWizard-InstallSetupTemplate-ProcessingItem" type="text/template">
+            <p>Please wait while your helpdesk is being installed. This could take up to a few minutes.</p>
+        </script>        <script id="installationWizard-InstallSetupTemplate" type="text/template">
+            <div id="wizard-finalizeInstall">
+                <p>Your UVDesk Community Helpdesk is ready to be installed.</p>
+
+                <ul class="button-groups">
+                    <li><button id="wizardCTA-StartInstallation" class="wizard-button solid button-theme-uvdesk">Install Now</button></li>
+                </ul>
             </div>
         </script>
     </body>
