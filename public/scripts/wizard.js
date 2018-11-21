@@ -5,18 +5,17 @@
             el: '#wizardContent',
             wizard: undefined,
             installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
-            installation_process_template: _.template($("#installationWizard-InstallSetupTemplate-ProcessingItem").html()),
             events: {
-                'click #wizardCTA-StartInstallation': 'installHelpdesk',
+                'click #wizardCTA-CancelInstallation': 'abortInstallation',
+                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
             },
             initialize: function(params) {
                 this.wizard = params.wizard;
                 this.wizard.reference_nodes.content.html(this.installation_setup_template());
             },
-            installHelpdesk: function(params) {
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template());
+            abort: function() {
+                this.wizard.router.navigate('welcome', { trigger: true });
             },
-            setupConfig: function(params) {}
         });
 
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
@@ -29,6 +28,7 @@
                     confirmPassword: null,
                 }
             },
+          
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
@@ -41,44 +41,99 @@
 
         var UVDeskCommunityAccountConfigurationView = Backbone.View.extend({
             el: '#wizardContent',
-            model: undefined,
+            model: UVDeskCommunityAccountConfigurationModel,
             wizard: undefined,
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
                 'click #wizardCTA-CancelInstallation': 'abort',
-                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
+                'click #wizardCTA-IterateAdminAccount': 'processAccountConfiguration',
                 'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
             },
             initialize: function(params) {
                 let self = this;
-
+              
+                Backbone.Validation.bind(self);
                 this.wizard = params.wizard;
-                this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });
-
-                // Render Initial Template
+                this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });               
                 this.wizard.reference_nodes.content.html(this.account_settings_template(this.model.attributes));
             },
             abort: function() {
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
-            navigateToInstallation: function() {
-                this.wizard.router.navigate('install', { trigger: true });
+            navigateToInstallation: function(e) {
+                e.preventDefault();
+            
+            
+                var form_data = {
+                    name: this.$el.find('input[name="name"]').val(),
+                    username: this.$el.find('input[name="username"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    confirm_password: this.$el.find('input[name="confirm_password"]').val(),
+                };
+                // console.log(this.model.toJSON());
+                if(this.isAccountConfigurationVerified(form_data)){
+                    this.wizard.router.navigate('install', { trigger: true });
+                }
+              
+            },
+            validateEmail:function(email){
+                var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                if (filter.test(email)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            },
+            isAccountConfigurationVerified:function(data){
+             
+                $('.error_message').html('');
+                if(data.name== null || data.name=="") {
+                   
+                    this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.username== null || data.username==""){
+
+                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(!this.validateEmail(data.username)) {
+                    this.$el.find('input[name="username"]').after("<span class='error_message'>Invalid Email</span>")
+                    return false;
+                }
+                if(data.password== null || data.password==""){
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.confirm_password== null || data.confirm_password==""){
+                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.confirm_password != data.password){
+
+                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This Password does not matched </span>")
+                    return false;
+                }
+                
+                return true;
+
             },
             disableNextStep: function() {
                 this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
             },
             processAccountConfiguration: function(e) {
+              
                 e.preventDefault();
-
                 if (this.model.verifyAccountDetails()) {
                     this.wizard.timeline[2].isChecked = true;
-                    this.navigateToInstallation();
+                    this.navigateToInstallation(e);
                 }
 
                 return false;
             },
         });
-
+    
         var UVDeskCommunityDatabaseConfigurationModel = Backbone.Model.extend({
             view: undefined,
             defaults: {
@@ -333,6 +388,7 @@
                         this.router.navigate('welcome', { trigger: true });
                     } else {
                         let self = this;
+                        // console.log("installationStep in router : ",installationStep);
     
                         this.timeline.every(function (installationStep) {
                             if (iteration == installationStep.path && typeof installationStep.view != 'undefined') {
@@ -371,11 +427,11 @@
             },
             initialize: function() {
                 let self = this;
-
                 // Initialize installation wizard
                 this.wizard = new InstallationWizard({ router: self });
             },
             iterateInstallationProcedure: function(installationStep) {
+                
                 this.wizard.iterateInstallationSteps(installationStep);
             },
         });
