@@ -46,7 +46,7 @@
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
                 'click #wizardCTA-CancelInstallation': 'abort',
-                'click #wizardCTA-IterateAdminAccount': 'processAccountConfiguration',
+                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
                 'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
             },
             initialize: function(params) {
@@ -191,16 +191,43 @@
             abort: function() {
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
-            navigateToAccountConfiguration: function() {
-                this.wizard.router.navigate('create-admin', { trigger: true });
+            navigateToAccountConfiguration: function() { 
+                    this.wizard.router.navigate('create-admin', { trigger: true });
             },
             disableNextStep: function() {
                 this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
             },
+            validateFormData:function(data){
+                $('.error_message').html('');
+                if(data.hostname== null || data.hostname=="") {
+                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mendatory</span>")
+                     return false;
+                }
+                if(data.username== null || data.username==""){
+                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.password== null || data.password==""){
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.database== null || data.database==""){
+                     this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                return true;
+            },
             processDatabaseConfiguration: function(e) {
                 e.preventDefault();
-                this.model.verifyDatabaseCredentials();
-
+                var formData = {
+                    hostname: this.$el.find('input[name="hostname"]').val(),
+                    username: this.$el.find('input[name="username"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    database: this.$el.find('input[name="database"]').val(),
+                }
+                if(this.validateFormData(formData)){
+                    this.model.verifyDatabaseCredentials();
+                }
                 return false;
             },
         });
