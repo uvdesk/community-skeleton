@@ -1,6 +1,23 @@
 (function ($) {
     // Wait for all assets to load
     $(window).bind("load", function() {
+        var UVDeskCommunityInstallSetupView = Backbone.View.extend({
+            el: '#wizardContent',
+            wizard: undefined,
+            installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
+            events: {
+                'click #wizardCTA-CancelInstallation': 'abortInstallation',
+                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
+            },
+            initialize: function(params) {
+                this.wizard = params.wizard;
+                this.wizard.reference_nodes.content.html(this.installation_setup_template());
+            },
+            abort: function() {
+                this.wizard.router.navigate('welcome', { trigger: true });
+            },
+        });
+
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
             view: undefined,
             defaults: {
@@ -14,19 +31,10 @@
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
-            fetch: function() {
-                let self = this;
-
-                $.post('/setup/xhr/retrieve-super-admin', function (response) {
-                    self.view.navigateToInstallation();
-                }).fail(function(response) {
-                    self.view.renderSettings();
-                });
-            },
             verifyAccountDetails: function() {
                 let self = this;
                 
-                return false;
+                return true;
             },
         });
 
@@ -36,7 +44,7 @@
             wizard: undefined,
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
-                'click #wizardCTA-CancelInstallation': 'abortInstallation',
+                'click #wizardCTA-CancelInstallation': 'abort',
                 'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
                 'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
             },
@@ -47,10 +55,6 @@
                 this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });
 
                 // Render Initial Template
-                this.wizard.reference_nodes.content.html(this.account_settings_template());
-                this.model.fetch();
-            },
-            renderSettings: function() {
                 this.wizard.reference_nodes.content.html(this.account_settings_template(this.model.attributes));
             },
             abort: function() {
@@ -66,6 +70,7 @@
                 e.preventDefault();
 
                 if (this.model.verifyAccountDetails()) {
+                    this.wizard.timeline[2].isChecked = true;
                     this.navigateToInstallation();
                 }
 
@@ -99,6 +104,7 @@
 
                 $.post('/setup/xhr/verify-database-credentials', self.get('credentials'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
+                        self.view.wizard.timeline[1].isChecked = true;
                         self.view.navigateToAccountConfiguration();
                     }
                 }).fail(function(response) {
@@ -129,16 +135,43 @@
             abort: function() {
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
-            navigateToAccountConfiguration: function() {
-                this.wizard.router.navigate('create-admin', { trigger: true });
+            navigateToAccountConfiguration: function() { 
+                    this.wizard.router.navigate('create-admin', { trigger: true });
             },
             disableNextStep: function() {
                 this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
             },
+            validateFormData:function(data){
+                $('.error_message').html('');
+                if(data.hostname== null || data.hostname=="") {
+                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mendatory</span>")
+                     return false;
+                }
+                if(data.username== null || data.username==""){
+                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.password== null || data.password==""){
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                if(data.database== null || data.database==""){
+                     this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mendatory</span>")
+                    return false;
+                }
+                return true;
+            },
             processDatabaseConfiguration: function(e) {
                 e.preventDefault();
-                this.model.verifyDatabaseCredentials();
-
+                var formData = {
+                    hostname: this.$el.find('input[name="hostname"]').val(),
+                    username: this.$el.find('input[name="username"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    database: this.$el.find('input[name="database"]').val(),
+                }
+                if(this.validateFormData(formData)){
+                    this.model.verifyDatabaseCredentials();
+                }
                 return false;
             },
         });
@@ -295,16 +328,13 @@
                 },
                 {
                     isChecked: false,
-                    path: 'configure-website',
-                },
-                {
-                    isChecked: false,
                     path: 'create-admin',
                     view: UVDeskCommunityAccountConfigurationView,
                 },
                 {
                     isChecked: false,
                     path: 'install',
+                    view: UVDeskCommunityInstallSetupView,
                 },
             ],
             initialize: function(params) {
@@ -322,7 +352,6 @@
                     this.timeline[1].isChecked = false;
                     this.timeline[2].isChecked = false;
                     this.timeline[3].isChecked = false;
-                    this.timeline[4].isChecked = false;
 
                     this.renderWizard();
                 } else {
@@ -340,7 +369,7 @@
                                 return true;
                             }
 
-                            this.router.navigate('welcome', { trigger: true });
+                            self.router.navigate('welcome', { trigger: true });
 
                             return false;
                         });

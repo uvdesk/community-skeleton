@@ -121,4 +121,7 @@ ul.button-groups > li:last-child {
 #start-installation ul.button-groups {
     margin-top: 20px;
 }
+.error_message{
+    color:red;
+}
 
