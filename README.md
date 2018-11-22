@@ -28,7 +28,7 @@ Before creating your UVDesk Community project, make sure that you're using PHP 7
 To create your project, run the following command:
 
 ```bash
-$ composer create-project uvdesk/community-skeleton helpdesk-project --dev
+$ composer create-project --stability dev uvdesk/community-skeleton helpdesk-project --dev
 ```
 
 After creating your project, you can setup the project in the following ways:
