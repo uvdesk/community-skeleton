@@ -1,0 +1,6 @@
+uvdesk_setup_wizard_routing_resources:
+    resource: "../../setup/Resources/config/setup.yaml"
+    requirements:
+        _locale: %app_locales%
+    defaults:
+        _locale: %locale%
