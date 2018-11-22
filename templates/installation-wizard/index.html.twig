@@ -98,7 +98,7 @@
 
                     <ul class="button-groups">
                         <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                        <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                        <li><button id="wizardCTA-IterateInstallation-Database" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
                     </ul>
                 </form>
             </div>
@@ -116,7 +116,7 @@
                     
                     <div>
                         <label>Email</label>
-                        <input name="username" type="text" value="<%- user.email %>" placeholder="Email" />
+                        <input name="email" type="text" value="<%- user.email %>" placeholder="Email" />
                     </div>
                     
                     <div>
@@ -131,13 +131,31 @@
 
                     <ul class="button-groups">
                         <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                        <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                        <li><button id="wizardCTA-IterateInstallation-SuperUser" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
                     </ul>
                 </form>
             </div>
         </script>
 
+        <script id="installationWizard-InstallationCompleteTemplate" type="text/template">
+            <p>Your helpdesk has been installed successfully.</p>
+            <ul>
+                <li><a href="/en/member/login">Agent Panel</a> - Visit your members panel</li>
+                <li><a href="/en/">Knowledgebase</a> - Visit your knowledgebase panel</li>
+            </ul>
+        </script>
+
         <script id="installationWizard-InstallSetupTemplate-ProcessingItem" type="text/template">
+            <% if (currentStep == 'load-configurations') { %>
+                <p>Step 1/4 - Updating configurations..<span class="blink_text">.</span></p>
+            <% } else if (currentStep == 'load-migrations') { %>
+                <p>Step 2/4 - Migrating database to latest schema version..<span class="blink_text">.</span></p>
+            <% } else if (currentStep == 'populate-datasets') { %>
+                <p>Step 3/4 - Populating database with default datasets..<span class="blink_text">.</span></p>
+            <% } else if (currentStep == 'create-super-user') { %>
+                <p>Step 4/4 - Create super admin account..<span class="blink_text">.</span></p>
+            <% } %>
+            
             <p>Please wait while your helpdesk is being installed. This could take up to a few minutes.</p>
         </script>
 

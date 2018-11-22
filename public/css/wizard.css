@@ -122,3 +122,12 @@ ul.button-groups > li:last-child {
     margin-top: 20px;
 }
 
+.blink_text {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}

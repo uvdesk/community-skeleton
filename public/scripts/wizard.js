@@ -6,6 +6,7 @@
             wizard: undefined,
             installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
             installation_process_template: _.template($("#installationWizard-InstallSetupTemplate-ProcessingItem").html()),
+            installation_successfull_template: _.template($('#installationWizard-InstallationCompleteTemplate').html()),
             events: {
                 'click #wizardCTA-StartInstallation': 'installHelpdesk',
             },
@@ -14,9 +15,85 @@
                 this.wizard.reference_nodes.content.html(this.installation_setup_template());
             },
             installHelpdesk: function(params) {
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template());
+                this.updateConfigurations();
             },
-            setupConfig: function(params) {}
+            updateConfigurations: function() {
+                let self = this;
+                let promise = new Promise(function(resolve, reject) {
+                    $.post('/setup/xhr/load/configurations', function (response) {
+                        resolve(response);
+                    }).fail(function(response) {
+                        reject(response);
+                    });
+                });
+
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+                    currentStep: 'load-configurations'
+                }));
+                
+                promise.then(function(response) {
+                    console.log('configurations updated:', response);
+                    self.loadMigrations();
+                });
+            },
+            loadMigrations: function() {
+                let self = this;
+                let promise = new Promise(function(resolve, reject) {
+                    $.post('/setup/xhr/load/migrations', function (response) {
+                        resolve(response);
+                    }).fail(function(response) {
+                        reject(response);
+                    });
+                });
+
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+                    currentStep: 'load-migrations'
+                }));
+
+                promise.then(function(response) {
+                    console.log('migrations loaded:', response);
+                    self.populateDatasets();
+                });
+            },
+            populateDatasets: function() {
+                let self = this;
+                let promise = new Promise(function(resolve, reject) {
+                    $.post('/setup/xhr/load/entities', function (response) {
+                        resolve(response);
+                    }).fail(function(response) {
+                        reject(response);
+                    });
+                });
+
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+                    currentStep: 'populate-datasets'
+                }));
+                
+                promise.then(function(response) {
+                    self.createDefaultSuperUser();
+                });
+            },
+            createDefaultSuperUser: function() {
+                let self = this;
+                let promise = new Promise(function(resolve, reject) {
+                    $.post('/setup/xhr/load/super-user', function (response) {
+                        resolve(response);
+                    }).fail(function(response) {
+                        reject(response);
+                    });
+                });
+
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+                    currentStep: 'create-super-user'
+                }));
+
+                promise.then(function(response) {
+                    self.redirectToWelcomePage();
+                });
+            },
+            redirectToWelcomePage: function() {
+                this.$el.html(this.installation_successfull_template());
+            }
         });
 
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
@@ -34,6 +111,33 @@
             },
             verifyAccountDetails: function() {
                 let self = this;
+
+                console.log({
+                    name: this.view.$el.find('input[name="name"]').val(),
+                    email: this.view.$el.find('input[name="email"]').val(),
+                    password: this.view.$el.find('input[name="password"]').val(),
+                    confirmPassword: this.view.$el.find('input[name="confirm_password"]').val(),
+                });
+
+                this.set('user', {
+                    name: this.view.$el.find('input[name="name"]').val(),
+                    email: this.view.$el.find('input[name="email"]').val(),
+                    password: this.view.$el.find('input[name="password"]').val(),
+                    confirmPassword: this.view.$el.find('input[name="confirm_password"]').val(),
+                });
+
+                $.post('/setup/xhr/intermediary/super-user', {
+                    name: self.get('user').name,
+                    email: self.get('user').email,
+                    password: self.get('user').password,
+                }, function (response) {
+                    if (typeof response.status != 'undefined' && true === response.status) {
+                        self.view.wizard.timeline[2].isChecked = true;
+                        self.view.navigateToInstallation();
+                    }
+                }).fail(function(response) {
+                    console.log('fail:', response);
+                });
                 
                 return true;
             },
@@ -46,7 +150,7 @@
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
                 'click #wizardCTA-CancelInstallation': 'abort',
-                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
+                'click #wizardCTA-IterateInstallation-SuperUser': 'processAccountConfiguration',
                 'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
             },
             initialize: function(params) {
@@ -69,11 +173,7 @@
             },
             processAccountConfiguration: function(e) {
                 e.preventDefault();
-
-                if (this.model.verifyAccountDetails()) {
-                    this.wizard.timeline[2].isChecked = true;
-                    this.navigateToInstallation();
-                }
+                this.model.verifyAccountDetails()
 
                 return false;
             },
@@ -121,7 +221,7 @@
             database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
             events: {
                 'click #wizardCTA-CancelInstallation': 'abort',
-                'click #wizardCTA-IterateInstallation': 'processDatabaseConfiguration',
+                'click #wizardCTA-IterateInstallation-Database': 'processDatabaseConfiguration',
                 'submit form[name="wizardForm-ConfigureDatabase"]': 'processDatabaseConfiguration',
             },
             initialize: function(params) {
