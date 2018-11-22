@@ -33,13 +33,13 @@ $ composer create-project uvdesk/community-skeleton helpdesk-project --dev
 
 After creating your project, you can setup the project in the following ways:
 
-1. View Terminal
+**Via Terminal**
 
 ```bash
 $ php bin/console uvdesk:configure-helpdesk
 ```
 
-2. View Web Installer
+**Via Web Installer**
 
 After opening your project in the web browser, navigate to /setup/, where you will be greeted by the web installer to guide you in setting up your project.
 
