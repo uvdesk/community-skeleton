@@ -167,20 +167,7 @@
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
             navigateToInstallation: function() {
-                // var form_data = {
-                //     name: this.$el.find('input[name="name"]').val(),
-                //     email: this.$el.find('input[name="email"]').val(),
-                //     password: this.$el.find('input[name="password"]').val(),
-                //     confirm_password: this.$el.find('input[name="confirm_password"]').val(),
-                // };
-
-                // // console.log(this.model.toJSON());
-                // if (this.isAccountConfigurationVerified(form_data)){
-                    this.wizard.router.navigate('install', { trigger: true });
-                // } else {
-                //     console.log('false');
-                // }
-              
+                this.wizard.router.navigate('install', { trigger: true });
             },
             validateEmail:function(email){
                 var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -194,7 +181,7 @@
             isAccountConfigurationVerified:function(data){
                 $('.error_message').html('');
 
-                if(data.name== null || data.name=="") {
+                if (data.name== null || data.name=="") {
                     this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
                 }
@@ -213,6 +200,7 @@
                     this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
                 }
+
                 if (data.confirm_password== null || data.confirm_password==""){
                     this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
@@ -224,7 +212,6 @@
                 }
                 
                 return true;
-
             },
             disableNextStep: function() {
                 this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
