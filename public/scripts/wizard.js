@@ -99,14 +99,55 @@
             }
         });
 
+        var UVDeskCommunityWebsiteConfigurationModel = Backbone.Model.extend({
+            defaults: {
+                member_panel_url: "/en/member/login",
+                customer_panel_url: "/en/customer/login",
+            },
+            initialize: function (attributes) {
+                this.view = attributes.view;
+            },
+            validateWebsiteConfigurations: function() {
+                return true;
+            }
+        });
+
+        var UVDeskCommunityWebsiteConfigurationView = Backbone.View.extend({
+            e1: '#wizard-configureWebsite',
+            model: undefined,
+            wizard: undefined,
+            wizard_system_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
+            events: {
+                'click #wizardCTA-CancelInstallation': function() {
+                    debugger
+                    this.wizard.router.navigate('welcome', { trigger: true });
+                },
+                'click #wizardCTA-IterateInstallation-Website': function(e) {
+                    debugger
+                    e.preventDefault();
+                     if(this.model.validateWebsiteConfigurations()) {
+                        this.wizard.timeline[1].isChecked = true;
+                        this.wizard.router.navigate('configure-database', { trigger: true });
+                    }
+                }
+            },
+            initialize: function (params) {
+                this.wizard = params.wizard;
+                this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: self });
+                
+                // Render Initial Template
+                this.wizard.reference_nodes.content.html(this.wizard_system_website_configuration());
+            }
+        });
+
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
             view: undefined,
             defaults: {
                 user: {
-                    name: null,
-                    email: null,
-                    password: null,
-                    confirmPassword: null,
+                    name: "shubham mehrotra",
+                    email: 'shubhammehrotra.symfony@webkul.com',
+                    password: 'password',
+                    confirmPassword: 'password',
                 }
             },
           
@@ -178,7 +219,7 @@
 
                 // // console.log(this.model.toJSON());
                 // if (this.isAccountConfigurationVerified(form_data)){
-                    this.wizard.router.navigate('install', { trigger: true });
+                    this.wizard.router.navigate('website-configure', { trigger: true });
                 // } else {
                 //     console.log('false');
                 // }
@@ -246,8 +287,8 @@
                 credentials: {
                     hostname: 'localhost',
                     username: 'root',
-                    password: null,
-                    database: null,
+                    password: 'webkul',
+                    database: 'community',
                 }
             },
             initialize: function (attributes) {
@@ -460,6 +501,62 @@
             }
         });
 
+        var UVDeskCommunitySliderView = Backbone.View.extend({
+            el: '#slider',
+            'listTemplate': `<ul id="slider-list-collection">
+                <li id="welcome" class="active"></li>
+                <li id="check-requirements"></li>
+                <li id="configure-database"></li>
+                <li id="create-admin"></li>
+                <li id="website-configure"></li>
+                <li id="install"></li>
+            </ul>`,
+            // 'buttonTemplate': `<div class="btn-collection">
+            //     <button type="button" id="previous">Previous</button>
+            //     <button type="button" id="next">Next</button>
+            // </div>`,
+            initialize: function (step)
+            {
+                $('#slider').html(this.listTemplate);
+                // $('#slider').append(this.buttonTemplate);
+                
+                $('#slider li.active').removeClass('active');
+                $('#slider #' + step ).addClass('active');
+            },
+            previous: function() {
+                let previousElement = this.findSibling({'period': 'previous', 'selector': '#slider ul li.active', 'currentElement': true});
+                if(previousElement['currentElement'] && previousElement['previousElement']) {
+                    // activate previous element
+                    previousElement['previousElement'].classList.add('active');
+                    previousElement['currentElement'].classList.remove('active');
+                }
+            },
+            next: function() {
+                let nextElement = this.findSibling({'period': 'next', 'selector': '#slider ul li.active', 'currentElement': true});
+                if(nextElement['currentElement'] && nextElement['nextElement']) {
+                    // activate next element
+                    nextElement['nextElement'].classList.add('active');
+                    nextElement['currentElement'].classList.remove('active');
+                }
+            },
+            findSibling: function({period, selector, currentElement}) {
+                let result = { 'currentElement': null };
+                result[period+'Element'] = null;
+        
+                let activeElement = document.querySelector(selector);
+        
+                if(activeElement) {
+                    if(activeElement[period+'ElementSibling'])
+                        result[period+'Element'] = activeElement[period+'ElementSibling'];
+                }
+        
+                if(currentElement)
+                    result['currentElement'] = activeElement;
+        
+                return result;
+            },
+        });
+
         var InstallationWizard = Backbone.View.extend({
             el: '#wizard',
             router: {},
@@ -494,6 +591,11 @@
                 },
                 {
                     isChecked: false,
+                    path: 'website-configure',
+                    view: UVDeskCommunityWebsiteConfigurationView,
+                },
+                {
+                    isChecked: false,
                     path: 'install',
                     view: UVDeskCommunityInstallSetupView,
                 },
@@ -513,6 +615,7 @@
                     this.timeline[1].isChecked = false;
                     this.timeline[2].isChecked = false;
                     this.timeline[3].isChecked = false;
+                    this.timeline[4].isChecked = false;
 
                     this.renderWizard();
                 } else {
@@ -557,67 +660,8 @@
                 $('#uv-def-loader').css('display', 'none');
             }
         });
-
-        var ListView = Backbone.View.extend({
-            el: '#slider',
-            'listTemplate': `<ul id="slider-list-collection">
-                <li id="welcome" class="active"></li>
-                <li id="check-requirements"></li>
-                <li id="configure-database"></li>
-                <li id="create-admin"></li>
-                <li id="install"></li>
-            </ul>`,
-            // 'buttonTemplate': `<div class="btn-collection">
-            //     <button type="button" id="previous">Previous</button>
-            //     <button type="button" id="next">Next</button>
-            // </div>`,
-            initialize: function (step) 
-            {
-                $('#slider').html(this.listTemplate);
-                // $('#slider').append(this.buttonTemplate);
-                
-                $('#slider li.active').removeClass('active');
-                $('#slider #' + step ).addClass('active');
-            },
-            events: {
-                'click #previous': 'previous',
-                'click #next': 'next'
-            },
-            previous: function() {
-                let previousElement = this.findSibling({'period': 'previous', 'selector': '#slider ul li.active', 'currentElement': true});
-                if(previousElement['currentElement'] && previousElement['previousElement']) {
-                    // activate previous element
-                    previousElement['previousElement'].classList.add('active');
-                    previousElement['currentElement'].classList.remove('active');
-                }
-            },
-            next: function() {
-                let nextElement = this.findSibling({'period': 'next', 'selector': '#slider ul li.active', 'currentElement': true});
-                if(nextElement['currentElement'] && nextElement['nextElement']) {
-                    // activate next element
-                    nextElement['nextElement'].classList.add('active');
-                    nextElement['currentElement'].classList.remove('active');
-                }
-            },
-            findSibling: function({period, selector, currentElement}) {
-                let result = { 'currentElement': null };
-                result[period+'Element'] = null;
-        
-                let activeElement = document.querySelector(selector);
-        
-                if(activeElement) {
-                    if(activeElement[period+'ElementSibling'])
-                        result[period+'Element'] = activeElement[period+'ElementSibling'];
-                }
-        
-                if(currentElement)
-                    result['currentElement'] = activeElement;
-        
-                return result;
-            },
-        });
     
-        Router = Backbone.Router.extend({
+        var Router = Backbone.Router.extend({
             wizard: undefined,
             routes: {
                 ':installationStep': 'iterateInstallationProcedure',
@@ -628,7 +672,7 @@
                 this.wizard = new InstallationWizard({ router: self });
             },
             iterateInstallationProcedure: function(installationStep) {
-                this.showInstallationStep = new ListView(installationStep);
+                this.showInstallationStep = new UVDeskCommunitySliderView(installationStep);
                 this.wizard.iterateInstallationSteps(installationStep);
             },
         });

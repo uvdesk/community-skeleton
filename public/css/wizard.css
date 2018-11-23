@@ -207,6 +207,7 @@ ul.button-groups > li:last-child {
     display: inline-block;
     margin-top: 50px;
     margin-left: 50px;
+    cursor: pointer;
 }
 
 #slider ul li.active {

@@ -108,7 +108,7 @@
                     
                     <div>
                         <label>Database Password</label>
-                        <input name="password" type="password" placeholder="" />
+                        <input name="password" type="password" value="<%- credentials.password %>" placeholder="" />
                     </div>
 
                     <div>
@@ -141,12 +141,12 @@
                     
                     <div class="form-group">
                         <label>Password</label>
-                        <input name="password" type="password"  id="password" placeholder="Password" />
+                        <input name="password" type="password" value="<%- user.password %>" id="password" placeholder="Password" />
                     </div>
 
                     <div class="form-group">
                         <label>Confirm Password</label>
-                        <input name="confirm_password" type="password" id="confirm_password" placeholder="Confirm Password" />
+                        <input name="confirm_password" type="password" value="<%- user.confirmPassword %>" id="confirm_password" placeholder="Confirm Password" />
                     </div>
 
                     <ul class="button-groups">
@@ -177,13 +177,35 @@
             <% } %>
             
             <p>Please wait while your helpdesk is being installed. This could take up to a few minutes.</p>
-        </script>        <script id="installationWizard-InstallSetupTemplate" type="text/template">
+        </script>
+
+        <script id="installationWizard-InstallSetupTemplate" type="text/template">
             <div id="wizard-finalizeInstall">
                 <p>Your UVDesk Community Helpdesk is ready to be installed.</p>
 
                 <ul class="button-groups">
                     <li><button id="wizardCTA-StartInstallation" class="wizard-button solid button-theme-uvdesk">Install Now</button></li>
                 </ul>
+            </div>
+        </script>
+
+         <script id="installationWizard-WebsiteConfigurationTemplate" type="text/template">
+            <div id="wizard-configureWebsite">
+                <h2>Website Configuration</h2>
+                 <form name="wizardForm-ConfigureWebsite" method="post">
+                    <div>
+                        <label>Member Panel Route</label>
+                        <input name="memeberUrl" type="text" value="" placeholder=" member_panel_url" />
+                    </div>
+                    <div>
+                        <label>Customer Panel Route</label>
+                        <input name="customerUrl" type="text" value="" placeholder=" customer_panel_url" />
+                    </div>
+                     <ul class="button-groups">
+                        <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
+                        <li><button id="wizardCTA-IterateInstallation-Website" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                    </ul>
+                </form>
             </div>
         </script>
     </body>
