@@ -9,7 +9,7 @@
             installation_successfull_template: _.template($('#installationWizard-InstallationCompleteTemplate').html()),
             events: {
                 'click #wizardCTA-CancelInstallation': 'abortInstallation',
-                'click #wizardCTA-IterateInstallation': 'processAccountConfiguration',
+                'click #wizardCTA-StartInstallation': 'installHelpdesk',
             },
             initialize: function(params) {
                 this.wizard = params.wizard;
@@ -166,20 +166,20 @@
             abort: function() {
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
-            navigateToInstallation: function(e) {
-                e.preventDefault();
-            
-            
-                var form_data = {
-                    name: this.$el.find('input[name="name"]').val(),
-                    username: this.$el.find('input[name="username"]').val(),
-                    password: this.$el.find('input[name="password"]').val(),
-                    confirm_password: this.$el.find('input[name="confirm_password"]').val(),
-                };
-                // console.log(this.model.toJSON());
-                if(this.isAccountConfigurationVerified(form_data)){
+            navigateToInstallation: function() {
+                // var form_data = {
+                //     name: this.$el.find('input[name="name"]').val(),
+                //     email: this.$el.find('input[name="email"]').val(),
+                //     password: this.$el.find('input[name="password"]').val(),
+                //     confirm_password: this.$el.find('input[name="confirm_password"]').val(),
+                // };
+
+                // // console.log(this.model.toJSON());
+                // if (this.isAccountConfigurationVerified(form_data)){
                     this.wizard.router.navigate('install', { trigger: true });
-                }
+                // } else {
+                //     console.log('false');
+                // }
               
             },
             validateEmail:function(email){
@@ -192,32 +192,33 @@
                 }
             },
             isAccountConfigurationVerified:function(data){
-             
                 $('.error_message').html('');
+
                 if(data.name== null || data.name=="") {
-                   
                     this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
                 }
-                if(data.username== null || data.username==""){
 
-                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mendatory</span>")
+                if (data.email== null || data.email==""){
+                    this.$el.find('input[name="email"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
                 }
-                if(!this.validateEmail(data.username)) {
-                    this.$el.find('input[name="username"]').after("<span class='error_message'>Invalid Email</span>")
+
+                if (!this.validateEmail(data.email)) {
+                    this.$el.find('input[name="email"]').after("<span class='error_message'>Invalid Email</span>")
                     return false;
                 }
-                if(data.password== null || data.password==""){
+
+                if (data.password== null || data.password==""){
                     this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
                 }
-                if(data.confirm_password== null || data.confirm_password==""){
+                if (data.confirm_password== null || data.confirm_password==""){
                     this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mendatory</span>")
                     return false;
                 }
-                if(data.confirm_password != data.password){
 
+                if (data.confirm_password != data.password){
                     this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This Password does not matched </span>")
                     return false;
                 }
