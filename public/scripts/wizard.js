@@ -109,7 +109,7 @@
             },
             validateWebsiteConfigurations: function() {
                 return true;
-            }
+            },
         });
 
         var UVDeskCommunityWebsiteConfigurationView = Backbone.View.extend({
@@ -119,14 +119,11 @@
             wizard_system_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
             events: {
                 'click #wizardCTA-CancelInstallation': function() {
-                    debugger
                     this.wizard.router.navigate('welcome', { trigger: true });
                 },
                 'click #wizardCTA-IterateInstallation-Website': function(e) {
-                    debugger
                     e.preventDefault();
                      if(this.model.validateWebsiteConfigurations()) {
-                        this.wizard.timeline[1].isChecked = true;
                         this.wizard.router.navigate('configure-database', { trigger: true });
                     }
                 }
@@ -148,7 +145,7 @@
                     email: 'shubhammehrotra.symfony@webkul.com',
                     password: 'password',
                     confirmPassword: 'password',
-                }
+                },
             },
           
             initialize: function (attributes) {
@@ -186,6 +183,30 @@
                 
                 return true;
             },
+            websiteFieldsValidation (event) {
+                event.preventDefault();
+                this.view.removePreviousErrors();
+
+                let isFormValid = true;
+                let form = event.target.closest('form');
+                let inputFields = form.querySelectorAll('input[type="text"]');
+                let inputFieldsArray = Array.prototype.slice.call( inputFields );
+
+                inputFieldsArray.forEach(inputField => {
+                    if(inputField.value == "" || inputField.value == "undefined") {
+                        isFormValid = false;
+                        this.view.showError({field: inputField, message: 'This field is mandatory'});
+                    }
+                })
+
+                if(isFormValid) {
+                    // navigate to installation
+                    console.log('form validation successful');
+                    this.view.wizard.timeline[3].isChecked = true;
+                    this.view.wizard.router.navigate('install', { trigger: true });
+                }
+                console.log('form validation failed');
+            }
         });
 
         var UVDeskCommunityAccountConfigurationView = Backbone.View.extend({
@@ -195,6 +216,9 @@
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
                 'click #wizardCTA-CancelInstallation': 'abort',
+                'click #wizardCTA-IterateInstallation-Website': function (event) {
+                    this.model.websiteFieldsValidation(event);
+                },
                 'click #wizardCTA-IterateInstallation-SuperUser': 'processAccountConfiguration',
                 'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
             },
@@ -238,12 +262,12 @@
                 $('.error_message').html('');
 
                 if(data.name== null || data.name=="") {
-                    this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
                 if (data.email== null || data.email==""){
-                    this.$el.find('input[name="email"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="email"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
@@ -253,11 +277,11 @@
                 }
 
                 if (data.password== null || data.password==""){
-                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
                 if (data.confirm_password== null || data.confirm_password==""){
-                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
@@ -278,6 +302,21 @@
 
                 return false;
             },
+            removePreviousErrors () {
+                let errorsSpanCollection = document.getElementsByClassName('error_message');
+                let errorSpanArrayCollection = Array.prototype.slice.call( errorsSpanCollection );
+    
+                errorSpanArrayCollection.forEach(span => {
+                    span.parentNode.removeChild(span);
+                });
+            },
+            showError ({field, message}) {
+                let span = document.createElement('span');
+                span.classList.add('error_message');
+                span.innerHTML = message;
+
+                field.parentNode.insertBefore(span, field.nextSibling);
+            }
         });
     
         var UVDeskCommunityDatabaseConfigurationModel = Backbone.Model.extend({
@@ -346,19 +385,19 @@
             validateFormData:function(data){
                 $('.error_message').html('');
                 if(data.hostname== null || data.hostname=="") {
-                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mandatory</span>")
                      return false;
                 }
                 if(data.username== null || data.username==""){
-                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
                 if(data.password== null || data.password==""){
-                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
                 if(data.database== null || data.database==""){
-                     this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mendatory</span>")
+                     this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
                 return true;
@@ -557,10 +596,11 @@
             },
         });
 
-        var InstallationWizard = Backbone.View.extend({
+        var UVDeskCommunityInstallationWizardView = Backbone.View.extend({
             el: '#wizard',
             router: {},
             enabled: false,
+            model: undefined,
             reference_nodes: {
                 header: undefined,
                 content: undefined,
@@ -602,6 +642,7 @@
             ],
             initialize: function(params) {
                 this.router = params.router;
+
                 this.reference_nodes.header = this.$el.find('#wizardHeader');
                 this.reference_nodes.content = this.$el.find('#wizardContent');
 
@@ -668,8 +709,9 @@
             },
             initialize: function() {
                 let self = this;
+
                 // Initialize installation wizard
-                this.wizard = new InstallationWizard({ router: self });
+                this.wizard = new UVDeskCommunityInstallationWizardView({ router: self });
             },
             iterateInstallationProcedure: function(installationStep) {
                 this.showInstallationStep = new UVDeskCommunitySliderView(installationStep);
