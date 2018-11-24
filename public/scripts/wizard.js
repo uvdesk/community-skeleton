@@ -1,3 +1,5 @@
+import "@babel/polyfill";
+
 (function ($) {
     // Wait for all assets to load
     $(window).bind("load", function() {
@@ -20,79 +22,117 @@
             },
             updateConfigurations: function() {
                 let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/configurations', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
+                // let promise = new Promise(function(resolve, reject) {
+                //     $.post('/setup/xhr/load/configurations', function (response) {
+                //         resolve(response);
+                //     }).fail(function(response) {
+                //         reject(response);
+                //     });
+                // });
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'load-configurations'
-                }));
-                
-                promise.then(function(response) {
-                    console.log('configurations updated:', response);
-                    self.loadMigrations();
-                });
-            },
-            loadMigrations: function() {
-                let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    self.wizard.showLoader();
-                    $.post('/setup/xhr/load/migrations', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
+                // this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+                //     currentStep: 'load-configurations'
+                // }));
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'load-migrations'
-                }));
+                // promise.then(function(response) {
+                //     console.log('configurations updated:', response);
+                //     self.loadMigrations();
+                // });
 
-                promise.then(function(response) {
-                    console.log('migrations loaded:', response);
-                    self.populateDatasets();
-                });
-            },
-            populateDatasets: function() {
-                let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/entities', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
-
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'populate-datasets'
-                }));
-                
-                promise.then(function(response) {
-                    self.createDefaultSuperUser();
-                });
-            },
-            createDefaultSuperUser: function() {
-                let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/super-user', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
-
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'create-super-user'
-                }));
-
-                promise.then(function(response) {
+                // Generator to make ajax request one by one
+                let generator = function* () {
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({
+                        currentStep: 'load-configurations'
+                    }));
+                    yield $.post('/setup/xhr/load/configurations');
+                    
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({
+                        currentStep: 'load-migrations'
+                    }));
+                    yield $.post('/setup/xhr/load/migrations');
+    
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({
+                        currentStep: 'populate-datasets'
+                    }));
+                    yield $.post('/setup/xhr/load/entities');
+                    
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({
+                        currentStep: 'create-super-user'
+                    }));
+                    yield $.post('/setup/xhr/load/super-user');
                     self.redirectToWelcomePage();
-                });
+                };
+
+                let gen = generator();
+                this.wizard.showLoader();
+
+                let handle = (yielded) => {
+                    if(!yielded.done) {
+                        yielded.value.then(() => {
+                            handle(gen.next());
+                        })
+                    }
+                }
+
+                handle(gen.next());
+
             },
+            // loadMigrations: function() {
+            //     let self = this;
+            //     let promise = new Promise(function(resolve, reject) {
+            //         self.wizard.showLoader();
+            //         $.post('/setup/xhr/load/migrations', function (response) {
+            //             resolve(response);
+            //         }).fail(function(response) {
+            //             reject(response);
+            //         });
+            //     });
+
+            //     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+            //         currentStep: 'load-migrations'
+            //     }));
+
+            //     promise.then(function(response) {
+            //         console.log('migrations loaded:', response);
+            //         self.populateDatasets();
+            //     });
+            // },
+            // populateDatasets: function() {
+            //     let self = this;
+            //     let promise = new Promise(function(resolve, reject) {
+            //         $.post('/setup/xhr/load/entities', function (response) {
+            //             resolve(response);
+            //         }).fail(function(response) {
+            //             reject(response);
+            //         });
+            //     });
+
+            //     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+            //         currentStep: 'populate-datasets'
+            //     }));
+                
+            //     promise.then(function(response) {
+            //         self.createDefaultSuperUser();
+            //     });
+            // },
+            // createDefaultSuperUser: function() {
+            //     let self = this;
+            //     let promise = new Promise(function(resolve, reject) {
+            //         $.post('/setup/xhr/load/super-user', function (response) {
+            //             resolve(response);
+            //         }).fail(function(response) {
+            //             reject(response);
+            //         });
+            //     });
+
+            //     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
+            //         currentStep: 'create-super-user'
+            //     }));
+
+            //     promise.then(function(response) {
+            //         self.redirectToWelcomePage();
+            //     });
+            // },
             redirectToWelcomePage: function() {
                 this.wizard.hideLoader();
                 this.$el.html(this.installation_successfull_template());
@@ -203,9 +243,24 @@
                     // navigate to installation
                     console.log('form validation successful');
                     this.view.wizard.timeline[3].isChecked = true;
-                    this.view.wizard.router.navigate('install', { trigger: true });
+                    this.checkURL(inputFieldsArray);
                 }
                 console.log('form validation failed');
+            },
+            checkURL (inputFields) {
+
+                let urlCollection = {
+                    member: inputFields[0].value,
+                    customer: inputFields[1].value,
+                }
+
+                $.post('/setup/xhr/load/website-configure', urlCollection, () => {
+                    this.view.wizard.router.navigate('install', { trigger: true });
+                }).fail(response => {
+                    response
+                })
+
+
             }
         });
 
