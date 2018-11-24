@@ -22,22 +22,6 @@ import "@babel/polyfill";
             },
             updateConfigurations: function() {
                 let self = this;
-                // let promise = new Promise(function(resolve, reject) {
-                //     $.post('/setup/xhr/load/configurations', function (response) {
-                //         resolve(response);
-                //     }).fail(function(response) {
-                //         reject(response);
-                //     });
-                // });
-
-                // this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                //     currentStep: 'load-configurations'
-                // }));
-
-                // promise.then(function(response) {
-                //     console.log('configurations updated:', response);
-                //     self.loadMigrations();
-                // });
 
                 // Generator to make ajax request one by one
                 let generator = function* () {
@@ -77,62 +61,6 @@ import "@babel/polyfill";
                 handle(gen.next());
 
             },
-            // loadMigrations: function() {
-            //     let self = this;
-            //     let promise = new Promise(function(resolve, reject) {
-            //         self.wizard.showLoader();
-            //         $.post('/setup/xhr/load/migrations', function (response) {
-            //             resolve(response);
-            //         }).fail(function(response) {
-            //             reject(response);
-            //         });
-            //     });
-
-            //     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-            //         currentStep: 'load-migrations'
-            //     }));
-
-            //     promise.then(function(response) {
-            //         console.log('migrations loaded:', response);
-            //         self.populateDatasets();
-            //     });
-            // },
-            // populateDatasets: function() {
-            //     let self = this;
-            //     let promise = new Promise(function(resolve, reject) {
-            //         $.post('/setup/xhr/load/entities', function (response) {
-            //             resolve(response);
-            //         }).fail(function(response) {
-            //             reject(response);
-            //         });
-            //     });
-
-            //     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-            //         currentStep: 'populate-datasets'
-            //     }));
-                
-            //     promise.then(function(response) {
-            //         self.createDefaultSuperUser();
-            //     });
-            // },
-            // createDefaultSuperUser: function() {
-            //     let self = this;
-            //     let promise = new Promise(function(resolve, reject) {
-            //         $.post('/setup/xhr/load/super-user', function (response) {
-            //             resolve(response);
-            //         }).fail(function(response) {
-            //             reject(response);
-            //         });
-            //     });
-
-            //     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-            //         currentStep: 'create-super-user'
-            //     }));
-
-            //     promise.then(function(response) {
-            //         self.redirectToWelcomePage();
-            //     });
-            // },
             redirectToWelcomePage: function() {
                 this.wizard.hideLoader();
                 this.$el.html(this.installation_successfull_template());
