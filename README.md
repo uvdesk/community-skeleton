@@ -54,9 +54,9 @@ All libraries and bundles included in the UVDesk Community Edition are released 
 
 [1]: https://www.uvdesk.com/
 [2]: https://community.uvdesk.com/en/
-[3]: https://github.com/akshaywebkul/core
-[4]: https://github.com/akshaywebkul/automations
-[5]: https://github.com/akshaywebkul/support-center
+[3]: https://github.com/uvdesk/core-framework
+[4]: https://github.com/uvdesk/automation-bundle
+[5]: https://github.com/uvdesk/support-center-bundle
 [6]: http://php.net/manual/en/book.imap.php
 [7]: http://php.net/manual/en/book.mailparse.php
 [8]: https://getcomposer.org/
