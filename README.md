@@ -4,8 +4,6 @@
 
 A fully-functional [UVDesk Community Edition][1] project skeleton packaged along with the bare essential utilities that you can use to develop your own custom helpdesk solutions.
 
-Click [here][2] to view the live community project demo.
-
 What's Included?
 --------------
 
@@ -43,7 +41,6 @@ License
 All libraries and bundles included in the UVDesk Community Edition are released under the MIT or BSD license.
 
 [1]: https://www.uvdesk.com/
-[2]: https://community.uvdesk.com/en/
 [3]: https://github.com/akshaywebkul/core
 [4]: https://github.com/akshaywebkul/automations
 [5]: https://github.com/akshaywebkul/support-center
