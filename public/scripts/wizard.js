@@ -169,19 +169,19 @@
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
             navigateToInstallation: function() {
-                // var form_data = {
-                //     name: this.$el.find('input[name="name"]').val(),
-                //     email: this.$el.find('input[name="email"]').val(),
-                //     password: this.$el.find('input[name="password"]').val(),
-                //     confirm_password: this.$el.find('input[name="confirm_password"]').val(),
-                // };
+                var form_data = {
+                    name: this.$el.find('input[name="name"]').val(),
+                    email: this.$el.find('input[name="email"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    confirm_password: this.$el.find('input[name="confirm_password"]').val(),
+                };
 
-                // // console.log(this.model.toJSON());
-                // if (this.isAccountConfigurationVerified(form_data)){
+                // console.log(this.model.toJSON());
+                if (this.isAccountConfigurationVerified(form_data)){
                     this.wizard.router.navigate('install', { trigger: true });
-                // } else {
-                //     console.log('false');
-                // }
+                } else {
+                    console.log('false');
+                }
               
             },
             validateEmail:function(email){
@@ -558,65 +558,6 @@
             }
         });
 
-        var ListView = Backbone.View.extend({
-            el: '#slider',
-            'listTemplate': `<ul id="slider-list-collection">
-                <li id="welcome" class="active"></li>
-                <li id="check-requirements"></li>
-                <li id="configure-database"></li>
-                <li id="create-admin"></li>
-                <li id="install"></li>
-            </ul>`,
-            // 'buttonTemplate': `<div class="btn-collection">
-            //     <button type="button" id="previous">Previous</button>
-            //     <button type="button" id="next">Next</button>
-            // </div>`,
-            initialize: function (step) 
-            {
-                $('#slider').html(this.listTemplate);
-                // $('#slider').append(this.buttonTemplate);
-                
-                $('#slider li.active').removeClass('active');
-                $('#slider #' + step ).addClass('active');
-            },
-            events: {
-                'click #previous': 'previous',
-                'click #next': 'next'
-            },
-            previous: function() {
-                let previousElement = this.findSibling({'period': 'previous', 'selector': '#slider ul li.active', 'currentElement': true});
-                if(previousElement['currentElement'] && previousElement['previousElement']) {
-                    // activate previous element
-                    previousElement['previousElement'].classList.add('active');
-                    previousElement['currentElement'].classList.remove('active');
-                }
-            },
-            next: function() {
-                let nextElement = this.findSibling({'period': 'next', 'selector': '#slider ul li.active', 'currentElement': true});
-                if(nextElement['currentElement'] && nextElement['nextElement']) {
-                    // activate next element
-                    nextElement['nextElement'].classList.add('active');
-                    nextElement['currentElement'].classList.remove('active');
-                }
-            },
-            findSibling: function({period, selector, currentElement}) {
-                let result = { 'currentElement': null };
-                result[period+'Element'] = null;
-        
-                let activeElement = document.querySelector(selector);
-        
-                if(activeElement) {
-                    if(activeElement[period+'ElementSibling'])
-                        result[period+'Element'] = activeElement[period+'ElementSibling'];
-                }
-        
-                if(currentElement)
-                    result['currentElement'] = activeElement;
-        
-                return result;
-            },
-        });
-    
         Router = Backbone.Router.extend({
             wizard: undefined,
             routes: {
@@ -628,7 +569,6 @@
                 this.wizard = new InstallationWizard({ router: self });
             },
             iterateInstallationProcedure: function(installationStep) {
-                this.showInstallationStep = new ListView(installationStep);
                 this.wizard.iterateInstallationSteps(installationStep);
             },
         });

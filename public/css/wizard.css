@@ -122,6 +122,13 @@ ul.button-groups > li:last-child {
 }
 .error_message{
     color:red;
+    color: red;
+    /* margin-left: 20px; */
+    font-size: 15px;
+    display: block;
+    font-style: italic;
+    color: #FF5656 !important;
+    margin-left: 17%;
 }
 
 .blink_text {
@@ -274,4 +281,36 @@ ul.button-groups > li:last-child {
       transform: translateY(0px);
       opacity: 0;
     }
+}
+
+.web-installer>h2 {
+    font-size: 24px;
+    color: #333333;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.web-installer>form {
+    text-align: left;
+}
+
+.web-installer>form>div>label {
+    width: 17%;
+    display: inline-block;
+}
+
+.web-installer>form>div>input {
+    width: 300px;
+    height: 36px;
+    border: solid 1px #B1B1AE;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0px 10px;
+    font-size: 15px;
+    color: #333333;
+    margin: 10px 0px;
 }
