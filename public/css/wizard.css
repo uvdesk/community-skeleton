@@ -7,7 +7,6 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     font-size: 16px;
     line-height: 1.4em;
-    margin: 0 auto;
 }
 
 .brand-theme {
@@ -129,8 +128,150 @@ ul.button-groups > li:last-child {
     animation: blinker 1s linear infinite;
 }
 
+.uv-loader-view {
+    width: 100%;
+    height: 100%;
+    z-index: 6000;
+    background: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    display: none;
+}
+ .uv-loader-view .uv-loader {
+    width: 65px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -33px;
+    margin-top: -100px;
+    transform: scale(2);
+}
+ .uv-loader span:nth-child(1) {
+    left: 0px;
+}
+ .uv-loader span {
+    -webkit-backface-visibility: hidden;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    animation: move-loader 1s infinite ease-in-out;
+}
+ .uv-loader span:nth-child(2) {
+    left: 25px;
+    animation-delay: .2s;
+}
+ .uv-loader span:nth-child(3) {
+    left: 50px;
+    animation-delay: .4s;
+}
+ .uv-loader span:before {
+    width: 15px;
+    height: 15px;
+    background: #7C70F4;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    -webkit-backface-visibility: hidden;
+    animation: bounce-loader-before 1s infinite ease-in-out;
+    opacity: 0;
+}
+ .uv-loader span:after {
+    width: 15px;
+    height: 15px;
+    background: #7C70F4;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+    -webkit-backface-visibility: hidden;
+    animation: bounce-loader-after 1s infinite ease-in-out;
+    opacity: 0;
+}
+
+#slider {
+    display: block;
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+}
+#slider ul {
+    display: inline-block;
+}
+#slider ul li {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+#slider ul li.active {
+    background-color: #8b6bfa;
+}
+.btn-collection {
+    display: inline-block;
+    position: relative;
+    top: 37px;
+    float: right;
+}
+.btn-collection button {
+    background: #8b6bfa;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 @keyframes blinker {
     50% {
         opacity: 0;
+    }
+}
+
+@keyframes bounce-loader-before {
+    0% {
+      transform: scale(0);
+      opacity: .1;
+    }
+    50% {
+      transform: scale(1.3);
+      opacity: .7;
+    }
+    100% {
+      transform: scale(0);
+      opacity: .1;
+    }
+}
+@keyframes bounce-loader-after {
+    0% {
+      transform: scale(1.3);
+      opacity: .7;
+    }
+    50% {
+      transform: scale(0.7);
+      opacity: .1;
+    }
+    100% {
+      transform: scale(1.3);
+      opacity: .7;
+    }
+}
+ @keyframes move-loader {
+    0% {
+      transform: translateY(0px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(10px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 0;
     }
 }
