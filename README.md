@@ -53,7 +53,6 @@ License
 All libraries and bundles included in the UVDesk Community Edition are released under the MIT or BSD license.
 
 [1]: https://www.uvdesk.com/
-[2]: https://community.uvdesk.com/en/
 [3]: https://github.com/uvdesk/core-framework
 [4]: https://github.com/uvdesk/automation-bundle
 [5]: https://github.com/uvdesk/support-center-bundle

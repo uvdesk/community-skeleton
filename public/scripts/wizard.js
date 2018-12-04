@@ -107,7 +107,6 @@
                     confirmPassword: null,
                 }
             },
-          
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
@@ -167,7 +166,16 @@
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
             navigateToInstallation: function() {
-                this.wizard.router.navigate('install', { trigger: true });
+                var form_data = {
+                    name: this.$el.find('input[name="name"]').val(),
+                    email: this.$el.find('input[name="email"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    confirm_password: this.$el.find('input[name="confirm_password"]').val(),
+                };
+
+                if (this.isAccountConfigurationVerified(form_data)){
+                    this.wizard.router.navigate('install', { trigger: true });
+                }
             },
             validateEmail:function(email){
                 var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
@@ -182,12 +190,12 @@
                 $('.error_message').html('');
 
                 if (data.name== null || data.name=="") {
-                    this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
                 if (data.email== null || data.email==""){
-                    this.$el.find('input[name="email"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="email"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
@@ -197,12 +205,12 @@
                 }
 
                 if (data.password== null || data.password==""){
-                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
                 if (data.confirm_password== null || data.confirm_password==""){
-                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mendatory</span>")
+                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
 
@@ -289,22 +297,27 @@
             },
             validateFormData:function(data){
                 $('.error_message').html('');
-                if(data.hostname== null || data.hostname=="") {
-                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mendatory</span>")
+                
+                if (data.hostname== null || data.hostname=="") {
+                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mandatory</span>")
                      return false;
                 }
-                if(data.username== null || data.username==""){
-                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mendatory</span>")
+                
+                if (data.username== null || data.username==""){
+                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
-                if(data.password== null || data.password==""){
-                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mendatory</span>")
+                
+                if (data.password== null || data.password==""){
+                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
-                if(data.database== null || data.database==""){
-                     this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mendatory</span>")
+                
+                if (data.database== null || data.database==""){
+                    this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mandatory</span>")
                     return false;
                 }
+
                 return true;
             },
             processDatabaseConfiguration: function(e) {
@@ -445,7 +458,7 @@
             }
         });
 
-        var InstallationWizard = Backbone.View.extend({
+        var UVDeskCommunityInstallationWizardView = Backbone.View.extend({
             el: '#wizard',
             router: {},
             enabled: false,
@@ -536,7 +549,7 @@
                 new InstallationWizardTemplateView({ wizard: self });
             },
         });
-    
+
         Router = Backbone.Router.extend({
             wizard: undefined,
             routes: {
@@ -544,11 +557,11 @@
             },
             initialize: function() {
                 let self = this;
+
                 // Initialize installation wizard
-                this.wizard = new InstallationWizard({ router: self });
+                this.wizard = new UVDeskCommunityInstallationWizardView({ router: self });
             },
             iterateInstallationProcedure: function(installationStep) {
-                
                 this.wizard.iterateInstallationSteps(installationStep);
             },
         });
