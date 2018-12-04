@@ -97,93 +97,6 @@
             }
         });
 
-        var UVDeskCommunityWebsiteConfigurationModel = Backbone.Model.extend({
-            defaults: {
-                member_panel_url: "/en/member/login",
-                customer_panel_url: "/en/customer/login",
-            },
-            initialize: function (attributes) {
-                this.view = attributes.view;
-            },
-            validateWebsiteConfigurations: function() {
-                return true;
-            },
-            websiteFieldsValidation (event) {
-                event.preventDefault();
-                this.view.removePreviousErrors();
-
-                let isFormValid = true;
-                let form = event.target.closest('form');
-                let inputFields = form.querySelectorAll('input[type="text"]');
-                let inputFieldsArray = Array.prototype.slice.call( inputFields );
-
-                inputFieldsArray.forEach(inputField => {
-                    if(inputField.value == "" || inputField.value == "undefined") {
-                        isFormValid = false;
-                        this.view.showError({field: inputField, message: 'This field is mandatory'});
-                    }
-                })
-
-                if(isFormValid) {
-                    // navigate to installation
-                    console.log('form validation successful');
-                    this.view.wizard.timeline[3].isChecked = true;
-                    this.checkURL(inputFieldsArray);
-                }
-                console.log('form validation failed');
-            },
-            checkURL (inputFields) {
-
-                let urlCollection = {
-                    member: inputFields[0].value,
-                    customer: inputFields[1].value,
-                }
-
-                $.post('/setup/xhr/load/website-configure', urlCollection, () => {
-                    this.view.wizard.router.navigate('install', { trigger: true });
-                }).fail(response => {
-                    response
-                })
-            }
-        });
-
-        var UVDeskCommunityWebsiteConfigurationView = Backbone.View.extend({
-            e1: '#wizard-configureWebsite',
-            model: undefined,
-            wizard: undefined,
-            wizard_system_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
-            events: {
-                'click #wizardCTA-CancelInstallation': function() {
-                    this.wizard.router.navigate('welcome', { trigger: true });
-                },
-                'click #wizardCTA-IterateInstallation-Website': function (event) {
-                    this.model.websiteFieldsValidation(event);
-                },
-            },
-            initialize: function (params) {
-                this.wizard = params.wizard;
-                this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: self });
-                
-                // Render Initial Template
-                this.wizard.reference_nodes.content.html(this.wizard_system_website_configuration());
-            },
-            removePreviousErrors () {
-                let errorsSpanCollection = document.getElementsByClassName('error_message');
-                let errorSpanArrayCollection = Array.prototype.slice.call( errorsSpanCollection );
-    
-                errorSpanArrayCollection.forEach(span => {
-                    span.parentNode.removeChild(span);
-                });
-            },
-            showError ({field, message}) {
-                let span = document.createElement('span');
-                span.classList.add('error_message');
-                span.innerHTML = message;
-
-                field.parentNode.insertBefore(span, field.nextSibling);
-            }
-        });
-
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
             view: undefined,
             defaults: {
@@ -194,7 +107,6 @@
                     confirmPassword: null,
                 }
             },
-          
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
@@ -580,11 +492,6 @@
                 },
                 {
                     isChecked: false,
-                    path: 'website-configure',
-                    view: UVDeskCommunityWebsiteConfigurationView,
-                },
-                {
-                    isChecked: false,
                     path: 'install',
                     view: UVDeskCommunityInstallSetupView,
                 },
@@ -604,7 +511,6 @@
                     this.timeline[1].isChecked = false;
                     this.timeline[2].isChecked = false;
                     this.timeline[3].isChecked = false;
-                    this.timeline[4].isChecked = false;
 
                     this.renderWizard();
                 } else {
