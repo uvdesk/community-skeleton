@@ -280,4 +280,12 @@ class InstallationWizardXHR extends Controller
 
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
+
+    public function websiteConfigurationXHR(Request $request)
+    {
+        $memberPanelUrl = $request->request->get('member');
+        $customerPanelUrl = $request->request->get('customer');
+
+        exit(0);
+    }
 }
