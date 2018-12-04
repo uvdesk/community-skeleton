@@ -254,7 +254,16 @@
                 this.wizard.router.navigate('welcome', { trigger: true });
             },
             navigateToInstallation: function() {
-                this.wizard.router.navigate('install', { trigger: true });
+                var form_data = {
+                    name: this.$el.find('input[name="name"]').val(),
+                    email: this.$el.find('input[name="email"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    confirm_password: this.$el.find('input[name="confirm_password"]').val(),
+                };
+
+                if (this.isAccountConfigurationVerified(form_data)){
+                    this.wizard.router.navigate('install', { trigger: true });
+                }
             },
             validateEmail:function(email){
                 var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
