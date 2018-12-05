@@ -523,78 +523,6 @@
             }
         });
 
-        // var UVDeskCommunitySliderView = Backbone.View.extend({
-        //     el: '#slider',
-        //     wizardView: undefined,
-        //     'listTemplate': `<ul id="slider-list-collection">
-        //         <li id="welcome" class="active"></li>
-        //         <li id="check-requirements"></li>
-        //         <li id="configure-database"></li>
-        //         <li id="create-admin"></li>
-        //         <li id="website-configure"></li>
-        //         <li id="install"></li>
-        //     </ul>`,
-        //     'buttonTemplate': `<div class="btn-collection">
-        //         <button type="button" id="previous">Previous</button>
-        //         <button type="button" id="next">Next</button>
-        //     </div>`,
-        //     events: {
-        //         'click #next': 'next',
-        //         'click #previous': 'previous',
-        //     },
-        //     initialize: function (wizardView) {
-        //         this.wizardView = wizardView.router.wizard;
-        //         $('#slider').html(this.listTemplate);
-        //         $('#slider').append(this.buttonTemplate);
-        //     },
-        //     iterateInstallationSteps: function (step) {
-        //         $('#slider li.active').removeClass('active');
-        //         $('#slider #' + step ).addClass('active');
-        //     },
-        //     previous: function() {
-        //         let submitButtonOnPage = document.getElementsByClassName('wizard-submit');
-        //         submitButtonOnPage[0].click();
-
-        //         // if (this.wizardView.enabled) {
-        //         //     let elementDetail = this.findSibling({'period': 'previous', 'selector': '#slider ul li.active', 'currentElement': true});
-        //         //     if(elementDetail['currentElement'] && elementDetail['previousElement']) {
-        //         //         // activate previous element
-        //         //         elementDetail['previousElement'].classList.add('active');
-        //         //         elementDetail['currentElement'].classList.remove('active');
-        //         //     }
-        //         // }
-        //     },
-        //     next: function() {
-        //         let submitButtonOnPage = document.getElementsByClassName('wizard-submit');
-        //         submitButtonOnPage[0].click();
-                
-        //         // if (this.wizardView.enabled) {
-        //         //     let elementDetail = this.findSibling({'period': 'next', 'selector': '#slider ul li.active', 'currentElement': true});
-        //         //     if(elementDetail['currentElement'] && elementDetail['nextElement']) {
-        //         //         // activate next element
-        //         //         elementDetail['nextElement'].classList.add('active');
-        //         //         elementDetail['currentElement'].classList.remove('active');
-        //         //     }
-        //         // }
-        //     },
-        //     findSibling: function({period, selector, currentElement}) {
-        //         let result = { 'currentElement': null };
-        //         result[period+'Element'] = null;
-        
-        //         let activeElement = document.querySelector(selector);
-        
-        //         if(activeElement) {
-        //             if(activeElement[period+'ElementSibling'])
-        //                 result[period+'Element'] = activeElement[period+'ElementSibling'];
-        //         }
-        
-        //         if(currentElement)
-        //             result['currentElement'] = activeElement;
-        
-        //         return result;
-        //     },
-        // });
-
         var UVDeskCommunityInstallationWizardView = Backbone.View.extend({
             el: '#wizard',
             router: {},
@@ -710,10 +638,8 @@
 
                 // Initialize installation wizard
                 this.wizard = new UVDeskCommunityInstallationWizardView({ router: self });
-                // this.slider = new UVDeskCommunitySliderView({ router: self });
             },
             iterateInstallationProcedure: function(installationStep) {
-                // this.slider.iterateInstallationSteps(installationStep);
                 this.wizard.iterateInstallationSteps(installationStep);
             },
         });
