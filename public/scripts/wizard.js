@@ -28,12 +28,10 @@
                     });
                 });
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'load-configurations'
-                }));
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
+                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
                 
                 promise.then(function(response) {
-                    console.log('configurations updated:', response);
                     self.loadMigrations();
                 });
             },
@@ -47,12 +45,10 @@
                     });
                 });
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'load-migrations'
-                }));
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-migrations' }));
+                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
 
                 promise.then(function(response) {
-                    console.log('migrations loaded:', response);
                     self.populateDatasets();
                 });
             },
@@ -66,10 +62,9 @@
                     });
                 });
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'populate-datasets'
-                }));
-                
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'populate-datasets' }));
+                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+
                 promise.then(function(response) {
                     self.createDefaultSuperUser();
                 });
@@ -84,9 +79,8 @@
                     });
                 });
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({
-                    currentStep: 'create-super-user'
-                }));
+                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'create-super-user' }));
+                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
 
                 promise.then(function(response) {
                     self.redirectToWelcomePage();
@@ -110,126 +104,95 @@
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
-            verifyAccountDetails: function() {
-                let self = this;
-
-                console.log({
-                    name: this.view.$el.find('input[name="name"]').val(),
-                    email: this.view.$el.find('input[name="email"]').val(),
-                    password: this.view.$el.find('input[name="password"]').val(),
-                    confirmPassword: this.view.$el.find('input[name="confirm_password"]').val(),
-                });
-
+            isProcedureCompleted: function (callback) {
                 this.set('user', {
                     name: this.view.$el.find('input[name="name"]').val(),
                     email: this.view.$el.find('input[name="email"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
-                    confirmPassword: this.view.$el.find('input[name="confirm_password"]').val(),
                 });
 
-                $.post('/setup/xhr/intermediary/super-user', {
-                    name: self.get('user').name,
-                    email: self.get('user').email,
-                    password: self.get('user').password,
-                }, function (response) {
+                let wizard = this.view.wizard;
+                wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
+                
+                $.post('/setup/xhr/intermediary/super-user', this.get('user'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        self.view.wizard.timeline[2].isChecked = true;
-                        self.view.navigateToInstallation();
+                        callback(wizard);
+                    } else {
+                        wizard.disableNextStep();
                     }
                 }).fail(function(response) {
-                    console.log('fail:', response);
+                    wizard.disableNextStep();
+                }).always(function() {
+                    wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
                 });
-                
-                return true;
             },
         });
 
         var UVDeskCommunityAccountConfigurationView = Backbone.View.extend({
-            el: '#wizardContent',
+            el: '#wizardSetup',
             model: UVDeskCommunityAccountConfigurationModel,
             wizard: undefined,
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
-                'click #wizardCTA-CancelInstallation': 'abort',
-                'click #wizardCTA-IterateInstallation-SuperUser': 'processAccountConfiguration',
-                'submit form[name="wizardForm-ConfigureAccount"]': 'processAccountConfiguration',
+                "keyup .form-content input" : "validateForm",
             },
             initialize: function(params) {
                 let self = this;
-              
                 Backbone.Validation.bind(self);
+                
                 this.wizard = params.wizard;
                 this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });               
-                this.wizard.reference_nodes.content.html(this.account_settings_template(this.model.attributes));
+                this.$el.html(this.account_settings_template(this.model.attributes));
             },
-            abort: function() {
-                this.wizard.router.navigate('welcome', { trigger: true });
-            },
-            navigateToInstallation: function() {
-                var form_data = {
+            validateForm: _.debounce(function(e) {
+                let errorFlag = false;
+                let emailRegEX = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+                let user = {
                     name: this.$el.find('input[name="name"]').val(),
                     email: this.$el.find('input[name="email"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
-                    confirm_password: this.$el.find('input[name="confirm_password"]').val(),
+                    confirmPassword: this.$el.find('input[name="confirm_password"]').val(),
                 };
 
-                if (this.isAccountConfigurationVerified(form_data)){
-                    this.wizard.router.navigate('install', { trigger: true });
-                }
-            },
-            validateEmail:function(email){
-                var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                if (filter.test(email)) {
-                    return true;
-                }
-                else {
-                    return false;
-                }
-            },
-            isAccountConfigurationVerified:function(data){
-                $('.error_message').html('');
+                this.$el.find('.form-content .wizard-form-notice').remove();
 
-                if (data.name== null || data.name=="") {
-                    this.$el.find('input[name="name"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
+                if (user.name == null || user.name =="") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="name"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (data.email== null || data.email==""){
-                    this.$el.find('input[name="email"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
+                if (user.email == null || user.email =="") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (!this.validateEmail(data.email)) {
-                    this.$el.find('input[name="email"]').after("<span class='error_message'>Invalid Email</span>")
-                    return false;
+                if (user.password == null || user.password =="") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (data.password== null || data.password==""){
-                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
+                if (user.confirmPassword == null || user.confirmPassword =="") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (data.confirm_password== null || data.confirm_password==""){
-                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
+                if (!emailRegEX.test(user.email)) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>Invalid Email</span>")
                 }
 
-                if (data.confirm_password != data.password){
-                    this.$el.find('input[name="confirm_password"]').after("<span class='error_message'>This Password does not matched </span>")
-                    return false;
+                if (user.confirmPassword != user.password) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This Password does not matched </span>")
                 }
                 
-                return true;
-            },
-            disableNextStep: function() {
-                this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
-            },
-            processAccountConfiguration: function(e) {
-                e.preventDefault();
-                this.model.verifyAccountDetails()
-
-                return false;
-            },
+                if (false == errorFlag) {
+                    this.wizard.enableNextStep();
+                } else {
+                    this.wizard.disableNextStep();
+                }
+            }, 400),
         });
     
         var UVDeskCommunityDatabaseConfigurationModel = Backbone.Model.extend({
@@ -246,9 +209,7 @@
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
-            verifyDatabaseCredentials: function() {
-                let self = this;
-
+            isProcedureCompleted: function (callback) {
                 this.set('credentials', {
                     hostname: this.view.$el.find('input[name="hostname"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
@@ -256,26 +217,30 @@
                     database: this.view.$el.find('input[name="database"]').val(),
                 });
 
-                $.post('/setup/xhr/verify-database-credentials', self.get('credentials'), function (response) {
+                let wizard = this.view.wizard;
+                wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
+
+                $.post('/setup/xhr/verify-database-credentials', this.get('credentials'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        self.view.wizard.timeline[1].isChecked = true;
-                        self.view.navigateToAccountConfiguration();
+                        callback(wizard);
+                    } else {
+                        wizard.disableNextStep();
                     }
                 }).fail(function(response) {
-                    console.log('fail:', response);
+                    wizard.disableNextStep();
+                }).always(function() {
+                    wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
                 });
             },
         });
 
         var UVDeskCommunityDatabaseConfigurationView = Backbone.View.extend({
-            el: '#wizardContent',
+            el: '#wizardSetup',
             model: undefined,
             wizard: undefined,
             database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
             events: {
-                'click #wizardCTA-CancelInstallation': 'abort',
-                'click #wizardCTA-IterateInstallation-Database': 'processDatabaseConfiguration',
-                'submit form[name="wizardForm-ConfigureDatabase"]': 'processDatabaseConfiguration',
+                "keyup .form-content input" : "validateForm",
             },
             initialize: function(params) {
                 let self = this;
@@ -283,62 +248,53 @@
                 this.wizard = params.wizard;
                 this.model = new UVDeskCommunityDatabaseConfigurationModel({ view: self });
 
-                // Render Initial Template
-                this.wizard.reference_nodes.content.html(this.database_configuration_template(this.model.attributes));
+                // Render Database Configuration View
+                this.$el.html(this.database_configuration_template(this.model.attributes));
             },
-            abort: function() {
-                this.wizard.router.navigate('welcome', { trigger: true });
-            },
-            navigateToAccountConfiguration: function() { 
-                    this.wizard.router.navigate('create-admin', { trigger: true });
-            },
-            disableNextStep: function() {
-                this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
-            },
-            validateFormData:function(data){
-                $('.error_message').html('');
-                
-                if (data.hostname== null || data.hostname=="") {
-                    this.$el.find('input[name="hostname"]').after("<span class='error_message'>This field is mandatory</span>")
-                     return false;
-                }
-                
-                if (data.username== null || data.username==""){
-                    this.$el.find('input[name="username"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
-                }
-                
-                if (data.password== null || data.password==""){
-                    this.$el.find('input[name="password"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
-                }
-                
-                if (data.database== null || data.database==""){
-                    this.$el.find('input[name="database"]').after("<span class='error_message'>This field is mandatory</span>")
-                    return false;
-                }
-
-                return true;
-            },
-            processDatabaseConfiguration: function(e) {
-                e.preventDefault();
-                var formData = {
+            validateForm: _.debounce(function(e) {
+                let errorFlag = false;
+                let credentials = {
                     hostname: this.$el.find('input[name="hostname"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
                     database: this.$el.find('input[name="database"]').val(),
+                };
+
+                this.$el.find('.form-content .wizard-form-notice').remove();
+
+                if (credentials.hostname == null || credentials.hostname == "") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="hostname"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>");
                 }
-                if(this.validateFormData(formData)){
-                    this.model.verifyDatabaseCredentials();
+                
+                if (credentials.username == null || credentials.username == "") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="username"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
-                return false;
-            },
+                
+                if (credentials.password == null || credentials.password == "") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="password"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+                
+                if (credentials.database == null || credentials.database == "") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+
+                if (false == errorFlag) {
+                    this.wizard.enableNextStep();
+                } else {
+                    this.wizard.disableNextStep();
+                }
+            }, 400),
         });
 
         var UVDeskCommunitySystemRequirementsModel = Backbone.Model.extend({
             view: undefined,
             defaults: {
-                'verified': false,
+                fetch: false,
+                verified: false,
                 'php-version': {
                     status: undefined,
                 },
@@ -350,25 +306,15 @@
                 this.view = attributes.view;
             },
             fetch: function() {
+                this.set('fetch', true);
+
                 this.checkPHP();
                 this.evaluatePHPExtensions();
             },
-            validateSystemRequirements: function() {
-                if (false == this.get('php-version').status) {
-                    this.set('verified', false);
-                } else if (false == this.get('php-extensions').status) {
-                    this.set('verified', false);
-                } else {
-                    this.set('verified', true);
+            isProcedureCompleted: function (callback) {
+                if (this.get('verified')) {
+                    callback(this.view.wizard);
                 }
-
-                if (true === this.get('verified')) {
-                    this.view.enableNextStep();
-
-                    return true;
-                }
-
-                return false;
             },
             checkPHP: function() {
                 let self = this;
@@ -378,12 +324,14 @@
 
                 $.post('/setup/xhr/check-requirements', postData, function (response) {
                     self.set('php-version', response);
-                    self.view.renderPHPVersion();
                 }).fail(function(response) {
-                    self.set('php-version', { status: false });
-                    self.view.renderPHPVersion();
+                    self.set('php-version', {
+                        status: false,
+                        message: 'An unexpected error occurred during the PHP version verification process.',
+                    });
                 }).always(function() {
-                    self.validateSystemRequirements();
+                    self.view.renderPHPVersion();
+                    self.evaluateOverallRequirements();
                 });
             },
             evaluatePHPExtensions: function() {
@@ -394,38 +342,47 @@
 
                 $.post('/setup/xhr/check-requirements', postData, function (response) {
                     self.set('php-extensions', response);
-                    self.view.renderPHPExtensionsCriteria();
                 }).fail(function() {
-                    self.set('php-extensions', { status: false });
-                    self.view.renderPHPExtensionsCriteria();
+                    self.set('php-extensions', {
+                        status: false,
+                        message: 'An unexpected error occurred while examining your system for missing extensions.',
+                    });
                 }).always(function() {
-                    self.validateSystemRequirements();
+                    self.view.renderPHPExtensionsCriteria();
+                    self.evaluateOverallRequirements();
                 });;
+            },
+            evaluateOverallRequirements: function() {
+                if (false == this.get('php-version').status) {
+                    this.set('verified', false);
+                } else if (false == this.get('php-extensions').status) {
+                    this.set('verified', false);
+                } else {
+                    this.set('verified', true);
+                }
+
+                if (true === this.get('verified')) {
+                    this.view.wizard.enableNextStep();
+                } else {
+                    this.view.wizard.disableNextStep();
+                }
             },
         });
 
         var UVDeskCommunitySystemRequirementsView = Backbone.View.extend({
-            el: '#wizardContent',
+            el: '#wizardSetup',
             model: undefined,
             wizard: undefined,
             reference_nodes: {
                 version: undefined,
                 extension: undefined,
             },
+            wizard_icons_loader_template: _.template($("#wizardIcons-LoaderTemplate").html()),
+            wizard_icons_success_template: _.template($("#wizardIcons-SuccessTemplate").html()),
+            wizard_icons_notice_template: _.template($("#wizardIcons-NoticeTemplate").html()),
             wizard_system_requirements_template: _.template($("#installationWizard-SystemRequirementsTemplate").html()),
             wizard_system_requirements_php_ver_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPVersion").html()),
             wizard_system_requirements_php_ext_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPExtensions").html()),
-            events: {
-                'click #wizardCTA-CancelInstallation': function() {
-                    this.wizard.router.navigate('welcome', { trigger: true });
-                },
-                'click #wizardCTA-IterateInstallation': function() {
-                    if (this.model.validateSystemRequirements()) {
-                        this.wizard.timeline[0].isChecked = true;
-                        this.wizard.router.navigate('configure-database', { trigger: true });
-                    }
-                },
-            },
             initialize: function(params) {
                 let self = this;
 
@@ -433,28 +390,48 @@
                 this.model = new UVDeskCommunitySystemRequirementsModel({ view: self });
 
                 // Render Initial Template
-                this.wizard.reference_nodes.content.html(this.wizard_system_requirements_template());
+                this.$el.html(this.wizard_system_requirements_template());
 
                 // Set reference nodes
                 this.reference_nodes.version = this.$el.find('#systemCriteria-PHPVersion');
                 this.reference_nodes.extension = this.$el.find('#systemCriteria-PHPExtensions');
                 
-                this.renderPHPVersion();
-                this.renderPHPExtensionsCriteria();
+                this.renderPHPVersion('verifying');
+                this.renderPHPExtensionsCriteria('verifying');
 
                 this.model.fetch();
             },
-            enableNextStep: function() {
-                this.$el.find('#wizardCTA-IterateInstallation').removeAttr('disabled');
-            },
-            disableNextStep: function() {
-                this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
-            },
-            renderPHPVersion: function() {
+            renderPHPVersion: function(status) {
                 this.reference_nodes.version.html(this.wizard_system_requirements_php_ver_template(this.model.get('php-version')));
+
+                if (false == this.model.get('fetch')) {
+                    this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
+                    this.reference_nodes.version.find('label').html('Checking currently enabled PHP version');
+                } else {
+                    if (true === this.model.get('php-version').status) {
+                        this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_success_template());
+                        this.reference_nodes.version.find('label').html(this.model.get('php-version').message);
+                    } else {
+                        this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_notice_template());
+                        this.reference_nodes.version.find('label').html(this.model.get('php-version').message);
+                    }
+                }
             },
-            renderPHPExtensionsCriteria: function() {
+            renderPHPExtensionsCriteria: function(status) {
                 this.reference_nodes.extension.html(this.wizard_system_requirements_php_ext_template(this.model.get('php-extensions')));
+
+                if (false == this.model.get('fetch')) {
+                    this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
+                    this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
+                } else {
+                    if (true === this.model.get('php-version').status) {
+                        this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_success_template());
+                        this.reference_nodes.extension.find('label').html(this.model.get('php-extensions').message);
+                    } else {
+                        this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_notice_template());
+                        this.reference_nodes.extension.find('label').html(this.model.get('php-extensions').message);
+                    }
+                }
             }
         });
 
@@ -466,31 +443,70 @@
                 header: undefined,
                 content: undefined,
             },
+            activeSetupProcedure: undefined,
+            wizard_icons_success_template: _.template($("#wizardIcons-SuccessTemplate").html()),
+            wizard_icons_loader_template: _.template($("#wizardIcons-LoaderTemplate").html()),
             wizard_default_header_template: _.template($("#installationWizard-DefaultHeaderTemplate").html()),
             wizard_default_content_template: _.template($("#installationWizard-DefaultContentTemplate").html()),
+            wizard_setup_component_template: _.template($("#installationWizard-SetupTemplate").html()),
             events: {
                 'click #wizardCTA-StartInstallation': function() {
                     this.enabled = true;
+                    this.reference_nodes.content.empty();
+                    this.reference_nodes.content.html(this.wizard_setup_component_template());
+
                     this.router.navigate('check-requirements', { trigger: true });
+                },
+                'click #wizardCTA-IterateInstallation': function() {
+                    if (typeof(this.activeSetupProcedure) != 'undefined') {
+                        this.activeSetupProcedure.model.isProcedureCompleted(function (wizard) {
+                            let activeInstanceIndex = undefined;
+
+                            wizard.timeline.every(function (instance, index) {
+                                if (false == instance.isActive) {
+                                    return true;
+                                }
+                                
+                                activeInstanceIndex = index;
+                                return false;
+                            });
+
+                            if (typeof (activeInstanceIndex) != 'undefined') {
+                                wizard.timeline[activeInstanceIndex].isActive = false;
+                                wizard.timeline[activeInstanceIndex].isChecked = true;
+                                
+                                if (typeof (wizard.timeline[activeInstanceIndex + 1]) !== 'undefined') {
+                                    wizard.router.navigate(wizard.timeline[activeInstanceIndex + 1].path, { trigger: true });
+                                }
+                            }
+                        });
+                    }
+                },
+                'click #wizardCTA-CancelInstallation': function() {
+                    this.router.navigate('welcome', { trigger: true });
                 },
             },
             timeline: [
                 {
+                    isActive: false,
                     isChecked: false,
                     path: 'check-requirements',
                     view: UVDeskCommunitySystemRequirementsView,
                 },
                 {
+                    isActive: false,
                     isChecked: false,
                     path: 'configure-database',
                     view: UVDeskCommunityDatabaseConfigurationView,
                 },
                 {
+                    isActive: false,
                     isChecked: false,
                     path: 'create-admin',
                     view: UVDeskCommunityAccountConfigurationView,
                 },
                 {
+                    isActive: false,
                     isChecked: false,
                     path: 'install',
                     view: UVDeskCommunityInstallSetupView,
@@ -518,19 +534,20 @@
                         this.router.navigate('welcome', { trigger: true });
                     } else {
                         let self = this;
-                        // console.log("installationStep in router : ",installationStep);
     
-                        this.timeline.every(function (installationStep) {
+                        this.timeline.every(function (installationStep, index) {
                             if (iteration == installationStep.path && typeof installationStep.view != 'undefined') {
+                                self.timeline[index].isActive = true;
                                 self.renderWizardInstallationStep(installationStep.view);
 
                                 return false;
                             } else if (installationStep.isChecked) {
+                                self.timeline[index].isActive = false;
+
                                 return true;
                             }
 
                             self.router.navigate('welcome', { trigger: true });
-
                             return false;
                         });
                     }
@@ -545,8 +562,15 @@
             renderWizardInstallationStep: function(InstallationWizardTemplateView) {
                 let self = this;
 
-                this.reference_nodes.content.empty();
-                new InstallationWizardTemplateView({ wizard: self });
+                this.disableNextStep();
+                this.reference_nodes.content.find('#wizardSetup').empty();
+                this.activeSetupProcedure = new InstallationWizardTemplateView({ wizard: self });
+            },
+            enableNextStep: function() {
+                this.$el.find('#wizardCTA-IterateInstallation').removeAttr('disabled');
+            },
+            disableNextStep: function() {
+                this.$el.find('#wizardCTA-IterateInstallation').attr('disabled', 'disabled');
             },
         });
 
