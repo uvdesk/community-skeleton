@@ -25,6 +25,27 @@
             <section id="wizardContent" class="wizard-container"></section>
         </div>
 
+        <script id="wizardIcons-LoaderTemplate" type="text/template">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1em" height="1em" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
+                <path opacity="0.8" fill="#9161ff" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" />
+                <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0C22.32,8.481,24.301,9.057,26.013,10.047z" >
+                    <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20" dur="0.5s" repeatCount="indefinite" />
+                </path>
+            </svg>
+        </script>
+
+        <script id="wizardIcons-SuccessTemplate" type="text/template">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21">
+                <path id="icon-success" class="cls-1" fill="#9161ff" fill-rule="evenodd" d="M764.5,373A10.5,10.5,0,1,1,775,362.5,10.5,10.5,0,0,1,764.5,373Zm3.808-15-5.923,5.727-1.693-1.636L759,363.727,762.385,367,770,359.636Z" transform="translate(-754 -352)"/>
+            </svg>
+        </script>
+
+        <script id="wizardIcons-NoticeTemplate" type="text/template">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21">
+                <path id="error-icon" class="cls-1" fill="#ff5656" fill-rule="evenodd" d="M764.5,352A10.5,10.5,0,1,1,754,362.5,10.5,10.5,0,0,1,764.5,352Zm-0.006,12.988a1.506,1.506,0,1,1-1.5,1.506A1.5,1.5,0,0,1,764.494,364.988ZM763,356h3v8h-3v-8Z" transform="translate(-754 -352)"/>
+            </svg>
+        </script>
+
         <script id="installationWizard-DefaultHeaderTemplate" type="text/template">
             <div class="uvdesk-logo">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164px" height="60px">
@@ -47,116 +68,149 @@
             </div>
         </script>
 
+        <script id="installationWizard-SetupTemplate" type="text/template">
+            <div id="wizardSetup"></div>
+            <div class="line-break"></div>
+            <ul id="wizardSetupNavigation" class="button-groups" style="text-align: right;">
+                <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk"><span>Cancel<span></button></li>
+                <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk"><span>Proceed<span></button></li>
+            </div>
+        </script>
+
         <script id="installationWizard-SystemRequirementsTemplate-PHPVersion" type="text/template">
-            <label>PHP Version Check</label>
+            <span class="wizard-svg-icon-criteria-checklist"></span><label></label>
         </script>
 
         <script id="installationWizard-SystemRequirementsTemplate-PHPExtensions" type="text/template">
-            <label>Checking PHP Extensions</label>
+            <span class="wizard-svg-icon-criteria-checklist"></span><label></label>
         </script>
 
         <script id="installationWizard-SystemRequirementsTemplate" type="text/template">
             <div id="wizard-systemRequirements">
-                <h2>Evaluating System Requirements</h2>
-                <p>The wizard will check your system for necessary extensions that are needed by the application:</p>
-
+                <h2>1: Evaluating System Requirements</h2>
+                <p>The wizard will check whether your system meets the minimum requirements to successfully run the application.</p>
+                
+                <div class="line-break"></div>
+                
                 <ul class="criteria-checklist">
                     <li id="systemCriteria-PHPVersion" class="fetching-details"></li>
                     <li id="systemCriteria-PHPExtensions" class="fetching-details"></li>
-                </ul>
-
-                <ul class="button-groups" style="margin-top: 20px;">
-                    <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                    <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk" disabled>Proceed</button></li>
                 </ul>
             </div>
         </script>
 
         <script id="installationWizard-DatabaseConfigurationTemplate" type="text/template">
             <div id="wizard-configureDatabase">
-                <h2>Step 1: Add Database</h2>
+                <h2>2: Database Configuration</h2>
+                <p>The wizard will check your MySQL database connection for any issues and configure it with your application.</p>
 
-                <form name="wizardForm-ConfigureDatabase" method="post">
-                    <div>
-                        <label>Database Host</label>
-                        <input name="hostname" type="text" value="<%- credentials.hostname %>" placeholder="localhost" />
+                <div class="line-break"></div>
+
+                <form name="wizardForm-ConfigureDatabase" class="database-integration" method="post">
+                    <div class="form-field">
+                        <label class="form-label">Host</label>
+                        <div class="form-content">
+                            <input name="hostname" type="text" value="<%- credentials.hostname %>" placeholder="localhost" />
+                            <p class="wizard-form-info">Hostname of the database (where it is hosted).</p>
+                        </div>
                     </div>
                     
-                    <div>
-                        <label>Database Username</label>
-                        <input name="username" type="text" value="<%- credentials.username %>" placeholder="root" />
+                    <div class="form-field">
+                        <label class="form-label">Username</label>
+                        <div class="form-content">
+                            <input name="username" type="text" value="<%- credentials.username %>" placeholder="root" />
+                            <p class="wizard-form-info">Username to use when connecting to the database.</p>
+                        </div>
                     </div>
                     
-                    <div>
-                        <label>Database Password</label>
-                        <input name="password" type="password" value="" placeholder="" />
+                    <div class="form-field">
+                        <label class="form-label">Password</label>
+                        <div class="form-content">
+                            <input name="password" type="password" value="" placeholder="" />
+                            <p class="wizard-form-info">Password to use when connecting to the database.</p>
+                        </div>
                     </div>
 
-                    <div>
-                        <label>Database Name</label>
-                        <input name="database" type="text" value="<%- credentials.database %>" placeholder="" />
+                    <div class="form-field">
+                        <label class="form-label">Database</label>
+                        <div class="form-content">
+                            <input name="database" type="text" value="<%- credentials.database %>" placeholder="" />
+                            <p class="wizard-form-info">Name of the database/schema to connect to.</p>
+                        </div>
                     </div>
-
-                    <ul class="button-groups">
-                        <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                        <li><button id="wizardCTA-IterateInstallation-Database" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
-                    </ul>
                 </form>
             </div>
         </script>
 
         <script id="installationWizard-AccountConfigurationTemplate" type="text/template">
             <div id="wizard-configureDatabase">
-                <h2>Step 2: Create Super Admin Account</h2>
+                <h2>3: Create Super Admin Account</h2>
+                <p>The wizard will create a default super admin account that can be used to access your application's backend.</p>
+
+                <div class="line-break"></div>
 
                 <form name="wizardForm-ConfigureAccount" method="post" class="ConfigureAccount">
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input name="name" type="text" value="<%- user.name %>"  id="name" placeholder="Name" />
-                    </div >
-                    
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input name="email" type="text" value="<%- user.email %>" placeholder="Email" />
+                    <div class="form-field">
+                        <label class="form-label">Name</label>
+                        <div class="form-content">
+                            <input name="name" type="text" value="<%- user.name %>"  id="name" placeholder="Name" />
+                            <p class="wizard-form-info">Name of the user to be created.</p>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input name="password" type="password" value="<%- user.password %>" id="password" placeholder="Password" />
+                    <div class="form-field">
+                        <label class="form-label">Email</label>
+                        <div class="form-content">
+                            <input name="email" type="text" value="<%- user.email %>" placeholder="Email" />
+                            <p class="wizard-form-info">Email of the user to be created.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-field">
+                        <label class="form-label">Password</label>
+                        <div class="form-content">
+                            <input name="password" type="password" value="<%- user.password %>" id="password" placeholder="Password" />
+                            <p class="wizard-form-info">Password to use when authenticating user.</p>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Confirm Password</label>
-                        <input name="confirm_password" type="password" value="<%- user.confirmPassword %>" id="confirm_password" placeholder="Confirm Password" />
+                    <div class="form-field">
+                        <label class="form-label">Confirm Password</label>
+                        <div class="form-content">
+                            <input name="confirm_password" type="password" value="<%- user.confirmPassword %>" id="confirm_password" placeholder="Confirm Password" />
+                            <p class="wizard-form-info">Confirm the entered user password.</p>
+                        </div>
                     </div>
-
-                    <ul class="button-groups">
-                        <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                        <li><button id="wizardCTA-IterateInstallation-SuperUser" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
-                    </ul>
                 </form>
             </div>
         </script>
 
         <script id="installationWizard-InstallationCompleteTemplate" type="text/template">
-            <p>Your helpdesk has been installed successfully.</p>
-            <ul>
-                <li><a href="/en/member/login">Agent Panel</a> - Visit your members panel</li>
-                <li><a href="/en/">Knowledgebase</a> - Visit your knowledgebase panel</li>
-            </ul>
+            <div id="wizardSetupComplete">
+                <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 21 21">
+                    <path id="icon-success" class="cls-1" fill="#9161ff" fill-rule="evenodd" d="M764.5,373A10.5,10.5,0,1,1,775,362.5,10.5,10.5,0,0,1,764.5,373Zm3.808-15-5.923,5.727-1.693-1.636L759,363.727,762.385,367,770,359.636Z" transform="translate(-754 -352)"/>
+                </svg>
+
+                <p>Your helpdesk has been installed successfully.</p>
+
+                <ul style="margin-top: 10px;">
+                    <li style="display: inline-block;"><a href="/en/member/login">Admin Panel</a></li>
+                    <li style="display: inline-block;">| <a href="/en/">Knowledgebase</a></li>
+                </ul>
+            </div>
         </script>
 
         <script id="installationWizard-InstallSetupTemplate-ProcessingItem" type="text/template">
             <% if (currentStep == 'load-configurations') { %>
-                <p>Step 1/4 - Updating configurations..<span class="blink_text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 1/4] Updating configurations..<span class="blink-text">.</span></p>
             <% } else if (currentStep == 'load-migrations') { %>
-                <p>Step 2/4 - Migrating database to latest schema version..<span class="blink_text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 1/4] Migrating database to latest schema version..<span class="blink-text">.</span></p>
             <% } else if (currentStep == 'populate-datasets') { %>
-                <p>Step 3/4 - Populating database with default datasets..<span class="blink_text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 1/4] Populating database with default datasets..<span class="blink-text">.</span></p>
             <% } else if (currentStep == 'create-super-user') { %>
-                <p>Step 4/4 - Create super admin account..<span class="blink_text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 1/4] Creating super admin account..<span class="blink-text">.</span></p>
             <% } %>
-            
+
             <p>Please wait while your helpdesk is being installed. This could take up to a few minutes.</p>
         </script>
 
