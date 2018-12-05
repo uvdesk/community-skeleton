@@ -7,10 +7,21 @@
         "php": "^7.0",
         "uvdesk/composer-package-manager": "^0.1",
         "symfony/flex": "^1.0",
-        "uvdesk/core-framework": "^0.1",
+        "uvdesk/core-framework": "dev-prefix as 0.1",
         "uvdesk/automation-bundle": "^0.1",
-        "uvdesk/support-center-bundle": "^0.1"
+        "uvdesk/support-center-bundle": "dev-prefix as 0.1"
     },
+    ,
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/shubhwebkul/core-framework"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/shubhwebkul/support-center-bundle"
+        }
+    ],
     "require-dev": {
         "symfony/dotenv": "^3.4",
         "symfony/var-dumper": "^3.4",
