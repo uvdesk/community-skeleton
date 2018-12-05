@@ -20,6 +20,14 @@
         <script src="{{ asset('scripts/wizard.js') }}"></script>
     </head>
     <body>
+        <div class="uv-loader-view" id="uv-def-loader">
+            <div class="uv-loader">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        
         <div id="wizard">
             <header id="wizardHeader" class="wizard-header"></header>
             <section id="wizardContent" class="wizard-container"></section>
@@ -132,7 +140,27 @@
 
                     <ul class="button-groups">
                         <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
-                        <li><button id="wizardCTA-IterateInstallation-SuperUser" class="wizard-button solid button-theme-uvdesk">Proceed</button></li>
+                        <li><button id="wizardCTA-IterateInstallation-SuperUser" class="wizard-button solid button-theme-uvdesk wizard-submit">Proceed</button></li>
+                    </ul>
+                </form>
+            </div>
+        </script>
+
+         <script id="installationWizard-WebsiteConfigurationTemplate" type="text/template">
+            <div id="wizard-configureWebsite">
+                <h2>Website Configuration</h2>
+                 <form name="wizardForm-ConfigureWebsite" method="post" action="">
+                    <div>
+                        <label>Member Panel Prefix</label>
+                        <input name="memeberUrlPrefix" type="text" value="" placeholder="member" />
+                    </div>
+                    <div>
+                        <label>Customer Panel Prefix</label>
+                        <input name="customerUrlPrefix" type="text" value="" placeholder="customer" />
+                    </div>
+                     <ul class="button-groups">
+                        <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk">Cancel</button></li>
+                        <li><button type="submit" id="wizardCTA-IterateInstallation-Website" class="wizard-button solid button-theme-uvdesk wizard-submit">Proceed</button></li>
                     </ul>
                 </form>
             </div>
@@ -141,8 +169,8 @@
         <script id="installationWizard-InstallationCompleteTemplate" type="text/template">
             <p>Your helpdesk has been installed successfully.</p>
             <ul>
-                <li><a href="/en/member/login">Agent Panel</a> - Visit your members panel</li>
-                <li><a href="/en/">Knowledgebase</a> - Visit your knowledgebase panel</li>
+                <li><a href="" id="member_panel_url">Agent Panel</a> - Visit your members panel</li>
+                <li><a href="" id="customer_panel_url">Knowledgebase</a> - Visit your knowledgebase panel</li>
             </ul>
         </script>
 
@@ -171,3 +199,4 @@
         </script>
     </body>
 </html>
+

@@ -4,6 +4,7 @@ namespace Webkul\UVDesk\Setup\Controller;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -279,5 +280,53 @@ class InstallationWizardXHR extends Controller
         }
 
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+    }
+
+    public function setWebsiteConfigurationXHR(Request $request)
+    {
+        $memberPanelUrl = $request->request->get('member');
+        $customerPanelUrl = $request->request->get('customer');
+        $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
+        
+        $file_content_array = $this->getYamlContentAsArray($filePath);
+
+        $file_content_array['parameters']['uvdesk_member_routing_prefix'] = $memberPanelUrl;
+        $file_content_array['parameters']['uvdesk_support_center_routing_prefix'] = $customerPanelUrl;
+
+        $isUpdated = $this->setYamlContent($filePath, $file_content_array);
+
+        $result['status'] = $isUpdated ? true : false ;
+
+        return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
+    }
+
+    public function getWebsiteConfigurationXHR(Request $request)
+    {
+        $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
+        $file_content_array = $this->getYamlContentAsArray($filePath);
+        
+        $result['member_prefix'] = $file_content_array['parameters']['uvdesk_member_routing_prefix'];
+        $result['customer_prefix'] = $file_content_array['parameters']['uvdesk_support_center_routing_prefix'];
+
+        return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
+    }
+
+    private function getYamlContentAsArray ($filePath)
+    {
+        // Fetch existing content in file
+        $file_content = '';
+        if ($fh = fopen($filePath, 'r')) {
+            while (!feof($fh)) {
+                $file_content = $file_content.fgets($fh);
+            }
+        }
+        // Convert yaml file content into array and merge existing mailbox and new mailbox
+        return Yaml::parse($file_content, 6);
+    }
+
+    private function setYamlContent ($filePath, $arrayContent)
+    {
+        // Write the content with new mailbox details in file
+        return file_put_contents($filePath, Yaml::dump($arrayContent, 6));
     }
 }
