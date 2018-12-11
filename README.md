@@ -19,10 +19,10 @@ The standard distribution comes pre-configured with the following bundles:
 Installation
 --------------
 
-Before creating your UVDesk Community project, make sure that you're using PHP 7 or higher and have [Composer][6] installed. You also need to ensure that you have the following PHP extensions installed:
+Before creating your UVDesk Community project, make sure that you're using PHP 7 or higher and have [Composer][8] installed. You also need to ensure that you have the following PHP extensions installed:
 
-  * [PHP IMAP][7]
-  * [PHP Mailparse][8]
+  * [PHP IMAP][6]
+  * [PHP Mailparse][7]
 
 To create your project, run the following command:
 
