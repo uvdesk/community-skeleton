@@ -3,7 +3,6 @@
 </a></p>
 
 A fully-functional [UVDesk Community Edition][1] project skeleton packaged along with the bare essential utilities that you can use to develop your own custom helpdesk solutions.
- 
 
 What's Included?
 --------------
