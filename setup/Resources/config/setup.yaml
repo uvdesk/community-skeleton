@@ -21,6 +21,16 @@ uvdesk_community_installation_wizard_store_super_user_credentials:
     controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::prepareSuperUserDetailsXHR
     methods: [POST]
 
+udvesk_community_installation_wizard_update_website_configuration:
+    path: /setup/xhr/load/website-configure
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::setWebsiteConfigurationXHR
+    methods: [POST]
+
+udvesk_community_installation_wizard_website_configuration:
+    path: /setup/xhr/load/website-prefixes
+    controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::getWebsiteConfigurationXHR
+    methods: [GET]
+
 uvdesk_community_installation_wizard_update_configurations_xhr:
     path:     /setup/xhr/load/configurations
     controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::updateConfigurationsXHR
@@ -40,3 +50,4 @@ uvdesk_community_installation_wizard_create_default_super_user_xhr:
     path:     /setup/xhr/load/super-user
     controller: Webkul\UVDesk\Setup\Controller\InstallationWizardXHR::createDefaultSuperUserXHR
     methods: [POST]
+

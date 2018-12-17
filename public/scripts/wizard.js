@@ -87,8 +87,97 @@
                 });
             },
             redirectToWelcomePage: function() {
-                this.$el.html(this.installation_successfull_template());
+                this.$el.html(this.installation_successfull_template({member:this.wizard.prefix.member}));
             }
+        });
+
+        var UVDeskCommunityWebsiteConfigurationModel = Backbone.Model.extend({
+            defaults: {
+                member_panel_url: "member",
+                customer_panel_url: "customer",
+            },
+            initialize: function (attributes) {
+                this.view = attributes.view;
+            },
+            isProcedureCompleted: function (callback) {
+                var self = this;
+                this.set('urlCollection', {
+                    'member-prefix': this.view.$el.find('input[name="memeberUrlPrefix"]').val(),
+                    'customer-prefix': this.view.$el.find('input[name="customerUrlPrefix"]').val(),
+                });
+
+                var wizard = this.view.wizard;
+                wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
+
+                $.post('/setup/xhr/load/website-configure', this.get('urlCollection'), (response) => {
+                    if (typeof response.status != 'undefined' && true === response.status) {
+                        wizard.prefix.member = "/en/" + this.get('urlCollection')['member-prefix'] + "/login";
+                        callback(wizard);
+                    } else {
+                        wizard.disableNextStep();
+                    }
+                }).fail(function(response) {
+                    wizard.disableNextStep();
+                }).always(function() {
+                    wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
+                });
+            }
+        });
+
+        var UVDeskCommunityWebsiteConfigurationView = Backbone.View.extend({
+            el: '#wizardSetup',
+            wizard: undefined,
+            events: {
+                "keyup .form-content input" : "validateForm",
+            },
+            model: UVDeskCommunityWebsiteConfigurationModel,
+            wizard_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
+            initialize: function(params) {
+                let self = this;
+                
+                this.wizard = params.wizard;
+                this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: self });
+
+                this.$el.html(this.wizard_website_configuration());
+            },
+            validateForm: _.debounce(function (event) {
+                let errorFlag = false;
+                event.preventDefault();
+                this.$el.find('.form-content .wizard-form-notice').remove();
+
+                let memberPrefix = this.$el.find('input[name="memeberUrlPrefix"]').val();
+                let customerPrefix = this.$el.find('input[name="customerUrlPrefix"]').val();
+
+                if (memberPrefix == null || memberPrefix =="") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="memeberUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+
+                if (customerPrefix == null || customerPrefix =="") {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+                
+                if (!errorFlag) {
+                    let prefixTestRegex = /[a-z0-9A-Z]$/;
+
+                    if (!prefixTestRegex.test(memberPrefix)) {
+                        errorFlag = true;
+                        this.$el.find('.form-content input[name="memeberUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
+                    }
+
+                    if (!prefixTestRegex.test(customerPrefix)) {
+                        errorFlag = true;
+                        this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
+                    }
+                }
+
+                if (false == errorFlag) {
+                    this.wizard.enableNextStep();
+                } else {
+                    this.wizard.disableNextStep();
+                }
+            }, 400),
         });
 
         var UVDeskCommunityAccountConfigurationModel = Backbone.Model.extend({
@@ -141,7 +230,7 @@
                 Backbone.Validation.bind(self);
                 
                 this.wizard = params.wizard;
-                this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });               
+                this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });
                 this.$el.html(this.account_settings_template(this.model.attributes));
             },
             validateForm: _.debounce(function(e) {
@@ -162,27 +251,32 @@
                     this.$el.find('.form-content input[name="name"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (user.email == null || user.email =="") {
+                if (!errorFlag && (user.email == null || user.email =="")) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (user.password == null || user.password =="") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-
-                if (user.confirmPassword == null || user.confirmPassword =="") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-
-                if (!emailRegEX.test(user.email)) {
+                if (!errorFlag && !emailRegEX.test(user.email)) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>Invalid Email</span>")
                 }
 
-                if (user.confirmPassword != user.password) {
+                if (!errorFlag && (user.password == null || user.password =="")) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+
+                if (!errorFlag && (user.password.length < 8)) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
+                }
+
+                if (!errorFlag && (user.confirmPassword == null || user.confirmPassword =="")) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+
+                if (!errorFlag && (user.confirmPassword != user.password)) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This Password does not matched </span>")
                 }
@@ -217,6 +311,7 @@
                     database: this.view.$el.find('input[name="database"]').val(),
                 });
 
+                var self = this;
                 let wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
 
@@ -224,6 +319,7 @@
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(wizard);
                     } else {
+                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>password or database name is wrong ! Connection not established</span>");
                         wizard.disableNextStep();
                     }
                 }).fail(function(response) {
@@ -443,6 +539,9 @@
                 header: undefined,
                 content: undefined,
             },
+            prefix: {
+                member: 'member'
+            },
             activeSetupProcedure: undefined,
             wizard_icons_success_template: _.template($("#wizardIcons-SuccessTemplate").html()),
             wizard_icons_loader_template: _.template($("#wizardIcons-LoaderTemplate").html()),
@@ -508,6 +607,12 @@
                 {
                     isActive: false,
                     isChecked: false,
+                    path: 'website-prefixes',
+                    view: UVDeskCommunityWebsiteConfigurationView,
+                },
+                {
+                    isActive: false,
+                    isChecked: false,
                     path: 'install',
                     view: UVDeskCommunityInstallSetupView,
                 },
@@ -527,6 +632,7 @@
                     this.timeline[1].isChecked = false;
                     this.timeline[2].isChecked = false;
                     this.timeline[3].isChecked = false;
+                    this.timeline[4].isChecked = false;
 
                     this.renderWizard();
                 } else {
