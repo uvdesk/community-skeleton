@@ -146,7 +146,7 @@
                 this.$el.find('.form-content .wizard-form-notice').remove();
 
                 let memberPrefix = this.$el.find('input[name="memeberUrlPrefix"]').val();
-                let customerPrefix = this.$el.find('input[name="memeberUrlPrefix"]').val();
+                let customerPrefix = this.$el.find('input[name="customerUrlPrefix"]').val();
 
                 if (memberPrefix == null || memberPrefix =="") {
                     errorFlag = true;
@@ -156,6 +156,20 @@
                 if (customerPrefix == null || customerPrefix =="") {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+                
+                if (!errorFlag) {
+                    let prefixTestRegex = /[a-z0-9A-Z]$/;
+
+                    if (!prefixTestRegex.test(memberPrefix)) {
+                        errorFlag = true;
+                        this.$el.find('.form-content input[name="memeberUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
+                    }
+
+                    if (!prefixTestRegex.test(customerPrefix)) {
+                        errorFlag = true;
+                        this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
+                    }
                 }
 
                 if (false == errorFlag) {
@@ -237,27 +251,32 @@
                     this.$el.find('.form-content input[name="name"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (user.email == null || user.email =="") {
+                if (!errorFlag && (user.email == null || user.email =="")) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (user.password == null || user.password =="") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-
-                if (user.confirmPassword == null || user.confirmPassword =="") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-
-                if (!emailRegEX.test(user.email)) {
+                if (!errorFlag && !emailRegEX.test(user.email)) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>Invalid Email</span>")
                 }
 
-                if (user.confirmPassword != user.password) {
+                if (!errorFlag && (user.password == null || user.password =="")) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+
+                if (!errorFlag && (user.password.length < 8)) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
+                }
+
+                if (!errorFlag && (user.confirmPassword == null || user.confirmPassword =="")) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                }
+
+                if (!errorFlag && (user.confirmPassword != user.password)) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This Password does not matched </span>")
                 }
@@ -292,6 +311,7 @@
                     database: this.view.$el.find('input[name="database"]').val(),
                 });
 
+                var self = this;
                 let wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
 
@@ -299,6 +319,7 @@
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(wizard);
                     } else {
+                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>password or database name is wrong ! Connection not established</span>");
                         wizard.disableNextStep();
                     }
                 }).fail(function(response) {
