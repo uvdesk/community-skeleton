@@ -45,7 +45,7 @@
                 <path id="error-icon" class="cls-1" fill="#ff5656" fill-rule="evenodd" d="M764.5,352A10.5,10.5,0,1,1,754,362.5,10.5,10.5,0,0,1,764.5,352Zm-0.006,12.988a1.506,1.506,0,1,1-1.5,1.506A1.5,1.5,0,0,1,764.494,364.988ZM763,356h3v8h-3v-8Z" transform="translate(-754 -352)"/>
             </svg>
         </script>
-
+        
         <script id="installationWizard-DefaultHeaderTemplate" type="text/template">
             <div class="uvdesk-logo">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164px" height="60px">
@@ -91,7 +91,7 @@
                 <p>The wizard will check whether your system meets the minimum requirements to successfully run the application.</p>
                 
                 <div class="line-break"></div>
-                
+
                 <ul class="criteria-checklist">
                     <li id="systemCriteria-PHPVersion" class="fetching-details"></li>
                     <li id="systemCriteria-PHPExtensions" class="fetching-details"></li>
@@ -100,7 +100,7 @@
         </script>
 
         <script id="installationWizard-DatabaseConfigurationTemplate" type="text/template">
-            <div id="wizard-configureDatabase">
+           <div id="wizard-configureDatabase">
                 <h2>2: Database Configuration</h2>
                 <p>The wizard will check your MySQL database connection for any issues and configure it with your application.</p>
 
@@ -144,7 +144,7 @@
 
         <script id="installationWizard-AccountConfigurationTemplate" type="text/template">
             <div id="wizard-configureDatabase">
-                <h2>3: Create Super Admin Account</h2>
+                 <h2>3: Create Super Admin Account</h2>
                 <p>The wizard will create a default super admin account that can be used to access your application's backend.</p>
 
                 <div class="line-break"></div>
@@ -185,6 +185,26 @@
             </div>
         </script>
 
+        <script id="installationWizard-WebsiteConfigurationTemplate" type="text/template">
+            <div id="wizard-configureWebsite">
+                <h2>4: Website Configuration</h2>
+                 <form name="wizardForm-ConfigureWebsite" method="post" action="">
+                    <div class="form-field">
+                        <label class="form-label">Member Panel Prefix</label>
+                        <div class="form-content">
+                            <input name="memeberUrlPrefix" type="text" value="" placeholder="member" class="form-content"/>
+                        </div>
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label">Customer Panel Prefix</label>
+                        <div class="form-content">
+                            <input name="customerUrlPrefix" type="text" value="" placeholder="customer" class="form-content"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </script>
+
         <script id="installationWizard-InstallationCompleteTemplate" type="text/template">
             <div id="wizardSetupComplete">
                 <svg xmlns="http://www.w3.org/2000/svg" width="4em" height="4em" viewBox="0 0 21 21">
@@ -194,8 +214,8 @@
                 <p>Your helpdesk has been installed successfully.</p>
 
                 <ul style="margin-top: 10px;">
-                    <li style="display: inline-block;"><a href="/en/member/login">Admin Panel</a></li>
-                    <li style="display: inline-block;">| <a href="/en/">Knowledgebase</a></li>
+                    <li style="display: inline-block;"><a href="<%- member %>" id="member_panel_url">Admin Panel</a></li>
+                    <li style="display: inline-block;">| <a href="/en" id="customer_panel_url">Knowledgebase</a></li>
                 </ul>
             </div>
         </script>
@@ -210,7 +230,7 @@
             <% } else if (currentStep == 'create-super-user') { %>
                 <p><span class="installation-progress-loader"></span>[Step 1/4] Creating super admin account..<span class="blink-text">.</span></p>
             <% } %>
-
+            
             <p>Please wait while your helpdesk is being installed. This could take up to a few minutes.</p>
         </script>
 
