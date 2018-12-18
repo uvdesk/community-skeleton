@@ -274,7 +274,8 @@
             defaults: {
                 verified: false,
                 credentials: {
-                    hostname: 'localhost',
+                    serverName: '127.0.0.1',
+                    serverPort: '3306',
                     username: 'root',
                     password: null,
                     database: null,
@@ -285,7 +286,8 @@
             },
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
-                    hostname: this.view.$el.find('input[name="hostname"]').val(),
+                    serverName: this.view.$el.find('input[name="serverName"]').val(),
+                    port: this.view.$el.find('input[name="port"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
                     database: this.view.$el.find('input[name="database"]').val(),
@@ -299,7 +301,7 @@
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(wizard);
                     } else {
-                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>password or database name is wrong ! Connection not established</span>");
+                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }).fail(function(response) {
@@ -330,7 +332,8 @@
             validateForm: _.debounce(function(e) {
                 let errorFlag = false;
                 let credentials = {
-                    hostname: this.$el.find('input[name="hostname"]').val(),
+                    hostname: this.$el.find('input[name="serverName"]').val(),
+                    port: this.$el.find('input[name="port"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
                     database: this.$el.find('input[name="database"]').val(),

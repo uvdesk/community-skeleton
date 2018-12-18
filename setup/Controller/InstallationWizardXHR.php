@@ -90,11 +90,13 @@ class InstallationWizardXHR extends Controller
         // Get entity manager
         $entityManager = EntityManager::create([
             'driver' => 'pdo_mysql',
+            "host" => $request->request->get('serverName'),
+            "port" => $request->request->get('port'),
             'user' => $request->request->get('username'),
             'password' => $request->request->get('password'),
             'dbname' => $request->request->get('database'),
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
-        
+
         $databaseConnection = $entityManager->getConnection();
         $connectionResponse = [
             'status' => $databaseConnection->isConnected(),
@@ -106,7 +108,10 @@ class InstallationWizardXHR extends Controller
                 $databaseConnection->connect();
 
                 $connectionResponse['status'] = true;
+
+                $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
                 $_SESSION['DB_CONFIG'] = [
+                    'server' => $request->request->get('serverName') . $port,
                     'username' => $request->request->get('username'),
                     'password' => $request->request->get('password'),
                     'database' => $request->request->get('database'),
@@ -146,7 +151,7 @@ class InstallationWizardXHR extends Controller
         
         $db_params = [
             'DB_DRIVER' => 'mysql',
-            'DB_HOST' => '127.0.0.1:3306',
+            'DB_HOST' => $_SESSION['DB_CONFIG']['server'],
             'DB_USER' => $_SESSION['DB_CONFIG']['username'],
             'DB_PASSWORD' => $_SESSION['DB_CONFIG']['password'],
             'DB_NAME' => $_SESSION['DB_CONFIG']['database'],

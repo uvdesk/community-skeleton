@@ -108,10 +108,18 @@
 
                 <form name="wizardForm-ConfigureDatabase" class="database-integration" method="post">
                     <div class="form-field">
-                        <label class="form-label">Host</label>
+                        <label class="form-label">Server</label>
                         <div class="form-content">
-                            <input name="hostname" type="text" value="<%- credentials.hostname %>" placeholder="localhost" />
-                            <p class="wizard-form-info">Hostname of the database (where it is hosted).</p>
+                            <input name="serverName" type="text" value="<%- credentials.serverName %>" placeholder="127.0.0.1" />
+                            <p class="wizard-form-info">Server name of the database (where it is hosted).</p>
+                        </div>
+                    </div>
+
+                     <div class="form-field">
+                        <label class="form-label">Port</label>
+                        <div class="form-content">
+                            <input name="port" type="text" value="<%- credentials.serverPort %>" placeholder="3306" />
+                            <p class="wizard-form-info">Port number of the database (on which port database is hosted).</p>
                         </div>
                     </div>
                     
