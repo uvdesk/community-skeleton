@@ -18,77 +18,49 @@
             installHelpdesk: function(params) {
                 this.updateConfigurations();
             },
-            updateConfigurations: function() {
+            updateConfigurations: function () {
                 let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/configurations', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
-                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                
-                promise.then(function(response) {
-                    self.loadMigrations();
-                });
-            },
-            loadMigrations: function() {
-                let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/migrations', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
+                // Generator to make ajax request one by one
+                let generator = function* () {
+            
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-configurations' }));
+                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
+                    yield $.post('/setup/xhr/load/configurations');
+                    
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-migrations' }));
-                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-migrations' }));
+                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
+                    yield $.post('/setup/xhr/load/migrations');
+    
 
-                promise.then(function(response) {
-                    self.populateDatasets();
-                });
-            },
-            populateDatasets: function() {
-                let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/entities', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'populate-datasets' }));
+                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
+                    yield $.post('/setup/xhr/load/entities');
+                    
 
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'populate-datasets' }));
-                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-
-                promise.then(function(response) {
-                    self.createDefaultSuperUser();
-                });
-            },
-            createDefaultSuperUser: function() {
-                let self = this;
-                let promise = new Promise(function(resolve, reject) {
-                    $.post('/setup/xhr/load/super-user', function (response) {
-                        resolve(response);
-                    }).fail(function(response) {
-                        reject(response);
-                    });
-                });
-
-                this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'create-super-user' }));
-                this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-
-                promise.then(function(response) {
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'create-super-user' }));
+                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
+                    yield $.post('/setup/xhr/load/super-user');
+                    
                     self.redirectToWelcomePage();
-                });
+                };
+
+                let gen = generator();
+
+                let handle = yielded => {
+                    if (!yielded.done) {
+                        yielded.value.then(() => {
+                            handle(gen.next());
+                        })
+                    }
+                }
+                handle(gen.next());
+
             },
-            redirectToWelcomePage: function() {
+            redirectToWelcomePage: function () {
                 this.$el.html(this.installation_successfull_template({member:this.wizard.prefix.member}));
-            }
+            },
         });
 
         var UVDeskCommunityWebsiteConfigurationModel = Backbone.Model.extend({
@@ -136,9 +108,12 @@
                 let self = this;
                 
                 this.wizard = params.wizard;
+                
+                // default enabled button
+                this.wizard.enableNextStep();
                 this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: self });
 
-                this.$el.html(this.wizard_website_configuration());
+                this.$el.html(this.wizard_website_configuration(this.model.attributes));
             },
             validateForm: _.debounce(function (event) {
                 let errorFlag = false;
@@ -157,9 +132,14 @@
                     errorFlag = true;
                     this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
+
+                if (customerPrefix == memberPrefix) {
+                    errorFlag = true;
+                    this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>Both prefixes can not be same.</span>")
+                }
                 
                 if (!errorFlag) {
-                    let prefixTestRegex = /[a-z0-9A-Z]$/;
+                    let prefixTestRegex = /^[a-z0-9A-Z]*$/;
 
                     if (!prefixTestRegex.test(memberPrefix)) {
                         errorFlag = true;
@@ -294,7 +274,8 @@
             defaults: {
                 verified: false,
                 credentials: {
-                    hostname: 'localhost',
+                    serverName: '127.0.0.1',
+                    serverPort: '3306',
                     username: 'root',
                     password: null,
                     database: null,
@@ -305,7 +286,8 @@
             },
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
-                    hostname: this.view.$el.find('input[name="hostname"]').val(),
+                    serverName: this.view.$el.find('input[name="serverName"]').val(),
+                    port: this.view.$el.find('input[name="port"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
                     database: this.view.$el.find('input[name="database"]').val(),
@@ -319,7 +301,7 @@
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(wizard);
                     } else {
-                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>password or database name is wrong ! Connection not established</span>");
+                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }).fail(function(response) {
@@ -350,7 +332,8 @@
             validateForm: _.debounce(function(e) {
                 let errorFlag = false;
                 let credentials = {
-                    hostname: this.$el.find('input[name="hostname"]').val(),
+                    hostname: this.$el.find('input[name="serverName"]').val(),
+                    port: this.$el.find('input[name="port"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
                     database: this.$el.find('input[name="database"]').val(),
