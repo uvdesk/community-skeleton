@@ -139,7 +139,7 @@
                 }
                 
                 if (!errorFlag) {
-                    let prefixTestRegex = /[a-z0-9A-Z]$/;
+                    let prefixTestRegex = /^[a-z0-9A-Z]*$/;
 
                     if (!prefixTestRegex.test(memberPrefix)) {
                         errorFlag = true;
