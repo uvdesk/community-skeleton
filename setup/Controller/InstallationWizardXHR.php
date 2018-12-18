@@ -90,6 +90,8 @@ class InstallationWizardXHR extends Controller
         // Get entity manager
         $entityManager = EntityManager::create([
             'driver' => 'pdo_mysql',
+            "host" => $request->request->get('serverName'),
+            "port" => $request->request->get('port'),
             'user' => $request->request->get('username'),
             'password' => $request->request->get('password'),
             'dbname' => $request->request->get('database'),
@@ -106,7 +108,10 @@ class InstallationWizardXHR extends Controller
                 $databaseConnection->connect();
 
                 $connectionResponse['status'] = true;
+
+                $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
                 $_SESSION['DB_CONFIG'] = [
+                    'server' => $request->request->get('serverName') . $port,
                     'username' => $request->request->get('username'),
                     'password' => $request->request->get('password'),
                     'database' => $request->request->get('database'),
@@ -146,7 +151,7 @@ class InstallationWizardXHR extends Controller
         
         $db_params = [
             'DB_DRIVER' => 'mysql',
-            'DB_HOST' => '127.0.0.1:3306',
+            'DB_HOST' => $_SESSION['DB_CONFIG']['server'],
             'DB_USER' => $_SESSION['DB_CONFIG']['username'],
             'DB_PASSWORD' => $_SESSION['DB_CONFIG']['password'],
             'DB_NAME' => $_SESSION['DB_CONFIG']['database'],
@@ -302,14 +307,29 @@ class InstallationWizardXHR extends Controller
         $customerPanelUrl = $request->request->get('customer-prefix');
         $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
         
-        $file_content_array = $this->getYamlContentAsArray($filePath);
+        // get file content and index
+        $file = file($filePath);
+        foreach ($file as $index => $content) {
+            if (false !== strpos($content, 'uvdesk_site_path.member_prefix')) {
+                list($member_panel_line, $member_panel_text) = array($index, $content);
+            }
 
-        $file_content_array['parameters']['uvdesk_site_path.member_prefix'] = $memberPanelUrl;
-        $file_content_array['parameters']['uvdesk_site_path.knowledgebase_customer_prefix'] = $customerPanelUrl;
+            if (false !== strpos($content, 'uvdesk_site_path.knowledgebase_customer_prefix')) {
+                list($customer_panel_line, $customer_panel_text) = array($index, $content);
+            }
+        }
 
-        $isUpdated = $this->setYamlContent($filePath, $file_content_array);
+        // save updated data in a variable ($updatedFileContent)
+        $updatedFileContent = $file;
+        $updatedPrefixForMember = (null !== $member_panel_line) ? substr($member_panel_text, 0, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: ')) . $memberPanelUrl . PHP_EOL: '';
+        $updatedPrefixForCustomer = (null !== $customer_panel_line) ? substr($customer_panel_text, 0, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: ')) . $customerPanelUrl . PHP_EOL : '';
 
-        $result['status'] = $isUpdated ? true : false ;
+        $updatedFileContent[$member_panel_line] = $updatedPrefixForMember;
+        $updatedFileContent[$customer_panel_line] = $updatedPrefixForCustomer;
+
+        // flush updated content in file
+        file_put_contents($filePath, $updatedFileContent);
+        $result['status'] = true;
 
         return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
     }
@@ -336,11 +356,5 @@ class InstallationWizardXHR extends Controller
         }
         // Convert yaml file content into array and merge existing mailbox and new mailbox
         return Yaml::parse($file_content, 6);
-    }
-
-    private function setYamlContent ($filePath, $arrayContent)
-    {
-        // Write the content with new mailbox details in file
-        return file_put_contents($filePath, Yaml::dump($arrayContent, 6));
     }
 }
