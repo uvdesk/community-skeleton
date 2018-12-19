@@ -258,3 +258,10 @@ ul.button-groups > li:last-child {
 #wizardSetupComplete svg {
     margin-bottom: 20px;
 }
+
+.uv-mandatory {
+    color: red;
+    font-size: 25px;
+    padding-left: 8px;
+    vertical-align: middle;
+}

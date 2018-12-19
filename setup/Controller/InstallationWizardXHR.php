@@ -301,10 +301,33 @@ class InstallationWizardXHR extends Controller
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function setWebsiteConfigurationXHR(Request $request)
+    public function prepareWebsiteConfigurationXHR(Request $request)
     {
-        $memberPanelUrl = $request->request->get('member-prefix');
-        $customerPanelUrl = $request->request->get('customer-prefix');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        // unset($_SESSION['USER_DETAILS']);
+
+        $_SESSION['PREFIXES_DETAILS'] = [
+            'member' => $request->request->get('member-prefix'),
+            'customer' => $request->request->get('customer-prefix'),
+        ];
+
+        return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
+    }
+
+    public function updateWebsiteConfigurationXHR(Request $request)
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $website_prefixes = [
+            'member_prefix' => $_SESSION['PREFIXES_DETAILS']['member'],
+            'customer_prefix' => $_SESSION['PREFIXES_DETAILS']['customer'],
+        ];
+
         $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
         
         // get file content and index
@@ -321,17 +344,16 @@ class InstallationWizardXHR extends Controller
 
         // save updated data in a variable ($updatedFileContent)
         $updatedFileContent = $file;
-        $updatedPrefixForMember = (null !== $member_panel_line) ? substr($member_panel_text, 0, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: ')) . $memberPanelUrl . PHP_EOL: '';
-        $updatedPrefixForCustomer = (null !== $customer_panel_line) ? substr($customer_panel_text, 0, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: ')) . $customerPanelUrl . PHP_EOL : '';
+        $updatedPrefixForMember = (null !== $member_panel_line) ? substr($member_panel_text, 0, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: ')) . $website_prefixes['member_prefix'] . PHP_EOL: '';
+        $updatedPrefixForCustomer = (null !== $customer_panel_line) ? substr($customer_panel_text, 0, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: ')) . $website_prefixes['customer_prefix'] . PHP_EOL : '';
 
         $updatedFileContent[$member_panel_line] = $updatedPrefixForMember;
         $updatedFileContent[$customer_panel_line] = $updatedPrefixForCustomer;
 
         // flush updated content in file
         file_put_contents($filePath, $updatedFileContent);
-        $result['status'] = true;
 
-        return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
+        return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function getWebsiteConfigurationXHR(Request $request)
