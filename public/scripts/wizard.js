@@ -254,6 +254,17 @@
                         }
                     }
                 }
+
+                let user = {
+                    name: this.$el.find('input[name="name"]').val(),
+                    email: this.$el.find('input[name="email"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    confirmPassword: this.$el.find('input[name="confirm_password"]').val(),
+                };
+
+                if (!errorFlag && (user.name == null || user.name =="") || (user.email == null || user.email =="") || (user.password == null || user.password =="") ||  (user.confirmPassword == null || user.confirmPassword ==""))
+                    errorFlag = true;
+
                 
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
@@ -326,16 +337,28 @@
             validateForm: _.debounce(function(event) {
                 let errorFlag = false;
                 let mandatoryFieldsCollection = ['serverName', 'username', 'password', 'database'];
+                let selectedElement = this.$el.find(event.target).parent();
+                selectedElement.find('.wizard-form-notice') ? selectedElement.find('.wizard-form-notice').remove() : '';
 
                 if (mandatoryFieldsCollection.indexOf(event.target.name) != -1) {
-                    let selectedElement = this.$el.find(event.target).parent();
-                    selectedElement.find('.wizard-form-notice') ? selectedElement.find('.wizard-form-notice').remove() : '';
                     if (event.target.value == null || event.target.value == "") {
                         errorFlag = true;
                         selectedElement.find('.wizard-form-notice')
                         selectedElement.append("<span class='wizard-form-notice'>This field is mandatory</span>");
                     }
                 }
+
+                let credentials = {
+                    hostname: this.$el.find('input[name="serverName"]').val(),
+                    port: this.$el.find('input[name="port"]').val(),
+                    username: this.$el.find('input[name="username"]').val(),
+                    password: this.$el.find('input[name="password"]').val(),
+                    database: this.$el.find('input[name="database"]').val(),
+                };
+
+
+                if (!errorFlag && (credentials.hostname == null || credentials.hostname == "" || (credentials.username == null || credentials.username == "") || (credentials.password == null || credentials.password == "") || (credentials.database == null || credentials.database == "")))
+                    errorFlag = true;
 
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();

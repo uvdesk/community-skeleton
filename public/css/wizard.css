@@ -261,7 +261,6 @@ ul.button-groups > li:last-child {
 
 .uv-mandatory {
     color: red;
-    font-size: 25px;
-    padding-left: 8px;
-    vertical-align: middle;
+    font-size: 16px;
+    vertical-align: text-bottom;
 }
