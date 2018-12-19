@@ -217,43 +217,8 @@
             },
             validateForm: _.debounce(function(event) {
                 let errorFlag = false;
-                let emailRegEX = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-
-                let mandatoryFieldsCollection = ['name', 'email', 'password', 'confirm_password'];
-
-                if (mandatoryFieldsCollection.indexOf(event.target.name) != -1) {
-                    let selectedElement = this.$el.find(event.target).parent();
-                    selectedElement.find('.wizard-form-notice') ? selectedElement.find('.wizard-form-notice').remove() : '';
-
-                    enteredField = event.target.name;
-                    enteredValue = event.target.value;
-                    if (enteredValue == null || enteredValue == "") {
-                        errorFlag = true;
-                        selectedElement.find('.wizard-form-notice')
-                        selectedElement.append("<span class='wizard-form-notice'>This field is mandatory</span>");
-                    }
-
-                    if (!errorFlag && enteredField == "email") {
-                        if (!emailRegEX.test(enteredValue)) {
-                            errorFlag = true;
-                            selectedElement.append("<span class='wizard-form-notice'>Invalid Email</span>")
-                        }
-                    }
-
-                    if (!errorFlag && enteredField == "password") {
-                        if (enteredValue.length < 8) {
-                            errorFlag = true;
-                            selectedElement.append("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
-                        }
-                    }
-
-                    if (!errorFlag && enteredField == "confirm_password") {
-                        if (enteredValue != this.$el.find('input[name="password"]').val()) {
-                            errorFlag = true;
-                            selectedElement.append("<span class='wizard-form-notice'>Password does not match.</span>")
-                        }
-                    }
-                }
+                let nameRegex = /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/;
+                let emailRegex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
                 let user = {
                     name: this.$el.find('input[name="name"]').val(),
@@ -262,15 +227,50 @@
                     confirmPassword: this.$el.find('input[name="confirm_password"]').val(),
                 };
 
+                let selectedElement = this.$el.find(event.target).parent();
+                this.$el.find('.wizard-form-notice') ? this.$el.find('.wizard-form-notice').remove() : '';
+
+                enteredField = event.target.name;
+                enteredValue = event.target.value;
+                if (enteredValue == null || enteredValue == "") {
+                    errorFlag = true;
+                    selectedElement.find('.wizard-form-notice')
+                    selectedElement.append("<span class='wizard-form-notice'>This field is mandatory</span>");
+                }
+
+                if (!errorFlag && user.name) {
+                    if (!nameRegex.test(user.name)) {
+                        errorFlag = true;
+                        this.$el.find('input[name="name"]').parent().append("<span class='wizard-form-notice'>Invalid Name</span>")
+                    }
+                }
+
+                if (!errorFlag && user.email !== "") {
+                    if (!emailRegex.test(user.email)) {
+                        errorFlag = true;
+                        this.$el.find('input[name="email"]').parent().append("<span class='wizard-form-notice'>Invalid Email</span>")
+                    }
+                }
+
+                if (!errorFlag && enteredField == "password") {
+                    if (enteredValue.length < 8) {
+                        errorFlag = true;
+                        selectedElement.append("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
+                    }
+                }
+
+                if (!errorFlag && enteredField == "confirm_password") {
+                    if (enteredValue != this.$el.find('input[name="password"]').val()) {
+                        errorFlag = true;
+                        selectedElement.append("<span class='wizard-form-notice'>Password does not match.</span>")
+                    }
+                }
+
                 if (!errorFlag && (user.name == null || user.name =="") || (user.email == null || user.email =="") || (user.password == null || user.password =="") ||  (user.confirmPassword == null || user.confirmPassword ==""))
                     errorFlag = true;
 
-                
-                if (false == errorFlag) {
-                    this.wizard.enableNextStep();
-                } else {
-                    this.wizard.disableNextStep();
-                }
+
+                !errorFlag ? this.wizard.enableNextStep() : this.wizard.disableNextStep();
             }, 400),
         });
     
