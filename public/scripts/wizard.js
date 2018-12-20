@@ -252,18 +252,14 @@
                     }
                 }
 
-                if (!errorFlag && enteredField == "password") {
-                    if (enteredValue.length < 8) {
-                        errorFlag = true;
-                        selectedElement.append("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
-                    }
+                if (user.password.length > 0 && user.password.length < 8) {
+                    errorFlag = true;
+                    this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
                 }
 
-                if (!errorFlag && enteredField == "confirm_password") {
-                    if (enteredValue != this.$el.find('input[name="password"]').val()) {
-                        errorFlag = true;
-                        selectedElement.append("<span class='wizard-form-notice'>Password does not match.</span>")
-                    }
+                if (user.confirmPassword.length > 0 && user.confirmPassword != user.password) {
+                    errorFlag = true;
+                    this.$el.find('input[name="confirm_password"]').parent().append("<span class='wizard-form-notice'>Password does not match.</span>")
                 }
 
                 if (!errorFlag && (user.name == null || user.name =="") || (user.email == null || user.email =="") || (user.password == null || user.password =="") ||  (user.confirmPassword == null || user.confirmPassword ==""))
@@ -681,4 +677,4 @@
         var router = new Router();
         Backbone.history.start({ push_state: true });
     });
-})(jQuery);
+}) (jQuery);
