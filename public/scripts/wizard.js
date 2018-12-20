@@ -23,7 +23,6 @@
 
                 // Generator to make ajax request one by one
                 let generator = function* () {
-            
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-configurations' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
                     yield $.post('/setup/xhr/load/configurations');
@@ -42,6 +41,10 @@
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'create-super-user' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
                     yield $.post('/setup/xhr/load/super-user');
+
+                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-website-prefixes' }));
+                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
+                    yield $.post('/setup/xhr/load/website-configure');
                     
                     self.redirectToWelcomePage();
                 };
@@ -56,7 +59,6 @@
                     }
                 }
                 handle(gen.next());
-
             },
             redirectToWelcomePage: function () {
                 this.$el.html(this.installation_successfull_template({member:this.wizard.prefix.member}));
@@ -81,7 +83,7 @@
                 var wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
 
-                $.post('/setup/xhr/load/website-configure', this.get('urlCollection'), (response) => {
+                $.post('/setup/xhr/website-configure', this.get('urlCollection'), (response) => {
                     if (typeof response.status != 'undefined' && true === response.status) {
                         wizard.prefix.member = "/en/" + this.get('urlCollection')['member-prefix'] + "/login";
                         callback(wizard);
@@ -213,9 +215,10 @@
                 this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });
                 this.$el.html(this.account_settings_template(this.model.attributes));
             },
-            validateForm: _.debounce(function(e) {
+            validateForm: _.debounce(function(event) {
                 let errorFlag = false;
-                let emailRegEX = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                let nameRegex = /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/;
+                let emailRegex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
 
                 let user = {
                     name: this.$el.find('input[name="name"]').val(),
@@ -224,48 +227,46 @@
                     confirmPassword: this.$el.find('input[name="confirm_password"]').val(),
                 };
 
-                this.$el.find('.form-content .wizard-form-notice').remove();
+                let selectedElement = this.$el.find(event.target).parent();
+                this.$el.find('.wizard-form-notice') ? this.$el.find('.wizard-form-notice').remove() : '';
 
-                if (user.name == null || user.name =="") {
+                enteredField = event.target.name;
+                enteredValue = event.target.value;
+                if (enteredValue == null || enteredValue == "") {
                     errorFlag = true;
-                    this.$el.find('.form-content input[name="name"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-
-                if (!errorFlag && (user.email == null || user.email =="")) {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-
-                if (!errorFlag && !emailRegEX.test(user.email)) {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="email"]').after("<span class='wizard-form-notice'>Invalid Email</span>")
+                    selectedElement.find('.wizard-form-notice')
+                    selectedElement.append("<span class='wizard-form-notice'>This field is mandatory</span>");
                 }
 
-                if (!errorFlag && (user.password == null || user.password =="")) {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                if (!errorFlag && user.name) {
+                    if (!nameRegex.test(user.name)) {
+                        errorFlag = true;
+                        this.$el.find('input[name="name"]').parent().append("<span class='wizard-form-notice'>Invalid Name</span>")
+                    }
                 }
 
-                if (!errorFlag && (user.password.length < 8)) {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="password"]').after("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
+                if (!errorFlag && user.email !== "") {
+                    if (!emailRegex.test(user.email)) {
+                        errorFlag = true;
+                        this.$el.find('input[name="email"]').parent().append("<span class='wizard-form-notice'>Invalid Email</span>")
+                    }
                 }
 
-                if (!errorFlag && (user.confirmPassword == null || user.confirmPassword =="")) {
+                if (user.password.length > 0 && user.password.length < 8) {
                     errorFlag = true;
-                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                    this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
                 }
 
-                if (!errorFlag && (user.confirmPassword != user.password)) {
+                if (user.confirmPassword.length > 0 && user.confirmPassword != user.password) {
                     errorFlag = true;
-                    this.$el.find('.form-content input[name="confirm_password"]').after("<span class='wizard-form-notice'>This Password does not matched </span>")
+                    this.$el.find('input[name="confirm_password"]').parent().append("<span class='wizard-form-notice'>Password does not match.</span>")
                 }
-                
-                if (false == errorFlag) {
-                    this.wizard.enableNextStep();
-                } else {
-                    this.wizard.disableNextStep();
-                }
+
+                if (!errorFlag && (user.name == null || user.name =="") || (user.email == null || user.email =="") || (user.password == null || user.password =="") ||  (user.confirmPassword == null || user.confirmPassword ==""))
+                    errorFlag = true;
+
+
+                !errorFlag ? this.wizard.enableNextStep() : this.wizard.disableNextStep();
             }, 400),
         });
     
@@ -329,8 +330,20 @@
                 // Render Database Configuration View
                 this.$el.html(this.database_configuration_template(this.model.attributes));
             },
-            validateForm: _.debounce(function(e) {
+            validateForm: _.debounce(function(event) {
                 let errorFlag = false;
+                let mandatoryFieldsCollection = ['serverName', 'username', 'password', 'database'];
+                let selectedElement = this.$el.find(event.target).parent();
+                selectedElement.find('.wizard-form-notice') ? selectedElement.find('.wizard-form-notice').remove() : '';
+
+                if (mandatoryFieldsCollection.indexOf(event.target.name) != -1) {
+                    if (event.target.value == null || event.target.value == "") {
+                        errorFlag = true;
+                        selectedElement.find('.wizard-form-notice')
+                        selectedElement.append("<span class='wizard-form-notice'>This field is mandatory</span>");
+                    }
+                }
+
                 let credentials = {
                     hostname: this.$el.find('input[name="serverName"]').val(),
                     port: this.$el.find('input[name="port"]').val(),
@@ -339,27 +352,9 @@
                     database: this.$el.find('input[name="database"]').val(),
                 };
 
-                this.$el.find('.form-content .wizard-form-notice').remove();
 
-                if (credentials.hostname == null || credentials.hostname == "") {
+                if (!errorFlag && (credentials.hostname == null || credentials.hostname == "" || (credentials.username == null || credentials.username == "") || (credentials.password == null || credentials.password == "") || (credentials.database == null || credentials.database == "")))
                     errorFlag = true;
-                    this.$el.find('.form-content input[name="hostname"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>");
-                }
-                
-                if (credentials.username == null || credentials.username == "") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="username"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-                
-                if (credentials.password == null || credentials.password == "") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="password"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
-                
-                if (credentials.database == null || credentials.database == "") {
-                    errorFlag = true;
-                    this.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>This field is mandatory</span>")
-                }
 
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
@@ -682,4 +677,4 @@
         var router = new Router();
         Backbone.history.start({ push_state: true });
     });
-})(jQuery);
+}) (jQuery);

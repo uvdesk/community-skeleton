@@ -108,7 +108,7 @@
 
                 <form name="wizardForm-ConfigureDatabase" class="database-integration" method="post">
                     <div class="form-field">
-                        <label class="form-label">Server</label>
+                        <label class="form-label">Server<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="serverName" type="text" value="<%- credentials.serverName %>" placeholder="127.0.0.1" />
                             <p class="wizard-form-info">Server name of the database (where it is hosted).</p>
@@ -124,7 +124,7 @@
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Username</label>
+                        <label class="form-label">Username<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="username" type="text" value="<%- credentials.username %>" placeholder="root" />
                             <p class="wizard-form-info">Username to use when connecting to the database.</p>
@@ -132,7 +132,7 @@
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Password</label>
+                        <label class="form-label">Password<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="password" type="password" value="" placeholder="" />
                             <p class="wizard-form-info">Password to use when connecting to the database.</p>
@@ -140,7 +140,7 @@
                     </div>
 
                     <div class="form-field">
-                        <label class="form-label">Database</label>
+                        <label class="form-label">Database<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="database" type="text" value="<%- credentials.database %>" placeholder="" />
                             <p class="wizard-form-info">Name of the database/schema to connect to.</p>
@@ -159,7 +159,7 @@
 
                 <form name="wizardForm-ConfigureAccount" method="post" class="ConfigureAccount">
                     <div class="form-field">
-                        <label class="form-label">Name</label>
+                        <label class="form-label">Name<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="name" type="text" value="<%- user.name %>"  id="name" placeholder="Name" />
                             <p class="wizard-form-info">Name of the user to be created.</p>
@@ -167,7 +167,7 @@
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Email</label>
+                        <label class="form-label">Email<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="email" type="text" value="<%- user.email %>" placeholder="Email" />
                             <p class="wizard-form-info">Email of the user to be created.</p>
@@ -175,7 +175,7 @@
                     </div>
                     
                     <div class="form-field">
-                        <label class="form-label">Password</label>
+                        <label class="form-label">Password<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="password" type="password" value="<%- user.password %>" id="password" placeholder="Password" />
                             <p class="wizard-form-info">Password to use when authenticating user.</p>
@@ -183,7 +183,7 @@
                     </div>
 
                     <div class="form-field">
-                        <label class="form-label">Confirm Password</label>
+                        <label class="form-label">Confirm Password<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="confirm_password" type="password" value="<%- user.confirmPassword %>" id="confirm_password" placeholder="Confirm Password" />
                             <p class="wizard-form-info">Confirm the entered user password.</p>
@@ -198,13 +198,13 @@
                 <h2>4: Website Configuration</h2>
                  <form name="wizardForm-ConfigureWebsite" method="post" action="">
                     <div class="form-field">
-                        <label class="form-label">Member Panel Prefix</label>
+                        <label class="form-label">Member Panel Prefix<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="memeberUrlPrefix" type="text" value="<%- member_panel_url %>" placeholder="member" class="form-content"/>
                         </div>
                     </div>
                     <div class="form-field">
-                        <label class="form-label">Customer Panel Prefix</label>
+                        <label class="form-label">Customer Panel Prefix<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="customerUrlPrefix" type="text" value="<%- customer_panel_url %>" placeholder="customer" class="form-content"/>
                         </div>
@@ -230,13 +230,15 @@
 
         <script id="installationWizard-InstallSetupTemplate-ProcessingItem" type="text/template">
             <% if (currentStep == 'load-configurations') { %>
-                <p><span class="installation-progress-loader"></span>[Step 1/4] Updating configurations..<span class="blink-text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 1/5] Updating configurations..<span class="blink-text">.</span></p>
             <% } else if (currentStep == 'load-migrations') { %>
-                <p><span class="installation-progress-loader"></span>[Step 2/4] Migrating database to latest schema version..<span class="blink-text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 2/5] Migrating database to latest schema version..<span class="blink-text">.</span></p>
             <% } else if (currentStep == 'populate-datasets') { %>
-                <p><span class="installation-progress-loader"></span>[Step 3/4] Populating database with default datasets..<span class="blink-text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 3/5] Populating database with default datasets..<span class="blink-text">.</span></p>
             <% } else if (currentStep == 'create-super-user') { %>
-                <p><span class="installation-progress-loader"></span>[Step 4/4] Creating super admin account..<span class="blink-text">.</span></p>
+                <p><span class="installation-progress-loader"></span>[Step 4/5] Creating super admin account..<span class="blink-text">.</span></p>
+            <% } else if (currentStep == 'load-website-prefixes') { %>
+                <p><span class="installation-progress-loader"></span>[Step 5/5] Loading website prefixes..<span class="blink-text">.</span></p>
             <% } %>
             
             <p>Please wait while your helpdesk is being installed. This could take up to a few minutes.</p>
