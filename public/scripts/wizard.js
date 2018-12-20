@@ -102,7 +102,7 @@
             el: '#wizardSetup',
             wizard: undefined,
             events: {
-                "keyup .form-content input" : "validateForm",
+                "keyup #wizard-configureWebsite .form-content input" : "validateForm",
             },
             model: UVDeskCommunityWebsiteConfigurationModel,
             wizard_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
@@ -205,7 +205,7 @@
             wizard: undefined,
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
-                "keyup .form-content input" : "validateForm",
+                "keyup #wizard-configureAccount .form-content input" : "validateForm",
             },
             initialize: function(params) {
                 let self = this;
@@ -319,7 +319,7 @@
             wizard: undefined,
             database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
             events: {
-                "keyup .form-content input" : "validateForm",
+                "keyup #wizard-configureDatabase .form-content input" : "validateForm",
             },
             initialize: function(params) {
                 let self = this;
