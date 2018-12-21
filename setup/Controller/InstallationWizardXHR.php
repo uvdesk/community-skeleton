@@ -277,7 +277,7 @@ class InstallationWizardXHR extends Controller
 
                 $user
                     ->setFirstName($username[0])
-                    ->setLastName(!empty($username[1]) ? $username[1] : null)
+                    ->setLastName(!empty($username[1]) ? $username[1] : '')
                     ->setPassword($encodedPassword)
                     ->setIsEnabled(true);
                 
