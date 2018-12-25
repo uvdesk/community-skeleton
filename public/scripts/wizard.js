@@ -498,7 +498,7 @@
                     this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
                 } else {
-                    if (true === this.model.get('php-version').status) {
+                    if (true === this.model.get('php-extensions').status) {
                         this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_success_template());
                         this.reference_nodes.extension.find('label').html(this.model.get('php-extensions').message);
                     } else {
