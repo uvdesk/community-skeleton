@@ -301,20 +301,50 @@ class InstallationWizardXHR extends Controller
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function prepareWebsiteConfigurationXHR(Request $request)
+    public function websiteConfigurationXHR(Request $request)
     {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
+        if ($request->getMethod() == "GET") {
+            $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
         
-        // unset($_SESSION['USER_DETAILS']);
+            // get file content and index
+            $file = file($filePath);
 
-        $_SESSION['PREFIXES_DETAILS'] = [
-            'member' => $request->request->get('member-prefix'),
-            'customer' => $request->request->get('customer-prefix'),
-        ];
+            foreach ($file as $index => $content) {
+                if (false !== strpos($content, 'uvdesk_site_path.member_prefix')) {
+                    list($member_panel_line, $member_panel_text) = array($index, $content);
+                }
+    
+                if (false !== strpos($content, 'uvdesk_site_path.knowledgebase_customer_prefix')) {
+                    list($customer_panel_line, $customer_panel_text) = array($index, $content);
+                }
+            }
 
-        return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
+            $memberPrefix = substr($member_panel_text, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: '));
+            $customerPrefix = substr($customer_panel_text, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: '));
+
+            $result = [
+                'status' => true,
+                'memberPrefix' => trim(preg_replace('/\s\s+/', ' ', $memberPrefix)),
+                'customerPrefix' => trim(preg_replace('/\s\s+/', ' ', $customerPrefix)),
+            ];
+
+            return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
+        } else if ($request->getMethod() == "POST") {
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            
+            // unset($_SESSION['USER_DETAILS']);
+    
+            $_SESSION['PREFIXES_DETAILS'] = [
+                'member' => $request->request->get('member-prefix'),
+                'customer' => $request->request->get('customer-prefix'),
+            ];
+
+            $result = json_encode(['status' => true]);
+        }
+
+        return new Response($result, 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function updateWebsiteConfigurationXHR(Request $request)
@@ -354,17 +384,6 @@ class InstallationWizardXHR extends Controller
         file_put_contents($filePath, $updatedFileContent);
 
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
-    }
-
-    public function getWebsiteConfigurationXHR(Request $request)
-    {
-        $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
-        $file_content_array = $this->getYamlContentAsArray($filePath);
-        
-        $result['member_prefix'] = $file_content_array['parameters']['uvdesk_member_routing_prefix'];
-        $result['customer_prefix'] = $file_content_array['parameters']['uvdesk_support_center_routing_prefix'];
-
-        return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     private function getYamlContentAsArray ($filePath)

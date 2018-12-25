@@ -73,6 +73,27 @@
             initialize: function (attributes) {
                 this.view = attributes.view;
             },
+            getDefaultAttributes: function () {
+                // function to fetch current saved prefixes and will update values of defaults
+                let self = this;
+
+                return new Promise ((resolve, reject) => {
+                    $.get('/setup/xhr/website-configure', (response) => {
+                        if (typeof response.status != 'undefined' && true === response.status) {
+                            self.defaults['member_panel_url'] = response.memberPrefix;
+                            self.defaults['customer_panel_url'] = response.customerPrefix;
+                            resolve();
+                        } else {
+                            wizard.disableNextStep();
+                        }
+                    }).fail(function(error) {
+                        reject(error);
+                        wizard.disableNextStep();
+                    }).always(function() {
+                        wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
+                    });
+                });
+            },
             isProcedureCompleted: function (callback) {
                 var self = this;
                 this.set('urlCollection', {
@@ -115,7 +136,10 @@
                 this.wizard.enableNextStep();
                 this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: self });
 
-                this.$el.html(this.wizard_website_configuration(this.model.attributes));
+                // function getDefaultAttributes will fetch current prefixes
+                this.model.getDefaultAttributes().then(() => {
+                    self.$el.html(self.wizard_website_configuration(self.model.defaults));
+                });
             },
             validateForm: _.debounce(function (event) {
                 let errorFlag = false;
@@ -498,7 +522,7 @@
                     this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
                 } else {
-                    if (true === this.model.get('php-version').status) {
+                    if (true === this.model.get('php-extensions').status) {
                         this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_success_template());
                         this.reference_nodes.extension.find('label').html(this.model.get('php-extensions').message);
                     } else {
