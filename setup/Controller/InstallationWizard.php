@@ -9,7 +9,7 @@ class InstallationWizard extends Controller
 {
     const HELPDESK_VERSION = '0.2.0 DEV';
 
-    public function loadWizard($_locale)
+    public function loadWizard()
     {
         return $this->render('installation-wizard/index.html.twig', [
             'version' => self::HELPDESK_VERSION,

@@ -1,6 +1,7 @@
 uvdesk_setup_wizard_routing_resources:
+    prefix:   /
     resource: "../../setup/Resources/config/setup.yaml"
-    requirements:
-        _locale: %app_locales%
-    defaults:
-        _locale: %locale%
+
+uvdesk_setup_wizard_xhr_routing_resources:
+    prefix:   /wizard/
+    resource: "../../setup/Resources/config/process.yaml"
