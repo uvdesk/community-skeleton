@@ -124,6 +124,9 @@
             wizard: undefined,
             events: {
                 "keyup #wizard-configureWebsite .form-content input" : "validateForm",
+                "click #wizardCTA-IterateInstallation" : function () {
+                    console.log('called');
+                }
             },
             model: UVDeskCommunityWebsiteConfigurationModel,
             wizard_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
@@ -180,6 +183,10 @@
 
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
+                    if (event.keyCode == 13) {
+                        let button = document.getElementById('wizardCTA-IterateInstallation');
+                        button ? button.click() : '';
+                    }
                 } else {
                     this.wizard.disableNextStep();
                 }
@@ -290,7 +297,15 @@
                     errorFlag = true;
 
 
-                !errorFlag ? this.wizard.enableNextStep() : this.wizard.disableNextStep();
+                if (!errorFlag) {
+                    this.wizard.enableNextStep();
+                    if (event.keyCode == 13) {
+                        let button = document.getElementById('wizardCTA-IterateInstallation');
+                        button ? button.click() : '';
+                    }
+                } else
+                    this.wizard.disableNextStep();
+
             }, 400),
         });
     
@@ -382,6 +397,10 @@
 
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
+                    if (event.keyCode == 13) {
+                        let button = document.getElementById('wizardCTA-IterateInstallation');
+                        button ? button.click() : '';
+                    }
                 } else {
                     this.wizard.disableNextStep();
                 }
