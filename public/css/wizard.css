@@ -1,0 +1,266 @@
+/* Community Style Rules */
+body {
+    color: #24292e;
+    width: 100%;
+    max-width: 1440px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    line-height: 1.4em;
+}
+
+.brand-theme {
+    color: #8b6bfa;
+}
+
+.blink-text {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Wizard Header */
+.wizard-header {
+    text-align: center;
+    padding: 20px 40px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.wizard-header .uvdesk-logo {
+    width: 58px;
+    line-height: 1em;
+    overflow: hidden;
+    margin: 0px auto 10px;
+}
+
+.wizard-header h1 {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.4em;
+}
+
+.wizard-header .line-break {
+    height: 1px;
+    width: 40px;
+    background: #b5b5b5;
+    margin: 10px auto 20px;
+}
+
+/* Wizard Container */
+.wizard-container {
+    padding: 40px;
+}
+
+.wizard-container h2 {
+    color: #333333;
+    font-size: 24px;
+    font-weight: 400;
+    text-align: left;
+    text-decoration: underline;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.wizard-container .line-break {
+    height: 1px;
+    background: #b5b5b5;
+    margin: 30px 0px 40px;
+}
+
+.wizard-container form {
+    text-align: left;
+}
+
+.wizard-container form .form-label {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+    position: relative;
+    top: 8px;
+}
+
+.wizard-container form .form-content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.wizard-container form .wizard-form-info {
+    display: block;
+    font-size: 14px;
+    color: #6F6F6F !important;
+}
+
+.wizard-container form .wizard-form-notice {
+    display: block;
+    font-size: 14px;
+    color: #FF5656 !important;
+}
+
+.wizard-container form input {
+    width: 300px;
+    height: 36px;
+    border: solid 1px #B1B1AE;
+    border-radius: 3px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0px 10px;
+    font-size: 15px;
+    color: #333333;
+    margin-bottom: 6px;
+}
+
+.wizard-container form .form-field {
+    margin-bottom: 20px;
+}
+
+.wizard-container form .form-field:last-child {
+    margin-bottom: unset;
+}
+
+ul.button-groups {
+    list-style: none;
+}
+
+ul.button-groups > li {
+    line-height: 1em;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 20px;
+}
+
+ul.button-groups > li:last-child {
+    margin-right: unset;
+}
+
+.wizard-button {
+    color: #24292e;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 10px 14px;
+    border: 1px solid #24292e;
+    border-radius: 4px;
+    background: white;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color linear 0.2s, background-color linear 0.2s;
+}
+
+.wizard-button:hover {
+    color: white;
+    background: #24292e;
+    transition: color linear 0.2s, background-color linear 0.2s;
+}
+
+.wizard-button.button-theme-setup {
+    color: #2ED04C;
+    border: 1px solid #2ED04C;
+}
+
+.wizard-button.button-theme-neutral {
+    color: #24292e;
+    border: 1px solid #24292e;
+}
+
+.wizard-button.button-theme-uvdesk {
+    color: #7C70F4;
+    border: 1px solid #7C70F4;
+}
+
+.wizard-button.solid.button-theme-setup, .wizard-button.button-theme-setup:hover {
+    color: white;
+    background: #2ED04C;
+}
+
+.wizard-button.solid.button-theme-neutral, .wizard-button.button-theme-neutral:hover {
+    color: white;
+    background: #24292e;
+}
+
+.wizard-button.solid.button-theme-uvdesk, .wizard-button.button-theme-uvdesk:default {
+    color: white;
+    background: #7C70F4;
+}
+
+.wizard-button[disabled="disabled"] {
+    cursor: not-allowed;
+    background: #B1B1AE !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    border: 1px solid #B1B1AE;
+}
+
+.wizard-svg-icon-criteria-checklist {
+    width: 1em;
+    height: 1.4em;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 6px;
+}
+
+.wizard-svg-icon-criteria-checklist svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wizard-svg-icon-criteria-checklist svg rect {
+    fill: #9161ff;
+}
+
+/* Wizard Installation */
+#start-installation, #wizard-finalizeInstall {
+    width: 60%;
+    text-align: center;
+    margin: 0px auto;
+}
+
+#start-installation ul.button-groups, #wizard-finalizeInstall ul.button-groups {
+    margin-top: 20px;
+}
+
+.wizard-container .criteria-checklist, .wizard-container .database-integration {
+    margin: 0px 0px 30px;
+}
+
+.wizard-container .criteria-checklist li {
+    margin-bottom: 10px;
+}
+
+#wizardSetupNavigation button .processing-request, #wizard-finalizeInstall .installation-progress-loader {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    margin-right: 4px;
+}
+
+#wizardSetupNavigation button .processing-request path {
+    fill: white;
+}
+
+#wizardSetupNavigation button .processing-request path:first-child {
+    opacity: 0.6;
+}
+
+#wizardSetupComplete {
+    width: 60%;
+    text-align: center;
+    margin: 0px auto;
+}
+
+#wizardSetupComplete svg {
+    margin-bottom: 20px;
+}
+
+.uv-mandatory {
+    color: red;
+    font-size: 16px;
+    vertical-align: text-bottom;
+}

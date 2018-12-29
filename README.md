@@ -18,16 +18,28 @@ The standard distribution comes pre-configured with the following bundles:
 Installation
 --------------
 
-Before creating your UVDesk Community project, make sure that you're using PHP 7 or higher and have [Composer][6] installed. You also need to ensure that you have the following PHP extensions installed:
+Before creating your UVDesk Community project, make sure that you're using PHP 7 or higher and have [Composer][8] installed. You also need to ensure that you have the following PHP extensions installed:
 
-  * [PHP IMAP][7]
-  * [PHP Mailparse][8]
+  * [PHP IMAP][6]
+  * [PHP Mailparse][7]
 
 To create your project, run the following command:
 
 ```bash
-$ composer create-project uvdesk/community-skeleton:^0.1-dev helpdesk-project
+$ composer create-project uvdesk/community-skeleton helpdesk-project --stability dev
 ```
+
+After creating your project, you can setup the project in the following ways:
+
+**Via Terminal**
+
+```bash
+$ php bin/console uvdesk:configure-helpdesk
+```
+
+**Via Web Installer**
+
+After opening your project in the web browser, navigate to /setup/, where you will be greeted by the web installer to guide you in setting up your project.
 
 About Us
 --------------
