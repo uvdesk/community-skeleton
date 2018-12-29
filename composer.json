@@ -33,7 +33,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "0.2.x-dev"
+            "dev-master": "0.1.x-dev"
         }
     },
     "scripts": {
