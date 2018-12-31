@@ -124,9 +124,6 @@
             wizard: undefined,
             events: {
                 "keyup #wizard-configureWebsite .form-content input" : "validateForm",
-                "click #wizardCTA-IterateInstallation" : function () {
-                    console.log('called');
-                }
             },
             model: UVDeskCommunityWebsiteConfigurationModel,
             wizard_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
