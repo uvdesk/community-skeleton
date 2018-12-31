@@ -303,48 +303,48 @@ class InstallationWizardXHR extends Controller
 
     public function websiteConfigurationXHR(Request $request)
     {
-        if ($request->getMethod() == "GET") {
-            $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
-        
-            // get file content and index
-            $file = file($filePath);
-
-            foreach ($file as $index => $content) {
-                if (false !== strpos($content, 'uvdesk_site_path.member_prefix')) {
-                    list($member_panel_line, $member_panel_text) = array($index, $content);
-                }
-    
-                if (false !== strpos($content, 'uvdesk_site_path.knowledgebase_customer_prefix')) {
-                    list($customer_panel_line, $customer_panel_text) = array($index, $content);
-                }
-            }
-
-            $memberPrefix = substr($member_panel_text, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: '));
-            $customerPrefix = substr($customer_panel_text, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: '));
-
-            $result = [
-                'status' => true,
-                'memberPrefix' => trim(preg_replace('/\s\s+/', ' ', $memberPrefix)),
-                'customerPrefix' => trim(preg_replace('/\s\s+/', ' ', $customerPrefix)),
-            ];
-
-            return new Response(json_encode($result), 200, self::DEFAULT_JSON_HEADERS);
-        } else if ($request->getMethod() == "POST") {
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
+        switch ($request->getMethod()) {
+            case "GET":
+                $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
             
-            // unset($_SESSION['USER_DETAILS']);
-    
-            $_SESSION['PREFIXES_DETAILS'] = [
-                'member' => $request->request->get('member-prefix'),
-                'customer' => $request->request->get('customer-prefix'),
-            ];
+                // get file content and index
+                $file = file($filePath);
+                foreach ($file as $index => $content) {
+                    if (false !== strpos($content, 'uvdesk_site_path.member_prefix')) {
+                        list($member_panel_line, $member_panel_text) = array($index, $content);
+                    }
+        
+                    if (false !== strpos($content, 'uvdesk_site_path.knowledgebase_customer_prefix')) {
+                        list($customer_panel_line, $customer_panel_text) = array($index, $content);
+                    }
+                }
 
-            $result = json_encode(['status' => true]);
+                $memberPrefix = substr($member_panel_text, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: '));
+                $customerPrefix = substr($customer_panel_text, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: '));
+
+                $result = [
+                    'status' => true,
+                    'memberPrefix' => trim(preg_replace('/\s\s+/', ' ', $memberPrefix)),
+                    'customerPrefix' => trim(preg_replace('/\s\s+/', ' ', $customerPrefix)),
+                ];
+                break;
+            case "POST":
+                if (session_status() == PHP_SESSION_NONE) {
+                    session_start();
+                }
+                
+                $_SESSION['PREFIXES_DETAILS'] = [
+                    'member' => $request->request->get('member-prefix'),
+                    'customer' => $request->request->get('customer-prefix'),
+                ];
+
+                $result = ['status' => true];
+                break;
+            default:
+                break;
         }
 
-        return new Response($result, 200, self::DEFAULT_JSON_HEADERS);
+        return new Response(json_encode($result ?? []), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function updateWebsiteConfigurationXHR(Request $request)
