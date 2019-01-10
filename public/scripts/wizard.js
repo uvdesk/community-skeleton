@@ -440,7 +440,7 @@
                     specification: 'php-version',
                 };
 
-                $.post('/wizard/xhr/check-requirements', postData, function (response) {
+                $.post('./wizard/xhr/check-requirements', postData, function (response) {
                     self.set('php-version', response);
                 }).fail(function(response) {
                     self.set('php-version', {
@@ -458,7 +458,7 @@
                     specification: 'php-extensions',
                 };
 
-                $.post('/wizard/xhr/check-requirements', postData, function (response) {
+                $.post('./wizard/xhr/check-requirements', postData, function (response) {
                     self.set('php-extensions', response);
                 }).fail(function() {
                     self.set('php-extensions', {
