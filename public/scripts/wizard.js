@@ -25,26 +25,26 @@
                 let generator = function* () {
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-configurations' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('/wizard/xhr/load/configurations');
+                    yield $.post('./wizard/xhr/load/configurations');
                     
 
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-migrations' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('/wizard/xhr/load/migrations');
+                    yield $.post('./wizard/xhr/load/migrations');
     
 
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'populate-datasets' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('/wizard/xhr/load/entities');
+                    yield $.post('./wizard/xhr/load/entities');
                     
 
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'create-super-user' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('/wizard/xhr/load/super-user');
+                    yield $.post('./wizard/xhr/load/super-user');
 
                     self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-website-prefixes' }));
                     self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('/wizard/xhr/load/website-configure');
+                    yield $.post('./wizard/xhr/load/website-configure');
                     
                     self.redirectToWelcomePage();
                 };
@@ -78,7 +78,7 @@
                 let self = this;
 
                 return new Promise ((resolve, reject) => {
-                    $.get('/wizard/xhr/website-configure', (response) => {
+                    $.get('./wizard/xhr/website-configure', (response) => {
                         if (typeof response.status != 'undefined' && true === response.status) {
                             self.defaults['member_panel_url'] = response.memberPrefix;
                             self.defaults['customer_panel_url'] = response.customerPrefix;
@@ -104,7 +104,7 @@
                 var wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
 
-                $.post('/wizard/xhr/website-configure', this.get('urlCollection'), (response) => {
+                $.post('./wizard/xhr/website-configure', this.get('urlCollection'), (response) => {
                     if (typeof response.status != 'undefined' && true === response.status) {
                         wizard.prefix.member = "/en/" + this.get('urlCollection')['member-prefix'] + "/login";
                         callback(wizard);
@@ -214,7 +214,7 @@
                 let wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
                 
-                $.post('/wizard/xhr/intermediary/super-user', this.get('user'), function (response) {
+                $.post('./wizard/xhr/intermediary/super-user', this.get('user'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(wizard);
                     } else {
@@ -337,7 +337,7 @@
                 let wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
 
-                $.post('/wizard/xhr/verify-database-credentials', this.get('credentials'), function (response) {
+                $.post('./wizard/xhr/verify-database-credentials', this.get('credentials'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(wizard);
                     } else {
