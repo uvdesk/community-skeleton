@@ -353,8 +353,9 @@ class InstallationWizardXHR extends Controller
             session_start();
         }
 
+        $newMemberPrefix = $_SESSION['PREFIXES_DETAILS']['member'];
         $website_prefixes = [
-            'member_prefix' => $_SESSION['PREFIXES_DETAILS']['member'],
+            'member_prefix' => $newMemberPrefix,
             'customer_prefix' => $_SESSION['PREFIXES_DETAILS']['customer'],
         ];
 
@@ -374,6 +375,11 @@ class InstallationWizardXHR extends Controller
 
         // save updated data in a variable ($updatedFileContent)
         $updatedFileContent = $file;
+
+        // get old member-prefix
+        $oldMemberPrefix = substr($member_panel_text, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: '));
+        $oldMemberPrefix = preg_replace('/([\r\n\t])/','', $oldMemberPrefix);
+
         $updatedPrefixForMember = (null !== $member_panel_line) ? substr($member_panel_text, 0, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: ')) . $website_prefixes['member_prefix'] . PHP_EOL: '';
         $updatedPrefixForCustomer = (null !== $customer_panel_line) ? substr($customer_panel_text, 0, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: ')) . $website_prefixes['customer_prefix'] . PHP_EOL : '';
 
@@ -383,19 +389,17 @@ class InstallationWizardXHR extends Controller
         // flush updated content in file
         file_put_contents($filePath, $updatedFileContent);
 
-        return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
-    }
+        $router = $this->container->get('router');
+        $knowledgebaseURL = $router->generate('helpdesk_knowledgebase');
+        $memberLoginURL = $router->generate('helpdesk_member_handle_login');
+        $memberLoginURL = str_replace($oldMemberPrefix, $newMemberPrefix, $memberLoginURL);
 
-    private function getYamlContentAsArray ($filePath)
-    {
-        // Fetch existing content in file
-        $file_content = '';
-        if ($fh = fopen($filePath, 'r')) {
-            while (!feof($fh)) {
-                $file_content = $file_content.fgets($fh);
-            }
-        }
-        // Convert yaml file content into array and merge existing mailbox and new mailbox
-        return Yaml::parse($file_content, 6);
+        $collectionURL = [
+            'task' => 'updateURL',
+            'memberLogin' => $memberLoginURL,
+            'knowledgebase' => $knowledgebaseURL,
+        ];
+
+        return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
     }
 }
