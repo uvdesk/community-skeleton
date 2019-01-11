@@ -53,7 +53,11 @@
 
                 let handle = yielded => {
                     if (!yielded.done) {
-                        yielded.value.then(() => {
+                        yielded.value.then(response => {
+                            if (response.task == "updateURL") {
+                                self.wizard.prefix.member = response.memberLogin;
+                                self.wizard.prefix.knowledgebase = response.knowledgebase;
+                            }
                             handle(gen.next());
                         })
                     }
@@ -61,7 +65,7 @@
                 handle(gen.next());
             },
             redirectToWelcomePage: function () {
-                this.$el.html(this.installation_successfull_template({member:this.wizard.prefix.member}));
+                this.$el.html(this.installation_successfull_template({prefixCollecton:this.wizard.prefix}));
             },
         });
 
@@ -106,7 +110,6 @@
 
                 $.post('./wizard/xhr/website-configure', this.get('urlCollection'), (response) => {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        wizard.prefix.member = "/en/" + this.get('urlCollection')['member-prefix'] + "/login";
                         callback(wizard);
                     } else {
                         wizard.disableNextStep();
@@ -562,7 +565,8 @@
                 content: undefined,
             },
             prefix: {
-                member: 'member'
+                member: '/en/member/login',
+                knowledgebase: '/en'
             },
             activeSetupProcedure: undefined,
             wizard_icons_success_template: _.template($("#wizardIcons-SuccessTemplate").html()),
