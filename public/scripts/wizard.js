@@ -610,6 +610,12 @@
                 'click #wizardCTA-CancelInstallation': function() {
                     this.router.navigate('welcome', { trigger: true });
                 },
+                'click #wizard-RemoveSection': function () {
+                    let result = confirm("Are you sure about removing web installer");
+                    if (result) {
+                        $.get('./wizard/xhr/remove/installer');
+                    }
+                }
             },
             timeline: [
                 {

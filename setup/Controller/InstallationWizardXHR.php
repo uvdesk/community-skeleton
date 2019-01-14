@@ -402,4 +402,44 @@ class InstallationWizardXHR extends Controller
 
         return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
     }
+
+    public function removeInstallerConfigurationXHR()
+    {
+        $fileName = dirname(__File__, 3) . '/config/routes/uvdesk_support_center.yaml';
+        $file = file($fileName);
+
+        $updatedFileContent = $file;
+        if ($file) {
+            $fileEndingIndex = sizeof($file);
+
+            foreach ($updatedFileContent as $index => $fileContent) {
+                $isRouteExist = strpos($updatedFileContent[$index], 'uvdesk_support_center_bundle_use_locale:');
+
+                if ($isRouteExist !== false) {
+                    $isRouteExist = true;
+                    break;
+                }
+            }
+
+            if (!$isRouteExist) {
+                $contentToAdd = [
+                    PHP_EOL,
+                    'uvdesk_support_center_bundle_use_locale:' . PHP_EOL,
+                    '    path:     /' . PHP_EOL,
+                    '    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction' . PHP_EOL,
+                    '    defaults:' . PHP_EOL,
+                    '        path: /en/' . PHP_EOL,
+                    '        permanent: true' . PHP_EOL,
+                ];
+    
+                foreach ($contentToAdd as $index => $content) {
+                    $updatedFileContent[$fileEndingIndex + $index] = $content;
+                }
+                $isFileUpdated = file_put_contents($fileName, $updatedFileContent);
+            }
+
+        }
+
+        return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+    }
 }

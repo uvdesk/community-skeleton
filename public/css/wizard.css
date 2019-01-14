@@ -264,3 +264,14 @@ ul.button-groups > li:last-child {
     font-size: 16px;
     vertical-align: text-bottom;
 }
+
+.uv-next-step {
+    margin-top: 35px;
+}
+
+.uv-next-step h1 {
+    font-size: 2em;
+    font-weight: bold;
+    line-height: 1.4em;
+    color: #8b6bfa;
+}
