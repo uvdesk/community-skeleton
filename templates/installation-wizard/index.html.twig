@@ -73,6 +73,7 @@
             <div class="line-break"></div>
             <ul id="wizardSetupNavigation" class="button-groups" style="text-align: right;">
                 <li><button id="wizardCTA-CancelInstallation" class="wizard-button solid button-theme-uvdesk"><span>Cancel<span></button></li>
+                <li><button id="wizardCTA-IterateBackward" class="wizard-button solid button-theme-uvdesk"><span>Back<span></button></li>
                 <li><button id="wizardCTA-IterateInstallation" class="wizard-button solid button-theme-uvdesk"><span>Proceed<span></button></li>
             </div>
         </script>
@@ -177,7 +178,7 @@
                     <div class="form-field">
                         <label class="form-label">Password<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
-                            <input name="password" type="password" value="<%- user.password %>" id="password" placeholder="Password" />
+                            <input name="password" type="password" id="password" placeholder="Password" />
                             <p class="wizard-form-info">Password to use when authenticating user.</p>
                         </div>
                     </div>
