@@ -93,8 +93,6 @@
                     }).fail(function(error) {
                         reject(error);
                         wizard.disableNextStep();
-                    }).always(function() {
-                        wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
                     });
                 });
             },
