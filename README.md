@@ -15,7 +15,7 @@ The standard distribution comes pre-configured with the following bundles:
 
   * [**UVDeskSupportCenterBundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
 
-Installation -
+Installation
 --------------
 
 Before creating your UVDesk Community project, make sure that you're using PHP 7 or higher and have [Composer][8] installed. You also need to ensure that you have the following PHP extensions installed:

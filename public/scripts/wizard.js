@@ -93,8 +93,6 @@
                     }).fail(function(error) {
                         reject(error);
                         wizard.disableNextStep();
-                    }).always(function() {
-                        wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
                     });
                 });
             },
@@ -110,7 +108,7 @@
 
                 $.post('./wizard/xhr/website-configure', this.get('urlCollection'), (response) => {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        callback(wizard);
+                        callback(self.view);
                     } else {
                         wizard.disableNextStep();
                     }
@@ -137,7 +135,11 @@
                 
                 // default enabled button
                 this.wizard.enableNextStep();
-                this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: self });
+                if (params.existingModel instanceof UVDeskCommunityWebsiteConfigurationModel) {
+                    this.model = params.existingModel;
+                } else {
+                    this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: this });
+                }
 
                 // function getDefaultAttributes will fetch current prefixes
                 this.model.getDefaultAttributes().then(() => {
@@ -219,11 +221,11 @@
                 
                 $.post('./wizard/xhr/intermediary/super-user', this.get('user'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        callback(wizard);
+                        callback(this.view);
                     } else {
                         wizard.disableNextStep();
                     }
-                }).fail(function(response) {
+                }.bind(this)).fail(function(response) {
                     wizard.disableNextStep();
                 }).always(function() {
                     wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
@@ -233,18 +235,21 @@
 
         var UVDeskCommunityAccountConfigurationView = Backbone.View.extend({
             el: '#wizardSetup',
-            model: UVDeskCommunityAccountConfigurationModel,
+            model: undefined,
             wizard: undefined,
             account_settings_template: _.template($("#installationWizard-AccountConfigurationTemplate").html()),
             events: {
                 "keyup #wizard-configureAccount .form-content input" : "validateForm",
             },
             initialize: function(params) {
-                let self = this;
-                Backbone.Validation.bind(self);
-                
                 this.wizard = params.wizard;
-                this.model = new UVDeskCommunityAccountConfigurationModel({ view: self });
+                if (params.existingModel instanceof UVDeskCommunityAccountConfigurationModel) {
+                    this.model = params.existingModel;
+                } else {
+                    this.model = new UVDeskCommunityAccountConfigurationModel({ view: this });
+                }
+                            
+                Backbone.Validation.bind(this);
                 this.$el.html(this.account_settings_template(this.model.attributes));
             },
             validateForm: _.debounce(function(event) {
@@ -336,18 +341,17 @@
                     database: this.view.$el.find('input[name="database"]').val(),
                 });
 
-                var self = this;
                 let wizard = this.view.wizard;
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
 
                 $.post('./wizard/xhr/verify-database-credentials', this.get('credentials'), function (response) {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        callback(wizard);
+                        callback(this.view);
                     } else {
-                        self.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
+                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
-                }).fail(function(response) {
+                }.bind(this)).fail(function(response) {
                     wizard.disableNextStep();
                 }).always(function() {
                     wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
@@ -364,10 +368,13 @@
                 "keyup #wizard-configureDatabase .form-content input" : "validateForm",
             },
             initialize: function(params) {
-                let self = this;
+                if (params.existingModel instanceof UVDeskCommunityDatabaseConfigurationModel) {
+                    this.model = params.existingModel;
+                } else {
+                    this.model = new UVDeskCommunityDatabaseConfigurationModel({ view: this });
+                }
 
                 this.wizard = params.wizard;
-                this.model = new UVDeskCommunityDatabaseConfigurationModel({ view: self });
 
                 // Render Database Configuration View
                 this.$el.html(this.database_configuration_template(this.model.attributes));
@@ -434,44 +441,42 @@
             },
             isProcedureCompleted: function (callback) {
                 if (this.get('verified')) {
-                    callback(this.view.wizard);
+                    callback(this.view);
                 }
             },
             checkPHP: function() {
-                let self = this;
                 let postData = {
                     specification: 'php-version',
                 };
 
                 $.post('./wizard/xhr/check-requirements', postData, function (response) {
-                    self.set('php-version', response);
-                }).fail(function(response) {
-                    self.set('php-version', {
+                    this.set('php-version', response);
+                }.bind(this)).fail(function() {
+                    this.set('php-version', {
                         status: false,
                         message: 'An unexpected error occurred during the PHP version verification process.',
                     });
-                }).always(function() {
-                    self.view.renderPHPVersion();
-                    self.evaluateOverallRequirements();
-                });
+                }.bind(this)).always(function() {
+                    this.view.renderPHPVersion();
+                    this.evaluateOverallRequirements();
+                }.bind(this));
             },
             evaluatePHPExtensions: function() {
-                let self = this;
                 let postData = {
                     specification: 'php-extensions',
                 };
 
                 $.post('./wizard/xhr/check-requirements', postData, function (response) {
-                    self.set('php-extensions', response);
-                }).fail(function() {
-                    self.set('php-extensions', {
+                    this.set('php-extensions', response);
+                }.bind(this)).fail(function() {
+                    this.set('php-extensions', {
                         status: false,
                         message: 'An unexpected error occurred while examining your system for missing extensions.',
                     });
-                }).always(function() {
-                    self.view.renderPHPExtensionsCriteria();
-                    self.evaluateOverallRequirements();
-                });;
+                }.bind(this)).always(function() {
+                    this.view.renderPHPExtensionsCriteria();
+                    this.evaluateOverallRequirements();
+                }.bind(this));
             },
             evaluateOverallRequirements: function() {
                 if (false == this.get('php-version').status) {
@@ -584,10 +589,14 @@
                 },
                 'click #wizardCTA-IterateInstallation': function() {
                     if (typeof(this.activeSetupProcedure) != 'undefined') {
-                        this.activeSetupProcedure.model.isProcedureCompleted(function (wizard) {
+                        this.activeSetupProcedure.model.isProcedureCompleted(function ({wizard, model}) {
                             let activeInstanceIndex = undefined;
 
                             wizard.timeline.every(function (instance, index) {
+                                if (instance.isActive) {
+                                    instance.model = model;
+                                }
+
                                 if (false == instance.isActive) {
                                     return true;
                                 }
@@ -604,12 +613,24 @@
                                     wizard.router.navigate(wizard.timeline[activeInstanceIndex + 1].path, { trigger: true });
                                 }
                             }
-                        });
+                        }.bind(this));
                     }
                 },
                 'click #wizardCTA-CancelInstallation': function() {
                     this.router.navigate('welcome', { trigger: true });
                 },
+                'click #wizardCTA-IterateBackward': function() {
+                    let self = this;
+
+                    this.timeline.filter((values, index) => {
+                        if (values.isActive && self.timeline[index - 1]) {
+                            self.timeline[index].isActive = false;
+                            self.router.navigate(self.timeline[index - 1].path, { trigger: true });
+                        } else if (values.isActive && !self.timeline[index - 1]) {
+                            this.router.navigate('welcome', { trigger: true });
+                        }
+                    });
+                }
             },
             timeline: [
                 {
@@ -617,24 +638,28 @@
                     isChecked: false,
                     path: 'check-requirements',
                     view: UVDeskCommunitySystemRequirementsView,
+                    model: UVDeskCommunitySystemRequirementsModel
                 },
                 {
                     isActive: false,
                     isChecked: false,
                     path: 'configure-database',
                     view: UVDeskCommunityDatabaseConfigurationView,
+                    model: UVDeskCommunityDatabaseConfigurationModel
                 },
                 {
                     isActive: false,
                     isChecked: false,
                     path: 'create-admin',
                     view: UVDeskCommunityAccountConfigurationView,
+                    model: UVDeskCommunityAccountConfigurationModel
                 },
                 {
                     isActive: false,
                     isChecked: false,
                     path: 'website-prefixes',
                     view: UVDeskCommunityWebsiteConfigurationView,
+                    model: UVDeskCommunityWebsiteConfigurationModel
                 },
                 {
                     isActive: false,
@@ -665,38 +690,32 @@
                     if (!this.enabled) {
                         this.router.navigate('welcome', { trigger: true });
                     } else {
-                        let self = this;
-    
                         this.timeline.every(function (installationStep, index) {
                             if (iteration == installationStep.path && typeof installationStep.view != 'undefined') {
-                                self.timeline[index].isActive = true;
-                                self.renderWizardInstallationStep(installationStep.view);
+                                this.timeline[index].isActive = true;
+                                this.renderWizardInstallationStep(installationStep);
 
                                 return false;
                             } else if (installationStep.isChecked) {
-                                self.timeline[index].isActive = false;
+                                this.timeline[index].isActive = false;
 
                                 return true;
                             }
 
-                            self.router.navigate('welcome', { trigger: true });
+                            this.router.navigate('welcome', { trigger: true });
                             return false;
-                        });
+                        }.bind(this));
                     }
                 }
             },
             renderWizard: function() {
-                let self = this;
-
-                this.reference_nodes.header.html(self.wizard_default_header_template());
-                this.reference_nodes.content.html(self.wizard_default_content_template());
+                this.reference_nodes.header.html(this.wizard_default_header_template());
+                this.reference_nodes.content.html(this.wizard_default_content_template());
             },
-            renderWizardInstallationStep: function(InstallationWizardTemplateView) {
-                let self = this;
-
+            renderWizardInstallationStep: function({view: InstallationWizardTemplateView, model: InstallationWizardTemplateModel}) {
                 this.disableNextStep();
                 this.reference_nodes.content.find('#wizardSetup').empty();
-                this.activeSetupProcedure = new InstallationWizardTemplateView({ wizard: self });
+                this.activeSetupProcedure = new InstallationWizardTemplateView({ wizard: this, existingModel: InstallationWizardTemplateModel});
             },
             enableNextStep: function() {
                 this.$el.find('#wizardCTA-IterateInstallation').removeAttr('disabled');
@@ -706,23 +725,21 @@
             },
         });
 
-        Router = Backbone.Router.extend({
+        var Router = Backbone.Router.extend({
             wizard: undefined,
             routes: {
                 ':installationStep': 'iterateInstallationProcedure',
             },
             initialize: function() {
-                let self = this;
-
                 // Initialize installation wizard
-                this.wizard = new UVDeskCommunityInstallationWizardView({ router: self });
+                this.wizard = new UVDeskCommunityInstallationWizardView({ router: this });
             },
             iterateInstallationProcedure: function(installationStep) {
                 this.wizard.iterateInstallationSteps(installationStep);
             },
         });
     
-        var router = new Router();
+        new Router();
         Backbone.history.start({ push_state: true });
     });
 }) (jQuery);
