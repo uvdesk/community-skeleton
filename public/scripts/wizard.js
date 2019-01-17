@@ -135,8 +135,11 @@
                 
                 // default enabled button
                 this.wizard.enableNextStep();
-                this.model = params.existingModel instanceof UVDeskCommunityWebsiteConfigurationModel ?
-                            params.existingModel : new UVDeskCommunityWebsiteConfigurationModel({ view: this });
+                if (params.existingModel instanceof UVDeskCommunityWebsiteConfigurationModel) {
+                    this.model = params.existingModel;
+                } else {
+                    this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: this });
+                }
 
                 // function getDefaultAttributes will fetch current prefixes
                 this.model.getDefaultAttributes().then(() => {
@@ -240,13 +243,13 @@
             },
             initialize: function(params) {
                 this.wizard = params.wizard;
-
-                this.model = params.existingModel instanceof UVDeskCommunityAccountConfigurationModel ?
-                            params.existingModel : new UVDeskCommunityAccountConfigurationModel({ view: this });
+                if (params.existingModel instanceof UVDeskCommunityAccountConfigurationModel) {
+                    this.model = params.existingModel;
+                } else {
+                    this.model = new UVDeskCommunityAccountConfigurationModel({ view: this });
+                }
                             
                 Backbone.Validation.bind(this);
-
-
                 this.$el.html(this.account_settings_template(this.model.attributes));
             },
             validateForm: _.debounce(function(event) {
@@ -365,8 +368,11 @@
                 "keyup #wizard-configureDatabase .form-content input" : "validateForm",
             },
             initialize: function(params) {
-                this.model = params.existingModel instanceof UVDeskCommunityDatabaseConfigurationModel ?
-                    params.existingModel : new UVDeskCommunityDatabaseConfigurationModel({ view: this });
+                if (params.existingModel instanceof UVDeskCommunityDatabaseConfigurationModel) {
+                    this.model = params.existingModel;
+                } else {
+                    this.model = new UVDeskCommunityDatabaseConfigurationModel({ view: this });
+                }
 
                 this.wizard = params.wizard;
 
@@ -587,8 +593,9 @@
                             let activeInstanceIndex = undefined;
 
                             wizard.timeline.every(function (instance, index) {
-                                if (instance.isActive)
+                                if (instance.isActive) {
                                     instance.model = model;
+                                }
 
                                 if (false == instance.isActive) {
                                     return true;
