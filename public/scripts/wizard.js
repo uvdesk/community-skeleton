@@ -19,50 +19,36 @@
                 this.updateConfigurations();
             },
             updateConfigurations: function () {
-                let self = this;
-
-                // Generator to make ajax request one by one
-                let generator = function* () {
-                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-configurations' }));
-                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('./wizard/xhr/load/configurations');
+                // execute next commands after arrival of network request's response
+                (async () => {
+                    this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
+                    this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+                    await $.post('./wizard/xhr/load/configurations');
                     
 
-                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-migrations' }));
-                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('./wizard/xhr/load/migrations');
+                    this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-migrations' }));
+                    this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+                    await $.post('./wizard/xhr/load/migrations');
     
 
-                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'populate-datasets' }));
-                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('./wizard/xhr/load/entities');
+                    this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'populate-datasets' }));
+                    this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+                    await $.post('./wizard/xhr/load/entities');
                     
 
-                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'create-super-user' }));
-                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('./wizard/xhr/load/super-user');
+                    this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'create-super-user' }));
+                    this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+                    await $.post('./wizard/xhr/load/super-user');
 
-                    self.$el.find('#wizard-finalizeInstall').html(self.installation_process_template({ currentStep: 'load-website-prefixes' }));
-                    self.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(self.wizard.wizard_icons_loader_template());
-                    yield $.post('./wizard/xhr/load/website-configure');
+                    this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-website-prefixes' }));
+                    this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
+                    let websiteRoutes = await $.post('./wizard/xhr/load/website-configure');
+
+                    this.wizard.prefix.member = websiteRoutes.memberLogin;
+                    this.wizard.prefix.knowledgebase = websiteRoutes.knowledgebase;
                     
-                    self.redirectToWelcomePage();
-                };
-
-                let gen = generator();
-
-                let handle = yielded => {
-                    if (!yielded.done) {
-                        yielded.value.then(response => {
-                            if (response.task == "updateURL") {
-                                self.wizard.prefix.member = response.memberLogin;
-                                self.wizard.prefix.knowledgebase = response.knowledgebase;
-                            }
-                            handle(gen.next());
-                        })
-                    }
-                }
-                handle(gen.next());
+                    this.redirectToWelcomePage();
+                })();
             },
             redirectToWelcomePage: function () {
                 this.$el.html(this.installation_successfull_template({prefixCollecton:this.wizard.prefix}));
@@ -79,13 +65,11 @@
             },
             getDefaultAttributes: function () {
                 // function to fetch current saved prefixes and will update values of defaults
-                let self = this;
-
                 return new Promise ((resolve, reject) => {
                     $.get('./wizard/xhr/website-configure', (response) => {
                         if (typeof response.status != 'undefined' && true === response.status) {
-                            self.defaults['member_panel_url'] = response.memberPrefix;
-                            self.defaults['customer_panel_url'] = response.customerPrefix;
+                            this.defaults['member_panel_url'] = response.memberPrefix;
+                            this.defaults['customer_panel_url'] = response.customerPrefix;
                             resolve();
                         } else {
                             wizard.disableNextStep();
@@ -97,7 +81,6 @@
                 });
             },
             isProcedureCompleted: function (callback) {
-                var self = this;
                 this.set('urlCollection', {
                     'member-prefix': this.view.$el.find('input[name="memeberUrlPrefix"]').val(),
                     'customer-prefix': this.view.$el.find('input[name="customerUrlPrefix"]').val(),
@@ -108,11 +91,11 @@
 
                 $.post('./wizard/xhr/website-configure', this.get('urlCollection'), (response) => {
                     if (typeof response.status != 'undefined' && true === response.status) {
-                        callback(self.view);
+                        callback(this.view);
                     } else {
                         wizard.disableNextStep();
                     }
-                }).fail(function(response) {
+                }).fail(function() {
                     wizard.disableNextStep();
                 }).always(function() {
                     wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation .processing-request').remove();
@@ -129,8 +112,6 @@
             model: UVDeskCommunityWebsiteConfigurationModel,
             wizard_website_configuration: _.template($("#installationWizard-WebsiteConfigurationTemplate").html()),
             initialize: function(params) {
-                let self = this;
-                
                 this.wizard = params.wizard;
                 
                 // default enabled button
@@ -143,7 +124,7 @@
 
                 // function getDefaultAttributes will fetch current prefixes
                 this.model.getDefaultAttributes().then(() => {
-                    self.$el.html(self.wizard_website_configuration(self.model.defaults));
+                    this.$el.html(this.wizard_website_configuration(this.model.defaults));
                 });
             },
             validateForm: _.debounce(function (event) {
@@ -335,7 +316,7 @@
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
                     serverName: this.view.$el.find('input[name="serverName"]').val(),
-                    port: this.view.$el.find('input[name="port"]').val(),
+                    serverPort: this.view.$el.find('input[name="port"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
                     database: this.view.$el.find('input[name="database"]').val(),
@@ -510,10 +491,8 @@
             wizard_system_requirements_php_ver_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPVersion").html()),
             wizard_system_requirements_php_ext_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPExtensions").html()),
             initialize: function(params) {
-                let self = this;
-
                 this.wizard = params.wizard;
-                this.model = new UVDeskCommunitySystemRequirementsModel({ view: self });
+                this.model = new UVDeskCommunitySystemRequirementsModel({ view: this });
 
                 // Render Initial Template
                 this.$el.html(this.wizard_system_requirements_template());
@@ -620,13 +599,11 @@
                     this.router.navigate('welcome', { trigger: true });
                 },
                 'click #wizardCTA-IterateBackward': function() {
-                    let self = this;
-
                     this.timeline.filter((values, index) => {
-                        if (values.isActive && self.timeline[index - 1]) {
-                            self.timeline[index].isActive = false;
-                            self.router.navigate(self.timeline[index - 1].path, { trigger: true });
-                        } else if (values.isActive && !self.timeline[index - 1]) {
+                        if (values.isActive && this.timeline[index - 1]) {
+                            this.timeline[index].isActive = false;
+                            this.router.navigate(this.timeline[index - 1].path, { trigger: true });
+                        } else if (values.isActive && !this.timeline[index - 1]) {
                             this.router.navigate('welcome', { trigger: true });
                         }
                     });
