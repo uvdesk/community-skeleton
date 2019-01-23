@@ -7,12 +7,13 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Webkul\UVDesk\CoreBundle\Entity as CoreEntities;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Webkul\UVDesk\CoreBundle\Console\ConfigureWebsitePrefixes;
 
 class InstallationWizardXHR extends Controller
 {
@@ -347,58 +348,16 @@ class InstallationWizardXHR extends Controller
         return new Response(json_encode($result ?? []), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function updateWebsiteConfigurationXHR(Request $request)
+    public function updateWebsiteConfigurationXHR(Request $request, ConfigureWebsitePrefixes $configureWebsitePrefixes)
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
-        $newMemberPrefix = $_SESSION['PREFIXES_DETAILS']['member'];
-        $website_prefixes = [
-            'member_prefix' => $newMemberPrefix,
-            'customer_prefix' => $_SESSION['PREFIXES_DETAILS']['customer'],
-        ];
-
-        $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
-        
-        // get file content and index
-        $file = file($filePath);
-        foreach ($file as $index => $content) {
-            if (false !== strpos($content, 'uvdesk_site_path.member_prefix')) {
-                list($member_panel_line, $member_panel_text) = array($index, $content);
-            }
-
-            if (false !== strpos($content, 'uvdesk_site_path.knowledgebase_customer_prefix')) {
-                list($customer_panel_line, $customer_panel_text) = array($index, $content);
-            }
-        }
-
-        // save updated data in a variable ($updatedFileContent)
-        $updatedFileContent = $file;
-
-        // get old member-prefix
-        $oldMemberPrefix = substr($member_panel_text, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: '));
-        $oldMemberPrefix = preg_replace('/([\r\n\t])/','', $oldMemberPrefix);
-
-        $updatedPrefixForMember = (null !== $member_panel_line) ? substr($member_panel_text, 0, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: ')) . $website_prefixes['member_prefix'] . PHP_EOL: '';
-        $updatedPrefixForCustomer = (null !== $customer_panel_line) ? substr($customer_panel_text, 0, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: ')) . $website_prefixes['customer_prefix'] . PHP_EOL : '';
-
-        $updatedFileContent[$member_panel_line] = $updatedPrefixForMember;
-        $updatedFileContent[$customer_panel_line] = $updatedPrefixForCustomer;
-
-        // flush updated content in file
-        file_put_contents($filePath, $updatedFileContent);
-
-        $router = $this->container->get('router');
-        $knowledgebaseURL = $router->generate('helpdesk_knowledgebase');
-        $memberLoginURL = $router->generate('helpdesk_member_handle_login');
-        $memberLoginURL = str_replace($oldMemberPrefix, $newMemberPrefix, $memberLoginURL);
-
-        $collectionURL = [
-            'task' => 'updateURL',
-            'memberLogin' => $memberLoginURL,
-            'knowledgebase' => $knowledgebaseURL,
-        ];
+        $collectionURL= $configureWebsitePrefixes->updateWebsitePrefixes(
+            $_SESSION['PREFIXES_DETAILS']['member'],
+            $_SESSION['PREFIXES_DETAILS']['customer']
+        );
 
         return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
     }
