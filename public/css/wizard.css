@@ -2,7 +2,6 @@
 body {
     color: #24292e;
     width: 100%;
-    max-width: 1440px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     font-size: 16px;
     line-height: 1.4em;
@@ -263,4 +262,23 @@ ul.button-groups > li:last-child {
     color: red;
     font-size: 16px;
     vertical-align: text-bottom;
+}
+
+#systemCriteria-PHPExtensions-Details {
+    display: none;
+    margin-left: 30px;
+}
+
+.PHPExtensions-toggle-details {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+#systemCriteria-PHPExtensions-Details .extension_name {
+    font-weight: 700;
+}
+
+.extension-info-container {
+    margin-bottom: 10px;
 }
