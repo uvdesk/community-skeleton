@@ -511,6 +511,7 @@
             wizard_icons_loader_template: _.template($("#wizardIcons-LoaderTemplate").html()),
             wizard_icons_notice_template: _.template($("#wizardIcons-NoticeTemplate").html()),
             wizard_icons_success_template: _.template($("#wizardIcons-SuccessTemplate").html()),
+            wizard_icons_small_notice_template: _.template($("#wizardIcons-SmallNoticeTemplate").html()),            
             wizard_icons_small_success_template: _.template($("#wizardIcons-SmallSuccessTemplate").html()),
             wizard_system_requirements_template: _.template($("#installationWizard-SystemRequirementsTemplate").html()),
             wizard_system_requirements_php_ver_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPVersion").html()),
@@ -566,7 +567,7 @@
                             var currentExtensionIconStatus = this.wizard_icons_small_success_template();
                             var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently active.";
                         } else {
-                            var currentExtensionIconStatus = this.wizard_icons_notice_template();
+                            var currentExtensionIconStatus = this.wizard_icons_small_notice_template();
                             var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently in-active.";
                         }
 
