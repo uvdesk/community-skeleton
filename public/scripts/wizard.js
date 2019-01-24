@@ -408,7 +408,7 @@
                     status: undefined,
                 },
                 'php-extensions': {
-                    status: undefined,
+                    extensions: [],
                 },
             },
             initialize: function (attributes) {
@@ -430,42 +430,53 @@
                     specification: 'php-version',
                 };
 
-                $.post('./wizard/xhr/check-requirements', postData, function (response) {
+                $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-version', response);
-                }.bind(this)).fail(function() {
+                }).fail(() => {
                     this.set('php-version', {
                         status: false,
                         message: 'An unexpected error occurred during the PHP version verification process.',
                     });
-                }.bind(this)).always(function() {
+                }).always(() => {
                     this.view.renderPHPVersion();
                     this.evaluateOverallRequirements();
-                }.bind(this));
+                });
             },
             evaluatePHPExtensions: function() {
                 let postData = {
                     specification: 'php-extensions',
                 };
 
-                $.post('./wizard/xhr/check-requirements', postData, function (response) {
+                $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-extensions', response);
-                }.bind(this)).fail(function() {
+                }).fail(() => {
                     this.set('php-extensions', {
                         status: false,
                         message: 'An unexpected error occurred while examining your system for missing extensions.',
                     });
-                }.bind(this)).always(function() {
+                }).always(() => {
                     this.view.renderPHPExtensionsCriteria();
                     this.evaluateOverallRequirements();
-                }.bind(this));
+                });
             },
             evaluateOverallRequirements: function() {
                 if (false == this.get('php-version').status) {
                     this.set('verified', false);
-                } else if (false == this.get('php-extensions').status) {
-                    this.set('verified', false);
                 } else {
-                    this.set('verified', true);
+                    let extensions = this.get('php-extensions').extensions;
+
+                    let isExtensionError = undefined;
+                    extensions.forEach(extension => {
+                        let currentExtensionName = Object.keys(extension)[0];
+                        if (!extension[currentExtensionName]) {
+                            isExtensionError = true;
+                            this.set('verified', false);
+                        }
+                    });
+
+                    if (!isExtensionError) {
+                        this.set('verified', true);
+                    }
                 }
 
                 if (true === this.get('verified')) {
@@ -480,6 +491,19 @@
             el: '#wizardSetup',
             model: undefined,
             wizard: undefined,
+            events: {
+                "click .PHPExtensions-toggle-details": function () {
+                    // show and hide extension details
+                    this.$el.find('#systemCriteria-PHPExtensions-Details').toggle();
+                    
+                    let detailsActionSpan = this.$el.find('.PHPExtensions-toggle-details');
+                    if (detailsActionSpan.html() == "Show details") {
+                        detailsActionSpan.html("Hide details");
+                    } else {
+                        detailsActionSpan.html("Show details");
+                    }
+                }
+            },
             reference_nodes: {
                 version: undefined,
                 extension: undefined,
@@ -529,13 +553,36 @@
                     this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
                 } else {
-                    if (true === this.model.get('php-extensions').status) {
-                        this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_success_template());
-                        this.reference_nodes.extension.find('label').html(this.model.get('php-extensions').message);
+                    var activeExtensionCount = 0;
+                    var extensionCount = this.model.get('php-extensions').extensions.length;
+
+                    // count the active extensions and set each extension with it's status in the extension list
+                    this.model.get('php-extensions').extensions.forEach(extension => {
+                        let currentExtensionName = Object.keys(extension)[0];
+                        let currentExtensionTemplateInfo = this.reference_nodes.extension.find('#' + currentExtensionName + '-info');
+                        if (extension[currentExtensionName]) {
+                            activeExtensionCount++;
+                            var currentExtensionIconStatus = this.wizard_icons_success_template();
+                            var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently active.";
+                        } else {
+                            var currentExtensionIconStatus = this.wizard_icons_notice_template();
+                            var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently in-active.";
+                        }
+
+                        currentExtensionTemplateInfo.find('.wizard-svg-icon-criteria-checklist').html(currentExtensionIconStatus);
+                        currentExtensionTemplateInfo.find('label').html(currentExtensionTextStatus);
+                    });
+
+                    // set overall response with the count of active extensions
+                    let extension_info = this.$el.find('#systemCriteria-PHPExtensions');
+                    if (activeExtensionCount < extensionCount) {
+                        var overallExtensionStatus = this.wizard_icons_notice_template();
                     } else {
-                        this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_notice_template());
-                        this.reference_nodes.extension.find('label').html(this.model.get('php-extensions').message);
+                        var overallExtensionStatus = this.wizard_icons_success_template();
                     }
+
+                    extension_info.find('.wizard-svg-icon-extension-criteria-checklist').html(overallExtensionStatus);
+                    extension_info.find('.extension-criteria-label').html("You meet " + activeExtensionCount + " out of " + extensionCount + " PHP extensions requirements.");
                 }
             }
         });

@@ -26,15 +26,12 @@ class InstallationWizardXHR extends Controller
     private static $requiredExtensions = [
         [
             'name' => 'imap',
-            'reason' => 'for something important i guess',
         ],
         [
             'name' => 'mailparse',
-            'reason' => 'for something important i guess',
         ],
         [
             'name' => 'mysqli',
-            'reason' => 'for something important i guess',
         ],
     ];
 
@@ -43,34 +40,27 @@ class InstallationWizardXHR extends Controller
         // Evaluate system specification requirements
         switch (strtolower($request->request->get('specification'))) {
             case 'php-version':
-            $response = [
-                'status' => version_compare(phpversion(), '7.0.0', '<') ? false : true,
-                'version' => sprintf('%s.%s.%s', PHP_MAJOR_VERSION, PHP_MINOR_VERSION, PHP_RELEASE_VERSION),
-            ];
+                $response = [
+                    'status' => version_compare(phpversion(), '7.0.0', '<') ? false : true,
+                    'version' => sprintf('%s.%s.%s', PHP_MAJOR_VERSION, PHP_MINOR_VERSION, PHP_RELEASE_VERSION),
+                ];
 
-            if ($response['status']) {
-                $response['message'] = sprintf('Using PHP v%s', $response['version']);
-            } else {
-                $response['message'] = sprintf('Currently using PHP v%s. Please use PHP 7 or greater.', $response['version']);
-            }
-            break;
-            case 'php-extensions':
-                $missingExtensions = array_filter(self::$requiredExtensions, function ($extension) {
-                    return !extension_loaded($extension['name']);
-                });
-
-                if (empty($missingExtensions)) {
-                    $response = [
-                        'status' => true,
-                        'message' => 'All the necessary extensions are currently enabled',
-                    ];
+                if ($response['status']) {
+                    $response['message'] = sprintf('Using PHP v%s', $response['version']);
                 } else {
-                    $response = [
-                        'status' => false,
-                        'extensions' => $missingExtensions,
-                        'message' => "There are extensions that haven't been installed or are currently disabled",
-                    ];
+                    $response['message'] = sprintf('Currently using PHP v%s. Please use PHP 7 or greater.', $response['version']);
                 }
+                break;
+            case 'php-extensions':
+                $extensions_status = array_map(function ($extension) {
+                    return [
+                        $extension['name'] => extension_loaded($extension['name']),
+                    ];
+                }, self::$requiredExtensions);
+
+                $response = [
+                    'extensions' => $extensions_status,
+                ];
                 break;
             default:
                 $code = 404;

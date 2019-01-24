@@ -263,3 +263,22 @@ ul.button-groups > li:last-child {
     font-size: 16px;
     vertical-align: text-bottom;
 }
+
+#systemCriteria-PHPExtensions-Details {
+    display: none;
+    margin-left: 30px;
+}
+
+.PHPExtensions-toggle-details {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+#systemCriteria-PHPExtensions-Details .extension_name {
+    font-weight: 700;
+}
+
+.extension-info-container {
+    margin-bottom: 10px;
+}

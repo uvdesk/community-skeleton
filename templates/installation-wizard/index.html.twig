@@ -83,7 +83,26 @@
         </script>
 
         <script id="installationWizard-SystemRequirementsTemplate-PHPExtensions" type="text/template">
-            <span class="wizard-svg-icon-criteria-checklist"></span><label></label>
+            <div class="extension-info-container">
+                <span class="wizard-svg-icon-extension-criteria-checklist"></span><label class="extension-criteria-label"></label>
+                <span class="PHPExtensions-toggle-details">Show details</span>
+            </div>
+            <ul id="systemCriteria-PHPExtensions-Details">
+                <li id="imap-info" class="fetching-details">
+                    <span class="wizard-svg-icon-criteria-checklist"></span>
+                    <label id="imap-label"></label>
+                </li>
+
+                <li id="mailparse-info" class="fetching-details">
+                    <span class="wizard-svg-icon-criteria-checklist"></span>
+                    <label id="mailparse-label"></label>
+                </li>
+
+                <li id="mysqli-info" class="fetching-details">
+                    <span class="wizard-svg-icon-criteria-checklist"></span>
+                    <label id="mysqli-label"></label>
+                </li>
+            </ul>
         </script>
 
         <script id="installationWizard-SystemRequirementsTemplate" type="text/template">
