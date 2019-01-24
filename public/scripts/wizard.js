@@ -69,7 +69,7 @@
                     $.get('./wizard/xhr/website-configure', (response) => {
                         if (typeof response.status != 'undefined' && true === response.status) {
                             this.defaults['member_panel_url'] = response.memberPrefix;
-                            this.defaults['customer_panel_url'] = response.customerPrefix;
+                            this.defaults['customer_panel_url'] = response.knowledgebasePrefix;
                             resolve();
                         } else {
                             wizard.disableNextStep();

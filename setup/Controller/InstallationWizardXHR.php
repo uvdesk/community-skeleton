@@ -13,7 +13,6 @@ use Symfony\Component\HttpKernel\KernelInterface;
 use Webkul\UVDesk\CoreBundle\Entity as CoreEntities;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Webkul\UVDesk\CoreBundle\Console\ConfigureWebsitePrefixes;
 
 class InstallationWizardXHR extends Controller
 {
@@ -296,28 +295,14 @@ class InstallationWizardXHR extends Controller
     {
         switch ($request->getMethod()) {
             case "GET":
-                $filePath = dirname(__FILE__, 3) . '/config/packages/uvdesk.yaml';
-            
-                // get file content and index
-                $file = file($filePath);
-                foreach ($file as $index => $content) {
-                    if (false !== strpos($content, 'uvdesk_site_path.member_prefix')) {
-                        list($member_panel_line, $member_panel_text) = array($index, $content);
-                    }
-        
-                    if (false !== strpos($content, 'uvdesk_site_path.knowledgebase_customer_prefix')) {
-                        list($customer_panel_line, $customer_panel_text) = array($index, $content);
-                    }
+                $currentWebsitePrefixCollection = $this->get('uvdesk.service')->getCurrentWebsitePrefixes();
+                
+                if ($currentWebsitePrefixCollection) {
+                    $result = $currentWebsitePrefixCollection;
+                    $result['status'] = true;
+                } else {
+                    $result['status'] = false;
                 }
-
-                $memberPrefix = substr($member_panel_text, strpos($member_panel_text, 'uvdesk_site_path.member_prefix') + strlen('uvdesk_site_path.member_prefix: '));
-                $customerPrefix = substr($customer_panel_text, strpos($customer_panel_text, 'uvdesk_site_path.knowledgebase_customer_prefix') + strlen('uvdesk_site_path.knowledgebase_customer_prefix: '));
-
-                $result = [
-                    'status' => true,
-                    'memberPrefix' => trim(preg_replace('/\s\s+/', ' ', $memberPrefix)),
-                    'customerPrefix' => trim(preg_replace('/\s\s+/', ' ', $customerPrefix)),
-                ];
                 break;
             case "POST":
                 if (session_status() == PHP_SESSION_NONE) {
@@ -338,13 +323,13 @@ class InstallationWizardXHR extends Controller
         return new Response(json_encode($result ?? []), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function updateWebsiteConfigurationXHR(Request $request, ConfigureWebsitePrefixes $configureWebsitePrefixes)
+    public function updateWebsiteConfigurationXHR(Request $request)
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
-        $collectionURL= $configureWebsitePrefixes->updateWebsitePrefixes(
+        $collectionURL= $this->get('uvdesk.service')->updateWebsitePrefixes(
             $_SESSION['PREFIXES_DETAILS']['member'],
             $_SESSION['PREFIXES_DETAILS']['customer']
         );
