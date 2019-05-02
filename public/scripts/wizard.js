@@ -23,7 +23,12 @@
                 (async () => {
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/configurations');
+                    await $.post('./wizard/xhr/load/configurations', response => {
+                    }).fail(response => {
+                        if(response.status == 403){
+                            this.$el.find('#error-access-checklist').html('No permission for writing into files Please provide write permission first and then try to install.'); 
+                        }
+                    });
                     
 
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-migrations' }));
