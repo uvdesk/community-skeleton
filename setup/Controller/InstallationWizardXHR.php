@@ -167,7 +167,13 @@ class InstallationWizardXHR extends Controller
                 $updatedFile[$line] = $updatedPath;
             }
 
-            file_put_contents('../.env', $updatedFile);
+           try {    
+                file_put_contents('../.env', $updatedFile);
+            } catch (\Exception $exception) {
+                if (strpos($exception, 'Permission denied') !== false) {
+                    $response->setStatusCode(403);
+                }
+            }
         } else if (file_exists('../config/packages/doctrine.yaml')) {
             $file = file('../config/packages/doctrine.yaml');
             
