@@ -14,6 +14,8 @@ The standard distribution comes pre-configured with the following bundles:
   * [**UVDeskAutomationBundle**][4] - Adds support for workflows and prepared responses to automate any specific operations within your helpdesk system
 
   * [**UVDeskSupportCenterBundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
+  
+  * [**UVDeskMailBoxBundle**][11] - Convert and get all your emails to support tickets on UVDesk and manage customer query easily.
 
 Installation
 --------------
@@ -39,7 +41,7 @@ $ php bin/console uvdesk:configure-helpdesk
 
 **Via Web Installer**
 
-After opening your project in the web browser, navigate to /setup/, where you will be greeted by the web installer to guide you in setting up your project.
+After opening your project in the web browser, where you will be greeted by the web installer to guide you in setting up your project.
 
 About Us
 --------------
@@ -62,3 +64,4 @@ All libraries and bundles included in the UVDesk Community Edition are released 
 [8]: https://getcomposer.org/
 [9]: https://webkul.com/
 [10]: https://www.uvdesk.com/en/team/
+[11]: https://github.com/uvdesk/mailbox-component
