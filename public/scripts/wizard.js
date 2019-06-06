@@ -329,7 +329,12 @@
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(this.view);
                     } else {
-                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
+                        if (document.getElementById("wizard-error-id")) {
+                            var element = document.getElementById("wizard-error-id");
+                            element.parentNode.removeChild(element); 
+                        }
+
+                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }.bind(this)).fail(function(response) {
