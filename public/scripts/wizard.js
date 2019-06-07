@@ -650,11 +650,21 @@
                 'click #wizardCTA-CancelInstallation': function() {
                     this.router.navigate('welcome', { trigger: true });
                 },
-                'click #wizardCTA-IterateBackward': function() {
+                'click #wizardCTA-IterateBackward': function()  {
                     this.timeline.filter((values, index) => {
                         if (values.isActive && this.timeline[index - 1]) {
-                            this.timeline[index].isActive = false;
-                            this.router.navigate(this.timeline[index - 1].path, { trigger: true });
+                            if(this.timeline[index].path == 'configure-database'){
+                                this.timeline[index].isActive = false;
+                                this.enabled = true;
+                                this.reference_nodes.content.empty();
+                                this.reference_nodes.content.html(this.wizard_setup_component_template());
+                                this.router.navigate('check-requirements', { trigger: true }); 
+                                
+                            } else {
+                                this.timeline[index].isActive = false;
+                                this.router.navigate(this.timeline[index - 1].path, { trigger: true });
+                            }
+                              
                         } else if (values.isActive && !this.timeline[index - 1]) {
                             this.router.navigate('welcome', { trigger: true });
                         }
