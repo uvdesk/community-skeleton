@@ -23,26 +23,44 @@
                 (async () => {
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/configurations');
+                    await $.post('./wizard/xhr/load/configurations').fail(response => {
+                        debugger
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
                     
-
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-migrations' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/migrations');
+                    await $.post('./wizard/xhr/load/migrations').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
     
-
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'populate-datasets' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/entities');
+                    await $.post('./wizard/xhr/load/entities').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
                     
-
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'create-super-user' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/super-user');
+                    await $.post('./wizard/xhr/load/super-user').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
 
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-website-prefixes' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    let websiteRoutes = await $.post('./wizard/xhr/load/website-configure');
+                    let websiteRoutes = await $.post('./wizard/xhr/load/website-configure').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
 
                     this.wizard.prefix.member = websiteRoutes.memberLogin;
                     this.wizard.prefix.knowledgebase = websiteRoutes.knowledgebase;

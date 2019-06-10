@@ -2,17 +2,17 @@
 
 namespace Webkul\UVDesk\Setup\Controller;
 
-use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Yaml\Yaml;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Component\HttpKernel\KernelInterface;
-use Webkul\UVDesk\CoreBundle\Entity as CoreEntities;
+use Doctrine\ORM\Tools\Setup;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
+use Webkul\UVDesk\CoreBundle\Entity as CoreEntities;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class InstallationWizardXHR extends Controller
 {
@@ -65,7 +65,7 @@ class InstallationWizardXHR extends Controller
                 $code = 404;
                 break;
         }
-        
+
         return new Response(json_encode($response ?? []), $code ?? 200, self::DEFAULT_JSON_HEADERS);
     }
 
@@ -74,7 +74,7 @@ class InstallationWizardXHR extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        
+
         // unset($_SESSION['DB_CONFIG']);
 
         // Get entity manager
@@ -86,7 +86,7 @@ class InstallationWizardXHR extends Controller
             'password' => $request->request->get('password'),
             'dbname' => $request->request->get('database'),
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
-        
+
         $databaseConnection = $entityManager->getConnection();
         $connectionResponse = [
             'status' => $databaseConnection->isConnected(),
@@ -94,7 +94,7 @@ class InstallationWizardXHR extends Controller
 
         // Try connecting with the database if the connection is not active.
         if (false == $connectionResponse['status']) {
-            try {    
+            try {
                 $databaseConnection->connect();
 
                 $connectionResponse['status'] = true;
@@ -110,7 +110,7 @@ class InstallationWizardXHR extends Controller
                 // Unable to connect with the database - Invalid Credentials.
             }
         }
-        
+
         return new Response(json_encode($connectionResponse), 200, self::DEFAULT_JSON_HEADERS);
     }
 
@@ -119,7 +119,7 @@ class InstallationWizardXHR extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        
+
         // unset($_SESSION['USER_DETAILS']);
 
         $_SESSION['USER_DETAILS'] = [
@@ -138,7 +138,7 @@ class InstallationWizardXHR extends Controller
         }
 
         $response = new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
-        
+
         $db_params = [
             'DB_DRIVER' => 'mysql',
             'DB_HOST' => $_SESSION['DB_CONFIG']['server'],
@@ -146,86 +146,109 @@ class InstallationWizardXHR extends Controller
             'DB_PASSWORD' => $_SESSION['DB_CONFIG']['password'],
             'DB_NAME' => $_SESSION['DB_CONFIG']['database'],
         ];
+        try {
+            if (file_exists('../.env')) {
+                $file = file('../.env');
 
-        if (file_exists('../.env')) {
-            $file = file('../.env');
-
-            foreach ($file as $index => $content) {
-                if (false !== strpos($content, 'DATABASE_URL')) {
-                    list($line, $text) = array($index, $content);
-                    break;
-                }
-            }
-
-            $updatedFile = $file;
-            $databasePath = strtr(self::DB_ENV_PATH_TEMPLATE, $db_params);
-            $updatedPath = (null !== $line) ? substr($text, 0, strpos($text, 'DATABASE_URL')) . $databasePath : $databasePath;
-
-            if ($line === null) {
-                $updatedFile[] = $updatedPath;
-            } else {
-                $updatedFile[$line] = $updatedPath;
-            }
-
-            file_put_contents('../.env', $updatedFile);
-        } else if (file_exists('../config/packages/doctrine.yaml')) {
-            $file = file('../config/packages/doctrine.yaml');
-            
-            foreach ($file as $index => $content) {
-                if (false !== strpos($content, 'env(DATABASE_URL)')) {
-                    list($line, $text) = array($index, $content);
-                    break;
-                }
-            }
-            
-            $databasePath = strtr(self::DB_ENV_PATH_PARAM_TEMPLATE, $db_params);
-            $updatedPath = !empty($line) ? substr($text, 0, strpos($text, 'env(DATABASE_URL)')) . $databasePath : $databasePath;
-
-            if (empty($line)) {
-                $updatedFile = [];
-
-                foreach ($file as $text) {
-                    $updatedFile[] = $text;
-
-                    if (false !== strpos($text, 'parameters:')) {
-                        $updatedFile[] = "\t" . $updatedPath;
+                foreach ($file as $index => $content) {
+                    if (false !== strpos($content, 'DATABASE_URL')) {
+                        list($line, $text) = array($index, $content);
+                        break;
                     }
                 }
-            } else {
+
                 $updatedFile = $file;
-                $updatedFile[$line] = $updatedPath;
+                $databasePath = strtr(self::DB_ENV_PATH_TEMPLATE, $db_params);
+                $updatedPath = (null !== $line) ? substr($text, 0, strpos($text, 'DATABASE_URL')) . $databasePath : $databasePath;
+
+                if ($line === null) {
+                    $updatedFile[] = $updatedPath;
+                } else {
+                    $updatedFile[$line] = $updatedPath;
+                }
+
+                file_put_contents('../.env', $updatedFile);
+            } else if (file_exists('../config/packages/doctrine.yaml')) {
+                $file = file('../config/packages/doctrine.yaml');
+
+                foreach ($file as $index => $content) {
+                    if (false !== strpos($content, 'env(DATABASE_URL)')) {
+                        list($line, $text) = array($index, $content);
+                        break;
+                    }
+                }
+
+                $databasePath = strtr(self::DB_ENV_PATH_PARAM_TEMPLATE, $db_params);
+                $updatedPath = !empty($line) ? substr($text, 0, strpos($text, 'env(DATABASE_URL)')) . $databasePath : $databasePath;
+
+                if (empty($line)) {
+                    $updatedFile = [];
+
+                    foreach ($file as $text) {
+                        $updatedFile[] = $text;
+
+                        if (false !== strpos($text, 'parameters:')) {
+                            $updatedFile[] = "\t" . $updatedPath;
+                        }
+                    }
+                } else {
+                    $updatedFile = $file;
+                    $updatedFile[$line] = $updatedPath;
+                }
+
+                file_put_contents('../config/packages/doctrine.yaml', $updatedFile);
             }
-
-            file_put_contents('../config/packages/doctrine.yaml', $updatedFile);
-        } else {
-            $response->setStatusCode(500);
+            return new Response(json_encode($response), 200, self::DEFAULT_JSON_HEADERS);
+        } catch (Exception $e) {
+            $response = [
+                'status' => false,
+                'errorMessage' => $e->getMessage(),
+            ];
+            
+            return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
         }
-
-        return $response;
     }
 
     public function migrateDatabaseSchemaXHR(Request $request, KernelInterface $kernel)
     {
-        $application = new Application($kernel);
-        $application->setAutoExit(false);
+        try {
+            $application = new Application($kernel);
+            $application->setAutoExit(false);
 
-        $resultCode = $application->run(new ArrayInput([
-            'command' => 'uvdesk-wizard:migrate-database'
-        ]), new NullOutput());
-        
-        return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+            $resultCode = $application->run(new ArrayInput([
+                'command' => 'uvdesk-wizard:migrate-database',
+            ]), new NullOutput());
+
+            return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+        } catch (Exception $e) {
+            $response = [
+                'status' => false,
+                'errorMessage' => $e->getMessage(),
+            ];
+            return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
+        }
+
     }
 
     public function populateDatabaseEntitiesXHR(Request $request, KernelInterface $kernel)
     {
-        $application = new Application($kernel);
-        $application->setAutoExit(false);
+        try {
+            $application = new Application($kernel);
+            $application->setAutoExit(false);
 
-        $resultCode = $application->run(new ArrayInput([
-            'command' => 'uvdesk-wizard:populate-database'
-        ]), new NullOutput());
+            $resultCode = $application->run(new ArrayInput([
+                'command' => 'uvdesk-wizard:populate-database',
+            ]), new NullOutput());
 
-        return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+            return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+        } catch (Exception $e) {
+            $response = [
+                'status' => false,
+                'errorMessage' => $e->getMessage(),
+            ];
+            return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
+        }
+
     }
 
     public function createDefaultSuperUserXHR(Request $request)
@@ -235,60 +258,67 @@ class InstallationWizardXHR extends Controller
         }
 
         $entityManager = $this->getDoctrine()->getEntityManager();
+        try {
+            $role = $entityManager->getRepository('UVDeskCoreBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
+            $userInstance = $entityManager->getRepository('UVDeskCoreBundle:UserInstance')->findOneBy([
+                'isActive' => true,
+                'supportRole' => $role,
+            ]);
 
-        $role = $entityManager->getRepository('UVDeskCoreBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
-        $userInstance = $entityManager->getRepository('UVDeskCoreBundle:UserInstance')->findOneBy([
-            'isActive' => true,
-            'supportRole' => $role,
-        ]);
-            
-        if (empty($userInstance)) {
-            list($name, $email, $password) = array_values($_SESSION['USER_DETAILS']);
-            // Retrieve existing user or generate new empty user
-            $accountExistsFlag = false;
-            $user = $entityManager->getRepository('UVDeskCoreBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
+            if (empty($userInstance)) {
+                list($name, $email, $password) = array_values($_SESSION['USER_DETAILS']);
+                // Retrieve existing user or generate new empty user
+                $accountExistsFlag = false;
+                $user = $entityManager->getRepository('UVDeskCoreBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
 
-            if ($user->getId() != null) {
-                $userInstance = $user->getAgentInstance();
+                if ($user->getId() != null) {
+                    $userInstance = $user->getAgentInstance();
 
-                if (!empty($userInstance)) {
-                    $accountExistsFlag = true;
+                    if (!empty($userInstance)) {
+                        $accountExistsFlag = true;
 
-                    if ($userInstance->getSupportRole()->getId() != $role->getId()) {
-                        $userInstance->setSupportRole($role);
+                        if ($userInstance->getSupportRole()->getId() != $role->getId()) {
+                            $userInstance->setSupportRole($role);
 
-                        $entityManager->persist($userInstance);
-                        $entityManager->flush();
+                            $entityManager->persist($userInstance);
+                            $entityManager->flush();
+                        }
                     }
+                } else {
+                    $username = explode(' ', $name, 2);
+                    $encodedPassword = $this->get('security.password_encoder')->encodePassword($user, $password);
+
+                    $user
+                        ->setFirstName($username[0])
+                        ->setLastName(!empty($username[1]) ? $username[1] : '')
+                        ->setPassword($encodedPassword)
+                        ->setIsEnabled(true);
+
+                    $entityManager->persist($user);
+                    $entityManager->flush();
                 }
-            } else {
-                $username = explode(' ', $name, 2);
-                $encodedPassword = $this->get('security.password_encoder')->encodePassword($user, $password);
 
-                $user
-                    ->setFirstName($username[0])
-                    ->setLastName(!empty($username[1]) ? $username[1] : '')
-                    ->setPassword($encodedPassword)
-                    ->setIsEnabled(true);
-                
-                $entityManager->persist($user);
-                $entityManager->flush();
-            }
-            
-            if (false == $accountExistsFlag) {
-                $userInstance = new CoreEntities\UserInstance();
-                $userInstance->setSource('website');
-                $userInstance->setIsActive(true);
-                $userInstance->setIsVerified(true);
-                $userInstance->setUser($user);
-                $userInstance->setSupportRole($role);
+                if (false == $accountExistsFlag) {
+                    $userInstance = new CoreEntities\UserInstance();
+                    $userInstance->setSource('website');
+                    $userInstance->setIsActive(true);
+                    $userInstance->setIsVerified(true);
+                    $userInstance->setUser($user);
+                    $userInstance->setSupportRole($role);
 
-                $entityManager->persist($userInstance);
-                $entityManager->flush();
+                    $entityManager->persist($userInstance);
+                    $entityManager->flush();
+                }
             }
+
+            return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
+        } catch (Exception $e) {
+            $response = [
+                'status' => false,
+                'errorMessage' => $e->getMessage(),
+            ];
+            return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
         }
-
-        return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function websiteConfigurationXHR(Request $request)
@@ -296,7 +326,7 @@ class InstallationWizardXHR extends Controller
         switch ($request->getMethod()) {
             case "GET":
                 $currentWebsitePrefixCollection = $this->get('uvdesk.service')->getCurrentWebsitePrefixes();
-                
+
                 if ($currentWebsitePrefixCollection) {
                     $result = $currentWebsitePrefixCollection;
                     $result['status'] = true;
@@ -308,7 +338,7 @@ class InstallationWizardXHR extends Controller
                 if (session_status() == PHP_SESSION_NONE) {
                     session_start();
                 }
-                
+
                 $_SESSION['PREFIXES_DETAILS'] = [
                     'member' => $request->request->get('member-prefix'),
                     'customer' => $request->request->get('customer-prefix'),
@@ -328,12 +358,21 @@ class InstallationWizardXHR extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+        try {
+            $collectionURL = $this->get('uvdesk.service')->updateWebsitePrefixes(
+                $_SESSION['PREFIXES_DETAILS']['member'],
+                $_SESSION['PREFIXES_DETAILS']['customer']
+            );
 
-        $collectionURL= $this->get('uvdesk.service')->updateWebsitePrefixes(
-            $_SESSION['PREFIXES_DETAILS']['member'],
-            $_SESSION['PREFIXES_DETAILS']['customer']
-        );
+            return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
 
-        return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
+        } catch (Exception $e) {
+            $response = [
+                'status' => false,
+                'errorMessage' => $e->getMessage(),
+            ];
+            return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
+        }
+
     }
 }
