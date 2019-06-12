@@ -24,7 +24,6 @@
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
                     await $.post('./wizard/xhr/load/configurations').fail(response => {
-                        debugger
                         if (response.status == 500) {
                             this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
                         }
