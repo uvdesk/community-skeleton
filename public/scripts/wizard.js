@@ -23,26 +23,43 @@
                 (async () => {
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-configurations' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/configurations');
+                    await $.post('./wizard/xhr/load/configurations').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
                     
-
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-migrations' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/migrations');
+                    await $.post('./wizard/xhr/load/migrations').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
     
-
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'populate-datasets' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/entities');
+                    await $.post('./wizard/xhr/load/entities').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
                     
-
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'create-super-user' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    await $.post('./wizard/xhr/load/super-user');
+                    await $.post('./wizard/xhr/load/super-user').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
 
                     this.$el.find('#wizard-finalizeInstall').html(this.installation_process_template({ currentStep: 'load-website-prefixes' }));
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
-                    let websiteRoutes = await $.post('./wizard/xhr/load/website-configure');
+                    let websiteRoutes = await $.post('./wizard/xhr/load/website-configure').fail(response => {
+                        if (response.status == 500) {
+                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                        }
+                    });
 
                     this.wizard.prefix.member = websiteRoutes.memberLogin;
                     this.wizard.prefix.knowledgebase = websiteRoutes.knowledgebase;
@@ -329,7 +346,12 @@
                     if (typeof response.status != 'undefined' && true === response.status) {
                         callback(this.view);
                     } else {
-                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
+                        if (document.getElementById("wizard-error-id")) {
+                            var element = document.getElementById("wizard-error-id");
+                            element.parentNode.removeChild(element); 
+                        }
+
+                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }.bind(this)).fail(function(response) {
@@ -645,11 +667,19 @@
                 'click #wizardCTA-CancelInstallation': function() {
                     this.router.navigate('welcome', { trigger: true });
                 },
-                'click #wizardCTA-IterateBackward': function() {
+                'click #wizardCTA-IterateBackward': function()  {
                     this.timeline.filter((values, index) => {
                         if (values.isActive && this.timeline[index - 1]) {
-                            this.timeline[index].isActive = false;
-                            this.router.navigate(this.timeline[index - 1].path, { trigger: true });
+                            if (this.timeline[index].path == 'configure-database') {
+                                this.timeline[index].isActive = false;
+                                this.enabled = true;
+                                this.reference_nodes.content.empty();
+                                this.reference_nodes.content.html(this.wizard_setup_component_template());
+                                this.router.navigate('check-requirements', { trigger: true }); 
+                            } else {
+                                this.timeline[index].isActive = false;
+                                this.router.navigate(this.timeline[index - 1].path, { trigger: true });
+                            }
                         } else if (values.isActive && !this.timeline[index - 1]) {
                             this.router.navigate('welcome', { trigger: true });
                         }
