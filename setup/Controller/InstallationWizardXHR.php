@@ -2,16 +2,16 @@
 
 namespace Webkul\UVDesk\Setup\Controller;
 
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\Tools\Setup;
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Console\Input\ArrayInput;
-use Symfony\Component\Console\Output\NullOutput;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Webkul\UVDesk\CoreBundle\Entity as CoreEntities;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
 class InstallationWizardXHR extends Controller
@@ -146,6 +146,7 @@ class InstallationWizardXHR extends Controller
             'DB_PASSWORD' => $_SESSION['DB_CONFIG']['password'],
             'DB_NAME' => $_SESSION['DB_CONFIG']['database'],
         ];
+
         try {
             if (file_exists('../.env')) {
                 $file = file('../.env');
@@ -198,6 +199,7 @@ class InstallationWizardXHR extends Controller
 
                 file_put_contents('../config/packages/doctrine.yaml', $updatedFile);
             }
+
             return new Response(json_encode($response), 200, self::DEFAULT_JSON_HEADERS);
         } catch (Exception $e) {
             $response = [
@@ -225,9 +227,9 @@ class InstallationWizardXHR extends Controller
                 'status' => false,
                 'errorMessage' => $e->getMessage(),
             ];
+
             return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
         }
-
     }
 
     public function populateDatabaseEntitiesXHR(Request $request, KernelInterface $kernel)
@@ -248,7 +250,6 @@ class InstallationWizardXHR extends Controller
             ];
             return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
         }
-
     }
 
     public function createDefaultSuperUserXHR(Request $request)
@@ -258,6 +259,7 @@ class InstallationWizardXHR extends Controller
         }
 
         $entityManager = $this->getDoctrine()->getEntityManager();
+        
         try {
             $role = $entityManager->getRepository('UVDeskCoreBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
             $userInstance = $entityManager->getRepository('UVDeskCoreBundle:UserInstance')->findOneBy([
@@ -317,6 +319,7 @@ class InstallationWizardXHR extends Controller
                 'status' => false,
                 'errorMessage' => $e->getMessage(),
             ];
+
             return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
         }
     }
@@ -358,6 +361,7 @@ class InstallationWizardXHR extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+
         try {
             $collectionURL = $this->get('uvdesk.service')->updateWebsitePrefixes(
                 $_SESSION['PREFIXES_DETAILS']['member'],
@@ -365,14 +369,13 @@ class InstallationWizardXHR extends Controller
             );
 
             return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
-
         } catch (Exception $e) {
             $response = [
                 'status' => false,
                 'errorMessage' => $e->getMessage(),
             ];
+
             return new Response(json_encode($response), 500, self::DEFAULT_JSON_HEADERS);
         }
-
     }
 }
