@@ -15,6 +15,7 @@
     "require-dev": {
         "symfony/dotenv": "^3.4",
         "symfony/var-dumper": "^3.4",
+        "symfony/profiler-pack": "*",
         "symfony/web-server-bundle": "^3.4"
     },
     "config": {
