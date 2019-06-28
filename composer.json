@@ -15,8 +15,8 @@
     "require-dev": {
         "symfony/dotenv": "^3.4",
         "symfony/var-dumper": "^3.4",
+        "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
-        "symfony/maker-bundle": "^1.0@dev",
         "symfony/web-server-bundle": "^3.4"
     },
     "config": {
@@ -32,11 +32,6 @@
     "autoload-dev": {
         "psr-4": {
             "App\\Tests\\": "tests/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.1.x-dev"
         }
     },
     "scripts": {
