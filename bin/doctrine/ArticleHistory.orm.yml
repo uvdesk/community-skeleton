@@ -1,0 +1,25 @@
+Webkul\UVDesk\SupportCenterBundle\Entity\ArticleHistory:
+    type: entity
+    table: uv_article_history
+    repositoryClass: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+       
+        articleId:
+            type: integer
+            column: article_id
+        userId:
+            type: integer
+            column: user_id
+        content:
+            type: text
+        dateAdded:
+            type: datetime
+            column: date_added
+    lifecycleCallbacks: 
+        prePersist: [ setCreatedAtValue ]

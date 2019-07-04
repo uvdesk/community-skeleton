@@ -1,0 +1,16 @@
+Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategoryMapping:
+    type: entity
+    table: uv_solution_category_mapping
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        solutionId:
+            type: integer
+            column: solution_id
+        categoryId:
+            type: integer
+            column: category_id

@@ -1,0 +1,18 @@
+Webkul\UVDesk\SupportCenterBundle\Entity\ArticleRelatedArticle:
+    type: entity
+    table: uv_related_articles
+    repositoryClass: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        articleId:
+            type: integer
+            column: article_id
+        relatedArticleId:
+            type: integer
+            column: related_article_id
+    lifecycleCallbacks: {  }

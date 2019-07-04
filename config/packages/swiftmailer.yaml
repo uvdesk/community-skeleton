@@ -1,0 +1,17 @@
+swiftmailer:
+    mailers:
+        mailer_9522:
+            transport: gmail
+            username: piyushgoeldigim@gmail.com
+            password: pakkasgag31mes2l
+            # sender_address: ~
+            # delivery_addresses: ~
+            disable_delivery: false
+        mailer_2759:
+            transport: gmail
+            username: piyushgoeldigim@gmail.com
+            password: pakkasgag31mes2l
+            # sender_address: ~
+            # delivery_addresses: ~
+            disable_delivery: false
+

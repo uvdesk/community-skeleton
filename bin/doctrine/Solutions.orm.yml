@@ -1,0 +1,37 @@
+Webkul\UVDesk\SupportCenterBundle\Entity\Solutions:
+    type: entity
+    table: uv_solutions
+    repositoryClass: Webkul\UVDesk\SupportCenterBundle\Repository\Solutions
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        description:
+            type: string
+            length: 255
+        visibility:
+            type: string
+            length: 255
+        sortOrder:
+            type: integer
+            column: sort_order
+            options:
+                default: 5
+        dateAdded:
+            type: datetime
+            column: date_added
+        dateUpdated:
+            type: datetime
+            column: date_updated
+        solutionImage:
+            type: string
+            length: 255
+            column: solution_image
+            nullable: true
+    lifecycleCallbacks: {  }

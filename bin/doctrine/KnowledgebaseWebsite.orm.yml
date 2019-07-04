@@ -1,0 +1,135 @@
+Webkul\UVDesk\SupportCenterBundle\Entity\KnowledgebaseWebsite:
+    type: entity
+    table: uv_website_knowledgebase
+    repositoryClass: null
+    manyToOne:
+        website:
+            targetEntity: Webkul\UVDesk\CoreBundle\Entity\Website
+            inversedBy: website
+            joinColumn:
+                name: website
+                referencedColumnName: id
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        status:
+            type: string
+            length: 255
+        brandColor:
+            type: string
+            length: 255
+            column: brand_color
+        pageBackgroundColor:
+            type: string
+            length: 255
+            column: page_background_color
+        headerBackgroundColor:
+            type: string
+            length: 255
+            nullable: true
+            column: header_background_color
+        bannerBackgroundColor:
+            type: string
+            length: 255
+            nullable: true
+            column: banner_background_color
+        linkColor:
+            type: string
+            length: 255
+            column: link_color
+            nullable: true
+        linkHoverColor:
+            type: string
+            length: 255
+            column: link_hover_color
+            nullable: true
+        headerLinks:
+            type: array
+            nullable: true
+        footerLinks:
+            type: array
+            nullable: true
+        articleTextColor:
+            type: string
+            length: 255
+            column: article_text_color
+            nullable: true
+        whiteList:
+            type: text
+            column: white_list
+            nullable: true
+        blackList:
+            type: text
+            column: black_list
+            nullable: true
+        siteDescription:
+            type: string
+            length: 1000
+            column: site_descritption
+            nullable: true
+        metaDescription:
+            type: string
+            length: 255
+            column: meta_description
+            nullable: true
+        metaKeywords:
+            type: string
+            length: 255
+            column: meta_keywords
+            nullable: true
+        homepageContent:
+            type: string
+            length: 255
+            column: homepage_content
+            nullable: true
+        ticketCreateOption:
+            type: string
+            length: 255
+            column: ticket_create_option
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            column: updated_at
+        broadcastMessage:
+            type: string
+            length: 255
+            nullable: true
+            column: broadcast_message       
+        removeCustomerLoginButton:
+            type: integer
+            nullable: true
+            options:
+                default: 0
+        disableCustomerLogin:
+            type: integer
+            nullable: true
+            options:
+                default: 0
+        removeBrandingContent:
+            type: integer
+            nullable: true
+            options:
+                default: 0
+        loginRequiredToCreate:
+            type: boolean
+            nullable: true            
+            column: login_required_to_create
+        disableCustomerLogin:
+            type: boolean
+            length: 255
+        script:
+            type: text
+            nullable: true
+        customCSS:
+            type: text
+            nullable: true
+        isActive:
+            type: boolean
+            length: 255
+    lifecycleCallbacks: {  }
