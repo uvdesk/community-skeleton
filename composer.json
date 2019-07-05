@@ -6,11 +6,11 @@
         "stof/doctrine-extensions-bundle": "^1.3@dev",
         "symfony/flex": "^1.0",
         "symfony/orm-pack": "dev-master",
-        "uvdesk/automation-bundle": "0.1.*",
+        "piyushwebkul/automation-bundle": "0.1.*",
         "uvdesk/composer-plugin": "0.1.*",
-        "uvdesk/core-framework": "0.1.*",
+        "piyushwebkul/core-framework": "0.1.*",
         "uvdesk/mailbox-component": "0.1.*",
-        "uvdesk/support-center-bundle": "0.1.*"
+        "piyushwebkul/support-center-bundle": "0.1.*"
     },
     "require-dev": {
         "symfony/dotenv": "^3.4",
