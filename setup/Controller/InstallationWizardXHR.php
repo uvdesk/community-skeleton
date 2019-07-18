@@ -95,7 +95,9 @@ class InstallationWizardXHR extends Controller
         if (false == $connectionResponse['status']) {
             try {
                 $databaseConnection->connect();
+
                 $connectionResponse['status'] = true;
+
                 $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
                 $_SESSION['DB_CONFIG'] = [
                     'server' => $request->request->get('serverName') . $port,
@@ -107,7 +109,6 @@ class InstallationWizardXHR extends Controller
                 // Unable to connect with the database - Invalid Credentials.
             }
         }
-        
         return new Response(json_encode($connectionResponse), 200, self::DEFAULT_JSON_HEADERS);
     }
 

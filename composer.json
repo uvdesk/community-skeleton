@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
     "type": "project",
     "license": "proprietary",
+=======
+    "name": "uvdesk/community-skeleton",
+    "description": "UVDesk Community Helpdesk Project Skeleton",
+    "type": "project",
+    "license": "MIT",
+>>>>>>> aa17cc9bf32485a3ef74ce02c5d081d4b708a961
     "require": {
         "php": "^7.0",
         "uvdesk/composer-plugin": "0.1.*",
@@ -43,15 +50,23 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+<<<<<<< HEAD
         ],
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
         }
+=======
+        ]
+>>>>>>> aa17cc9bf32485a3ef74ce02c5d081d4b708a961
     },
     "conflict": {
         "symfony/symfony": "*",
         "symfony/website-skeleton": "*"
     },
     "minimum-stability": "dev"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> aa17cc9bf32485a3ef74ce02c5d081d4b708a961
