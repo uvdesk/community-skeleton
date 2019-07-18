@@ -1,0 +1,8 @@
+# This file is the entry point to configure the routes for your dependencies.
+helpdesk_automations_bundle_member_routing_resources:
+    resource: "@UVDeskAutomationBundle/Resources/config/routing.yaml"
+    prefix:   /{_locale}/%uvdesk_site_path.member_prefix%/
+    requirements:
+        _locale: %app_locales%
+    defaults:
+        _locale: %locale%

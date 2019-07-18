@@ -1,0 +1,12 @@
+twig:
+    globals:
+        default_agent_image_path: '%assets_default_agent_profile_image_path%'
+        default_customer_image_path: '%assets_default_customer_profile_image_path%'
+        default_helpdesk_image_path: '%assets_default_helpdesk_profile_image_path%'
+        user_service: '@user.service'
+        uvdesk_service: '@uvdesk.service'
+        ticket_service: '@ticket.service'
+        csrf_token_generator: '@security.csrf.token_manager'
+        email_service: '@email.service'
+        uvdesk_core_file_system: '@uvdesk.core.file_system.service'
+        uvdesk_automations: '@uvdesk.automations'
