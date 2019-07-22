@@ -361,6 +361,7 @@ class InstallationWizardXHR extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+<<<<<<< HEAD
         $routesFilePath = $this->getParameter('kernel.project_dir') . '/config/routes/uvdesk.yaml';
         if (preg_match("/uvdesk_support_center_bundle_use_locale/", \file_get_contents($routesFilePath)) === 0) {
            $route = "uvdesk_support_center_bundle_use_locale:\n" .
@@ -372,6 +373,24 @@ class InstallationWizardXHR extends Controller
             file_put_contents($routesFilePath, $route, FILE_APPEND);
         }
         
+=======
+         $routesFilePath = $this->getParameter('kernel.project_dir') . '/config/routes/uvdesk.yaml';
+        
+        if (!array_key_exists("uvdesk_support_center_bundle_use_locale", Yaml::parseFile($routesFilePath))) {
+           $route["uvdesk_support_center_bundle_use_locale"] = 
+                    [
+                        "path" => "/",
+                        "controller" => "Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction",
+                        "defaults" => [
+                            "path" => "/en/",
+                            "permanent" => true,
+                        ]
+            ];
+
+            file_put_contents($routesFilePath, Yaml::dump($route, 2), FILE_APPEND);
+        }
+
+>>>>>>> b34b2a9bf4c5930967555311f97762b1c1cab561
         try {
             $collectionURL = $this->get('uvdesk.service')->updateWebsitePrefixes(
                 $_SESSION['PREFIXES_DETAILS']['member'],
