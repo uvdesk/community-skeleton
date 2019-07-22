@@ -407,8 +407,13 @@
 
                 if (!errorFlag && (credentials.hostname == null || credentials.hostname == "" || (credentials.username == null || credentials.username == "") || (credentials.password == null || credentials.password == "") || (credentials.database == null || credentials.database == "")))
                     errorFlag = true;
-
+                    
                 if (false == errorFlag) {
+                    if (document.getElementById("wizard-error-id")) {
+                            var element = document.getElementById("wizard-error-id");
+                            element.parentNode.removeChild(element); 
+                    }
+                    
                     this.wizard.enableNextStep();
                     
                     if (event.keyCode == 13) {
