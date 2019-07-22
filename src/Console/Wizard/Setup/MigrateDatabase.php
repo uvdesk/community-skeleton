@@ -1,9 +1,9 @@
 <?php
 
-namespace Webkul\UVDesk\Setup\Command;
+namespace App\Console\Wizard\Setup;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\DBAL\DBALException;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\Console\Question\Question;
@@ -30,8 +30,10 @@ class MigrateDatabase extends Command
 
     protected function configure()
     {
-        $this->setName('uvdesk-wizard:migrate-database');
-        $this->setDescription('Migrate your database to the latest schema version.');
+        $this
+            ->setName('uvdesk:wizard:setup:migrate-database')
+            ->setDescription('Migrate your database to the latest schema version.')
+            ->setHidden(true);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
