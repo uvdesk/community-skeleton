@@ -361,6 +361,21 @@ class InstallationWizardXHR extends Controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+         $routesFilePath = $this->getParameter('kernel.project_dir') . '/config/routes/uvdesk.yaml';
+        
+        if (!array_key_exists("uvdesk_support_center_bundle_use_locale", Yaml::parseFile($routesFilePath))) {
+           $route["uvdesk_support_center_bundle_use_locale"] = 
+                    [
+                        "path" => "/",
+                        "controller" => "Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction",
+                        "defaults" => [
+                            "path" => "/en/",
+                            "permanent" => true,
+                        ]
+            ];
+
+            file_put_contents($routesFilePath, Yaml::dump($route, 2), FILE_APPEND);
+        }
 
         try {
             $collectionURL = $this->get('uvdesk.service')->updateWebsitePrefixes(
