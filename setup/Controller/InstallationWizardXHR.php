@@ -363,7 +363,7 @@ class InstallationWizardXHR extends Controller
         }
         $routesFilePath = $this->getParameter('kernel.project_dir') . '/config/routes/uvdesk.yaml';
         if (preg_match("/uvdesk_support_center_bundle_use_locale/", \file_get_contents($routesFilePath)) === 0) {
-           $route = "uvdesk_support_center_bundle_use_locale:\n" .
+           $route = "\nuvdesk_support_center_bundle_use_locale:\n" .
                     "    path: /\n" .
                     "    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::urlRedirectAction\n" .
                     "    defaults:\n" .
