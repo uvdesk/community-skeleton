@@ -30,7 +30,7 @@ class ConfigureHelpdesk extends Command
 
     protected function configure()
     {
-        $this->setName('uvdesk:wizard:configure-helpdesk');
+        $this->setName('uvdesk:configure-helpdesk');
         $this->setDescription('Scans through your helpdesk setup to check for any mis-configurations.');
     }
 
@@ -103,9 +103,9 @@ class ConfigureHelpdesk extends Command
 
         // Check 3: Check if super admin account exists
         $output->writeln("  [-] Checking if an active super admin account exists");
-        $supperAdminUserInstance = $this->entityManager->getRepository('CoreFrameworkBundle:UserInstance')->findOneBy([
+        $supperAdminUserInstance = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:UserInstance')->findOneBy([
             'isActive' => true,
-            'supportRole' => $this->entityManager->getRepository('CoreFrameworkBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN'),
+            'supportRole' => $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN'),
         ]);
         
         if (empty($supperAdminUserInstance)) {
@@ -113,9 +113,9 @@ class ConfigureHelpdesk extends Command
             $interactiveQuestion = new Question("\n      <comment>Create a new user account with super admin privileges? [Y/N]</comment> ", 'Y');
 
             if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
-                $generateUserInstanceCommand = $this->getApplication()->find('uvdesk:wizard:setup:create-super-user');
+                $generateUserInstanceCommand = $this->getApplication()->find('uvdesk_wizard:defaults:create-user');
                 $generateUserInstanceCommandOptions = new ConsoleOptions([
-                    'command' => 'wizard:setup:create-super-user',
+                    'command' => 'defaults:create-user',
                     'role' => 'ROLE_SUPER_ADMIN',
                 ]);
 

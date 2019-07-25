@@ -28,8 +28,9 @@ class EnvironmentVariables extends Command
     protected function configure()
     {
         $this
-            ->setName('uvdesk:env:update')
-            ->setDescription('Makes changes to .env located in project root to update environment variables.');
+            ->setName('uvdesk_wizard:env:update')
+            ->setDescription('Makes changes to .env located in project root to update environment variables.')
+            ->setHidden(true);
 
         $this
             ->addArgument('name', InputArgument::REQUIRED, "Name of the environment variable")

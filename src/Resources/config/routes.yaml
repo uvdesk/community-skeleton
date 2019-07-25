@@ -1,47 +1,43 @@
-uvdesk_community_installation_wizard:
-    path:     /
-    controller: Wizard\Controller\Wizard::load
-
 uvdesk_community_installation_wizard_check_requirements:
     path:     /wizard/xhr/check-requirements
-    controller: Wizard\Controller\WizardXHR::evaluateSystemRequirements
+    controller: App\Controller\ConfigureHelpdesk::evaluateSystemRequirements
     methods: [POST]
 
 uvdesk_community_installation_wizard_verify_database_credentials:
     path:     /wizard/xhr/verify-database-credentials
-    controller: Wizard\Controller\WizardXHR::verifyDatabaseCredentials
+    controller: App\Controller\ConfigureHelpdesk::verifyDatabaseCredentials
     methods: [POST]
 
 uvdesk_community_installation_wizard_store_super_user_credentials:
     path:     /wizard/xhr/intermediary/super-user
-    controller: Wizard\Controller\WizardXHR::prepareSuperUserDetailsXHR
+    controller: App\Controller\ConfigureHelpdesk::prepareSuperUserDetailsXHR
     methods: [POST]
 
 uvdesk_community_installation_wizard_store_website_configuration:
     path:     /wizard/xhr/website-configure
-    controller: Wizard\Controller\WizardXHR::websiteConfigurationXHR
+    controller: App\Controller\ConfigureHelpdesk::websiteConfigurationXHR
 
 uvdesk_community_installation_wizard_update_configurations_xhr:
     path:     /wizard/xhr/load/configurations
-    controller: Wizard\Controller\WizardXHR::updateConfigurationsXHR
+    controller: App\Controller\ConfigureHelpdesk::updateConfigurationsXHR
     methods: [POST]
 
 uvdesk_community_installation_wizard_migrate_database_schema_xhr:
     path:     /wizard/xhr/load/migrations
-    controller: Wizard\Controller\WizardXHR::migrateDatabaseSchemaXHR
+    controller: App\Controller\ConfigureHelpdesk::migrateDatabaseSchemaXHR
     methods: [POST]
 
 uvdesk_community_installation_wizard_populate_database_entities_xhr:
     path:     /wizard/xhr/load/entities
-    controller: Wizard\Controller\WizardXHR::populateDatabaseEntitiesXHR
+    controller: App\Controller\ConfigureHelpdesk::populateDatabaseEntitiesXHR
     methods: [POST]
 
 uvdesk_community_installation_wizard_create_default_super_user_xhr:
     path:     /wizard/xhr/load/super-user
-    controller: Wizard\Controller\WizardXHR::createDefaultSuperUserXHR
+    controller: App\Controller\ConfigureHelpdesk::createDefaultSuperUserXHR
     methods: [POST]
 
 uvdesk_community_installation_wizard_update_website_configuration:
     path:     /wizard/xhr/load/website-configure
-    controller: Wizard\Controller\WizardXHR::updateWebsiteConfigurationXHR
+    controller: App\Controller\ConfigureHelpdesk::updateWebsiteConfigurationXHR
     methods: [POST]

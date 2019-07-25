@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Routes;
+namespace App\Routing;
 
-use Webkul\UVDesk\CoreFrameworkBundle\Framework\RoutingResourceInterface;
+use Webkul\UVDesk\CoreFrameworkBundle\Definition\RoutingResourceInterface;
 
 class RoutingResource implements RoutingResourceInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Wizard\Setup;
+namespace App\Console\Wizard;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
@@ -13,7 +13,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class CreateSuperUser extends Command
+class DefaultUser extends Command
 {
     private $user;
     private $role;
@@ -32,7 +32,7 @@ class CreateSuperUser extends Command
     protected function configure()
     {
         $this
-            ->setName('uvdesk:wizard:setup:create-super-user')
+            ->setName('uvdesk_wizard:defaults:create-user')
             ->setDescription('Creates a new user instance')
             ->setHidden(true);
         
@@ -52,7 +52,7 @@ class CreateSuperUser extends Command
     protected function interact(InputInterface $input, OutputInterface $output)
     {
         // Check if the provided role is valid. Skip otherwise.
-        $this->role = $this->entityManager->getRepository('CoreFrameworkBundle:SupportRole')->findOneByCode($input->getArgument('role'));
+        $this->role = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode($input->getArgument('role'));
         
         if (empty($this->role)) {
             return;
@@ -64,7 +64,7 @@ class CreateSuperUser extends Command
         $email = $this->promptUserEmailInteractively($input, $output);
         
         // Retrieve existing user or generate new empty user
-        $this->user = $this->entityManager->getRepository('CoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
+        $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
 
         // Prompt user name
         $username = trim($this->user->getFirstName() . ' ' . $this->user->getLastName());
@@ -123,7 +123,7 @@ class CreateSuperUser extends Command
                 $username = explode(' ', $name, 2);
                 $encodedPassword = $this->container->get('security.password_encoder')->encodePassword($this->user, $password);
 
-                $this->user = $this->entityManager->getRepository('CoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
+                $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
                 $this->user
                     ->setFirstName($username[0])
                     ->setLastName(!empty($username[1]) ? $username[1] : null)
@@ -140,7 +140,7 @@ class CreateSuperUser extends Command
         if ($this->user->getId() != null) {
             // If user id is set, that means the entity has been persisted to database before. Check for any existing accounts
             $targetRole = $this->role->getId();
-            $userInstanceCollection = $this->entityManager->getRepository('CoreFrameworkBundle:UserInstance')->findByUser($this->user);
+            $userInstanceCollection = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:UserInstance')->findByUser($this->user);
 
             foreach ($userInstanceCollection as $userInstance) {
                 $userRole = $userInstance->getSupportRole()->getId();

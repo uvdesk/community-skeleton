@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Wizard\Setup;
+namespace App\Controller;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
@@ -11,12 +11,13 @@ use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
 
-class XHR extends Controller
+class ConfigureHelpdesk extends Controller
 {
+    const HELPDESK_VERSION = '1.0.0 DEV';
     const DB_ENV_PATH_TEMPLATE = "DATABASE_URL=DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME\n";
     const DB_ENV_PATH_PARAM_TEMPLATE = "env(DATABASE_URL): 'DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME'\n";
     const DEFAULT_JSON_HEADERS = [
@@ -34,6 +35,13 @@ class XHR extends Controller
             'name' => 'mysqli',
         ],
     ];
+
+    public function load()
+    {
+        return $this->render('installation-wizard/index.html.twig', [
+            'version' => self::HELPDESK_VERSION,
+        ]);
+    }
 
     public function evaluateSystemRequirements(Request $request)
     {
@@ -141,13 +149,13 @@ class XHR extends Controller
         $application = new Application($kernel);
         $application->setAutoExit(false);
 
-        $database_host = $_SESSION['DB_CONFIG']['server'];
+        $database_host = $_SESSION['DB_CONFIG']['host'];
         $database_user = $_SESSION['DB_CONFIG']['username'];
         $database_pass = $_SESSION['DB_CONFIG']['password'];
         $database_name = $_SESSION['DB_CONFIG']['database'];
 
         $exit_code = $application->run(new ArrayInput([
-            'command' => 'uvdesk-wizard:envvars:update', 
+            'command' => 'uvdesk_wizard:env:update', 
             'name' => 'DATABASE_URL', 
             'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, $database_pass, $database_host, $database_name)
         ]), new NullOutput());
@@ -165,7 +173,7 @@ class XHR extends Controller
         $application->setAutoExit(false);
 
         $resultCode = $application->run(new ArrayInput([
-            'command' => 'uvdesk-wizard:migrate-database'
+            'command' => 'uvdesk_wizard:database:migrate'
         ]), new NullOutput());
         
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
@@ -177,7 +185,8 @@ class XHR extends Controller
         $application->setAutoExit(false);
 
         $resultCode = $application->run(new ArrayInput([
-            'command' => 'uvdesk-wizard:populate-database'
+            'command' => 'doctrine:fixtures:load',
+            '--append' => true,
         ]), new NullOutput());
 
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
@@ -191,8 +200,8 @@ class XHR extends Controller
 
         $entityManager = $this->getDoctrine()->getEntityManager();
 
-        $role = $entityManager->getRepository('CoreFrameworkBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
-        $userInstance = $entityManager->getRepository('CoreFrameworkBundle:UserInstance')->findOneBy([
+        $role = $entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
+        $userInstance = $entityManager->getRepository('UVDeskCoreFrameworkBundle:UserInstance')->findOneBy([
             'isActive' => true,
             'supportRole' => $role,
         ]);
@@ -201,7 +210,7 @@ class XHR extends Controller
             list($name, $email, $password) = array_values($_SESSION['USER_DETAILS']);
             // Retrieve existing user or generate new empty user
             $accountExistsFlag = false;
-            $user = $entityManager->getRepository('CoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
+            $user = $entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
 
             if ($user->getId() != null) {
                 $userInstance = $user->getAgentInstance();
