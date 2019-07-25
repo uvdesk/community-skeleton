@@ -5,12 +5,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.0",
-        "uvdesk/composer-plugin": "0.1.*",
+        "uvdesk/composer-plugin": "^1.0",
         "symfony/flex": "^1.0",
-        "uvdesk/core-framework": "0.1.*",
-        "uvdesk/automation-bundle": "0.1.*",
-        "uvdesk/support-center-bundle": "0.1.*",
-        "uvdesk/mailbox-component": "0.1.*"
+        "uvdesk/core-framework": "^1.0",
+        "uvdesk/automation-bundle": "^1.0",
+        "uvdesk/support-center-bundle": "^1.0",
+        "uvdesk/mailbox-component": "^1.0",
+        "uvdesk/extension-framework": "^1.0"
     },
     "require-dev": {
         "symfony/dotenv": "^3.4",
@@ -25,8 +26,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/",
-            "Webkul\\UVDesk\\Setup\\": "setup/"
+            "App\\": "src/"
         }
     },
     "autoload-dev": {
