@@ -1,0 +1,3 @@
+uvdesk:
+    resource: .
+    type: uvdesk
