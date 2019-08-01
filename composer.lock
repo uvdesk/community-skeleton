@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b6bf4cfab7c9c84077fe4ff9a1228e31",
+    "content-hash": "d91e26da3a3bcc47f0db5016dd6fdfd1",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5861,12 +5861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "3fd57df67caae9101f221b910537852e059e88a9"
+                "reference": "a7c00c6550d41ee4b572ec316604519981919bd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/3fd57df67caae9101f221b910537852e059e88a9",
-                "reference": "3fd57df67caae9101f221b910537852e059e88a9",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/a7c00c6550d41ee4b572ec316604519981919bd9",
+                "reference": "a7c00c6550d41ee4b572ec316604519981919bd9",
                 "shasum": ""
             },
             "require": {
@@ -5931,7 +5931,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-07-29T14:16:16+00:00"
+            "time": "2019-08-01T04:21:43+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -6031,12 +6031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "ac8e4c6ae68339bd9e80a6aa5bc0222eac34cb54"
+                "reference": "93a66917d0506da44dc4c27c9d95fc9cea8b294d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/ac8e4c6ae68339bd9e80a6aa5bc0222eac34cb54",
-                "reference": "ac8e4c6ae68339bd9e80a6aa5bc0222eac34cb54",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/93a66917d0506da44dc4c27c9d95fc9cea8b294d",
+                "reference": "93a66917d0506da44dc4c27c9d95fc9cea8b294d",
                 "shasum": ""
             },
             "require": {
@@ -6068,7 +6068,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2019-07-25T13:25:08+00:00"
+            "time": "2019-08-01T04:21:48+00:00"
         },
         {
             "name": "zendframework/zend-code",
