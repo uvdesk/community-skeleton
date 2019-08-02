@@ -5861,12 +5861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "750aa87586a8a8f836bc584d5258e96c72dc8840"
+                "reference": "f42f975954ccb265f4e90c3d1f06d70f9f2b3cc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/750aa87586a8a8f836bc584d5258e96c72dc8840",
-                "reference": "750aa87586a8a8f836bc584d5258e96c72dc8840",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/f42f975954ccb265f4e90c3d1f06d70f9f2b3cc2",
+                "reference": "f42f975954ccb265f4e90c3d1f06d70f9f2b3cc2",
                 "shasum": ""
             },
             "require": {
@@ -5931,7 +5931,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-08-02T08:42:12+00:00"
+            "time": "2019-08-02T11:57:50+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
