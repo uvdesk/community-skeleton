@@ -5861,12 +5861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "5c7e863d0d3e09148a94c0da3a09dd995f64a4e9"
+                "reference": "750aa87586a8a8f836bc584d5258e96c72dc8840"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/5c7e863d0d3e09148a94c0da3a09dd995f64a4e9",
-                "reference": "5c7e863d0d3e09148a94c0da3a09dd995f64a4e9",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/750aa87586a8a8f836bc584d5258e96c72dc8840",
+                "reference": "750aa87586a8a8f836bc584d5258e96c72dc8840",
                 "shasum": ""
             },
             "require": {
@@ -5931,7 +5931,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-08-01T11:25:09+00:00"
+            "time": "2019-08-02T08:42:12+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -6031,12 +6031,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "7ec92f350a350ca0025de2f5b462c8943471245c"
+                "reference": "2d7cea0fcbe7491803f99b5ae23c2f0678b2d444"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/7ec92f350a350ca0025de2f5b462c8943471245c",
-                "reference": "7ec92f350a350ca0025de2f5b462c8943471245c",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/2d7cea0fcbe7491803f99b5ae23c2f0678b2d444",
+                "reference": "2d7cea0fcbe7491803f99b5ae23c2f0678b2d444",
                 "shasum": ""
             },
             "require": {
@@ -6068,7 +6068,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2019-08-01T12:01:52+00:00"
+            "time": "2019-08-02T08:42:44+00:00"
         },
         {
             "name": "zendframework/zend-code",
