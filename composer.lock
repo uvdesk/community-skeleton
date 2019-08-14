@@ -5861,12 +5861,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "f42f975954ccb265f4e90c3d1f06d70f9f2b3cc2"
+                "reference": "b2e7fa33f9740625f206c4327d4e54169555164d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/f42f975954ccb265f4e90c3d1f06d70f9f2b3cc2",
-                "reference": "f42f975954ccb265f4e90c3d1f06d70f9f2b3cc2",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/b2e7fa33f9740625f206c4327d4e54169555164d",
+                "reference": "b2e7fa33f9740625f206c4327d4e54169555164d",
                 "shasum": ""
             },
             "require": {
@@ -5931,7 +5931,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-08-02T11:57:50+00:00"
+            "time": "2019-08-14T11:22:19+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -5939,12 +5939,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/extension-framework.git",
-                "reference": "166a85ea4f39e7900b6a0b8f2d45444ea2b58832"
+                "reference": "4b988b7788c703533e578a2a598c57a975b2a155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/166a85ea4f39e7900b6a0b8f2d45444ea2b58832",
-                "reference": "166a85ea4f39e7900b6a0b8f2d45444ea2b58832",
+                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/4b988b7788c703533e578a2a598c57a975b2a155",
+                "reference": "4b988b7788c703533e578a2a598c57a975b2a155",
                 "shasum": ""
             },
             "require": {
@@ -5976,7 +5976,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Extension Framework Bundle",
-            "time": "2019-08-09T12:57:32+00:00"
+            "time": "2019-08-14T11:22:27+00:00"
         },
         {
             "name": "uvdesk/mailbox-component",
