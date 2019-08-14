@@ -5939,12 +5939,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/extension-framework.git",
-                "reference": "4b988b7788c703533e578a2a598c57a975b2a155"
+                "reference": "e7b8d13b0127f36881daf43d2d31a5205a7d1f36"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/4b988b7788c703533e578a2a598c57a975b2a155",
-                "reference": "4b988b7788c703533e578a2a598c57a975b2a155",
+                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/e7b8d13b0127f36881daf43d2d31a5205a7d1f36",
+                "reference": "e7b8d13b0127f36881daf43d2d31a5205a7d1f36",
                 "shasum": ""
             },
             "require": {
@@ -5976,7 +5976,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Extension Framework Bundle",
-            "time": "2019-08-14T11:22:27+00:00"
+            "time": "2019-08-14T13:19:05+00:00"
         },
         {
             "name": "uvdesk/mailbox-component",
