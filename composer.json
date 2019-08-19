@@ -7,6 +7,7 @@
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "uvdesk/composer-plugin": "^1.0",
         "doctrine/doctrine-bundle": "^1.11",
         "doctrine/doctrine-fixtures-bundle": "^3.2",
         "doctrine/doctrine-migrations-bundle": "^2.0",
@@ -33,11 +34,11 @@
         "symfony/var-dumper": "4.3.*",
         "symfony/web-link": "4.3.*",
         "symfony/yaml": "4.3.*",
-        "uvdesk/composer-plugin": "^1.0@dev",
-        "uvdesk/core-framework": "^1.0@dev",
-        "uvdesk/extension-framework": "^1.0@dev",
-        "uvdesk/automation-bundle": "^1.0@dev",
-        "uvdesk/support-center-bundle": "^1.0@dev"
+        "uvdesk/core-framework": "^1.0",
+        "uvdesk/extension-framework": "^1.0",
+        "uvdesk/automation-bundle": "^1.0",
+        "uvdesk/support-center-bundle": "^1.0",
+        "uvdesk/mailbox-component": "^1.0"
     },
     "require-dev": {
         "symfony/debug-pack": "*",
