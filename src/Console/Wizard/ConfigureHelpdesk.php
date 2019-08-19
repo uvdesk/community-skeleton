@@ -13,6 +13,8 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Console\Input\ArrayInput as ConsoleOptions;
+use Doctrine\Migrations\Exception\UnknownMigrationVersion;
+use Doctrine\Migrations\Generator\Exception\NoChangesDetected;
 
 class ConfigureHelpdesk extends Command
 {
@@ -70,34 +72,47 @@ class ConfigureHelpdesk extends Command
         // Check 2: Ensure entities have been loaded
         $output->writeln("  [-] Comparing the <info>$database</info> database schema with the current mapping metadata.");
 
-        $currentMigrationVersion = $this->getLatestMigrationVersion(new BufferedOutput());
-        $latestMigrationVersion = $this
-            ->versionMigrations($output)
-            ->compareMigrations($output)
-            ->getLatestMigrationVersion(new BufferedOutput());
-        
-        if (('0' != $currentMigrationVersion && $currentMigrationVersion != $latestMigrationVersion) || ($currentMigrationVersion != $latestMigrationVersion)) {
-            $output->writeln("  <comment>[!]</comment> The current database schema is not up-to-date with the current mapping metadata.");
-            $interactiveQuestion = new Question("\n      <comment>Update your database schema to the current mapping metadata? [Y/N]</comment> ", 'Y');
+        // Get the current database migration version
+        try {
+            $currentMigrationVersion = $this->getLatestMigrationVersion(new BufferedOutput());
+        } catch (UnknownMigrationVersion $e) {
+            // Fresh setup. No initial migration version defined.
+            $currentMigrationVersion = 0;
+        }
 
-            if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
-                $output->writeln([
-                    "",
-                    "      Please wait while your database is being migrated from version <comment>$currentMigrationVersion</comment> to <info>$latestMigrationVersion</info>.",
-                    "      This could take up to a few minutes.\n",
-                ]);
+        $this->versionMigrations(new NullOutput());
 
-                $this->migrateDatabaseToLatestVersion(new NullOutput())->runDataFixtures(new NullOutput());
-                $output->writeln("  <info>[v]</info> Database successfully migrated to the latest migration version <comment>$latestMigrationVersion</comment> to <info>$latestMigrationVersion</info>.\n");
-            } else {
-                $output->writeln([
-                    "\n  <fg=red;>[x]</> There are entities that have not been updated to the <info>$database</info> database yet.",
-                    "\n  Exiting evaluation process.\n"
-                ]);
-
-                return;
+        // Compare the current database migration version against database 
+        // and create a new migration version accordingly.
+        try {
+            $latestMigrationVersion = $this
+                ->compareMigrations($output)
+                ->getLatestMigrationVersion(new BufferedOutput());
+            
+            if ($currentMigrationVersion != $latestMigrationVersion) {
+                $output->writeln("  <comment>[!]</comment> The current database schema is not up-to-date with the current mapping metadata.");
+                $interactiveQuestion = new Question("\n      <comment>Update your database schema to the current mapping metadata? [Y/N]</comment> ", 'Y');
+    
+                if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
+                    $output->writeln([
+                        "",
+                        "      Please wait while your database is being migrated from version <comment>$currentMigrationVersion</comment> to <info>$latestMigrationVersion</info>.",
+                        "      This could take up to a few minutes.\n",
+                    ]);
+    
+                    $this->migrateDatabaseToLatestVersion(new NullOutput())->runDataFixtures(new NullOutput());
+                    $output->writeln("  <info>[v]</info> Database successfully migrated to the latest migration version <comment>$latestMigrationVersion</comment> to <info>$latestMigrationVersion</info>.\n");
+                } else {
+                    $output->writeln([
+                        "\n  <fg=red;>[x]</> There are entities that have not been updated to the <info>$database</info> database yet.",
+                        "\n  Exiting evaluation process.\n"
+                    ]);
+    
+                    return;
+                }
             }
-        } else {
+        } catch (NoChangesDetected $e) {
+            // Database is up-to-date. Do nothing.
             $output->writeln("  <info>[v]</info> The current database schema is up-to-date with the current mapping metdata.\n");
         }
 
