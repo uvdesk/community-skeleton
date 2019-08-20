@@ -13,6 +13,8 @@ use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Console\Input\ArrayInput as ConsoleOptions;
+use Doctrine\Migrations\Exception\UnknownMigrationVersion;
+use Doctrine\Migrations\Generator\Exception\NoChangesDetected;
 
 class MigrateDatabase extends Command
 {
@@ -45,14 +47,28 @@ class MigrateDatabase extends Command
             return;
         }
 
-        $currentMigrationVersion = $this->getLatestMigrationVersion(new BufferedOutput());
-        $latestMigrationVersion = $this
-            ->versionMigrations($output)
-            ->compareMigrations($output)
-            ->getLatestMigrationVersion(new BufferedOutput());
-        
-        if (('0' != $currentMigrationVersion && $currentMigrationVersion != $latestMigrationVersion) || ($currentMigrationVersion != $latestMigrationVersion)) {
-            $this->migrateDatabaseToLatestVersion(new NullOutput());
+        // Get the current database migration version
+        try {
+            $currentMigrationVersion = $this->getLatestMigrationVersion(new BufferedOutput());
+        } catch (UnknownMigrationVersion $e) {
+            // Fresh setup. No initial migration version defined.
+            $currentMigrationVersion = 0;
+        }
+
+        $this->versionMigrations($output);
+
+        // Compare the current database migration version against database 
+        // and create a new migration version accordingly.
+        try {
+            $latestMigrationVersion = $this
+                ->compareMigrations($output)
+                ->getLatestMigrationVersion(new BufferedOutput());
+            
+            if (('0' != $currentMigrationVersion && $currentMigrationVersion != $latestMigrationVersion) || ($currentMigrationVersion != $latestMigrationVersion)) {
+                $this->migrateDatabaseToLatestVersion(new NullOutput());
+            }
+        } catch (NoChangesDetected $e) {
+            // Do nothing ...
         }
     }
 
