@@ -135,6 +135,7 @@
                 this.wizard.enableNextStep();
                 if (params.existingModel instanceof UVDeskCommunityWebsiteConfigurationModel) {
                     this.model = params.existingModel;
+                    this.model.view = this;
                 } else {
                     this.model = new UVDeskCommunityWebsiteConfigurationModel({ view: this });
                 }
@@ -243,6 +244,7 @@
                 this.wizard = params.wizard;
                 if (params.existingModel instanceof UVDeskCommunityAccountConfigurationModel) {
                     this.model = params.existingModel;
+                    this.model.view = this;
                 } else {
                     this.model = new UVDeskCommunityAccountConfigurationModel({ view: this });
                 }
@@ -373,6 +375,7 @@
             initialize: function(params) {
                 if (params.existingModel instanceof UVDeskCommunityDatabaseConfigurationModel) {
                     this.model = params.existingModel;
+                    this.model.view = this;
                 } else {
                     this.model = new UVDeskCommunityDatabaseConfigurationModel({ view: this });
                 }
