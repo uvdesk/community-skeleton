@@ -1,14 +1,13 @@
 ---
-name: "🧐 Support Question"
-about: "This repository is only for reporting bugs or problems"
+name: ⛔ Support Question
+about: Visit https://support.uvdesk.com/ to learn more about how the uvdesk team can assist you
+
 ---
 
-This repository is only for reporting bugs or issues. If you need support, please use:
+We use GitHub issues only to discuss about uvdesk bugs and new features. For customizations and extended support:
 
-1. Write an email - mailto:support@uvdesk.com
-
-2. Create support ticket on https://support.uvdesk.com
-
-3. Or visit forums (https://forums.uvdesk.com)
+- Contact us at support@uvdesk.com
+- Visit official support website (https://support.uvdesk.com/en/)
+- Visit our community forums (https://forums.uvdesk.com)
 
 Thanks!

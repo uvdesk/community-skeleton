@@ -1,12 +1,12 @@
 ---
-name: "💡 Feature Request"
-about: 'For ideas or feature requests, please make a pull request, or open an issue'
+name: 🚀 Feature Request
+about: RFC and ideas for new features and improvements
+
 ---
 
-This repository is only for reporting bugs or issues. If you need support, please use the forums:
+**Description**  
+<!-- A clear and concise description of the new feature. -->
 
-- https://forums.uvdesk.com/
-
-Alternatively, you may write mail mailto:support@uvdesk.com
-
-More channels are coming soon!!!
+**Example**  
+<!-- A simple example of the new feature in action (include PHP code, YAML config, etc.)
+     If the new feature changes an existing feature, include a simple before/after comparison. -->
