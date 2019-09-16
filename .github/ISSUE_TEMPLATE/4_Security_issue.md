@@ -1,6 +1,6 @@
 ---
 name: ⛔ Security Issue
-about: See https://symfony.com/security to report security-related issues
+about: Visit https://support.uvdesk.com/ to report security-related issues
 
 ---
 
