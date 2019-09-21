@@ -1,0 +1,1030 @@
+# 'Signed in as': 'وقعت في مثل'
+# 'Your Profile': 'ملفك الشخصي'
+# 'Create Ticket': "إنشاء تذكرة"
+# 'Create Agent': "إنشاء وكيل"
+# 'Create Customer': "إنشاء عميل"
+# 'Sign Out': 'خروج'
+# 'Apps': 'تطبيقات'
+# 'Integrate apps as per your needs to get things done faster than ever': "دمج التطبيقات وفقًا لاحتياجاتك لإنجاز الأمور بشكل أسرع من أي وقت مضى"
+# 'Explore Apps': "استكشاف التطبيقات"
+# 'Form Builder': "منشئ النماذج"
+# Knowledgebase: قاعدة المعرفة
+# 'Knowledgebase is a source of rigid and complex information which helps Customers to help themselves': "Knowledgebase هي مصدر معلومات جامدة ومعقدة تساعد العملاء على مساعدة أنفسهم"
+# Articles: مقالات
+# Categories: التصنيفات
+# Folders: المجلدات
+# FOLDERS: المجلدات
+# Productivity: إنتاجية
+# 'Automate your processes by creating set of rules and presets to respond faster to the tickets': "أتمتة عملياتك عن طريق إنشاء مجموعة من القواعد والإعدادات المسبقة للاستجابة بشكل أسرع للتذاكر"
+# 'Prepared Responses': "الردود الجاهزة"
+# 'Saved Replies': "الردود المحفوظة"
+# 'Ticket Types': "أنواع التذاكر"
+# Workflows: سير العمل
+# Settings: الإعدادات
+# 'Manage your Brand Identity, Company Information and other details at a glance': "إدارة هوية علامتك التجارية ومعلومات الشركة والتفاصيل الأخرى في لمحة"
+# Branding: العلامات التجارية
+# 'Custom Fields': 'الحقول المخصصة'
+# 'Email Settings': 'إعدادات البريد الإلكتروني'
+# 'Email Templates': 'قوالب البريد الإلكتروني'
+# Mailbox: صندوق بريد
+# 'Spam Settings': "إعدادات البريد العشوائي"
+# 'Swift Mailer': "سويفت ميلر"
+# Tags: الكلمات
+# Users: المستخدمين
+# 'Control your Groups, Teams, Agents and Customers': "التحكم في المجموعات والفرق والوكلاء والعملاء"
+# Agents: عملاء
+# Customers: الزبائن
+# Groups: مجموعات
+# Privileges: امتيازات
+# Teams: فرق
+# Applications: تطبيقات
+# 'ECommerce Order Syncronization': "تزامن أوامر التجارة الإلكترونية"
+# 'Import ecommerce order details to your support tickets from different available platforms': "استيراد تفاصيل طلب التجارة الإلكترونية إلى تذاكر الدعم الخاصة بك من منصات مختلفة متاحة"
+# Search: بحث
+# 'Sort By': 'صنف حسب'
+# 'Sort By:': 'صنف حسب:'
+# 'Status': 'الحالة'
+# 'Created At': 'أنشئت في'
+# Name: اسم
+# All: الكل
+# Published: نشرت
+# Draft: مشروع
+# 'New Folder': 'ملف جديد'
+# 'Create Knowledgebase Folder': "إنشاء مجلد قاعدة المعارف"
+# 'You didn''t add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.': "لم تقم بإضافة أي مجلد إلى قاعدة معارفك حتى الآن ، قم بإنشاء المجلد الأول وابدأ في إضافة فئات / مقالات لجعل عملائك يساعدون أنفسهم"
+# 'Clear Filters': "مسح الفلاتر"
+# Back: عودة
+# Open: افتح
+# Pending: قيد الانتظار
+# Answered: أجاب
+# Resolved: حل
+# Closed: مغلق
+# Spam: بريد مؤذي
+# New: جديد
+# UnAssigned: غير معين
+# UnAnswered: لم يتم الرد عليها
+# 'My Tickets': 'تذاكري'
+# Starred: تألق
+# Trashed: الحضيض
+# 'New Label': 'تسمية جديدة'
+# Tickets: تذاكر
+# 'Ticket Id': "معرف التذكرة"
+# 'Last Replied': "آخر رد"
+# 'Assign To': 'يسند إلى'
+# 'Customer Email': "البريد الإلكتروني للعملاء"
+# 'Customer Name': 'اسم الزبون'
+# 'Assets Visibility': "رؤية الأصول"
+# Channel/Source: قناة / المصدر
+# Channel: قناة
+# Website: موقع الكتروني
+# Timestamp: الطابع الزمني
+# TimeStamp: الطابع الزمني
+# Team: الفريق
+# Type: اكتب
+# Replies: الردود
+# Agent: وكيل
+# ID: هوية شخصية
+# Subject: موضوع
+# 'Filter View': "عرض فلتر"
+# 'Save set of filters as a preset to stay more productive': "حفظ مجموعة من المرشحات كإعداد مسبق للبقاء أكثر إنتاجية"
+# 'Saved Filters': "الفلاتر المحفوظة"
+# 'No saved filter created': "لم يتم إنشاء مرشح محفوظ"
+# Customer: زبون
+# Priority: أفضلية
+# Tag: بطاقة
+# Source: مصدر
+# Before: قبل
+# After: بعد
+# 'Replies less than': "الردود أقل من"
+# 'Replies more than': "الردود أكثر من"
+# 'Clear All': 'امسح الكل'
+# Account: الحساب
+# Profile: الملف الشخصي
+# 'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format': "تحميل صورة ملف شخصي (100 بكسل × 100 بكسل) <br> بتنسيق PNG أو JPG"
+# 'First Name': 'الاسم الاول'
+# 'Last Name': 'الكنية'
+# Email: البريد الإلكتروني
+# 'Contact Number': 'رقم الاتصال'
+# Timezone: وحدة زمنية
+# Africa/Abidjan: إفريقيا / أبيدجان
+# Africa/Accra: إفريقيا / أكرا
+# Africa/Addis_Ababa: أفريقيا / Addis_Ababa
+# Africa/Algiers: أفريقيا / الجزائر
+# Africa/Asmara: إفريقيا / أسمرة
+# Africa/Bamako: إفريقيا / باماكو
+# Africa/Bangui: أفريقيا / بانغي
+# Africa/Banjul: إفريقيا / بانجول
+# Africa/Bissau: إفريقيا / بيساو
+# Africa/Blantyre: أفريقيا / بلانتير
+# Africa/Brazzaville: إفريقيا / برازافيل
+# Africa/Bujumbura: إفريقيا / بوجمبورا
+# Africa/Cairo: إفريقيا / القاهرة
+# Africa/Casablanca: إفريقيا / الدار البيضاء
+# Africa/Ceuta: إفريقيا / سبتة
+# Africa/Conakry: إفريقيا / كوناكري
+# Africa/Dakar: إفريقيا / داكار
+# Africa/Dar_es_Salaam: أفريقيا / Dar_es_Salaam
+# Africa/Djibouti: إفريقيا / جيبوتي
+# Africa/Douala: إفريقيا / دوالا
+# Africa/El_Aaiun: أفريقيا / العيون
+# Africa/Freetown: إفريقيا / فريتاون
+# Africa/Gaborone: أفريقيا / غابورون
+# Africa/Harare: أفريقيا / هراري
+# Africa/Johannesburg: افريقيا / جوهانسبرغ
+# Africa/Juba: أفريقيا / جوبا
+# Africa/Kampala: إفريقيا / كمبالا
+# Africa/Khartoum: إفريقيا / الخرطوم
+# Africa/Kigali: أفريقيا / كيغالي
+# Africa/Kinshasa: إفريقيا / كينشاسا
+# Africa/Lagos: أفريقيا / لاغوس
+# Africa/Libreville: إفريقيا / ليبرفيل
+# Africa/Lome: إفريقيا / لومي
+# Africa/Luanda: إفريقيا / لواندا
+# Africa/Lubumbashi: إفريقيا / لوبومباشي
+# Africa/Lusaka: إفريقيا / لوساكا
+# Africa/Malabo: إفريقيا / مالابو
+# Africa/Maputo: إفريقيا / مابوتو
+# Africa/Maseru: إفريقيا / ماسيرو
+# Africa/Mbabane: إفريقيا / مباباني
+# Africa/Mogadishu: أفريقيا / مقديشو
+# Africa/Monrovia: إفريقيا / مونروفيا
+# Africa/Nairobi: أفريقيا / نيروبي
+# Africa/Ndjamena: إفريقيا / نجامينا
+# Africa/Niamey: إفريقيا / نيامي
+# Africa/Nouakchott: إفريقيا / نواكشوط
+# Africa/Ouagadougou: إفريقيا / واغادوغو
+# Africa/Porto-Novo: إفريقيا / بورتو نوفو
+# Africa/Sao_Tome: إفريقيا / ساو تومي
+# Africa/Tripoli: إفريقيا / طرابلس
+# Africa/Tunis: أفريقيا / تونس
+# Africa/Windhoek: إفريقيا / ويندهوك
+# America/Adak: أمريكا / أداك
+# America/Anchorage: أمريكا / مرسى
+# America/Anguilla: أمريكا / أنغيلا
+# America/Antigua: أمريكا / أنتيغوا
+# America/Araguaina: أمريكا / أراغوينا
+# America/Argentina/Buenos_Aires: أمريكا / الأرجنتين / بيونس آيرس
+# America/Argentina/Catamarca: أمريكا / الأرجنتين / كاتاماركا
+# America/Argentina/Cordoba: أمريكا / الأرجنتين / كوردوبا
+# America/Argentina/Jujuy: أمريكا / الأرجنتين / خوخوي
+# America/Argentina/La_Rioja: أمريكا / الأرجنتين / La_Rioja
+# America/Argentina/Mendoza: أمريكا / الأرجنتين / مندوزا
+# America/Argentina/Rio_Gallegos: أمريكا / الأرجنتين / Rio_Gallegos
+# America/Argentina/Salta: أمريكا / الأرجنتين / سالتا
+# America/Argentina/San_Juan: أمريكا / الأرجنتين / San_Juan
+# America/Argentina/San_Luis: أمريكا / الأرجنتين / San_Luis
+# America/Argentina/Tucuman: أمريكا / الأرجنتين / توكومان
+# America/Argentina/Ushuaia: أمريكا / الأرجنتين / أوشوايا
+# America/Aruba: أمريكا / أروبا
+# America/Asuncion: أمريكا / أسونسيون
+# America/Atikokan: أمريكا / Atikokan
+# America/Bahia: أمريكا / باهيا
+# America/Bahia_Banderas: أمريكا / Bahia_Banderas
+# America/Barbados: أمريكا / بربادوس
+# America/Belem: أمريكا / بيليم
+# America/Belize: أمريكا / بليز
+# America/Blanc-Sablon: أمريكا / بلون سابلون
+# America/Boa_Vista: أمريكا / بوا فيستا
+# America/Bogota: أمريكا / بوغوتا
+# America/Boise: أمريكا / بويز
+# America/Cambridge_Bay: أمريكا / خليج كامبريدج
+# America/Campo_Grande: أمريكا / Campo_Grande
+# America/Cancun: أمريكا / كانكون
+# America/Caracas: أمريكا / كاراكاس
+# America/Cayenne: أمريكا / كاين
+# America/Cayman: أمريكا / كايمان
+# America/Chicago: أمريكا / شيكاغو
+# America/Chihuahua: أمريكا / تشيهواهوا
+# America/Costa_Rica: أمريكا / كوستاريكا
+# America/Creston: أمريكا / كريستون
+# America/Cuiaba: أمريكا / كويابا
+# America/Curacao: أمريكا / كوراكاو
+# America/Danmarkshavn: أمريكا / دانماركشافن
+# America/Dawson: أمريكا / داوسون
+# America/Dawson_Creek: أمريكا / Dawson_Creek
+# America/Denver: أمريكا / دنفر
+# America/Detroit: أمريكا / ديترويت
+# America/Dominica: أمريكا / دومينيكا
+# America/Edmonton: أمريكا / أدمنتون
+# America/Eirunepe: أمريكا / من Eirunepe
+# America/El_Salvador: أمريكا / السلفادور
+# America/Fort_Nelson: أمريكا / Fort_Nelson
+# America/Fortaleza: أمريكا / فورتاليزا
+# America/Glace_Bay: أمريكا / خليج جلاس
+# America/Godthab: أمريكا / غودتاب
+# America/Goose_Bay: أمريكا / خليج غوس
+# America/Grand_Turk: أمريكا / غراند ترك
+# America/Grenada: أمريكا / غرينادا
+# America/Guadeloupe: أمريكا / غوادلوب
+# America/Guatemala: أمريكا / غواتيمالا
+# America/Guayaquil: أمريكا / غواياكيل
+# America/Guyana: أمريكا / غيانا
+# America/Halifax: أمريكا / هاليفاكس
+# America/Havana: أمريكا / هافانا
+# America/Hermosillo: أمريكا / هيرموسيلو
+# America/Indiana/Indianapolis: أمريكا / إنديانا / إنديانابوليس
+# America/Indiana/Knox: أمريكا / إنديانا / نوكس
+# America/Indiana/Marengo: أمريكا / إنديانا / مارينغو
+# America/Indiana/Petersburg: أمريكا / إنديانا / بطرسبرج
+# America/Indiana/Tell_City: أمريكا / إنديانا / Tell_City
+# America/Indiana/Vevay: أمريكا / إنديانا / فيفاي
+# America/Indiana/Vincennes: أمريكا / إنديانا / فينسين
+# America/Indiana/Winamac: أمريكا / إنديانا / Winamac
+# America/Inuvik: أمريكا / إنوفيك
+# America/Iqaluit: أمريكا / إكالويت
+# America/Jamaica: أمريكا / جامايكا
+# America/Juneau: أمريكا / جونو
+# America/Kentucky/Louisville: أمريكا / كنتاكي / لويزفيل
+# America/Kentucky/Monticello: أمريكا / كنتاكي / مونتيسيلو
+# America/Kralendijk: أمريكا / كرالينديجك
+# America/La_Paz: أمريكا / لا باز
+# America/Lima: أمريكا / ليما
+# America/Los_Angeles: أمريكا / Los_Angeles
+# America/Lower_Princes: أمريكا / Lower_Princes
+# America/Maceio: أمريكا / ماسيو
+# America/Managua: أمريكا / ماناغوا
+# America/Manaus: أمريكا / ماناوس
+# America/Marigot: أمريكا / ماريجوت
+# America/Martinique: أمريكا / مارتينيك
+# America/Matamoros: أمريكا / ماتاموروس
+# America/Mazatlan: أمريكا / مازاتلان
+# America/Menominee: أمريكا / مينوميني
+# America/Merida: أمريكا / ميريدا
+# America/Metlakatla: أمريكا / ميتلاكاتلا
+# America/Mexico_City: أمريكا / Mexico_City
+# America/Miquelon: أمريكا / ميكلون
+# America/Moncton: أمريكا / مونكتون
+# America/Monterrey: أمريكا / مونتيري
+# America/Montevideo: أمريكا / مونتيفيديو
+# America/Montserrat: أمريكا / مونتسيرات
+# America/Nassau: أمريكا / ناسو
+# America/New_York: أمريكا / نيويورك
+# America/Nipigon: أمريكا / نيبجون
+# America/Nome: أمريكا / نومي
+# America/Noronha: أمريكا / نورونها
+# America/North_Dakota/Beulah: أمريكا / داكوتا الشمالية / بيولا
+# America/North_Dakota: أمريكا / داكوتا الشمالية
+# America/Ojinaga: أمريكا / أوهيناغا
+# America/Panama: أمريكا / بنما
+# America/Pangnirtung: أمريكا / بانجنيرتونج
+# America/Paramaribo: أمريكا / باراماريبو
+# America/Phoenix: أمريكا / فينكس
+# America/Port-au-Prince: أمريكا / بورت أو برنس
+# America/Port_of_Spain: أمريكا / بورت اوف سبين
+# America/Porto_Velho: أمريكا / بورتو فاليو
+# America/Puerto_Rico: أمريكا / بورتوريكو
+# America/Punta_Arenas: أمريكا / Punta_Arenas
+# America/Rainy_River: أمريكا / نهر الراني
+# America/Rankin_Inlet: أمريكا / رانكين إنليت
+# America/Recife: أمريكا / ريسيفي
+# America/Regina: أمريكا / ريجينا
+# America/Resolute: أمريكا / حازم
+# America/Rio_Branco: أمريكا / ريو برانكو
+# America/Santarem: أمريكا / سانتاريم
+# America/Santiago: أمريكا / سانتياغو
+# America/Santo_Domingo: أمريكا / سانتو دومينغو
+# America/Sao_Paulo: أمريكا / ساو باولو
+# America/Scoresbysund: أمريكا / سكورسبيسوند
+# America/Sitka: أمريكا / سيتكا
+# America/St_Barthelemy: أمريكا / St_Barthelemy
+# America/St_Johns: أمريكا / سانت جونز
+# America/St_Kitts: أمريكا / St_Kitts
+# America/St_Lucia: أمريكا / سانت لوسيا
+# America/St_Thomas: أمريكا / سانت توماس
+# America/St_Vincent: أمريكا / سانت فنسنت
+# America/Swift_Current: أمريكا / سويفت كرنت
+# America/Tegucigalpa: أمريكا / تيغوسيغالبا
+# America/Thule: أمريكا / ثول
+# America/Thunder_Bay: أمريكا / خليج ثندر
+# America/Tijuana: أمريكا / تيخوانا
+# America/Toronto: أمريكا / تورونتو
+# America/Tortola: أمريكا / تورتولا
+# America/Vancouver: أمريكا / فانكوفر
+# America/Whitehorse: أمريكا / وايت هورس
+# America/Winnipeg: أمريكا / وينيبيغ
+# America/Yakutat: أمريكا / من Yakutat
+# America/Yellowknife: أمريكا / يلونايف
+# Antarctica/Casey: أنتاركتيكا / كاسي
+# Antarctica/Davis: أنتاركتيكا / ديفيس
+# Antarctica/DumontDUrville: أنتاركتيكا / دومونت دورفيل
+# Antarctica/Macquarie: أنتاركتيكا / ماكواري
+# Antarctica/McMurdo: أنتاركتيكا / ماكموردو
+# Antarctica/Mawson: أنتاركتيكا / ماوسون
+# Antarctica/Palmer: أنتاركتيكا / بالمر
+# Antarctica/Rothera: أنتاركتيكا / روثيرا
+# Antarctica/Syowa: أنتاركتيكا / سيووا
+# Antarctica/Troll: أنتاركتيكا / ترول
+# Antarctica/Vostok: أنتاركتيكا / فوستوك
+# Arctic/Longyearbyen: القطب الشمالي / ونجييربين
+# Asia/Aden: آسيا / عدن
+# Asia/Almaty: آسيا / ألماتي
+# Asia/Amman: آسيا / عمان
+# Asia/Anadyr: آسيا / أنادير
+# Asia/Aqtau: آسيا / أقتاو
+# Asia/Aqtobe: آسيا / أكتوب
+# Asia/Ashgabat: آسيا / عشق أباد
+# Asia/Atyrau: آسيا / أتيراو
+# Asia/Baghdad: آسيا / بغداد
+# Asia/Bahrain: آسيا / البحرين
+# Asia/Baku: آسيا / باكو
+# Asia/Bangkok: آسيا / بانكوك
+# Asia/Barnaul: آسيا / بارناول
+# Asia/Beirut: آسيا / بيروت
+# Asia/Bishkek: آسيا / بيشكيك
+# Asia/Brunei: آسيا / بروناي
+# Asia/Chita: آسيا / تشيتا
+# Asia/Choibalsan: آسيا / شويبالسان
+# Asia/Colombo: آسيا / كولومبو
+# Asia/Damascus: آسيا / دمشق
+# Asia/Dhaka: آسيا / دكا
+# Asia/Dili: آسيا / ديلي
+# Asia/Dubai: آسيا / دبي
+# Asia/Dushanbe: آسيا / دوشانبي
+# Asia/Famagusta: آسيا / فاماغوستا
+# Asia/Gaza: آسيا / غزة
+# Asia/Hebron: آسيا / الخليل
+# Asia/Ho_Chi_Minh: آسيا / Ho_Chi_Minh
+# Asia/Hong_Kong: آسيا / هونغ كونغ
+# Asia/Hovd: آسيا / هوود
+# Asia/Irkutsk: آسيا / إيركوتسك
+# Asia/Jakarta: آسيا / جاكرتا
+# Asia/Jayapura: آسيا / جايابورا
+# Asia/Jerusalem: آسيا / القدس
+# Asia/Kabul: آسيا / كابول
+# Asia/Kamchatka: آسيا / كامتشاتكا
+# Asia/Karachi: آسيا / كراتشي
+# Asia/Kathmandu: آسيا / كاتماندو
+# Asia/Khandyga: آسيا / Khandyga
+# Asia/Kolkata: آسيا / كلكتا
+# Asia/Krasnoyarsk: آسيا / كراسنويارسك
+# Asia/Kuala_Lumpur: آسيا / Kuala_Lumpur
+# Asia/Kuching: آسيا / كوتشينغ
+# Asia/Kuwait: آسيا / الكويت
+# Asia/Macau: آسيا / ماكاو
+# Asia/Magadan: آسيا / ماغادان
+# Asia/Makassar: آسيا / ماكاسار
+# Asia/Manila: آسيا / مانيلا
+# Asia/Muscat: آسيا / مسقط
+# Asia/Nicosia: آسيا / نيقوسيا
+# Asia/Novokuznetsk: آسيا / نوفوكوزنتسك
+# Asia/Novosibirsk: آسيا / نوفوسيبيرسك
+# Asia/Omsk: آسيا / أومسك
+# Asia/Oral: آسيا / عن طريق الفم
+# Asia/Phnom_Penh: آسيا / Phnom_Penh
+# Asia/Pontianak: آسيا / بونتياناك
+# Asia/Pyongyang: آسيا / بيونغ يانغ
+# Asia/Qatar: آسيا / قطر
+# Asia/Qostanay: آسيا / كوستاناي
+# Asia/Qyzylorda: آسيا / كيزيلورودا
+# Asia/Riyadh: آسيا / الرياض
+# Asia/Sakhalin: آسيا / ساخالين
+# Asia/Samarkand: آسيا / سمرقند
+# Asia/Seoul: آسيا / سيول
+# Asia/Shanghai: آسيا / شنغهاي
+# Asia/Singapore: آسيا / سنغافورة
+# Asia/Srednekolymsk: آسيا / سريدنكوليمسك
+# Asia/Taipei: آسيا / تايبيه
+# Asia/Tashkent: آسيا / طشقند
+# Asia/Tbilisi: آسيا / تبليسي
+# Asia/Tehran: آسيا / طهران
+# Asia/Thimphu: آسيا / تيمفو
+# Asia/Tokyo: آسيا / طوكيو
+# Asia/Tomsk: آسيا / تومسك
+# Asia/Ulaanbaatar: آسيا / أولان باتور
+# Asia/Urumqi: آسيا / أورومتشي
+# Asia/Ust-Nera: آسيا / أوست-نيرا
+# Asia/Vientiane: آسيا / فينتيان
+# Asia/Vladivostok: آسيا / فلاديفوستوك
+# Asia/Yakutsk: آسيا / ياكوتسك
+# Asia/Yangon: آسيا / يانغون
+# Asia/Yekaterinburg: آسيا / يكاترينبورغ
+# Asia/Yerevan: آسيا / يريفان
+# Atlantic/Azores: الأطلسي / الأزور
+# Atlantic/Bermuda: الأطلسي / برمودا
+# Atlantic/Canary: الأطلسي / الكناري
+# Atlantic/Cape_Verde: الأطلسي / Cape_Verde
+# Atlantic/Faroe: الأطلسي / فارو
+# Atlantic/Madeira: الأطلسي / ماديرا
+# Atlantic/Reykjavik: الأطلسي / ريكيافيك
+# Atlantic/South_Georgia: الأطلسي / جورجيا الجنوبية
+# Atlantic/St_Helena: الأطلسي / سانت هيلينا
+# Atlantic/Stanley: الأطلسي / ستانلي
+# Australia/Adelaide: أستراليا / أديليد
+# Australia/Brisbane: أستراليا / بريسبان
+# Australia/Broken_Hill: أستراليا / بروكن هيل
+# Australia/Currie: أستراليا / كوري
+# Australia/Darwin: أستراليا / داروين
+# Australia/Eucla: أستراليا / أوكلا
+# Australia/Hobart: أستراليا / هوبارت
+# Australia/Lindeman: أستراليا / ليندمان
+# Australia/Lord_Howe: أستراليا / لورد هو
+# Australia/Melbourne: استراليا / ملبورن
+# Australia/Perth: أستراليا / بيرث
+# Australia/Sydney: أستراليا / سيدني
+# Europe/Amsterdam: أوروبا / أمستردام
+# Europe/Andorra: أوروبا / أندورا
+# Europe/Astrakhan: أوروبا / استراخان
+# Europe/Athens: أوروبا / أثينا
+# Europe/Belgrade: أوروبا / بلغراد
+# Europe/Berlin: أوروبا / برلين
+# Europe/Bratislava: أوروبا / براتيسلافا
+# Europe/Brussels: أوروبا / بروكسل
+# Europe/Bucharest: أوروبا / بوخارست
+# Europe/Budapest: أوروبا / بودابست
+# Europe/Busingen: أوروبا / Busingen
+# Europe/Chisinau: أوروبا / كيشيناو
+# Europe/Copenhagen: أوروبا / كوبنهاجن
+# Europe/Dublin: أوروبا / دبلن
+# Europe/Gibraltar: أوروبا / جبل طارق
+# Europe/Guernsey: أوروبا / غيرنسي
+# Europe/Helsinki: أوروبا / هلسنكي
+# Europe/Isle_of_Man: أوروبا / Isle_of_Man
+# Europe/Istanbul: أوروبا / اسطنبول
+# Europe/Jersey: أوروبا / جيرسي
+# Europe/Kaliningrad: أوروبا / كالينينغراد
+# Europe/Kiev: أوروبا / كييف
+# Europe/Kirov: أوروبا / كيروف
+# Europe/Lisbon: أوروبا / لشبونة
+# Europe/Ljubljana: أوروبا / ليوبليانا
+# Europe/London: أوروبا / لندن
+# Europe/Luxembourg: أوروبا / لوكسمبورغ
+# Europe/Madrid: أوروبا / مدريد
+# Europe/Malta: أوروبا / مالطا
+# Europe/Mariehamn: أوروبا / ماريهامن
+# Europe/Minsk: أوروبا / مينسك
+# Europe/Monaco: أوروبا / موناكو
+# Europe/Moscow: أوروبا / موسكو
+# Europe/Oslo: أوروبا / أوسلو
+# Europe/Paris: أوروبا / باريس
+# Europe/Podgorica: أوروبا / بودغوريتشا
+# Europe/Prague: أوروبا / براغ
+# Europe/Riga: أوروبا / ريغا
+# Europe/Rome: أوروبا / روما
+# Europe/Samara: أوروبا / سمارة
+# Europe/San_Marino: أوروبا / سان مارينو
+# Europe/Sarajevo: أوروبا / سراييفو
+# Europe/Saratov: أوروبا / ساراتوف
+# Europe/Simferopol: أوروبا / سيمفيروبول
+# Europe/Skopje: أوروبا / سكوبي
+# Europe/Sofia: أوروبا / صوفيا
+# Europe/Stockholm: أوروبا / ستوكهولم
+# Europe/Tallinn: أوروبا / تالين
+# Europe/Tirane: أوروبا / تيرانا
+# Europe/Ulyanovsk: أوروبا / أوليانوفسك
+# Europe/Uzhgorod: أوروبا / أوزجورود
+# Europe/Vaduz: أوروبا / فادوز
+# Europe/Vatican: أوروبا / الفاتيكان
+# Europe/Vienna: أوروبا / فيينا
+# Europe/Vilnius: أوروبا / فيلنيوس
+# Europe/Volgograd: أوروبا / فولغوغراد
+# Europe/Warsaw: أوروبا / وارسو
+# Europe/Zagreb: أوروبا / زغرب
+# Europe/Zaporozhye: أوروبا / زابوروجي
+# Europe/Zurich: أوروبا / زيوريخ
+# Indian/Antananarivo: الهندي / أنتاناناريفو
+# Indian/Chagos: الهندي / تشاغوس
+# Indian/Christmas: الهندي / عيد الميلاد
+# Indian/Cocos: الهندي / كوكوس
+# Indian/Comoro: الهندي / جزر القمر
+# Indian/Kerguelen: الهندية / كيرغولن
+# Indian/Mahe: الهندي / ماهي
+# Indian/Maldives: الهندي / جزر المالديف
+# Indian/Mauritius: الهندي / موريشيوس
+# Indian/Mayotte: الهندي / مايوت
+# Indian/Reunion: الهندي / ريونيون
+# Pacific/Apia: المحيط الهادئ / آبيا
+# Pacific/Auckland: المحيط الهادئ / أوكلاند
+# Pacific/Bougainville: المحيط الهادئ / بوغانفيل
+# Pacific/Chatham: المحيط الهادئ / تشاتام
+# Pacific/Chuuk: المحيط الهادئ / شوك
+# Pacific/Easter: المحيط الهادئ / عيد الفصح
+# Pacific/Efate: المحيط الهادئ / إيفات
+# Pacific/Enderbury: المحيط الهادئ / إندربري
+# Pacific/Fakaofo: المحيط الهادئ / فاكاوفو
+# Pacific/Fiji: المحيط الهادئ / فيجي
+# Pacific/Funafuti: المحيط الهادئ / فونافوتي
+# Pacific/Galapagos: المحيط الهادي / غالاباغوس
+# Pacific/Gambier: المحيط الهادئ / جامبير
+# Pacific/Guadalcanal: المحيط الهادئ / القنال
+# Pacific/Guam: المحيط الهادئ / غوام
+# Pacific/Honolulu: المحيط الهادئ / هونولولو
+# Pacific/Kiritimati: المحيط الهادئ / كيريتيماتي
+# Pacific/Kosrae: المحيط الهادئ / كوسراي
+# Pacific/Kwajalein: المحيط الهادئ / كواجالين
+# Pacific/Majuro: المحيط الهادئ / ماجورو
+# Pacific/Marquesas: المحيط الهادئ / الماركيز
+# Pacific/Midway: المحيط الهادئ / ميدواي
+# Pacific/Nauru: المحيط الهادئ / ناورو
+# Pacific/Niue: المحيط الهادئ / نيوي
+# Pacific/Norfolk: المحيط الهادئ / نورفولك
+# Pacific/Noumea: المحيط الهادئ / نوميا
+# Pacific/Pago_Pago: المحيط الهادئ / باغو باغو
+# Pacific/Palau: المحيط الهادئ / بالاو
+# Pacific/Pitcairn: المحيط الهادئ / بيتكيرن
+# Pacific/Pohnpei: المحيط الهادئ / بوهنباي
+# Pacific/Port_Moresby: المحيط الهادئ / بور مورسبي
+# Pacific/Rarotonga: المحيط الهادئ / راروتونغا
+# Pacific/Saipan: المحيط الهادئ / سايبان
+# Pacific/Tahiti: المحيط الهادئ / تاهيتي
+# Pacific/Tarawa: المحيط الهادئ / تاراوا
+# Pacific/Tongatapu: المحيط الهادئ / تونجاتابو
+# Pacific/Wake: المحيط الهادئ / ويك
+# Pacific/Wallis: المحيط الهادئ / واليس
+# UTC: التوقيت العالمي
+# 'Time Format': 'تنسيق الوقت'
+# 'Choose your default timezone': "اختر المنطقة الزمنية الافتراضية"
+# Signature: التوقيع
+# 'User signature will be append at the bottom of ticket reply box': "سيتم إلحاق توقيع المستخدم في أسفل مربع الرد على التذاكر"
+# Password: كلمه السر
+# 'Password will remain same if you are not entering something in this field': "ستبقى كلمة المرور كما هي إذا لم تقم بإدخال شيء في هذا الحقل"
+# 'Confirm Password': 'تأكيد كلمة المرور'
+# 'Save Changes': "حفظ التغييرات"
+# 'SAVE CHANGES': "حفظ التغييرات"
+# 'CREATE TICKET': "إنشاء تذكرة"
+# 'Customer full name': "الاسم الكامل للعميل"
+# 'Customer email address': "عنوان البريد الإلكتروني للعملاء"
+# 'Select Type': 'اختر صنف'
+# Support: الدعم
+# 'Choose ticket type': "اختر نوع التذكرة"
+# 'Ticket subject': "موضوع التذاكر"
+# Message: رسالة
+# 'Query Message': "رسالة الاستعلام"
+# 'Add Attachment': 'إضافة مرفق'
+# 'This field is mandatory': "هذا الحقل إلزامي"
+# General: جنرال لواء
+# Designation: تعيين
+# 'Contant Number': "رقم المحتوى"
+# 'User signature will be append in the bottom of ticket reply box': "سيتم إلحاق توقيع المستخدم في أسفل مربع الرد على التذاكر"
+# 'Account Status': 'حالة الحساب'
+# 'Account is Active': "الحساب نشط"
+# 'Assigning group(s) to user to view tickets regardless assignment.': "تعيين مجموعة (مجموعات) للمستخدم لعرض التذاكر بغض النظر عن التعيين"
+# Default: الإفتراضي
+# 'Select All': 'اختر الكل'
+# 'Remove All': 'حذف الكل'
+# 'Assigning team(s) to user to view tickets regardless assignment.': "تعيين فريق (فرق) للمستخدم لعرض التذاكر بغض النظر عن المهمة."
+# 'No Team added !': "لم يتم إضافة فريق!"
+# Permission: الإذن
+# Role: وظيفة
+# Administrator: مدير
+# 'Select agent role': "اختيار دور الوكيل"
+# 'Add Customer': "إضافة عميل"
+# Action: عمل
+# 'Account Owner': 'مالك حساب'
+# Active: نشيط
+# Edit: تعديل
+# Delete: حذف
+# Disabled: معاق
+# 'New Group': 'مجموعة جديدة'
+# 'Default Privileges': "الامتيازات الافتراضية"
+# 'New Privileges': "امتيازات جديدة"
+# 'NEW PRIVILEGE': "امتياز جديد"
+# 'New Privilege': "امتياز جديد"
+# 'New Team': 'فريق جديد'
+# 'No Record Found': 'لا يوجد سجلات'
+# 'Order Synchronization': "ترتيب التزامن"
+# 'Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.': "يمكنك دمج منصات التجارة الإلكترونية المختلفة بسهولة مع مكتب المساعدة الخاص بك والذي يمكن استخدامه لاحقًا لدمج تفاصيل أوامر التجارة الإلكترونية بسرعة مع تذاكر الدعم الخاصة بك."
+# BigCommerce: BigCommerce
+# 'No channels have been added.': "لم تتم إضافة قنوات"
+# 'Add BigCommerce Store': "إضافة متجر BigCommerce"
+# 'ADD BIGCOMMERCE STORE': "إضافة متجر BIGCOMMERCE"
+# Mangento: Mangento
+# 'Add Magento Store': "أضف متجر الماجنتو"
+# OpenCart: OpenCart
+# 'Add OpenCart Store': "إضافة متجر OpenCart"
+# 'ADD OPENCART STORE': إضافة متجر OPENCART
+# Shopify: Shopify
+# 'Add Shopify Store': "أضف متجر شوبيفي"
+# 'ADD SHOPIFY STORE': إضافة متجر SHOPIFY
+# 'Integrate a new BigCommerce store': "دمج متجر BigCommerce جديد"
+# 'Your BigCommerce Store Name': "اسم متجر BigCommerce الخاص بك"
+# 'Your BigCommerce Store Hash': "تجزئة متجر BigCommerce الخاص بك"
+# 'Your BigCommerce Api Token': "Your BigCommerce Api Token"
+# 'Your BigCommerce Api Client ID': "معرف عميل BigCommerce Api"
+# 'Enable Channel': "تمكين القناة"
+# 'Add Store': "إضافة متجر"
+# 'ADD STORE': إضافة المتجر
+# 'Integrate a new Magento store': "دمج متجر Magento جديد"
+# 'Your Magento Api Username': "اسم مستخدم Magento Api الخاص بك"
+# 'Your Magento Api Password': كلمة المرور الخاصة بـ Magento Api
+# 'Integrate a new OpenCart store': "دمج متجر OpenCart جديد"
+# 'Your OpenCart Api Key': "مفتاح OpenCart Api"
+# 'Your Shopify Store Name': "اسم متجر Shopify الخاص بك"
+# 'Your Shopify Api Key': "لديك Shopify Api مفتاح"
+# 'Your Shopify Api Password': كلمة المرور الخاصة بك
+# 'Easily embed custom form to help generate helpdesk tickets.': "تضمين نموذج مخصص بسهولة للمساعدة في إنشاء تذاكر مكتب المساعدة."
+# Form-Builder: شكل منشئ
+# 'Add Formbuilder': "إضافة Formbuilder"
+# 'ADD FORMBUILDER': "أضف FORMBUILDER"
+# 'No FormBuilder have been added.': "لم تتم إضافة FormBuilder."
+# 'Create a New Custom Form Below': "إنشاء نموذج مخصص جديد أدناه"
+# 'Form Name': 'اسم النموذج'
+# 'It will be shown in the list of created forms': "سيتم عرضه في قائمة النماذج التي تم إنشاؤها"
+# 'MANDATORY FIELDS': "حقول الإلزام"
+# 'These fields will be visible in form and can''t be edited': "ستكون هذه الحقول مرئية في النموذج ولا يمكن تحريرها"
+# Reply: الرد
+# 'OPTIONAL FIELDS': 'الحقول الاختيارية'
+# 'Select These Fields to Add in your Form': "حدد هذه الحقول لإضافتها في نموذجك"
+# GDPR: GDPR
+# Order: طلب
+# Categorybuilder: Categorybuilder
+# File: ملف
+# 'Add Form': "إضافة نموذج"
+# 'ADD FORM': "إضافة نموذج"
+# 'UPDATE FORM': "نموذج التحديث"
+# 'Update Form': "تحديث النموذج"
+# Embed: تضمين
+# EMBED: EMBED
+# 'EMBED FORMBUILDER': "EMBED FORMBUILDER"
+# 'Embed Formbuilder': "تضمين Formbuilder"
+# Visit: يزور
+# VISIT: يزور
+# Code: الشفرة
+# 'Total Ticket(s)': "إجمالي التذاكر (التذاكر)
+# 'Ticket Count': "عدد التذاكر"
+# 'SwiftMailer Configurations': "تكوينات SwiftMailer"
+# 'No swiftmailer configurations found': "لم يتم العثور على تكوينات swiftmailer"
+# 'CREATE CONFIGURATION': "إنشاء التكوين"
+# 'Add configuration': "إضافة التكوين"
+# 'Mailer ID': "معرف الارسال"
+# 'Mailer ID - Leave blank to automatically create id': "معرف مرسل البريد - اتركه فارغًا لإنشاء المعرّف تلقائيًا"
+# 'Transport Type': "نوع النقل"
+# SMTP: SMTP
+# 'Enable Delivery': "تمكين التسليم"
+# Server: الخادم
+# Port: ميناء
+# 'Encryption Mode': 'وضع التشفير'
+# ssl: خدمة تصميم المواقع
+# tsl: TSL
+# None: لا شيء
+# 'Authentication Mode': 'وضع مصادقة'
+# login: تسجيل الدخول
+# Plain: عادي
+# CRAM-MD5: الالزام MD5
+# 'Sender Address': 'عنوان المرسل'
+# 'Delivery Address': 'عنوان التسليم'
+# 'Block Spam': "حظر البريد العشوائي"
+# 'Black list': 'القائمة السوداء'
+# 'Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)': "القيم المفصولة بفواصل (،) (مثل support@example.com ، @ example.com ، 68.98.31.226)"
+# 'White list': "القائمة البيضاء"
+# 'Mailbox Settings': "إعدادات صندوق البريد"
+# 'No mailbox configurations found': "لم يتم العثور على تكوينات صندوق البريد"
+# 'NEW MAILBOX': "بريد جديد"
+# 'New Mailbox': "صندوق بريد جديد"
+# 'Mailbox ID - Leave blank to automatically create id': "معرف صندوق البريد - اتركه فارغًا لإنشاء المعرّف تلقائيًا"
+# 'Mailbox Name': "اسم صندوق البريد"
+# 'Enable Mailbox': "تمكين صندوق البريد"
+# 'Incoming Mail (IMAP) Server': "خادم البريد الوارد (IMAP)"
+# 'Configure your imap settings which will be used to fetch emails from your mailbox.': "قم بتهيئة إعدادات imap التي سيتم استخدامها لجلب رسائل البريد الإلكتروني من صندوق البريد الخاص بك."
+# Transport: المواصلات
+# IMAP: IMAP
+# Gmail: جوجل
+# Yahoo: ياهو
+# Host: مضيف
+# 'IMAP Host': "مضيف IMAP"
+# 'Email address': 'عنوان بريد الكتروني'
+# 'Associated Password': كلمة المرور المرتبطة
+# 'Outgoing Mail (SMTP) Server': "خادم البريد الصادر (SMTP)"
+# 'Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.': "حدد تهيئة Swift Mailer صالحة سيتم استخدامها لإرسال رسائل البريد الإلكتروني من خلال صندوق البريد الخاص بك."
+# 'Swift Mailer ID': "معرف بريد سويفت"
+# 'None Selected': "غير محدد"
+# 'Create Mailbox': "إنشاء صندوق بريد"
+# 'CREATE MAILBOX': "إنشاء صندوق البريد"
+# 'New Template': 'قالب جديد'
+# 'NEW TEMPLATE': 'قالب جديد'
+# 'Customer Forgot Password': نسيت كلمة المرور
+# 'Customer Account Created': "إنشاء حساب العميل"
+# 'Ticket generated success mail to customer': "تم إنشاء تذكرة بريد النجاح إلى العملاء"
+# 'Customer Reply To The Agent': "رد العميل على الوكيل"
+# 'Ticket Assign': "تخصيص تذكرة"
+# 'Agent Forgot Password': "وكيل نسيت كلمة المرور"
+# 'Agent Account Created': "إنشاء حساب الوكيل"
+# 'Ticket generated by customer': "التذاكر التي تم إنشاؤها بواسطة العملاء"
+# 'Agent Reply To The Customer''s ticket': "رد الوكيل على تذكرة العميل"
+# 'Email template name': "اسم قالب البريد الإلكتروني"
+# 'Email template subject': "موضوع قالب البريد الإلكتروني"
+# 'Template For': "قالب من أجل"
+# 'Nothing Selected': 'لا شيء محدد'
+# 'email template will be used for work related with selected option': "سيتم استخدام قالب البريد الإلكتروني للعمل المرتبط بالخيار المحدد"
+# 'Email template body': "نص قالب البريد الإلكتروني"
+# Body: الجسم
+# placeholders: النائبة
+# 'Ticket Subject': "موضوع التذكرة"
+# 'Ticket Message': "رسالة التذاكر"
+# 'Ticket Attachments': "مرفقات التذاكر"
+# 'Ticket Tags': "بطاقات التذاكر"
+# 'Ticket Source': "مصدر التذاكر"
+# 'Ticket Status': "حالة التذاكر"
+# 'Ticket Priority': "أولوية التذاكر"
+# 'Ticket Group': "مجموعة التذاكر"
+# 'Ticket Team': "فريق التذاكر"
+# 'Ticket Thread Message': "رسالة خيط التذاكر"
+# 'Ticket Customer Name': "اسم عميل التذاكر"
+# 'Ticket Customer Email': "تذكرة عميل البريد الإلكتروني"
+# 'Ticket Agent Name': "اسم وكيل التذاكر"
+# 'Ticket Agent Email': "عامل تذكرة البريد الإلكتروني"
+# 'Ticket Agent Link': "رابط وكيل التذاكر"
+# 'Ticket Customer Link': "رابط عميل التذاكر"
+# 'Last Collaborator Name': "اسم المتعاون الأخير"
+# 'Last Collaborator Email': "آخر متعاون للبريد الإلكتروني"
+# 'Agent/ Customer Name': "اسم الوكيل / العميل"
+# 'Account Validation Link': "رابط التحقق من صحة الحساب"
+# 'Password Forgot Link': نسيت كلمة المرور
+# 'Company Name': 'اسم الشركة'
+# 'Company Logo': 'شعار الشركة'
+# 'Company URL': "عنوان URL للشركة"
+# 'Swiftmailer id (Select from drop down)': "معرف Swiftmailer (اختر من القائمة المنسدلة)"
+# PROCEED: تقدم
+# Proceed: تقدم
+# 'Theme Color': 'لون الموضوع'
+# 'Customer Created': "العملاء خلق"
+# 'Agent Created': "الوكيل الذي تم إنشاؤه"
+# 'Ticket Created': "إنشاء تذكرة"
+# 'Agent Replied on Ticket': "رد الوكيل على التذكرة"
+# 'Customer Replied on Ticket': "رد العميل على التذكرة"
+# 'Workflow Status': "حالة سير العمل"
+# 'Workflow is Active': "سير العمل نشط"
+# Events: أحداث
+# 'An event automatically triggers to check conditions and perform a respective pre-defined set of actions': "يتم تشغيل الحدث تلقائيًا للتحقق من الظروف وتنفيذ مجموعة محددة مسبقًا من الإجراءات"
+# 'Select an Event': "اختر حدثًا"
+# 'Add More': 'أضف المزيد'
+# Conditions: الظروف
+# 'Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions': "الشروط هي مجموعة من القواعد التي تبحث عن سيناريوهات محددة ويتم تشغيلها في مناسبات محددة"
+# 'Subject or Description': "الموضوع أو الوصف"
+# Actions: أجراءات
+# 'An action not only reduces the workload but also makes it quite easier for ticket automation': "لا يقلل الإجراء من عبء العمل فحسب ، بل يسهل أيضًا التشغيل الآلي للتذاكر"
+# 'Select an Action': "اختيار إجراء"
+# 'Add Note': 'اضف ملاحظة'
+# 'Mail to Agent': "البريد إلى الوكيل"
+# 'Mail to Customer': "البريد إلى العملاء"
+# 'Mail to group': "البريد إلى المجموعة"
+# 'Mail to last collaborator': "بريد لآخر متعاون"
+# 'Mail to team': "بريد إلى فريق"
+# 'Mark Spam': 'صنف هذه الرسالة كرسالة مزعجة'
+# 'Assign to agent': "تعيين إلى وكيل"
+# 'Assign to group': "تعيين إلى مجموعة"
+# 'Set Priority As': "تعيين الأولوية كـ"
+# 'Set Status As': "تعيين الحالة باسم"
+# 'Set Tag As': "تعيين العلامة باسم"
+# 'Assign to Team': "تكليف فريق"
+# 'Set Type As': "تعيين نوع باسم"
+# 'Add Workflow': "إضافة سير العمل"
+# 'ADD WORKFLOW': "إضافة سير العمل"
+# 'Ticket Type code': "رمز نوع التذاكر"
+# 'Ticket Type description': "وصف نوع التذاكر"
+# 'Type Status': "نوع الحالة"
+# 'Type is Active': "النوع نشط"
+# 'Add Save Reply': "إضافة حفظ الرد"
+# 'Saved reply name': "اسم الرد المحفوظ"
+# 'Share saved reply with user(s) in these group(s)': "مشاركة الرد المحفوظ مع المستخدم (المستخدمين) في هذه المجموعة (المجموعات)"
+# 'Share saved reply with user(s) in these teams(s)': "مشاركة الرد المحفوظ مع المستخدم (المستخدمين) في هذه الفرق (الفرق)"
+# 'Saved reply Body': "هيئة الرد المحفوظة"
+# 'New Prepared Response': "استجابة جديدة جاهزة"
+# 'Prepared Response Status': "حالة الاستجابة المعدة"
+# 'Prepared Response is Active': "الاستجابة المعدة نشطة"
+# 'Share prepared response with user(s) in these group(s)': "مشاركة الاستجابة المعدة مع المستخدم (المستخدمين) في هذه المجموعة (المجموعات)"
+# 'Share prepared response with user(s) in these teams(s)': "مشاركة الاستجابة المعدة مع المستخدم (المستخدمين) في هذه الفرق (الفرق)"
+# 'ADD PREPARED RESPONSE': "أضف استجابة جاهزة"
+# 'Add Prepared Response': "إضافة استجابة معدة"
+# 'Folder Name is shown upfront at Knowledge Base': "يظهر اسم المجلد مقدمًا في Knowledge Base"
+# 'A small text about the folder helps user to navigate more easily': "نص صغير حول المجلد يساعد المستخدم على التنقل بسهولة أكبر"
+# Publish: نشر
+# 'Choose appropriate status': "اختيار الحالة المناسبة"
+# 'Folder Image': "صورة المجلد"
+# 'An image is worth a thousands words and makes folder more accessible': "الصورة تستحق آلاف الكلمات وتجعل الوصول إلى المجلد أكثر سهولة"
+# 'Add Category': 'إضافة فئة'
+# 'Category Name is shown upfront at Knowledge Base': "يظهر اسم الفئة مقدمًا في Knowledge Base"
+# 'A small text about the category helps user to navigate more easily': "نص صغير حول الفئة يساعد المستخدم على التنقل بسهولة أكبر"
+# 'Using Category Order, you can decide which category should display first': "باستخدام ترتيب الفئة ، يمكنك تحديد الفئة التي يجب عرضها أولاً"
+# Sorting: فرز
+# 'Ascending Order (A-Z)': "ترتيب تصاعدي (A-Z)"
+# 'Descending Order (Z-A)': "ترتيب تنازلي (Z-A)"
+# 'Based on Popularity': "بناء على الشعبية"
+# 'Article of this category will display according to selected option': "سيتم عرض مقالة من هذه الفئة وفقًا للخيار المحدد"
+# Article: مقالة - سلعة
+# Title: عنوان
+# Content: يحتوي
+# Slug: سبيكة
+# 'Slug is the url identity of this article.': "سبيكة هي هوية رابط لهذه المادة."
+# 'Meta Title': 'عنوان الفوقية'
+# 'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': تعد علامات العنوان وأوصاف التعريف عبارة عن أجزاء من تعليمات HTML البرمجية في رأس صفحة الويب. فهي تساعد محركات البحث في فهم المحتوى على الصفحة. عادةً ما تظهر علامة عنوان الصفحة ووصفها متى ظهرت تلك الصفحة في نتائج محرك البحث "
+# 'Meta Keywords': 'كلمات دلالية'
+# 'comma "," separated': 'مفصولة بفواصل'
+# 'Meta Description': 'ميتا الوصف'
+# Description: وصف
+# 'Team Status': "حالة الفريق"
+# 'Team is Active': "الفريق نشط"
+# 'Edit Privilege': "تحرير الامتياز"
+# 'Can create ticket': "يمكن إنشاء تذكرة"
+# 'Can edit ticket': "يمكن تعديل التذكرة"
+# 'Can delete ticket': "يمكن حذف التذكرة"
+# 'Can restore trashed ticket': "يمكن استعادة تذكرة المهملات"
+# 'Can assign ticket': "يمكن تخصيص تذكرة"
+# 'Can assign ticket group': "يمكن تعيين مجموعة التذاكر"
+# 'Can update ticket status': "يمكن تحديث حالة التذكرة"
+# 'Can update ticket priority': "يمكن تحديث أولوية التذكرة"
+# 'Can update ticket type': "يمكن تحديث نوع التذاكر"
+# 'Can add internal notes to ticket': "يمكن إضافة ملاحظات داخلية للتذكرة"
+# 'Can edit thread/notes': "يمكن تعديل الموضوع / الملاحظات"
+# 'Can lock/unlock thread': "يمكن قفل / فتح موضوع"
+# 'Can add collaborator to ticket': "يمكن إضافة متعاون إلى التذكرة"
+# 'Can delete collaborator from ticket': "يمكن حذف المتعاون من التذكرة"
+# 'Can delete thread/notes': "يمكن حذف الخيط / الملاحظات"
+# 'Can apply prepared response on ticket': "يمكن تطبيق استجابة معدة على التذكرة"
+# 'Can add ticket tags': "يمكن إضافة علامات التذاكر"
+# 'Can delete ticket tags': "يمكن حذف علامات التذاكر"
+# 'Can kick other ticket users': "يمكن ركلة مستخدمي التذاكر الآخرين"
+# 'Can manage email templates': "يمكن إدارة قوالب البريد الإلكتروني"
+# 'Can manage groups': "يمكن إدارة المجموعات"
+# 'Can manage Sub-Groups/ Teams': "يمكن إدارة المجموعات الفرعية / الفرق"
+# 'Can manage agents': "يمكن إدارة الوكلاء"
+# 'Can manage agent privileges': "يمكن إدارة امتيازات الوكيل"
+# 'Can manage ticket types': "يمكن إدارة أنواع التذاكر"
+# 'Can manage ticket custom fields': "يمكن إدارة حقول التذاكر المخصصة"
+# 'Can manage customers': "يمكن إدارة العملاء"
+# 'Can manage Prepared Responses': "يمكن إدارة الردود المعدة"
+# 'Can manage Automatic workflow': "يمكن إدارة سير العمل التلقائي"
+# 'Can manage tags': "يمكن إدارة العلامات"
+# 'Can manage knowledgebase': "يمكن إدارة قاعدة المعرفة"
+# "Can manage Group's Saved Reply": "يمكن إدارة الرد المحفوظ للمجموعة"
+# 'Add Privilege': "إضافة امتياز"
+# 'Choose set of privileges which will be available to the agent.': "اختر مجموعة الامتيازات التي ستكون متاحة للوكيل".
+# 'Advanced': 'المتقدمة'
+# 'Privilege Name must have characters only': "يجب أن يكون اسم الامتياز أحرفًا فقط"
+# 'Maximum character length is 50': "الحد الأقصى لطول الحرف هو 50"
+# 'Open Tickets': "التذاكر المفتوحة"
+# 'New Customer': 'عميل جديد'
+# 'New Agent': "وكيل جديد"
+# 'Total Article(s)': "مجموع المادة (المواد)"
+# 'Please specify a valid email address': "يرجى تحديد عنوان بريد إلكتروني صالح"
+# 'Please enter the password associated with your email address': "الرجاء إدخال كلمة المرور المرتبطة بعنوان بريدك الإلكتروني"
+# 'Please enter your server host address': "الرجاء إدخال عنوان مضيف الخادم الخاص بك"
+# 'Please specify a port number to connect with your mail server': "الرجاء تحديد رقم منفذ للتواصل مع خادم البريد الخاص بك"
+# 'Success ! Branding details saved successfully.': 'نجاح ! تم حفظ تفاصيل العلامة التجارية بنجاح.
+# 'Success ! Time details saved successfully.': 'نجاح ! تم حفظ تفاصيل الوقت بنجاح.
+# 'Spam setting saved successfully.': "تم حفظ إعداد البريد العشوائي بنجاح."
+# 'Please specify a valid name for your mailbox.': "الرجاء تحديد اسم صالح لصندوق البريد الخاص بك."
+# 'Please select a valid swift-mailer configuration.': "الرجاء تحديد تهيئة بريد إلكتروني صالح."
+# 'Please specify a valid host address.': "يرجى تحديد عنوان مضيف صالح."
+# 'Please specify a valid email address.': "يرجى تحديد عنوان بريد إلكتروني صالح."
+# 'Please enter the associated account password.': "الرجاء إدخال كلمة مرور الحساب المرتبطة."
+# 'New Saved Reply': "رد محفوظ جديد"
+# 'New Category': 'فئة جديدة'
+# 'Folder': 'مجلد'
+# 'Category': 'الفئة'
+# 'Created': 'خلقت'
+# 'All Articles': 'جميع المقالات'
+# 'Viewed': "مشاهدة"
+# 'New Article': "مقال جديد"
+# 'Thank you for your feedback!': 'شكرا لك على ملاحظاتك!'
+# 'Was this article helpful?': 'هل كان المقال مساعدا؟'
+# 'Helpdesk': "مكتب المساعدة"
+# 'Support Center': 'مركز الدعم'
+# 'Mailboxes': "علب"
+# By: بواسطة
+# 'Search Tickets': "تذاكر البحث"
+# 'Customer Information': 'معلومات العميل'
+# 'Total Replies': "إجمالي الردود"
+# 'Filter With': "تصفية مع"
+# 'Type email to add': اكتب البريد الإلكتروني لإضافته
+# Collaborators: المتعاونين
+# Labels: تسميات
+# Group: مجموعة
+# 'Stay on ticket': "ابق على التذكرة"
+# 'Redirect to list': "إعادة التوجيه إلى القائمة"
+# 'Nothing interesting here': "لا شيء مثير للاهتمام هنا"
+# 'Previous Ticket': "التذكرة السابقة"
+# 'Next Ticket': "التذكرة التالية"
+# Forward: إلى الأمام
+# Note: ملحوظة
+# 'Write a reply': "اكتب الرد"
+# 'Created Ticket': "إنشاء تذكرة"
+# 'All Threads': 'كل المواضيع'
+# 'Forwards': "هجوم"
+# 'Notes': 'ملاحظات'
+# 'Pinned': "يشبك"
+# 'Edit Ticket': "تعديل التذكرة"
+# 'Print Ticket': "طباعة تذكرة"
+# 'Mark as Spam': 'علامة كدعاية'
+# 'Mark as Closed': "وضع علامة مغلقة"
+# 'Delete Ticket': "حذف التذكرة"
+# 'View order details from different eCommerce channels': "عرض تفاصيل الطلب من قنوات التجارة الإلكترونية المختلفة"
+# 'ECOMMERCE CHANNELS': "قنوات ECOMMERCE"
+# 'Select channel': "اختر قناة"
+# 'Order Id': 'رقم التعريف الخاص بالطلب'
+# 'Fetch Order': "جلب النظام"
+# 'No orders have been integrated to this ticket yet.': "لم يتم دمج أي طلبات في هذه البطاقة حتى الآن."
+# 'Enter your credentials below to gain access to your helpdesk account.': "أدخل بيانات الاعتماد الخاصة بك أدناه للوصول إلى حساب مكتب المساعدة الخاص بك."
+# 'Keep me logged in': 'أبقني متصل'
+# 'Forgot Password?': 'هل نسيت كلمة المرور؟'
+# 'Log in to your': "تسجيل الدخول إلى الخاص بك"
+# 'Sign In': 'تسجيل الدخول'
+# 'Edit Customer': "تحرير العميل"
+# 'Update': 'تحديث'
+# 'Discard': 'تجاهل'
+# 'Cancel': 'إلغاء'
+# 'Not Assigned': 'غيرمعتمد'
+# 'Submit': 'تقديم'
+# 'Submit And Open': "إرسال وفتح"
+# 'Submit And Pending': "إرسال ومعلقة"
+# 'Submit And Answered': "إرسال والإجابة"
+# 'Submit And Resolved': "إرسال وحل"
+# 'Submit And Closed': "إرسال ومغلق"
+# 'Choose a Color': 'اختيار اللون'
+# 'Create': 'خلق'
+# 'Edit Label': "تحرير التصنيف"
+# 'Add Label': "إضافة تسمية"
+# 'To': 'إلى'
+# 'Ticket': 'تذكرة'
+# 'Your browser does not support JavaScript or You disabled JavaScript, Please enable those !': "متصفحك لا يدعم JavaScript أو قمت بتعطيل JavaScript ، يرجى تمكينها!"
+# 'Confirm Action': "تأكيد العمل"
+# 'Confirm': 'تؤكد'
+# 'No result found': 'لم يتم العثور على نتيجة'
+# 'ticket delivery status': "حالة تسليم التذاكر"
+# 'Warning! Select valid image file.': 'تحذير! حدد ملف صورة صالحًا. '
+# 'Error': 'خطأ'
+# 'Save': 'حفظ'
+# 'SEO': "SEO"
+# 'Edit Saved Filter': "تحرير الفلتر المحفوظ"
+# 'Type atleast 2 letters': "اكتب على الأقل حرفين"
+# 'Remove Label': "إزالة التسمية"
+# 'New Saved Filter': "فلتر محفوظ جديد"
+# 'Is Default': "الافتراضي"
+# 'Remove Saved Filter': "إزالة الفلتر المحفوظ"
+# 'Ticket Info': "معلومات التذاكر"
+# 'Last Replied Agent': "آخر وكيل رد"
+# 'created Ticket': "إنشاء تذكرة"
+# 'Uploaded Files': 'الملفات التي يتم تحميلها'
+# 'Download (as .zip)': 'تحميل كملف مضغوط)'
+# 'made last reply': "تم الرد الأخير"
+# 'N/A': 'N / A'
+# 'Unassigned': "المعينة"
+# 'Label': 'ضع الكلمة المناسبة'
+# 'Assigned to me': 'تعيين لي'
+# 'Search Query': 'استعلام بحث'
+# 'Searching': 'يبحث'
+# 'Saved Filter': "فلتر محفوظ"
+# 'No Label Created': "لم يتم إنشاء تسمية"
+# 'Label with same name already exist.': "التسمية التي تحمل الاسم نفسه موجودة بالفعل."
+# 'Create New': 'خلق جديد إبداع جديد'
+# 'Mail status: حالة البريد
+# 'replied': "أجاب"
+# 'added note': "ملاحظة مضافة"
+# 'forwarded': "ترسل"
+# 'TO': 'إلى'
+# 'CC': "CC"
+# 'BCC': "BCC"
+# Locked: مقفل
+# 'Edit Thread': "تحرير الموضوع"
+# 'Delete Thread': 'حذف موضوع'
+# 'Unpin Thread': "إلغاء تثبيت الخيط"
+# 'Pin Thread': "دبوس الموضوع"
+# 'Unlock Thread': "فتح الخيط"
+# 'Lock Thread': "قفل الموضوع"
+# 'Translate Thread': "ترجمة الموضوع"
+# 'Language': 'لغة'
+# 'English': 'الإنجليزية'
+# 'French': 'فرنسي'
+# 'Italian': 'الإيطالية'
+# 'Arabic': 'عربى'
+# 'German': 'ألمانية'
+# 'Spanish': 'الأسبانية'
+# 'Turkish': 'اللغة التركية'
+# 'Danish': 'دانماركي'
+# 'System': 'النظام'
+# 'Open in Files': "فتح في الملفات"
+# 'Email address is invalid': 'عنوان البريد الإلكتروني غير صالح'
+# 'Tag with same name already exist': "العلامة التي تحمل الاسم نفسه موجودة بالفعل"
+# 'Text length should be less than 20 charactors': "يجب ألا يقل طول النص عن 20 حرفًا"
+# 'Label with same name already exist': "التسمية التي تحمل الاسم نفسه موجودة بالفعل"
+# 'Agent Name': 'اسم العميل'
+# 'Agent Email': "وكيل البريد الإلكتروني"
+# open: افتح
+# 'Currently active agents on ticket': "العملاء النشطين حاليًا على التذاكر"
+# 'Edit Customer Information': "تحرير معلومات العميل"
+# 'Restore': "استعادة"
+# 'Delete Forever': 'الحذف للأبد'
+# 'Add Team': "إضافة فريق"
+# 'delete': 'حذف'
+# "You didn't have any folder for current filter(s).": "لم يكن لديك أي مجلد للمرشحات الحالية."
+# 'Add Folder': 'أضف المجلد'
+# 'This field must have valid characters only': "يجب أن يحتوي هذا الحقل على أحرف صالحة فقط"
+# 'Can edit task': "يمكن تعديل المهمة"
+# 'Can create task': "يمكن أن تخلق مهمة"
+# 'Can delete task': "يمكن حذف المهمة"
+# 'Can add member to task': "يمكن إضافة عضو إلى مهمة"
+# 'Can remove member from task': "يمكن إزالة عضو من المهمة"
+# 'Agent Privileges': "امتيازات الوكيل"
+# 'Agent Privilege represents overall permissions in System.': "يمثل امتياز العميل الأذونات الكلية في النظام."
+# 'Ticket View': "عرض التذاكر"
+# 'User can view tickets based on selected scope.': "يمكن للمستخدم عرض التذاكر على أساس النطاق المحدد."
+# 'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': "إذا كان الوصول الفردي ، فيمكن للمستخدم عرض التذاكر (التذاكر) المخصصة فقط ، وإذا كان الوصول إلى الفريق ، فيمكن للمستخدم عرض جميع التذاكر (التذاكر) في الفريق (الفرق) الذي ينتمي إليه وما إلى ذلك"
+# 'Global Access': "الوصول العالمي"
+# 'Group Access': "وصول المجموعة"
+# 'Team Access': "وصول الفريق"
+# 'Individual Access': "الوصول الفردي"
+# 'This field must have characters only': "يجب أن يحتوي هذا الحقل على أحرف فقط"
+# 'Maximum character length is 40': "الحد الأقصى لطول الأحرف هو 40"
+# 'This is not a valid email address': "هذا ليس عنوان بريد إلكتروني صالح"
+# 'Password must contains 8 Characters': "يجب أن تحتوي كلمة المرور على 8 أحرف"
+# 'The passwords does not match': "كلمات المرور غير متطابقة"
+# 'Enabled': "تمكين"

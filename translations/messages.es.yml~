@@ -1,0 +1,964 @@
+#uv-avatar (right of searchbar)
+Signed in as: Registrado como
+Your Profile: Tu perfil
+Create Ticket: Crear Ticket
+Create Agent: Crear agente
+Create Customer: Crear cliente
+Sign Out: Desconectar
+
+#DASHBOARD PAGE
+Apps: Aplicaciones
+Integrate apps as per your needs to get things done faster than ever : Integre aplicaciones según sus necesidades para hacer las cosas más rápido que nunca
+Explore Apps: Explora aplicaciones
+Form Builder: Generador de formularios
+Knowledgebase: Base de conocimientos
+Knowledgebase is a source of rigid and complex information which helps Customers to help themselves: Knowledgebase es una fuente de información rígida y compleja que ayuda a los clientes a ayudarse a sí mismos.
+Articles: Artículos
+Categories: Categorias
+Folders: Carpetas
+Productivity: Productividad
+Automate your processes by creating set of rules and presets to respond faster to the tickets: Automatice sus procesos creando un conjunto de reglas y ajustes preestablecidos para responder más rápido a los tickets
+Prepared Responses: Respuestas preparadas
+Saved Replies: Respuestas guardadas
+Ticket Types: Tipos de entradas
+Workflows: Flujos de trabajo
+Settings: Configuraciones
+Manage your Brand Identity, Company Information and other details at a glance: Administre su identidad de marca, información de la empresa y otros detalles de un vistazo
+Branding: Marca
+Custom Fields: Campos Personalizados
+Email Settings: Ajustes del correo electrónico
+Email Templates: Plantillas de correo electrónico
+Mailbox: Buzón
+Spam Settings: Configuraciones de spam
+Swift Mailer: Correo rápido
+Tags: Etiquetas
+Users: Los usuarios
+Control your Groups, Teams, Agents and Customers: Controla tus grupos, equipos, agentes y clientes
+Agents: Agentes
+Customers: Clientes
+Groups: Grupos
+Privileges: Privilegios
+Teams: Equipos
+
+#APPS 
+Applications: Aplicaciones
+ECommerce Order Syncronization: Sincronización de pedidos de comercio electrónico
+Import ecommerce order details to your support tickets from different available platforms: Importe detalles de pedidos de comercio electrónico a sus tickets de soporte desde diferentes plataformas disponibles
+
+#add fb description
+
+
+#KNOWLEDGEBASE
+
+Search: Buscar
+Sort By: Ordenar por
+Created At: Creado en
+Name: Nombre
+Status: Estado
+All: Todas
+Published: Publicado
+Draft: Borrador
+New Folder: Nueva carpeta
+Create Knowledgebase Folder: Crear carpeta de base de conocimiento
+You didn't add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.:  Learn to pronounceTodavía no agregó ninguna carpeta a su Base de conocimiento, cree su primera carpeta y comience a agregar categorías / artículos para que sus clientes se ayuden a sí mismos. 
+Clear Filters: Borrar filtros
+#left sidebar
+
+Back: atrás
+
+
+#TICKETS
+#left side bar
+
+Open: Abierto
+Pending: Pendiente
+Answered: Contestados
+Resolved: Resuelto
+Closed: Cerrado
+Spam: Correo no deseado
+New: Nuevo
+UnAssigned: Sin asignar
+UnAnswered: Sin respuesta
+My Tickets: Mis entradas
+Starred: Sembrado de estrellas
+Trashed: Basura
+New Label: Nueva etiqueta
+Tickets: Entradas
+#dropdown
+Sort By: Ordenar por
+Ticket Id: Identificación de entradas
+Last Replied: Última respuesta
+Assign To: Asignar a
+Customer Email: Correo electrónico del cliente
+Customer Name: Nombre del cliente
+#another dropdown
+Assets Visibility: Visibilidad de activos
+Channel/Source: Canal / Fuente
+
+
+Timestamp: Marca de tiempo
+
+Team: Equipo
+Type: Tipo
+Replies: Respuestas
+Agent: Agente
+#ticket panel header
+ID: ID
+Subject: Tema
+
+#searchbar
+
+#filterview sidebar
+Filter View: Vista de filtro
+
+Save set of filters as a preset to stay more productive: Guarde el conjunto de filtros como un preajuste para mantenerse más productivo
+Saved Filters: Filtros guardados
+No saved filter created: No se creó un filtro guardado
+
+Customer: Cliente
+
+Priority: Prioridad
+Tag: Etiqueta
+Source: Fuente
+Before: antes de
+After: Después
+Replies less than: Respuestas menos de
+Replies more than: Respuestas más que
+Clear All: Limpiar todo
+
+
+
+
+#PROFILE PAGE
+#left sidebar
+Account: Cuenta
+
+Profile: Perfil
+Upload a Profile Image (100px x 100px) in PNG or JPG Format: Cargue una imagen de perfil (100px x 100px) en formato PNG o JPG
+First Name: Primer nombre
+Last Name: Apellido
+Email: Email
+Contact Number: Número de contacto
+Timezone: Zona horaria
+#start dropdown list for timezone
+Africa/Abidjan: Áfrico/Abidjan
+Africa/Accra: Áfrico/Accra
+Africa/Addis_Ababa: Áfrico/Addis_Ababa
+Africa/Algiers: Áfrico/Algiers
+Africa/Asmara: Áfrico/Asmara
+Africa/Bamako: Áfrico/Bamako
+Africa/Bangui: Áfrico/Bangui
+Africa/Banjul: Áfrico/Banjul
+Africa/Bissau: Áfrico/Bissau
+Africa/Blantyre: Áfrico/Blantyre
+Africa/Brazzaville: Áfrico/Brazzaville
+Africa/Bujumbura: Áfrico/Bujumbura
+Africa/Cairo: Áfrico/Cairo
+Africa/Casablanca: Áfrico/Casablanca
+Africa/Ceuta: Áfrico/Ceuta
+Africa/Conakry: Áfrico/Conakry
+Africa/Dakar: Áfrico/Dakar
+Africa/Dar_es_Salaam: Áfrico/Dar_es_Salaam
+Africa/Djibouti: Áfrico/Djibouti
+Africa/Douala: Áfrico/Douala
+Africa/El_Aaiun: Áfrico/El_Aaiun
+Africa/Freetown: Áfrico/Freetown
+Africa/Gaborone: Áfrico/Gaborone
+Africa/Harare: Áfrico/Harare
+Africa/Johannesburg: Áfrico/Johannesburg
+Africa/Juba: Áfrico/Juba
+Africa/Kampala: Áfrico/Kampala
+Africa/Khartoum: Áfrico/Khartoum
+Africa/Kigali: Áfrico/Kigali
+Africa/Kinshasa: Áfrico/Kinshasa
+Africa/Lagos: Áfrico/Lagos
+Africa/Libreville: Áfrico/Libreville
+Africa/Lome: Áfrico/Lome
+Africa/Luanda: Áfrico/Luanda
+Africa/Lubumbashi: Áfrico/Lubumbashi
+Africa/Lusaka: Áfrico/Lusaka
+Africa/Malabo: Áfrico/Malabo
+Africa/Maputo: Áfrico/Maputo
+Africa/Maseru: Áfrico/Maseru
+Africa/Mbabane: Áfrico/Mbabane
+Africa/Mogadishu: Áfrico/Mogadishu
+Africa/Monrovia: Áfrico/Monrovia
+Africa/Nairobi: Áfrico/Nairobi
+Africa/Ndjamena: Áfrico/Ndjamena
+Africa/Niamey: Áfrico/Niamey
+Africa/Nouakchott: Áfrico/Nouakchott
+Africa/Ouagadougou: Áfrico/Ouagadougou
+Africa/Porto-Novo: Áfrico/Porto-Novo
+Africa/Sao_Tome: Áfrico/Sao_Tome
+Africa/Tripoli: Áfrico/Tripoli
+Africa/Tunis: Áfrico/Tunis
+Africa/Windhoek: Áfrico/Windhoek
+America/Adak: America/Adak
+America/Anchorage: America/Anchorage
+America/Anguilla: America/Anguilla
+America/Antigua: America/Antigua
+America/Araguaina: America/Araguaina
+America/Argentina/Buenos_Aires: America/Argentine/Buenos_Aires
+America/Argentina/Catamarca: America/Argentine/Catamarca
+America/Argentina/Cordoba: America/Argentine/Cordoba
+America/Argentina/Jujuy: America/Argentine/Jujuy
+America/Argentina/La_Rioja: America/Argentine/La_Rioja
+America/Argentina/Mendoza: America/Argentine/Mendoza
+America/Argentina/Rio_Gallegos: America/Argentine/Rio_Gallegos
+America/Argentina/Salta: America/Argentine/Salta
+America/Argentina/San_Juan: America/Argentine/San_Juan
+America/Argentina/San_Luis: America/Argentine/San_Luis
+America/Argentina/Tucuman: America/Argentine/Tucuman
+America/Argentina/Ushuaia: America/Argentine/Ushuaia
+America/Aruba: America/Aruba
+America/Asuncion: America/Asuncion
+America/Atikokan: America/Atikokan
+America/Bahia: America/Bahia
+America/Bahia_Banderas: America/Bahia_Banderas
+America/Barbados: America/Barbados
+America/Belem: America/Belem
+America/Belize: America/Belize
+America/Blanc-Sablon: America/Blanc-Sablon
+America/Boa_Vista: America/Boa_Vista
+America/Bogota: America/Bogota
+America/Boise: America/Boise
+America/Cambridge_Bay: America/Cambridge_Bay
+America/Campo_Grande: America/Campo_Grande
+America/Cancun: America/Cancun
+America/Caracas: America/Caracas
+America/Cayenne: America/Cayenne
+America/Cayman: America/Cayman
+America/Chicago: America/Chicago
+America/Chihuahua: America/Chihuahua
+America/Costa_Rica: America/Costa_Rica
+America/Creston: America/Creston
+America/Cuiaba: America/Cuiaba
+America/Curacao: America/Curacao
+America/Danmarkshavn: America/Danmarkshavn
+America/Dawson: America/Dawson
+America/Dawson_Creek: America/Dawson_Creek
+America/Denver: America/Denver
+America/Detroit: America/Detroit
+America/Dominica: America/Dominica
+America/Edmonton: America/Edmonton
+America/Eirunepe: America/Eirunepe
+America/El_Salvador: America/El_Salvador
+America/Fort_Nelson: America/Fort_Nelson
+America/Fortaleza: America/Fortaleza
+America/Glace_Bay: America/Glace_Bay
+America/Godthab: America/Godthab
+America/Goose_Bay: America/Goose_Bay
+America/Grand_Turk: America/Grand_Turk
+America/Grenada: America/Grenada
+America/Guadeloupe: America/Guadeloupe
+America/Guatemala: America/Guatemala
+America/Guayaquil: America/Guayaquil
+America/Guyana: America/Guyana
+America/Halifax: America/Halifax
+America/Havana: America/Havana
+America/Hermosillo: America/Hermosillo
+America/Indiana/Indianapolis: America/Indiana/Indianapolis
+America/Indiana/Knox: America/Indiana/Knox
+America/Indiana/Marengo: America/Indiana/Marengo
+America/Indiana/Petersburg: America/Indiana/Petersburg
+America/Indiana/Tell_City: America/Indiana/Tell_City
+America/Indiana/Vevay: America/Indiana/Vevay
+America/Indiana/Vincennes: America/Indiana/Vincennes
+America/Indiana/Winamac: America/Indiana/Winamac
+America/Inuvik: America/Inuvik
+America/Iqaluit: America/Iqaluit
+America/Jamaica: America/Jamaica
+America/Juneau: America/Juneau
+America/Kentucky/Louisville: America/Kentucky/Louisville
+America/Kentucky/Monticello: America/Kentucky/Monticello
+America/Kralendijk: America/Kralendijk
+America/La_Paz: America/La_Paz
+America/Lima: America/Lima
+America/Los_Angeles: America/Los_Angeles
+America/Lower_Princes: America/Lower_Princes
+America/Maceio: America/Maceio
+America/Managua: America/Managua
+America/Manaus: America/Manaus
+America/Marigot: America/Marigot
+America/Martinique: America/Martinique
+America/Matamoros: America/Matamoros
+America/Mazatlan: America/Mazatlan
+America/Menominee: America/Menominee
+America/Merida: America/Merida
+America/Metlakatla: America/Metlakatla
+America/Mexico_City: America/Mexico_City
+America/Miquelon: America/Miquelon
+America/Moncton: America/Moncton
+America/Monterrey: America/Monterrey
+America/Montevideo: America/Montevideo
+America/Montserrat: America/Montserrat
+America/Nassau: America/Nassau
+America/New_York: America/New_York
+America/Nipigon: America/Nipigon
+America/Nome: America/Nome
+America/Noronha: America/Noronha
+America/North_Dakota/Beulah: America/North_Dakota/Beulah
+America/North_Dakota : /Center America/North_Dakota/Center
+America/North_Dakota : /New_Salem America/North_Dakota/New_Salem
+America/Ojinaga :  America/Ojinaga
+America/Panama :  America/Panama
+America/Pangnirtung :  America/Pangnirtung
+America/Paramaribo :  America/Paramaribo
+America/Phoenix :  America/Phoenix
+America/Port-au-Prince: America/Port-au-Prince
+America/Port_of_Spain :  America/Port_of_Spain
+America/Porto_Velho :  America/Porto_Velho
+America/Puerto_Rico :  America/Puerto_Rico
+America/Punta_Arenas :  America/Punta_Arenas
+America/Rainy_River :  America/Rainy_River
+America/Rankin_Inlet :  America/Rankin_Inlet
+America/Recife :  America/Recife
+America/Regina :  America/Regina
+America/Resolute :  America/Resolute
+America/Rio_Branco :  America/Rio_Branco
+America/Santarem :  America/Santarem
+America/Santiago :  America/Santiago
+America/Santo_Domingo :  America/Santo_Domingo
+America/Sao_Paulo :  America/Sao_Paulo
+America/Scoresbysund :  America/Scoresbysund
+America/Sitka :  America/Sitka
+America/St_Barthelemy :  America/St_Barthelemy
+America/St_Johns :  America/St_Johns
+America/St_Kitts :  America/St_Kitts
+America/St_Lucia :  America/St_Lucia
+America/St_Thomas :  America/St_Thomas
+America/St_Vincent :  America/St_Vincent
+America/Swift_Current :  America/Swift_Current
+America/Tegucigalpa :  America/Tegucigalpa
+America/Thule :  America/Thule
+America/Thunder_Bay :  America/Thunder_Bay
+America/Tijuana :  America/Tijuana
+America/Toronto :  America/Toronto
+America/Tortola :  America/Tortola
+America/Vancouver :  America/Vancouver
+America/Whitehorse :  America/Whitehorse
+America/Winnipeg :  America/Winnipeg
+America/Yakutat :  America/Yakutat
+America/Yellowknife :  America/Yellowknife
+Antarctica/Casey :  Antártica/Casey
+Antarctica/Davis :  Antártica/Davis
+Antarctica/DumontDUrville :  Antártica/DumontDUrville
+Antarctica/Macquarie :  Antártica/Macquarie
+Antarctica/McMurdo :  Antártica/McMurdo
+Antarctica/Mawson :  Antártica/Mawson
+Antarctica/Palmer :  Antártica/Palmer
+Antarctica/Rothera :  Antártica/Rothera
+Antarctica/Syowa :  Antártica/Syowa
+Antarctica/Troll :  Antártica/Troll
+Antarctica/Vostok :  Antártica/Vostok
+Arctic/Longyearbyen : Arctic/Longyearbyen
+Asia/Aden : Asia/Aden
+Asia/Almaty : Asia/Almaty
+Asia/Amman : Asia/Amman
+Asia/Anadyr : Asia/Anadyr
+Asia/Aqtau : Asia/Aqtau
+Asia/Aqtobe : Asia/Aqtobe
+Asia/Ashgabat : Asia/Ashgabat
+Asia/Atyrau : Asia/Atyrau
+Asia/Baghdad : Asia/Baghdad
+Asia/Bahrain : Asia/Bahrain
+Asia/Baku : Asia/Baku
+Asia/Bangkok : Asia/Bangkok
+Asia/Barnaul : Asia/Barnaul
+Asia/Beirut : Asia/Beirut
+Asia/Bishkek : Asia/Bishkek
+Asia/Brunei : Asia/Brunei
+Asia/Chita : Asia/Chita
+Asia/Choibalsan : Asia/Choibalsan
+Asia/Colombo : Asia/Colombo
+Asia/Damascus : Asia/Damascus
+Asia/Dhaka: Asia/Dhaka
+Asia/Dili: Asia/Dili
+Asia/Dubai: Asia/Dubai
+Asia/Dushanbe: Asia/Dushanbe
+Asia/Famagusta: Asia/Famagusta
+Asia/Gaza: Asia/Gaza
+Asia/Hebron: Asia/Hebron
+Asia/Ho_Chi_Minh: Asia/Ho_Chi_Minh
+Asia/Hong_Kong: Asia/Hong_Kong
+Asia/Hovd: Asia/Hovd
+Asia/Irkutsk: Asia/Irkutsk
+Asia/Jakarta: Asia/Jakarta
+Asia/Jayapura: Asia/Jayapura
+Asia/Jerusalem: Asia/Jerusalem
+Asia/Kabul: Asia/Kabul
+Asia/Kamchatka: Asia/Kamchatka
+Asia/Karachi: Asia/Karachi
+Asia/Kathmandu: Asia/Kathmandu
+Asia/Khandyga: Asia/Khandyga
+Asia/Kolkata: Asia/Kolkata
+Asia/Krasnoyarsk: Asia/Krasnoyarsk
+Asia/Kuala_Lumpur: Asia/Kuala_Lumpur
+Asia/Kuching: Asia/Kuching
+Asia/Kuwait: Asia/Kuwait
+Asia/Macau: Asia/Macau
+Asia/Magadan: Asia/Magadan
+Asia/Makassar: Asia/Makassar
+Asia/Manila: Asia/Manila
+Asia/Muscat: Asia/Muscat
+Asia/Nicosia: Asia/Nicosia
+Asia/Novokuznetsk: Asia/Novokuznetsk
+Asia/Novosibirsk: Asia/Novosibirsk
+Asia/Omsk: Asia/Omsk
+Asia/Oral: Asia/Oral
+Asia/Phnom_Penh: Asia/Phnom_Penh
+Asia/Pontianak: Asia/Pontianak
+Asia/Pyongyang: Asia/Pyongyang
+Asia/Qatar: Asia/Qatar
+Asia/Qostanay: Asia/Qostanay
+Asia/Qyzylorda: Asia/Qyzylorda
+Asia/Riyadh: Asia/Riyadh
+Asia/Sakhalin: Asia/Sakhalin
+Asia/Samarkand: Asia/Samarkand
+Asia/Seoul: Asia/Seoul
+Asia/Shanghai: Asia/Shanghai
+Asia/Singapore: Asia/Singapore
+Asia/Srednekolymsk: Asia/Srednekolymsk
+Asia/Taipei: Asia/Taipei
+Asia/Tashkent: Asia/Tashkent
+Asia/Tbilisi: Asia/Tbilisi
+Asia/Tehran: Asia/Tehran
+Asia/Thimphu: Asia/Thimphu
+Asia/Tokyo: Asia/Tokyo
+Asia/Tomsk: Asia/Tomsk
+Asia/Ulaanbaatar: Asia/Ulaanbaatar
+Asia/Urumqi: Asia/Urumqi
+Asia/Ust-Nera: Asia/Ust-Nera
+Asia/Vientiane: Asia/Vientiane
+Asia/Vladivostok: Asia/Vladivostok
+Asia/Yakutsk: Asia/Yakutsk
+Asia/Yangon: Asia/Yangon
+Asia/Yekaterinburg: Asia/Yekaterinburg
+Asia/Yerevan: Asia/Yerevan
+Atlantic/Azores: Atlántico/Azores
+Atlantic/Bermuda: Atlántico/Bermuda
+Atlantic/Canary: Atlántico/Canary
+Atlantic/Cape_Verde: Atlántico/Cape_Verde
+Atlantic/Faroe: Atlántico/Faroe
+Atlantic/Madeira: Atlántico/Madeira
+Atlantic/Reykjavik: Atlántico/Reykjavik
+Atlantic/South_Georgia: Atlántico/South_Georgia
+Atlantic/St_Helena: Atlántico/St_Helena
+Atlantic/Stanley: Atlántico/Stanley
+Australia/Adelaide: Australia/Adelaide
+Australia/Brisbane: Australia/Brisbane
+Australia/Broken_Hill: Australia/Broken_Hill
+Australia/Currie: Australia/Currie
+Australia/Darwin: Australia/Darwin
+Australia/Eucla: Australia/Eucla
+Australia/Hobart: Australia/Hobart
+Australia/Lindeman: Australia/Lindeman
+Australia/Lord_Howe: Australia/Lord_Howe
+Australia/Melbourne: Australia/Melbourne
+Australia/Perth: Australia/Perth
+Australia/Sydney: Australia/Sydney
+Europe/Amsterdam: Europa/Amsterdam
+Europe/Andorra: Europa/Andorra
+Europe/Astrakhan: Europa/Astrakhan
+Europe/Athens: Europa/Athens
+Europe/Belgrade: Europa/Belgrade
+Europe/Berlin: Europa/Berlin
+Europe/Bratislava: Europa/Bratislava
+Europe/Brussels: Europa/Brussels
+Europe/Bucharest: Europa/Bucharest
+Europe/Budapest: Europa/Budapest
+Europe/Busingen: Europa/Busingen
+Europe/Chisinau: Europa/Chisinau
+Europe/Copenhagen: Europa/Copenhagen
+Europe/Dublin: Europa/Dublin
+Europe/Gibraltar: Europa/Gibraltar
+Europe/Guernsey: Europa/Guernsey
+Europe/Helsinki: Europa/Helsinki
+Europe/Isle_of_Man: Europa/Isle_of_Man
+Europe/Istanbul: Europa/Istanbul
+Europe/Jersey: Europa/Jersey
+Europe/Kaliningrad: Europa/Kaliningrad
+Europe/Kiev: Europa/Kiev
+Europe/Kirov: Europa/Kirov
+Europe/Lisbon: Europa/Lisbon
+Europe/Ljubljana: Europa/Ljubljana
+Europe/London: Europa/London
+Europe/Luxembourg: Europa/Luxembourg
+Europe/Madrid: Europa/Madrid
+Europe/Malta: Europa/Malta
+Europe/Mariehamn: Europa/Mariehamn
+Europe/Minsk: Europa/Minsk
+Europe/Monaco: Europa/Monaco
+Europe/Moscow: Europa/Moscow
+Europe/Oslo: Europa/Oslo
+Europe/Paris: Europa/Paris
+Europe/Podgorica: Europa/Podgorica
+Europe/Prague: Europa/Prague
+Europe/Riga: Europa/Riga
+Europe/Rome: Europa/Rome
+Europe/Samara: Europa/Samara
+Europe/San_Marino: Europa/San_Marino
+Europe/Sarajevo: Europa/Sarajevo
+Europe/Saratov: Europa/Saratov
+Europe/Simferopol: Europa/Simferopol
+Europe/Skopje: Europa/Skopje
+Europe/Sofia: Europa/Sofia
+Europe/Stockholm: Europa/Stockholm
+Europe/Tallinn: Europa/Tallinn
+Europe/Tirane: Europa/Tirane
+Europe/Ulyanovsk: Europa/Ulyanovsk
+Europe/Uzhgorod: Europa/Uzhgorod
+Europe/Vaduz: Europa/Vaduz
+Europe/Vatican: Europa/Vatican
+Europe/Vienna: Europa/Vienna
+Europe/Vilnius: Europa/Vilnius
+Europe/Volgograd: Europa/Volgograd
+Europe/Warsaw: Europa/Warsaw
+Europe/Zagreb: Europa/Zagreb
+Europe/Zaporozhye: Europa/Zaporozhye
+Europe/Zurich: Europa/Zurich
+Indian/Antananarivo: Indio/Antananarivo
+Indian/Chagos: Indio/Chagos
+Indian/Christmas: Indio/Christmas
+Indian/Cocos: Indio/Cocos
+Indian/Comoro: Indio/Comoro
+Indian/Kerguelen: Indio/Kerguelen
+Indian/Mahe: Indio/Mahe
+Indian/Maldives: Indio/Maldives
+Indian/Mauritius: Indio/Mauritius
+Indian/Mayotte: Indio/Mayotte
+Indian/Reunion: Indio/Reunion
+Pacific/Apia: Pacífico/Apia
+Pacific/Auckland: Pacífico/Auckland
+Pacific/Bougainville: Pacífico/Bougainville
+Pacific/Chatham: Pacífico/Chatham
+Pacific/Chuuk: Pacífico/Chuuk
+Pacific/Easter: Pacífico/Easter
+Pacific/Efate: Pacífico/Efate
+Pacific/Enderbury: Pacífico/Enderbury
+Pacific/Fakaofo: Pacífico/Fakaofo
+Pacific/Fiji: Pacífico/Fiji
+Pacific/Funafuti: Pacífico/Funafuti
+Pacific/Galapagos: Pacífico/Galapagos
+Pacific/Gambier: Pacífico/Gambier
+Pacific/Guadalcanal: Pacífico/Guadalcanal
+Pacific/Guam: Pacífico/Guam
+Pacific/Honolulu: Pacífico/Honolulu
+Pacific/Kiritimati: Pacífico/Kiritimati
+Pacific/Kosrae: Pacífico/Kosrae
+Pacific/Kwajalein: Pacífico/Kwajalein
+Pacific/Majuro: Pacífico/Majuro
+Pacific/Marquesas: Pacífico/Marquesas
+Pacific/Midway: Pacífico/Midway
+Pacific/Nauru: Pacífico/Nauru
+Pacific/Niue: Pacífico/Niue
+Pacific/Norfolk: Pacífico/Norfolk
+Pacific/Noumea: Pacífico/Noumea
+Pacific/Pago_Pago: Pacífico/Pago_Pago
+Pacific/Palau: Pacífico/Palau
+Pacific/Pitcairn: Pacífico/Pitcairn
+Pacific/Pohnpei: Pacífico/Pohnpei
+Pacific/Port_Moresby: Pacífico/Port_Moresby
+Pacific/Rarotonga: Pacífico/Rarotonga
+Pacific/Saipan: Pacífico/Saipan
+Pacific/Tahiti: Pacífico/Tahiti
+Pacific/Tarawa: Pacífico/Tarawa
+Pacific/Tongatapu: Pacífico/Tongatapu
+Pacific/Wake: Pacífico/Wake
+Pacific/Wallis: Pacífico/Wallis
+UTC: UTC
+#end dropdown list for timezone
+Time Format: Formato de tiempo
+Choose your default timezone: Elige tu zona horaria predeterminada
+Signature: Firma
+User signature will be append at the bottom of ticket reply box: La firma del usuario se agregará en la parte inferior del cuadro de respuesta del ticket
+Password: Contraseña
+Password will remain same if you are not entering something in this field: La contraseña seguirá siendo la misma si no está ingresando algo en este campo
+Confirm Password: Confirm Password
+Save Changes: Guardar cambios
+SAVE CHANGES: Guardar cambios
+
+
+#CREATE TICKET
+
+CREATE TICKET: CREAR TICKET
+
+Customer full name: Nombre completo del cliente
+
+Customer email address: Dirección de correo electrónico del cliente
+Type: Tipo
+Select Type: Seleccione tipo
+Support: Apoyo
+Choose ticket type: Elegir tipo de boleto
+
+Ticket subject: Asunto del boleto
+Message: Mensaje
+Query Message: Mensaje de consulta
+Add Attachment: Añadir un adjunto
+This field is mandatory: Este campo es obligatorio 
+
+#CREATE AGENT
+
+#general tab
+General: General
+
+
+Designation: Designacion
+Contant Number: Número de contacto
+
+User signature will be append in the bottom of ticket reply box: La firma del usuario se agregará en la parte inferior del cuadro de respuesta del ticket
+Account Status: estado de la cuenta
+Account is Active: estado de la cuenta
+
+#groups tab
+
+Assigning group(s) to user to view tickets regardless assignment.: Asignación de grupo (s) al usuario para ver tickets independientemente de la asignación.
+Default: Defecto
+Select All: Seleccionar todo
+Remove All: Eliminar todo
+Teams: Equipos
+Assigning team(s) to user to view tickets regardless assignment.: Asignación de equipo (s) al usuario para ver tickets independientemente de la asignación.
+No Team added !: ¡Ningún equipo agregado!
+#permission tab
+Permission: Permiso
+Role: Papel
+Administrator: Administrador
+
+Select agent role: Seleccionar rol de agente
+
+#add customer page
+Add Customer: Agregar cliente
+Upload a Profile Image (100px x 100px) in PNG or JPG Format: Cargue una imagen de perfil (100px x 100px) en formato PNG o JPG
+
+
+
+
+Account is Active: Cuenta activa
+This field is mandatory: Este campo es obligatorio
+#GROUPS page
+
+
+
+
+Action: Acción
+
+
+
+Account Owner: Propietario de la cuenta
+Active: Activo
+Edit: Editar
+Delete: Eliminar
+
+
+Disabled: Discapacitado
+
+New Group: Nuevo grupo
+
+#PRVILEGES
+
+Default Privileges: Privilegios predeterminados
+New Privileges: Nuevos privilegios
+
+
+#TEAM
+
+New Team: Nuevo equipo
+
+
+No Record Found: ningún record fue encontrado
+
+#ORDER SYNC.
+Order Synchronization: Sincronización de pedidos
+Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.: Integre fácilmente diferentes plataformas de comercio electrónico con su servicio de asistencia que luego se puede usar para integrar rápidamente los detalles de los pedidos de comercio electrónico con sus tickets de soporte.
+BigCommerce: BigCommerce
+No Channels have been added.: No se han agregado canales.
+Add BigCommerce Store: Agregar tienda BigCommerce
+ADD BIGCOMMERCE STORE: Agregar tienda BigCommerce
+Mangento: Magento
+Add Magento Store: Añadir tienda Magento
+OpenCart: OpenCart
+Add OpenCart Store: Añadir tienda OpenCart
+ADD OPENCART STORE: Añadir tienda OpenCart
+Shopify: Shopify
+Add Shopify Store: Añadir tienda Shopify
+ADD SHOPIFY STORE: Añadir tienda Shopify
+Integrate a new BigCommerce store: Integrar una nueva tienda BigCommerce
+Your BiCommerce Store Name: El nombre de su tienda de comercio electrónico
+Your BigCommerce Store Hash: El hash de tu tienda BigCommerce
+Your BigCommerce Api Token: Su token de BigCommerce Api
+Your BigCommerce Api Client ID: Su ID de cliente de BigCommerce Api
+Enable Channel: Habilitar canal
+Add Store: Añadir tienda
+ADD STORE: Añadir tienda
+Integrate a new Magento store: Integrar una nueva tienda Magento
+Your Magento Api Username: Su nombre de usuario de Magento Api
+Your Magento Api Password:  Su contraseña de Magento Api
+Integrate a new OpenCart store: Integrar una nueva tienda OpenCart
+Your OpenCart Api Key: Su clave de API OpenCart
+Your Shopify Store Name: El nombre de tu tienda Shopify
+Your Shopify Api Key: Tu clave de API de Shopify
+Your Shopify Api Password: Su contraseña de Shopify Api
+
+
+#FORMBUILDER 
+
+Easily embed custom form to help generate helpdesk tickets.: Incruste fácilmente un formulario personalizado para ayudar a generar tickets de servicio de asistencia.
+Form-Builder: Generador de formularios
+Add Formbuilder: Añadir Formbuilder
+ADD FORMBUILDER: Añadir Formbuilder
+No FormBuilder have been added.: No se ha agregado FormBuilder.
+Create a New Custom Form Below: Cree un nuevo formulario personalizado a continuación
+Form Name: Nombre del formulario
+
+
+It will be shown in the list of created forms: Se mostrará en la lista de formularios creados.
+MANDATORY FIELDS: CAMPOS OBLIGATORIOS
+These fields will be visible in form and can't be edited: Estos campos serán visibles en forma y no se podrán editar. 
+
+Reply: Respuesta
+OPTIONAL FIELDS: CAMPOS OPCIONALES
+Select These Fields to Add in your Form: Seleccione estos campos para agregar en su formulario
+
+
+Subject: Tema
+GDPR: GDPR
+Order: Orden
+Categorybuilder: Constructor de categorías
+File: Expediente
+Add Form: Añadir formulario
+ADD FORM: Añadir formulario
+UPDATE FORM: Formulario de actualización
+Update Form: Formulario de actualización
+Embed: Empotrar
+EMBED: Empotrar
+EMBED FORMBUILDER: Empotrar Formbuilder
+Embed Formbuilder: Empotrar Formbuilder
+Visit: Visitar
+VISIT: Visitar
+
+
+
+#TAGS page
+Code: Código
+Total Ticket(s): Boleto total(s)
+Ticket Count: Cuenta de entradas
+
+
+#SWIFTMAILER
+SwiftMailer Configurations: Configuraciones de SwiftMailer
+No swiftmailer configurations found: No se encontraron configuraciones de swiftmailer
+CREATE CONFIGURATION: CREAR CONFIGURACIÓN
+Add configuration: Agregar configuración
+Mailer ID: Identificación del remitente
+Mailer ID - Leave blank to automatically create id: Identificación del remitente - déjelo en blanco para crear automáticamente la identificación
+Transport Type: Tipo de transporte
+SMTP : SMTP
+Enable Delivery: Habilitar entrega
+Server: Servidor
+Password: Contraseña
+Port: Puerto
+Encryption Mode: Modo de encriptación
+ssl: ssl
+tsl: tsl
+None: Ninguno
+Authentication Mode: modo de autenticación
+login: iniciar sesión
+Plain: Llanura
+CRAM-MD5: CRAM-MD5
+Sender Address: Dirección del remitente
+Delivery Address: Dirección de entrega
+
+
+#SPAM 
+Block Spam: Bloquear spam
+Black list: Lista negra
+Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226): Valores separados por comas (,) (por ejemplo, support@example.com, @ example.com, 68.98.31.226)
+White list: Lista blanca
+
+
+#mailbox
+Mailbox Settings: Configuraciones de buzón
+No mailbox configurations found: No se encontraron configuraciones de buzón
+NEW MAILBOX: Nuevo buzón
+New Mailbox: Nuevo buzón
+ID: ID
+Mailbox ID - Leave blank to automatically create id: ID del buzón - deje en blanco para crear automáticamente la identificación
+Mailbox Name: Nombre del buzón
+Enable Mailbox: Habilitar buzón
+Incoming Mail (IMAP) Server: Correo entrante (IMAP) Servidor
+Configure your imap settings which will be used to fetch emails from your mailbox.: Configure sus ajustes de imap que se usarán para recuperar correos electrónicos de su buzón.
+Transport: Transporte
+IMAP: IMAP
+Gmail: Gmail
+Yahoo: Yahoo
+Host: Anfitrión
+IMAP Host: IMAP Anfitrión
+Email address: Dirección de correo electrónico
+Associated Password: Contraseña asociada
+Outgoing Mail (SMTP) Server: Correo saliente (SMTP) Servidor
+Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.: Seleccione una configuración válida de Swift Mailer que se utilizará para enviar correos electrónicos a través de su buzón.
+Swift Mailer ID: Correo rápido ID
+None Selected: Ninguna seleccionada
+Create Mailbox: Crear buzón
+CREATE MAILBOX: Crear buzón
+
+
+#EMAIL TEMPLATES
+New Template: Nueva plantilla
+NEW TEMPLATE: Nueva plantilla
+Customer Forgot Password: Cliente Olvidó Contraseña
+Customer Account Created: Cuenta de cliente creada
+Ticket generated success mail to customer: Ticket generado por correo exitoso al cliente
+Customer Reply To The Agent: Respuesta del cliente al agente
+Ticket Assign: Asignación de entradas
+Agent Forgot Password: El agente olvidó la contraseña
+Agent Account Created: Cuenta de agente creada
+Ticket generated by customer: Ticket generado por el cliente
+Agent Reply To The Customer's ticket: Respuesta del agente al ticket del cliente
+Email template name: Nombre de plantilla de correo electrónico
+Email template subject: Asunto de plantilla de correo electrónico
+Template For: Plantilla para
+Nothing Selected: Nada seleccionado
+email template will be used for work related with selected option: la plantilla de correo electrónico se usará para el trabajo relacionado con la opción seleccionada
+Email template body: Cuerpo de plantilla de correo electrónico
+Body:  Cuerpo
+placeholders: marcadores de posición
+Ticket Id: Identificación de entradas
+Ticket Subject: Asunto del boleto
+Ticket Message: Mensaje de ticket
+Ticket Attachments: Adjuntos de entradas
+Ticket Tags: Etiquetas de entradas
+Ticket Source: Origen del boleto
+Ticket Status: Estado del boleto
+Ticket Priority: Prioridad de entradas
+Ticket Group: Grupo de entradas
+Ticket Team: Ticket Team
+Ticket Thread Message:  Mensaje de subproceso
+Ticket Customer Name: Nombre del cliente del boleto
+Ticket Customer Email: Correo electrónico del cliente del boleto
+Ticket Agent Name: Nombre del agente del boleto
+Ticket Agent Email: Email del agente de tickets
+Ticket Agent Link: Enlace de agente de tickets
+Ticket Customer Link: Enlace de agente de tickets
+Last Collaborator Name:  Apellido del colaborador
+Last Collaborator Email: Correo electrónico del último colaborador
+Agent/ Customer Name: Nombre del agente / cliente
+Account Validation Link: Enlace de validación de cuenta
+Password Forgot Link: Enlace olvidado de contraseña
+Company Name: nombre de empresa
+Company Logo: Logo de la compañía
+Company URL: URL de la compañía
+
+
+
+#EMAIL SETTINGS
+Email Settings: Ajustes del correo electrónico
+Swiftmailer id (Select from drop down): ID De Swiftmailer (Seleccionar del menú desplegable)
+PROCEED: Proceder
+Proceed: Proceder
+
+#BRANDING
+Branding: Marca
+Theme Color: Color del tema
+
+
+#WORKFLOWS
+Customer Created: Cliente creado
+Agent Created: Agente creado
+Customer Forgot Password: Cliente Olvidó Contraseña
+Agent Forgot Password: El agente olvidó la contraseña
+Ticket Created: Ticket creado
+Agent Replied on Ticket: Agente respondido en el boleto
+Customer Replied on Ticket: Cliente respondido en el boleto
+Workflow Status: Estado del flujo de trabajo
+Workflow is Active: El flujo de trabajo está activo
+Events: Eventos
+An event automatically triggers to check conditions and perform a respective pre-defined set of actions: Un evento se activa automáticamente para verificar las condiciones y realizar un conjunto de acciones predefinido respectivo
+Select an Event: Selecciona un evento
+Add More: Añadir más
+Conditions: Condiciones
+Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions: Las condiciones son un conjunto de reglas que verifica escenarios específicos y se activan en ocasiones específicas
+Subject or Description: Asunto o descripción
+Actions: Comportamiento
+An action not only reduces the workload but also makes it quite easier for ticket automation: Una acción no solo reduce la carga de trabajo, sino que también facilita la automatización de tickets
+Select an Action: Selecciona una acción
+Add Note: Añadir la nota
+Mail to Agent: Enviar al agente
+Mail to Customer: Correo al cliente
+Mail to group: Enviar al grupo
+Mail to last collaborator: Enviar al último colaborador
+Mail to team: Enviar al equipo
+Mark Spam: Marca Spam
+Assign to agent: Mark Asignar a agente
+Assign to group: Asignar al grupo
+Set Priority As: Establecer prioridad como
+Set Status As: Establecer estado como
+Set Tag As: Establecer etiqueta como
+Assign to Team: Asignar al equipo
+Set Type As: Establecer tipo como
+Add Workflow: Agregar flujo de trabajo
+ADD WORKFLOW: Agregar flujo de trabajo
+
+
+#TICKET TYPE
+Ticket Type code: Código de tipo de boleto
+Ticket Type description: Descripción del tipo de ticket
+Type Status: Estado de tipo
+Type is Active: El tipo está activo
+
+
+
+
+#SAVED REPLIES
+Add Save Reply: Agregar Guardar respuesta
+Saved reply name: Nombre de respuesta guardado
+Share saved reply with user(s) in these group(s): Comparta la respuesta guardada con los usuarios de estos grupos
+Share saved reply with user(s) in these teams(s): Comparta la respuesta guardada con los usuarios de estos equipos.
+Saved reply Body: Respuesta guardada Cuerpo
+
+
+#PREPARED RESPONSES
+New Prepared Response: Nueva respuesta preparada
+Prepared Response Status: Estado de respuesta preparado
+Prepared Response is Active: La respuesta preparada está activa
+Share prepared response with user(s) in these group(s): Comparta la respuesta preparada con los usuarios de estos grupos.
+Share prepared response with user(s) in these teams(s): Comparta la respuesta preparada con los usuarios de estos equipos.
+An action not only reduces the workload but also makes it quite easier for ticket automation: Una acción no solo reduce la carga de trabajo, sino que también facilita la automatización de tickets
+ADD PREPARED RESPONSE: Agregar respuesta preparada
+Add Prepared Response: Agregar respuesta preparada
+
+#FOLDER
+Folder Name is shown upfront at Knowledge Base: El nombre de la carpeta se muestra por adelantado en Knowledge Base
+A small text about the folder helps user to navigate more easily: Un pequeño texto sobre la carpeta ayuda al usuario a navegar más fácilmente
+Publish: Publier
+Draft: Brouillon
+Choose appropriate status: Elija el estado apropiado
+Folder Image: Image du dossier
+An image is worth a thousands words and makes folder more accessible: Una imagen vale más que mil palabras y hace que la carpeta sea más accesible
+
+
+#CATEGORIES
+Add Category:  añadir categoría
+Category Name is shown upfront at Knowledge Base: El nombre de la categoría se muestra por adelantado en Knowledge Base
+A small text about the category helps user to navigate more easily: Un pequeño texto sobre la categoría ayuda al usuario a navegar más fácilmente
+Using Category Order, you can decide which category should display first: Usando el orden de categoría, puede decidir qué categoría debe mostrarse primero
+Sorting: Clasificación
+Ascending Order (A-Z): Orden ascendente (A-Z)
+Descending Order (Z-A): Orden descendiente (Z-A)
+Based on Popularity: Basado en popularidad
+Article of this category will display according to selected option: El artículo de esta categoría se mostrará de acuerdo con la opción seleccionada
+Choose appropriate status: Elija el estado apropiado
+
+
+#ARTICLES
+Article: Artículo
+Title: Título
+Content: Contenido
+Slug: Slug
+Slug is the url identity of this article.: Slug es la identidad url de este artículo.
+Meta Title: Meta título
+Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results: Las etiquetas de título y las metadescripciones son bits de código HTML en el encabezado de una página web. Ayudan a los motores de búsqueda a comprender el contenido de una página. La etiqueta del título y la meta descripción de una página generalmente se muestran cuando esa página aparece en los resultados del motor de búsqueda
+Meta Keywords: Meta palabras clave
+comma "," separated: separado por comas
+Meta Description: Metadescripción
+
