@@ -1079,33 +1079,8 @@ open: open
 'No Categories Added': 'No Categories Added'
 'Status:': 'Status:'
 'Error : Something went wrong, please try again later': 'Error : Something went wrong, please try again later'
-ticket.priority.placeHolders.info: 	ticket.priority.placeHolders.info
-ticket.group.placeHolders.info: ticket.group.placeHolders.info
-ticket.team.placeHolders.info: ticket.team.placeHolders.info
-ticket.customerName.placeHolders.info: 	ticket.customerName.placeHolders.info
-ticket.customerEmail.placeHolders.info: 	ticket.customerEmail.placeHolders.info
-ticket.agentName.placeHolders.info: ticket.agentName.placeHolders.info
-ticket.agentEmail.placeHolders.info: ticket.agentEmail.placeHolders.info
-ticket.link.placeHolders.info: 	ticket.link.placeHolders.info 
 ticket: ticket
-ticket.id.placeHolders.info: ticket.id.placeHolders.info
-ticket.subject.placeHolders.info: 	ticket.subject.placeHolders.info
-ticket.status.placeHolders.info: ticket.status.placeHolders.info
 'Add Email Template': 'Add Email Template'
-ticket.message.placeHolders.info: ticket.message.placeHolders.info
-ticket.attachments.placeHolders.info: 	ticket.attachments.placeHolders.info
-ticket.threadMessage.placeHolders.info: ticket.threadMessage.placeHolders.info
-ticket.tags.placeHolders.info: ticket.tags.placeHolders.info
-ticket.source.placeHolders.info: ticket.source.placeHolders.info
-ticket.collaborator.name.placeHolders.info: ticket.collaborator.name.placeHolders.info
-ticket.collaborator.email.placeHolders.info: ticket.collaborator.email.placeHolders.info
-user.name.info: user.name.info
-user.email.info: user.email.info
-user.account.validate.link.info: user.account.validate.link.info
-user.password.forgot.link.info: user.password.forgot.link.info
-global.companyName: global.companyName
-global.companyLogo: global.companyLogo
-global.companyUrl: global.companyUrl
 'This field contain 100 characters only': 'This field contain 100 characters only'
 'This field contain characters only' : 	'This field contain characters only'
 'Name length must not be greater than 200 !!': 'Name length must not be greater than 200 !!'
@@ -1167,14 +1142,12 @@ global.companyUrl: global.companyUrl
 'Warning! In Free Plan you can not change Events!': 'Warning! In Free Plan you can not change Events!'
 'Success! Prepared Response has been updated successfully.': 'Success! Prepared Response has been updated successfully.'
 'Success! Prepared Response has been added successfully.': 'Success! Prepared Response has been added successfully.'
-Warning  This is not a valid request: 'Warning  This is not a valid request'
+'Warning  This is not a valid request': 'Warning  This is not a valid request'
 'Use Default Colors': 'Use Default Colors'
 'Masonry': 'Masonry'
 'Popular Article': 'Popular Article'
 'Manage Ticket Custom Fields': 'Manage Ticket Custom Fields'
-'Download (as .zip)': 'Download (as .zip)'
 'Mail status:': 'Mail status:'
-'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': 'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on'
 "You don't have premission to edit this Prepared response": "You don't have premission to edit this Prepared response"
 'Save Prepared Response': 'Save Prepared Response'
 'Success ! Prepared response removed successfully.': 'Success ! Prepared response removed successfully.'
@@ -1260,4 +1233,30 @@ Warning  This is not a valid request: 'Warning  This is not a valid request'
 "Success! Ticket type saved successfully.": "Success! Ticket type saved successfully."
 "Success! Ticket type updated successfully.": "Success! Ticket type updated successfully."
 "Error! Ticket type with same name already exist": "Error! Ticket type with same name already exist"
+ticket.message.placeHolders.info: ticket.message.placeHolders.info
+ticket.attachments.placeHolders.info: 	ticket.attachments.placeHolders.info
+ticket.threadMessage.placeHolders.info: ticket.threadMessage.placeHolders.info
+ticket.tags.placeHolders.info: ticket.tags.placeHolders.info
+ticket.source.placeHolders.info: ticket.source.placeHolders.info
+ticket.collaborator.name.placeHolders.info: ticket.collaborator.name.placeHolders.info
+ticket.collaborator.email.placeHolders.info: ticket.collaborator.email.placeHolders.info
+user.name.info: user.name.info
+user.email.info: user.email.info
+user.account.validate.link.info: user.account.validate.link.info
+user.password.forgot.link.info: user.password.forgot.link.info
+global.companyName: global.companyName
+global.companyLogo: global.companyLogo
+global.companyUrl: global.companyUrl
+ticket.priority.placeHolders.info: 	ticket.priority.placeHolders.info
+ticket.group.placeHolders.info: ticket.group.placeHolders.info
+ticket.team.placeHolders.info: ticket.team.placeHolders.info
+ticket.customerName.placeHolders.info: 	ticket.customerName.placeHolders.info
+ticket.customerEmail.placeHolders.info: 	ticket.customerEmail.placeHolders.info
+ticket.agentName.placeHolders.info: ticket.agentName.placeHolders.info
+ticket.agentEmail.placeHolders.info: ticket.agentEmail.placeHolders.info
+ticket.link.placeHolders.info: 	ticket.link.placeHolders.info 
+ticket.id.placeHolders.info: ticket.id.placeHolders.info
+ticket.subject.placeHolders.info: 	ticket.subject.placeHolders.info
+ticket.status.placeHolders.info: ticket.status.placeHolders.info
+
 

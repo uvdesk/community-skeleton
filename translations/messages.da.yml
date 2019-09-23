@@ -1070,3 +1070,162 @@ open: åben
 'Save Workflow': 'Gem arbejdsgang'
 'Edit Ticket Type': 'Rediger billetype'
 'Add Ticket Type': 'Tilføj billetype'
+'Date Released': 'Udgivet dato'
+'Free': 'Ledig'
+'Premium': 'Præmie'
+'Installed': 'Installeret'
+'Installed Applications': 'Installerede applikationer'
+'Nothing Interesting here': "Intet interessant her"
+'No Categories Added': 'Ingen kategorier tilføjet'
+ticket: billet
+'Add Email Template': 'Tilføj e-mail-skabelon'
+'This field contain 100 characters only': 'Dette felt indeholder kun 100 tegn'
+'This field contain characters only': 'Dette felt indeholder kun tegn'
+'Name length must not be greater than 200 !!': 'Navnets længde må ikke være større end 200 !!'
+'Warning! Correct all field values first!': 'Advarsel! Korrekt alle feltværdier først! '
+'Warning ! This is not a valid request': 'Advarsel! Dette er ikke en gyldig anmodning '
+'Success ! Tag removed successfully.': 'Succes! Mærket blev fjernet. '
+'Success ! Tags Saved successfully.': 'Succes! Mærker er gemt med succes. '
+'Success ! Revision restored successfully.': 'Succes! Revision gendannet med succes. '
+'Success ! Categories updated successfully.': 'Succes! Kategorier opdateret med succes. '
+'Success ! Article Related removed successfully.': 'Succes! Artikelrelateret fjernet med succes. '
+'Success ! Article Related is already added.': 'Succes! Artikel relateret er allerede tilføjet. '
+'Success ! Cannot add self as relative article.': 'Succes! Kan ikke tilføje mig selv som relativ artikel. '
+'Success ! Article Related updated successfully.': 'Succes! Artikelrelateret opdateret med succes. '
+'Success ! Articles removed successfully.': 'Succes! Artikler fjernet med succes. '
+'Success ! Article status updated successfully.': 'Succes! Artikelstatus blev opdateret. '
+'Success ! Article star updated successfully.': 'Succes! Artikelstjernen er opdateret. '
+'Success! Article updated successfully': 'Succes! Artikel opdateret med succes '
+'Success ! Category sort  order updated successfully.': 'Succes! Kategorisorteringsrækkefølge blev opdateret. '
+'Success ! Category status updated successfully.': 'Succes! Kategoristatus blev opdateret. '
+'Success ! Folders updated successfully.': 'Succes! Mapper opdateret med succes. '
+'Success ! Categories removed successfully.': 'Succes! Kategorier fjernet med succes. '
+'Success ! Category updated successfully.': 'Succes! Kategori opdateret med succes. '
+'Error ! Category is not exist.': 'Fejl! Kategori findes ikke. '
+'Warning ! Customer Login disabled by admin.': 'Advarsel! Kunde login deaktiveret af admin. '
+'This Email is not registered with us.': 'Denne e-mail er ikke registreret hos os.'
+'Your password has been updated successfully.': 'Din adgangskode er blevet opdateret.'
+"Password don't match.": "Adgangskode stemmer ikke overens."
+'Error ! Profile image is not valid, please upload a valid format': 'Fejl! Profilbillede er ikke gyldigt, skal du uploade et gyldigt format '
+'Success! Folder has been added successfully.': 'Succes! Mappen er tilføjet med succes. '
+'Folder updated successfully.': 'Mappen er opdateret.'
+'Success ! Folder status updated successfully.': 'Succes! Mappestatus blev opdateret. '
+'Error ! Folder is not exist.': 'Fejl! Mappen findes ikke. '
+'Success ! Folder updated successfully.': 'Succes! Mappen er opdateret. '
+'Error ! Folder does not exist.': 'Fejl! Mappen findes ikke. '
+'Success ! Folder deleted successfully.': 'Succes! Mappen blev slettet. '
+"Warning ! Folder doesn't exists!": "Advarsel! Mappen findes ikke!"
+'Warning ! Cannot create ticket, given email is blocked by admin.': 'Advarsel! Kan ikke oprette billet, da den givne e-mail er blokeret af admin. '
+'Success ! Ticket has been created successfully.': 'Succes! Billetten er oprettet med succes. '
+'Warning ! Can not create ticket, invalid details.': 'Advarsel! Kan ikke oprette billet, ugyldige detaljer. '
+"Warning ! Post size can not exceed 25MB": "Advarsel! Indlægsstørrelse kan ikke overstige 25 MB"
+"Create Ticket Request": "Opret billetanmodning"
+"Success ! Reply added successfully.": "Succes! Svar tilføjet med succes."
+"Warning ! Reply field can not be blank.": "Advarsel! Svarfelt kan ikke være tomt."
+'Success ! Rating has been successfully added.': 'Succes! Bedømmelsen er tilføjet. '
+'Warning ! Invalid rating.': 'Advarsel! Ugyldig bedømmelse. '
+'Error ! Can not add customer as a collaborator.': 'Fejl! Kan ikke tilføje kunde som en samarbejdspartner. '
+'Success ! Collaborator added successfully.': 'Succes! Medarbejder tilføjet med succes. '
+'Error ! Collaborator is already added.': 'Fejl! Samarbejder er allerede tilføjet. '
+'Success ! Collaborator removed successfully.': 'Succes! Medarbejder blev fjernet. '
+'Error ! Invalid Collaborator.': 'Fejl! Ugyldig samarbejdspartner. '
+'An unexpected error occurred. Please try again later.': 'Der opstod en uventet fejl. Prøv igen senere.'
+'Feedback saved successfully.': 'Feedback er gemt.'
+'Feedback updated successfully.': 'Feedback er opdateret.'
+'Invalid feedback provided.': 'Ugyldig feedback givet.'
+'Article not found.': 'Artikel ikke fundet.'
+'You need to login to your account before can perform this action.': 'Du skal logge ind på din konto før du kan udføre denne handling.'
+'Warning! Please add valid Actions!': 'Advarsel! Tilføj venligst gyldige handlinger! '
+'Warning! In Free Plan you can not change Events!': 'Advarsel! I gratis plan kan du ikke ændre begivenheder! '
+'Success! Prepared Response has been updated successfully.': 'Succes! Den forberedte respons er blevet opdateret. '
+'Success! Prepared Response has been added successfully.': 'Succes! Forberedt svar er tilføjet med succes. '
+"Warning  This is not a valid request": 'Advarsel Dette er ikke en gyldig anmodning'
+'Use Default Colors': 'Brug standardfarver'
+'Masonry': 'Murværk'
+'Popular Article': 'Populær artikel'
+'Manage Ticket Custom Fields': 'Administrer brugerdefinerede billetfelter'
+"You don't have premission to edit this Prepared response": "Du har ikke forudsætning for at redigere dette forberedte svar"
+'Save Prepared Response': 'Gem forberedt svar'
+'Success ! Prepared response removed successfully.': 'Succes! Det forberedte svar blev fjernet. '
+'Warning! You are not allowed to perform this action.': 'Advarsel! Du har ikke tilladelse til at udføre denne handling. '
+'Success! Workflow has been updated successfully.': 'Succes! Arbejdsgang er blevet opdateret. '
+'Success! Workflow has been added successfully.': 'Succes! Arbejdsgang er tilføjet med succes. '
+'Success! Order has been updated successfully.': 'Succes! Bestillingen er blevet opdateret. '
+'Success! Workflow has been removed successfully.': 'Succes! Arbejdsgang er blevet fjernet. '
+'Mailbox successfully created.': 'Postkasse er oprettet.'
+'Mailbox successfully updated.': 'Postkasse er opdateret.'
+'Warning ! Bad request !': 'Advarsel! Dårlig anmodning !'
+'Error! Given current password is incorrect.': 'Fejl! Givet den aktuelle adgangskode er forkert. '
+'Success ! Profile update successfully.': 'Succes! Profilopdatering med succes. '
+'Error ! User with same email is already exist.': 'Fejl! Bruger med samme e-mail findes allerede. '
+'Success ! Agent updated successfully.': 'Succes! Agent opdateret. '
+'Success ! Agent removed successfully.': 'Succes! Agent blev fjernet. '
+"Warning ! You are allowed to remove account owner's account.": "Advarsel! Du har tilladelse til at fjerne kontoejers konto."
+"Error ! Invalid user id.": "Fejl! Ugyldigt bruger-id."
+"Success ! Filter has been saved successfully.": "Succes! Filteret er gemt med succes."
+"Success ! Filter has been updated successfully.": "Succes! Filteret er blevet opdateret."
+"Success ! Filter has been removed successfully.": "Succes! Filter er blevet fjernet med succes."
+"Please check your mail for password update.": "Kontroller venligst din mail for opdatering af adgangskode."
+"This Email address is not registered with us.": "Denne e-mail-adresse er ikke registreret hos os."
+"Success ! Customer saved successfully.": "Succes! Kunden er gemt med succes."
+"Error ! User with same email already exist.": "Fejl! Bruger med samme e-mail findes allerede."
+"Success ! Customer information updated successfully.": "Succes! Kundeinformation er opdateret med succes."
+"Success ! Customer updated successfully.": "Succes! Kunden blev opdateret."
+"Error ! Customer with same email already exist.": "Fejl! Kunde med samme e-mail findes allerede."
+"unstarred Action Completed successfully": "ustjernet handling afsluttet med succes"
+"starred Action Completed successfully": "stjernemarkeret handling afsluttet med succes"
+"Success ! Customer removed successfully.": "Succes! Kunden blev fjernet med succes."
+"Error ! Invalid customer id.": "Fejl! Ugyldigt kunde-id."
+"Success! Template has been updated successfully.": "Succes! Skabelonen er blevet opdateret."
+"Success! Template has been added successfully.": "Succes! Skabelon er tilføjet med succes."
+"Success! Template has been deleted successfully.": "Succes! Skabelonen er blevet slettet."
+"Warning! resource not found.": "Advarsel! Ressource ikke fundet."
+"Warning! You can not remove predefined email template which is being used in workflow(s).": "Advarsel! Du kan ikke fjerne foruddefineret e-mail-skabelon, der bruges i arbejdsgang (er)."
+"Success ! Email settings are updated successfully.": "Succes! E-mail-indstillinger er opdateret med succes."
+"Success ! Group information updated successfully.": "Succes! Gruppinformation er opdateret med succes."
+"Success ! Group information saved successfully.": "Succes! Gruppens oplysninger er gemt med succes."
+"Support Group removed successfully.": "Support Group blev fjernet med succes."
+"Success ! Privilege information saved successfully.": "Succes! Oplysninger om privilegier er gemt med succes."
+"Privilege updated successfully.": "Privilege blev opdateret."
+"Support Privilege removed successfully.": "Support Privilege fjernet med succes."
+"Success! Reply has been updated successfully.": "Succes! Svar er blevet opdateret."
+"Success! Reply has been added successfully.": "Succes! Svar er tilføjet med succes."
+"Success! Saved Reply has been deleted successfully": "Succes! Gemt svar er blevet slettet"
+"SwiftMailer configuration updated successfully.": "SwiftMailer-konfiguration blev opdateret med succes."
+"Swiftmailer configuration removed successfully.": "Swiftmailer-konfiguration blev fjernet med succes."
+"Success ! Team information saved successfully.": "Succes! Holdoplysninger er gemt med succes."
+"Success ! Team information updated successfully.": "Succes! Holdoplysninger er opdateret med succes."
+"Support Team removed successfully.": "Supportteamet blev fjernet med succes."
+"Success! Reply has been added successfully": "Succes! Svar er tilføjet med succes"
+"Success ! Thread updated successfully.": "Succes! Tråden er opdateret med succes."
+"Error ! Reply field can not be blank.": "Fejl! Svarfelt kan ikke være tomt."
+"Success ! Thread removed successfully.": "Succes! Tråd fjernet med succes."
+"Success ! Thread locked successfully": "Succes! Tråd låst med succes"
+"Success ! Thread unlocked successfully": "Succes! Tråd låst med succes"
+"Success ! Thread pinned successfully": "Succes! Tråd fastgjort med succes"
+"Error ! Invalid thread.": "Fejl! Ugyldig tråd."
+"Could not create ticket, invalid details.": "Kunne ikke oprette billet, ugyldige detaljer."
+"Success ! Tag updated successfully.": "Succes! Tag blev opdateret med succes."
+"Error ! Customer can not be added as collaborator.": "Fejl! Kunden kan ikke tilføjes som samarbejdspartner."
+"Success ! Tag unassigned successfully.": "Succes! Tag ikke tildelt med succes."
+"Success ! Tag added successfully.": "Succes! Tag tilføjet med succes."
+"Please enter tag name.": "Indtast tag-navn."
+"Error ! Invalid tag.": "Fejl! Ugyldigt tag."
+"Success ! Type removed successfully.": "Succes! Type fjernet med succes."
+"Success ! Ticket to label removed successfully.": "Succes! Billet til etiketten blev fjernet med succes."
+"Unable to retrieve support team details": "Kan ikke hente oplysninger om supportteam"
+"Ticket support group updated successfully": "Billet supportgruppe opdateret med succes"
+"Unable to retrieve status details": "Kan ikke hente statusoplysninger"
+"Insufficient details provided.": "Utilstrækkelige detaljer leveret."
+"Error! Subject field is mandatory": "Fejl! Emnefelt er obligatorisk"
+"Error! Reply field is mandatory": "Fejl! Svarfelt er obligatorisk"
+"Success ! Ticket has been updated successfully.": "Succes! Billet er blevet opdateret."
+"Success ! Label updated successfully.": "Succes! Etiketten blev opdateret med succes."
+"Error ! Invalid label id.": "Fejl! Ugyldigt etiket-id."
+"'Success ! Label removed successfully.": "'Succes! Etiketten blev fjernet."
+"Success ! Label created successfully.": "Succes! Etiket oprettet med succes."
+"Error ! Label name can not be blank.": "Fejl! Etiketnavnet kan ikke være tomt."
+"Success ! Ticket moved to trash successfully.": "Succes! Billet flyttes til papirkurven med succes."
+"Success! Ticket type saved successfully.": "Succes! Billetypen er gemt med succes."
+"Success! Ticket type updated successfully.": "Succes! Billetypen blev opdateret med succes."
+"Error! Ticket type with same name already exist": "Fejl! Billetype med samme navn findes allerede"

@@ -806,7 +806,7 @@ Content: Inhalt
 Slug: Schnecke
 'Slug is the url identity of this article.': "Slug ist die URL-Identität dieses Artikels."
 'Meta Title': 'Meta-Titel'
-'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': 'Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird.'
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": 'Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird.'
 'Meta Keywords': 'Meta-Keywords'
 'comma "," separated': 'Komma getrennt'
 'Meta Description': 'Meta Description'
@@ -1018,3 +1018,214 @@ open: öffnen
 'Ticket View': "Ticketansicht"
 'User can view tickets based on selected scope.': "Der Benutzer kann Tickets basierend auf dem ausgewählten Bereich anzeigen."
 'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': "Wenn der Benutzer über einen individuellen Zugriff verfügt, können nur zugewiesene Tickets angezeigt werden. Wenn der Teamzugriff verfügt, kann der Benutzer alle Tickets in Teams anzeigen, denen er angehört, usw."
+'Global Access': "Globaler Zugriff"
+'Group Access': "Gruppenzugriff"
+'Team Access': "Teamzugang"
+'Individual Access': "Individueller Zugang"
+'This field must have characters only': 'Dieses Feld darf nur Zeichen enthalten'
+'Maximum character length is 40': 'Maximale Zeichenlänge beträgt 40'
+'This is not a valid email address': 'Dies ist keine gültige e-mail Adresse'
+'Password must contains 8 Characters': 'Passwort muss 8 Zeichen enthalten'
+'The passwords does not match': "Die Passwörter stimmen nicht überein"
+'Enabled': 'Aktiviert'
+'Create Configuration': 'Konfiguration erstellen'
+'Swift Mailer Settings': "Swift Mailer-Einstellungen"
+'Username': 'Nutzername'
+'Please select a swiftmailer id': 'Bitte wählen Sie eine swiftmailer ID'
+'Please enter a valid e-mail id': 'Bitte geben Sie eine gültige E-Mail-ID ein'
+'Please enter a mailer id': 'Bitte geben Sie eine Mailer-ID ein'
+'Email Id': "E-Mail-ID"
+'Are you sure? You want to perform this action.': 'Bist du sicher? Sie möchten diese Aktion ausführen. '
+'Reorder': 'Nachbestellen'
+'New Workflow': "Neuer Workflow"
+'OR': 'ODER'
+'AND': 'UND'
+'Please enter a valid name.': 'Bitte geben Sie einen gültigen Namen ein.'
+'Please select a value.': 'Bitte wählen Sie einen Wert aus.'
+'Please add a value.': "Bitte addieren Sie einen Wert."
+'This field is required': 'Dieses Feld wird benötigt'
+'or': 'oder'
+'and': 'und'
+'Select a Condition': "Wählen Sie eine Bedingung aus"
+'Loading...': 'Wird geladen...'
+'Select Option': 'Wähle eine Option'
+'Inactive': 'Inaktiv'
+'New Type': 'Neuer Typ'
+'Placeholders': "Platzhalter"
+'Ticket Link': 'Ticket Link'
+'Id': 'Ich würde'
+'Preview': 'Vorschau'
+'Sort Order': 'Sortierung'
+'This field must be a number': 'Dieses Feld muss eine Zahl sein'
+'User': 'Benutzer'
+'Edit Group': 'Gruppe bearbeiten'
+'Group Status': 'Gruppenstatus'
+'Group is Active': 'Gruppe ist aktiv'
+'Add Group': 'Gruppe hinzufügen'
+'Contact number is invalid': "Kontaktnummer ist ungültig"
+'Edit Agent': "Agent bearbeiten"
+'No Privilege added, Please add Privilege(s) first !': 'Keine Berechtigungen hinzugefügt, bitte zuerst Berechtigungen hinzufügen!'
+'Edit Email Template': "E-Mail-Vorlage bearbeiten"
+'Edit Workflow': 'Workflow bearbeiten'
+'Save Workflow': 'Workflow speichern'
+'Edit Ticket Type': "Ticket-Typ bearbeiten"
+'Add Ticket Type': "Tickettyp hinzufügen"
+'Date Released': "Freigabedatum"
+'Free': 'Kostenlos'
+'Premium': 'Prämie'
+'Installed': 'Eingerichtet'
+'Installed Applications': "Installierte Anwendungen"
+'Nothing Interesting here': "Nichts Interessantes hier"
+'No Categories Added': 'Keine Kategorien hinzugefügt'
+ticket: Fahrkarte
+'Add Email Template': "E-Mail-Vorlage hinzufügen"
+'This field contain 100 characters only': 'Dieses Feld enthält nur 100 Zeichen'
+'This field contain characters only': 'Dieses Feld enthält nur Zeichen'
+'Name length must not be greater than 200 !!': 'Die Länge des Namens darf 200 nicht überschreiten !!'
+'Warning! Correct all field values first!': 'Warnung! Korrigieren Sie zuerst alle Feldwerte! '
+'Warning ! This is not a valid request': 'Warnung ! Dies ist keine gültige Anfrage. '
+'Success ! Tag removed successfully.': 'Erfolg! Tag erfolgreich entfernt. '
+'Success ! Tags Saved successfully.': 'Erfolg! Tags wurden erfolgreich gespeichert. '
+'Success ! Revision restored successfully.': 'Erfolg! Revision erfolgreich wiederhergestellt. '
+'Success ! Categories updated successfully.': 'Erfolg! Kategorien wurden erfolgreich aktualisiert. '
+'Success ! Article Related removed successfully.': 'Erfolg! Artikelverwandte erfolgreich entfernt. '
+'Success ! Article Related is already added.': 'Erfolg! Artikel ist bereits hinzugefügt. '
+'Success ! Cannot add self as relative article.': 'Erfolg! Ich kann mich nicht als relativen Artikel hinzufügen. '
+'Success ! Article Related updated successfully.': 'Erfolg! Artikelverwandt erfolgreich aktualisiert. '
+'Success ! Articles removed successfully.': 'Erfolg! Artikel erfolgreich entfernt. '
+'Success ! Article status updated successfully.': 'Erfolg! Artikelstatus erfolgreich aktualisiert. '
+'Success ! Article star updated successfully.': 'Erfolg! Artikelstern erfolgreich aktualisiert. '
+'Success! Article updated successfully': 'Erfolg! Artikel erfolgreich aktualisiert'
+'Success ! Category sort  order updated successfully.': 'Erfolg! Sortierreihenfolge der Kategorie erfolgreich aktualisiert. '
+'Success ! Category status updated successfully.': 'Erfolg! Kategoriestatus erfolgreich aktualisiert. '
+'Success ! Folders updated successfully.': 'Erfolg! Ordner wurden erfolgreich aktualisiert. '
+'Success ! Categories removed successfully.': 'Erfolg! Kategorien wurden erfolgreich entfernt. '
+'Success ! Category updated successfully.': 'Erfolg! Kategorie erfolgreich aktualisiert. '
+'Error ! Category is not exist.': 'Error ! Kategorie ist nicht vorhanden. '
+'Warning ! Customer Login disabled by admin.': 'Warnung ! Kunden-Login von Administrator deaktiviert. '
+'This Email is not registered with us.': "Diese E-Mail ist bei uns nicht registriert."
+'Your password has been updated successfully.': 'Ihr Passwort wurde erfolgreich aktuallisiert.'
+"Password don't match.": "Passwort stimmt nicht überein."
+'Error ! Profile image is not valid, please upload a valid format': 'Error ! Profilbild ist ungültig. Bitte laden Sie ein gültiges Format hoch. '
+'Success! Folder has been added successfully.': 'Erfolg! Ordner wurde erfolgreich hinzugefügt. '
+'Folder updated successfully.': "Ordner erfolgreich aktualisiert."
+'Success ! Folder status updated successfully.': 'Erfolg! Ordnerstatus erfolgreich aktualisiert. '
+'Error ! Folder is not exist.': 'Error ! Ordner ist nicht vorhanden. '
+'Success ! Folder updated successfully.': Erfolg! Ordner erfolgreich aktualisiert. '
+'Error ! Folder does not exist.': 'Error ! Ordner existiert nicht. '
+'Success ! Folder deleted successfully.': 'Erfolg! Ordner erfolgreich gelöscht. '
+"Warning ! Folder doesn't exists!": "Warnung! Ordner existiert nicht!"
+'Warning ! Cannot create ticket, given email is blocked by admin.': 'Warnung ! Ticket kann nicht erstellt werden, da die angegebene E-Mail-Adresse vom Administrator blockiert wird. '
+'Success ! Ticket has been created successfully.': 'Erfolg! Ticket wurde erfolgreich erstellt. '
+'Warning ! Can not create ticket, invalid details.': 'Warnung ! Ticket kann nicht erstellt werden, ungültige Angaben. '
+"Warning ! Post size can not exceed 25MB": "Warnung! Die Postgröße darf 25 MB nicht überschreiten."
+"Create Ticket Request": "Ticketanfrage erstellen"
+"Success ! Reply added successfully.": "Erfolgreich! Antwort erfolgreich hinzugefügt."
+"Warning ! Reply field can not be blank.": "Warnung! Das Antwortfeld darf nicht leer sein."
+'Success ! Rating has been successfully added.': 'Erfolg! Die Bewertung wurde erfolgreich hinzugefügt. '
+'Warning ! Invalid rating.': 'Warnung ! Ungültige Bewertung. '
+'Error ! Can not add customer as a collaborator.': 'Error ! Kunde kann nicht als Mitbearbeiter hinzugefügt werden. '
+'Success ! Collaborator added successfully.': 'Erfolg! Mitbearbeiter erfolgreich hinzugefügt. '
+'Error ! Collaborator is already added.': 'Error ! Der Mitbearbeiter wurde bereits hinzugefügt. '
+'Success ! Collaborator removed successfully.': 'Erfolg! Mitbearbeiter erfolgreich entfernt. '
+'Error ! Invalid Collaborator.': 'Error ! Ungültiger Mitbearbeiter. '
+'An unexpected error occurred. Please try again later.': 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal. '
+'Feedback saved successfully.': "Feedback erfolgreich gespeichert."
+'Feedback updated successfully.': "Feedback erfolgreich aktualisiert."
+'Invalid feedback provided.': "Ungültiges Feedback angegeben."
+'Article not found.': 'Artikel nicht gefunden.'
+'You need to login to your account before can perform this action.': "Sie müssen sich bei Ihrem Konto anmelden, bevor Sie diese Aktion ausführen können."
+'Warning! Please add valid Actions!': 'Warnung! Bitte gültige Aktionen hinzufügen! '
+'Warning! In Free Plan you can not change Events!': 'Warnung! In Free Plan können Sie keine Events ändern! '
+'Success! Prepared Response has been updated successfully.': 'Erfolg! Die vorbereitete Antwort wurde erfolgreich aktualisiert. '
+'Success! Prepared Response has been added successfully.': 'Erfolg! Die vorbereitete Antwort wurde erfolgreich hinzugefügt. '
+'Warning  This is not a valid request': 'Warnung Dies ist keine gültige Anfrage'
+'Use Default Colors': 'Standardfarben verwenden'
+'Masonry': 'Mauerwerk'
+'Popular Article': "Populärer Artikel"
+'Manage Ticket Custom Fields': "Benutzerdefinierte Ticketfelder verwalten"
+"You don't have premission to edit this Prepared response": "Sie haben keine Berechtigung, diese vorbereitete Antwort zu bearbeiten."
+'Save Prepared Response': "Vorbereitete Antwort speichern"
+'Success ! Prepared response removed successfully.': Erfolg! Vorbereitete Antwort erfolgreich entfernt. '
+'Warning! You are not allowed to perform this action.': 'Warnung! Sie dürfen diese Aktion nicht ausführen. '
+'Success! Workflow has been updated successfully.': 'Erfolg! Der Workflow wurde erfolgreich aktualisiert. '
+'Success! Workflow has been added successfully.': 'Erfolg! Workflow wurde erfolgreich hinzugefügt. '
+'Success! Order has been updated successfully.': 'Erfolg! Bestellung wurde erfolgreich aktualisiert. '
+'Success! Workflow has been removed successfully.': 'Erfolg! Workflow wurde erfolgreich entfernt. '
+'Mailbox successfully created.': "Postfach erfolgreich erstellt."
+'Mailbox successfully updated.': "Postfach erfolgreich aktualisiert."
+'Warning ! Bad request !': 'Warnung ! Ungültige Anforderung !'
+'Error! Given current password is incorrect.': 'Error! Das angegebene aktuelle Passwort ist falsch. '
+'Success ! Profile update successfully.': 'Erfolg! Profil erfolgreich aktualisiert. '
+'Error ! User with same email is already exist.': 'Error ! Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden. '
+'Success ! Agent updated successfully.': 'Erfolg! Agent erfolgreich aktualisiert. '
+'Success ! Agent removed successfully.': 'Erfolg! Agent erfolgreich entfernt. '
+"Warning ! You are allowed to remove account owner's account.": "Warnung! Sie dürfen das Konto des Kontoinhabers entfernen."
+"Error ! Invalid user id.": "Fehler! Ungültige Benutzer-ID."
+"Success ! Filter has been saved successfully.": "Erfolgreich! Filter wurde erfolgreich gespeichert."
+"Success ! Filter has been updated successfully.": "Erfolgreich! Filter wurde erfolgreich aktualisiert."
+"Success ! Filter has been removed successfully.": "Erfolgreich! Filter wurde erfolgreich entfernt."
+"Please check your mail for password update.": "Bitte überprüfen Sie Ihre E - Mails auf Passwortaktualisierung."
+"This Email address is not registered with us.": "Diese E-Mail-Adresse ist bei uns nicht registriert."
+"Success ! Customer saved successfully.": "Erfolgreich! Kunde erfolgreich gespeichert."
+"Error ! User with same email already exist.": "Fehler! Benutzer mit derselben E-Mail existiert bereits."
+"Success ! Customer information updated successfully.": "Erfolgreich! Kundeninformationen wurden erfolgreich aktualisiert."
+"Success ! Customer updated successfully.": "Erfolgreich! Kunde erfolgreich aktualisiert."
+"Error ! Customer with same email already exist.": "Fehler! Kunde mit derselben E-Mail existiert bereits."
+"unstarred Action Completed successfully": "nicht markierte Aktion erfolgreich abgeschlossen"
+"starred Action Completed successfully": "markierte Aktion erfolgreich abgeschlossen"
+"Success ! Customer removed successfully.": "Erfolgreich! Kunde erfolgreich entfernt."
+"Error ! Invalid customer id.": "Fehler! Ungültige Kunden-ID."
+"Success! Template has been updated successfully.": "Erfolg! Vorlage wurde erfolgreich aktualisiert."
+"Success! Template has been added successfully.": "Erfolg! Vorlage wurde erfolgreich hinzugefügt."
+"Success! Template has been deleted successfully.": "Erfolg! Vorlage wurde erfolgreich gelöscht."
+"Warning! resource not found.": "Warnung! Ressource nicht gefunden."
+"Warning! You can not remove predefined email template which is being used in workflow(s).": "Warnung! Sie können vordefinierte E-Mail-Vorlagen, die in Workflows verwendet werden, nicht entfernen."
+"Success ! Email settings are updated successfully.": "Erfolgreich! E-Mail-Einstellungen wurden erfolgreich aktualisiert."
+"Success ! Group information updated successfully.": "Erfolgreich! Gruppeninformationen wurden erfolgreich aktualisiert."
+"Success ! Group information saved successfully.": "Erfolgreich! Gruppeninformationen erfolgreich gespeichert."
+"Support Group removed successfully.": "Support Group erfolgreich entfernt."
+"Success ! Privilege information saved successfully.": "Erfolgreich! Berechtigungsinformationen erfolgreich gespeichert."
+"Privilege updated successfully.": "Privileg erfolgreich aktualisiert."
+"Support Privilege removed successfully.": Msgstr "Support - Berechtigung erfolgreich entfernt."
+"Success! Reply has been updated successfully.": "Erfolgreich! Die Antwort wurde erfolgreich aktualisiert."
+"Success! Reply has been added successfully.": "Erfolgreich! Antwort wurde erfolgreich hinzugefügt."
+"Success! Saved Reply has been deleted successfully": "Erfolgreich! Gespeicherte Antwort wurde erfolgreich gelöscht"
+"SwiftMailer configuration updated successfully.": "Die SwiftMailer-Konfiguration wurde erfolgreich aktualisiert."
+"Swiftmailer configuration removed successfully.": Msgstr "Swiftmailer - Konfiguration erfolgreich entfernt."
+"Success ! Team information saved successfully.": "Erfolg! Teaminformationen erfolgreich gespeichert."
+"Success ! Team information updated successfully.": "Erfolgreich! Die Teaminformationen wurden erfolgreich aktualisiert."
+"Support Team removed successfully.": Msgstr "Support - Team erfolgreich entfernt."
+"Success! Reply has been added successfully": "Erfolgreich! Antwort wurde erfolgreich hinzugefügt"
+"Success ! Thread updated successfully.": "Erfolgreich! Thread erfolgreich aktualisiert."
+"Error ! Reply field can not be blank.": "Fehler! Das Antwortfeld darf nicht leer sein."
+"Success ! Thread removed successfully.": "Erfolgreich! Thread erfolgreich entfernt."
+"Success ! Thread locked successfully": "Erfolg! Thread erfolgreich gesperrt"
+"Success ! Thread unlocked successfully": "Erfolg! Thread erfolgreich entsperrt"
+"Success ! Thread pinned successfully": "Erfolg! Thread erfolgreich gepinnt"
+"Error ! Invalid thread.": "Fehler! Ungültiger Thread."
+"Could not create ticket, invalid details.": "Ticket konnte nicht erstellt werden, ungültige Angaben."
+"Success ! Tag updated successfully.": "Erfolgreich! Tag erfolgreich aktualisiert."
+"Error ! Customer can not be added as collaborator.": "Fehler! Kunde kann nicht als Mitbearbeiter hinzugefügt werden."
+"Success ! Tag unassigned successfully.": "Erfolgreich! Tag nicht erfolgreich zugewiesen."
+"Success ! Tag added successfully.": "Erfolgreich! Tag erfolgreich hinzugefügt."
+"Please enter tag name.": "Bitte geben Sie den Tag-Namen ein."
+"Error ! Invalid tag.": "Fehler! Ungültiges Tag."
+"Success ! Type removed successfully.": "Erfolgreich! Typ erfolgreich entfernt."
+"Success ! Ticket to label removed successfully.": "Erfolg! Ticket zum Etikett erfolgreich entfernt."
+"Unable to retrieve support team details": "Support-Team-Details können nicht abgerufen werden"
+"Ticket support group updated successfully": "Ticket Support Group erfolgreich aktualisiert"
+"Unable to retrieve status details": "Statusdetails können nicht abgerufen werden"
+"Insufficient details provided.": Msgstr "Unzureichende Angaben gemacht."
+"Error! Subject field is mandatory": "Fehler! Betreff ist Pflichtfeld"
+"Error! Reply field is mandatory": "Fehler! Antwortfeld ist obligatorisch"
+"Success ! Ticket has been updated successfully.": "Erfolg! Ticket wurde erfolgreich aktualisiert."
+"Success ! Label updated successfully.": "Erfolgreich! Label erfolgreich aktualisiert."
+"Error ! Invalid label id.": "Fehler! Ungültige Label-ID."
+"'Success ! Label removed successfully.": "'Erfolg! Label erfolgreich entfernt."
+"Success ! Label created successfully.": "Erfolg! Label erfolgreich erstellt."
+"Error ! Label name can not be blank.": "Fehler! Der Labelname darf nicht leer sein."
+"Success ! Ticket moved to trash successfully.": "Erfolg! Ticket wurde erfolgreich in den Papierkorb verschoben."
+"Success! Ticket type saved successfully.": "Erfolgreich! Tickettyp erfolgreich gespeichert."
+"Success! Ticket type updated successfully.": "Erfolgreich! Tickettyp erfolgreich aktualisiert."
+"Error! Ticket type with same name already exist": "Fehler! Ticket-Typ mit gleichem Namen existiert bereits"
