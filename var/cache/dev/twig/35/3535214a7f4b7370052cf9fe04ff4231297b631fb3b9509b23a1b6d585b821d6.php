@@ -123,7 +123,7 @@ class __TwigTemplate_038652bed77a0045871f8ba6720a82a8e6edb975abedfc1ec1ae9923d12
 \t\t\t\t\t<div class=\"uv-field-block\">
 \t\t\t\t\t\t<input type=\"text\" name=\"name\" class=\"uv-field\" value=\"";
         // line 22
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22)), "html", null, true);
         echo "\" />
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -138,7 +138,7 @@ class __TwigTemplate_038652bed77a0045871f8ba6720a82a8e6edb975abedfc1ec1ae9923d12
 \t\t\t\t\t<div class=\"uv-field-block\">
 \t\t\t\t\t\t<textarea name=\"description\" class=\"uv-field\">";
         // line 31
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 31, $this->source); })()), "description", [], "any", false, false, false, 31), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["group"]) || array_key_exists("group", $context) ? $context["group"] : (function () { throw new RuntimeError('Variable "group" does not exist.', 31, $this->source); })()), "description", [], "any", false, false, false, 31)), "html", null, true);
         echo "</textarea>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -520,7 +520,7 @@ class __TwigTemplate_038652bed77a0045871f8ba6720a82a8e6edb975abedfc1ec1ae9923d12
 \t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">{{ 'Name'|trans }}</label>
 \t\t\t\t\t<div class=\"uv-field-block\">
-\t\t\t\t\t\t<input type=\"text\" name=\"name\" class=\"uv-field\" value=\"{{ group.name }}\" />
+\t\t\t\t\t\t<input type=\"text\" name=\"name\" class=\"uv-field\" value=\"{{ group.name|trans }}\" />
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t<!-- //Field -->
@@ -529,7 +529,7 @@ class __TwigTemplate_038652bed77a0045871f8ba6720a82a8e6edb975abedfc1ec1ae9923d12
 \t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">{{ 'Description'|trans }}</label>
 \t\t\t\t\t<div class=\"uv-field-block\">
-\t\t\t\t\t\t<textarea name=\"description\" class=\"uv-field\">{{ group.description }}</textarea>
+\t\t\t\t\t\t<textarea name=\"description\" class=\"uv-field\">{{ group.description|trans }}</textarea>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 \t\t\t\t<!-- //Field -->

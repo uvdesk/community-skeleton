@@ -1265,5 +1265,8 @@ Masonry: "Opere murarie"
 "Sign In to %websitename%": "Accedere a %websitename%"
 "Enter your name": "Inserisci il tuo nome"
 "Enter your email": "Inserisci il tuo indirizzo email"
-
-
+"Learn more about %deliveryStatus%.": "Impara di più riguardo %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Per saperne di più su come funziona la nostra politica sulla privacy, per favore %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Alcune delle nostre pagine del sito utilizzano %cookies% e altre tecnologie di tracciamento. Un %cookie% è un piccolo file di testo che può essere utilizzato, ad esempio, per raccogliere informazioni sull'attività del sito. Alcuni cookie e altre tecnologie potrebbero servire a richiamare informazioni personali precedentemente indicate da un utente del sito. È possibile bloccare i cookie o eliminare i cookie esistenti, modificando l'impostazione appropriata sul proprio browser. Consulta il menu %help% del tuo browser per sapere come fare. Se blocchi o elimini %cookie%, potresti scoprire che l'utilità del nostro sito è compromessa."
+"This field contain maximum 40 charectures.": "Questo campo contiene un massimo di 40 lezioni."
+"This field contain maximum 50 charectures.": "Questo campo contiene un massimo di 50 lezioni."

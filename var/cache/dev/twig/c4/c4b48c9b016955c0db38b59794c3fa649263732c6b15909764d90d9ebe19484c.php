@@ -391,7 +391,10 @@ class __TwigTemplate_fc3d52f2ed6ff999a569efdbb505d5e6e73318cdd0aaec8f5a7fdd9d812
         echo "\"
 \t\t\t\t\t},{
 \t\t\t\t\t\tmaxLength:50,
-\t\t\t\t\t\tmsg:\"This field contain maximum 50 charectures.\"
+\t\t\t\t\t\tmsg:\"";
+        // line 143
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field contain maximum 50 charectures."), "html", null, true);
+        echo "\"
 \t\t\t\t\t}],
                     'sortOrder': {
                         pattern: '^[0-9]*\$',
@@ -490,7 +493,7 @@ class __TwigTemplate_fc3d52f2ed6ff999a569efdbb505d5e6e73318cdd0aaec8f5a7fdd9d812
 
     public function getDebugInfo()
     {
-        return array (  419 => 163,  400 => 147,  390 => 140,  384 => 137,  373 => 130,  363 => 129,  346 => 122,  338 => 117,  330 => 114,  324 => 113,  318 => 110,  309 => 104,  301 => 101,  295 => 100,  289 => 99,  283 => 96,  274 => 90,  269 => 88,  264 => 86,  256 => 80,  253 => 79,  243 => 75,  238 => 74,  233 => 73,  231 => 72,  223 => 67,  220 => 66,  211 => 63,  206 => 62,  202 => 61,  196 => 58,  187 => 52,  178 => 46,  173 => 44,  168 => 42,  159 => 36,  154 => 34,  149 => 32,  141 => 26,  135 => 24,  129 => 22,  127 => 21,  120 => 19,  115 => 17,  112 => 16,  109 => 15,  106 => 14,  103 => 12,  93 => 11,  79 => 7,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  422 => 163,  403 => 147,  396 => 143,  390 => 140,  384 => 137,  373 => 130,  363 => 129,  346 => 122,  338 => 117,  330 => 114,  324 => 113,  318 => 110,  309 => 104,  301 => 101,  295 => 100,  289 => 99,  283 => 96,  274 => 90,  269 => 88,  264 => 86,  256 => 80,  253 => 79,  243 => 75,  238 => 74,  233 => 73,  231 => 72,  223 => 67,  220 => 66,  211 => 63,  206 => 62,  202 => 61,  196 => 58,  187 => 52,  178 => 46,  173 => 44,  168 => 42,  159 => 36,  154 => 34,  149 => 32,  141 => 26,  135 => 24,  129 => 22,  127 => 21,  120 => 19,  115 => 17,  112 => 16,  109 => 15,  106 => 14,  103 => 12,  93 => 11,  79 => 7,  73 => 5,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -637,7 +640,7 @@ class __TwigTemplate_fc3d52f2ed6ff999a569efdbb505d5e6e73318cdd0aaec8f5a7fdd9d812
 \t\t\t\t\t\tmsg: \"{{ 'This field must have valid characters only'|trans }}\"
 \t\t\t\t\t},{
 \t\t\t\t\t\tmaxLength:50,
-\t\t\t\t\t\tmsg:\"This field contain maximum 50 charectures.\"
+\t\t\t\t\t\tmsg:\"{{'This field contain maximum 50 charectures.'|trans}}\"
 \t\t\t\t\t}],
                     'sortOrder': {
                         pattern: '^[0-9]*\$',

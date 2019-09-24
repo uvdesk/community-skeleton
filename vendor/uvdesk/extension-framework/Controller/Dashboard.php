@@ -34,6 +34,10 @@ class Dashboard extends Controller
             ];
         }, $applications->getCollection());
 
+        // dump($metadata->getName());
+        // dump($metadata->getQualifiedName());
+        // die; 
+
         return new JsonResponse($collection);
     }
 }

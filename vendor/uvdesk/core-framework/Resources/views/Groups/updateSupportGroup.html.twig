@@ -19,7 +19,7 @@
 				<div class="uv-element-block">
 					<label class="uv-field-label">{{ 'Name'|trans }}</label>
 					<div class="uv-field-block">
-						<input type="text" name="name" class="uv-field" value="{{ group.name }}" />
+						<input type="text" name="name" class="uv-field" value="{{ group.name|trans }}" />
 					</div>
 				</div>
 				<!-- //Field -->
@@ -28,7 +28,7 @@
 				<div class="uv-element-block">
 					<label class="uv-field-label">{{ 'Description'|trans }}</label>
 					<div class="uv-field-block">
-						<textarea name="description" class="uv-field">{{ group.description }}</textarea>
+						<textarea name="description" class="uv-field">{{ group.description|trans }}</textarea>
 					</div>
 				</div>
 				<!-- //Field -->

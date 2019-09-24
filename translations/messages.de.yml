@@ -1265,6 +1265,11 @@ ticket: Fahrkarte
 "Sign In to %websitename%": "Anmelden bei %websitename%"
 "Enter your name": "Gib deinen Namen ein"
 "Enter your email": "Geben sie ihre E-Mail Adresse ein"
+"Learn more about %deliveryStatus%.": "Lerne mehr über %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Weitere Informationen zur Funktionsweise unserer Datenschutzbestimmungen erhalten Sie auf% websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Einige unserer Seiten verwenden %cookies% und andere Tracking-Technologien. Ein %cookie% ist eine kleine Textdatei, die beispielsweise zum Sammeln von Informationen über Site-Aktivitäten verwendet werden kann. Einige Cookies und andere Technologien können dazu dienen, persönliche Informationen abzurufen, die zuvor von einem Website-Benutzer angegeben wurden. Sie können Cookies blockieren oder vorhandene Cookies löschen, indem Sie die entsprechende Einstellung in Ihrem Browser vornehmen. Bitte konsultieren Sie das %help% -Menü Ihres Browsers, um zu erfahren, wie Sie dies tun können. Wenn Sie %cookies% blockieren oder löschen, kann die Nützlichkeit unserer Website beeinträchtigt werden."
+"This field contain maximum 40 charectures.": "Dieses Feld enthält maximal 40 Zeichen."
+"This field contain maximum 50 charectures.": "Dieses Feld enthält maximal 50 Zeichen."
 
 
                     

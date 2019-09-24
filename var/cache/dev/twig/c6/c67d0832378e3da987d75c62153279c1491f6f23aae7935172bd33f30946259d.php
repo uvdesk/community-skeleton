@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @UVDeskExtensionFramework/dashboard.html.twig */
+/* @UVDeskExtensionFramework//dashboard.html.twig */
 class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b0cc1f extends \Twig\Template
 {
     private $source;
@@ -42,12 +42,12 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework/dashboard.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework//dashboard.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework/dashboard.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework//dashboard.html.twig"));
 
-        $this->parent = $this->loadTemplate("@UVDeskCoreFramework//Templates//layout.html.twig", "@UVDeskExtensionFramework/dashboard.html.twig", 1);
+        $this->parent = $this->loadTemplate("@UVDeskCoreFramework//Templates//layout.html.twig", "@UVDeskExtensionFramework//dashboard.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -124,7 +124,10 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
         // line 24
         echo "\t<div class=\"uv-inner-section\">
 \t\t<div class=\"uv-view\" style=\"padding-left: 20px;\">
-\t\t\t<h1 id=\"app-current-title\">Installed Applications</h1>
+\t\t\t<h1 id=\"app-current-title\">";
+        // line 26
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Installed Applications"), "html", null, true);
+        echo "</h1>
 
 \t\t\t<div class=\"uv-hr\"></div>
 
@@ -188,7 +191,10 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 \t<script type=\"text/template\" id=\"no-result-temp\">
         <div class=\"uv-app-screen\">
             <div class=\"uv-app-splash\" style=\"text-align: center;\">
-                <h2 class=\"uv-margin-top-10\">Nothing Interesting here</h2>
+                <h2 class=\"uv-margin-top-10\">";
+        // line 66
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Nothing Interesting here"), "html", null, true);
+        echo "</h2>
             </div>
         </div>
 \t</script>
@@ -428,7 +434,7 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 
     public function getTemplateName()
     {
-        return "@UVDeskExtensionFramework/dashboard.html.twig";
+        return "@UVDeskExtensionFramework//dashboard.html.twig";
     }
 
     public function isTraitable()
@@ -438,7 +444,7 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 
     public function getDebugInfo()
     {
-        return array (  387 => 237,  381 => 234,  374 => 230,  362 => 221,  356 => 218,  285 => 152,  281 => 151,  208 => 81,  178 => 54,  160 => 40,  150 => 39,  137 => 34,  133 => 31,  125 => 24,  115 => 23,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  393 => 237,  387 => 234,  380 => 230,  368 => 221,  362 => 218,  291 => 152,  287 => 151,  214 => 81,  196 => 66,  181 => 54,  163 => 40,  153 => 39,  140 => 34,  136 => 31,  129 => 26,  125 => 24,  115 => 23,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -468,7 +474,7 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 {% block pageContent %}
 \t<div class=\"uv-inner-section\">
 \t\t<div class=\"uv-view\" style=\"padding-left: 20px;\">
-\t\t\t<h1 id=\"app-current-title\">Installed Applications</h1>
+\t\t\t<h1 id=\"app-current-title\">{{'Installed Applications'|trans}}</h1>
 
 \t\t\t<div class=\"uv-hr\"></div>
 
@@ -508,7 +514,7 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 \t<script type=\"text/template\" id=\"no-result-temp\">
         <div class=\"uv-app-screen\">
             <div class=\"uv-app-splash\" style=\"text-align: center;\">
-                <h2 class=\"uv-margin-top-10\">Nothing Interesting here</h2>
+                <h2 class=\"uv-margin-top-10\">{{'Nothing Interesting here'|trans}}</h2>
             </div>
         </div>
 \t</script>
@@ -712,6 +718,6 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 \t\t});
 \t</script>
 {% endblock %}
-", "@UVDeskExtensionFramework/dashboard.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/extension-framework/Resources/views/dashboard.html.twig");
+", "@UVDeskExtensionFramework//dashboard.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/extension-framework/Resources/views/dashboard.html.twig");
     }
 }

@@ -1265,3 +1265,8 @@ ticket: billet
 "Sign In to %websitename%": "Log ind på %websitename%"
 "Enter your name": "Indtast dit navn"
 "Enter your email": "Indtast din e-mail"
+"Learn more about %deliveryStatus%.": "Lær mere om %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Hvis du vil vide mere om, hvordan vores privatlivspolitik fungerer, bedes du venligst %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Nogle af vores sidesider bruger %cookies% og andre sporingsteknologier. En %cookie% er en lille tekstfil, der f.eks. Kan bruges til at indsamle oplysninger om webstedsaktivitet. Nogle cookies og andre teknologier kan tjene til at huske personlige oplysninger, der tidligere er angivet af en webstedsbruger. Du kan blokere cookies eller slette eksisterende cookies ved at justere den korrekte indstilling i din browser. Se menuen %help% i din browser for at lære, hvordan du gør det. Hvis du blokerer eller sletter %cookies%, kan du finde ud af, om nytten af ​​vores websted er forringet."
+"This field contain maximum 40 charectures.": "Dette felt indeholder maksimalt 40 karakterer."
+"This field contain maximum 50 charectures.": "Dette felt indeholder maksimalt 50 karakterer."

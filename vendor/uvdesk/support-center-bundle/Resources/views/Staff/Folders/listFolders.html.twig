@@ -76,7 +76,7 @@
                     <!--Filter By Status-->
                     <div class="uv-dropdown filter-by-status">
                         <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
-                            {{ 'Status:'|trans }} {{ 'All'|trans }}
+                            {{ 'Status'|trans }}: {{ 'All'|trans }}
                         </div>
                         <div class="uv-dropdown-list uv-bottom-left">
 							<div class="uv-dropdown-container">
@@ -397,7 +397,7 @@
 						query = query.replace(/\+/g,' ');
 					folderCollection.filterParameters.isActive = status;
 					var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
-					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status{% endtrans %}: " + statusText);
 					folderCollection.filterParameters.search = query;
 					$(".uv-search-inline").val(query);
 				}

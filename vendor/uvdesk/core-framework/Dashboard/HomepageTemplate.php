@@ -7,6 +7,7 @@ use Webkul\UVDesk\CoreFrameworkBundle\Services\UserService;
 use Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentInterface;
 use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionInterface;
 use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItemInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class HomepageTemplate implements ExtendableComponentInterface
 {
@@ -17,10 +18,12 @@ class HomepageTemplate implements ExtendableComponentInterface
 	private $sectionItems = [];
 	private $isOrganized = false;
 
+
 	public function __construct(RouterInterface $router, UserService $userService)
 	{
 		$this->router = $router;
 		$this->userService = $userService;
+
 	}
 
 	public function appendSection(HomepageSectionInterface $section, $tags = [])

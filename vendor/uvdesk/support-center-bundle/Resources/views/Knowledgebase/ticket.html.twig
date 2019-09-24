@@ -58,7 +58,7 @@
 									<option value="">{{ 'Select type'|trans }}</option>
 
 									{% for type in ticket_service.getTypes() %}
-										<option value="{{ type.id }}" {{ post.type is defined and post.type == type.id ? 'selected' : '' }}>{{ {{type.name|trans}} }}</option>
+										<option value="{{ type.id }}" {{ post.type is defined and post.type == type.id ? 'selected' : '' }}>{{ type.name|trans}}</option>
 									{% endfor %}
 								</select>
 							</div>

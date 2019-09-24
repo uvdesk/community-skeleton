@@ -265,7 +265,10 @@ class __TwigTemplate_c673f1ddc6d0e37ff296fd37733ee2b426369eb306aadc63a2716b76667
         echo "\"\t\t\t\t\t\t
 \t\t\t\t\t},{
 \t\t\t\t\t\tmaxLength:40,
-\t\t\t\t\t\tmsg:\"This field contain maximum 40 charectures.\"
+\t\t\t\t\t\tmsg:\"";
+        // line 83
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field contain maximum 40 charectures."), "html", null, true);
+        echo "\"
 \t\t\t\t\t}],
 \t\t\t\t\t'description': {
 \t\t\t\t\t\trequired: true,
@@ -335,7 +338,7 @@ class __TwigTemplate_c673f1ddc6d0e37ff296fd37733ee2b426369eb306aadc63a2716b76667
 
     public function getDebugInfo()
     {
-        return array (  289 => 99,  274 => 87,  264 => 80,  258 => 77,  246 => 69,  236 => 68,  221 => 62,  215 => 59,  205 => 56,  188 => 49,  186 => 48,  180 => 45,  173 => 41,  165 => 38,  159 => 37,  153 => 34,  146 => 30,  141 => 28,  136 => 26,  129 => 22,  124 => 20,  119 => 18,  112 => 14,  106 => 13,  101 => 11,  98 => 10,  95 => 9,  92 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  292 => 99,  277 => 87,  270 => 83,  264 => 80,  258 => 77,  246 => 69,  236 => 68,  221 => 62,  215 => 59,  205 => 56,  188 => 49,  186 => 48,  180 => 45,  173 => 41,  165 => 38,  159 => 37,  153 => 34,  146 => 30,  141 => 28,  136 => 26,  129 => 22,  124 => 20,  119 => 18,  112 => 14,  106 => 13,  101 => 11,  98 => 10,  95 => 9,  92 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -422,7 +425,7 @@ class __TwigTemplate_c673f1ddc6d0e37ff296fd37733ee2b426369eb306aadc63a2716b76667
 \t\t\t\t\t\tmsg: \"{{ 'This field must have valid characters only'|trans }}\"\t\t\t\t\t\t
 \t\t\t\t\t},{
 \t\t\t\t\t\tmaxLength:40,
-\t\t\t\t\t\tmsg:\"This field contain maximum 40 charectures.\"
+\t\t\t\t\t\tmsg:\"{{'This field contain maximum 40 charectures.'|trans}}\"
 \t\t\t\t\t}],
 \t\t\t\t\t'description': {
 \t\t\t\t\t\trequired: true,

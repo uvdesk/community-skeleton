@@ -1292,5 +1292,9 @@ ticket.status.placeHolders.info: ticket.status.placeHolders.info
 "Sign In to %websitename%": "Sign In to %websitename%"
 "Enter your name": "Enter your name"
 "Enter your email": "Enter your email"
-
+"Learn more about %deliveryStatus%.": "Learn more about %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "To know more about how our privacy policy works, please %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired."
+"This field contain maximum 40 charectures.": "This field contain maximum 40 charectures."
+"This field contain maximum 50 charectures.": "This field contain maximum 50 charectures."
 

@@ -1220,3 +1220,8 @@ ticket: تذكرة
 "Sign In to %websitename%": " تسجيل الدخول إلى %websitename%"
 "Enter your name": "أدخل أسمك"
 "Enter your email": "أدخل بريدك الالكتروني"
+"Learn more about %deliveryStatus%.": "تعلم المزيد عن %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "لمعرفة المزيد حول كيفية عمل سياسة الخصوصية الخاصة بنا ، يرجى %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "تستخدم بعض صفحات موقعنا %cookies% وتقنيات التتبع الأخرى. %cookie%  هو ملف نصي صغير يمكن استخدامه ، على سبيل المثال ، لجمع معلومات حول نشاط الموقع. قد تعمل بعض ملفات تعريف الارتباط والتقنيات الأخرى على استدعاء المعلومات الشخصية التي سبق أن أشار إليها مستخدم الموقع. يمكنك حظر ملفات تعريف الارتباط ، أو حذف ملفات تعريف الارتباط الموجودة ، عن طريق ضبط الإعداد المناسب على متصفحك. يرجى الرجوع إلى قائمة %help% في متصفحك لمعرفة كيفية القيام بذلك. إذا قمت بحظر أو حذف %cookies% ، فقد تجد فائدة موقعنا ضعيفة."
+"This field contain maximum 40 charectures.": "يحتوي هذا الحقل على 40 مشاركة."
+"This field contain maximum 50 charectures.": "يحتوي هذا الحقل على 50 مشاركة."

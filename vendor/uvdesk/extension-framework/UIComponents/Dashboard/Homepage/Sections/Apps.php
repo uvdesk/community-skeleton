@@ -5,7 +5,8 @@ namespace Webkul\UVDesk\ExtensionFrameworkBundle\UIComponents\Dashboard\Homepage
 use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSection;
 
 class Apps extends HomepageSection
-{
+{   
+
     public static function getTitle() : string
     {
         return "Apps";

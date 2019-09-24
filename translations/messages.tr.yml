@@ -1265,3 +1265,8 @@ ticket: bilet
 "Sign In to %websitename%": "Giriş yap %websitename%"
 "Enter your name": "Adınızı giriniz"
 "Enter your email": "E-postanızı giriniz"
+"Learn more about %deliveryStatus%.": "Hakkında daha fazla öğren  %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Gizlilik politikamızın nasıl çalıştığı hakkında daha fazla bilgi için, lütfen %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Site sayfalarımızdan bazıları %cookies% ve diğer izleme teknolojilerini kullanır. %cookie%, örneğin site etkinliği hakkında bilgi toplamak için kullanılabilecek küçük bir metin dosyasıdır. Bazı çerezler ve diğer teknolojiler, daha önce bir site kullanıcısı tarafından belirtilen kişisel bilgileri geri çağırmaya hizmet edebilir. Tarayıcınızdaki uygun ayarı yaparak çerezleri engelleyebilir veya mevcut çerezleri silebilirsiniz. Bunun nasıl yapılacağını öğrenmek için lütfen tarayıcınızın %help% menüsüne bakın. %cookies%  engeller veya silerseniz, sitemizin yararını engelli olarak bulabilirsiniz."
+"This field contain maximum 40 charectures.": "Bu alan maksimum 40 adet grafik içermektedir."
+"This field contain maximum 50 charectures.": "Bu alan maksimum 50 adet grafik içermektedir."

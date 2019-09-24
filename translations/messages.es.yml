@@ -1265,9 +1265,11 @@ ticket: boleto
 "Sign In to %websitename%": "Registrarse en %websitename%"
 "Enter your name": "Introduzca su nombre"
 "Enter your email": "Introduce tu correo electrónico"
-
-
-
+"Learn more about %deliveryStatus%.": "Aprender más sobre  %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Para más información sobre el funcionamiento de la política de confidencialidad, veuillez %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Algunas de las páginas de nuestro sitio utilizan %cookies% y otras tecnologías de seguimiento. Un %cookie% es un pequeño archivo de texto que se puede utilizar, por ejemplo, para recopilar información sobre la actividad del sitio. Algunas cookies y otras tecnologías pueden servir para recuperar información personal previamente indicada por un usuario del sitio. Puede bloquear las cookies o eliminar las cookies existentes, ajustando la configuración adecuada en su navegador. Consulte el menú %help% de su navegador para obtener información sobre cómo hacerlo. Si bloquea o elimina %cookies%, es posible que la utilidad de nuestro sitio se vea afectada."
+"This field contain maximum 40 charectures.": "Este campo contiene un máximo de 40 correcciones."
+"This field contain maximum 50 charectures.": "Este campo contiene un máximo de 50 correcciones."
 
 
 

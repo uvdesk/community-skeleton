@@ -266,7 +266,7 @@ class __TwigTemplate_717dfc4efeaf898973f4c21587d5e4c3dadf3a63fc9275360ee94334278
             echo "\" ";
             echo (((twig_get_attribute($this->env, $this->source, ($context["post"] ?? null), "type", [], "any", true, true, false, 61) && (twig_get_attribute($this->env, $this->source, (isset($context["post"]) || array_key_exists("post", $context) ? $context["post"] : (function () { throw new RuntimeError('Variable "post" does not exist.', 61, $this->source); })()), "type", [], "any", false, false, false, 61) == twig_get_attribute($this->env, $this->source, $context["type"], "id", [], "any", false, false, false, 61)))) ? ("selected") : (""));
             echo ">";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["type"], "name", [], "any", false, false, false, 61), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, $context["type"], "name", [], "any", false, false, false, 61)), "html", null, true);
             echo "</option>
 \t\t\t\t\t\t\t\t\t";
         }
@@ -584,7 +584,7 @@ class __TwigTemplate_717dfc4efeaf898973f4c21587d5e4c3dadf3a63fc9275360ee94334278
 \t\t\t\t\t\t\t\t\t<option value=\"\">{{ 'Select type'|trans }}</option>
 
 \t\t\t\t\t\t\t\t\t{% for type in ticket_service.getTypes() %}
-\t\t\t\t\t\t\t\t\t\t<option value=\"{{ type.id }}\" {{ post.type is defined and post.type == type.id ? 'selected' : '' }}>{{ type.name }}</option>
+\t\t\t\t\t\t\t\t\t\t<option value=\"{{ type.id }}\" {{ post.type is defined and post.type == type.id ? 'selected' : '' }}>{{ type.name|trans}}</option>
 \t\t\t\t\t\t\t\t\t{% endfor %}
 \t\t\t\t\t\t\t\t</select>
 \t\t\t\t\t\t\t</div>

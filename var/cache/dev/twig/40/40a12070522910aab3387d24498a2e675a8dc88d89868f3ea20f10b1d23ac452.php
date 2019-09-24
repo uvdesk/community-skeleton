@@ -187,8 +187,8 @@ class __TwigTemplate_1df45e471df0cd617d9455218e750debd2c4e2028570aa27fe4b2a733ab
                         <div class=\"uv-dropdown-btn uv-vertical-align uv-margin-right-5\">
                             ";
         // line 79
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Status:"), "html", null, true);
-        echo " ";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Status"), "html", null, true);
+        echo ": ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("All"), "html", null, true);
         echo "
                         </div>
@@ -621,8 +621,8 @@ class __TwigTemplate_1df45e471df0cd617d9455218e750debd2c4e2028570aa27fe4b2a733ab
         echo "\";
 \t\t\t\t\t\$(\".filter-by-status .uv-dropdown-btn\").text(\"";
         // line 400
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Status:", [], "messages");
-        echo " \" + statusText);
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Status", [], "messages");
+        echo ": \" + statusText);
 \t\t\t\t\tfolderCollection.filterParameters.search = query;
 \t\t\t\t\t\$(\".uv-search-inline\").val(query);
 \t\t\t\t}
@@ -736,7 +736,7 @@ class __TwigTemplate_1df45e471df0cd617d9455218e750debd2c4e2028570aa27fe4b2a733ab
                     <!--Filter By Status-->
                     <div class=\"uv-dropdown filter-by-status\">
                         <div class=\"uv-dropdown-btn uv-vertical-align uv-margin-right-5\">
-                            {{ 'Status:'|trans }} {{ 'All'|trans }}
+                            {{ 'Status'|trans }}: {{ 'All'|trans }}
                         </div>
                         <div class=\"uv-dropdown-list uv-bottom-left\">
 \t\t\t\t\t\t\t<div class=\"uv-dropdown-container\">
@@ -1057,7 +1057,7 @@ class __TwigTemplate_1df45e471df0cd617d9455218e750debd2c4e2028570aa27fe4b2a733ab
 \t\t\t\t\t\tquery = query.replace(/\\+/g,' ');
 \t\t\t\t\tfolderCollection.filterParameters.isActive = status;
 \t\t\t\t\tvar statusText = status ? \$(\".filter-by-status a[data-id='\" + status + \"']\").text() : \"{% trans %}All{% endtrans %}\";
-\t\t\t\t\t\$(\".filter-by-status .uv-dropdown-btn\").text(\"{% trans %}Status:{% endtrans %} \" + statusText);
+\t\t\t\t\t\$(\".filter-by-status .uv-dropdown-btn\").text(\"{% trans %}Status{% endtrans %}: \" + statusText);
 \t\t\t\t\tfolderCollection.filterParameters.search = query;
 \t\t\t\t\t\$(\".uv-search-inline\").val(query);
 \t\t\t\t}

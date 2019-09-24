@@ -125,7 +125,7 @@ class __TwigTemplate_13cf423144f247a77245defe6dea8f101b840802e85cb9ef09c4a3e5c70
 \t\t\t\t\t<div class=\"uv-field-block\">
 \t\t\t\t\t\t<input type=\"text\" name=\"privilege_form[name]\" class=\"uv-field\" value=\"";
         // line 22
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["supportPrivilege"]) || array_key_exists("supportPrivilege", $context) ? $context["supportPrivilege"] : (function () { throw new RuntimeError('Variable "supportPrivilege" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["supportPrivilege"]) || array_key_exists("supportPrivilege", $context) ? $context["supportPrivilege"] : (function () { throw new RuntimeError('Variable "supportPrivilege" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22)), "html", null, true);
         echo "\" />
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -138,7 +138,7 @@ class __TwigTemplate_13cf423144f247a77245defe6dea8f101b840802e85cb9ef09c4a3e5c70
 \t\t\t\t\t<div class=\"uv-field-block\">
 \t\t\t\t\t\t<textarea name=\"privilege_form[description]\" class=\"uv-field\">";
         // line 29
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["supportPrivilege"]) || array_key_exists("supportPrivilege", $context) ? $context["supportPrivilege"] : (function () { throw new RuntimeError('Variable "supportPrivilege" does not exist.', 29, $this->source); })()), "description", [], "any", false, false, false, 29), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["supportPrivilege"]) || array_key_exists("supportPrivilege", $context) ? $context["supportPrivilege"] : (function () { throw new RuntimeError('Variable "supportPrivilege" does not exist.', 29, $this->source); })()), "description", [], "any", false, false, false, 29)), "html", null, true);
         echo "</textarea>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
@@ -189,7 +189,7 @@ class __TwigTemplate_13cf423144f247a77245defe6dea8f101b840802e85cb9ef09c4a3e5c70
 \t\t\t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t\t\t\t<span class=\"uv-checkbox-label\">";
             // line 55
-            echo twig_escape_filter($this->env, $context["privelegeDescription"], "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($context["privelegeDescription"]), "html", null, true);
             echo "</span>
 \t\t\t\t\t\t\t\t\t</label>
 \t\t\t\t\t\t\t\t</div>
@@ -443,14 +443,14 @@ class __TwigTemplate_13cf423144f247a77245defe6dea8f101b840802e85cb9ef09c4a3e5c70
 \t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">{{'Name'|trans}}</label>
 \t\t\t\t\t<div class=\"uv-field-block\">
-\t\t\t\t\t\t<input type=\"text\" name=\"privilege_form[name]\" class=\"uv-field\" value=\"{{ supportPrivilege.name }}\" />
+\t\t\t\t\t\t<input type=\"text\" name=\"privilege_form[name]\" class=\"uv-field\" value=\"{{ supportPrivilege.name| trans }}\" />
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">{{'Description'|trans}}</label>
 \t\t\t\t\t<div class=\"uv-field-block\">
-\t\t\t\t\t\t<textarea name=\"privilege_form[description]\" class=\"uv-field\">{{ supportPrivilege.description }}</textarea>
+\t\t\t\t\t\t<textarea name=\"privilege_form[description]\" class=\"uv-field\">{{ supportPrivilege.description| trans }}</textarea>
 \t\t\t\t\t</div>
 \t\t\t\t</div>
 
@@ -476,7 +476,7 @@ class __TwigTemplate_13cf423144f247a77245defe6dea8f101b840802e85cb9ef09c4a3e5c70
 \t\t\t\t\t\t\t\t\t\t\t<input name=\"privilege_form[privileges][]\" type=\"checkbox\" value=\"{{ privelegeCode }}\" {% if supportPrivilege and privelegeCode in supportPrivilege.privileges %}checked{% endif %}>
 \t\t\t\t\t\t\t\t\t\t\t<span class=\"uv-checkbox-view\"></span>
 \t\t\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t\t\t\t<span class=\"uv-checkbox-label\">{{ privelegeDescription }}</span>
+\t\t\t\t\t\t\t\t\t\t<span class=\"uv-checkbox-label\">{{ privelegeDescription|trans }}</span>
 \t\t\t\t\t\t\t\t\t</label>
 \t\t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t{% endfor %}

@@ -170,9 +170,15 @@ class __TwigTemplate_fda2e9e1531763e158cc47e3f602d71b072f698cc7512f4cfef640359e5
         <div class=\"uv-paper-section\">
             <form action=\"\" method=\"post\">
                 <section>
-                    <h1>Forgot Password</h1>
+                    <h1>";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Forgot Password"), "html", null, true);
+        echo "</h1>
                     <div class=\"uv-element-block\">
-                        <p>Enter your email address and we will send you an email with instructions to update your login credentials.</p>
+                        <p>";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Enter your email address and we will send you an email with instructions to update your login credentials."), "html", null, true);
+        echo "</p>
                     </div>
 
                     <div class=\"uv-form\">
@@ -295,7 +301,7 @@ class __TwigTemplate_fda2e9e1531763e158cc47e3f602d71b072f698cc7512f4cfef640359e5
 
     public function getDebugInfo()
     {
-        return array (  242 => 50,  236 => 47,  223 => 38,  213 => 37,  195 => 29,  182 => 19,  169 => 8,  159 => 7,  140 => 6,  121 => 5,  102 => 4,  83 => 3,  64 => 2,  41 => 1,);
+        return array (  248 => 50,  242 => 47,  229 => 38,  219 => 37,  201 => 29,  188 => 19,  180 => 14,  175 => 12,  169 => 8,  159 => 7,  140 => 6,  121 => 5,  102 => 4,  83 => 3,  64 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -311,9 +317,9 @@ class __TwigTemplate_fda2e9e1531763e158cc47e3f602d71b072f698cc7512f4cfef640359e5
         <div class=\"uv-paper-section\">
             <form action=\"\" method=\"post\">
                 <section>
-                    <h1>Forgot Password</h1>
+                    <h1>{{'Forgot Password'|trans}}</h1>
                     <div class=\"uv-element-block\">
-                        <p>Enter your email address and we will send you an email with instructions to update your login credentials.</p>
+                        <p>{{'Enter your email address and we will send you an email with instructions to update your login credentials.'|trans}}</p>
                     </div>
 
                     <div class=\"uv-form\">
