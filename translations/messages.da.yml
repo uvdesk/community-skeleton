@@ -1262,3 +1262,6 @@ ticket: billet
 "Enter your email address and we will send you an email with instructions to update your login credentials.": "Indtast din e-mail-adresse, så sender vi dig en e-mail med instruktioner til at opdatere dine loginoplysninger."
 "Send Mail": "Send e-mail"
 "Status:": "Status:"
+"Sign In to %websitename%": "Log ind på %websitename%"
+"Enter your name": "Indtast dit navn"
+"Enter your email": "Indtast din e-mail"

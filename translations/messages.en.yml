@@ -1289,5 +1289,8 @@ ticket.status.placeHolders.info: ticket.status.placeHolders.info
 "Forgot Password": "Forgot Password"
 "Enter your email address and we will send you an email with instructions to update your login credentials.": "Enter your email address and we will send you an email with instructions to update your login credentials."
 "Send Mail": "Send Mail"
+"Sign In to %websitename%": "Sign In to %websitename%"
+"Enter your name": "Enter your name"
+"Enter your email": "Enter your email"
 
 
