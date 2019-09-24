@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sensio_framework_extra.view.guesser" class="Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser" public="false">
+            <argument type="service" id="kernel" />
+        </service>
+
+        <service id="sensio_framework_extra.view.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener" public="false">
+            <tag name="kernel.event_subscriber" />
+            <argument type="service" id="sensio_framework_extra.view.guesser" />
+            <argument type="service" id="twig" on-invalid="null" />
+        </service>
+    </services>
+</container>

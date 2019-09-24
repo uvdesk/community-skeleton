@@ -1,0 +1,15 @@
+uvdesk_core_bundle_member_routing_resources:
+    resource: "routes/private.yaml"
+    prefix:   /{_locale}/%uvdesk_site_path.member_prefix%/
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locale: '%locale%'
+
+uvdesk_core_bundle_public_routing_resources:
+    resource: "routes/public.yaml"
+    prefix:   /
+    requirements:
+        _locale: '%app_locales%'
+    defaults:
+        _locale: '%locale%'

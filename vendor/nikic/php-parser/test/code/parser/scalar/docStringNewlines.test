@@ -1,0 +1,77 @@
+Trailing newlines in doc strings
+-----
+<?php
+
+<<<'EOF'@@{ "\n\n" }@@EOF;
+<<<'EOF'@@{ "\n\n\n" }@@EOF;
+<<<'EOF'@@{ "\nFoo\n\n" }@@EOF;
+<<<EOF@@{ "\n\$var\n\n" }@@EOF;
+
+<<<'EOF'@@{ "\r\n\r\n" }@@EOF;
+<<<'EOF'@@{ "\r\n\r\n\r\n" }@@EOF;
+<<<'EOF'@@{ "\r\nFoo\r\n\r\n" }@@EOF;
+<<<EOF@@{ "\r\n\$var\r\n\r\n" }@@EOF;
+
+-----
+array(
+    0: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+
+        )
+    )
+    2: Stmt_Expression(
+        expr: Scalar_String(
+            value: Foo
+
+        )
+    )
+    3: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_Variable(
+                    name: var
+                )
+                1: Scalar_EncapsedStringPart(
+                    value:
+
+                )
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    5: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+
+        )
+    )
+    6: Stmt_Expression(
+        expr: Scalar_String(
+            value: Foo
+
+        )
+    )
+    7: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_Variable(
+                    name: var
+                )
+                1: Scalar_EncapsedStringPart(
+                    value:
+
+                )
+            )
+        )
+    )
+)

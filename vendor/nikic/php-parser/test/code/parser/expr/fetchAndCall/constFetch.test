@@ -1,0 +1,43 @@
+Constant fetches
+-----
+<?php
+
+A;
+A::B;
+A::class;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: A
+                )
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_ClassConstFetch(
+            class: Name(
+                parts: array(
+                    0: A
+                )
+            )
+            name: Identifier(
+                name: B
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_ClassConstFetch(
+            class: Name(
+                parts: array(
+                    0: A
+                )
+            )
+            name: Identifier(
+                name: class
+            )
+        )
+    )
+)

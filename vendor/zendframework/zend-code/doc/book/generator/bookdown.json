@@ -1,0 +1,8 @@
+{
+  "title": "zend-code Generator Component",
+  "content": [
+    {"Intro": "intro.md"},
+    {"Examples": "examples.md"},
+    {"Reference": "reference.md"}
+  ]
+}

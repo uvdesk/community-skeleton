@@ -1,0 +1,200 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+{% block title %}{% trans %}Create Ticket{% endtrans %}{% endblock %}
+{% block ogtitle %}{% trans %}Create Ticket{% endtrans %}{% endblock %}
+{% block twtitle %}{% trans %}Create Ticket{% endtrans %}{% endblock %}
+{% block metaDescription %}{% trans %}create.ticket.metaDescription{% endtrans %}{% endblock %}
+{% block metaKeywords %}{% trans %}create.ticket.metaKeywords{% endtrans %}{% endblock %}
+
+{% block body %}
+	<style>
+		.uv-field{
+			padding: 5px 10px;
+		}
+		.grammarly-fix-message-container {
+			overflow: visible !important;
+		}
+		.grammarly-fix-message {
+			max-width: 158%;
+		}
+		.uv-field-success-icon {
+			display: none !important;
+		}
+	</style>
+
+	{% set isTicketViewPage = (app.user.id is defined ? true : false) %}
+	<div class="uv-paper-article uv-paper-form">
+		<div class="uv-paper-section">
+			<section>
+				<h1>{{ 'Create Ticket Request'|trans }}</h1>
+
+				<div class="uv-form">
+					<form action="{{ path('helpdesk_customer_create_ticket') }}" method="post" id="create-ticket-form" enctype="multipart/form-data">
+						{% if not isTicketViewPage %}
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Name'|trans }}</label>
+								<div class="uv-field-block">
+									<input name="name" class="uv-field create-ticket" type="text" value="{{ post.name is defined ? post.name : '' }}">
+								</div>
+								<span class="uv-field-info">{{ 'Enter your name'|trans }}</span>
+							</div>
+							<!-- //Field -->
+
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Email'|trans }}</label>
+								<div class="uv-field-block">
+									<input name="from" class="uv-field create-ticket" type="text" value="{{ post.from is defined ? post.from : '' }}">
+								</div>
+								<span class="uv-field-info">{{ 'Enter your email'|trans }}</span>
+							</div>
+							<!-- //Field -->
+						{% endif %}
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Type'|trans }}</label>
+							<div class="uv-field-block">
+								<select name="type" class="uv-select create-ticket" id="type">
+									<option value="">{{ 'Select type'|trans }}</option>
+
+									{% for type in ticket_service.getTypes() %}
+										<option value="{{ type.id }}" {{ post.type is defined and post.type == type.id ? 'selected' : '' }}>{{ {{type.name|trans}} }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<span class="uv-field-info">{{ 'Choose ticket type'|trans }}</span>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Subject'|trans }}</label>
+							<div class="uv-field-block">
+								<input name="subject" class="uv-field create-ticket" type="text" value="{{ post.subject is defined ? post.subject : '' }}">
+							</div>
+							<span class="uv-field-info">{{ 'Ticket subject'|trans }}</span>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Message'|trans }}</label>
+							<div class="uv-field-block grammarly-fix-message-container">
+								<textarea name="reply" class="uv-field create-ticket grammarly-fix-message" type="text">{{ post.reply is defined ? post.reply : '' }}</textarea>
+							</div>
+							<span class="uv-field-info">{{ 'Ticket query message'|trans }}</span>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block attachment-block uv-no-error-success-icon" id="uv-attachment-option">
+							<label>
+								<span class="uv-file-label">{{ 'Add Attachment'|trans }}</span>
+							</label>
+						</div>
+						<!-- //Field -->
+
+						<div class="uv-element-block">
+							<button type="submit" id="create-ticket-btn" class="uv-btn">{{ 'Create Ticket'|trans }}</button>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{% set isTicketViewPage = (app.user.id is defined ? true : false) %}
+	{{ parent() }}
+	{{ include('@UVDeskCoreFramework/Templates/attachment.html.twig') }}
+
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<script type="text/javascript">
+		$(function () {
+			{% if(removeMe is defined) %}
+				$.each({{ removeMe | json_encode |raw }}, function(key, value){
+					$('label[for="' + value + '"]').parent().hide();
+				});
+			{% endif %}
+
+			var CreateTicketModel = Backbone.Model.extend({
+				idAttribute : "id",
+				defaults : {
+					path : "",
+				},
+				validation: {
+					{% if not isTicketViewPage %}
+						'name' : {
+							required : true,
+							msg : '{{ "This field is mandatory"|trans }}'
+						},
+						'from' :
+						[{
+							required : true,
+							msg : '{{ "This field is mandatory"|trans }}'
+						},{
+							pattern : 'email',
+							msg : '{{ "Email address is invalid"|trans }}'
+						}],
+					{% endif %}
+					'type' : {
+						required : true,
+						msg : '{{ "This field is mandatory"|trans }}'
+					},
+					'subject' : {
+						required : true,
+						msg : '{{ "This field is mandatory"|trans }}'
+					},
+					'reply' : {
+						required : true,
+						msg : '{{ "This field is mandatory"|trans }}'
+					},
+				},
+				urlRoot : "{{ path('helpdesk_customer_create_ticket') }}"
+			});
+
+			var CreateTicketForm = Backbone.View.extend({
+				initialize : function() {
+					Backbone.Validation.bind(this);
+					var jsonContext = JSON.parse('{{ errors is defined ? errors|raw : "{}"  }}');
+					for (var field in jsonContext) {
+						Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+				},
+				events : {
+					'click #create-ticket-btn' : "saveTicket",
+					'change #type' : "updateCustomFields",
+					'blur input:not(input[type=file]), textarea, select, checkbox': 'formChanegd',
+					'change input[type=file]': 'formChanegd',
+				},
+				formChanegd: function(e) {
+					this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+					this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+				},
+				saveTicket : function (e) {
+					e.preventDefault();
+					var currentElement = Backbone.$(e.currentTarget);
+					var data = currentElement.closest('form').serializeObject();
+					this.model.set(data);
+
+					if(this.model.isValid(true)) {
+						$('#create-ticket-form').submit();
+						$('form').find('#create-ticket-btn').attr('disabled', 'disabled');
+					}
+				},
+				updateCustomFields : function (e) {
+					var dependentFields = e.currentTarget.value;
+					this.$('.dependent').hide();
+					this.$('.dependency' + dependentFields).show();
+				}
+			});
+
+			var createticketForm = new CreateTicketForm({
+				el : $("#create-ticket-form"),
+				model : new CreateTicketModel()
+			});
+		});
+	</script>
+{% endblock %}

@@ -1,0 +1,17 @@
+{
+    "Version": "2.1.47.70",
+    "Names": {
+        "USD": [
+            "US$",
+            "dólar estadounidense"
+        ],
+        "UYU": [
+            "$",
+            "peso uruguayo"
+        ],
+        "UYW": [
+            "UP",
+            "unidad previsional uruguayo"
+        ]
+    }
+}

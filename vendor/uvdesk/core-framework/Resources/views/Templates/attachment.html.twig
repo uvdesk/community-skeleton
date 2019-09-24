@@ -1,0 +1,45 @@
+<style>
+    input.attachment {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        var FileView = Backbone.View.extend({
+            fileCounter: 0,
+            el: '.attachment-block',
+            events : {
+                'click .uv-file-label': 'createFileType',
+                'change .attachment': 'selectFile',
+                'click .uv-added-attachment span': 'removeFile'
+            },
+            createFileType: function(e) {
+                currentElement = Backbone.$(e.currentTarget)
+                this.fileCounter += 1;
+                currentElement.parents('.attachment-block').append('<div class="uv-added-attachment" style="display: none" id="file-' + this.fileCounter + '"><div class="uv-attachment"><input type="file" name="attachments[]" class="attachment" multiple="multiple"></div><span></span></div>')
+                $('#file-' + this.fileCounter).find('.attachment').trigger('click')
+            },
+            labelTemplate: _.template('<label class="file-name"><%- fileName %></label><br>'),
+            selectFile: function(e) {
+                currentElement = Backbone.$(e.currentTarget)
+                var attachmentBlock = currentElement.parents(".uv-added-attachment");
+                if(currentElement.length) {
+                   files = currentElement[0].files; 
+                   if(files.length) {
+                        for (var i = 0; i < files.length; i++) {
+                            var fileName = files[i].name;
+                            attachmentBlock.append(this.labelTemplate({'fileName': fileName}));
+                        }
+                   }
+                }
+
+                attachmentBlock.show()
+            },
+            removeFile: function(e) {
+                Backbone.$(e.currentTarget).parents('.uv-added-attachment').remove()
+            }
+        });
+        
+        var fileView = new FileView();
+    });
+</script>

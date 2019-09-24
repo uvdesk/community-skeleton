@@ -1,0 +1,25 @@
+{
+    "Version": "2.1.47.82",
+    "Names": {
+        "AUD": [
+            "AUD$",
+            "Australian Dollar"
+        ],
+        "BRL": [
+            "R$",
+            "BRL"
+        ],
+        "NZD": [
+            "NZD$",
+            "NZD"
+        ],
+        "TOP": [
+            "T$",
+            "Paʻanga fakatonga"
+        ],
+        "WST": [
+            "WST",
+            "Tala fakahaʻamoa"
+        ]
+    }
+}

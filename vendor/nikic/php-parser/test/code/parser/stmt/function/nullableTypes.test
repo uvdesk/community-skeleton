@@ -1,0 +1,55 @@
+Nullable types
+-----
+<?php
+
+function test(?Foo $bar, ?string $foo) : ?Baz {
+}
+-----
+!!php7
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+            0: Param(
+                type: NullableType(
+                    type: Name(
+                        parts: array(
+                            0: Foo
+                        )
+                    )
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: bar
+                )
+                default: null
+            )
+            1: Param(
+                type: NullableType(
+                    type: Identifier(
+                        name: string
+                    )
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: foo
+                )
+                default: null
+            )
+        )
+        returnType: NullableType(
+            type: Name(
+                parts: array(
+                    0: Baz
+                )
+            )
+        )
+        stmts: array(
+        )
+    )
+)

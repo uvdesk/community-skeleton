@@ -1,0 +1,19 @@
+Trait alias
+-----
+<?php
+class X {
+    use T {
+        exit
+            as die;
+    }
+}
+-----
+/* do nothing */
+-----
+<?php
+class X {
+    use T {
+        exit
+            as die;
+    }
+}

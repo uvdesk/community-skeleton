@@ -1,0 +1,17 @@
+# Between v1.0.0-ALPHA1 and v1.0.0-ALPHA2
+
+The FixtureInterface was changed from
+
+    interface FixtureInterface
+    {
+        load($manager);
+    }
+
+to
+
+    use Doctrine\Common\Persistence\ObjectManager;
+
+    interface FixtureInterface
+    {
+        load(ObjectManager $manager);
+    }

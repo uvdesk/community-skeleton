@@ -1,0 +1,98 @@
+{#
+/**
+ * @file
+ * Foundation 5 Sliding pagination control implementation.
+ *
+ * View that can be used with the pagination module 
+ * from the Foundation 5 CSS Toolkit
+ * http://foundation.zurb.com/docs/components/pagination.html
+ *
+ * @author Vincent Loy <vincent.loy1@gmail.com>
+ *
+ * This view have been ported from twitter bootstrap v3 pagination control implementation
+ * from :
+ * @author Pablo Díez <pablodip@gmail.com>
+ * @author Jan Sorgalla <jsorgalla@gmail.com>
+ * @author Artem Ponomarenko <imenem@inbox.ru>
+ * @author Artem Zabelin <artjomzabelin@gmail.com>
+ */
+#}
+
+{% if pageCount > 1 %}
+    <ul class="pagination">
+        {% if previous is defined %}
+                 <li class="arrow">
+                     <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo; {{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
+                 </li>
+        {% else %}
+            <li class="arrow unavailable">
+                <a>
+                    &laquo; {{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}
+                </a>
+            </li>
+        {% endif %}
+
+        {% if startPage > 1 %}
+            <li>
+                <a href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+            </li>
+            {% if startPage == 3 %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+                </li>
+            {% elseif startPage != 2 %}
+                <li class="unavailable">
+                    <a>&hellip;</a>
+                </li>
+            {% endif %}
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <li>
+                    <a href="{{ path(route, query|merge({(pageParameterName): page})) }}">
+                        {{ page }}
+                    </a>
+                </li>
+            {% else %}
+                <li class="current">
+                    <a>{{ page }}</a>
+                </li>
+            {% endif %}
+
+        {% endfor %}
+
+        {% if pageCount > endPage %}
+            {% if pageCount > (endPage + 1) %}
+                {% if pageCount > (endPage + 2) %}
+                    <li class="unavailable">
+                        <a>&hellip;</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">
+                            {{ pageCount -1 }}
+                        </a>
+                    </li>
+                {% endif %}
+            {% endif %}
+            <li>
+                <a href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+            </li>
+        {% endif %}
+
+        {% if next is defined %}
+            <li class="arrow">
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}">
+                    {{ 'label_next'|trans({}, 'KnpPaginatorBundle') }} &nbsp;&raquo;
+                </a>
+            </li>
+        {% else %}
+            <li class="arrow unavailable">
+                <a>
+                    {{ 'label_next'|trans({}, 'KnpPaginatorBundle') }} &nbsp;&raquo;
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

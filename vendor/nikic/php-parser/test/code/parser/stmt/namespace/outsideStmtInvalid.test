@@ -1,0 +1,109 @@
+There (mostly) can't be statements outside of namespaces
+-----
+<?php
+echo 1;
+echo 2;
+namespace A;
+-----
+Namespace declaration statement has to be the very first statement in the script on line 4
+array(
+    0: Stmt_Echo(
+        exprs: array(
+            0: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+    1: Stmt_Echo(
+        exprs: array(
+            0: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+    2: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: A
+            )
+        )
+        stmts: array(
+        )
+    )
+)
+-----
+<?php
+namespace A {}
+echo 1;
+-----
+No code may exist outside of namespace {} from 3:1 to 3:7
+array(
+    0: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: A
+            )
+        )
+        stmts: array(
+        )
+    )
+    1: Stmt_Echo(
+        exprs: array(
+            0: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+)
+-----
+<?php
+namespace A {}
+declare(ticks=1);
+foo();
+namespace B {}
+-----
+No code may exist outside of namespace {} from 3:1 to 3:17
+array(
+    0: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: A
+            )
+        )
+        stmts: array(
+        )
+    )
+    1: Stmt_Declare(
+        declares: array(
+            0: Stmt_DeclareDeclare(
+                key: Identifier(
+                    name: ticks
+                )
+                value: Scalar_LNumber(
+                    value: 1
+                )
+            )
+        )
+        stmts: null
+    )
+    2: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: foo
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    3: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: B
+            )
+        )
+        stmts: array(
+        )
+    )
+)

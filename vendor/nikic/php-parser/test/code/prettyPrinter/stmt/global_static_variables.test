@@ -1,0 +1,11 @@
+Global and static variables
+-----
+<?php
+
+global $a, $$a, ${$a[$a]};
+static $a, $b;
+static $a = 'foo', $b = 'bar';
+-----
+global $a, ${$a}, ${$a[$a]};
+static $a, $b;
+static $a = 'foo', $b = 'bar';

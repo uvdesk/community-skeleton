@@ -1,0 +1,339 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% import _self as helper %}
+    {% set request_handler %}
+        {{ helper.set_handler(collector.controller) }}
+    {% endset %}
+
+    {% if collector.redirect %}
+        {% set redirect_handler %}
+            {{ helper.set_handler(collector.redirect.controller, collector.redirect.route, 'GET' != collector.redirect.method ? collector.redirect.method) }}
+        {% endset %}
+    {% endif %}
+
+    {% if collector.forwardtoken %}
+        {% set forward_profile = profile.childByToken(collector.forwardtoken) %}
+        {% set forward_handler %}
+            {{ helper.set_handler(forward_profile ? forward_profile.collector('request').controller : 'n/a') }}
+        {% endset %}
+    {% endif %}
+
+    {% set request_status_code_color = (collector.statuscode >= 400) ? 'red' : (collector.statuscode >= 300) ? 'yellow' : 'green' %}
+
+    {% set icon %}
+        <span class="sf-toolbar-status sf-toolbar-status-{{ request_status_code_color }}">{{ collector.statuscode }}</span>
+        {% if collector.route %}
+            {% if collector.redirect %}{{ include('@WebProfiler/Icon/redirect.svg') }}{% endif %}
+            {% if collector.forwardtoken %}{{ include('@WebProfiler/Icon/forward.svg') }}{% endif %}
+            <span class="sf-toolbar-label">{{ 'GET' != collector.method ? collector.method }} @</span>
+            <span class="sf-toolbar-value sf-toolbar-info-piece-additional">{{ collector.route }}</span>
+        {% endif %}
+    {% endset %}
+
+    {% set text %}
+        <div class="sf-toolbar-info-group">
+            <div class="sf-toolbar-info-piece">
+                <b>HTTP status</b>
+                <span>{{ collector.statuscode }} {{ collector.statustext }}</span>
+            </div>
+
+            {% if 'GET' != collector.method -%}
+                <div class="sf-toolbar-info-piece">
+                    <b>Method</b>
+                    <span>{{ collector.method }}</span>
+                </div>
+            {%- endif %}
+
+            <div class="sf-toolbar-info-piece">
+                <b>Controller</b>
+                <span>{{ request_handler }}</span>
+            </div>
+
+            <div class="sf-toolbar-info-piece">
+                <b>Route name</b>
+                <span>{{ collector.route|default('n/a') }}</span>
+            </div>
+
+            <div class="sf-toolbar-info-piece">
+                <b>Has session</b>
+                <span>{% if collector.sessionmetadata|length %}yes{% else %}no{% endif %}</span>
+            </div>
+        </div>
+
+        {% if redirect_handler is defined -%}
+            <div class="sf-toolbar-info-group">
+                <div class="sf-toolbar-info-piece">
+                    <b>
+                        <span class="sf-toolbar-redirection-status sf-toolbar-status-yellow">{{ collector.redirect.status_code }}</span>
+                        Redirect from
+                    </b>
+                    <span>
+                        {{ redirect_handler }}
+                        (<a href="{{ path('_profiler', { token: collector.redirect.token }) }}">{{ collector.redirect.token }}</a>)
+                    </span>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if forward_handler is defined %}
+            <div class="sf-toolbar-info-group">
+                <div class="sf-toolbar-info-piece">
+                    <b>Forwarded to</b>
+                    <span>
+                        {{ forward_handler }}
+                        (<a href="{{ path('_profiler', { token: collector.forwardtoken }) }}">{{ collector.forwardtoken }}</a>)
+                    </span>
+                </div>
+            </div>
+        {% endif %}
+    {% endset %}
+
+    {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: profiler_url }) }}
+{% endblock %}
+
+{% block menu %}
+    <span class="label">
+        <span class="icon">{{ include('@WebProfiler/Icon/request.svg') }}</span>
+        <strong>Request / Response</strong>
+    </span>
+{% endblock %}
+
+{% block panel %}
+    {% import _self as helper %}
+
+    <h2>
+        {{ helper.set_handler(collector.controller) }}
+    </h2>
+
+    <div class="sf-tabs">
+        <div class="tab">
+            <h3 class="tab-title">Request</h3>
+
+            <div class="tab-content">
+                <h3>GET Parameters</h3>
+
+                {% if collector.requestquery.all is empty %}
+                    <div class="empty">
+                        <p>No GET parameters</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.requestquery, maxDepth: 1 }, with_context = false) }}
+                {% endif %}
+
+                <h3>POST Parameters</h3>
+
+                {% if collector.requestrequest.all is empty %}
+                    <div class="empty">
+                        <p>No POST parameters</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.requestrequest, maxDepth: 1 }, with_context = false) }}
+                {% endif %}
+
+                <h4>Uploaded Files</h4>
+
+                {% if collector.requestfiles is empty %}
+                    <div class="empty">
+                        <p>No files were uploaded</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.requestfiles, maxDepth: 1 }, with_context = false) }}
+                {% endif %}
+
+                <h3>Request Attributes</h3>
+
+                {% if collector.requestattributes.all is empty %}
+                    <div class="empty">
+                        <p>No attributes</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.requestattributes }, with_context = false) }}
+                {% endif %}
+
+                <h3>Request Headers</h3>
+                {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.requestheaders, labels: ['Header', 'Value'], maxDepth: 1 }, with_context = false) }}
+
+                <h3>Request Content</h3>
+
+                {% if collector.content == false %}
+                    <div class="empty">
+                        <p>Request content not available (it was retrieved as a resource).</p>
+                    </div>
+                {% elseif collector.content %}
+                    <div class="sf-tabs">
+                        {% set prettyJson = collector.isJsonRequest ? collector.prettyJson : null %}
+                        {% if prettyJson is not null %}
+                        <div class="tab">
+                            <h3 class="tab-title">Pretty</h3>
+                            <div class="tab-content">
+                                <div class="card" style="max-height: 500px; overflow-y: auto;">
+                                    <pre class="break-long-words">{{ prettyJson }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="tab">
+                            <h3 class="tab-title">Raw</h3>
+                            <div class="tab-content">
+                                <div class="card">
+                                    <pre class="break-long-words">{{ collector.content }}</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="empty">
+                        <p>No content</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tab">
+            <h3 class="tab-title">Response</h3>
+
+            <div class="tab-content">
+                <h3>Response Headers</h3>
+
+                {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.responseheaders, labels: ['Header', 'Value'], maxDepth: 1 }, with_context = false) }}
+            </div>
+        </div>
+
+        <div class="tab {{ collector.requestcookies.all is empty and collector.responsecookies.all is empty ? 'disabled' }}">
+            <h3 class="tab-title">Cookies</h3>
+
+            <div class="tab-content">
+                <h3>Request Cookies</h3>
+
+                {% if collector.requestcookies.all is empty %}
+                    <div class="empty">
+                        <p>No request cookies</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.requestcookies }, with_context = false) }}
+                {% endif %}
+
+                <h3>Response Cookies</h3>
+
+                {% if collector.responsecookies.all is empty %}
+                    <div class="empty">
+                        <p>No response cookies</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.responsecookies }, with_context = true) }}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tab {{ collector.sessionmetadata is empty ? 'disabled' }}">
+            <h3 class="tab-title">Session</h3>
+
+            <div class="tab-content">
+                <h3>Session Metadata</h3>
+
+                {% if collector.sessionmetadata is empty %}
+                    <div class="empty">
+                        <p>No session metadata</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/table.html.twig', { data: collector.sessionmetadata }, with_context = false) }}
+                {% endif %}
+
+                <h3>Session Attributes</h3>
+
+                {% if collector.sessionattributes is empty %}
+                    <div class="empty">
+                        <p>No session attributes</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/table.html.twig', { data: collector.sessionattributes, labels: ['Attribute', 'Value'] }, with_context = false) }}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tab {{ collector.flashes is empty ? 'disabled' }}">
+            <h3 class="tab-title">Flashes</h3>
+
+            <div class="tab-content">
+                <h3>Flashes</h3>
+
+                {% if collector.flashes is empty %}
+                    <div class="empty">
+                        <p>No flash messages were created.</p>
+                    </div>
+                {% else %}
+                    {{ include('@WebProfiler/Profiler/table.html.twig', { data: collector.flashes }, with_context = false) }}
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tab">
+            <h3 class="tab-title">Server Parameters</h3>
+            <div class="tab-content">
+                <h3>Server Parameters</h3>
+                <h4>Defined in .env</h4>
+                {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: collector.dotenvvars }, with_context = false) }}
+
+                <h4>Defined as regular env variables</h4>
+                {% set requestserver = [] %}
+                {% for key, value in collector.requestserver|filter((_, key) => key not in collector.dotenvvars.keys) %}
+                    {% set requestserver = requestserver|merge({(key): value}) %}
+                {% endfor %}
+                {{ include('@WebProfiler/Profiler/table.html.twig', { data: requestserver }, with_context = false) }}
+            </div>
+        </div>
+
+        {% if profile.parent %}
+        <div class="tab">
+            <h3 class="tab-title">Parent Request</h3>
+
+            <div class="tab-content">
+                <h3>
+                    <a href="{{ path('_profiler', { token: profile.parent.token }) }}">Return to parent request</a>
+                    <small>(token = {{ profile.parent.token }})</small>
+                </h3>
+
+                {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: profile.parent.getcollector('request').requestattributes }, with_context = false) }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if profile.children|length %}
+        <div class="tab">
+            <h3 class="tab-title">Sub Requests <span class="badge">{{ profile.children|length }}</span></h3>
+
+            <div class="tab-content">
+                {% for child in profile.children %}
+                    <h3>
+                        {{ helper.set_handler(child.getcollector('request').controller) }}
+                        <small>(token = <a href="{{ path('_profiler', { token: child.token }) }}">{{ child.token }}</a>)</small>
+                    </h3>
+
+                    {{ include('@WebProfiler/Profiler/bag.html.twig', { bag: child.getcollector('request').requestattributes }, with_context = false) }}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% macro set_handler(controller, route, method) %}
+    {% if controller.class is defined -%}
+        {%- if method|default(false) %}<span class="sf-toolbar-status sf-toolbar-redirection-method">{{ method }}</span>{% endif -%}
+        {%- set link = controller.file|file_link(controller.line) %}
+        {%- if link %}<a href="{{ link }}" title="{{ controller.class }}">{% else %}<span title="{{ controller.class }}">{% endif %}
+
+            {%- if route|default(false) -%}
+                @{{ route }}
+            {%- else -%}
+                {{- controller.class|abbr_class|striptags -}}
+                {{- controller.method ? ' :: ' ~ controller.method -}}
+            {%- endif -%}
+
+        {%- if link %}</a>{% else %}</span>{% endif %}
+    {%- else -%}
+        <span>{{ route|default(controller) }}</span>
+    {%- endif %}
+{% endmacro %}

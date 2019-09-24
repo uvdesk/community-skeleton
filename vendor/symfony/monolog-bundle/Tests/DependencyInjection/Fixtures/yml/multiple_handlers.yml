@@ -1,0 +1,21 @@
+monolog:
+    handlers:
+        custom:
+            type: stream
+            path: /tmp/symfony.log
+            bubble: false
+            level: ERROR
+            file_permission: 0666
+        main:
+            type: fingers_crossed
+            action_level: ERROR
+            passthru_level: NOTICE
+            handler: nested
+        nested:
+            type: stream
+        filtered:
+            type: filter
+            accepted_levels: [WARNING, ERROR]
+            handler: nested2
+        nested2:
+            type: stream

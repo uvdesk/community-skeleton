@@ -1,0 +1,62 @@
+{
+    "name":        "knplabs/knp-components",
+    "type":        "library",
+    "description": "Knplabs component library",
+    "keywords":    ["components", "paginator", "pager", "knp", "knplabs"],
+    "homepage":    "http://github.com/KnpLabs/knp-components",
+    "license":     "MIT",
+
+    "authors": [
+        {
+            "name": "KnpLabs Team",
+            "homepage": "http://knplabs.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "http://github.com/KnpLabs/knp-components/contributors"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "symfony/event-dispatcher": "^3.4 || ^4.0",
+        "symfony/http-foundation": "^3.4 || ^4.0"
+    },
+    "require-dev": {
+        "doctrine/orm": "~2.4",
+        "doctrine/mongodb-odm": "^2.0.0-RC1",
+        "doctrine/phpcr-odm": "~1.2",
+        "jackalope/jackalope-doctrine-dbal": "~1.2",
+        "phpunit/phpunit": "^7.0 || ^8.0",
+        "ruflin/elastica": "~1.0",
+        "symfony/property-access": "^3.4 || ^4.0",
+        "symfony/http-kernel": "^3.4 || ^4.0"
+    },
+    "suggest": {
+        "symfony/property-access": "To allow sorting arrays",
+        "doctrine/orm": "to allow usage pagination with Doctrine ORM",
+        "doctrine/common": "to allow usage pagination with Doctrine ArrayCollection",
+        "doctrine/mongodb-odm": "to allow usage pagination with Doctrine ODM MongoDB",
+        "doctrine/phpcr-odm": "to allow usage pagination with Doctrine ODM PHPCR",
+        "ruflin/elastica": "to allow usage pagination with ElasticSearch Client",
+        "propel/propel1": "to allow usage pagination with Propel ORM",
+        "solarium/solarium": "to allow usage pagination with Solarium Client"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2.0-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Knp\\Component\\": "src/Knp/Component"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/Test"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}

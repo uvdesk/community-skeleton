@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6" height="6" viewBox="0 0 6 6">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fc6667;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="due-pattern" class="cls-1" d="M0,0H6V6L0,5.989,3,3Z"/>
+</svg>

@@ -1,0 +1,214 @@
+Anonymous classes
+-----
+<?php
+
+new class {
+    public function test() {}
+};
+new class extends A implements B, C {};
+new class() {
+    public $foo;
+};
+new class($a, $b) extends A {
+    use T;
+};
+
+class A {
+    public function test() {
+        return new class($this) extends A {
+            const A = 'B';
+        };
+    }
+}
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_New(
+            class: Stmt_Class(
+                flags: 0
+                name: null
+                extends: null
+                implements: array(
+                )
+                stmts: array(
+                    0: Stmt_ClassMethod(
+                        flags: MODIFIER_PUBLIC (1)
+                        byRef: false
+                        name: Identifier(
+                            name: test
+                        )
+                        params: array(
+                        )
+                        returnType: null
+                        stmts: array(
+                        )
+                    )
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_New(
+            class: Stmt_Class(
+                flags: 0
+                name: null
+                extends: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                implements: array(
+                    0: Name(
+                        parts: array(
+                            0: B
+                        )
+                    )
+                    1: Name(
+                        parts: array(
+                            0: C
+                        )
+                    )
+                )
+                stmts: array(
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_New(
+            class: Stmt_Class(
+                flags: 0
+                name: null
+                extends: null
+                implements: array(
+                )
+                stmts: array(
+                    0: Stmt_Property(
+                        flags: MODIFIER_PUBLIC (1)
+                        type: null
+                        props: array(
+                            0: Stmt_PropertyProperty(
+                                name: VarLikeIdentifier(
+                                    name: foo
+                                )
+                                default: null
+                            )
+                        )
+                    )
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_New(
+            class: Stmt_Class(
+                flags: 0
+                name: null
+                extends: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                implements: array(
+                )
+                stmts: array(
+                    0: Stmt_TraitUse(
+                        traits: array(
+                            0: Name(
+                                parts: array(
+                                    0: T
+                                )
+                            )
+                        )
+                        adaptations: array(
+                        )
+                    )
+                )
+            )
+            args: array(
+                0: Arg(
+                    value: Expr_Variable(
+                        name: a
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                1: Arg(
+                    value: Expr_Variable(
+                        name: b
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+    )
+    4: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_PUBLIC (1)
+                byRef: false
+                name: Identifier(
+                    name: test
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                    0: Stmt_Return(
+                        expr: Expr_New(
+                            class: Stmt_Class(
+                                flags: 0
+                                name: null
+                                extends: Name(
+                                    parts: array(
+                                        0: A
+                                    )
+                                )
+                                implements: array(
+                                )
+                                stmts: array(
+                                    0: Stmt_ClassConst(
+                                        flags: 0
+                                        consts: array(
+                                            0: Const(
+                                                name: Identifier(
+                                                    name: A
+                                                )
+                                                value: Scalar_String(
+                                                    value: B
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                            args: array(
+                                0: Arg(
+                                    value: Expr_Variable(
+                                        name: this
+                                    )
+                                    byRef: false
+                                    unpack: false
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)

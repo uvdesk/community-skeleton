@@ -1,0 +1,42 @@
+{
+    "name": "knplabs/knp-paginator-bundle",
+    "type": "symfony-bundle",
+    "description": "Paginator bundle for Symfony to automate pagination and simplify sorting and other features",
+    "keywords": ["pager", "paginator", "pagination", "symfony", "bundle", "knp", "knplabs"],
+    "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KnpLabs Team",
+            "homepage": "http://knplabs.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle/contributors"
+        }
+    ],
+    "require": {
+        "php":                      "^7.1",
+        "knplabs/knp-components":   "^1.3 || ^2.0",
+        "symfony/framework-bundle": "^3.4 || ^4.0",
+        "symfony/translation":      "^3.4 || ^4.0",
+        "twig/twig":                "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.4 || ^8.0",
+        "symfony/expression-language": "^3.4 || ^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Knp\\Bundle\\PaginatorBundle\\": ""
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.1.x-dev"
+        }
+    }
+}

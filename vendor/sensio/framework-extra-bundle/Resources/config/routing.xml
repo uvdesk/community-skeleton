@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sensio_framework_extra.routing.loader.annot_class" class="Sensio\Bundle\FrameworkExtraBundle\Routing\AnnotatedRouteControllerLoader" public="false">
+            <tag name="routing.loader" />
+            <argument type="service" id="annotation_reader" />
+            <deprecated>The "%service_id%" service is deprecated since version 5.2</deprecated>
+        </service>
+
+        <service id="sensio_framework_extra.routing.loader.annot_dir" class="Symfony\Component\Routing\Loader\AnnotationDirectoryLoader" public="false">
+            <tag name="routing.loader" />
+            <argument type="service" id="file_locator" />
+            <argument type="service" id="sensio_framework_extra.routing.loader.annot_class" />
+            <deprecated>The "%service_id%" service is deprecated since version 5.2</deprecated>
+        </service>
+
+        <service id="sensio_framework_extra.routing.loader.annot_file" class="Symfony\Component\Routing\Loader\AnnotationFileLoader" public="false">
+            <tag name="routing.loader" />
+            <argument type="service" id="file_locator" />
+            <argument type="service" id="sensio_framework_extra.routing.loader.annot_class" />
+            <deprecated>The "%service_id%" service is deprecated since version 5.2</deprecated>
+        </service>
+    </services>
+</container>

@@ -1,0 +1,24 @@
+{
+    "active": true,
+    "name": "Persistence",
+    "slug": "persistence",
+    "docsSlug": "doctrine-persistence",
+    "versions": [
+        {
+            "name": "1.1",
+            "branchName": "1.1.x",
+            "slug": "latest",
+            "current": true,
+            "aliases": [
+                "current",
+                "stable"
+            ]
+        },
+        {
+            "name": "1.0",
+            "branchName": "1.0.x",
+            "slug": "1.0",
+            "maintained": false
+        }
+    ]
+}

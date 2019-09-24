@@ -1,0 +1,87 @@
+Scalar type declarations
+-----
+<?php
+function test(bool $a, Int $b, FLOAT $c, StRiNg $d, iterable $e, object $f) : void {}
+-----
+!!php7
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+            0: Param(
+                type: Identifier(
+                    name: bool
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+            1: Param(
+                type: Identifier(
+                    name: int
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: b
+                )
+                default: null
+            )
+            2: Param(
+                type: Identifier(
+                    name: float
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: c
+                )
+                default: null
+            )
+            3: Param(
+                type: Identifier(
+                    name: string
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: d
+                )
+                default: null
+            )
+            4: Param(
+                type: Identifier(
+                    name: iterable
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: e
+                )
+                default: null
+            )
+            5: Param(
+                type: Identifier(
+                    name: object
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: f
+                )
+                default: null
+            )
+        )
+        returnType: Identifier(
+            name: void
+        )
+        stmts: array(
+        )
+    )
+)

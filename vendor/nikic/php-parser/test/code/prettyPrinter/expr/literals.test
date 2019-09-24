@@ -1,0 +1,158 @@
+Literals
+-----
+<?php
+
+// magic constants
+__LINE__;
+__FILE__;
+__DIR__;
+__FUNCTION__;
+__CLASS__;
+__TRAIT__;
+__METHOD__;
+__NAMESPACE__;
+
+// not actually literals, but close
+null;
+true;
+false;
+NULL;
+TRUE;
+FALSE;
+
+// integers (normalized to decimal)
+0;
+11;
+011;
+0x11;
+0b11;
+
+// floats (normalized to ... something)
+0.;
+.0;
+0.0;
+0e1000;
+1.0;
+1e100;
+1e1000;
+1E-100;
+1000000000000000000000000000000000000000000000000000000000000000000000000000000000000;
+378282246310005.0;
+10000000000000002.0;
+
+// strings (single quoted)
+'a';
+'a
+b';
+'a\'b';
+'a\b';
+'a\\';
+
+// strings (double quoted)
+"a";
+"a\nb";
+"a'b";
+"a\b";
+"$a";
+"a$b";
+"$a$b";
+"$a $b";
+"a${b}c";
+"a{$b}c";
+"a$a[b]c";
+"\{$A}";
+"\{ $A }";
+"\\{$A}";
+"\\{ $A }";
+"{$$A}[B]";
+"$$A[B]";
+
+// make sure indentation doesn't mess anything up
+function foo()
+{
+    "a\nb";
+    'a
+b';
+    'a
+    b';
+}
+
+// shell exec (similar to double quoted string)
+`foo`;
+`foo$a`;
+`foo{$a}bar`;
+`\`\'\"`;
+-----
+// magic constants
+__LINE__;
+__FILE__;
+__DIR__;
+__FUNCTION__;
+__CLASS__;
+__TRAIT__;
+__METHOD__;
+__NAMESPACE__;
+// not actually literals, but close
+null;
+true;
+false;
+NULL;
+TRUE;
+FALSE;
+// integers (normalized to decimal)
+0;
+11;
+011;
+0x11;
+0b11;
+// floats (normalized to ... something)
+0.0;
+0.0;
+0.0;
+0.0;
+1.0;
+1.0E+100;
+\INF;
+1.0E-100;
+1.0E+84;
+378282246310005.0;
+10000000000000002.0;
+// strings (single quoted)
+'a';
+'a
+b';
+'a\'b';
+'a\\b';
+'a\\';
+// strings (double quoted)
+"a";
+"a\nb";
+"a'b";
+"a\\b";
+"{$a}";
+"a{$b}";
+"{$a}{$b}";
+"{$a} {$b}";
+"a{$b}c";
+"a{$b}c";
+"a{$a['b']}c";
+"\\{{$A}}";
+"\\{ {$A} }";
+"\\{$A}";
+"\\{ {$A} }";
+"{${$A}}[B]";
+"\${$A['B']}";
+// make sure indentation doesn't mess anything up
+function foo()
+{
+    "a\nb";
+    'a
+b';
+    'a
+    b';
+}
+// shell exec (similar to double quoted string)
+`foo`;
+`foo{$a}`;
+`foo{$a}bar`;
+`\`\\'\\"`;

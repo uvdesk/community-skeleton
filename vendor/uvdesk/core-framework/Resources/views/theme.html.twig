@@ -1,0 +1,107 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% set website = user_service.getWebsiteDetails('helpdesk') %}
+
+{% block title %}
+	{{ 'Branding'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+    <style>
+        .uv-image-upload-brick {
+            margin: 10px 0px;
+        }
+        .uv-color-field {
+            color: #fff;
+            width: 100px;
+            text-transform: uppercase;
+        }
+        .uv-header-link-wrapper {
+            padding-bottom: 20px;
+        }
+        .uv-footer-link-wrapper {
+            border-top: solid 1px #D3D3D3;
+            padding-top: 20px;
+        }
+        .uv-knowledgebase-layout  {
+            border-top: solid 1px #D3D3D3;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+        .uv-knowledgebase-layout input[type='radio'] {
+            display: none;
+        }
+        #links .uv-field-block input:first-child {
+            width: 200px;
+            margin-bottom: 0;
+        }
+        #links .remove-link {
+            margin-left: 10px;
+        }
+		.grammarly-fix-broadcast {
+			max-width: 518px;
+		}
+        #uv-reset-colors {
+            float: right;
+            cursor: pointer;
+            position: relative;
+            z-index:1 ;
+        }
+    </style>
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Branding' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>{{ 'Branding'|trans }}</h1>
+
+			<!--Tab View-->
+            <div class="uv-tab-view uv-tab-view-active" id="knowledgebase">
+                <!--Form-->
+				<form method="post" id="helpdeskForm">
+                    <!-- Field -->
+					<div class="uv-element-block">
+                        {##564DA8#}
+					  	<label class="uv-field-label">{{ 'Theme Color'|trans }}</label>
+					  	<div class="uv-field-block">
+					    	<input name="themeColor" class="uv-field uv-color-field" type="text" value="{{ website.themeColor ? website.themeColor : '#7C70F4' }}" style="color: #FFF;background-color: {{ website.themeColor ? website.themeColor : '#7C70F4' }}" placeholder="#7C70F4">
+					  	</div>
+					</div>
+					<!-- //Field -->
+                    <!-- Field -->
+					<div class="uv-element-block">
+					  	<label class="uv-field-label">{{ 'Name'|trans }}</label>
+					  	<div class="uv-field-block">
+					    	<input name="helpdeskName" class="uv-field" type="text" value="{{ website.name ? website.name : ''}}" required="required">
+					  	</div>
+					</div>
+					<!-- //Field -->
+
+					<!--CTA-->
+					<input class="uv-btn knowledgebase-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+					<!--//CTA-->
+                </form>
+			</div>
+			<!--//Tab View-->
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/css/bootstrap-colorpicker.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/js/bootstrap-colorpicker.min.js"></script>
+
+    <script type="text/javascript">
+        (() => {
+            $('.uv-color-field').colorpicker({format: "hex"}).on('changeColor', function(ev) {
+                $(this).css('background', $(this).val())
+                textColor = app.appView.getTextColorBasedBackground($(this).val());
+                $(this).css('color', textColor)
+            });
+        })();
+	</script>
+{% endblock %}

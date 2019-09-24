@@ -1,0 +1,45 @@
+<xs:schema
+        attributeFormDefault="unqualified"
+        elementFormDefault="qualified"
+        targetNamespace="http://doctrine-project.org/schemas/migrations/configuration"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="doctrine-migrations">
+        <xs:complexType>
+            <xs:all minOccurs="0">
+                <xs:element type="xs:string" name="name" minOccurs="0" maxOccurs="1"/>
+                <xs:element type="xs:string" name="custom-template" minOccurs="0" maxOccurs="1"/>
+                <xs:element type="xs:string" name="migrations-namespace" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="table" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:attribute type="xs:string" name="name"/>
+                        <xs:attribute type="xs:string" name="column"/>
+                        <xs:attribute type="xs:string" name="column_length"/>
+                        <xs:attribute type="xs:string" name="executed_at_column"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="organize-migrations" minOccurs="0" maxOccurs="1">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="((y|Y)(e|E)(a|A)(r|R))|((y|Y)(e|E)(a|A)(r|R)_(a|A)(n|N)(d|D)_(m|M)(o|O)(n|N)(t|T)(h|H))"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element type="xs:string" name="migrations-directory" minOccurs="0" maxOccurs="1"/>
+                <xs:element type="xs:boolean" name="all-or-nothing" minOccurs="0" maxOccurs="1"/>
+                <xs:element type="xs:boolean" name="check-database-platform" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="migrations" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+                            <xs:element name="migration">
+                                <xs:complexType mixed="true">
+                                    <xs:attribute name="version" type="xs:string"/>
+                                    <xs:attribute name="class" type="xs:string"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

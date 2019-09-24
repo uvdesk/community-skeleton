@@ -1,0 +1,254 @@
+Invalid modifier combination
+-----
+<?php class A { public public $a; }
+-----
+Multiple access type modifiers are not allowed from 1:24 to 1:29
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_PUBLIC (1)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { public protected $a; }
+-----
+Multiple access type modifiers are not allowed from 1:24 to 1:32
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_PUBLIC | MODIFIER_PROTECTED (3)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { abstract abstract function a(); }
+-----
+Multiple abstract modifiers are not allowed from 1:26 to 1:33
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_ABSTRACT (16)
+                byRef: false
+                name: Identifier(
+                    name: a
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: null
+            )
+        )
+    )
+)
+-----
+<?php class A { static static $a; }
+-----
+Multiple static modifiers are not allowed from 1:24 to 1:29
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_STATIC (8)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { final final function a() {} }
+-----
+Multiple final modifiers are not allowed from 1:23 to 1:27
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_FINAL (32)
+                byRef: false
+                name: Identifier(
+                    name: a
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { abstract final function a(); }
+-----
+Cannot use the final modifier on an abstract class member from 1:26 to 1:30
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_ABSTRACT | MODIFIER_FINAL (48)
+                byRef: false
+                name: Identifier(
+                    name: a
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: null
+            )
+        )
+    )
+)
+-----
+<?php abstract final class A { }
+// Type in the partial parse could conceivably be any of 0, 16 or 32
+-----
+Syntax error, unexpected T_FINAL, expecting T_CLASS from 1:16 to 1:20
+array(
+    0: Stmt_Class(
+        flags: MODIFIER_FINAL (32)
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+        )
+    )
+    1: Stmt_Nop(
+        comments: array(
+            0: // Type in the partial parse could conceivably be any of 0, 16 or 32
+        )
+    )
+)
+-----
+<?php class A { abstract $a; }
+-----
+Properties cannot be declared abstract from 1:17 to 1:24
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_ABSTRACT (16)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { final $a; }
+-----
+Properties cannot be declared final from 1:17 to 1:21
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_FINAL (32)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)

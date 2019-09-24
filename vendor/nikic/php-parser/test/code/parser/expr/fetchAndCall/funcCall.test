@@ -1,0 +1,158 @@
+Function calls
+-----
+<?php
+
+// function name variations
+a();
+$a();
+${'a'}();
+$$a();
+$$$a();
+$a['b']();
+$a{'b'}();
+$a->b['c']();
+
+// array dereferencing
+a()['b'];
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: a
+                )
+                comments: array(
+                    0: // function name variations
+                )
+            )
+            args: array(
+            )
+            comments: array(
+                0: // function name variations
+            )
+        )
+        comments: array(
+            0: // function name variations
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_Variable(
+                name: a
+            )
+            args: array(
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_Variable(
+                name: Scalar_String(
+                    value: a
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_Variable(
+                name: Expr_Variable(
+                    name: a
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_Variable(
+                name: Expr_Variable(
+                    name: Expr_Variable(
+                        name: a
+                    )
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_ArrayDimFetch(
+                var: Expr_Variable(
+                    name: a
+                )
+                dim: Scalar_String(
+                    value: b
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_ArrayDimFetch(
+                var: Expr_Variable(
+                    name: a
+                )
+                dim: Scalar_String(
+                    value: b
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_ArrayDimFetch(
+                var: Expr_PropertyFetch(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    name: Identifier(
+                        name: b
+                    )
+                )
+                dim: Scalar_String(
+                    value: c
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    8: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_FuncCall(
+                name: Name(
+                    parts: array(
+                        0: a
+                    )
+                    comments: array(
+                        0: // array dereferencing
+                    )
+                )
+                args: array(
+                )
+                comments: array(
+                    0: // array dereferencing
+                )
+            )
+            dim: Scalar_String(
+                value: b
+            )
+            comments: array(
+                0: // array dereferencing
+            )
+        )
+        comments: array(
+            0: // array dereferencing
+        )
+    )
+)

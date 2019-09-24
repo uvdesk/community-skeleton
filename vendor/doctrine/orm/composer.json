@@ -1,0 +1,56 @@
+{
+    "name": "doctrine/orm",
+    "type": "library",
+    "description": "Object-Relational-Mapper for PHP",
+    "keywords": ["orm", "database"],
+    "homepage": "http://www.doctrine-project.org",
+    "license": "MIT",
+    "authors": [
+        {"name": "Guilherme Blanco", "email": "guilhermeblanco@gmail.com"},
+        {"name": "Roman Borschel", "email": "roman@code-factory.org"},
+        {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+        {"name": "Jonathan Wage", "email": "jonwage@gmail.com"},
+        {"name": "Marco Pivetta", "email": "ocramius@gmail.com"}
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "require": {
+        "php": "^7.1",
+        "ext-pdo": "*",
+        "doctrine/annotations": "~1.5",
+        "doctrine/cache": "~1.6",
+        "doctrine/collections": "^1.4",
+        "doctrine/common": "^2.7.1",
+        "doctrine/dbal": "^2.6",
+        "doctrine/instantiator": "~1.1",
+        "symfony/console": "~3.0|~4.0"
+    },
+    "require-dev": {
+        "doctrine/coding-standard": "^1.0",
+        "phpunit/phpunit": "^6.5",
+        "squizlabs/php_codesniffer": "^3.2",
+        "symfony/yaml": "~3.4|~4.0"
+    },
+    "suggest": {
+        "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
+    },
+    "autoload": {
+        "psr-4": { "Doctrine\\ORM\\": "lib/Doctrine/ORM" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Doctrine\\Tests\\": "tests/Doctrine/Tests",
+            "Doctrine\\Performance\\": "tests/Doctrine/Performance"
+        }
+    },
+    "bin": ["bin/doctrine"],
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.6.x-dev"
+        }
+    },
+    "archive": {
+        "exclude": ["!vendor", "tests", "*phpunit.xml", ".travis.yml", "build.xml", "build.properties", "composer.phar", "vendor/satooshi", "lib/vendor", "*.swp"]
+    }
+}

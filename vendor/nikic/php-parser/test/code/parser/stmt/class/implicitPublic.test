@@ -1,0 +1,110 @@
+Implicitly public properties and methods
+-----
+<?php
+
+abstract class A {
+    var $a;
+    static $b;
+    abstract function c();
+    final function d() {}
+    static function e() {}
+    final static function f() {}
+    function g() {}
+}
+-----
+array(
+    0: Stmt_Class(
+        flags: MODIFIER_ABSTRACT (16)
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: 0
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+            1: Stmt_Property(
+                flags: MODIFIER_STATIC (8)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: b
+                        )
+                        default: null
+                    )
+                )
+            )
+            2: Stmt_ClassMethod(
+                flags: MODIFIER_ABSTRACT (16)
+                byRef: false
+                name: Identifier(
+                    name: c
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: null
+            )
+            3: Stmt_ClassMethod(
+                flags: MODIFIER_FINAL (32)
+                byRef: false
+                name: Identifier(
+                    name: d
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+            4: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: e
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+            5: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC | MODIFIER_FINAL (40)
+                byRef: false
+                name: Identifier(
+                    name: f
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+            6: Stmt_ClassMethod(
+                flags: 0
+                byRef: false
+                name: Identifier(
+                    name: g
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)

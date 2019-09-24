@@ -1,0 +1,22 @@
+Trailing comment after braced namespace declaration
+-----
+<?php
+namespace Foo {}
+// Comment
+-----
+array(
+    0: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: Foo
+            )
+        )
+        stmts: array(
+        )
+    )
+    1: Stmt_Nop(
+        comments: array(
+            0: // Comment
+        )
+    )
+)

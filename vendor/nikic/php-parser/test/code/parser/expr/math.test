@@ -1,0 +1,313 @@
+Mathematical operators
+-----
+<?php
+
+// unary ops
+~$a;
++$a;
+-$a;
+
+// binary ops
+$a & $b;
+$a | $b;
+$a ^ $b;
+$a . $b;
+$a / $b;
+$a - $b;
+$a % $b;
+$a * $b;
+$a + $b;
+$a << $b;
+$a >> $b;
+$a ** $b;
+
+// associativity
+$a * $b * $c;
+$a * ($b * $c);
+
+// precedence
+$a + $b * $c;
+($a + $b) * $c;
+
+// pow is special
+$a ** $b ** $c;
+($a ** $b) ** $c;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_BitwiseNot(
+            expr: Expr_Variable(
+                name: a
+            )
+            comments: array(
+                0: // unary ops
+            )
+        )
+        comments: array(
+            0: // unary ops
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_UnaryPlus(
+            expr: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_UnaryMinus(
+            expr: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_BinaryOp_BitwiseAnd(
+            left: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // binary ops
+                )
+            )
+            right: Expr_Variable(
+                name: b
+            )
+            comments: array(
+                0: // binary ops
+            )
+        )
+        comments: array(
+            0: // binary ops
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_BinaryOp_BitwiseOr(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_BinaryOp_BitwiseXor(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_BinaryOp_Concat(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_BinaryOp_Div(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    8: Stmt_Expression(
+        expr: Expr_BinaryOp_Minus(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    9: Stmt_Expression(
+        expr: Expr_BinaryOp_Mod(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    10: Stmt_Expression(
+        expr: Expr_BinaryOp_Mul(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    11: Stmt_Expression(
+        expr: Expr_BinaryOp_Plus(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    12: Stmt_Expression(
+        expr: Expr_BinaryOp_ShiftLeft(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    13: Stmt_Expression(
+        expr: Expr_BinaryOp_ShiftRight(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    14: Stmt_Expression(
+        expr: Expr_BinaryOp_Pow(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    15: Stmt_Expression(
+        expr: Expr_BinaryOp_Mul(
+            left: Expr_BinaryOp_Mul(
+                left: Expr_Variable(
+                    name: a
+                    comments: array(
+                        0: // associativity
+                    )
+                )
+                right: Expr_Variable(
+                    name: b
+                )
+                comments: array(
+                    0: // associativity
+                )
+            )
+            right: Expr_Variable(
+                name: c
+            )
+            comments: array(
+                0: // associativity
+            )
+        )
+        comments: array(
+            0: // associativity
+        )
+    )
+    16: Stmt_Expression(
+        expr: Expr_BinaryOp_Mul(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_BinaryOp_Mul(
+                left: Expr_Variable(
+                    name: b
+                )
+                right: Expr_Variable(
+                    name: c
+                )
+            )
+        )
+    )
+    17: Stmt_Expression(
+        expr: Expr_BinaryOp_Plus(
+            left: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // precedence
+                )
+            )
+            right: Expr_BinaryOp_Mul(
+                left: Expr_Variable(
+                    name: b
+                )
+                right: Expr_Variable(
+                    name: c
+                )
+            )
+            comments: array(
+                0: // precedence
+            )
+        )
+        comments: array(
+            0: // precedence
+        )
+    )
+    18: Stmt_Expression(
+        expr: Expr_BinaryOp_Mul(
+            left: Expr_BinaryOp_Plus(
+                left: Expr_Variable(
+                    name: a
+                )
+                right: Expr_Variable(
+                    name: b
+                )
+            )
+            right: Expr_Variable(
+                name: c
+            )
+        )
+    )
+    19: Stmt_Expression(
+        expr: Expr_BinaryOp_Pow(
+            left: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // pow is special
+                )
+            )
+            right: Expr_BinaryOp_Pow(
+                left: Expr_Variable(
+                    name: b
+                )
+                right: Expr_Variable(
+                    name: c
+                )
+            )
+            comments: array(
+                0: // pow is special
+            )
+        )
+        comments: array(
+            0: // pow is special
+        )
+    )
+    20: Stmt_Expression(
+        expr: Expr_BinaryOp_Pow(
+            left: Expr_BinaryOp_Pow(
+                left: Expr_Variable(
+                    name: a
+                )
+                right: Expr_Variable(
+                    name: b
+                )
+            )
+            right: Expr_Variable(
+                name: c
+            )
+        )
+    )
+)

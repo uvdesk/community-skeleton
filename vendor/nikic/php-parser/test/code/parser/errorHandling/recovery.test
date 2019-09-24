@@ -1,0 +1,1417 @@
+Error recovery
+-----
+<?php
+
+foo()
+bar()
+baz()
+-----
+Syntax error, unexpected T_STRING from 4:1 to 4:3
+Syntax error, unexpected T_STRING from 5:1 to 5:3
+Syntax error, unexpected EOF from 5:6 to 5:6
+array(
+    0: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: foo
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: bar
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: baz
+                )
+            )
+            args: array(
+            )
+        )
+    )
+)
+-----
+<?php
+
+foo()
+bar();
+baz();
+-----
+Syntax error, unexpected T_STRING from 4:1 to 4:3
+array(
+    0: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: foo
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: bar
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: baz
+                )
+            )
+            args: array(
+            )
+        )
+    )
+)
+-----
+<?php
+
+foo();
+bar()
+baz();
+-----
+Syntax error, unexpected T_STRING from 5:1 to 5:3
+array(
+    0: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: foo
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: bar
+                )
+            )
+            args: array(
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: baz
+                )
+            )
+            args: array(
+            )
+        )
+    )
+)
+-----
+<?php
+abc;
+1 + ;
+-----
+Syntax error, unexpected ';' from 3:5 to 3:5
+array(
+    0: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: abc
+                )
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 1
+        )
+    )
+)
+-----
+<?php
+function test() {
+    1 +
+}
+-----
+Syntax error, unexpected '}' from 4:1 to 4:1
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Scalar_LNumber(
+                    value: 1
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+
+$i = 0;
+while
+
+$j = 1;
+$k = 2;
+-----
+Syntax error, unexpected T_VARIABLE, expecting '(' from 6:1 to 6:2
+array(
+    0: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: i
+            )
+            expr: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: j
+            )
+            expr: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: k
+            )
+            expr: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+)
+-----
+<?php
+
+$i = 0;
+while () {
+    $j = 1;
+}
+$k = 2;
+// The output here drops the loop - would require Error node to handle this
+-----
+Syntax error, unexpected ')' from 4:8 to 4:8
+array(
+    0: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: i
+            )
+            expr: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: j
+            )
+            expr: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: k
+            )
+            expr: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+    3: Stmt_Nop(
+        comments: array(
+            0: // The output here drops the loop - would require Error node to handle this
+        )
+    )
+)
+-----
+<?php
+// Can't recover this yet, as the '}' for the inner_statement_list
+// is always required.
+
+$i = 0;
+while (true) {
+    $i = 1;
+    $i = 2;
+-----
+Syntax error, unexpected EOF from 8:12 to 8:12
+-----
+<?php
+$foo->
+;
+-----
+!!positions
+Syntax error, unexpected ';', expecting T_STRING or T_VARIABLE or '{' or '$' from 3:1 to 3:1
+array(
+    0: Stmt_Expression[2:1 - 3:1](
+        expr: Expr_PropertyFetch[2:1 - 2:6](
+            var: Expr_Variable[2:1 - 2:4](
+                name: foo
+            )
+            name: Expr_Error[3:1 - 2:6](
+            )
+        )
+    )
+)
+-----
+<?php
+function foo() {
+    $bar->
+}
+-----
+!!positions
+Syntax error, unexpected '}', expecting T_STRING or T_VARIABLE or '{' or '$' from 4:1 to 4:1
+array(
+    0: Stmt_Function[2:1 - 4:1](
+        byRef: false
+        name: Identifier[2:10 - 2:12](
+            name: foo
+        )
+        params: array(
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Expression[3:5 - 3:10](
+                expr: Expr_PropertyFetch[3:5 - 3:10](
+                    var: Expr_Variable[3:5 - 3:8](
+                        name: bar
+                    )
+                    name: Expr_Error[4:1 - 3:10](
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+new T
+-----
+Syntax error, unexpected EOF from 2:6 to 2:6
+array(
+    0: Stmt_Expression(
+        expr: Expr_New(
+            class: Name(
+                parts: array(
+                    0: T
+                )
+            )
+            args: array(
+            )
+        )
+    )
+)
+-----
+<?php
+new
+-----
+!!php7,positions
+Syntax error, unexpected EOF from 2:4 to 2:4
+array(
+    0: Stmt_Expression[2:1 - 2:3](
+        expr: Expr_New[2:1 - 2:3](
+            class: Expr_Error[2:4 - 2:3](
+            )
+            args: array(
+            )
+        )
+    )
+)
+-----
+<?php
+$foo instanceof
+-----
+!!php7
+Syntax error, unexpected EOF from 2:16 to 2:16
+array(
+    0: Stmt_Expression(
+        expr: Expr_Instanceof(
+            expr: Expr_Variable(
+                name: foo
+            )
+            class: Expr_Error(
+            )
+        )
+    )
+)
+-----
+<?php
+$
+-----
+!!php7
+Syntax error, unexpected EOF, expecting T_VARIABLE or '{' or '$' from 2:2 to 2:2
+array(
+    0: Stmt_Expression(
+        expr: Expr_Variable(
+            name: Expr_Error(
+            )
+        )
+    )
+)
+-----
+<?php
+Foo::$
+-----
+!!php7
+Syntax error, unexpected EOF, expecting T_VARIABLE or '{' or '$' from 2:7 to 2:7
+array(
+    0: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Name(
+                parts: array(
+                    0: Foo
+                )
+            )
+            name: Expr_Error(
+            )
+        )
+    )
+)
+-----
+<?php
+Foo::
+-----
+!!php7
+Syntax error, unexpected EOF from 2:6 to 2:6
+array(
+    0: Stmt_Expression(
+        expr: Expr_ClassConstFetch(
+            class: Name(
+                parts: array(
+                    0: Foo
+                )
+            )
+            name: Expr_Error(
+            )
+        )
+    )
+)
+-----
+<?php
+namespace Foo
+use A
+use function a
+use A\{B}
+const A = 1
+break
+break 2
+continue
+continue 2
+return
+return 2
+echo $a
+unset($a)
+throw $x
+goto label
+-----
+!!php7
+Syntax error, unexpected T_USE, expecting ';' or '{' from 3:1 to 3:3
+Syntax error, unexpected T_USE, expecting ';' from 5:1 to 5:3
+Syntax error, unexpected T_CONST, expecting ';' from 6:1 to 6:5
+Syntax error, unexpected T_BREAK, expecting ';' from 7:1 to 7:5
+Syntax error, unexpected T_THROW, expecting ';' from 15:1 to 15:5
+array(
+    0: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: Foo
+            )
+        )
+        stmts: array(
+            0: Stmt_Use(
+                type: TYPE_NORMAL (1)
+                uses: array(
+                    0: Stmt_UseUse(
+                        type: TYPE_UNKNOWN (0)
+                        name: Name(
+                            parts: array(
+                                0: A
+                            )
+                        )
+                        alias: null
+                    )
+                )
+            )
+            1: Stmt_Use(
+                type: TYPE_FUNCTION (2)
+                uses: array(
+                    0: Stmt_UseUse(
+                        type: TYPE_UNKNOWN (0)
+                        name: Name(
+                            parts: array(
+                                0: a
+                            )
+                        )
+                        alias: null
+                    )
+                )
+            )
+            2: Stmt_GroupUse(
+                type: TYPE_UNKNOWN (0)
+                prefix: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                uses: array(
+                    0: Stmt_UseUse(
+                        type: TYPE_NORMAL (1)
+                        name: Name(
+                            parts: array(
+                                0: B
+                            )
+                        )
+                        alias: null
+                    )
+                )
+            )
+            3: Stmt_Const(
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: A
+                        )
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+            4: Stmt_Break(
+                num: null
+            )
+            5: Stmt_Break(
+                num: Scalar_LNumber(
+                    value: 2
+                )
+            )
+            6: Stmt_Continue(
+                num: null
+            )
+            7: Stmt_Continue(
+                num: Scalar_LNumber(
+                    value: 2
+                )
+            )
+            8: Stmt_Return(
+                expr: null
+            )
+            9: Stmt_Return(
+                expr: Scalar_LNumber(
+                    value: 2
+                )
+            )
+            10: Stmt_Echo(
+                exprs: array(
+                    0: Expr_Variable(
+                        name: a
+                    )
+                )
+            )
+            11: Stmt_Unset(
+                vars: array(
+                    0: Expr_Variable(
+                        name: a
+                    )
+                )
+            )
+            12: Stmt_Throw(
+                expr: Expr_Variable(
+                    name: x
+                )
+            )
+            13: Stmt_Goto(
+                name: Identifier(
+                    name: label
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+
+use A\{B, };
+use function A\{b, };
+use A, ;
+const A = 42, ;
+
+class X implements Y, {
+    use A, ;
+    use A, {
+        A::b insteadof C, ;
+    }
+    const A = 42, ;
+    public $x, ;
+}
+interface I extends J, {}
+
+unset($x, );
+isset($x, );
+
+declare(a=42, );
+
+function foo($a, ) {}
+foo($a, );
+global $a, ;
+static $a, ;
+echo $a, ;
+
+for ($a, ; $b, ; $c, );
+function ($a, ) use ($b, ) {};
+-----
+!!php7
+A trailing comma is not allowed here from 5:6 to 5:6
+A trailing comma is not allowed here from 6:13 to 6:13
+A trailing comma is not allowed here from 8:21 to 8:21
+A trailing comma is not allowed here from 9:10 to 9:10
+A trailing comma is not allowed here from 10:10 to 10:10
+A trailing comma is not allowed here from 11:25 to 11:25
+A trailing comma is not allowed here from 13:17 to 13:17
+A trailing comma is not allowed here from 14:14 to 14:14
+A trailing comma is not allowed here from 16:22 to 16:22
+A trailing comma is not allowed here from 21:13 to 21:13
+A trailing comma is not allowed here from 23:16 to 23:16
+A trailing comma is not allowed here from 25:10 to 25:10
+A trailing comma is not allowed here from 26:10 to 26:10
+A trailing comma is not allowed here from 27:8 to 27:8
+A trailing comma is not allowed here from 29:8 to 29:8
+A trailing comma is not allowed here from 29:14 to 29:14
+A trailing comma is not allowed here from 29:20 to 29:20
+A trailing comma is not allowed here from 30:13 to 30:13
+A trailing comma is not allowed here from 30:24 to 30:24
+array(
+    0: Stmt_GroupUse(
+        type: TYPE_UNKNOWN (0)
+        prefix: Name(
+            parts: array(
+                0: A
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_NORMAL (1)
+                name: Name(
+                    parts: array(
+                        0: B
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    1: Stmt_GroupUse(
+        type: TYPE_FUNCTION (2)
+        prefix: Name(
+            parts: array(
+                0: A
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: b
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    2: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    3: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: A
+                )
+                value: Scalar_LNumber(
+                    value: 42
+                )
+            )
+        )
+    )
+    4: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: X
+        )
+        extends: null
+        implements: array(
+            0: Name(
+                parts: array(
+                    0: Y
+                )
+            )
+        )
+        stmts: array(
+            0: Stmt_TraitUse(
+                traits: array(
+                    0: Name(
+                        parts: array(
+                            0: A
+                        )
+                    )
+                )
+                adaptations: array(
+                )
+            )
+            1: Stmt_TraitUse(
+                traits: array(
+                    0: Name(
+                        parts: array(
+                            0: A
+                        )
+                    )
+                )
+                adaptations: array(
+                    0: Stmt_TraitUseAdaptation_Precedence(
+                        trait: Name(
+                            parts: array(
+                                0: A
+                            )
+                        )
+                        method: Identifier(
+                            name: b
+                        )
+                        insteadof: array(
+                            0: Name(
+                                parts: array(
+                                    0: C
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+            2: Stmt_ClassConst(
+                flags: 0
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: A
+                        )
+                        value: Scalar_LNumber(
+                            value: 42
+                        )
+                    )
+                )
+            )
+            3: Stmt_Property(
+                flags: MODIFIER_PUBLIC (1)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: x
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+    5: Stmt_Interface(
+        name: Identifier(
+            name: I
+        )
+        extends: array(
+            0: Name(
+                parts: array(
+                    0: J
+                )
+            )
+        )
+        stmts: array(
+        )
+    )
+    6: Stmt_Unset(
+        vars: array(
+            0: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_Isset(
+            vars: array(
+                0: Expr_Variable(
+                    name: x
+                )
+            )
+        )
+    )
+    8: Stmt_Declare(
+        declares: array(
+            0: Stmt_DeclareDeclare(
+                key: Identifier(
+                    name: a
+                )
+                value: Scalar_LNumber(
+                    value: 42
+                )
+            )
+        )
+        stmts: null
+    )
+    9: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+    10: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: foo
+                )
+            )
+            args: array(
+                0: Arg(
+                    value: Expr_Variable(
+                        name: a
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+    )
+    11: Stmt_Global(
+        vars: array(
+            0: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    12: Stmt_Static(
+        vars: array(
+            0: Stmt_StaticVar(
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+        )
+    )
+    13: Stmt_Echo(
+        exprs: array(
+            0: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    14: Stmt_For(
+        init: array(
+            0: Expr_Variable(
+                name: a
+            )
+        )
+        cond: array(
+            0: Expr_Variable(
+                name: b
+            )
+        )
+        loop: array(
+            0: Expr_Variable(
+                name: c
+            )
+        )
+        stmts: array(
+        )
+    )
+    15: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    default: null
+                )
+            )
+            uses: array(
+                0: Expr_ClosureUse(
+                    var: Expr_Variable(
+                        name: b
+                    )
+                    byRef: false
+                )
+            )
+            returnType: null
+            stmts: array(
+            )
+        )
+    )
+)
+-----
+<?php
+
+foo(Bar::);
+-----
+!!php7,positions
+Syntax error, unexpected ')' from 3:10 to 3:10
+array(
+    0: Stmt_Expression[3:1 - 3:11](
+        expr: Expr_FuncCall[3:1 - 3:10](
+            name: Name[3:1 - 3:3](
+                parts: array(
+                    0: foo
+                )
+            )
+            args: array(
+                0: Arg[3:5 - 3:9](
+                    value: Expr_ClassConstFetch[3:5 - 3:9](
+                        class: Name[3:5 - 3:7](
+                            parts: array(
+                                0: Bar
+                            )
+                        )
+                        name: Expr_Error[3:10 - 3:9](
+                        )
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+
+class Foo {
+    publi $foo;
+    public $bar;
+}
+-----
+!!php7
+Syntax error, unexpected T_STRING from 4:5 to 4:9
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: Foo
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_PUBLIC (1)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: bar
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+
+foreach ($foo) { $bar; }
+foreach ($foo as ) { $bar; }
+-----
+!!php7
+Syntax error, unexpected ')' from 3:14 to 3:14
+Syntax error, unexpected ')' from 4:18 to 4:18
+array(
+    0: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: foo
+        )
+        keyVar: null
+        byRef: false
+        valueVar: Expr_Error(
+        )
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Expr_Variable(
+                    name: bar
+                )
+            )
+        )
+    )
+    1: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: foo
+        )
+        keyVar: null
+        byRef: false
+        valueVar: Expr_Error(
+        )
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Expr_Variable(
+                    name: bar
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+
+function foo(Type) {
+    $foo;
+}
+
+function foo(Type1 $foo, Type2) {
+    $bar;
+}
+
+function foo(...) {
+    $baz;
+}
+
+function foo(&) {
+    $qux;
+}
+
+function foo(Bar)
+
+class Bar {
+    function foo(Baz)
+}
+
+function(Foo);
+-----
+!!php7
+Syntax error, unexpected ')', expecting T_VARIABLE from 3:18 to 3:18
+Syntax error, unexpected ')', expecting T_VARIABLE from 7:31 to 7:31
+Syntax error, unexpected ')', expecting T_VARIABLE from 11:17 to 11:17
+Syntax error, unexpected ')', expecting T_VARIABLE from 15:15 to 15:15
+Syntax error, unexpected ')', expecting T_VARIABLE from 19:17 to 19:17
+Syntax error, unexpected ')', expecting T_VARIABLE from 22:21 to 22:21
+Syntax error, unexpected ')', expecting T_VARIABLE from 25:13 to 25:13
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+            0: Param(
+                type: Name(
+                    parts: array(
+                        0: Type
+                    )
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Error(
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Expr_Variable(
+                    name: foo
+                )
+            )
+        )
+    )
+    1: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+            0: Param(
+                type: Name(
+                    parts: array(
+                        0: Type1
+                    )
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: foo
+                )
+                default: null
+            )
+            1: Param(
+                type: Name(
+                    parts: array(
+                        0: Type2
+                    )
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Error(
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Expr_Variable(
+                    name: bar
+                )
+            )
+        )
+    )
+    2: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: false
+                variadic: true
+                var: Expr_Error(
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Expr_Variable(
+                    name: baz
+                )
+            )
+        )
+    )
+    3: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: true
+                variadic: false
+                var: Expr_Error(
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Expression(
+                expr: Expr_Variable(
+                    name: qux
+                )
+            )
+        )
+    )
+    4: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+            0: Param(
+                type: Name(
+                    parts: array(
+                        0: Bar
+                    )
+                )
+                byRef: false
+                variadic: false
+                var: Expr_Error(
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+    5: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: Bar
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: 0
+                byRef: false
+                name: Identifier(
+                    name: foo
+                )
+                params: array(
+                    0: Param(
+                        type: Name(
+                            parts: array(
+                                0: Baz
+                            )
+                        )
+                        byRef: false
+                        variadic: false
+                        var: Expr_Error(
+                        )
+                        default: null
+                    )
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: Name(
+                        parts: array(
+                            0: Foo
+                        )
+                    )
+                    byRef: false
+                    variadic: false
+                    var: Expr_Error(
+                    )
+                    default: null
+                )
+            )
+            uses: array(
+            )
+            returnType: null
+            stmts: array(
+            )
+        )
+    )
+)
+-----
+<?php
+$array = [
+    $this->value $oopsAnotherValue->get()
+];
+$array = [
+    $value $oopsAnotherValue
+];
+$array = [
+    'key' => $value $oopsAnotherValue
+];
+-----
+!!php7
+Syntax error, unexpected T_VARIABLE, expecting ',' or ')' or ']' from 3:18 to 3:34
+Syntax error, unexpected T_VARIABLE, expecting ',' or ')' or ']' from 6:12 to 6:28
+Syntax error, unexpected T_VARIABLE, expecting ',' or ')' or ']' from 9:21 to 9:37
+array(
+    0: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: array
+            )
+            expr: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_PropertyFetch(
+                            var: Expr_Variable(
+                                name: this
+                            )
+                            name: Identifier(
+                                name: value
+                            )
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Expr_MethodCall(
+                            var: Expr_Variable(
+                                name: oopsAnotherValue
+                            )
+                            name: Identifier(
+                                name: get
+                            )
+                            args: array(
+                            )
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: array
+            )
+            expr: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: value
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: oopsAnotherValue
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: array
+            )
+            expr: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: Scalar_String(
+                            value: key
+                        )
+                        value: Expr_Variable(
+                            name: value
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: oopsAnotherValue
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+function foo() :
+{
+    return $a;
+}
+-----
+!!php7
+Syntax error, unexpected '{' from 3:1 to 3:1
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: foo
+        )
+        params: array(
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Return(
+                expr: Expr_Variable(
+                    name: a
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+$a = ["a "thing"];
+-----
+!!php7
+Syntax error, unexpected T_STRING, expecting ',' or ')' or ']' from 2:11 to 2:15

@@ -1,0 +1,27 @@
+__halt_compiler
+-----
+<?php
+
+echo 'foo';
+__halt_compiler();
+!!!
+???
+-----
+<?php
+
+echo 'foo';
+__halt_compiler();
+!!!
+???
+-----
+<?php
+
+echo 'foo';
+__halt_compiler();
+<?php
+-----
+<?php
+
+echo 'foo';
+__halt_compiler();
+<?php

@@ -1,0 +1,28 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}{{ application.getMetadata().getName() }}{% endblock %}
+
+{% block templateCSS %}
+    <style>
+		.uv-mob-aside {
+			display: none;
+		}
+    </style>
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		<div class="uv-view" style="padding-left: 20px;">
+			<!-- @TODO: add components to manage tabs dynamically -->
+            <div id="applicationDashboard" class="uv-app-screen">
+				{% if dashboard.template is not empty %}
+					{{ include(dashboard.template) }}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

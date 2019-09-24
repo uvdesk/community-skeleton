@@ -1,0 +1,331 @@
+{% extends "@UVDeskCoreFramework/Templates/layout.html.twig" %}
+
+{% block title %}
+	{{ 'Prepared Responses'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Productivity' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Prepared Responses'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt" style="width: 50%">
+                    <!--Sort by-->
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Sort By:'|trans }} {{ 'Id'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label> {{ 'Sort By'|trans }}</label>
+								<ul>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--Sort by-->
+
+                    <!--Filter By Status-->
+                    <div class="uv-dropdown filter-by-status">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Status:'|trans }} {{ 'All'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Status'|trans }}</label>
+								<ul>
+									<li class="uv-drop-list-active"><a href="#">{{ 'All'|trans }}</a></li>
+									<li><a href="#" data-id="1">{{ 'Active'|trans }}</a></li>
+									<li><a href="#" data-id="0">{{ 'Inactive'|trans }}</a></li>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--//Filter By Status-->
+                </div>
+				<div class="uv-action-bar-col-rt" style="width: 50%">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+					<!-- Add Button -->
+					
+						<a href="{{ path('prepare_response_addaction') }}" type="button" class="uv-btn-action">
+							<span class="uv-icon-add"></span>
+							{{ "New Prepared Response"|trans }}
+						</a>
+					
+					<!--// Add Button -->
+				</div>
+            </div>
+            <!--//Action Bar-->
+
+				{# <div class="uv-message-wrapper upgrade-plan-message">
+					<p>{{ 'This plan does not allow %app-access%. Upgrade your plan to start using this awesome feature.'|trans({'%app-access%': '<b>'~ 'Prepared Responses'|trans ~'</b>'})|raw }}</p>
+					<a href="{{ path('webkul_admin_subscription_plan') }}" class="uv-btn-small">{{ 'Upgrade Plan'|trans }}</a>
+				</div> #}
+          
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ "Name"|trans }}</th>
+							{% if is_granted('ROLE_ADMIN') %}
+                            	<th>{{ "User"|trans }}</th>
+							{% endif %}
+                            <th>{{ "Status"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+    <!-- Sorting Template -->
+	<script id="prepare_response_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'pr.id') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/pr.id/<% if(sort == 'pr.id') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="pr.id">
+                {{ 'Id'|trans }}
+            </a>
+            <% if(sort == 'pr.id') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+
+            <% } %>
+        </li>
+        <li class="<% if(sort == 'pr.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/pr.name/<% if(sort == 'pr.name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="pr.name">
+                {{ 'Name'|trans }}
+            </a>
+            <% if(sort == 'pr.name') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+
+            <% } %>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Prepared Responses list item template -->
+	<script id="prepare_response_list_item_tmp" type="text/template">
+		<td data-value="{{ 'Name'|trans }}"><%- name %></td>
+		{% if is_granted('ROLE_ADMIN') %}
+			<td data-value="{{ 'User'|trans }}">
+				<% if(user) { %>
+					<% if(user.smallThumbnail != null) { %>
+						<img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}<%- user.smallThumbnail %>" alt=""/>
+					<% } else { %>
+						{# <img src="{{ agentAsset }}" alt=""/> #}
+					<% } %>
+					<%- user.name %>
+				<% } %>
+			</td>
+		{% endif %}
+        <td data-value="{{ 'Status'|trans }}">
+			<% if(status) { %>
+            	<span class="uv-text-success">{{ 'Active'|trans }}</span>
+            <% } else { %>
+            	<span class="uv-text-danger">{{ 'Disabled'|trans }}</span>
+        	<% } %>
+		</td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('?template=replaceId', '/' + id) %>" class="uv-btn-stroke edit-prepare-response">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-prepare-response">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+	<!-- //Prepared Responses list item template -->
+
+	<script type="text/javascript">
+        var path = "{{ path('prepare_response_editaction', {'template': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var PrepareResponseModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var PrepareResponseCollection = AppCollection.extend({
+				model : PrepareResponseModel,
+				url : "{{ path('prepare_response_list_xhr') }}",
+				parseRecords: function (resp, options) {
+					return resp.preparedResponses;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var prepareResponseListView = new PrepareResponseList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(prepareResponseCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var PrepareResponseItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#prepare_response_list_item_tmp").html()),
+				events : {
+					'click .delete-prepare-response' : "confirmRemove"
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						prepareResponseCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('prepare_response_delete') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							prepareResponseCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var PrepareResponseList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("tr").remove();
+					if(prepareResponseCollection.length) {
+						_.each(prepareResponseCollection.models, function (item) {
+							this.renderPrepareResponse(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='4'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderPrepareResponse : function (item) {
+					var prepareResponseItem = new PrepareResponseItem({
+						model: item
+					});
+					this.$el.append(prepareResponseItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'pr.id',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Id{% endtrans %}",
+				template : _.template($("#prepare_response_list_sorting_tmp").html()),
+				filterByStatus : function(e) {
+					e.preventDefault()
+					this.collection.reset();
+					this.collection.state.currentPage = null;
+					this.collection.filterParameters.status = Backbone.$(e.currentTarget).find('a').attr('data-id');
+					var queryString = app.appView.buildQuery($.param(this.collection.getValidParameters()));
+					router.navigate(queryString, {trigger: true});
+				},
+			})
+
+			var prepareResponseCollection = new PrepareResponseCollection();
+
+			var filter = new Filter({
+				collection : prepareResponseCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'status/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterTypeList',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('', '');
+					prepareResponseCollection.state.currentPage = null;
+					filter.sortCollection();
+					prepareResponseCollection.syncData();
+				},
+				paginate : function(number,sortField,order) {
+					this.resetParams('', '');
+					prepareResponseCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					prepareResponseCollection.syncData();
+				},
+				filterTypeList: function(status,query,number,sortField,order) {
+					this.resetParams(status,query);
+					prepareResponseCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					prepareResponseCollection.syncData();
+				},
+				filterByQuery : function(query,number,sortField,order) {
+					this.resetParams('',query);
+					prepareResponseCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					prepareResponseCollection.syncData();
+				},
+				resetParams : function(status, query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					prepareResponseCollection.filterParameters.status = status;
+					var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
+					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+					prepareResponseCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

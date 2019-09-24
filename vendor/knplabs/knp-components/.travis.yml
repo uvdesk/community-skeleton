@@ -1,0 +1,25 @@
+language: php
+
+sudo: false
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+
+php:
+    - 7.2
+    - 7.3
+    - 7.4snapshot
+    - nightly
+
+matrix:
+    allow_failures:
+        - php: 7.4snapshot
+        - php: nightly
+
+before_script:
+    - pecl install -f mongodb-stable;
+    - composer install --prefer-dist
+    - phpunit --version
+
+script: phpunit

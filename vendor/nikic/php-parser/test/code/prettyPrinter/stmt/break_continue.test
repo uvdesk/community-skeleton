@@ -1,0 +1,13 @@
+break/continue
+-----
+<?php
+
+continue;
+continue 2;
+break;
+break 2;
+-----
+continue;
+continue 2;
+break;
+break 2;

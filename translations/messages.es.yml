@@ -1227,3 +1227,44 @@ ticket: boleto
 "Success! Ticket type saved successfully.": "¡Éxito! Tipo de ticket guardado correctamente"
 "Success! Ticket type updated successfully.": "¡Éxito! Tipo de ticket actualizado correctamente"
 "Error! Ticket type with same name already exist": "¡Error! El tipo de ticket con el mismo nombre ya existe"
+"SAVE": "SALVAR"
+'Save': 'Salvar'
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Las etiquetas de título y las metadescripciones son bits de código HTML en el encabezado de una página web. Ayudan a los motores de búsqueda a comprender el contenido de una página. La etiqueta del título y la meta descripción de una página generalmente se muestran cuando esa página aparece en los resultados del motor de búsqueda"
+"Success! Category has been added successfully.": "¡Éxito! La categoría se ha agregado con éxito."
+#customer page
+"Howdy!" : "¡Hola!"
+"New Ticket Request" : "Solicitud de nueva entrada"
+"Ticket Requests": "Solicitudes de entradas"
+"Cookie Usage Policy": "Política de uso de cookies"
+"cookie": "Galleta"
+"cookies": "galletas"
+"HELP": "AYUDA"
+"Home": "Casa"
+"Cookie Policy": "Política de cookies"
+"Prev": "Anterior"
+"Ticket query message": "Mensaje de consulta de ticket"
+"Select type": "Seleccione tipo"
+"Search KnowledgeBase": "Buscar en KnowledgeBase"
+"You can't merge an account with itself.": "No puede fusionar una cuenta consigo misma"
+"Edit Profile": "Editar perfil"
+"Customer Login": "Inicio de sesión del cliente"
+"Contact Us": "Contáctenos"
+"If you've ever contacted our support previously, your account would have already been created.": "Si alguna vez ha contactado con nuestro soporte anteriormente, su cuenta ya se habría creado"
+"support": "apoyo"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

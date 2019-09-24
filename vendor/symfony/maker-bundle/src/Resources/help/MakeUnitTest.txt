@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new unit test class.
+
+<info>php %command.full_name% UtilTest</info>
+
+If the argument is missing, the command will ask for the class name interactively.

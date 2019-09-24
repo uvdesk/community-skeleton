@@ -1,0 +1,22 @@
+security:
+    firewalls:
+        customer:
+            pattern: /
+            provider: user_provider
+            anonymous: ~
+            form_login:
+                use_referer: true
+                login_path: helpdesk_customer_login
+                check_path: helpdesk_customer_login
+                default_target_path: helpdesk_customer_ticket_collection
+                always_use_default_target_path: true
+            logout:
+                path: helpdesk_customer_logout
+                target: helpdesk_customer_login
+
+    access_control:
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/login, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/create-ticket, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/forgot-password, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/update-credentials, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/, roles: ROLE_CUSTOMER }

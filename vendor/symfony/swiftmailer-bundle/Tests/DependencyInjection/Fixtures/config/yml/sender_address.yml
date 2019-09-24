@@ -1,0 +1,2 @@
+swiftmailer:
+    sender_address: noreply@test.com

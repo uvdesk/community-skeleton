@@ -1,0 +1,16 @@
+if/elseif/else
+-----
+<?php
+
+if ($expr) {
+
+} elseif ($expr2) {
+
+} else {
+
+}
+-----
+if ($expr) {
+} elseif ($expr2) {
+} else {
+}

@@ -1,0 +1,47 @@
+Group use can have trailing comma
+-----
+<?php
+use A\{B,};
+use function A\{b,};
+-----
+!!php7
+array(
+    0: Stmt_GroupUse(
+        type: TYPE_UNKNOWN (0)
+        prefix: Name(
+            parts: array(
+                0: A
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_NORMAL (1)
+                name: Name(
+                    parts: array(
+                        0: B
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    1: Stmt_GroupUse(
+        type: TYPE_FUNCTION (2)
+        prefix: Name(
+            parts: array(
+                0: A
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: b
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+)

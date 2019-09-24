@@ -1,0 +1,247 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %} 
+    {% if template.id %}
+		{{ 'Edit Saved Reply'|trans }}
+	{% else %}
+		{{ 'Add Save Reply'|trans }}
+	{% endif %}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Productivity' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{% if template.id %}
+                    {{ 'Edit Saved Reply'|trans }}
+                {% else %}
+                    {{ 'Add Save Reply'|trans }}
+                {% endif %}
+			</h1>
+			
+			<!--Form-->
+			<form method="post" action="" id="saved-reply-form">
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Name'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="name" class="uv-field" value="{{ template.name }}" />
+					</div>
+					<span class="uv-field-info">{{ "Saved reply name"|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				{% if user_service.isAccessAuthorized('ROLE_ADMIN') %}
+					<!-- Field -->
+					<div class="uv-element-block">
+						<label class="uv-field-label">{{ 'Groups'|trans }}</label>
+						<div class="uv-field-block" id="group-filter">
+							<input type="hidden" name="tempGroups" class="uv-field" value="" />
+							<input name="groups" class="uv-field uv-dropdown-other preloaded" type="text" id="group-filter-input">
+                            <span class="uv-field-info">{{ 'Share saved reply with user(s) in these group(s)'|trans }}</span>
+							<div class="uv-dropdown-list uv-bottom-left">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Filter With'|trans }}</label>
+									<ul class="">
+										{% for group in user_service.getSupportGroups() %}
+											<li data-id="{{group.id}}">
+												{{group.name}}
+											</li>
+										{% endfor %}
+										<li class="uv-no-results" style="display: none;">
+											{{ 'No result found'|trans }}
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="uv-filtered-tags">
+								{% if template.getSupportGroups %}
+									{% for group in template.getSupportGroups() %}
+										{% if group.isActive %}
+											<a class="uv-btn-small default" href="#" data-id="{{group.id }}">
+												{{ group.name }}
+												<span class="uv-icon-remove"></span>
+											</a>
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<!-- //Field -->
+
+					<!-- Field -->
+					<div class="uv-element-block">
+						<label class="uv-field-label">{{ 'Teams'|trans }}</label>
+						<div class="uv-field-block" id="team-filter">
+							<input type="hidden" name="tempTeams" class="uv-field" value="" />
+							<input class="uv-field uv-dropdown-other preloaded" type="text" id="team-filter-input">
+                            <span class="uv-field-info">{{ 'Share saved reply with user(s) in these teams(s)'|trans }}</span>
+							<div class="uv-dropdown-list uv-bottom-left">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Filter With'|trans }}</label>
+									<ul class="">
+										{% for team in user_service.getSupportTeams() %}
+											<li data-id="{{team.id}}">
+												{{team.name}}
+											</li>
+										{% endfor %}
+										<li class="uv-no-results" style="display: none;">
+											{{ 'No result found'|trans }}
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="uv-filtered-tags">
+								{% if template.getSupportTeams() %}
+									{% for team in template.getSupportTeams() %}
+										{% if team.isActive %}
+											<a class="uv-btn-small default" href="#" data-id="{{team.id }}">
+												{{ team.name }}
+												<span class="uv-icon-remove"></span>
+											</a>
+										{% endif %}
+									{% endfor %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+					<!-- //Field -->
+				{% endif %}
+				<!-- Field -->
+				<div class="uv-margin-right-15">
+					<label class="uv-field-label">{{ 'Body'|trans }}</label>
+					<div class="uv-field-block uv-margin-top-5">
+						<textarea id="message" name="message" class="uv-field">
+							{{ template.message }}
+						</textarea>
+					</div>
+					<span class="uv-field-info  uv-margin-top-5">{{ "Saved reply Body"|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!--CTA-->
+				<input class="uv-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+				<!--//CTA-->
+			</form>
+			<!--//Form-->
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ parent() }}
+	  {{ include("@UVDeskCoreFramework/Templates/tinyMCE.html.twig") }}
+    <script>
+		var toolbarOptions = sfTinyMce.options.toolbar;
+        sfTinyMce.init({
+            // selector : 'textarea[name="message"]',
+			toolbar: toolbarOptions + ' | placeholders',
+			setup: function (editor) {
+				editor.addButton('placeholders', {
+				type: 'listbox',
+				text: '{{ "Placeholders"|trans }}',
+				onselect: function (e) {
+					editor.insertContent(this.value());
+					this.text('{{ "Placeholders"|trans }}');
+				},
+				values: [
+					{% for basekey, placeholders in email_service.getEmailPlaceHolders('savedReply') %}
+					// { text: '{{ basekey | trans | title }}' , menu: [
+						{% if placeholders is iterable %}
+							{% for fieldKey, fieldPlaceholder in placeholders %}
+								{ text: "{{ fieldPlaceholder.title|raw }}", value: '{{ "{%" ~ basekey ~ "." ~ fieldKey ~ "%}"}}' },
+							{% endfor %}
+						{% endif %}
+					// ]}, 
+					{% endfor %}
+				],
+				});
+			},
+        });
+    </script>
+
+	<script type="text/javascript">
+		$(function () {
+			var SavedReplyModel = Backbone.Model.extend({
+				validation: {
+					'name': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					}
+					,{
+						pattern: '^(?!.*[!@#$%^&*()<_+])',
+						msg: "{{ 'Name must have characters only' }}"
+					}
+					],
+				}
+			});
+
+			var SavedReplyForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn' : "saveSavedReply",
+					'blur input': 'formChanegd',
+                    'click .uv-dropdown-list li': 'addEntity',
+                    'click .uv-filtered-tags .uv-btn-small': 'removeEntity'
+				},
+				initialize : function() {
+					Backbone.Validation.bind(this);
+                    this.setAddedIds('#group-filter');
+                    this.setAddedIds('#team-filter');
+					var jsonContext = JSON.parse('{{ errors|raw }}');
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+				},
+				formChanegd: function(e) {
+			    	this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    	this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+			    },
+				saveSavedReply : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+			        if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+			            this.$el.submit();
+			        }
+				},
+                setAddedIds: function(selector) {
+                    var ids = [];
+                    $(selector).find('.uv-filtered-tags .uv-btn-small').each(function() {
+                        ids.push($(this).attr('data-id'))
+                    });
+
+                    $(selector).find("input[type='hidden']").val(ids.join(','))
+                },
+                addEntity: function(e) {
+                    currentElement = Backbone.$(e.currentTarget);
+                    if(id = currentElement.attr("data-id")) {
+                        parent = currentElement.parents(".uv-field-block");
+                        parent.find('input').val('')
+                        parent.find("li:not(.uv-no-results)").show();
+
+                        if(!parent.find(".uv-filtered-tags a[data-id='" + id + "']").length) {
+                            parent.find('.uv-filtered-tags').append("<a class='uv-btn-small default' href='#' data-id='" + id + "'>"+currentElement.text()+"<span class='uv-icon-remove'></span></a>")
+                            this.setAddedIds("#" + parent.attr('id'))
+                        }
+                    }
+                },
+                removeEntity: function(e) {
+                    var parent = Backbone.$(e.currentTarget).parents(".uv-field-block")
+                    Backbone.$(e.currentTarget).remove()
+                    this.setAddedIds("#" + parent.attr('id'))
+                }
+			});
+
+			savedReplyForm = new SavedReplyForm({
+				el : $("#saved-reply-form"),
+				model : new SavedReplyModel()
+			});	
+		});
+	</script>
+{% endblock %}

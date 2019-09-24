@@ -1,0 +1,33 @@
+Inline HTML
+-----
+<?php
+$a;
+?>
+B
+<?php
+$c;
+?>
+<?php
+$d;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Variable(
+            name: a
+        )
+    )
+    1: Stmt_InlineHTML(
+        value: B
+
+    )
+    2: Stmt_Expression(
+        expr: Expr_Variable(
+            name: c
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Variable(
+            name: d
+        )
+    )
+)

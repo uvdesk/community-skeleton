@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="62" height="62" viewBox="0 0 62 62">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #6f6f6f;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="clip" class="cls-1" d="M33,56h4l-6,6-6-6h4V6H25l6-6,6,6H33V56Z"/>
+</svg>

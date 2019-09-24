@@ -1,0 +1,175 @@
+Some special methods cannot be static
+-----
+<?php class A { static function __construct() {} }
+-----
+Constructor __construct() cannot be static from 1:17 to 1:22
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: __construct
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { static function __destruct() {} }
+-----
+Destructor __destruct() cannot be static from 1:17 to 1:22
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: __destruct
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { static function __clone() {} }
+-----
+Clone method __clone() cannot be static from 1:17 to 1:22
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: __clone
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { static function __CONSTRUCT() {} }
+-----
+Constructor __CONSTRUCT() cannot be static from 1:17 to 1:22
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: __CONSTRUCT
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { static function __Destruct() {} }
+-----
+Destructor __Destruct() cannot be static from 1:17 to 1:22
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: __Destruct
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php class A { static function __cLoNe() {} }
+-----
+Clone method __cLoNe() cannot be static from 1:17 to 1:22
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_STATIC (8)
+                byRef: false
+                name: Identifier(
+                    name: __cLoNe
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+    )
+)

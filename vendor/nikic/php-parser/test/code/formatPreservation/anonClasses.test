@@ -1,0 +1,28 @@
+Anonymous classes
+-----
+<?php
+new class
+($x)
+  extends X
+{ };
+-----
+$new = $stmts[0]->expr;
+$new->class->extends = null;
+$new->args[] = new Expr\Variable('y');
+-----
+<?php
+new class
+($x, $y)
+{ };
+-----
+<?php
+new class
+{};
+-----
+// Ignore name assigned to anon class
+$new = $stmts[0]->expr;
+$new->class->name = new Node\Identifier('Anon1');
+-----
+<?php
+new class
+{};

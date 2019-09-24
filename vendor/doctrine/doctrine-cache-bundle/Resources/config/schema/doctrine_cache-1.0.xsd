@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://doctrine-project.org/schemas/symfony-dic/cache"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://doctrine-project.org/schemas/symfony-dic/cache"
+            elementFormDefault="qualified">
+
+    <xsd:element name="doctrine_cache">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="acl_cache" type="acl_cache" minOccurs="0" maxOccurs="1" />
+                <xsd:element name="alias" type="alias" minOccurs="0" maxOccurs="unbounded" />
+                <xsd:element name="provider" type="provider" minOccurs="0" maxOccurs="unbounded" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="acl_cache">
+        <xsd:attribute name="id" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="alias">
+        <xsd:attribute name="key" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="provider">
+        <xsd:sequence>
+            <xsd:element name="type" type="xsd:string"/>
+            <xsd:element name="namespace" type="xsd:string"/>
+            <xsd:element name="alias" type="xsd:string" minOccurs="0" maxOccurs="unbounded" />
+            <xsd:choice minOccurs="0" maxOccurs="1">
+                <xsd:element name="chain"       type="chain_provider"/>
+                <xsd:element name="couchbase"   type="couchbase_provider"/>
+                <xsd:element name="file-system" type="filesystem_provider"/>
+                <xsd:element name="memcached"   type="memcached_provider"/>
+                <xsd:element name="memcache"    type="memcache_provider"/>
+                <xsd:element name="mongodb"     type="mongodb_provider"/>
+                <xsd:element name="php-file"    type="phpfile_provider"/>
+                <xsd:element name="redis"       type="redis_provider"/>
+                <xsd:element name="predis"      type="predis_provider"/>
+                <xsd:element name="riak"        type="riak_provider"/>
+                <xsd:element name="sqlite3"     type="sqlite3_provider"/>
+            </xsd:choice>
+        </xsd:sequence>
+        <xsd:attribute name="name" type="xsd:string" use="required"/>
+        <xsd:attribute name="namespace" type="xsd:string"/>
+        <xsd:attribute name="type" type="xsd:string" />
+    </xsd:complexType>
+
+    <!-- memcached -->
+    <xsd:complexType name="memcached_provider">
+        <xsd:sequence>
+            <xsd:element name="server" type="memcached_server" minOccurs="1" maxOccurs="unbounded" />
+            <xsd:element name="connection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="persistent-id" type="xsd:string"/>
+        <xsd:attribute name="connection-id" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="memcached_server">
+         <xsd:sequence>
+            <xsd:element name="host" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="port" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="connection-id" type="xsd:string"/>
+        <xsd:attribute name="host" type="xsd:string"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+    </xsd:complexType>
+
+    <!-- memcache -->
+    <xsd:complexType name="memcache_provider">
+        <xsd:sequence>
+            <xsd:element name="server" type="memcached_server" minOccurs="1" maxOccurs="unbounded" />
+            <xsd:element name="connection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="connection-id" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="memcache_server">
+        <xsd:sequence>
+            <xsd:element name="host" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="port" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="connection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="host" type="xsd:string"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+    </xsd:complexType>
+
+    <!-- redis -->
+    <xsd:complexType name="redis_provider">
+        <xsd:sequence>
+            <xsd:element name="host" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="port" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="password" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="timeout" type="xsd:unsignedInt" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="database" type="xsd:unsignedInt" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="connection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="host" type="xsd:string"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+        <xsd:attribute name="password" type="xsd:string" />
+        <xsd:attribute name="timeout" type="xsd:unsignedInt" />
+        <xsd:attribute name="database" type="xsd:unsignedInt" />
+        <xsd:attribute name="persistent" type="xsd:boolean" />
+    </xsd:complexType>
+
+    <!-- predis -->
+    <xsd:complexType name="predis_provider">
+        <xsd:sequence>
+            <xsd:element name="scheme" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="host" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="port" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="password" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="timeout" type="xsd:unsignedInt" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="database" type="xsd:unsignedInt" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="options" type="predis_options" minOccurs="0" maxOccurs="0" />
+        </xsd:sequence>
+        <xsd:attribute name="scheme" type="xsd:string"/>
+        <xsd:attribute name="host" type="xsd:string"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+        <xsd:attribute name="password" type="xsd:string" />
+        <xsd:attribute name="timeout" type="xsd:unsignedInt" />
+        <xsd:attribute name="database" type="xsd:unsignedInt" />
+    </xsd:complexType>
+
+    <xsd:complexType name="predis_options">
+        <xsd:sequence>
+            <xsd:any minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- couchbase -->
+    <xsd:complexType name="couchbase_provider">
+        <xsd:sequence>
+            <xsd:element name="username" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="password" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="bucket-name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="hostname" type="couchbase_hostname" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+        <xsd:attribute name="username" type="xsd:string"/>
+        <xsd:attribute name="password" type="xsd:string"/>
+        <xsd:attribute name="bucket-name" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:simpleType name="couchbase_hostname">
+        <xsd:restriction base="xsd:string" />
+    </xsd:simpleType>
+
+    <!-- riak -->
+    <xsd:complexType name="riak_provider">
+        <xsd:sequence>
+            <xsd:element name="bucket-property-list" type="memcache_bucket_property_list" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="connection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="bucket-name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="bucket-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="host" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="port" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="connection-id" type="xsd:string"/>
+        <xsd:attribute name="bucket-name" type="xsd:string"/>
+        <xsd:attribute name="bucket-id" type="xsd:string"/>
+        <xsd:attribute name="host" type="xsd:string"/>
+        <xsd:attribute name="port" type="xsd:string"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="memcache_bucket_property_list">
+        <xsd:sequence>
+            <xsd:element name="allow-multiple" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="n-value" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="allow-multiple" type="xsd:string" />
+        <xsd:attribute name="n-value" type="xsd:string" />
+    </xsd:complexType>
+
+    <!-- mongodb -->
+    <xsd:complexType name="mongodb_provider">
+        <xsd:sequence>
+            <xsd:element name="server" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="database-name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="collection-name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="connection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="collection-id" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="server" type="xsd:string" />
+        <xsd:attribute name="database-id" type="xsd:string" />
+        <xsd:attribute name="collection-id" type="xsd:string" />
+        <xsd:attribute name="database-name" type="xsd:string" />
+        <xsd:attribute name="collection-name" type="xsd:string" />
+    </xsd:complexType>
+
+    <!-- file-system -->
+    <xsd:complexType name="filesystem_provider">
+        <xsd:sequence>
+            <xsd:element name="extension" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="directory" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="umask" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="extension" type="xsd:string"/>
+        <xsd:attribute name="directory" type="xsd:string"/>
+        <xsd:attribute name="umask" type="xsd:integer"/>
+    </xsd:complexType>
+
+    <!-- php-file -->
+    <xsd:complexType name="phpfile_provider">
+        <xsd:sequence>
+            <xsd:element name="extension" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="directory" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="umask" type="xsd:integer" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="extension" type="xsd:string"/>
+        <xsd:attribute name="directory" type="xsd:string"/>
+        <xsd:attribute name="umask" type="xsd:integer"/>
+    </xsd:complexType>
+
+    <!-- sqlite3 -->
+    <xsd:complexType name="sqlite3_provider">
+        <xsd:sequence>
+            <xsd:element name="file-name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="table-name" type="xsd:string" minOccurs="0" maxOccurs="1" />
+        </xsd:sequence>
+        <xsd:attribute name="file-name" type="xsd:string"/>
+        <xsd:attribute name="table-name" type="xsd:string"/>
+    </xsd:complexType>
+
+    <!-- chain -->
+    <xsd:complexType name="chain_provider">
+        <xsd:sequence>
+            <xsd:element name="provider" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

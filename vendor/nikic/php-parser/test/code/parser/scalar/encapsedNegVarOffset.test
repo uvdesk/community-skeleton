@@ -1,0 +1,82 @@
+Encapsed string negative var offsets
+-----
+<?php
+"$a[-0]";
+"$a[-1]";
+"$a[-0x0]";
+"$a[-00]";
+"$a[@@{ -PHP_INT_MAX - 1 }@@]";
+-----
+!!php7
+array(
+    0: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_ArrayDimFetch(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    dim: Scalar_String(
+                        value: -0
+                    )
+                )
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_ArrayDimFetch(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    dim: Scalar_LNumber(
+                        value: -1
+                    )
+                )
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_ArrayDimFetch(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    dim: Scalar_String(
+                        value: -0x0
+                    )
+                )
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_ArrayDimFetch(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    dim: Scalar_String(
+                        value: -00
+                    )
+                )
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_ArrayDimFetch(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    dim: Scalar_LNumber(
+                        value: @@{ -PHP_INT_MAX - 1 }@@
+                    )
+                )
+            )
+        )
+    )
+)

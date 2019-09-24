@@ -1,0 +1,22 @@
+Removing property type
+-----
+<?php
+
+class B
+{
+
+    public
+    ?float
+    $b;
+}
+-----
+$stmts[0]->stmts[0]->type = null;
+-----
+<?php
+
+class B
+{
+
+    public
+    $b;
+}

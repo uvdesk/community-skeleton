@@ -1229,3 +1229,45 @@ ticket: Fahrkarte
 "Success! Ticket type saved successfully.": "Erfolgreich! Tickettyp erfolgreich gespeichert."
 "Success! Ticket type updated successfully.": "Erfolgreich! Tickettyp erfolgreich aktualisiert."
 "Error! Ticket type with same name already exist": "Fehler! Ticket-Typ mit gleichem Namen existiert bereits"
+"SAVE": "SPAREN"
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird"
+#customer page
+"Howdy!": "Hallo!"
+"New Ticket Request": "Neue Ticketanfrage"
+"Ticket Requests": "Ticket-Anfragen"
+"Cookie Usage Policy": "Cookie-Nutzungsrichtlinie"
+"cookie": "Plätzchen"
+"cookies": "Kekse"
+"HELP": "HILFE"
+"Home": "Zuhause"
+"Cookie Policy": "Cookie-Richtlinie"
+"Prev": "Zurück"
+"Ticket query message": "Ticketabfragenachricht"
+"Select type": "Art auswählen"
+"Search KnowledgeBase": "Wissensdatenbank durchsuchen"
+"You can't merge an account with itself.": "Sie können ein Konto nicht mit sich selbst zusammenführen."
+"Edit Profile": "Profil bearbeiten"
+"Customer Login": "Kundenlogin"
+"Contact Us": "Kontaktiere uns"
+"If you've ever contacted our support previously, your account would have already been created.":  "Wenn Sie schon einmal Kontakt mit unserem Support aufgenommen haben, wurde Ihr Konto bereits erstellt."           
+"support": "Unterstützung"
+
+
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

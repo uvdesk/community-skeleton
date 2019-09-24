@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swiftmailer="http://symfony.com/schema/dic/swiftmailer"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
+                        http://symfony.com/schema/dic/swiftmailer http://symfony.com/schema/dic/swiftmailer/swiftmailer-1.0.xsd">
+
+    <swiftmailer:config
+            transport="smtp"
+            host="example.org"
+            port="12345"
+            source-ip="127.0.0.1">
+        <swiftmailer:stream-options>
+            <swiftmailer:stream-option name="ssl">
+                <swiftmailer:stream-option name="verify_peer">true</swiftmailer:stream-option>
+                <swiftmailer:stream-option name="verify_depth">5</swiftmailer:stream-option>
+                <swiftmailer:stream-option name="cafile">/etc/ssl/cacert.pem</swiftmailer:stream-option>
+                <swiftmailer:stream-option name="CN_match">ssl.example.com</swiftmailer:stream-option>
+            </swiftmailer:stream-option>
+        </swiftmailer:stream-options>
+    </swiftmailer:config>
+</container>

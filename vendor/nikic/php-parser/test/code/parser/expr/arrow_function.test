@@ -1,0 +1,145 @@
+Arrow Functions
+-----
+<?php
+fn(bool $a) => $a;
+fn($x = 42) => $x;
+static fn(&$x) => $x;
+fn&($x) => $x;
+fn($x, ...$rest) => $rest;
+fn(): int => $x;
+-----
+!!php7
+array(
+    0: Stmt_Expression(
+        expr: Expr_ArrowFunction(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: Identifier(
+                        name: bool
+                    )
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    default: null
+                )
+            )
+            returnType: null
+            expr: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_ArrowFunction(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: x
+                    )
+                    default: Scalar_LNumber(
+                        value: 42
+                    )
+                )
+            )
+            returnType: null
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_ArrowFunction(
+            static: true
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: true
+                    variadic: false
+                    var: Expr_Variable(
+                        name: x
+                    )
+                    default: null
+                )
+            )
+            returnType: null
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_ArrowFunction(
+            static: false
+            byRef: true
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: x
+                    )
+                    default: null
+                )
+            )
+            returnType: null
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_ArrowFunction(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: x
+                    )
+                    default: null
+                )
+                1: Param(
+                    type: null
+                    byRef: false
+                    variadic: true
+                    var: Expr_Variable(
+                        name: rest
+                    )
+                    default: null
+                )
+            )
+            returnType: null
+            expr: Expr_Variable(
+                name: rest
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_ArrowFunction(
+            static: false
+            byRef: false
+            params: array(
+            )
+            returnType: Identifier(
+                name: int
+            )
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+)

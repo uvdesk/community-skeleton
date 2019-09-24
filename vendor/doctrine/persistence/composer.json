@@ -1,0 +1,53 @@
+{
+    "name": "doctrine/persistence",
+    "type": "library",
+    "description": "The Doctrine Persistence project is a set of shared interfaces and functionality that the different Doctrine object mappers share.",
+    "keywords": [
+        "persistence",
+        "object",
+        "mapper",
+        "orm",
+        "odm"
+    ],
+    "homepage": "https://doctrine-project.org/projects/persistence.html",
+    "license": "MIT",
+    "authors": [
+        {"name": "Guilherme Blanco", "email": "guilhermeblanco@gmail.com"},
+        {"name": "Roman Borschel", "email": "roman@code-factory.org"},
+        {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+        {"name": "Jonathan Wage", "email": "jonwage@gmail.com"},
+        {"name": "Johannes Schmitt", "email": "schmittjoh@gmail.com"},
+        {"name": "Marco Pivetta", "email": "ocramius@gmail.com"}
+    ],
+    "require": {
+        "php": "^7.1",
+        "doctrine/annotations": "^1.0",
+        "doctrine/cache": "^1.0",
+        "doctrine/collections": "^1.0",
+        "doctrine/event-manager": "^1.0",
+        "doctrine/reflection": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.8",
+        "doctrine/coding-standard": "^5.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "conflict": {
+        "doctrine/common": "<2.10@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Doctrine\\Common\\": "lib/Doctrine/Common"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Doctrine\\Tests\\": "tests/Doctrine/Tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
+        }
+    }
+}

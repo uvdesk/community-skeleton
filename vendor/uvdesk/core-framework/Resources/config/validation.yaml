@@ -1,0 +1,62 @@
+Webkul\UVDesk\CoreFrameworkBundle\DataProxies\CreateTicketDataClass:
+    group_sequence:
+        - CreateTicketDataClass
+    properties:
+        name:
+            - NotBlank:
+                message: 'This field is mandatory'
+                groups: [CreateTicket]
+        from:
+            - NotBlank:
+                message: 'This field is mandatory'
+                groups: [CreateTicket]
+            - Email:
+                message: 'The email {{ value }} is not a valid email.'
+                groups: [CreateTicket]
+        subject:
+            - NotBlank:
+                message: 'This field is mandatory'
+                groups: [CreateTicket, CustomerCreateTicket]
+        reply:
+            - NotBlank:
+                message: 'This field is mandatory'
+                groups: [CreateTicket, CustomerCreateTicket]
+
+# Webkul\UVDesk\CoreFrameworkBundle\Entity\Mailbox:
+#     group_sequence:
+#         - Mailbox
+#     constraints:
+#         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: {fields: [email], groups:[Mailbox]}
+#         - Webkul\UserBundle\Validator\Constraints\UVdeskEmail: {groups:[Mailbox]}
+#     properties:
+#         name:
+#             - NotBlank: { groups: [Mailbox]  }
+#             - Regex:
+#                 pattern: '/[!@#$%^&*()<_+]/'
+#                 match:   false
+#                 message: Mailbox Name must have characters only
+#                 groups: Mailbox
+#         email:
+#             - NotBlank: { groups: [Mailbox] }
+#             - Email:
+#                 message: 'The email {{ value }} is not a valid email.'
+#                 # checkMX: true
+#                 groups: [Mailbox]
+
+
+# Webkul\UVDesk\CoreFrameworkBundle\Entity\TicketType:
+#     group_sequence:
+#         - Type
+#         - uniqueType
+#     constraints:
+#         - Webkul\CoreFrameworkBundle\Validator\Constraints\UniqueType: {groups:[uniqueType]}
+#     properties:
+#         name:
+#             - NotBlank: { groups: [Type]  }
+#             - Regex:
+#                 pattern: '/[!@#$%^&*()<_+]/'
+#                 match:   false
+#                 message: Type Name must have characters only
+#                 groups: Type
+#         description:
+#             - NotBlank: { groups: [Type] }

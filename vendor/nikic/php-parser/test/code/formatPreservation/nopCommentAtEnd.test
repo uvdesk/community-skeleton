@@ -1,0 +1,11 @@
+Nop statement with comment at end (#513)
+-----
+<?php
+$foo;
+$bar;
+-----
+$stmts[1] = new Stmt\Nop(['comments' => [new Comment('//Some comment here')]]);
+-----
+<?php
+$foo;
+//Some comment here

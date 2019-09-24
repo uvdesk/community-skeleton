@@ -1,0 +1,11 @@
+{
+    "source": {
+        "directories": [
+            "lib\/Doctrine"
+        ]
+    },
+    "timeout": 10,
+    "logs": {
+        "text": "reports/humbuglog.txt"
+    }
+}

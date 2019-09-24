@@ -1,0 +1,6 @@
+swiftmailer:
+    default_mailer: mailer_on
+    mailers:
+        mailer_on: ~
+        mailer_off:
+            disable_delivery: true

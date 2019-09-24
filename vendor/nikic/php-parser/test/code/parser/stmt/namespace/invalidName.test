@@ -1,0 +1,87 @@
+Invalid namespace names
+-----
+<?php namespace self;
+-----
+Cannot use 'self' as namespace name from 1:17 to 1:20
+array(
+    0: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: self
+            )
+        )
+        stmts: array(
+        )
+    )
+)
+-----
+<?php namespace PARENT;
+-----
+Cannot use 'PARENT' as namespace name from 1:17 to 1:22
+array(
+    0: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: PARENT
+            )
+        )
+        stmts: array(
+        )
+    )
+)
+-----
+<?php namespace static;
+-----
+Syntax error, unexpected T_STATIC, expecting T_STRING or T_NS_SEPARATOR or '{' from 1:17 to 1:22
+array(
+)
+-----
+<?php use A as self;
+-----
+Cannot use A as self because 'self' is a special class name from 1:16 to 1:19
+array(
+    0: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                alias: Identifier(
+                    name: self
+                )
+            )
+        )
+    )
+)
+-----
+<?php use B as PARENT;
+-----
+Cannot use B as PARENT because 'PARENT' is a special class name from 1:16 to 1:21
+array(
+    0: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: B
+                    )
+                )
+                alias: Identifier(
+                    name: PARENT
+                )
+            )
+        )
+    )
+)
+-----
+<?php use C as static;
+-----
+Syntax error, unexpected T_STATIC, expecting T_STRING from 1:16 to 1:21
+array(
+)

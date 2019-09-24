@@ -1,0 +1,39 @@
+This document details all the possible changes that you should investigate when updating
+your project from Doctrine Common 2.0.x to 2.1
+
+## AnnotationReader changes
+
+The annotation reader was heavily refactored between 2.0 and 2.1-RC1. In theory the operation of the new reader should be backwards compatible, but it has to be setup differently to work that way:
+
+    $reader = new \Doctrine\Common\Annotations\AnnotationReader();
+    $reader->setDefaultAnnotationNamespace('Doctrine\ORM\Mapping\\');
+    // new code necessary starting here
+    $reader->setIgnoreNotImportedAnnotations(true);
+    $reader->setEnableParsePhpImports(false);
+    $reader = new \Doctrine\Common\Annotations\CachedReader(
+        new \Doctrine\Common\Annotations\IndexedReader($reader), new ArrayCache()
+    );
+
+## Annotation Base class or @Annotation
+
+Beginning after 2.1-RC2 you have to either extend ``Doctrine\Common\Annotations\Annotation`` or add @Annotation to your annotations class-level docblock, otherwise the class will simply be ignored.
+
+## Removed methods on AnnotationReader
+
+* AnnotationReader::setAutoloadAnnotations()
+* AnnotationReader::getAutoloadAnnotations()
+* AnnotationReader::isAutoloadAnnotations()
+
+## AnnotationRegistry
+
+Autoloading through the PHP autoloader is removed from the 2.1 AnnotationReader. Instead you have to use the global AnnotationRegistry for loading purposes:
+
+    \Doctrine\Common\Annotations\AnnotationRegistry::registerFile($fileWithAnnotations);
+    \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespace($namespace, $dirs = null);
+    \Doctrine\Common\Annotations\AnnotationRegistry::registerAutoloadNamespaces($namespaces);
+    \Doctrine\Common\Annotations\AnnotationRegistry::registerLoader($callable);
+
+The $callable for registering a loader accepts a class as first and only parameter and must try to silently autoload it. On success true has to be returned.
+The registerAutoloadNamespace function registers a PSR-0 compatible silent autoloader for all classes with the given namespace in the given directories.
+If null is passed as directory the include path will be used.
+

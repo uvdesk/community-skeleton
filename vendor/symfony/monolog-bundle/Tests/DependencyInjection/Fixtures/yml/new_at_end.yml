@@ -1,0 +1,15 @@
+imports:
+    - { resource: new_at_end_import.yml }
+
+monolog:
+    handlers:
+        custom:
+            type: stream
+            path: /tmp/symfony.log
+            bubble: false
+            level: WARNING
+        new:
+            type: stream
+            path: /tmp/monolog.log
+            bubble: true
+            level: ERROR

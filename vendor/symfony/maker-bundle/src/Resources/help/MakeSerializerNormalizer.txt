@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new serializer normalizer class.
+
+<info>php %command.full_name% UserNormalizer</info>
+
+If the argument is missing, the command will ask for the class name interactively.

@@ -1,0 +1,432 @@
+Spread array
+-----
+<?php
+$array = [1, 2, 3];
+
+function getArr() {
+	return [4, 5];
+}
+
+function arrGen() {
+	for($i = 11; $i < 15; $i++) {
+		yield $i;
+	}
+}
+
+[...[]];
+[...[1, 2, 3]];
+[...$array];
+[...getArr()];
+[...arrGen()];
+[...new ArrayIterator(['a', 'b', 'c'])];
+[0, ...$array, ...getArr(), 6, 7, 8, 9, 10, ...arrGen()];
+[0, ...$array, ...$array, 'end'];
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: array
+            )
+            expr: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 2
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    2: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 3
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+        )
+    )
+    1: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: getArr
+        )
+        params: array(
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_Return(
+                expr: Expr_Array(
+                    items: array(
+                        0: Expr_ArrayItem(
+                            key: null
+                            value: Scalar_LNumber(
+                                value: 4
+                            )
+                            byRef: false
+                            unpack: false
+                        )
+                        1: Expr_ArrayItem(
+                            key: null
+                            value: Scalar_LNumber(
+                                value: 5
+                            )
+                            byRef: false
+                            unpack: false
+                        )
+                    )
+                )
+            )
+        )
+    )
+    2: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: arrGen
+        )
+        params: array(
+        )
+        returnType: null
+        stmts: array(
+            0: Stmt_For(
+                init: array(
+                    0: Expr_Assign(
+                        var: Expr_Variable(
+                            name: i
+                        )
+                        expr: Scalar_LNumber(
+                            value: 11
+                        )
+                    )
+                )
+                cond: array(
+                    0: Expr_BinaryOp_Smaller(
+                        left: Expr_Variable(
+                            name: i
+                        )
+                        right: Scalar_LNumber(
+                            value: 15
+                        )
+                    )
+                )
+                loop: array(
+                    0: Expr_PostInc(
+                        var: Expr_Variable(
+                            name: i
+                        )
+                    )
+                )
+                stmts: array(
+                    0: Stmt_Expression(
+                        expr: Expr_Yield(
+                            key: null
+                            value: Expr_Variable(
+                                name: i
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Array(
+                        items: array(
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Array(
+                        items: array(
+                            0: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 1
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            1: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 2
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            2: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 3
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: array
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_FuncCall(
+                        name: Name(
+                            parts: array(
+                                0: getArr
+                            )
+                        )
+                        args: array(
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_FuncCall(
+                        name: Name(
+                            parts: array(
+                                0: arrGen
+                            )
+                        )
+                        args: array(
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    8: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_New(
+                        class: Name(
+                            parts: array(
+                                0: ArrayIterator
+                            )
+                        )
+                        args: array(
+                            0: Arg(
+                                value: Expr_Array(
+                                    items: array(
+                                        0: Expr_ArrayItem(
+                                            key: null
+                                            value: Scalar_String(
+                                                value: a
+                                            )
+                                            byRef: false
+                                            unpack: false
+                                        )
+                                        1: Expr_ArrayItem(
+                                            key: null
+                                            value: Scalar_String(
+                                                value: b
+                                            )
+                                            byRef: false
+                                            unpack: false
+                                        )
+                                        2: Expr_ArrayItem(
+                                            key: null
+                                            value: Scalar_String(
+                                                value: c
+                                            )
+                                            byRef: false
+                                            unpack: false
+                                        )
+                                    )
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    9: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 0
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                1: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: array
+                    )
+                    byRef: false
+                    unpack: true
+                )
+                2: Expr_ArrayItem(
+                    key: null
+                    value: Expr_FuncCall(
+                        name: Name(
+                            parts: array(
+                                0: getArr
+                            )
+                        )
+                        args: array(
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+                3: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 6
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                4: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 7
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                5: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 8
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                6: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 9
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                7: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 10
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                8: Expr_ArrayItem(
+                    key: null
+                    value: Expr_FuncCall(
+                        name: Name(
+                            parts: array(
+                                0: arrGen
+                            )
+                        )
+                        args: array(
+                        )
+                    )
+                    byRef: false
+                    unpack: true
+                )
+            )
+        )
+    )
+    10: Stmt_Expression(
+        expr: Expr_Array(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_LNumber(
+                        value: 0
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                1: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: array
+                    )
+                    byRef: false
+                    unpack: true
+                )
+                2: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: array
+                    )
+                    byRef: false
+                    unpack: true
+                )
+                3: Expr_ArrayItem(
+                    key: null
+                    value: Scalar_String(
+                        value: end
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+    )
+)

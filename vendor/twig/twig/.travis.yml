@@ -1,0 +1,28 @@
+language: php
+
+sudo: false
+
+cache:
+    directories:
+        - vendor
+        - $HOME/.composer/cache/files
+
+before_install:
+    - phpenv config-rm xdebug.ini || return 0
+
+install:
+    - travis_retry composer install
+
+script: ./vendor/bin/simple-phpunit
+
+jobs:
+    fast_finish: true
+    include:
+        - php: 7.0
+        - php: 7.1
+        - php: 7.2
+        - php: 7.3
+        - php: 7.4snapshot
+        - stage: integration tests
+          php: 7.3
+          script: ./drupal_test.sh

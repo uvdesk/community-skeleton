@@ -1,0 +1,19 @@
+{
+    "name": "Doctrine Cache Bundle",
+    "shortName": "DoctrineCacheBundle",
+    "slug": "doctrine-cache-bundle",
+    "versions": [
+        {
+            "name": "1.3",
+            "branchName": "master",
+            "slug": "1.3",
+            "current": true
+        },
+        {
+            "name": "1.2",
+            "branchName": "1.2",
+            "slug": "1.2",
+            "maintained": false
+        }
+    ]
+}

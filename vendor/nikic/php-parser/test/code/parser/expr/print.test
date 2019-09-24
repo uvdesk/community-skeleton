@@ -1,0 +1,14 @@
+Print
+-----
+<?php
+print $a;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Print(
+            expr: Expr_Variable(
+                name: a
+            )
+        )
+    )
+)

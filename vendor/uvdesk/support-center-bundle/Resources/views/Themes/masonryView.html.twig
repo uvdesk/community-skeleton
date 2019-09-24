@@ -1,0 +1,18 @@
+<div class="uv-kb-section">
+	<div class="uv-kb-section-head">
+		<h1 class="uv-text-center">{{ "Browse via Folders"|trans}}</h1>
+		<p class="uv-text-center uv-fixed-width">{{ "Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions"|trans}}</p>
+	</div>
+	<div class="uv-kb-section-layout uv-kb-layout-grid">
+    	{% for folder in solutions.results %}
+			<!--Folder-->
+			<div class="uv-kb-folder">
+				<p class="uv-folder-heading">{{folder.name}}</p>
+				<p class="uv-folder-description">{{folder.description}}</p>
+				<p><a href="{{ path('helpdesk_knowledgebase_folder', {'solution': folder.id}) }}">{{folder.categoriesCount}} {{"Categories"|trans}}</a></p>
+				<p><a href="{{ path('helpdesk_knowledgebase_folder_article_collection', {'solution': folder.id}) }}">{{folder.articleCount}} {{"Articles"|trans}}</a></p>
+			</div>
+			<!--//Folder-->
+    	{% endfor %}
+	</div>
+</div>

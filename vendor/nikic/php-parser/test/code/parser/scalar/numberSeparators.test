@@ -1,0 +1,199 @@
+Different integer syntaxes
+-----
+<?php
+
+6.674_083e-11;
+299_792_458;
+0xCAFE_F00D;
+0b0101_1111;
+0137_041;
+
+// already a valid constant name
+_100;
+
+// syntax errors
+100_;
+1__1;
+1_.0;
+1._0;
+0x_123;
+0b_101;
+1_e2;
+1e_2;
+-----
+Syntax error, unexpected T_STRING from 13:4 to 13:4
+Syntax error, unexpected T_STRING from 14:2 to 14:4
+Syntax error, unexpected T_STRING from 15:2 to 15:2
+Syntax error, unexpected T_STRING from 16:3 to 16:4
+Syntax error, unexpected T_STRING from 17:2 to 17:6
+Syntax error, unexpected T_STRING from 18:2 to 18:6
+Syntax error, unexpected T_STRING from 19:2 to 19:4
+Syntax error, unexpected T_STRING from 20:2 to 20:4
+array(
+    0: Stmt_Expression(
+        expr: Scalar_DNumber(
+            value: 6.674083E-11
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 299792458
+        )
+    )
+    2: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 3405705229
+        )
+    )
+    3: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 95
+        )
+    )
+    4: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 48673
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: _100
+                )
+                comments: array(
+                    0: // already a valid constant name
+                )
+            )
+            comments: array(
+                0: // already a valid constant name
+            )
+        )
+        comments: array(
+            0: // already a valid constant name
+        )
+    )
+    6: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 100
+            comments: array(
+                0: // syntax errors
+            )
+        )
+        comments: array(
+            0: // syntax errors
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: _
+                )
+            )
+        )
+    )
+    8: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 1
+        )
+    )
+    9: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: __1
+                )
+            )
+        )
+    )
+    10: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 1
+        )
+    )
+    11: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: _
+                )
+            )
+        )
+    )
+    12: Stmt_Expression(
+        expr: Scalar_DNumber(
+            value: 0
+        )
+    )
+    13: Stmt_Expression(
+        expr: Scalar_DNumber(
+            value: 1
+        )
+    )
+    14: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: _0
+                )
+            )
+        )
+    )
+    15: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 0
+        )
+    )
+    16: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: x_123
+                )
+            )
+        )
+    )
+    17: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 0
+        )
+    )
+    18: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: b_101
+                )
+            )
+        )
+    )
+    19: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 1
+        )
+    )
+    20: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: _e2
+                )
+            )
+        )
+    )
+    21: Stmt_Expression(
+        expr: Scalar_LNumber(
+            value: 1
+        )
+    )
+    22: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: e_2
+                )
+            )
+        )
+    )
+)

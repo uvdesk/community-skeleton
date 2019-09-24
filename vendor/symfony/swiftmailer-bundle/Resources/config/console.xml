@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swiftmailer.command.debug" class="Symfony\Bundle\SwiftmailerBundle\Command\DebugCommand">
+            <tag name="console.command" command="debug:swiftmailer" />
+        </service>
+
+        <service id="swiftmailer.command.new_email" class="Symfony\Bundle\SwiftmailerBundle\Command\NewEmailCommand">
+            <tag name="console.command" command="swiftmailer:email:send" />
+        </service>
+
+        <service id="swiftmailer.command.send_email" class="Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand">
+            <tag name="console.command" command="swiftmailer:spool:send" />
+        </service>
+    </services>
+</container>

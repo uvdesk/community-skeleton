@@ -1,0 +1,37 @@
+language: php
+sudo: false
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+        - $HOME/symfony-bridge/.phpunit
+
+services:
+    - mysql
+
+env:
+    global:
+        - PHPUNIT_FLAGS="-v"
+        - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
+        - SYMFONY_REQUIRE='>=3.4'
+
+matrix:
+    fast_finish: true
+    include:
+        - php: 7.3
+        - php: 7.1
+          env: MAKER_TEST_VERSION=stable-dev
+        - php: 7.1
+          env: MAKER_TEST_VERSION=dev
+
+before_install:
+    - find ~/.phpenv -name xdebug.ini -delete
+    - composer global require --no-progress --no-scripts --no-plugins symfony/flex dev-master
+    - composer update
+
+install:
+    - ./vendor/bin/simple-phpunit install
+
+script:
+    - composer validate --strict --no-check-lock
+    - ./vendor/bin/simple-phpunit $PHPUNIT_FLAGS
+    - ./vendor/bin/php-cs-fixer fix --dry-run --diff

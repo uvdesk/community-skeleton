@@ -1,0 +1,35 @@
+{
+    "name": "uvdesk/core-framework",
+    "description": "UVDesk Community Helpdesk Core Framework Bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Akshay Kumar",
+            "email": "akshay.kumar758@webkul.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "uvdesk/composer-plugin": "^1.0",
+        "doctrine/doctrine-bundle": "^1.11",
+        "doctrine/doctrine-fixtures-bundle": "^3.2",
+        "doctrine/doctrine-migrations-bundle": "^2.0",
+        "symfony/framework-bundle": "4.3.*",
+        "knplabs/knp-paginator-bundle": "^4.0"
+    },
+    "suggest": {
+        "uvdesk/automation-bundle": "Automate operations within your UVDesk Community Helpdesk System based on pre-defined events triggered from your application",
+        "uvdesk/support-center-bundle": "Provide your customers with convenience by introducing the Support Center Portal to your UVDesk Community Helpdesk System"
+    },
+    "autoload": {
+        "psr-4": { "Webkul\\UVDesk\\CoreFrameworkBundle\\": "" }
+    },
+    "extra": {
+        "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}

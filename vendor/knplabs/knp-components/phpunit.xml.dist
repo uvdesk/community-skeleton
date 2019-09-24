@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php" colors="true">
+    <testsuites>
+        <testsuite name="Pager tests">
+            <directory suffix="Test.php">tests/Test/Pager/</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

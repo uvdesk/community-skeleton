@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-dropbox</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-dropbox" fill-rule="nonzero" fill="#007EE5">
+            <g transform="translate(0.000000, 1.000000)">
+                <polygon id="polygon8" points="5.88322115 0.0234979301 -4.79435291e-08 3.86481524 4.06789728 7.12243021 9.99999995 3.45938652"></polygon>
+                <polygon id="polygon10" points="-4.79435291e-08 10.3802369 5.88322115 14.2215542 9.99999995 10.7852822 4.06789728 7.12243021"></polygon>
+                <polygon id="polygon12" points="9.99999995 10.7852822 14.1167788 14.2215542 20 10.3802369 15.9321026 7.12243021"></polygon>
+                <polygon id="polygon14" points="20 3.86481524 14.1167788 0.0234979301 9.99999995 3.45938652 15.9321026 7.12243021"></polygon>
+                <polygon id="polygon16" points="10.0120766 11.5246385 5.88322115 14.9507508 4.11639537 13.7971479 4.11639537 15.0903026 10.0120766 18.6256794 15.9077577 15.0903026 15.9077577 13.7971479 14.140932 14.9507508"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

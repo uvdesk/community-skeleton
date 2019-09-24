@@ -1,0 +1,15 @@
+Clone
+-----
+<?php
+
+clone $a;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Clone(
+            expr: Expr_Variable(
+                name: a
+            )
+        )
+    )
+)

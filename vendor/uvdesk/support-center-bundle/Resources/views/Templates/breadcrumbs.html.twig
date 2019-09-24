@@ -1,0 +1,23 @@
+{% if breadcrumbs is defined %}
+    <form method="get" action="{{ path('helpdesk_knowledgebase_search') }}">
+        <div class="uv-nav-bar">
+            <div class="uv-container">
+                <div class="uv-nav-bar-lt">
+                    <ul>
+                        {% for key, breadcrumb in breadcrumbs %}
+                            {% if key == (breadcrumbs|length - 1) %}
+                                {% if app.request.headers.get('referer') and app.request.headers.get('host') in app.request.headers.get('referer') %}
+                                    <li><a href="{{ app.request.headers.get('referer') }}">{{ "Prev"|trans }}</a></li>
+                                {% endif %}
+                            {% endif %}
+                            <li><a href="{{ breadcrumb.url }}">{{ breadcrumb.label }}</a></li>
+                        {% endfor %}
+                    </ul>  
+                </div>
+                <div class="uv-nav-bar-rt">
+                    <input class="uv-nav-search" name="s" type="text" placeholder="{{ "Search KnowledgeBase"|trans }}" value="{{ app.request.query.get('s') }}"> 
+                </div>
+            </div>
+        </div>
+    </form>
+{% endif %}

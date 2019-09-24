@@ -1,0 +1,178 @@
+Aliases (use)
+-----
+<?php
+
+use A\B;
+use C\D as E;
+use F\G as H, J;
+
+// evil alias notation - Do Not Use!
+use \A;
+use \A as B;
+
+// function and constant aliases
+use function foo\bar;
+use function foo\bar as baz;
+use const foo\BAR;
+use const foo\BAR as BAZ;
+-----
+array(
+    0: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: A
+                        1: B
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    1: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: C
+                        1: D
+                    )
+                )
+                alias: Identifier(
+                    name: E
+                )
+            )
+        )
+    )
+    2: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: F
+                        1: G
+                    )
+                )
+                alias: Identifier(
+                    name: H
+                )
+            )
+            1: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: J
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    3: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                alias: null
+            )
+        )
+        comments: array(
+            0: // evil alias notation - Do Not Use!
+        )
+    )
+    4: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                alias: Identifier(
+                    name: B
+                )
+            )
+        )
+    )
+    5: Stmt_Use(
+        type: TYPE_FUNCTION (2)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: foo
+                        1: bar
+                    )
+                )
+                alias: null
+            )
+        )
+        comments: array(
+            0: // function and constant aliases
+        )
+    )
+    6: Stmt_Use(
+        type: TYPE_FUNCTION (2)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: foo
+                        1: bar
+                    )
+                )
+                alias: Identifier(
+                    name: baz
+                )
+            )
+        )
+    )
+    7: Stmt_Use(
+        type: TYPE_CONSTANT (3)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: foo
+                        1: BAR
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+    8: Stmt_Use(
+        type: TYPE_CONSTANT (3)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: foo
+                        1: BAR
+                    )
+                )
+                alias: Identifier(
+                    name: BAZ
+                )
+            )
+        )
+    )
+)

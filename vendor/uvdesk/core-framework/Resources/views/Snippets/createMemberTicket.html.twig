@@ -1,0 +1,176 @@
+{% set isTicketViewPage = ('helpdesk_member_ticket' == app.request.attributes.get('_route')) %}
+
+<div class="uv-pop-up-overlay uv-no-error-success-icon" id="create-ticket-modal">
+    <div class="uv-pop-up-box uv-pop-up-wide">
+        <span class="uv-pop-up-close"></span>
+        <h2>Create Ticket</h2>
+        <form action="{{ path('helpdesk_member_create_ticket') }}" method="post" id="create-ticket-form" enctype="multipart/form-data">
+            {# Customer Details #}
+            {% if not isTicketViewPage %}
+                {# Name #}
+                <div class="uv-element-block">
+                    <label class="uv-field-label">Name</label>
+                    <div class="uv-field-block">
+                        <input name="name" class="uv-field create-ticket" type="text" value="">
+                    </div>
+                    <span class="uv-field-info">Customer full name</span>
+                </div>
+
+                {# Email #}
+                <div class="uv-element-block">
+                    <label class="uv-field-label">Email</label>
+                    <div class="uv-field-block">
+                        <input name="from" class="uv-field create-ticket" type="text" value="">
+                    </div>
+                    <span class="uv-field-info">Customer email address</span>
+                </div>
+            {% else %}
+                {# Retrieve customer details from the current ticket being visited #}
+                <span class="uv-field-info">Ticket will be created with current ticket's customer</span>
+            {% endif %}
+
+            {# Ticket Type #}
+            <div class="uv-element-block">
+                <label class="uv-field-label">Type</label>
+                <div class="uv-field-block">
+                    <select name="type" class="uv-select create-ticket" id="type">
+                        <option value="">Select type</option>
+
+                        {% for type in ticketTypeCollection %}
+                            <option value="{{ type.id }}">{{ type.description }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <span class="uv-field-info">Choose ticket type</span>
+            </div>
+
+            {# Ticket Subject #}
+            <div class="uv-element-block">
+                <label class="uv-field-label">Subject</label>
+                <div class="uv-field-block">
+                    <input name="subject" class="uv-field create-ticket" type="text" value="">
+                </div>
+
+                <span class="uv-field-info">Ticket subject</span>
+            </div>
+
+            {# Ticket Message #}
+            <div class="uv-element-block">
+                <label class="uv-field-label">Message</label>
+                <div class="uv-field-block">
+                    <textarea name="reply" class="uv-field create-ticket" type="text"></textarea>
+                </div>
+                
+                <span class="uv-field-info">Query message</span>
+            </div>
+
+            {# Ticket Attachment #}
+            <div class="uv-element-block attachment-block uv-no-error-success-icon" id="uv-attachment-option">
+                <label>
+                    <span class="uv-file-label">Add Attachment</span>
+                </label>
+            </div>
+
+            <div class="uv-element-block">
+                <button type="submit" id="create-ticket-btn" class="uv-btn">Create Ticket</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if not(app.request.attributes.get('_route') in ['helpdesk_member_ticket']) %}
+    {{ include('@UVDeskCoreFramework\\Templates\\attachment.html.twig') }}
+{% endif %}
+
+<script type="text/javascript">
+    $(function () {
+        {% if(removeMe is defined) %}
+            $.each({{ removeMe | json_encode |raw }}, function(key, value){
+                $('label[for="' + value + '"]').parent().hide();
+            });
+        {% endif %}
+
+        $('.uv-header-date').datetimepicker({
+            format: 'YYYY-MM-DD',
+        });
+        $('.uv-header-time').datetimepicker({
+            format: 'LT',
+        });
+        $('.uv-header-datetime').datetimepicker({
+            format: 'YYYY-MM-DD H:m:s'
+        });
+
+        var CreateTicketModel = Backbone.Model.extend({
+            idAttribute : "id",
+            defaults : {
+                path : "",
+            },
+            validation: {
+                {% if not isTicketViewPage %}
+                    'name' : {
+                        required : true,
+                        msg : 'This field is mandatory'
+                    },
+                    'from' : 
+                    [{
+                        required : true,
+                        msg : 'This field is mandatory'
+                    },{
+                        pattern : /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/,
+                        msg : 'Email address is invalid'
+                    }],
+                {% endif %}
+                'type' : {
+                    required : true,
+                    msg : 'This field is mandatory'
+                },
+                'subject' : {
+                    required : true,
+                    msg : 'This field is mandatory'
+                },
+                'reply' : {
+                    required : true,
+                    msg : 'This field is mandatory'
+                },
+            },
+            urlRoot : "{{ path('helpdesk_member_create_ticket') }}"
+        });
+
+        var CreateTicketForm = Backbone.View.extend({
+            el : $("#create-ticket-modal #create-ticket-form"),
+            model: new CreateTicketModel(),
+            initialize : function() {
+                Backbone.Validation.bind(this);
+                var jsonContext = JSON.parse('{{ errors is defined ? errors|raw : "{}"  }}');
+                for (var field in jsonContext) {
+                    Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+                }
+            },
+            events : {
+                'click #create-ticket-btn': "saveTicket",
+                'blur input.create-ticket:not(input[type=file]), textarea.create-ticket, select.create-ticket, checkbox.create-ticket': 'formChanegd',
+                'change input[type=file].create-ticket': 'formChanegd',
+            },
+            formChanegd: function(e) {
+                this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+                this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+            },
+            saveTicket: function (e) {
+                e.preventDefault();
+                var currentElement = Backbone.$(e.currentTarget);
+                var data = currentElement.closest('form').serializeObject();
+                this.model = new CreateTicketModel();
+                this.model.set(data);
+                Backbone.Validation.bind(this);
+
+                if(this.model.isValid(true)) {
+                    $('#create-ticket-form').submit();
+                    $('form').find('#create-ticket-btn').attr('disabled', 'disabled');
+                }
+            }
+        });
+
+        new CreateTicketForm();
+    });	
+</script>

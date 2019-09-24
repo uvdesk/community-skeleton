@@ -1,0 +1,28 @@
+Ensure correct file position attributes for group use prefix
+-----
+<?php
+use Foo\Bar\{Baz};
+-----
+!!positions
+array(
+    0: Stmt_GroupUse[2:1 - 2:17](
+        type: TYPE_UNKNOWN (0)
+        prefix: Name[2:5 - 2:11](
+            parts: array(
+                0: Foo
+                1: Bar
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse[2:14 - 2:16](
+                type: TYPE_NORMAL (1)
+                name: Name[2:14 - 2:16](
+                    parts: array(
+                        0: Baz
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+)

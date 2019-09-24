@@ -1,0 +1,7 @@
+swiftmailer:
+    default_mailer: mailer_on
+    mailers:
+        mailer_on: ~
+        mailer_off:
+            username: '%env(PHP_SAPI)%'
+            disable_delivery: true

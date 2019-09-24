@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Materialize pagination control implementation.
+ *
+ * View that can be used with the pagination module
+ * from the Materialize CSS
+ * https://materializecss.com/pagination.html
+ *
+ * @author Leonardo Bressan Motyczka <leomoty@gmail.com>
+ */
+#}
+
+{% if pageCount > 1 %}
+    <ul class="pagination">
+        {% if first is defined and current != first %}
+            <li class="waves-effect">
+                <a href="{{ path(route, query|merge({(pageParameterName): first})) }}">
+                    <i class="material-icons">first_page</i>
+                </a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="#!">
+                    <i class="material-icons">first_page</i>
+                </a>
+            </li>
+        {% endif %}
+
+        {% if previous is defined %}
+            <li class="waves-effect">
+                <a href="{{ path(route, query|merge({(pageParameterName): previous})) }}">
+                    <i class="material-icons">chevron_left</i>
+                </a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="#!">
+                    <i class="material-icons">chevron_left</i>
+                </a>
+            </li>
+        {% endif %}
+
+        {% for page in pagesInRange %}
+            {% if page != current %}
+                <li class="waves-effect">
+                    <a href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                </li>
+            {% else %}
+                <li class="active">
+                    <a href="#!">{{ page }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% if next is defined %}
+            <li class="waves-effect">
+                <a href="{{ path(route, query|merge({(pageParameterName): next})) }}">
+                    <i class="material-icons">chevron_right</i>
+                </a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="#!">
+                    <i class="material-icons">chevron_right</i>
+                </a>
+            </li>
+        {% endif %}
+
+        {% if last is defined and current != last %}
+            <li class="waves-effect">
+                <a href="{{ path(route, query|merge({(pageParameterName): last})) }}">
+                    <i class="material-icons">last_page</i>
+                </a>
+            </li>
+        {% else %}
+            <li class="disabled">
+                <a href="#!">
+                    <i class="material-icons">last_page</i>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+{% endif %}

@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true">
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="request_stack" />
+        </service>
+
+        <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator" />
+
+        <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+            <tag name="knp_paginator.subscriber" />
+        </service>
+
+        <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+            <tag name="knp_paginator.subscriber" />
+        </service>
+
+        <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+            <tag name="knp_paginator.subscriber" />
+        </service>
+
+        <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+            <argument type="collection">
+                <argument key="defaultPaginationTemplate">%knp_paginator.template.pagination%</argument>
+                <argument key="defaultSortableTemplate">%knp_paginator.template.sortable%</argument>
+                <argument key="defaultFiltrationTemplate">%knp_paginator.template.filtration%</argument>
+                <argument key="defaultPageRange">%knp_paginator.page_range%</argument>
+            </argument>
+            <tag name="knp_paginator.subscriber" />
+            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
+        </service>
+
+        <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+            <argument type="service" id="router" />
+            <argument type="service" id="translator" />
+        </service>
+
+        <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+            <argument type="service" id="knp_paginator.helper.processor" />
+            <tag name="twig.extension" />
+        </service>
+    </services>
+</container>

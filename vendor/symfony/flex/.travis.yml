@@ -1,0 +1,33 @@
+language: php
+
+sudo: false
+
+matrix:
+  include:
+    - php: 7.0
+    - php: 7.1
+      env: COMPOSER_FLAGS='--prefer-lowest'
+    - php: 7.2
+    - php: 7.3
+  fast_finish: true
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/symfony-bridge/.phpunit
+
+env:
+  global:
+    - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
+    - SYMFONY_PHPUNIT_VERSION="6.1"
+    - COMPOSER_FLAGS=''
+    
+before_install:
+  - composer validate
+
+install:
+  - composer update $COMPOSER_FLAGS
+
+script:
+  - ./vendor/bin/simple-phpunit
+  - find src/ -name '*.php' | xargs -n1 php -l

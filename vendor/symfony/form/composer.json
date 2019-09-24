@@ -1,0 +1,68 @@
+{
+    "name": "symfony/form",
+    "type": "library",
+    "description": "Symfony Form Component",
+    "keywords": [],
+    "homepage": "https://symfony.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fabien Potencier",
+            "email": "fabien@symfony.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://symfony.com/contributors"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "symfony/event-dispatcher": "^4.3",
+        "symfony/intl": "^4.3",
+        "symfony/options-resolver": "~4.3",
+        "symfony/polyfill-ctype": "~1.8",
+        "symfony/polyfill-mbstring": "~1.0",
+        "symfony/property-access": "~3.4|~4.0",
+        "symfony/service-contracts": "~1.1"
+    },
+    "require-dev": {
+        "doctrine/collections": "~1.0",
+        "symfony/validator": "~3.4|~4.0",
+        "symfony/dependency-injection": "~3.4|~4.0",
+        "symfony/config": "~3.4|~4.0",
+        "symfony/console": "^4.3",
+        "symfony/http-foundation": "~3.4|~4.0",
+        "symfony/http-kernel": "~4.3",
+        "symfony/security-csrf": "~3.4|~4.0",
+        "symfony/translation": "~4.2",
+        "symfony/var-dumper": "^4.3"
+    },
+    "conflict": {
+        "phpunit/phpunit": "<4.8.35|<5.4.3,>=5.0",
+        "symfony/console": "<4.3",
+        "symfony/dependency-injection": "<3.4",
+        "symfony/doctrine-bridge": "<3.4",
+        "symfony/framework-bundle": "<3.4",
+        "symfony/http-kernel": "<4.3",
+        "symfony/intl": "<4.3",
+        "symfony/translation": "<4.2",
+        "symfony/twig-bridge": "<3.4.5|<4.0.5,>=4.0"
+    },
+    "suggest": {
+        "symfony/validator": "For form validation.",
+        "symfony/security-csrf": "For protecting forms against CSRF attacks.",
+        "symfony/twig-bridge": "For templating with Twig."
+    },
+    "autoload": {
+        "psr-4": { "Symfony\\Component\\Form\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.3-dev"
+        }
+    }
+}

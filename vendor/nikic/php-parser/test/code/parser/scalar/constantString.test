@@ -1,0 +1,86 @@
+Constant string syntaxes
+-----
+<?php
+
+'';
+"";
+b'';
+b"";
+'Hi';
+b'Hi';
+B'Hi';
+"Hi";
+b"Hi";
+B"Hi";
+'!\'!\\!\a!';
+"!\"!\\!\$!\n!\r!\t!\f!\v!\e!\a";
+"!\xFF!\377!\400!\0!";
+-----
+array(
+    0: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    2: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    3: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    4: Stmt_Expression(
+        expr: Scalar_String(
+            value: Hi
+        )
+    )
+    5: Stmt_Expression(
+        expr: Scalar_String(
+            value: Hi
+        )
+    )
+    6: Stmt_Expression(
+        expr: Scalar_String(
+            value: Hi
+        )
+    )
+    7: Stmt_Expression(
+        expr: Scalar_String(
+            value: Hi
+        )
+    )
+    8: Stmt_Expression(
+        expr: Scalar_String(
+            value: Hi
+        )
+    )
+    9: Stmt_Expression(
+        expr: Scalar_String(
+            value: Hi
+        )
+    )
+    10: Stmt_Expression(
+        expr: Scalar_String(
+            value: !'!\!\a!
+        )
+    )
+    11: Stmt_Expression(
+        expr: Scalar_String(
+            value: !"!\!$!
+        !@@{ "\r" }@@!@@{ "\t" }@@!@@{ "\f" }@@!@@{ "\v" }@@!@@{ chr(27) /* "\e" */ }@@!\a
+        )
+    )
+    12: Stmt_Expression(
+        expr: Scalar_String(
+            value: !@@{ chr(255) }@@!@@{ chr(255) }@@!@@{ chr(0) }@@!@@{ chr(0) }@@!
+        )
+    )
+)

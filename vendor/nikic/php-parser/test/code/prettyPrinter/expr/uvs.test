@@ -1,0 +1,23 @@
+Uniform variable syntax
+-----
+<?php
+
+(function() {})();
+array('a', 'b')()();
+A::$b::$c;
+$A::$b[$c]();
+$A::{$b[$c]}();
+A::$$b[$c]();
+($a->b)();
+(A::$b)();
+-----
+!!php7
+(function () {
+})();
+array('a', 'b')()();
+A::$b::$c;
+$A::$b[$c]();
+$A::{$b[$c]}();
+A::${$b}[$c]();
+($a->b)();
+(A::$b)();

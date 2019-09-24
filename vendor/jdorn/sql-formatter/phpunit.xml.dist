@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit colors="true">
+    <testsuites>
+        <testsuite name="SqlFormatter">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./tests</directory>
+                <directory>./vendor</directory>
+                <directory>./examples</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

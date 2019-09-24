@@ -1,0 +1,37 @@
+<div class="uv-paper-aside">
+    {% if popArticles is defined and popArticles %}
+        <aside>
+            <h3>{{'Popular Articles'|trans}}</h3>
+            <ul>
+                {% for popArticle in popArticles %}
+                    <li><a href="{{path('helpdesk_knowledgebase_read_slug_article', {'slug': popArticle.slug})}}"> {% if popArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{ popArticle.name }}</a></li>
+                    {#<li><a href="{{path('helpdesk_knowledgebase_read_article', {'article': popArticle.id})}}"> {% if popArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{popArticle.name}}</a></li>#}
+                {% endfor %}
+            </ul>
+        </aside>
+    {% endif %}
+    
+    {% if relatedArticles is defined and relatedArticles %}
+        <aside class="uv-margin-top-30">
+            <h3>{{'Related Articles'|trans}}</h3>
+            <ul>
+                {% for relatedArticle in relatedArticles %}
+                    <li><a href="{{path('helpdesk_knowledgebase_read_slug_article', {'slug': relatedArticle.slug})}}"> {% if relatedArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{ relatedArticle.name }}</a></li>
+                    {#<li><a href="{{path('helpdesk_knowledgebase_read_article', {'article': relatedArticle.articleId})}}"> {% if relatedArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{relatedArticle.name}}</a></li>#}
+                {% endfor %}
+            </ul>
+        </aside>
+    {% endif %}
+
+
+    {% if articleTags is defined and articleTags %}
+        <aside class="uv-margin-top-30">
+            <h3>{{'Tags'|trans}}</h3>
+            <div class="uv-tags">
+                {% for tag in articleTags %}
+                    <span><a href="{{path('helpdesk_knowledgebase_tag', {'tag': tag.id, 'name': tag.name})}}">{{tag.name}}</a></span>
+                {% endfor %}
+            </div>
+        </aside>
+    {% endif %}
+</div>

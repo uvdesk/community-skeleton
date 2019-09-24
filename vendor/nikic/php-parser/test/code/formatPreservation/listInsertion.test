@@ -1,0 +1,309 @@
+Insertion into list nodes
+-----
+<?php
+$foo;
+
+$bar;
+-----
+$stmts[] = new Stmt\Expression(new Expr\Variable('baz'));
+-----
+<?php
+$foo;
+
+$bar;
+$baz;
+-----
+<?php
+
+function test() {
+    $foo;
+
+    $bar;
+}
+-----
+$stmts[0]->stmts[] = new Stmt\Expression(new Expr\Variable('baz'));
+-----
+<?php
+
+function test() {
+    $foo;
+
+    $bar;
+    $baz;
+}
+-----
+<?php
+
+function test(Foo     $param1) {}
+-----
+$stmts[0]->params[] = new Node\Param(new Expr\Variable('param2'));
+-----
+<?php
+
+function test(Foo     $param1, $param2) {}
+-----
+<?php
+
+try {
+    /* stuff */
+} catch
+(Foo $x) {}
+-----
+$stmts[0]->catches[0]->types[] = new Node\Name('Bar');
+-----
+<?php
+
+try {
+    /* stuff */
+} catch
+(Foo|Bar $x) {}
+-----
+<?php
+
+function test(Foo     $param1) {}
+-----
+array_unshift($stmts[0]->params, new Node\Param(new Expr\Variable('param0')));
+-----
+<?php
+
+function test($param0, Foo     $param1) {}
+-----
+<?php
+
+function test() {}
+-----
+$stmts[0]->params[] = new Node\Param(new Expr\Variable('param0'));
+-----
+<?php
+
+function test($param0) {}
+-----
+<?php
+
+if ($cond) {
+} elseif ($cond2) {
+}
+-----
+$stmts[0]->elseifs[] = new Stmt\ElseIf_(new Expr\Variable('cond3'), []);
+-----
+<?php
+
+if ($cond) {
+} elseif ($cond2) {
+} elseif ($cond3) {
+}
+-----
+<?php
+
+try {
+} catch (Foo $foo) {
+}
+-----
+$stmts[0]->catches[] = new Stmt\Catch_([new Node\Name('Bar')], new Expr\Variable('bar'), []);
+-----
+<?php
+
+try {
+} catch (Foo $foo) {
+} catch (Bar $bar) {
+}
+-----
+<?php
+$foo; $bar;
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+$node->setAttribute('comments', [new Comment('// Test')]);
+$stmts[] = $node;
+-----
+<?php
+$foo; $bar;
+// Test
+$baz;
+-----
+<?php
+function test() {
+    $foo; $bar;
+}
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+$node->setAttribute('comments', [new Comment('// Test'), new Comment('// Test 2')]);
+$stmts[0]->stmts[] = $node;
+-----
+<?php
+function test() {
+    $foo; $bar;
+    // Test
+    // Test 2
+    $baz;
+}
+-----
+<?php
+namespace
+Foo;
+-----
+$stmts[0]->name->parts[0] = 'Xyz';
+-----
+<?php
+namespace
+Xyz;
+-----
+<?php
+function test() {
+    $foo; $bar;
+}
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+array_unshift($stmts[0]->stmts, $node);
+-----
+<?php
+function test() {
+    $baz;
+    $foo; $bar;
+}
+-----
+<?php
+function test() {
+    $foo; $bar;
+}
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+$node->setAttribute('comments', [new Comment('// Test')]);
+array_unshift($stmts[0]->stmts, $node);
+-----
+<?php
+function test() {
+    // Test
+    $baz;
+    $foo; $bar;
+}
+-----
+<?php
+function test() {
+
+    // Foo bar
+    $foo; $bar;
+}
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+$node->setAttribute('comments', [new Comment('// Test')]);
+array_unshift($stmts[0]->stmts, $node);
+-----
+<?php
+function test() {
+
+    // Test
+    $baz;
+    // Foo bar
+    $foo; $bar;
+}
+-----
+<?php
+function test() {
+
+    // Foo bar
+    $foo; $bar;
+}
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+$node->setAttribute('comments', [new Comment('// Test')]);
+array_unshift($stmts[0]->stmts, $node);
+$stmts[0]->stmts[1]->setAttribute('comments', [new Comment('// Bar foo')]);
+-----
+<?php
+function test() {
+
+    // Test
+    $baz;
+    // Bar foo
+    $foo; $bar;
+}
+-----
+<?php
+function test() {
+
+    // Foo bar
+    $foo; $bar;
+}
+-----
+$node = new Stmt\Expression(new Expr\Variable('baz'));
+$node->setAttribute('comments', [new Comment('// Test')]);
+array_unshift($stmts[0]->stmts, $node);
+$stmts[0]->stmts[1]->setAttribute('comments', []);
+-----
+<?php
+function test() {
+
+    // Test
+    $baz;
+    $foo; $bar;
+}
+-----
+<?php
+function test() {
+
+    // Foo bar
+    $foo; $bar;
+}
+-----
+array_unshift(
+    $stmts[0]->stmts,
+    new Stmt\Expression(new Expr\Variable('a')),
+    new Stmt\Expression(new Expr\Variable('b')));
+-----
+<?php
+function test() {
+
+    $a;
+    $b;
+    // Foo bar
+    $foo; $bar;
+}
+-----
+<?php
+function test() {}
+-----
+/* Insertion into empty list not handled yet */
+$stmts[0]->stmts = [
+    new Stmt\Expression(new Expr\Variable('a')),
+    new Stmt\Expression(new Expr\Variable('b')),
+];
+-----
+<?php
+function test()
+{
+    $a;
+    $b;
+}
+-----
+<?php
+$array = [
+    1,
+    2,
+    3,
+];
+-----
+array_unshift($stmts[0]->expr->expr->items, new Expr\ArrayItem(new Scalar\LNumber(42)));
+$stmts[0]->expr->expr->items[] = new Expr\ArrayItem(new Scalar\LNumber(24));
+-----
+<?php
+$array = [
+    42,
+    1,
+    2,
+    3,
+    24,
+];
+-----
+<?php
+$array = [
+    1, 2,
+    3,
+];
+-----
+$stmts[0]->expr->expr->items[] = new Expr\ArrayItem(new Scalar\LNumber(24));
+-----
+<?php
+$array = [
+    1, 2,
+    3, 24,
+];

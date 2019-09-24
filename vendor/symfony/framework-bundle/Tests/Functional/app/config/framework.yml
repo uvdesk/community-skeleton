@@ -1,0 +1,13 @@
+framework:
+    secret:        test
+    router:        { resource: "%kernel.project_dir%/%kernel.test_case%/routing.yml" }
+    validation:    { enabled: true, enable_annotations: true }
+    csrf_protection: true
+    form: true
+    test: true
+    default_locale: en
+    session:
+        storage_id:     session.storage.mock_file
+
+services:
+    logger: { class: Psr\Log\NullLogger }

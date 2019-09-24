@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<ruleset>
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="45"/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
+
+     <!-- Ignore warnings and show progress of the run -->
+    <arg value="np"/>
+
+    <file>.</file>
+    <exclude-pattern>/vendor</exclude-pattern>
+
+    <rule ref="Doctrine">
+        <!-- Traversable type hints often end up as mixed[], so we skip them for now -->
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification"/>
+    </rule>
+
+    <rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix">
+        <exclude-pattern>FixtureGroupInterface.php</exclude-pattern>
+        <exclude-pattern>ORMFixtureInterface.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint">
+        <exclude-pattern>Loader/SymfonyFixturesLoader.php</exclude-pattern>
+    </rule>
+    <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+        <exclude-pattern>Tests/IntegrationTest.php</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ClassFileName.NoMatch">
+        <exclude-pattern>Tests/IntegrationTest.php</exclude-pattern>
+    </rule>
+</ruleset>

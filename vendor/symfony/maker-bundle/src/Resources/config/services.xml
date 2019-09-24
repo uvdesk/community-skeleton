@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+        <services>
+            <defaults public="false" />
+
+            <service id="maker.file_manager" class="Symfony\Bundle\MakerBundle\FileManager">
+                <argument type="service" id="filesystem" />
+                <argument type="service" id="maker.autoloader_util" />
+                <argument>%kernel.project_dir%</argument>
+                <argument>%twig.default_path%</argument>
+            </service>
+
+            <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder" >
+                <argument /> <!-- root namespace -->
+            </service>
+
+            <service id="maker.autoloader_util" class="Symfony\Bundle\MakerBundle\Util\AutoloaderUtil">
+                <argument type="service" id="maker.autoloader_finder" />
+            </service>
+
+            <service id="maker.event_registry" class="Symfony\Bundle\MakerBundle\EventRegistry">
+                <argument type="service" id="event_dispatcher" />
+            </service>
+
+            <service id="maker.console_error_listener" class="Symfony\Bundle\MakerBundle\Event\ConsoleErrorSubscriber">
+                <tag name="kernel.event_subscriber" />
+            </service>
+
+            <service id="maker.doctrine_helper" class="Symfony\Bundle\MakerBundle\Doctrine\DoctrineHelper">
+                <argument /> <!-- entity namespace -->
+                <argument type="service" id="doctrine" on-invalid="ignore" />
+            </service>
+
+            <service id="maker.auto_command.abstract" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" abstract="true">
+                <argument /> <!-- maker -->
+                <argument type="service" id="maker.file_manager" />
+                <argument type="service" id="maker.generator" />
+            </service>
+
+            <service id="maker.generator" class="Symfony\Bundle\MakerBundle\Generator">
+                <argument type="service" id="maker.file_manager" />
+                <argument /> <!-- root namespace -->
+            </service>
+
+            <service id="maker.entity_class_generator" class="Symfony\Bundle\MakerBundle\Doctrine\EntityClassGenerator">
+                <argument type="service" id="maker.generator" />
+            </service>
+
+            <service id="maker.user_class_builder" class="Symfony\Bundle\MakerBundle\Security\UserClassBuilder" />
+
+            <service id="maker.security_config_updater" class="Symfony\Bundle\MakerBundle\Security\SecurityConfigUpdater" />
+
+            <service id="maker.renderer.form_type_renderer" class="Symfony\Bundle\MakerBundle\Renderer\FormTypeRenderer">
+                <argument type="service" id="maker.generator" />
+            </service>
+        </services>
+</container>

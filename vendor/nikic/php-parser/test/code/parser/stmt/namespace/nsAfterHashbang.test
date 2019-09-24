@@ -1,0 +1,22 @@
+Hashbang followed by namespace declaration
+-----
+#!/usr/bin/env php
+<?php
+
+namespace A;
+-----
+array(
+    0: Stmt_InlineHTML(
+        value: #!/usr/bin/env php
+
+    )
+    1: Stmt_Namespace(
+        name: Name(
+            parts: array(
+                0: A
+            )
+        )
+        stmts: array(
+        )
+    )
+)

@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+
+<srv:container xmlns="http://symfony.com/schema/dic/monolog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:srv="http://symfony.com/schema/dic/services"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
+                        http://symfony.com/schema/dic/monolog http://symfony.com/schema/dic/monolog/monolog-1.0.xsd">
+
+    <config>
+        <handler name="mailer" type="native_mailer" to-email="foo@example.com" from-email="bar@example.com" subject="a subject">
+            <header>Foo: bar</header>
+            <header>Baz: inga</header>
+        </handler>
+    </config>
+</srv:container>

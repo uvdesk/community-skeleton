@@ -1,0 +1,35 @@
+Conditional class definition
+-----
+<?php
+
+if (true) {
+    class A {}
+}
+-----
+array(
+    0: Stmt_If(
+        cond: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: true
+                )
+            )
+        )
+        stmts: array(
+            0: Stmt_Class(
+                flags: 0
+                name: Identifier(
+                    name: A
+                )
+                extends: null
+                implements: array(
+                )
+                stmts: array(
+                )
+            )
+        )
+        elseifs: array(
+        )
+        else: null
+    )
+)

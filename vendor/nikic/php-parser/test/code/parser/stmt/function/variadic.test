@@ -1,0 +1,134 @@
+Variadic functions
+-----
+<?php
+function test($a, ... $b) {}
+function test($a, &... $b) {}
+function test($a, Type ... $b) {}
+function test($a, Type &... $b) {}
+-----
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+            1: Param(
+                type: null
+                byRef: false
+                variadic: true
+                var: Expr_Variable(
+                    name: b
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+    1: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+            1: Param(
+                type: null
+                byRef: true
+                variadic: true
+                var: Expr_Variable(
+                    name: b
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+    2: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+            1: Param(
+                type: Name(
+                    parts: array(
+                        0: Type
+                    )
+                )
+                byRef: false
+                variadic: true
+                var: Expr_Variable(
+                    name: b
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+    3: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test
+        )
+        params: array(
+            0: Param(
+                type: null
+                byRef: false
+                variadic: false
+                var: Expr_Variable(
+                    name: a
+                )
+                default: null
+            )
+            1: Param(
+                type: Name(
+                    parts: array(
+                        0: Type
+                    )
+                )
+                byRef: true
+                variadic: true
+                var: Expr_Variable(
+                    name: b
+                )
+                default: null
+            )
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+)

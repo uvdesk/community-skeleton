@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns="http://symfony.com/schema/dic/doctrine/migrations"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://symfony.com/schema/dic/doctrine/migrations"
+            elementFormDefault="qualified">
+
+    <xsd:element name="config">
+        <xsd:complexType>
+            <xsd:attribute name="dir_name" type="xsd:string" />
+            <xsd:attribute name="namespace" type="xsd:string" />
+            <xsd:attribute name="table_name" type="xsd:string" />
+            <xsd:attribute name="column_name" type="xsd:string" />
+            <xsd:attribute name="column_length" type="xsd:integer" />
+            <xsd:attribute name="executed_at_column_name" type="xsd:integer" />
+            <xsd:attribute name="all_or_nothing" type="xsd:boolean" />
+            <xsd:attribute name="name" type="xsd:string" />
+            <xsd:attribute name="custom_template" type="xsd:string" />
+            <xsd:attribute name="organize-migrations">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                        <xsd:enumeration value="BY_YEAR" />
+                        <xsd:enumeration value="BY_YEAR_AND_MONTH" />
+                        <xsd:enumeration value="false" />
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

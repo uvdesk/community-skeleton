@@ -1,0 +1,6 @@
+includes:
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+
+parameters:
+    ignoreErrors:
+        - '#Doctrine\\Common\\Reflection\\StaticReflection[a-zA-Z0-9_]+::__construct\(\) does not call parent constructor from Reflection[a-zA-Z0-9_]+#'

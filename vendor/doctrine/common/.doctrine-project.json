@@ -1,0 +1,17 @@
+{
+    "active": true,
+    "name": "Common",
+    "slug": "common",
+    "docsSlug": "doctrine-common",
+    "versions": [
+        {
+            "name": "master",
+            "branchName": "master",
+            "slug": "latest",
+            "aliases": [
+                "current",
+                "stable"
+            ]
+        }
+    ]
+}

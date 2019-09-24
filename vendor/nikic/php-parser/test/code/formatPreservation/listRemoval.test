@@ -1,0 +1,41 @@
+Removing from list nodes
+-----
+<?php $foo; $bar; $baz;
+-----
+array_splice($stmts, 1, 1, []);
+-----
+<?php $foo; $baz;
+-----
+<?php
+function foo(
+    $a,
+    $b,
+    $c
+) {}
+-----
+array_pop($stmts[0]->params);
+-----
+<?php
+function foo(
+    $a,
+    $b
+) {}
+-----
+<?php
+function foo(
+    $a,
+    $b,
+    $c
+) {}
+-----
+array_pop($stmts[0]->params);
+$stmts[0]->params[] = new Node\Param(new Expr\Variable('x'));
+$stmts[0]->params[] = new Node\Param(new Expr\Variable('y'));
+-----
+<?php
+function foo(
+    $a,
+    $b,
+    $x,
+    $y
+) {}

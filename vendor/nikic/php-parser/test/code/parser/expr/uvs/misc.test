@@ -1,0 +1,129 @@
+Uniform variable syntax in PHP 7 (misc)
+-----
+<?php
+
+A::A[0];
+A::A[0][1][2];
+"string"->length();
+(clone $obj)->b[0](1);
+[0, 1][0] = 1;
+-----
+!!php7
+array(
+    0: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ClassConstFetch(
+                class: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                name: Identifier(
+                    name: A
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ArrayDimFetch(
+                var: Expr_ArrayDimFetch(
+                    var: Expr_ClassConstFetch(
+                        class: Name(
+                            parts: array(
+                                0: A
+                            )
+                        )
+                        name: Identifier(
+                            name: A
+                        )
+                    )
+                    dim: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 1
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_MethodCall(
+            var: Scalar_String(
+                value: string
+            )
+            name: Identifier(
+                name: length
+            )
+            args: array(
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Expr_ArrayDimFetch(
+                var: Expr_PropertyFetch(
+                    var: Expr_Clone(
+                        expr: Expr_Variable(
+                            name: obj
+                        )
+                    )
+                    name: Identifier(
+                        name: b
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 0
+                )
+            )
+            args: array(
+                0: Arg(
+                    value: Scalar_LNumber(
+                        value: 1
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_ArrayDimFetch(
+                var: Expr_Array(
+                    items: array(
+                        0: Expr_ArrayItem(
+                            key: null
+                            value: Scalar_LNumber(
+                                value: 0
+                            )
+                            byRef: false
+                            unpack: false
+                        )
+                        1: Expr_ArrayItem(
+                            key: null
+                            value: Scalar_LNumber(
+                                value: 1
+                            )
+                            byRef: false
+                            unpack: false
+                        )
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 0
+                )
+            )
+            expr: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+)

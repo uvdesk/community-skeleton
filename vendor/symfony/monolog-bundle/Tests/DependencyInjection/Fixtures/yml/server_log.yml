@@ -1,0 +1,5 @@
+monolog:
+    handlers:
+        server_log:
+            type:       server_log
+            host:       0:9911

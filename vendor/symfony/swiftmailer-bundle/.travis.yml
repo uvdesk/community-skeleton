@@ -1,0 +1,34 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+    - $HOME/.symfony-phpunit
+
+env:
+  global:
+    - SYMFONY_PHPUNIT_DIR=$HOME/.symfony-phpunit
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.1
+      env: COMPOSER_FLAGS="--prefer-lowest" SYMFONY_DEPRECATIONS_HELPER=weak
+    - php: 7.1
+      env: SYMFONY_LTS=^3
+    - php: 7.2
+    - php: 7.3
+      env: DEPENDENCIES=dev
+
+before_install:
+    - phpenv config-rm xdebug.ini
+    - if [ "$SYMFONY_LTS" != "" ]; then composer require --dev --no-update "symfony/lts:$SYMFONY_LTS"; fi
+    - if [ "$DEPENDENCIES" = "dev" ]; then composer config minimum-stability dev; fi;
+
+install:
+    - travis_retry composer update $COMPOSER_FLAGS
+    - ./vendor/bin/simple-phpunit install
+
+script: ./vendor/bin/simple-phpunit

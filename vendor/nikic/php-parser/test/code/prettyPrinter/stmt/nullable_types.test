@@ -1,0 +1,11 @@
+Nullable types
+-----
+<?php
+function test(?Foo $bar, ?string $foo, ?\Xyz $zyx) : ?Baz
+{
+}
+-----
+!!php7
+function test(?Foo $bar, ?string $foo, ?\Xyz $zyx) : ?Baz
+{
+}

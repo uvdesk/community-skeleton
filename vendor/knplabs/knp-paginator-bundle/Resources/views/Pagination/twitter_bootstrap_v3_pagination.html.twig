@@ -1,0 +1,85 @@
+{#
+/**
+ * @file
+ * Twitter Bootstrap v3 Sliding pagination control implementation.
+ *
+ * View that can be used with the pagination module
+ * from the Twitter Bootstrap CSS Toolkit
+ * http://getbootstrap.com/components/#pagination
+ *
+ * @author Pablo Díez <pablodip@gmail.com>
+ * @author Jan Sorgalla <jsorgalla@gmail.com>
+ * @author Artem Ponomarenko <imenem@inbox.ru>
+ * @author Artem Zabelin <artjomzabelin@gmail.com>
+ */
+#}
+
+{% if pageCount > 1 %}
+    <ul class="pagination justify-content-center">
+
+    {% if previous is defined %}
+        <li class="page-item">
+            <a class="page-link" rel="prev" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">&laquo;&nbsp;{{ 'label_previous'|trans([], 'KnpPaginatorBundle') }}</a>
+        </li>
+    {% else %}
+        <li class="disabled page-item">
+            <a class="page-link">&laquo;&nbsp;{{ 'label_previous'|trans([], 'KnpPaginatorBundle') }}</a>
+        </li>
+    {% endif %}
+
+    {% if startPage > 1 %}
+        <li class="page-item">
+            <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 1})) }}">1</a>
+        </li>
+        {% if startPage == 3 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): 2})) }}">2</a>
+            </li>
+        {% elseif startPage != 2 %}
+        <li class="disabled page-item">
+            <a class="page-link">&hellip;</a>
+        </li>
+        {% endif %}
+    {% endif %}
+
+    {% for page in pagesInRange %}
+        {% if page != current %}
+            <li class="page-item">
+                <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+            </li>
+        {% else %}
+            <li class="active">
+                <a class="page-link">{{ page }}</a>
+            </li>
+        {% endif %}
+
+    {% endfor %}
+
+    {% if pageCount > endPage %}
+        {% if pageCount > (endPage + 1) %}
+            {% if pageCount > (endPage + 2) %}
+                <li class="disabled page-item">
+                    <a class="page-link">&hellip;</a>
+                </li>
+            {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): (pageCount - 1)})) }}">{{ pageCount -1 }}</a>
+                </li>
+            {% endif %}
+        {% endif %}
+        <li class="page-item">
+            <a class="page-link" href="{{ path(route, query|merge({(pageParameterName): pageCount})) }}">{{ pageCount }}</a>
+        </li>
+    {% endif %}
+
+    {% if next is defined %}
+        <li class="page-item">
+            <a class="page-link" rel="next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'label_next'|trans([], 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
+        </li>
+    {% else %}
+        <li class="disabled page-item">
+            <a class="page-link">{{ 'label_next'|trans([], 'KnpPaginatorBundle') }}&nbsp;&raquo;</a>
+        </li>
+    {% endif %}
+    </ul>
+{% endif %}

@@ -1,0 +1,70 @@
+Class declaration
+-----
+<?php
+
+class A {
+    public string $a;
+    protected static D $b;
+    private ?float $c;
+}
+-----
+!!php7
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_PUBLIC (1)
+                type: Identifier(
+                    name: string
+                )
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+            1: Stmt_Property(
+                flags: MODIFIER_PROTECTED | MODIFIER_STATIC (10)
+                type: Name(
+                    parts: array(
+                        0: D
+                    )
+                )
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: b
+                        )
+                        default: null
+                    )
+                )
+            )
+            2: Stmt_Property(
+                flags: MODIFIER_PRIVATE (4)
+                type: NullableType(
+                    type: Identifier(
+                        name: float
+                    )
+                )
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: c
+                        )
+                        default: null
+                    )
+                )
+            )
+        )
+    )
+)

@@ -1,0 +1,24 @@
+parameters:
+    level: 7
+    paths:
+        - %currentWorkingDirectory%/lib
+        - %currentWorkingDirectory%/tests
+    autoload_directories:
+        - %currentWorkingDirectory%/tests/Doctrine/Migrations/Tests/Finder/_features
+        - %currentWorkingDirectory%/tests/Doctrine/Migrations/Tests/Finder/_files
+        - %currentWorkingDirectory%/tests/Doctrine/Migrations/Tests/Finder/_regression
+        - %currentWorkingDirectory%/tests/Doctrine/Migrations/Tests/Functional/_files
+    autoload_files:
+        - %currentWorkingDirectory%/tests/Doctrine/Migrations/Tests/Configuration/ConfigurationTestSource/Migrations/Version123.php
+        - %currentWorkingDirectory%/tests/Doctrine/Migrations/Tests/realpath.php
+    ignoreErrors:
+        # Ignore proxy manager magic
+        - '~ProxyManager\\Proxy\\VirtualProxyInterface~'
+        - '~^Parameter #1 \$files of method Doctrine\\Migrations\\Finder\\Finder::loadMigrationClasses\(\) expects array<string>, array<int, string\|false> given\.\z~'
+        - '~^Class Doctrine\\Migrations\\Tests\\DoesNotExistAtAll not found\.\z~'
+
+includes:
+    - vendor/phpstan/phpstan-deprecation-rules/rules.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+    - vendor/phpstan/phpstan-strict-rules/rules.neon

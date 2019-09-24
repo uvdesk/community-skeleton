@@ -1,0 +1,54 @@
+{
+    "name": "zendframework/zend-code",
+    "description": "provides facilities to generate arbitrary code using an object oriented interface",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "code"
+    ],
+    "homepage": "https://github.com/zendframework/zend-code",
+    "autoload": {
+        "psr-4": {
+            "Zend\\Code\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.1",
+        "zendframework/zend-eventmanager": "^2.6 || ^3.0"
+    },
+    "require-dev": {
+        "ext-phar": "*",
+        "doctrine/annotations": "~1.0",
+        "zendframework/zend-stdlib": "^2.7 || ^3.0",
+        "phpunit/phpunit": "^6.2.3",
+        "zendframework/zend-coding-standard": "^1.0.0"
+    },
+    "suggest": {
+        "doctrine/annotations": "Doctrine\\Common\\Annotations >=1.0 for annotation features",
+        "zendframework/zend-stdlib": "Zend\\Stdlib component"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-master": "3.3.x-dev",
+            "dev-develop": "3.4.x-dev"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ZendTest\\Code\\": "test/"
+        }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "upload-coverage": "coveralls -v",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    }
+}

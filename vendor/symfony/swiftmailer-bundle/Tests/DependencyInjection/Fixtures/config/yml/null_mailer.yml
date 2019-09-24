@@ -1,0 +1,4 @@
+swiftmailer:
+    default_mailer: failover
+    mailers:
+        failover: ~

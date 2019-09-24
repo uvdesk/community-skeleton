@@ -1,0 +1,113 @@
+Invalid group use syntax
+-----
+<?php
+// Missing semicolon
+use Foo\{Bar}
+use Bar\{Foo};
+-----
+!!php7
+Syntax error, unexpected T_USE, expecting ';' from 4:1 to 4:3
+array(
+    0: Stmt_GroupUse(
+        type: TYPE_UNKNOWN (0)
+        prefix: Name(
+            parts: array(
+                0: Foo
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_NORMAL (1)
+                name: Name(
+                    parts: array(
+                        0: Bar
+                    )
+                )
+                alias: null
+            )
+        )
+        comments: array(
+            0: // Missing semicolon
+        )
+    )
+    1: Stmt_GroupUse(
+        type: TYPE_UNKNOWN (0)
+        prefix: Name(
+            parts: array(
+                0: Bar
+            )
+        )
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_NORMAL (1)
+                name: Name(
+                    parts: array(
+                        0: Foo
+                    )
+                )
+                alias: null
+            )
+        )
+    )
+)
+-----
+<?php
+// Missing NS separator
+use Foo {Bar, Baz};
+-----
+!!php7
+Syntax error, unexpected '{', expecting ';' from 3:9 to 3:9
+array(
+    0: Stmt_Use(
+        type: TYPE_NORMAL (1)
+        uses: array(
+            0: Stmt_UseUse(
+                type: TYPE_UNKNOWN (0)
+                name: Name(
+                    parts: array(
+                        0: Foo
+                    )
+                )
+                alias: null
+            )
+        )
+        comments: array(
+            0: // Missing NS separator
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: Bar
+                )
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: Baz
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+// Extra NS separator
+use Foo\{\Bar};
+-----
+Syntax error, unexpected T_NS_SEPARATOR, expecting T_STRING or T_FUNCTION or T_CONST from 3:10 to 3:10
+array(
+    0: Stmt_Expression(
+        expr: Expr_ConstFetch(
+            name: Name_FullyQualified(
+                parts: array(
+                    0: Bar
+                )
+            )
+        )
+    )
+)

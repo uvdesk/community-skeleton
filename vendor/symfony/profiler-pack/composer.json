@@ -1,0 +1,12 @@
+{
+    "name": "symfony/profiler-pack",
+    "type": "symfony-pack",
+    "license": "MIT",
+    "description": "A pack for the Symfony web profiler",
+    "require": {
+        "php": "^7.0",
+        "symfony/stopwatch": "*",
+        "symfony/twig-bundle": "*",
+        "symfony/web-profiler-bundle": "*"
+    }
+}

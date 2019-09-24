@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new event subscriber class.
+
+<info>php %command.full_name% ExceptionSubscriber</info>
+
+If the argument is missing, the command will ask for the class name interactively.

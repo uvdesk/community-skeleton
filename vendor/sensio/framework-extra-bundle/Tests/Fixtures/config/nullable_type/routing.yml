@@ -1,0 +1,13 @@
+foo_bundle:
+    resource: "@FooBundle/Controller"
+    type: annotation
+
+foo_bundle_with_variadics:
+    path: /is_granted/variadic/args
+    defaults:
+        _controller: '\Tests\Fixtures\FooBundle\ControllerWithVariadics\IsGrantedControllerWithVariadics::some4Action'
+        params: ["foo", "bar"]
+
+action_arguments_bundle:
+    resource: "@ActionArgumentsBundle/Controller"
+    type: annotation

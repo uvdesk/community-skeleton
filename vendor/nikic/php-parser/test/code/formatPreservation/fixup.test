@@ -1,0 +1,67 @@
+Fixup for precedence and some special syntax
+-----
+<?php
+$a ** $b  *  $c;
+$a  +  $b * $c;
+$a * $b  +  $c;
+$a  ?  $b  :  $c;
+($a ** $b)  *  $c;
+( $a ** $b )  *  $c;
+!$a = $b;
+-----
+// Parens necessary
+$stmts[0]->expr->left = new Expr\BinaryOp\Plus(new Expr\Variable('a'), new Expr\Variable('b'));
+// The parens here are "correct", because add is left assoc
+$stmts[1]->expr->right = new Expr\BinaryOp\Plus(new Expr\Variable('b'), new Expr\Variable('c'));
+// No parens necessary
+$stmts[2]->expr->left = new Expr\BinaryOp\Plus(new Expr\Variable('a'), new Expr\Variable('b'));
+// Parens for RHS not strictly necessary due to assign speciality
+$stmts[3]->expr->cond = new Expr\Assign(new Expr\Variable('a'), new Expr\Variable('b'));
+$stmts[3]->expr->if = new Expr\Assign(new Expr\Variable('a'), new Expr\Variable('b'));
+$stmts[3]->expr->else = new Expr\Assign(new Expr\Variable('a'), new Expr\Variable('b'));
+// Already has parens
+$stmts[4]->expr->left = new Expr\BinaryOp\Plus(new Expr\Variable('a'), new Expr\Variable('b'));
+$stmts[5]->expr->left = new Expr\BinaryOp\Plus(new Expr\Variable('a'), new Expr\Variable('b'));
+-----
+<?php
+($a + $b)  *  $c;
+$a  +  ($b + $c);
+$a + $b  +  $c;
+($a = $b)  ?  $a = $b  :  ($a = $b);
+($a + $b)  *  $c;
+( $a + $b )  *  $c;
+!$a = $b;
+-----
+<?php
+foo ();
+foo ();
+$foo -> bar;
+$foo -> bar;
+$foo -> bar;
+$foo -> bar;
+$foo -> bar;
+self :: $foo;
+self :: $foo;
+-----
+$stmts[0]->expr->name = new Expr\Variable('a');
+$stmts[1]->expr->name = new Expr\BinaryOp\Concat(new Expr\Variable('a'), new Expr\Variable('b'));
+$stmts[2]->expr->var = new Expr\Variable('bar');
+$stmts[3]->expr->var = new Expr\BinaryOp\Concat(new Expr\Variable('a'), new Expr\Variable('b'));
+$stmts[4]->expr->name = new Node\Identifier('foo');
+// In this case the braces are not strictly necessary. However, on PHP 5 they may be required
+// depending on where the property fetch node itself occurs.
+$stmts[5]->expr->name = new Expr\Variable('bar');
+$stmts[6]->expr->name = new Expr\BinaryOp\Concat(new Expr\Variable('a'), new Expr\Variable('b'));
+$stmts[7]->expr->name = new Node\VarLikeIdentifier('bar');
+$stmts[8]->expr->name = new Expr\BinaryOp\Concat(new Expr\Variable('a'), new Expr\Variable('b'));
+-----
+<?php
+$a ();
+($a . $b) ();
+$bar -> bar;
+($a . $b) -> bar;
+$foo -> foo;
+$foo -> {$bar};
+$foo -> {$a . $b};
+self :: $bar;
+self :: ${$a . $b};

@@ -1,0 +1,47 @@
+services:
+    security_logger:
+        class: Foo
+        tags: [{ name: monolog.logger, channel: security }]
+
+    doctrine_logger:
+        class: Foo
+        tags: [{ name: monolog.logger, channel: doctrine }]
+
+    foo_logger:
+        class: Foo
+        tags: [{ name: monolog.logger, channel: foo }]
+
+    bar_logger:
+        class: Foo
+        tags: [{ name: monolog.logger, channel: bar }]
+
+monolog:
+    handlers:
+        custom:
+            type: stream
+            path: /tmp/symfony.log
+            bubble: false
+            level: ERROR
+            channels: foo
+        main:
+            type: group
+            members: [nested]
+            channels: ["!foo", "!bar"]
+        nested:
+            type: stream
+        extra:
+            type: syslog
+            ident: monolog
+            facility: user
+            level: ALERT
+        more:
+            type: native_mailer
+            to_email: monitoring@example.org
+            from_email: webmaster@example.org
+            subject: Monolog report
+            level: CRITICAL
+            channels:
+                type: inclusive
+                elements:
+                    - security
+                    - doctrine

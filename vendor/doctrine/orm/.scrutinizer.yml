@@ -1,0 +1,34 @@
+build:
+    nodes:
+        analysis:
+            environment:
+                php:
+                    version: 7.1
+            cache:
+                disabled: false
+                directories:
+                    - ~/.composer/cache
+
+            project_setup:
+                override: true
+            tests:
+                override:
+                    - php-scrutinizer-run
+
+before_commands:
+    - "composer install --no-dev --prefer-source"
+
+tools:
+    external_code_coverage:
+        timeout: 3600
+
+filter:
+    excluded_paths:
+        - docs
+        - tools
+
+build_failure_conditions:
+    - 'elements.rating(<= C).new.exists'                        # No new classes/methods with a rating of C or worse allowed
+    - 'issues.severity(>= MAJOR).new.exists'                    # New issues of major or higher severity
+    - 'project.metric_change("scrutinizer.test_coverage", < 0)' # Code Coverage decreased from previous inspection
+    - 'patches.label("Unused Use Statements").new.exists'       # No new unused imports patches allowed

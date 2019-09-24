@@ -1,0 +1,14 @@
+parameters:
+    channel_parameter: some_channel
+
+services:
+    foo_logger:
+        class: Foo
+        tags: [{ name: monolog.logger, channel: '%channel_parameter%' }]
+
+monolog:
+    handlers:
+        custom:
+            type: stream
+            path: /tmp/symfony.log
+            channels: '%channel_parameter%'

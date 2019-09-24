@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="doctrine_migrations.diff_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsDiffDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.dump_schema_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsDumpSchemaDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.execute_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsExecuteDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.generate_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsGenerateDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.latest_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsLatestDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.migrate_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsMigrateDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.rollup_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsRollupDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.status_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsStatusDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.up_to_date_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsUpToDateDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+        <service id="doctrine_migrations.version_command" class="Doctrine\Bundle\MigrationsBundle\Command\MigrationsVersionDoctrineCommand">
+            <tag name="console.command" />
+        </service>
+    </services>
+
+</container>

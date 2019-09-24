@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Semantic UI Sliding pagination control implementation.
+ *
+ * View that can be used with the pagination module
+ * from the Semantic UI CSS Toolkit
+ * http://semantic-ui.com/collections/menu.html#pagination
+ *
+ * @author Valerian Dorcy <valerian.dorcy@gmail.com>
+ */
+#}
+
+<div class="ui pagination menu">
+    {% if first is defined and current != first %}
+        <a class="icon item" href="{{ path(route, query|merge({(pageParameterName): first})) }}">
+            <i class="angle double left icon"></i>
+        </a>
+    {% endif %}
+
+    {% if previous is defined %}
+        <a class="item icon" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">
+            <i class="angle left icon"></i>
+        </a>
+    {% endif %}
+
+    {% for page in pagesInRange %}
+        {% if page != current %}
+            <a class="item" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+        {% else %}
+            <span class="active item">{{ page }}</span>
+        {% endif %}
+
+    {% endfor %}
+
+    {% if next is defined %}
+        <a class="icon item" href="{{ path(route, query|merge({(pageParameterName): next})) }}">
+            <i class="angle right icon"></i>
+        </a>
+    {% endif %}
+
+    {% if last is defined and current != last %}
+        <a class="icon item" href="{{ path(route, query|merge({(pageParameterName): last})) }}">
+            <i class="angle right double icon"></i>
+        </a>
+    {% endif %}
+</div>

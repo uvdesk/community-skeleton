@@ -1,0 +1,53 @@
+Comments in arrays and function calls
+-----
+<?php
+
+$arr = [
+    // Foo
+    $foo,
+    // Bar
+    $bar,
+    // Discarded
+];
+[
+    // Foo
+    $foo,
+    ,
+    // Bar
+    $bar,
+] = $arr;
+foo(
+    // Foo
+    $foo,
+    // Bar
+    $bar
+);
+new Foo(
+    // Foo
+    $foo
+);
+-----
+!!php7
+$arr = [
+    // Foo
+    $foo,
+    // Bar
+    $bar,
+];
+[
+    // Foo
+    $foo,
+    ,
+    // Bar
+    $bar,
+] = $arr;
+foo(
+    // Foo
+    $foo,
+    // Bar
+    $bar
+);
+new Foo(
+    // Foo
+    $foo
+);

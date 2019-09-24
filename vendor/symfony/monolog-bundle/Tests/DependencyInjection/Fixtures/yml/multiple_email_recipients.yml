@@ -1,0 +1,8 @@
+monolog:
+    handlers:
+        swift:
+            type:       swift_mailer
+            from_email: error@example.com
+            to_email:   [dev1@example.com, dev2@example.com]
+            subject:    An Error Occurred!
+            level:      debug

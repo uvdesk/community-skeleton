@@ -1,0 +1,97 @@
+Arrow function
+-----
+<?php
+fn($a)
+=>
+$a;
+-----
+$stmts[0]->expr->expr = new Expr\Variable('b');
+-----
+<?php
+fn($a)
+=>
+$b;
+-----
+<?php
+fn(
+$a
+) => $a;
+-----
+$stmts[0]->expr->params[] = new Node\Param(new Expr\Variable('b'));
+-----
+<?php
+fn(
+$a, $b
+) => $a;
+-----
+<?php
+fn(
+$a
+)
+=>
+$a;
+-----
+// TODO: Format preserving currently not supported
+$stmts[0]->expr->params = [];
+-----
+<?php
+fn() => $a;
+-----
+<?php
+fn($a)
+: int
+=> $a;
+-----
+$stmts[0]->expr->returnType = new Node\Identifier('bool');
+-----
+<?php
+fn($a)
+: bool
+=> $a;
+-----
+<?php
+fn($a)
+: int
+=> $a;
+-----
+$stmts[0]->expr->returnType = null;
+-----
+<?php
+fn($a)
+=> $a;
+-----
+<?php
+fn($a)
+: int
+=> $a;
+
+static fn($a)
+: int
+=> $a;
+-----
+// TODO: Format preserving currently not supported
+$stmts[0]->expr->static = true;
+$stmts[1]->expr->static = false;
+-----
+<?php
+static fn($a): int => $a;
+
+fn($a): int => $a;
+-----
+<?php
+fn($a)
+: int
+=> $a;
+
+fn&($a)
+: int
+=> $a;
+-----
+// TODO: Format preserving currently not supported
+$stmts[0]->expr->byRef = true;
+$stmts[1]->expr->byRef = false;
+-----
+<?php
+fn&($a): int => $a;
+
+fn($a): int => $a;

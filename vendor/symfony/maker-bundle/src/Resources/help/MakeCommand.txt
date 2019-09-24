@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new command:
+
+<info>php %command.full_name% app:do-something</info>
+
+If the argument is missing, the command will ask for the command name interactively.

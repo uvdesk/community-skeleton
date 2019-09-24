@@ -1,0 +1,61 @@
+This document details all the possible changes that you should investigate when 
+updating your project from Doctrine Common 2.1 to 2.2:
+
+## Annotation Changes
+
+- AnnotationReader::setIgnoreNotImportedAnnotations has been removed, you need to 
+  add ignore annotation names which are supposed to be ignored via
+  AnnotationReader::addGlobalIgnoredName
+  
+- AnnotationReader::setAutoloadAnnotations was deprecated by the AnnotationRegistry
+  in 2.1 and has been removed in 2.2
+
+- AnnotationReader::setEnableParsePhpImports was added to ease transition to the new
+  annotation mechanism in 2.1 and is removed in 2.2
+
+- AnnotationReader::isParsePhpImportsEnabled is removed (see above)
+
+- AnnotationReader::setDefaultAnnotationNamespace was deprecated in favor of explicit
+  configuration in 2.1 and will be removed in 2.2 (for isolated projects where you
+  have full-control over _all_ available annotations, we offer a dedicated reader
+  class ``SimpleAnnotationReader``)
+
+- AnnotationReader::setAnnotationCreationFunction was deprecated in 2.1 and will be
+  removed in 2.2. We only offer two creation mechanisms which cannot be changed
+  anymore to allow the same reader instance to work with all annotations regardless
+  of which library they are coming from.
+  
+- AnnotationReader::setAnnotationNamespaceAlias was deprecated in 2.1 and will be
+  removed in 2.2 (see setDefaultAnnotationNamespace)
+
+- If you use a class as annotation which has not the @Annotation marker in it's 
+  class block, we will now throw an exception instead of silently ignoring it. You
+  can however still achieve the previous behavior using the @IgnoreAnnotation, or
+  AnnotationReader::addGlobalIgnoredName (the exception message will contain detailed
+  instructions when you run into this problem).
+
+## Cache Changes
+  
+- Renamed old AbstractCache to CacheProvider
+
+- Dropped the support to the following functions of all cache providers:
+
+ - CacheProvider::deleteByWildcard
+
+ - CacheProvider::deleteByRegEx
+
+ - CacheProvider::deleteByPrefix
+
+ - CacheProvider::deleteBySuffix
+
+- CacheProvider::deleteAll will not remove ALL entries, it will only mark them as invalid
+
+- CacheProvider::flushAll will remove ALL entries, namespaced or not
+
+- Added support to MemcachedCache
+
+- Added support to WincacheCache
+
+## ClassLoader Changes
+
+- ClassLoader::fileExistsInIncludePath() no longer exists. Use the native stream_resolve_include_path() PHP function

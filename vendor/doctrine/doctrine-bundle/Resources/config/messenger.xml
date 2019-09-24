@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <!--
+        The following service isn't prefixed by the "doctrine.orm" namespace in order for end-users to just use
+        the "doctrine_transaction" shortcut in message buses middleware config
+        -->
+        <service id="messenger.middleware.doctrine_transaction" class="Symfony\Bridge\Doctrine\Messenger\DoctrineTransactionMiddleware" abstract="true" public="false">
+            <argument type="service" id="doctrine" />
+        </service>
+
+        <!--
+        The following service isn't prefixed by the "doctrine.orm" namespace in order for end-users to just use
+        the "doctrine_ping_connection" shortcut in message buses middleware config
+        -->
+        <service id="messenger.middleware.doctrine_ping_connection" class="Symfony\Bridge\Doctrine\Messenger\DoctrinePingConnectionMiddleware" abstract="true" public="false">
+            <argument type="service" id="doctrine" />
+        </service>
+
+        <!--
+        The following service isn't prefixed by the "doctrine.orm" namespace in order for end-users to just use
+        the "doctrine_close_connection" shortcut in message buses middleware config
+        -->
+        <service id="messenger.middleware.doctrine_close_connection" class="Symfony\Bridge\Doctrine\Messenger\DoctrineCloseConnectionMiddleware" abstract="true" public="false">
+            <argument type="service" id="doctrine" />
+        </service>
+
+        <!--
+        The following service isn't tagged as transport factory because the class may not exist.
+        The tag is added conditionally in DoctrineExtension.
+        -->
+        <service id="messenger.transport.doctrine.factory" class="Symfony\Component\Messenger\Transport\Doctrine\DoctrineTransportFactory" public="false">
+            <argument type="service" id="doctrine" />
+        </service>
+    </services>
+</container>

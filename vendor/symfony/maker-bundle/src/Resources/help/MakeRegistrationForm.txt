@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a complete registration form, controller & template.
+
+<info>php %command.full_name%</info>
+
+The command will ask for several pieces of information to build your form.

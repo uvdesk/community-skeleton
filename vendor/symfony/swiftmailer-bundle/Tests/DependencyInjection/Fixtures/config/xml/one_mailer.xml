@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swiftmailer="http://symfony.com/schema/dic/swiftmailer"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
+                        http://symfony.com/schema/dic/swiftmailer http://symfony.com/schema/dic/swiftmailer/swiftmailer-1.0.xsd">
+
+    <swiftmailer:config default-mailer="main_mailer">
+        <swiftmailer:mailer name="main_mailer"
+            transport="smtp"
+            username="user"
+            password="pass"
+            host="example.org"
+            port="12345"
+            encryption="tls"
+            auth-mode="login"
+            timeout="1000"
+            source-ip="127.0.0.1"
+            local-domain="local.example.org">
+        </swiftmailer:mailer>
+    </swiftmailer:config>
+</container>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="80" viewBox="0 0 40 80">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9e9e9e;
+      }
+
+      .cls-1, .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #333333;
+      }
+    </style>
+  </defs>
+  <path id="icon-search" class="cls-1" d="M24.3,22.583h-0.9l-0.32-.309a7.443,7.443,0,1,0-.8.8l0.309,0.32v0.9L28.3,30.006l1.7-1.7Zm-6.863,0a5.147,5.147,0,1,1,5.147-5.147A5.141,5.141,0,0,1,17.435,22.583Z"/>
+  <path id="icon-search-2" data-name="icon-search" class="cls-2" d="M24.3,62.583h-0.9l-0.32-.309a7.443,7.443,0,1,0-.8.8l0.309,0.32v0.9L28.3,70.006l1.7-1.7Zm-6.863,0a5.147,5.147,0,1,1,5.147-5.147A5.141,5.141,0,0,1,17.435,62.583Z"/>
+</svg>

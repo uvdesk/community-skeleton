@@ -1,0 +1,49 @@
+{
+    "active": true,
+    "name": "Database Abstraction Layer",
+    "shortName": "DBAL",
+    "slug": "dbal",
+    "docsSlug": "doctrine-dbal",
+    "versions": [
+        {
+            "name": "3.0",
+            "branchName": "develop",
+            "slug": "latest",
+            "upcoming": true
+        },
+        {
+            "name": "2.9",
+            "branchName": "master",
+            "slug": "2.9",
+            "upcoming": true
+        },
+        {
+            "name": "2.8",
+            "branchName": "2.8",
+            "slug": "2.8",
+            "current": true,
+            "aliases": [
+                "current",
+                "stable"
+            ]
+        },
+        {
+            "name": "2.7",
+            "branchName": "2.7",
+            "slug": "2.7",
+            "maintained": false
+        },
+        {
+            "name": "2.6",
+            "branchName": "2.6",
+            "slug": "2.6",
+            "maintained": false
+        },
+        {
+            "name": "2.5",
+            "branchName": "2.5",
+            "slug": "2.5",
+            "maintained": false
+        }
+    ]
+}

@@ -1,0 +1,60 @@
+{
+    "name": "doctrine/migrations",
+    "type": "library",
+    "description": "PHP Doctrine Migrations project offer additional functionality on top of the database abstraction layer (DBAL) for versioning your database schema and easily deploying changes to it. It is a very easy to use and a powerful tool.",
+    "keywords": ["php", "database", "migrations", "dbal"],
+    "homepage": "https://www.doctrine-project.org/projects/migrations.html",
+    "license": "MIT",
+    "authors": [
+        {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+        {"name": "Jonathan Wage", "email": "jonwage@gmail.com"},
+        {"name": "Michael Simonson", "email": "contact@mikesimonson.com" }
+    ],
+    "require": {
+        "php": "^7.1",
+        "doctrine/dbal": "^2.9",
+        "ocramius/package-versions": "^1.3",
+        "ocramius/proxy-manager": "^2.0.2",
+        "symfony/console": "^3.4||^4.0",
+        "symfony/stopwatch": "^3.4||^4.0"
+    },
+    "require-dev": {
+        "ext-pdo_sqlite": "*",
+        "doctrine/coding-standard": "^6.0",
+        "doctrine/orm": "^2.6",
+        "jdorn/sql-formatter": "^1.1",
+        "mikey179/vfsStream": "^1.6",
+        "phpstan/phpstan": "^0.10",
+        "phpstan/phpstan-deprecation-rules": "^0.10",
+        "phpstan/phpstan-phpunit": "^0.10",
+        "phpstan/phpstan-strict-rules": "^0.10",
+        "phpunit/phpunit": "^7.0",
+        "symfony/process": "^3.4||^4.0",
+        "symfony/yaml": "^3.4||^4.0"
+    },
+    "suggest": {
+        "jdorn/sql-formatter": "Allows to generate formatted SQL with the diff command.",
+        "symfony/yaml": "Allows the use of yaml for migration configuration files."
+    },
+    "autoload": {
+        "psr-4": {
+            "Doctrine\\Migrations\\": "lib/Doctrine/Migrations"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Doctrine\\Migrations\\Tests\\": "tests/Doctrine/Migrations/Tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1.x-dev"
+        }
+    },
+    "bin": [
+        "bin/doctrine-migrations"
+    ]
+}

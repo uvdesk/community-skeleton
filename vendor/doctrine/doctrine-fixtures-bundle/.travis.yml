@@ -1,0 +1,48 @@
+language: php
+sudo: false
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+
+php:
+    - 7.1
+    - 7.2
+    - 7.3
+    - 7.4snapshot
+
+jobs:
+    include:
+          # Minimum supported PHP and Symfony version
+        - stage: test
+          php: 7.1
+          env: DEPENDENCIES="minimum"
+
+          # Test LTS version we support
+        - stage: test
+          php: 7.3
+          env: DEPENDENCIES="symfony/lts:v3"
+
+        - stage: test
+          php: 7.3
+          env: DEPENDENCIES="beta"
+
+        # Run phpcs
+        - stage: Code Quality
+          php: 7.2
+          env: CODING_STANDARDS
+          script:
+              - vendor/bin/phpcs
+
+before_install:
+    - if [ "$DEPENDENCIES" = "minimum" ]; then COMPOSER_FLAGS="--prefer-stable --prefer-lowest"; fi;
+    - if [ "$DEPENDENCIES" = "beta" ]; then composer config minimum-stability beta; fi;
+    - if [[ $DEPENDENCIES == *"/"* ]]; then composer require --no-update $DEPENDENCIES; fi;
+
+install:
+    - travis_retry composer update ${COMPOSER_FLAGS} --prefer-dist --no-interaction
+
+script:
+    - vendor/bin/phpunit
+
+allow_failures:
+    - php: 7.4snapshot

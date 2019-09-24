@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sensio_framework_extra.security.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\SecurityListener" public="false">
+            <argument type="service" id="framework_extra_bundle.argument_name_convertor" />
+            <argument type="service" id="sensio_framework_extra.security.expression_language.default" on-invalid="null" />
+            <argument type="service" id="security.authentication.trust_resolver" on-invalid="null" />
+            <argument type="service" id="security.role_hierarchy" on-invalid="null" />
+            <argument type="service" id="security.token_storage" on-invalid="null" />
+            <argument type="service" id="security.authorization_checker" on-invalid="null" />
+            <argument type="service" id="logger" on-invalid="null" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="sensio_framework_extra.security.expression_language.default" class="Sensio\Bundle\FrameworkExtraBundle\Security\ExpressionLanguage" public="false" />
+
+        <service id="framework_extra_bundle.event.is_granted" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\IsGrantedListener" public="false">
+            <argument type="service" id="framework_extra_bundle.argument_name_convertor" />
+            <argument type="service" id="security.authorization_checker" on-invalid="null" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <service id="framework_extra_bundle.argument_name_convertor" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentNameConverter" public="false">
+            <argument type="service" id="argument_metadata_factory" />
+        </service>
+    </services>
+</container>

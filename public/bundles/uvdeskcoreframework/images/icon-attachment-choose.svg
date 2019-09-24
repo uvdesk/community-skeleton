@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-choose</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-choose" fill-rule="nonzero" fill="#333333">
+            <g transform="translate(3.000000, 1.000000)" id="Shape">
+                <path d="M0.016,18.01 L14,18 L14,15 L0,15 L0.016,18.01 Z M10,13 L10,7 L14,7 L7,0 L0,7 L4,7 L4,13 L10,13 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>

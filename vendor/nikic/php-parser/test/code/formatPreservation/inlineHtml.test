@@ -1,0 +1,54 @@
+Handling of inline HTML
+-----
+<?php
+
+function test() {
+    ?>Foo<?php
+}
+-----
+$stmts[0]->setAttribute('origNode', null);
+-----
+<?php
+
+function test()
+{
+    ?>Foo<?php
+}
+-----
+<?php
+
+function test() {
+    foo();
+    ?>Bar<?php
+    baz();
+}
+-----
+// TODO Fix broken result
+$stmts[0]->stmts[2] = $stmts[0]->stmts[1];
+-----
+<?php
+
+function test() {
+    foo();
+    ?>Bar<?php
+    Bar
+}
+-----
+<?php
+
+function test() {
+    foo();
+    ?>Bar<?php
+    baz();
+}
+-----
+// TODO Fix broken result
+$stmts[0]->stmts[1] = $stmts[0]->stmts[2];
+-----
+<?php
+
+function test() {
+    foo();<?php
+    baz();
+    baz();
+}

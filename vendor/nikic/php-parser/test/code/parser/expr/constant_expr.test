@@ -1,0 +1,694 @@
+Expressions in static scalar context
+-----
+<?php
+
+const T_1 = 1 << 1;
+const T_2 = 1 / 2;
+const T_3 = 1.5 + 1.5;
+const T_4 = "foo" . "bar";
+const T_5 = (1.5 + 1.5) * 2;
+const T_6 = "foo" . 2 . 3 . 4.0;
+const T_7 = __LINE__;
+const T_8 = <<<ENDOFSTRING
+This is a test string
+ENDOFSTRING;
+const T_9 = ~-1;
+const T_10 = (-1?:1) + (0?2:3);
+const T_11 = 1 && 0;
+const T_12 = 1 and 1;
+const T_13 = 0 || 0;
+const T_14 = 1 or 0;
+const T_15 = 1 xor 1;
+const T_16 = 1 xor 0;
+const T_17 = 1 < 0;
+const T_18 = 0 <= 0;
+const T_19 = 1 > 0;
+const T_20 = 1 >= 0;
+const T_21 = 1 === 1;
+const T_22 = 1 !== 1;
+const T_23 = 0 != "0";
+const T_24 = 1 == "1";
+const T_25 = 1 + 2 * 3;
+const T_26 = "1" + 2 + "3";
+const T_27 = 2 ** 3;
+const T_28 = [1, 2, 3][1];
+const T_29 = 12 - 13;
+const T_30 = 12 ^ 13;
+const T_31 = 12 & 13;
+const T_32 = 12 | 13;
+const T_33 = 12 % 3;
+const T_34 = 100 >> 4;
+const T_35 = !false;
+-----
+array(
+    0: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_1
+                )
+                value: Expr_BinaryOp_ShiftLeft(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    1: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_2
+                )
+                value: Expr_BinaryOp_Div(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 2
+                    )
+                )
+            )
+        )
+    )
+    2: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_3
+                )
+                value: Expr_BinaryOp_Plus(
+                    left: Scalar_DNumber(
+                        value: 1.5
+                    )
+                    right: Scalar_DNumber(
+                        value: 1.5
+                    )
+                )
+            )
+        )
+    )
+    3: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_4
+                )
+                value: Expr_BinaryOp_Concat(
+                    left: Scalar_String(
+                        value: foo
+                    )
+                    right: Scalar_String(
+                        value: bar
+                    )
+                )
+            )
+        )
+    )
+    4: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_5
+                )
+                value: Expr_BinaryOp_Mul(
+                    left: Expr_BinaryOp_Plus(
+                        left: Scalar_DNumber(
+                            value: 1.5
+                        )
+                        right: Scalar_DNumber(
+                            value: 1.5
+                        )
+                    )
+                    right: Scalar_LNumber(
+                        value: 2
+                    )
+                )
+            )
+        )
+    )
+    5: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_6
+                )
+                value: Expr_BinaryOp_Concat(
+                    left: Expr_BinaryOp_Concat(
+                        left: Expr_BinaryOp_Concat(
+                            left: Scalar_String(
+                                value: foo
+                            )
+                            right: Scalar_LNumber(
+                                value: 2
+                            )
+                        )
+                        right: Scalar_LNumber(
+                            value: 3
+                        )
+                    )
+                    right: Scalar_DNumber(
+                        value: 4
+                    )
+                )
+            )
+        )
+    )
+    6: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_7
+                )
+                value: Scalar_MagicConst_Line(
+                )
+            )
+        )
+    )
+    7: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_8
+                )
+                value: Scalar_String(
+                    value: This is a test string
+                )
+            )
+        )
+    )
+    8: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_9
+                )
+                value: Expr_BitwiseNot(
+                    expr: Expr_UnaryMinus(
+                        expr: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+        )
+    )
+    9: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_10
+                )
+                value: Expr_BinaryOp_Plus(
+                    left: Expr_Ternary(
+                        cond: Expr_UnaryMinus(
+                            expr: Scalar_LNumber(
+                                value: 1
+                            )
+                        )
+                        if: null
+                        else: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                    right: Expr_Ternary(
+                        cond: Scalar_LNumber(
+                            value: 0
+                        )
+                        if: Scalar_LNumber(
+                            value: 2
+                        )
+                        else: Scalar_LNumber(
+                            value: 3
+                        )
+                    )
+                )
+            )
+        )
+    )
+    10: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_11
+                )
+                value: Expr_BinaryOp_BooleanAnd(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    11: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_12
+                )
+                value: Expr_BinaryOp_LogicalAnd(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    12: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_13
+                )
+                value: Expr_BinaryOp_BooleanOr(
+                    left: Scalar_LNumber(
+                        value: 0
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    13: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_14
+                )
+                value: Expr_BinaryOp_LogicalOr(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    14: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_15
+                )
+                value: Expr_BinaryOp_LogicalXor(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    15: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_16
+                )
+                value: Expr_BinaryOp_LogicalXor(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    16: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_17
+                )
+                value: Expr_BinaryOp_Smaller(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    17: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_18
+                )
+                value: Expr_BinaryOp_SmallerOrEqual(
+                    left: Scalar_LNumber(
+                        value: 0
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    18: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_19
+                )
+                value: Expr_BinaryOp_Greater(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    19: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_20
+                )
+                value: Expr_BinaryOp_GreaterOrEqual(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    20: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_21
+                )
+                value: Expr_BinaryOp_Identical(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    21: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_22
+                )
+                value: Expr_BinaryOp_NotIdentical(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_LNumber(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    22: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_23
+                )
+                value: Expr_BinaryOp_NotEqual(
+                    left: Scalar_LNumber(
+                        value: 0
+                    )
+                    right: Scalar_String(
+                        value: 0
+                    )
+                )
+            )
+        )
+    )
+    23: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_24
+                )
+                value: Expr_BinaryOp_Equal(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Scalar_String(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    24: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_25
+                )
+                value: Expr_BinaryOp_Plus(
+                    left: Scalar_LNumber(
+                        value: 1
+                    )
+                    right: Expr_BinaryOp_Mul(
+                        left: Scalar_LNumber(
+                            value: 2
+                        )
+                        right: Scalar_LNumber(
+                            value: 3
+                        )
+                    )
+                )
+            )
+        )
+    )
+    25: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_26
+                )
+                value: Expr_BinaryOp_Plus(
+                    left: Expr_BinaryOp_Plus(
+                        left: Scalar_String(
+                            value: 1
+                        )
+                        right: Scalar_LNumber(
+                            value: 2
+                        )
+                    )
+                    right: Scalar_String(
+                        value: 3
+                    )
+                )
+            )
+        )
+    )
+    26: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_27
+                )
+                value: Expr_BinaryOp_Pow(
+                    left: Scalar_LNumber(
+                        value: 2
+                    )
+                    right: Scalar_LNumber(
+                        value: 3
+                    )
+                )
+            )
+        )
+    )
+    27: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_28
+                )
+                value: Expr_ArrayDimFetch(
+                    var: Expr_Array(
+                        items: array(
+                            0: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 1
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            1: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 2
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            2: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 3
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                        )
+                    )
+                    dim: Scalar_LNumber(
+                        value: 1
+                    )
+                )
+            )
+        )
+    )
+    28: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_29
+                )
+                value: Expr_BinaryOp_Minus(
+                    left: Scalar_LNumber(
+                        value: 12
+                    )
+                    right: Scalar_LNumber(
+                        value: 13
+                    )
+                )
+            )
+        )
+    )
+    29: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_30
+                )
+                value: Expr_BinaryOp_BitwiseXor(
+                    left: Scalar_LNumber(
+                        value: 12
+                    )
+                    right: Scalar_LNumber(
+                        value: 13
+                    )
+                )
+            )
+        )
+    )
+    30: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_31
+                )
+                value: Expr_BinaryOp_BitwiseAnd(
+                    left: Scalar_LNumber(
+                        value: 12
+                    )
+                    right: Scalar_LNumber(
+                        value: 13
+                    )
+                )
+            )
+        )
+    )
+    31: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_32
+                )
+                value: Expr_BinaryOp_BitwiseOr(
+                    left: Scalar_LNumber(
+                        value: 12
+                    )
+                    right: Scalar_LNumber(
+                        value: 13
+                    )
+                )
+            )
+        )
+    )
+    32: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_33
+                )
+                value: Expr_BinaryOp_Mod(
+                    left: Scalar_LNumber(
+                        value: 12
+                    )
+                    right: Scalar_LNumber(
+                        value: 3
+                    )
+                )
+            )
+        )
+    )
+    33: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_34
+                )
+                value: Expr_BinaryOp_ShiftRight(
+                    left: Scalar_LNumber(
+                        value: 100
+                    )
+                    right: Scalar_LNumber(
+                        value: 4
+                    )
+                )
+            )
+        )
+    )
+    34: Stmt_Const(
+        consts: array(
+            0: Const(
+                name: Identifier(
+                    name: T_35
+                )
+                value: Expr_BooleanNot(
+                    expr: Expr_ConstFetch(
+                        name: Name(
+                            parts: array(
+                                0: false
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    )
+)

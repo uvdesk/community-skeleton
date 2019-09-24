@@ -1,0 +1,176 @@
+Closures
+-----
+<?php
+function($a) { $a; };
+function($a) use($b) {};
+function() use($a, &$b) {};
+function &($a) {};
+static function() {};
+function($a) : array {};
+function() use($a) : \Foo\Bar {};
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    default: null
+                )
+            )
+            uses: array(
+            )
+            returnType: null
+            stmts: array(
+                0: Stmt_Expression(
+                    expr: Expr_Variable(
+                        name: a
+                    )
+                )
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    default: null
+                )
+            )
+            uses: array(
+                0: Expr_ClosureUse(
+                    var: Expr_Variable(
+                        name: b
+                    )
+                    byRef: false
+                )
+            )
+            returnType: null
+            stmts: array(
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+            )
+            uses: array(
+                0: Expr_ClosureUse(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    byRef: false
+                )
+                1: Expr_ClosureUse(
+                    var: Expr_Variable(
+                        name: b
+                    )
+                    byRef: true
+                )
+            )
+            returnType: null
+            stmts: array(
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: true
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    default: null
+                )
+            )
+            uses: array(
+            )
+            returnType: null
+            stmts: array(
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_Closure(
+            static: true
+            byRef: false
+            params: array(
+            )
+            uses: array(
+            )
+            returnType: null
+            stmts: array(
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+                0: Param(
+                    type: null
+                    byRef: false
+                    variadic: false
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    default: null
+                )
+            )
+            uses: array(
+            )
+            returnType: Identifier(
+                name: array
+            )
+            stmts: array(
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_Closure(
+            static: false
+            byRef: false
+            params: array(
+            )
+            uses: array(
+                0: Expr_ClosureUse(
+                    var: Expr_Variable(
+                        name: a
+                    )
+                    byRef: false
+                )
+            )
+            returnType: Name_FullyQualified(
+                parts: array(
+                    0: Foo
+                    1: Bar
+                )
+            )
+            stmts: array(
+            )
+        )
+    )
+)

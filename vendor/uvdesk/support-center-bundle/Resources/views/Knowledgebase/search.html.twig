@@ -1,0 +1,32 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+{% block title %}{% trans %}Helpdesk Search{% endtrans %}{% endblock %}
+{% block ogtitle %}{% trans %}Helpdesk Search{% endtrans %}{% endblock %}
+{% block twtitle %}{% trans %}Helpdesk Search{% endtrans %}{% endblock %}
+{% block metaDescription %}{% trans %}search.metaDescription{% endtrans %}{% endblock %}
+{% block metaKeywords %}{% trans %}search.metaKeywords{% endtrans %}{% endblock %}
+
+{% block body %}
+	<div class="uv-paper-article">
+		<div class="uv-paper-section">
+			<section>
+				<h1 class="uv-folder-title" data-count="{{articles|length}} {{"Articles"|trans}}">{{ "Search results for %search%"|trans({ "%search%": search }) }}</h1>
+			</section>
+			<section class="uv-margin-top-30">
+				{% if articles %}
+					<ul>
+						{% for article in articles %}
+							<li> {% if article.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} <a href="{{ path('helpdesk_knowledgebase_read_slug_article', {'slug': article.slug})}}">{{ article.name }}</a></li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p>{{"No Article Found!"|trans}}</p>
+				{% endif %}
+			</section>
+		</div>
+		
+		{# @TODO: needs to implementds pulpular artcles #}
+		{# {% include "@UVDeskSupportCenter/Templates/popularArticle.html.twig" %} #} 
+	</div>
+
+	{{parent()}}
+{% endblock %}

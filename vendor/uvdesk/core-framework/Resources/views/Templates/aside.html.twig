@@ -1,0 +1,18 @@
+{% if sidebar.collection is defined and sidebar.collection is not empty %}
+    <div class="uv-aside" {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}style="display: none;"{% endif %}>
+        <div class="uv-aside-head">
+            <div class="uv-aside-title"><h6>{{ sidebar.title|trans }}</h6></div>
+            <div class="uv-aside-back">
+                <span onclick="history.length > 1 ? history.go(-1) : window.location = '{{ path("helpdesk_member_dashboard") }}';"> {{ 'Back'|trans }}</span>
+            </div>
+        </div>
+
+        <div class="uv-aside-nav">
+            <ul>
+                {% for item in sidebar.collection %}
+                    <li><a href="{{ path(item.routeName) }}" class="{{ item.isActive ? 'uv-aside-nav-active' : '' }}">{{ item.title|raw|trans }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endif %}

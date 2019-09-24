@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<ruleset>
+    <arg name="basepath" value="."/>
+    <arg name="extensions" value="php"/>
+    <arg name="parallel" value="80"/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
+
+    <!-- Ignore warnings, show progress of the run and show sniff names -->
+    <arg value="nps"/>
+
+    <file>.</file>
+    <exclude-pattern>vendor/*</exclude-pattern>
+
+    <rule ref="Doctrine">
+        <exclude name="SlevomatCodingStandard.Classes.ClassConstantVisibility"/>
+        <exclude name="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly"/>
+        <exclude name="SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFallbackGlobalName"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.DeclareStrictTypes"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingParameterTypeHint"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingReturnTypeHint"/>
+        <exclude name="SlevomatCodingStandard.ControlStructures.RequireNullCoalesceOperator.NullCoalesceOperatorNotUsed"/>
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming.SuperfluousSuffix"/>
+        <exclude name="SlevomatCodingStandard.Classes.SuperfluousAbstractClassNaming.SuperfluousPrefix"/>
+    </rule>
+
+    <rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+        <exclude-pattern>Tests/*</exclude-pattern>
+    </rule>
+    <rule ref="Squiz.Classes.ClassFileName.NoMatch">
+        <exclude-pattern>Tests/*</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Classes.UnusedPrivateElements.UnusedProperty">
+        <exclude-pattern>Tests/DependencyInjection/Fixtures/*</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableParameterTypeHintSpecification">
+        <exclude-pattern>DependencyInjection/*</exclude-pattern>
+        <exclude-pattern>Twig/DoctrineExtension.php</exclude-pattern>
+        <exclude-pattern>Tests/*</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversablePropertyTypeHintSpecification">
+        <exclude-pattern>DependencyInjection/*</exclude-pattern>
+        <exclude-pattern>Twig/DoctrineExtension.php</exclude-pattern>
+        <exclude-pattern>Tests/*</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration.MissingTraversableReturnTypeHintSpecification">
+        <exclude-pattern>DependencyInjection/*</exclude-pattern>
+        <exclude-pattern>Twig/DoctrineExtension.php</exclude-pattern>
+        <exclude-pattern>Tests/*</exclude-pattern>
+    </rule>
+</ruleset>

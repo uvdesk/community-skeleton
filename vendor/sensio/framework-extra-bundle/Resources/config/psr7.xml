@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="sensio_framework_extra.psr7.http_message_factory" class="Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory" public="false">
+            <argument type="service" id="Psr\Http\Message\ServerRequestFactoryInterface" />
+            <argument type="service" id="Psr\Http\Message\StreamFactoryInterface" />
+            <argument type="service" id="Psr\Http\Message\UploadedFileFactoryInterface" />
+            <argument type="service" id="Psr\Http\Message\ResponseFactoryInterface" />
+        </service>
+        <service id="sensio_framework_extra.psr7.http_foundation_factory" class="Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory" public="false" />
+
+        <service id="sensio_framework_extra.psr7.argument_value_resolver.server_request" class="Sensio\Bundle\FrameworkExtraBundle\Request\ArgumentValueResolver\Psr7ServerRequestResolver" public="false">
+            <argument type="service" id="sensio_framework_extra.psr7.http_message_factory" />
+            <tag name="controller.argument_value_resolver" />
+        </service>
+
+        <service id="sensio_framework_extra.psr7.listener.response" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\PsrResponseListener" public="false">
+            <argument type="service" id="sensio_framework_extra.psr7.http_foundation_factory" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
+        <!-- provide default aliases for PSR-17 based on nyholm/psr7 -->
+        <service id="nyholm.psr7.psr17_factory" class="Nyholm\Psr7\Factory\Psr17Factory" public="false" />
+        <service id="Psr\Http\Message\ServerRequestFactoryInterface" alias="nyholm.psr7.psr17_factory" public="false" />
+        <service id="Psr\Http\Message\StreamFactoryInterface" alias="nyholm.psr7.psr17_factory" public="false" />
+        <service id="Psr\Http\Message\UploadedFileFactoryInterface" alias="nyholm.psr7.psr17_factory" public="false" />
+        <service id="Psr\Http\Message\ResponseFactoryInterface" alias="nyholm.psr7.psr17_factory" public="false" />
+    </services>
+</container>

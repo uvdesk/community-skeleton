@@ -1,0 +1,50 @@
+Include and eval
+-----
+<?php
+include 'A.php';
+include_once 'A.php';
+require 'A.php';
+require_once 'A.php';
+eval('A');
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Include(
+            expr: Scalar_String(
+                value: A.php
+            )
+            type: TYPE_INCLUDE (1)
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Include(
+            expr: Scalar_String(
+                value: A.php
+            )
+            type: TYPE_INCLUDE_ONCE (2)
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Include(
+            expr: Scalar_String(
+                value: A.php
+            )
+            type: TYPE_REQUIRE (3)
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Include(
+            expr: Scalar_String(
+                value: A.php
+            )
+            type: TYPE_REQUIRE_ONCE (4)
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_Eval(
+            expr: Scalar_String(
+                value: A
+            )
+        )
+    )
+)

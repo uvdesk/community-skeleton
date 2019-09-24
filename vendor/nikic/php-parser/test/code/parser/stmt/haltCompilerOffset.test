@@ -1,0 +1,36 @@
+Use of __HALT_COMPILER_OFFSET__ constant
+-----
+<?php
+
+var_dump(__HALT_COMPILER_OFFSET__);
+__halt_compiler();
+Foo
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_FuncCall(
+            name: Name(
+                parts: array(
+                    0: var_dump
+                )
+            )
+            args: array(
+                0: Arg(
+                    value: Expr_ConstFetch(
+                        name: Name(
+                            parts: array(
+                                0: __HALT_COMPILER_OFFSET__
+                            )
+                        )
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+    )
+    1: Stmt_HaltCompiler(
+        remaining:
+    Foo
+    )
+)

@@ -1,0 +1,176 @@
+Insertion of a nullable node
+-----
+<?php
+
+// TODO: The result spacing isn't always optimal. We may want to skip whitespace in some cases.
+
+function
+foo(
+$x,
+&$y
+)
+{}
+
+$foo
+[
+];
+
+[
+    $value
+];
+
+function
+()
+{};
+
+$x
+?
+:
+$y;
+
+yield
+$v  ;
+yield  ;
+
+break
+;
+continue
+;
+return
+;
+
+class
+X
+{
+    public
+    function y()
+    {}
+
+    private
+        $x
+    ;
+}
+
+foreach (
+    $x
+    as
+    $y
+) {}
+
+static
+$var
+;
+
+try {
+} catch (X
+$y) {
+}
+
+if ($cond) { // Foo
+} elseif ($cond2) { // Bar
+}
+-----
+$stmts[0]->returnType = new Node\Name('Foo');
+$stmts[0]->params[0]->type = new Node\Identifier('int');
+$stmts[0]->params[1]->type = new Node\Identifier('array');
+$stmts[0]->params[1]->default = new Expr\ConstFetch(new Node\Name('null'));
+$stmts[1]->expr->dim = new Expr\Variable('a');
+$stmts[2]->expr->items[0]->key = new Scalar\String_('X');
+$stmts[3]->expr->returnType = new Node\Name('Bar');
+$stmts[4]->expr->if = new Expr\Variable('z');
+$stmts[5]->expr->key = new Expr\Variable('k');
+$stmts[6]->expr->value = new Expr\Variable('v');
+$stmts[7]->num = new Scalar\LNumber(2);
+$stmts[8]->num = new Scalar\LNumber(2);
+$stmts[9]->expr = new Expr\Variable('x');
+$stmts[10]->extends = new Node\Name\FullyQualified('Bar');
+$stmts[10]->stmts[0]->returnType = new Node\Name('Y');
+$stmts[10]->stmts[1]->props[0]->default = new Scalar\DNumber(42.0);
+$stmts[11]->keyVar = new Expr\Variable('z');
+$stmts[12]->vars[0]->default = new Scalar\String_('abc');
+$stmts[13]->finally = new Stmt\Finally_([]);
+$stmts[14]->else = new Stmt\Else_([]);
+-----
+<?php
+
+// TODO: The result spacing isn't always optimal. We may want to skip whitespace in some cases.
+
+function
+foo(
+int $x,
+array &$y = null
+) : Foo
+{}
+
+$foo
+[$a
+];
+
+[
+    'X' => $value
+];
+
+function
+() : Bar
+{};
+
+$x
+? $z
+:
+$y;
+
+yield
+$k => $v  ;
+yield $v  ;
+
+break 2
+;
+continue 2
+;
+return $x
+;
+
+class
+X extends \Bar
+{
+    public
+    function y() : Y
+    {}
+
+    private
+        $x = 42.0
+    ;
+}
+
+foreach (
+    $x
+    as
+    $z => $y
+) {}
+
+static
+$var = 'abc'
+;
+
+try {
+} catch (X
+$y) {
+} finally {
+}
+
+if ($cond) { // Foo
+} elseif ($cond2) { // Bar
+} else {
+}
+-----
+<?php
+
+namespace
+{ echo 42; }
+-----
+$stmts[0]->name = new Node\Name('Foo');
+-----
+<?php
+
+namespace Foo
+{ echo 42; }

@@ -1,0 +1,174 @@
+Ternary operator
+-----
+<?php
+
+// ternary
+$a ? $b : $c;
+$a ?: $c;
+
+// precedence
+$a ? $b : $c ? $d : $e;
+$a ? $b : ($c ? $d : $e);
+
+// null coalesce
+$a ?? $b;
+$a ?? $b ?? $c;
+$a ?? $b ? $c : $d;
+$a && $b ?? $c;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Ternary(
+            cond: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // ternary
+                )
+            )
+            if: Expr_Variable(
+                name: b
+            )
+            else: Expr_Variable(
+                name: c
+            )
+            comments: array(
+                0: // ternary
+            )
+        )
+        comments: array(
+            0: // ternary
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Ternary(
+            cond: Expr_Variable(
+                name: a
+            )
+            if: null
+            else: Expr_Variable(
+                name: c
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Ternary(
+            cond: Expr_Ternary(
+                cond: Expr_Variable(
+                    name: a
+                    comments: array(
+                        0: // precedence
+                    )
+                )
+                if: Expr_Variable(
+                    name: b
+                )
+                else: Expr_Variable(
+                    name: c
+                )
+                comments: array(
+                    0: // precedence
+                )
+            )
+            if: Expr_Variable(
+                name: d
+            )
+            else: Expr_Variable(
+                name: e
+            )
+            comments: array(
+                0: // precedence
+            )
+        )
+        comments: array(
+            0: // precedence
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Ternary(
+            cond: Expr_Variable(
+                name: a
+            )
+            if: Expr_Variable(
+                name: b
+            )
+            else: Expr_Ternary(
+                cond: Expr_Variable(
+                    name: c
+                )
+                if: Expr_Variable(
+                    name: d
+                )
+                else: Expr_Variable(
+                    name: e
+                )
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_BinaryOp_Coalesce(
+            left: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // null coalesce
+                )
+            )
+            right: Expr_Variable(
+                name: b
+            )
+            comments: array(
+                0: // null coalesce
+            )
+        )
+        comments: array(
+            0: // null coalesce
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_BinaryOp_Coalesce(
+            left: Expr_Variable(
+                name: a
+            )
+            right: Expr_BinaryOp_Coalesce(
+                left: Expr_Variable(
+                    name: b
+                )
+                right: Expr_Variable(
+                    name: c
+                )
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_Ternary(
+            cond: Expr_BinaryOp_Coalesce(
+                left: Expr_Variable(
+                    name: a
+                )
+                right: Expr_Variable(
+                    name: b
+                )
+            )
+            if: Expr_Variable(
+                name: c
+            )
+            else: Expr_Variable(
+                name: d
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_BinaryOp_Coalesce(
+            left: Expr_BinaryOp_BooleanAnd(
+                left: Expr_Variable(
+                    name: a
+                )
+                right: Expr_Variable(
+                    name: b
+                )
+            )
+            right: Expr_Variable(
+                name: c
+            )
+        )
+    )
+)

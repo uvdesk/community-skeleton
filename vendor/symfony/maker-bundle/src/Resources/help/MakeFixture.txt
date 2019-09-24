@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new Doctrine fixtures class.
+
+<info>php %command.full_name% AppFixtures</info>
+
+If the argument is missing, the command will ask for a class interactively.

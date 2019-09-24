@@ -1,0 +1,26 @@
+Unicode escape sequence
+-----
+<?php
+
+"\u{0}";
+"\u{114}";
+"\u{1F602}";
+-----
+!!php7
+array(
+    0: Stmt_Expression(
+        expr: Scalar_String(
+            value: @@{"\0"}@@
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_String(
+            value: Ĕ
+        )
+    )
+    2: Stmt_Expression(
+        expr: Scalar_String(
+            value: @@{"\xF0\x9F\x98\x82"}@@
+        )
+    )
+)

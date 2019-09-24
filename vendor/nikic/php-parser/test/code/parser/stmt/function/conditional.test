@@ -1,0 +1,35 @@
+Conditional function definition
+-----
+<?php
+
+if (true) {
+    function A() {}
+}
+-----
+array(
+    0: Stmt_If(
+        cond: Expr_ConstFetch(
+            name: Name(
+                parts: array(
+                    0: true
+                )
+            )
+        )
+        stmts: array(
+            0: Stmt_Function(
+                byRef: false
+                name: Identifier(
+                    name: A
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: array(
+                )
+            )
+        )
+        elseifs: array(
+        )
+        else: null
+    )
+)

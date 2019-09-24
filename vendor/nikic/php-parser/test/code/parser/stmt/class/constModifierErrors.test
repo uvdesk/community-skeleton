@@ -1,0 +1,137 @@
+Invalid class constant modifiers
+-----
+<?php
+class A {
+    static const X = 1;
+}
+-----
+!!php7
+Cannot use 'static' as constant modifier from 3:5 to 3:10
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassConst(
+                flags: MODIFIER_STATIC (8)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: X
+                        )
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+class A {
+    abstract const X = 1;
+}
+-----
+!!php7
+Cannot use 'abstract' as constant modifier from 3:5 to 3:12
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassConst(
+                flags: MODIFIER_ABSTRACT (16)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: X
+                        )
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+class A {
+    final const X = 1;
+}
+-----
+!!php7
+Cannot use 'final' as constant modifier from 3:5 to 3:9
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassConst(
+                flags: MODIFIER_FINAL (32)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: X
+                        )
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+class A {
+    public public const X = 1;
+}
+-----
+!!php7
+Multiple access type modifiers are not allowed from 3:12 to 3:17
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: A
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassConst(
+                flags: MODIFIER_PUBLIC (1)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: X
+                        )
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+        )
+    )
+)

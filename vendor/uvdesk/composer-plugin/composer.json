@@ -1,0 +1,30 @@
+{
+    "name": "uvdesk/composer-plugin",
+    "type": "composer-plugin",
+    "description": "Generic purpose composer plugin to auto-configure your packages",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Akshay Kumar",
+            "email": "akshay.kumar758@webkul.com"
+        }
+    ],
+    "require": {
+        "php": "^5.3.2 || ^7.0",
+        "composer-plugin-api": "^1.0"
+    },
+    "require-dev": {
+        "composer/composer": "^1.0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Webkul\\UVDesk\\PackageManager\\": "lib/"
+        }
+    },
+    "extra": {
+        "class": "Webkul\\UVDesk\\PackageManager\\Manager",
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

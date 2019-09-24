@@ -1,0 +1,92 @@
+List reference assignments (PHP 7.3)
+-----
+<?php
+
+list(&$v) = $x;
+list('k' => &$v) = $x;
+[&$v] = $x;
+['k' => &$v] = $x;
+-----
+!!php7
+array(
+    0: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_List(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: v
+                        )
+                        byRef: true
+                        unpack: false
+                    )
+                )
+            )
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_List(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: Scalar_String(
+                            value: k
+                        )
+                        value: Expr_Variable(
+                            name: v
+                        )
+                        byRef: true
+                        unpack: false
+                    )
+                )
+            )
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: v
+                        )
+                        byRef: true
+                        unpack: false
+                    )
+                )
+            )
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: Scalar_String(
+                            value: k
+                        )
+                        value: Expr_Variable(
+                            name: v
+                        )
+                        byRef: true
+                        unpack: false
+                    )
+                )
+            )
+            expr: Expr_Variable(
+                name: x
+            )
+        )
+    )
+)

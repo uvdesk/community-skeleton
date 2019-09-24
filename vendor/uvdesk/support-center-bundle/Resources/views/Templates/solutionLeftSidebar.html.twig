@@ -1,0 +1,24 @@
+{# app/Resources/views/form/leftsiderbar.html.twig #}
+<div class="uv-aside" {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}style="display: none;"{% endif %}>
+    {% set sidebarLinks = default_service.getLeftSidebarRoutes() %}
+    {% if sidebarLinks%}
+        <div class="uv-aside-head">
+            <div class="uv-aside-title">
+                <h6>{{ sidebarLinks.title }}</h6>
+            </div>
+            <div class="uv-aside-back">
+                <span onclick="history.length > 1 ? history.go(-1) : window.location = '{{ path("dashboard_action") }}';"> {{ 'Back'|trans }}</span>
+            </div>
+        </div>
+
+        <div class="uv-aside-nav">
+            <ul>
+                {% for item in sidebarLinks.items %}
+                    <li>
+                        <a class="{{ item.class }}" {{ item.link ? 'href='~item.link : false }} {% if item.attr is defined %}{{item.attr}}{% endif %}>{{ item.title|raw }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</div>

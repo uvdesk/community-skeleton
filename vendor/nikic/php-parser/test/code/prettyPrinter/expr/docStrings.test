@@ -1,0 +1,86 @@
+Literals
+-----
+<?php
+
+<<<'STR'
+STR;
+<<<STR
+STR;
+
+<<<'STR'
+A
+B
+STR;
+<<<STR
+A
+B
+STR;
+
+<<<'STR'
+a\nb$c
+STR;
+<<<STR
+a\\nb\$c
+STR;
+
+<<<STR
+a$b
+{$c->d}
+STR;
+
+call(
+    <<<STR
+A
+STR
+    , <<<STR
+B
+STR
+);
+
+function test() {
+    <<<STR
+Foo
+STR;
+    <<<STR
+    Bar
+STR;
+}
+-----
+<<<'STR'
+STR;
+<<<STR
+STR;
+<<<'STR'
+A
+B
+STR;
+<<<STR
+A
+B
+STR;
+<<<'STR'
+a\nb$c
+STR;
+<<<STR
+a\\nb\$c
+STR;
+<<<STR
+a{$b}
+{$c->d}
+STR;
+call(<<<STR
+A
+STR
+, <<<STR
+B
+STR
+);
+function test()
+{
+    <<<STR
+Foo
+STR;
+    <<<STR
+    Bar
+STR;
+}

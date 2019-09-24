@@ -1233,6 +1233,7 @@ ticket: ticket
 "Success! Ticket type saved successfully.": "Success! Ticket type saved successfully."
 "Success! Ticket type updated successfully.": "Success! Ticket type updated successfully."
 "Error! Ticket type with same name already exist": "Error! Ticket type with same name already exist"
+'SAVE': 'SAVE'
 ticket.message.placeHolders.info: ticket.message.placeHolders.info
 ticket.attachments.placeHolders.info: 	ticket.attachments.placeHolders.info
 ticket.threadMessage.placeHolders.info: ticket.threadMessage.placeHolders.info
@@ -1258,5 +1259,46 @@ ticket.link.placeHolders.info: 	ticket.link.placeHolders.info
 ticket.id.placeHolders.info: ticket.id.placeHolders.info
 ticket.subject.placeHolders.info: 	ticket.subject.placeHolders.info
 ticket.status.placeHolders.info: ticket.status.placeHolders.info
+#customer page
+"Howdy!": "Howdy!"
+"New Ticket Request": "New Ticket Request"
+"Ticket Requests": "Ticket Requests"
+"Cookie Usage Policy": "Cookie Usage Policy"
+"cookie": "cookie"
+"cookies": "cookies"
+"HELP": "HELP"
+"Home": "Home"
+"Cookie Policy": "Cookie Policy"
+"Prev": "Prev"
+"Ticket query message": "Ticket query message"
+"Select type": "Select type"
+"Search KnowledgeBase": "Search KnowledgeBase"
+"You can't merge an account with itself.": "You can't merge an account with itself."
+"Edit Profile": "Edit Profile"
+"Customer Login": "Customer Login"
+"Contact Us": "Contact Us"
+"If you've ever contacted our support previously, your account would have already been created.": "If you've ever contacted our support previously, your account would have already been created."
+"support": "support"
+
+# "Howdy!"
+# "New Ticket Request"
+# "Ticket Requests"
+# "Cookie Usage Policy"
+# "cookie"
+# "cookies"
+# "HELP"
+# "Home"
+# "Cookie Policy"
+# "Prev"
+# "Ticket query message"
+# "Select type"
+# "Search KnowledgeBase"
+# "You can't merge an account with itself."
+# "Edit Profile"
+# "Customer Login"
+# "Contact Us"
+# "If you've ever contacted our support previously, your account would have already been created."
+
+
 
 

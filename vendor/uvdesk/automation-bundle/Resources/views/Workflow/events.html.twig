@@ -1,0 +1,138 @@
+{% set workflowAccess = user_service.isAccessAuthorized('workflows_addaction') %}
+
+<script type="text/template" id="event-add">
+	<select class="uv-select uv-select-grouped select-event wfEvents" name="events[<%- keyNo %>][event]" <%- typeof(event) != 'undefined' && event ? "disabled=disabled" : '' %>  style="width: 300px;">
+		<option value="">{% trans %}Select an Event{% endtrans %}</option>
+		<% for(var key in events){ %>
+			<option value="<%= key %>" <%- typeof(event) != 'undefined' && event == key ? 'selected' : '' %>><%= events[key] %></option>
+		<% } %>
+	</select>
+
+	<span class="apply-event">
+		<a class="uv-btn-tag remove-event-select" href="#"><span class="uv-icon-remove-dark-box"></a>
+	</span>
+
+	<p class="uv-field-message" style="display: none;"></p>
+</script>
+
+<script type="text/template" id="event-value-select">
+	<select class="uv-select uv-select-grouped wfEventTriggers" name="events[<%- keyNo %>][trigger]" style="width: 300px;">
+		<% for (var key in triggers) { %>
+			<option value="<%= key %>" <%- typeof(trigger) != 'undefined' && trigger == key ? 'selected' : '' %>><%= triggers[key] %></option>
+		<% } %>
+	</select>
+</script>
+
+<script type="text/javascript">
+	var workflowAccess = {{ workflowAccess ? 1 : 0 }};
+
+	if(typeof(sB) == 'undefined'){
+		var sB = {};
+	}
+
+	sB.eventRow = sB.PrevEvent = 0;
+	sB.JsonEvents = JSON.parse("{{ uvdesk_automations.getWorkflowEvents() | json_encode | e('js') }}");
+	sB.MatchEvents = JSON.parse("{{ uvdesk_automations.getWorkflowEventValues() | json_encode | e('js') }}");
+
+	sB.EventSelectView = Backbone.View.extend({
+		tagName: 'div',
+		className: 'uv-field-block workflow-event',
+		eventTemplate: _.template($('#event-add').html()),
+		valueSelectTemplate: _.template($('#event-value-select').html()),
+		events: {
+			'change .select-event': 'selectOption',
+			'change .apply-event': 'selectValue',
+			'click .remove-event-select': 'removeSelect'
+		},
+		initialize: function() {
+			(this.model == undefined || this.model.altKey != undefined) ? this.model = {'event': sB.PrevEvent ? sB.PrevEvent : 0} : false;
+			this.keyNo = sB.eventRow;
+			sB.eventRow++;
+		},
+		render: function() {
+			this.$el.html(this.eventTemplate(_.extend(this.model, {'keyNo': this.keyNo, 'events': sB.JsonEvents})));
+			return this;
+		},
+		removeSelect: function(e) {
+			if ($('.uv-field-block.workflow-event').length > 1) {
+				this.remove();
+				this.firstEnable();
+			} else {
+				$(this.el).find('.uv-field-message').html("{{ 'This field is required'|trans }}").fadeIn(0);
+			}
+		},
+		selectOption: function(e) {
+			if (e.target.value != sB.PrevEvent) {
+				$('#events').find('.workflow-event').not(this.$el).remove();
+				sB.PrevEvent = e.target.value;
+				if (typeof(sB.ActionSelectViews) != 'undefined') {
+					sB.actionselectView.clearHtml();
+				}
+				if (typeof(sB.SelectViews) != 'undefined') {
+					sB.selectView.clearHtml();
+				}
+			}
+
+			this.firstEnable();
+			var value = sB.PrevEvent = e.target.value;
+			this.updateButtonHref(value);
+			this.siblingValue = this.$el.find('.apply-event');
+			this.siblingValue.find('.uv-select').remove();
+			this.siblingValue.prepend(this.valueSelectTemplate(_.extend(this.model, {'triggers' : sB.MatchEvents[value], 'keyNo': this.keyNo})));
+		},
+		updateButtonHref: function(value) {
+			if (value) {
+				if (value == 'customer' || value == 'agent') {
+					$('#events').find('.btn-next').attr('href', '#actions');
+					$('#actions').find('.btn-prev').attr('href', '#events');
+				} else {
+					$('#events').find('.btn-next').attr('href', '#conditions');
+					$('#actions').find('.btn-prev').attr('href', '#conditions');
+				}
+			}
+		},
+		firstEnable: function() {
+			if (workflowAccess) {
+				$('#events').find('.workflow-event').eq(0).find('.uv-select.wfEvents').attr('disabled', false);
+			}
+		},
+		selectValue: function(e) {
+			sB.eventselectView.removeduplicate(e);
+			this.firstEnable();
+		}
+	});
+
+	sB.EventSelectViews = Backbone.View.extend({
+		el: '.uv-view',
+		target: $('#events .workflow-event-body'),
+		initialize: function(){
+			{% if formData and formData.events is defined %}
+				this.createEvents($.parseJSON("{{ formData.events | json_encode | e('js') }}"));
+			{% else %}
+				this.addSelect();
+			{% endif %}
+		},
+		events: {
+			'click #events .btn-add': 'addSelect',
+		},
+		createEvents: function(eventPreviouslyAdded) {
+			_.each(eventPreviouslyAdded, this.addSelect, this);
+		},
+		addSelect: function(eventModel) {
+			var view = new sB.EventSelectView({model: eventModel});
+	        this.target.append(viewEl = view.render().el); 
+	        // if (typeof(eventModel.type) == 'undefined' && typeof(eventModel.trigger) != 'undefined')
+	        	this.$(viewEl).find('select.wfEvents').trigger('change');
+		},
+		removeduplicate: function(e) {
+			// remove already exits elements - select
+		    $('.apply-event select').each(function() {
+				if (this.value == e.target.value) {
+					$(this).not(e.target).parents('tr').remove();
+				}
+		    })
+		},
+	});
+
+	sB.eventselectView = new sB.EventSelectViews();
+</script>

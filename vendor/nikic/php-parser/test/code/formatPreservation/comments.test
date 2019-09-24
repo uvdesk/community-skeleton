@@ -1,0 +1,52 @@
+Comment changes
+-----
+<?php
+// Test
+foo();
+-----
+$stmts[0]->setAttribute('comments', []);
+-----
+<?php
+foo();
+-----
+<?php
+$foo;
+
+
+/* bar */
+$baz;
+-----
+$comments = $stmts[1]->getComments();
+$comments[] = new Comment("// foo");
+$stmts[1]->setAttribute('comments', $comments);
+-----
+<?php
+$foo;
+
+
+/* bar */
+// foo
+$baz;
+-----
+<?php
+class Test {
+    /**
+     * @expectedException \FooException
+     */
+    public function test() {
+        // some code
+    }
+}
+-----
+$method = $stmts[0]->stmts[0];
+$method->setAttribute('comments', [new Comment\Doc("/**\n *\n */")]);
+-----
+<?php
+class Test {
+    /**
+     *
+     */
+    public function test() {
+        // some code
+    }
+}

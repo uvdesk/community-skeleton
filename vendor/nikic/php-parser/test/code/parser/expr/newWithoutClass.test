@@ -1,0 +1,25 @@
+New without a class
+-----
+<?php
+new;
+-----
+!!php5
+Syntax error, unexpected ';' from 2:4 to 2:4
+array(
+)
+-----
+<?php
+new;
+-----
+!!php7
+Syntax error, unexpected ';' from 2:4 to 2:4
+array(
+    0: Stmt_Expression(
+        expr: Expr_New(
+            class: Expr_Error(
+            )
+            args: array(
+            )
+        )
+    )
+)

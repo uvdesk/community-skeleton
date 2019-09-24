@@ -1,0 +1,10 @@
+while
+-----
+<?php
+
+while (true) {
+
+}
+-----
+while (true) {
+}

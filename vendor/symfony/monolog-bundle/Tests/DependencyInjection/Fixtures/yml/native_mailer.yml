@@ -1,0 +1,10 @@
+monolog:
+    handlers:
+        mailer:
+            type: native_mailer
+            from_email: foo@example.com
+            to_email: bar@exemple.com
+            subject: a subject
+            headers:
+                - "Foo: bar"
+                - "Baz: inga"

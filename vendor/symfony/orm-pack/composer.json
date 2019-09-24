@@ -1,0 +1,12 @@
+{
+    "name": "symfony/orm-pack",
+    "type": "symfony-pack",
+    "license": "MIT",
+    "description": "A pack for the Doctrine ORM",
+    "require": {
+        "php": "^7.0",
+        "doctrine/orm": "^2.5.11",
+        "doctrine/doctrine-bundle": "^1.6.10",
+        "doctrine/doctrine-migrations-bundle": "^1.3|^2.0"
+    }
+}

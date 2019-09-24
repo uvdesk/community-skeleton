@@ -1,0 +1,54 @@
+{
+    "name": "symfony/event-dispatcher",
+    "type": "library",
+    "description": "Symfony EventDispatcher Component",
+    "keywords": [],
+    "homepage": "https://symfony.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fabien Potencier",
+            "email": "fabien@symfony.com"
+        },
+        {
+            "name": "Symfony Community",
+            "homepage": "https://symfony.com/contributors"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "symfony/event-dispatcher-contracts": "^1.1"
+    },
+    "require-dev": {
+        "symfony/dependency-injection": "~3.4|~4.0",
+        "symfony/expression-language": "~3.4|~4.0",
+        "symfony/config": "~3.4|~4.0",
+        "symfony/http-foundation": "^3.4|^4.0",
+        "symfony/service-contracts": "^1.1",
+        "symfony/stopwatch": "~3.4|~4.0",
+        "psr/log": "~1.0"
+    },
+    "conflict": {
+        "symfony/dependency-injection": "<3.4"
+    },
+    "provide": {
+        "psr/event-dispatcher-implementation": "1.0",
+        "symfony/event-dispatcher-implementation": "1.1"
+    },
+    "suggest": {
+        "symfony/dependency-injection": "",
+        "symfony/http-kernel": ""
+    },
+    "autoload": {
+        "psr-4": { "Symfony\\Component\\EventDispatcher\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.3-dev"
+        }
+    }
+}

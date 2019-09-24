@@ -1,0 +1,117 @@
+Error conditions for flexible doc strings
+-----
+<?php
+
+<<<A
+ @@{ "\t" }@@A;
+
+<<<A
+    FooBar
+ @@{ "\t" }@@A;
+
+echo <<<END
+@@{ "\t" }@@   X
+@@{ "\t\t" }@@END;
+
+echo <<<END
+      a
+     b
+    c
+     END;
+
+<<<END
+\ta
+@@{ "\t" }@@END;
+
+<<<TEST
+  Foo
+$var
+  TEST;
+
+<<<TEST
+$var
+ TEST;
+
+echo <<<END
+ a
+$a
+ END;
+-----
+Invalid indentation - tabs and spaces cannot be mixed from 4:1 to 4:3
+Invalid indentation - tabs and spaces cannot be mixed from 8:1 to 8:3
+Invalid indentation - tabs and spaces cannot be mixed from 10:6 to 12:5
+Invalid body indentation level (expecting an indentation level of at least 5) from 14:6 to 18:8
+Invalid body indentation level (expecting an indentation level of at least 1) from 20:1 to 22:4
+Invalid body indentation level (expecting an indentation level of at least 2) from 25:1 to 26:0
+Invalid body indentation level (expecting an indentation level of at least 1) from 30:1 to 30:4
+Invalid body indentation level (expecting an indentation level of at least 1) from 34:1 to 35:0
+array(
+    0: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_String(
+            value:     FooBar
+        )
+    )
+    2: Stmt_Echo(
+        exprs: array(
+            0: Scalar_String(
+                value:   X
+            )
+        )
+    )
+    3: Stmt_Echo(
+        exprs: array(
+            0: Scalar_String(
+                value:  a
+            b
+            c
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Scalar_String(
+            value: 	a
+        )
+    )
+    5: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Scalar_EncapsedStringPart(
+                    value: Foo
+
+                )
+                1: Expr_Variable(
+                    name: var
+                )
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Expr_Variable(
+                    name: var
+                )
+            )
+        )
+    )
+    7: Stmt_Echo(
+        exprs: array(
+            0: Scalar_Encapsed(
+                parts: array(
+                    0: Scalar_EncapsedStringPart(
+                        value: a
+
+                    )
+                    1: Expr_Variable(
+                        name: a
+                    )
+                )
+            )
+        )
+    )
+)

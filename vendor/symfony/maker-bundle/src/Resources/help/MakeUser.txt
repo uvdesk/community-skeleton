@@ -1,0 +1,7 @@
+The <info>%command.name%</info> command generates a new user class for security
+and updates your security.yaml file for it. It will also generate a user provider
+class if your situation needs a custom class.
+
+<info>php %command.full_name% User</info>
+
+If the argument is missing, the command will ask for the class name interactively.

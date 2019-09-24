@@ -1,0 +1,525 @@
+{% extends request.isXmlHttpRequest ? '@WebProfiler/Profiler/ajax_layout.html.twig' : '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% import _self as helper %}
+
+{% block toolbar %}
+    {% if collector.querycount > 0 or collector.invalidEntityCount > 0 %}
+
+        {% set profiler_markup_version = profiler_markup_version|default(1) %}
+
+        {% set icon %}
+            {% if profiler_markup_version == 1 %}
+
+                <img width="20" height="28" alt="Database" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQRJREFUeNpi/P//PwM1ARMDlcGogZQDlpMnT7pxc3NbA9nhQKxOpL5rQLwJiPeBsI6Ozl+YBOOOHTv+AOllQNwtLS39F2owKYZ/gRq8G4i3ggxEToggWzvc3d2Pk+1lNL4fFAs6ODi8JzdS7mMRVyDVoAMHDsANdAPiOCC+jCQvQKqBQB/BDbwBxK5AHA3E/kB8nKJkA8TMQBwLxaBIKQbi70AvTADSBiSadwFXpCikpKQU8PDwkGTaly9fHFigkaKIJid4584dkiMFFI6jkTJII0WVmpHCAixZQEXWYhDeuXMnyLsVlEQKI45qFBQZ8eRECi4DBaAlDqle/8A48ip6gAADANdQY88Uc0oGAAAAAElFTkSuQmCC" />
+                    <span class="sf-toolbar-value sf-toolbar-status {% if collector.querycount > 50 %}sf-toolbar-status-yellow{% endif %}">{{ collector.querycount }}</span>
+                    {% if collector.querycount > 0 %}
+                        <span class="sf-toolbar-info-piece-additional-detail">in {{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+                    {% endif %}
+                    {% if collector.invalidEntityCount > 0 %}
+                        <span class="sf-toolbar-info-piece-additional sf-toolbar-status sf-toolbar-status-red">{{ collector.invalidEntityCount }}</span>
+                    {% endif %}
+
+            {% else %}
+
+                {% set status = collector.invalidEntityCount > 0 ? 'red' : collector.querycount > 50 ? 'yellow' %}
+
+                {{ include('@Doctrine/Collector/icon.svg') }}
+
+                {% if collector.querycount == 0 and collector.invalidEntityCount > 0 %}
+                    <span class="sf-toolbar-value">{{ collector.invalidEntityCount }}</span>
+                    <span class="sf-toolbar-label">errors</span>
+                {% else %}
+                    <span class="sf-toolbar-value">{{ collector.querycount }}</span>
+                    <span class="sf-toolbar-info-piece-additional-detail">
+                        <span class="sf-toolbar-label">in</span>
+                        <span class="sf-toolbar-value">{{ '%0.2f'|format(collector.time * 1000) }}</span>
+                        <span class="sf-toolbar-label">ms</span>
+                    </span>
+                {% endif %}
+
+            {% endif %}
+        {% endset %}
+
+        {% set text %}
+            <div class="sf-toolbar-info-piece">
+                <b>Database Queries</b>
+                <span class="sf-toolbar-status {{ collector.querycount > 50 ? 'sf-toolbar-status-yellow' : '' }}">{{ collector.querycount }}</span>
+            </div>
+            <div class="sf-toolbar-info-piece">
+                <b>Query time</b>
+                <span>{{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+            </div>
+            <div class="sf-toolbar-info-piece">
+                <b>Invalid entities</b>
+                <span class="sf-toolbar-status {{ collector.invalidEntityCount > 0 ? 'sf-toolbar-status-red' : '' }}">{{ collector.invalidEntityCount }}</span>
+            </div>
+            {% if collector.cacheEnabled %}
+                <div class="sf-toolbar-info-piece">
+                    <b>Cache hits</b>
+                    <span class="sf-toolbar-status sf-toolbar-status-green">{{ collector.cacheHitsCount }}</span>
+                </div>
+                <div class="sf-toolbar-info-piece">
+                    <b>Cache misses</b>
+                    <span class="sf-toolbar-status {{ collector.cacheMissesCount > 0 ? 'sf-toolbar-status-yellow' : '' }}">{{ collector.cacheMissesCount }}</span>
+                </div>
+                <div class="sf-toolbar-info-piece">
+                    <b>Cache puts</b>
+                    <span class="sf-toolbar-status {{ collector.cachePutsCount > 0 ? 'sf-toolbar-status-yellow' : '' }}">{{ collector.cachePutsCount }}</span>
+                </div>
+            {% else %}
+                <div class="sf-toolbar-info-piece">
+                    <b>Second Level Cache</b>
+                    <span class="sf-toolbar-status">disabled</span>
+                </div>
+            {% endif %}
+        {% endset %}
+
+        {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: profiler_url, status: status|default('') }) }}
+
+    {% endif %}
+{% endblock %}
+
+{% block menu %}
+    {% set profiler_markup_version = profiler_markup_version|default(1) %}
+
+    {% if profiler_markup_version == 1 %}
+
+        <span class="label">
+            <span class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAcCAYAAAB/E6/TAAABLUlEQVR42u3TP0vDQBiA8UK/gDiLzi0IhU4OEunk5OQUAhGSOBUCzqWfIKSzX8DRySF0URCcMjWLIJjFD9Cpk/D6HITecEPUuzhIAz8CIdyTP/f2iqI4qaqqDx8l5Ic2uIeP/bquezCokOAFF+oCN3t4gPzSEjc4NEPaCldQbzjELTYW0RJzHDchwwem+ons6ZBpLSJ7nueJC22h0V+FzmwWV0ee59vQNV67CGVZJmEYbkNjfpY6X6I0Qo4/3RMmTdDDspuQVsJvgkP3IdMbIkIjLPBoadG2646iKJI0Ta2wxm6OdnP0/Tk6DYJgHcfxpw21RtscDTDDnaVZ26474GkkSRIrrPEv5sgMTfHe+cA2O6wPH6vOBpYQNALneHb96XTEDI6dzpEZ0VzO0Rf3pP5LMLI4tAAAAABJRU5ErkJggg==" alt="" /></span>
+            <strong>Doctrine</strong>
+            <span class="count">
+                <span>{{ collector.querycount }}</span>
+                <span>{{ '%0.0f'|format(collector.time * 1000) }} ms</span>
+            </span>
+        </span>
+
+    {% else %}
+
+        <span class="label {{ collector.invalidEntityCount > 0 ? 'label-status-error' }} {{ collector.querycount == 0 ? 'disabled' }}">
+            <span class="icon">{{ include('@Doctrine/Collector/icon.svg') }}</span>
+            <strong>Doctrine</strong>
+            {% if collector.invalidEntityCount %}
+                <span class="count">
+                    <span>{{ collector.invalidEntityCount }}</span>
+                </span>
+            {% endif %}
+        </span>
+
+    {% endif %}
+{% endblock %}
+
+{% block panel %}
+    {% set profiler_markup_version = profiler_markup_version|default(1) %}
+
+    {% if 'explain' == page %}
+        {{ render(controller('DoctrineBundle:Profiler:explain', {
+            token: token,
+            panel: 'db',
+            connectionName: request.query.get('connection'),
+            query: request.query.get('query')
+        })) }}
+    {% else %}
+        {{ block('queries') }}
+    {% endif %}
+{% endblock %}
+
+{% block queries %}
+    <style>
+        {% if profiler_markup_version == 1 %}
+            .hidden { display: none; }
+            .queries-table td, .queries-table th { vertical-align: top; }
+            .queries-table td > div { margin-bottom: 6px; }
+            .highlight pre { margin: 0; white-space: pre-wrap; }
+            .highlight .keyword   { color: #8959A8; font-weight: bold; }
+            .highlight .word      { color: #222222; }
+            .highlight .variable  { color: #916319; }
+            .highlight .symbol    { color: #222222; }
+            .highlight .comment   { color: #999999; }
+            .highlight .backtick  { color: #718C00; }
+            .highlight .string    { color: #718C00; }
+            .highlight .number    { color: #F5871F; font-weight: bold; }
+            .highlight .error     { color: #C82829; }
+        {% endif %}
+
+        .time-container { position: relative; }
+        .time-container .nowrap { position: relative; z-index: 1; text-shadow: 0 0 2px #fff; }
+        .time-bar { display: block; position: absolute; top: 0; left: 0; bottom: 0; background: #e0e0e0; }
+    </style>
+
+    {% if profiler_markup_version > 1 %}
+        <h2>Query Metrics</h2>
+
+        <div class="metrics">
+            <div class="metric">
+                <span class="value">{{ collector.querycount }}</span>
+                <span class="label">Database Queries</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">{{ collector.groupedQueryCount }}</span>
+                <span class="label">Different statements</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">{{ '%0.2f'|format(collector.time * 1000) }} ms</span>
+                <span class="label">Query time</span>
+            </div>
+
+            <div class="metric">
+                <span class="value">{{ collector.invalidEntityCount }}</span>
+                <span class="label">Invalid entities</span>
+            </div>
+
+            {% if collector.cacheEnabled %}
+                <div class="metric">
+                	<span class="value">{{ collector.cacheHitsCount }}</span>
+                	<span class="label">Cache hits</span>
+                </div>
+                <div class="metric">
+                	<span class="value">{{ collector.cacheMissesCount }}</span>
+                	<span class="label">Cache misses</span>
+                </div>
+                <div class="metric">
+                	<span class="value">{{ collector.cachePutsCount }}</span>
+                	<span class="label">Cache puts</span>
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% set group_queries = request.query.getBoolean('group') %}
+    {% if group_queries %}
+        <h2>Grouped Statements</h2>
+        <p><a href="{{ path('_profiler', { panel: 'db', token: token }) }}">Show all queries</a></p>
+    {% else %}
+        <h2>Queries</h2>
+        <p><a href="{{ path('_profiler', { panel: 'db', token: token, group: true }) }}">Group similar statements</a></p>
+    {% endif %}
+
+    {% for connection, queries in collector.queries %}
+        {% if collector.connections|length > 1 %}
+            <h3>{{ connection }} <small>connection</small></h3>
+        {% endif %}
+
+        {% if queries is empty %}
+            <div class="empty">
+                <p>No database queries were performed.</p>
+            </div>
+        {% else %}
+            {% if group_queries %}
+                {% set queries = collector.groupedQueries[connection] %}
+            {% endif %}
+            <table class="alt queries-table">
+                <thead>
+                <tr>
+                    {% if group_queries %}
+                        <th class="nowrap" onclick="javascript:sortTable(this, 0, 'queries-{{ loop.index }}')" data-sort-direction="1" style="cursor: pointer;">Time<span class="text-muted">&#9660;</span></th>
+                        <th class="nowrap" onclick="javascript:sortTable(this, 1, 'queries-{{ loop.index }}')" style="cursor: pointer;">Count<span></span></th>
+                    {% else %}
+                        <th class="nowrap" onclick="javascript:sortTable(this, 0, 'queries-{{ loop.index }}')" data-sort-direction="-1" style="cursor: pointer;">#<span class="text-muted">&#9650;</span></th>
+                        <th class="nowrap" onclick="javascript:sortTable(this, 1, 'queries-{{ loop.index }}')" style="cursor: pointer;">Time<span></span></th>
+                    {% endif %}
+                    <th style="width: 100%;">Info</th>
+                </tr>
+                </thead>
+                <tbody id="queries-{{ loop.index }}">
+                    {% for i, query in queries %}
+                        {% set i = group_queries ? query.index : i %}
+                        <tr id="queryNo-{{ i }}-{{ loop.parent.loop.index }}">
+                            {% if group_queries %}
+                                <td class="time-container">
+                                    <span class="time-bar" style="width:{{ '%0.2f'|format(query.executionPercent) }}%"></span>
+                                    <span class="nowrap">{{ '%0.2f'|format(query.executionMS * 1000) }}&nbsp;ms<br />({{ '%0.2f'|format(query.executionPercent) }}%)</span>
+                                </td>
+                                <td class="nowrap">{{ query.count }}</td>
+                            {% else %}
+                                <td class="nowrap">{{ loop.index }}</td>
+                                <td class="nowrap">{{ '%0.2f'|format(query.executionMS * 1000) }}&nbsp;ms</td>
+                            {% endif %}
+                            <td>
+                                {{ query.sql|doctrine_pretty_query(highlight_only = true) }}
+
+                                <div>
+                                    <strong class="font-normal text-small">Parameters</strong>: {{ profiler_dump(query.params, 2) }}
+                                </div>
+
+                                <div class="text-small font-normal">
+                                    <a href="#" {{ profiler_markup_version == 1 ? 'onclick="return toggleRunnableQuery(this);"' }} class="sf-toggle link-inverse" data-toggle-selector="#formatted-query-{{ i }}-{{ loop.parent.loop.index }}" data-toggle-alt-content="Hide formatted query">View formatted query</a>
+
+                                    &nbsp;&nbsp;
+
+                                    <a href="#" {{ profiler_markup_version == 1 ? 'onclick="return toggleRunnableQuery(this);"' }} class="sf-toggle link-inverse" data-toggle-selector="#original-query-{{ i }}-{{ loop.parent.loop.index }}" data-toggle-alt-content="Hide runnable query">View runnable query</a>
+
+                                    {% if query.explainable %}
+                                        &nbsp;&nbsp;
+                                        <a class="link-inverse" href="{{ path('_profiler', { panel: 'db', token: token, page: 'explain', connection: connection, query: i }) }}" onclick="return explain(this);" data-target-id="explain-{{ i }}-{{ loop.parent.loop.index }}">Explain query</a>
+                                    {% endif %}
+
+                                    {% if query.backtrace is defined %}
+                                        &nbsp;&nbsp;
+                                        <a href="#" class="sf-toggle link-inverse" data-toggle-selector="#backtrace-{{ i }}-{{ loop.parent.loop.index }}" data-toggle-alt-content="Hide query backtrace">View query backtrace</a>
+                                    {% endif %}
+                                </div>
+
+                                <div id="formatted-query-{{ i }}-{{ loop.parent.loop.index }}" class="sql-runnable hidden">
+                                    {{ query.sql|doctrine_pretty_query }}
+                                </div>
+
+                                <div id="original-query-{{ i }}-{{ loop.parent.loop.index }}" class="sql-runnable hidden">
+                                    {{ (query.sql ~ ';')|doctrine_replace_query_parameters(query.params)|doctrine_pretty_query(highlight_only = true) }}
+                                </div>
+
+                                {% if query.explainable %}
+                                    <div id="explain-{{ i }}-{{ loop.parent.loop.index }}" class="sql-explain"></div>
+                                {% endif %}
+
+                                {% if query.backtrace is defined %}
+                                    <div id="backtrace-{{ i }}-{{ loop.parent.loop.index }}" class="hidden">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">File/Call</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for trace in query.backtrace %}
+                                                    <tr>
+                                                        <td>{{ loop.index }}</td>
+                                                        <td>
+                                                            <span class="text-small">
+                                                                {% set line_number = trace.line|default(1) %}
+                                                                {% if trace.file is defined %}
+                                                                    <a href="{{ trace.file|file_link(line_number) }}">
+                                                                {% endif %}
+                                                                    {{- trace.class|default ~ (trace.class is defined ? trace.type|default('::')) -}}
+                                                                    <span class="status-warning">{{ trace.function }}</span>
+                                                                {% if trace.file is defined %}
+                                                                    </a>
+                                                                {% endif %}
+                                                                (line {{ line_number }})
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endfor %}
+
+    <h2>Database Connections</h2>
+
+    {% if not collector.connections %}
+        <div class="empty">
+            <p>There are no configured database connections.</p>
+        </div>
+    {% else %}
+        {{ helper.render_simple_table('Name', 'Service', collector.connections) }}
+    {% endif %}
+
+    <h2>Entity Managers</h2>
+
+    {% if not collector.managers %}
+        <div class="empty">
+            <p>There are no configured entity managers.</p>
+        </div>
+    {% else %}
+        {{ helper.render_simple_table('Name', 'Service', collector.managers) }}
+    {% endif %}
+
+    <h2>Second Level Cache</h2>
+
+    {% if not collector.cacheEnabled %}
+        <div class="empty">
+            <p>Second Level Cache is not enabled.</p>
+        </div>
+    {% else %}
+        {% if not collector.cacheCounts %}
+            <div class="empty">
+                <p>Second level cache information is not available.</p>
+            </div>
+        {% else %}
+            {% if profiler_markup_version == 1 %}
+                {{ helper.render_simple_table('Key', 'Value', collector.cacheCounts) }}
+            {% else %}
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="value">{{ collector.cacheCounts.hits }}</span>
+                        <span class="label">Hits</span>
+                    </div>
+
+                    <div class="metric">
+                        <span class="value">{{ collector.cacheCounts.misses }}</span>
+                        <span class="label">Misses</span>
+                    </div>
+
+                    <div class="metric">
+                        <span class="value">{{ collector.cacheCounts.puts }}</span>
+                        <span class="label">Puts</span>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if collector.cacheRegions.hits %}
+                <h3>Number of cache hits</h3>
+                {{ helper.render_simple_table('Region', 'Hits', collector.cacheRegions.hits) }}
+            {% endif %}
+
+            {% if collector.cacheRegions.misses %}
+                <h3>Number of cache misses</h3>
+                {{ helper.render_simple_table('Region', 'Misses', collector.cacheRegions.misses) }}
+            {% endif %}
+
+            {% if collector.cacheRegions.puts %}
+                <h3>Number of cache puts</h3>
+                {{ helper.render_simple_table('Region', 'Puts', collector.cacheRegions.puts) }}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+
+    <h2>Entities Mapping</h2>
+
+    {% for manager, classes in collector.entities %}
+        {% if collector.managers|length > 1 %}
+            <h3>{{ manager }} <small>entity manager</small></h3>
+        {% endif %}
+
+        {% if classes is empty %}
+            <div class="empty">
+                <p>No loaded entities.</p>
+            </div>
+        {% else %}
+            <table>
+                <thead>
+                <tr>
+                    <th scope="col">Class</th>
+                    <th scope="col">Mapping errors</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for class in classes %}
+                    {% set contains_errors = collector.mappingErrors[manager] is defined and collector.mappingErrors[manager][class] is defined %}
+                    <tr class="{{ contains_errors ? 'status-error' }}">
+                        <td>{{ class }}</td>
+                        <td class="font-normal">
+                            {% if contains_errors %}
+                                <ul>
+                                    {% for error in collector.mappingErrors[manager][class] %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                No errors.
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endfor %}
+
+    <script type="text/javascript">//<![CDATA[
+        function explain(link) {
+            "use strict";
+
+            var targetId = link.getAttribute('data-target-id');
+            var targetElement = document.getElementById(targetId);
+
+            if (targetElement.style.display != 'block') {
+                Sfjs.load(targetId, link.href, null, function(xhr, el) {
+                    el.innerHTML = 'An error occurred while loading the query explanation.';
+                });
+
+                targetElement.style.display = 'block';
+                link.innerHTML = 'Hide query explanation';
+            } else {
+                targetElement.style.display = 'none';
+                link.innerHTML = 'Explain query';
+            }
+
+            return false;
+        }
+
+        function sortTable(header, column, targetId) {
+            "use strict";
+
+            var direction = parseInt(header.getAttribute('data-sort-direction')) || 1,
+                items = [],
+                target = document.getElementById(targetId),
+                rows = target.children,
+                headers = header.parentElement.children,
+                i;
+
+            for (i = 0; i < rows.length; ++i) {
+                items.push(rows[i]);
+            }
+
+            for (i = 0; i < headers.length; ++i) {
+                headers[i].removeAttribute('data-sort-direction');
+                if (headers[i].children.length > 0) {
+                    headers[i].children[0].innerHTML = '';
+                }
+            }
+
+            header.setAttribute('data-sort-direction', (-1*direction).toString());
+            header.children[0].innerHTML = direction > 0 ? '<span class="text-muted">&#9650;</span>' : '<span class="text-muted">&#9660;</span>';
+
+            items.sort(function(a, b) {
+                return direction * (parseFloat(a.children[column].innerHTML) - parseFloat(b.children[column].innerHTML));
+            });
+
+            for (i = 0; i < items.length; ++i) {
+                Sfjs.removeClass(items[i], i % 2 ? 'even' : 'odd');
+                Sfjs.addClass(items[i], i % 2 ? 'odd' : 'even');
+                target.appendChild(items[i]);
+            }
+        }
+
+        {% if profiler_markup_version == 1 %}
+            function toggleRunnableQuery(target) {
+                var targetSelector = target.getAttribute('data-toggle-selector');
+                var targetDataAltContent = target.getAttribute('data-toggle-alt-content');
+                var targetElement = document.querySelector(targetSelector);
+                target.setAttribute('data-toggle-alt-content', target.innerHTML);
+
+                if (targetElement.style.display != 'block') {
+                    targetElement.style.display = 'block';
+                    target.innerHTML = targetDataAltContent;
+                } else {
+                    targetElement.style.display = 'none';
+                    target.innerHTML = targetDataAltContent;
+                }
+
+                return false;
+            }
+        {% endif %}
+
+        //]]></script>
+{% endblock %}
+
+{% macro render_simple_table(label1, label2, data) %}
+    <table>
+        <thead>
+        <tr>
+            <th scope="col" class="key">{{ label1 }}</th>
+            <th scope="col">{{ label2 }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for key, value in data %}
+            <tr>
+                <th scope="row">{{ key }}</th>
+                <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endmacro %}

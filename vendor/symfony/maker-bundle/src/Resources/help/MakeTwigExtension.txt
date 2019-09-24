@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new twig extension class.
+
+<info>php %command.full_name% AppExtension</info>
+
+If the argument is missing, the command will ask for the class name interactively.

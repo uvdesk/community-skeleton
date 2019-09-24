@@ -1,0 +1,233 @@
+<script type="text/template" id="select-add">
+	<% if (typeof(operation) != 'undefined' && operation == '||') { %>
+		<div class="uv-workflow-hr-plank">
+	        <div class="uv-workflow-hr-or">
+	            <span class="uv-workflow-or">{{ 'or'|trans }}</span>
+	        </div>
+	    </div>
+		<input type="hidden" name="conditions[<%- keyNo %>][operation]" value="||">
+	<% } else if (typeof(operation) != 'undefined' && operation == '&&') { %>
+		<div class="uv-workflow-hr-plank">
+	        <div class="uv-workflow-hr-and">
+	            <span class="uv-workflow-and">{{ 'and'|trans }}</span>
+	        </div>
+		</div>
+		<input type="hidden" name="conditions[<%- keyNo %>][operation]" value="&&">
+	<% } %>
+
+	<select class="uv-select uv-select-grouped select-condition wfCondition" name="conditions[<%- keyNo %>][type]" style="width: 200px;">
+		<option value="">{{ 'Select a Condition'|trans }}</option>
+		<% for(var key in conditions) { %>
+			<optgroup label="<%-key%>">
+				<% for (var key2 in conditions[key]) { %>
+					<option value="<%-conditions[key][key2].value%>" data-match="<%-conditions[key][key2].match%>" <%- typeof(type) != 'undefined' && type == conditions[key][key2].value ? 'selected' : ''%>><%- conditions[key][key2].lable %></option>
+				<% } %>
+			</optgroup>
+		<% } %>
+	</select>
+
+	<span class="select-match">
+    </span>
+
+    <span class="values" style="display: inline-block;">
+		<a class="uv-btn-tag remove-tr" href="#"><span class="uv-icon-remove-dark-box"></a>
+	</span>
+	<p class="uv-field-message" style="display: none;"></p>
+</script>
+
+<script type="text/template" id="match-add">
+	<select class="uv-select uv-select-grouped wfConditionMatch" name="conditions[<%- keyNo %>][match]" style="width: 200px;">
+		<% for(var key in matchArray){ %>
+			<option value="<%= matchArray[key].value %>" <%- typeof(match) != 'undefined' && match == matchArray[key].value ? 'selected' : ''%>><%= matchArray[key].lable %></option>
+		<% } %>
+	</select>
+</script>
+
+<script type="text/template" id="value-text">
+	<% if (typeof(addDate) != 'undefined' && addDate) { %>
+		<span class="date value-container">
+	        <input name="conditions[<%- keyNo %>][value]" type="text" class="uv-field form-control uv-date-picker date wfConditionValue" data-date-format="<%- fieldType == 'time' ? 'LT' : (fieldType == 'datetime' ? 'YYYY-MM-DD H:m:s' : 'YYYY-MM-DD') %>" value="<%- typeof(value) != 'undefined' ? value : '' %>" style="width: 200px;">
+	        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+	    </span>
+	<% } else { %>
+		<span class="value-container">
+			<input type="text" name="conditions[<%- keyNo %>][value]" class="uv-field wfConditionValue" value="<%- typeof(value) != 'undefined' ? value : ''%>" style="width: 200px;" />
+		</span>
+	<% } %>
+</script>
+
+<script type="text/template" id="value-select">
+	<select class="uv-select uv-select-grouped select-value wfConditionValue" name="conditions[<%- keyNo %>][value]" style="width: 200px;">
+		<option>{{ 'Loading...'|trans }}</option>
+	</select>
+</script>
+
+<script type="text/template" id="value-select-option">
+	<option value="<%= id %>" <%- typeof(value) != 'undefined' && value == id ? 'selected' : ''%>><%= name %></option>
+</script>
+
+<script type="text/javascript">
+	if (typeof(sB) == 'undefined') {
+		var sB = {};
+	}
+
+	sB.conditionRow = 0;
+	sB.JsonConditions = JSON.parse("{{ uvdesk_automations.getWorkflowConditions() | json_encode | e('js') }}");
+	sB.MatchConditions = JSON.parse("{{ uvdesk_automations.getWorkflowMatchConditions() | json_encode | e('js') }}");
+
+	sB.Collection = Backbone.Collection.extend({
+	    baseUrl: "{{ path('helpdesk_member_workflow_condition_options_xhr') }}",
+		fetchResult: function(dataMatch) {
+			this.url = this.baseUrl + '/' + dataMatch;
+	        return this.fetch();
+		},
+	});
+
+	sB.SelectView = Backbone.View.extend({
+		tagName: 'div',
+		className: 'uv-field-block workflow-condition',
+		selectTemplate: _.template($('#select-add').html()),
+		matchTemplate: _.template($('#match-add').html()),
+		valueTextTemplate: _.template($('#value-text').html()),
+		valueSelectTemplate: _.template($('#value-select').html()),
+		valueSelectOptionTemplate: _.template($('#value-select-option').html()),
+		events: {
+			'change .select-condition': 'selectMatch',
+			'click .remove-tr': 'removeTr'
+		},
+		initialize: function() {
+			this.disable = false;
+			this.keyNo = sB.conditionRow;
+			sB.conditionRow++;
+		},
+		render: function() {
+			var objKey = ((typeof(sB.PrevEvent) != 'undefined' && sB.PrevEvent) ? sB.PrevEvent : 'ticket');
+			this.$el.html(this.selectTemplate(_.extend(this.model, {'keyNo': this.keyNo, 'conditions': sB.JsonConditions[objKey]})));
+
+			if (objKey == 'ticket' || objKey == 'task') {
+				$('#conditions').prev('.uv-hr').fadeIn(10);
+				$('#conditions').fadeIn(10);
+			} else {
+				$('#conditions').prev('.uv-hr').fadeOut(10);
+				$('#conditions').fadeOut(10);
+				this.$el.empty();
+			}
+
+			return this;
+		},
+		removeTr: function(e) {
+			this.remove();
+	 		sB.selectView.clearFirstTrSpan();
+		},
+		selectMatch: function(e) {
+			if (this.disable) {
+				return;
+			}
+
+			var dataMatch = $(e.target).find('option').eq(e.target.selectedIndex).attr('data-match');
+			this.selectOpt = this.$el.find('.wfCondition');
+			this.siblingMatch = this.$el.find('.select-match');
+			this.siblingValue = this.$el.find('.values');
+			this.siblingMatch.find('.uv-select').remove();
+			this.siblingMatch.prepend(this.matchTemplate(_.extend(this.model, {'matchArray' : sB.MatchConditions[dataMatch], 'keyNo': this.keyNo})));
+			this.siblingValue.find('.value-container, .uv-select, .form-group, .form-control, .input-group.date').remove();
+			if (dataMatch == 'string' || dataMatch == 'email' || dataMatch == 'number') {
+				this.siblingValue.prepend(this.valueTextTemplate(_.extend(this.model, {'addDate' : false, 'keyNo': this.keyNo})));
+			} else if(dataMatch == 'date' || dataMatch == 'datetime' || dataMatch == 'time') {
+				this.siblingValue.prepend(this.valueTextTemplate(_.extend(this.model, {'addDate' : true, 'fieldType': dataMatch, 'keyNo': this.keyNo})));
+				this.datePicker();
+			} else if(dataMatch == 'select') {
+				this.selectOpt.prop('disabled', true);
+				this.disable = true;
+				this.siblingValue.prepend(this.valueSelectTemplate(_.extend(this.model, {'keyNo': this.keyNo})));
+				var self = this;
+				sB.collection.fetchResult(e.target.value)
+					.done(function(){
+						$(self.el).find('.select-value').find('option').remove();
+						self.addAll();
+			        })
+			        .fail(function(xhr) {
+		                if(url = xhr.getResponseHeader('Location'))
+		                    window.location = url;
+		            });
+			}
+		},
+		addAll: function() {
+			_.each(sB.collection.models, this.addOne, this);
+			this.disable = false;
+			this.selectOpt.prop('disabled', false);
+		},
+		addOne: function(newModel) {
+			this.siblingValue.find('.select-value').append(this.valueSelectOptionTemplate(_.extend(this.model, newModel.attributes)));
+		},
+		datePicker: function() {
+			$('#conditions .date, #conditions .datetime, #conditions .time').datetimepicker();
+		}
+	});
+
+	sB.SelectViews = Backbone.View.extend({
+		el: '.uv-view',
+		target: $('#conditions .workflow-conditions-body'),
+		initialize: function() {
+			{% if formData and formData.events is defined %}
+				var eventData = $.parseJSON("{{ formData.events | json_encode | e('js') }}");
+			{% else %}
+				var eventData = {};
+			{% endif %}
+			if (eventData.length > 0) {
+				if (eventData[0].event == 'ticket' || eventData[0].event == 'task') {
+					$('#conditions').prev('.uv-hr').fadeIn(10);
+					$('#conditions').fadeIn(10);
+				}
+			}
+			{% if formData and formData.conditions is defined %}
+				this.createConditions($.parseJSON("{{ formData.conditions | json_encode | e('js') }}"));
+			{% else %}
+				this.addSelectOr();
+			{% endif %}
+
+	 		this.clearFirstTrSpan();
+	        // this.listenTo(sB.collection, 'add', this.addOne);
+		},
+		events: {
+			'click .btn-and': 'addSelectAnd',
+			'click .btn-or': 'addSelectOr',
+		},
+		createConditions: function(conditionPreviouslyAdded) {
+			_.each(conditionPreviouslyAdded, this.addSelect, this);
+		},
+		addSelectAnd: function(e) {
+			this.model = {'operation' : '&&'};
+			this.addSelect(this.model);
+		},
+		addSelectOr: function(e) {
+			this.model = {'operation' : '||'};
+			this.addSelect(this.model);
+		},
+		addSelect: function(newModel) {
+			var view = new sB.SelectView({model: newModel});
+	        this.target.append(viewEl = view.render().el);
+	        this.$(viewEl).find('.wfCondition').trigger('change');
+		},
+		clearHtml: function() {
+	        this.target.html('');
+			this.model = {'operation' : '&&'};
+			this.addSelect(this.model);
+	 		this.clearFirstTrSpan();
+		},
+		clearFirstTrSpan: function() {
+	 		var target = this.target.find('tr').eq(0);
+	 		target.find('.uv-workflow-and, input[type="hidden"]').remove();
+	 		target.find('.uv-workflow-hr-or').html('');
+		},
+		datePicker: function() {
+			$('.date').datetimepicker({
+	            format: 'YYYY-MM-DD',
+			});
+		}
+	});
+
+	sB.collection = new sB.Collection();
+	sB.selectView = new sB.SelectViews();
+	sB.selectView.datePicker();
+</script>

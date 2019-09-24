@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-notes-on-customer" class="cls-1" d="M3,0H14l5,5V18a2,2,0,0,1-2,2H3a2,2,0,0,1-2-2V2A2,2,0,0,1,3,0Zm7,3A3,3,0,1,1,7,6,3,3,0,0,1,10,3Zm6,14H4s-0.462-5.1,4-6h4C16.462,11.9,16,17,16,17Z"/>
+</svg>

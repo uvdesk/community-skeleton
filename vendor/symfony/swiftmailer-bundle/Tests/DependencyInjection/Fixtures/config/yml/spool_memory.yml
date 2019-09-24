@@ -1,0 +1,3 @@
+swiftmailer:
+    spool:
+        type: memory

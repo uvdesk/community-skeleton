@@ -1,0 +1,52 @@
+{
+    "description": "Symfony Maker helps you create empty commands, controllers, form classes, tests and more so you can forget about writing boilerplate code.",
+    "homepage": "https://symfony.com/doc/current/bundles/SymfonyMakerBundle/index.html",
+    "name": "symfony/maker-bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "keywords": ["generator", "code generator", "scaffolding", "scaffold"],
+    "authors": [
+        {
+            "name": "Symfony Community",
+            "homepage": "https://symfony.com/contributors"
+        }
+    ],
+    "require": {
+        "php": "^7.0.8",
+        "doctrine/inflector": "^1.2",
+        "nikic/php-parser": "^4.0",
+        "symfony/config": "^3.4|^4.0",
+        "symfony/console": "^3.4|^4.0",
+        "symfony/dependency-injection": "^3.4|^4.0",
+        "symfony/filesystem": "^3.4|^4.0",
+        "symfony/finder": "^3.4|^4.0",
+        "symfony/framework-bundle": "^3.4|^4.0",
+        "symfony/http-kernel": "^3.4|^4.0"
+    },
+    "require-dev": {
+        "doctrine/doctrine-bundle": "^1.8",
+        "doctrine/orm": "^2.3",
+        "friendsofphp/php-cs-fixer": "^2.8",
+        "friendsoftwig/twigcs": "^3.1.2",
+        "symfony/http-client": "^4.3",
+        "symfony/phpunit-bridge": "^3.4.19|^4.0",
+        "symfony/process": "^3.4|^4.0",
+        "symfony/security-core": "^3.4|^4.0",
+        "symfony/yaml": "^3.4|^4.0"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": { "Symfony\\Bundle\\MakerBundle\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Symfony\\Bundle\\MakerBundle\\Tests\\": "tests/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

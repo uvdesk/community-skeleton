@@ -1,0 +1,110 @@
+Inserting into an empty list
+-----
+<?php
+class
+Test {}
+
+interface
+Test {}
+-----
+$stmts[0]->implements[] = new Node\Name('Iface');
+$stmts[0]->implements[] = new Node\Name('Iface2');
+$stmts[1]->extends[] = new Node\Name('Iface');
+$stmts[1]->extends[] = new Node\Name('Iface2');
+-----
+<?php
+class
+Test implements Iface, Iface2 {}
+
+interface
+Test extends Iface, Iface2 {}
+-----
+<?php
+function test
+() {}
+
+class Test {
+    public function
+    test
+    () {}
+}
+
+function
+() {};
+
+fn()
+=> 42;
+-----
+$stmts[0]->params[] = new Node\Param(new Node\Expr\Variable('a'));
+$stmts[0]->params[] = new Node\Param(new Node\Expr\Variable('b'));
+$stmts[1]->stmts[0]->params[] = new Node\Param(new Node\Expr\Variable('a'));
+$stmts[1]->stmts[0]->params[] = new Node\Param(new Node\Expr\Variable('b'));
+$stmts[2]->expr->params[] = new Node\Param(new Node\Expr\Variable('a'));
+$stmts[2]->expr->params[] = new Node\Param(new Node\Expr\Variable('b'));
+$stmts[2]->expr->uses[] = new Node\Expr\Variable('c');
+$stmts[2]->expr->uses[] = new Node\Expr\Variable('d');
+$stmts[3]->expr->params[] = new Node\Param(new Node\Expr\Variable('a'));
+$stmts[3]->expr->params[] = new Node\Param(new Node\Expr\Variable('b'));
+-----
+<?php
+function test
+($a, $b) {}
+
+class Test {
+    public function
+    test
+    ($a, $b) {}
+}
+
+function
+($a, $b) use($c, $d) {};
+
+fn($a, $b)
+=> 42;
+-----
+<?php
+foo
+();
+
+$foo->
+bar();
+
+Foo
+::bar ();
+
+new
+Foo
+();
+
+new class
+()
+extends Foo {};
+-----
+$stmts[0]->expr->args[] = new Node\Expr\Variable('a');
+$stmts[0]->expr->args[] = new Node\Expr\Variable('b');
+$stmts[1]->expr->args[] = new Node\Expr\Variable('a');
+$stmts[1]->expr->args[] = new Node\Expr\Variable('b');
+$stmts[2]->expr->args[] = new Node\Expr\Variable('a');
+$stmts[2]->expr->args[] = new Node\Expr\Variable('b');
+$stmts[3]->expr->args[] = new Node\Expr\Variable('a');
+$stmts[3]->expr->args[] = new Node\Expr\Variable('b');
+$stmts[4]->expr->args[] = new Node\Expr\Variable('a');
+$stmts[4]->expr->args[] = new Node\Expr\Variable('b');
+-----
+<?php
+foo
+($a, $b);
+
+$foo->
+bar($a, $b);
+
+Foo
+::bar ($a, $b);
+
+new
+Foo
+($a, $b);
+
+new class
+($a, $b)
+extends Foo {};

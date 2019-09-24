@@ -1,0 +1,56 @@
+{
+    "name": "doctrine/dbal",
+    "type": "library",
+    "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
+    "keywords": [
+        "php",
+        "mysql",
+        "pgsql",
+        "dbal",
+        "database",
+        "abstraction",
+        "persistence",
+        "queryobject"
+    ],
+    "homepage": "https://www.doctrine-project.org/projects/dbal.html",
+    "license": "MIT",
+    "authors": [
+        {"name": "Guilherme Blanco", "email": "guilhermeblanco@gmail.com"},
+        {"name": "Roman Borschel", "email": "roman@code-factory.org"},
+        {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+        {"name": "Jonathan Wage", "email": "jonwage@gmail.com"}
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-pdo": "*",
+        "doctrine/cache": "^1.0",
+        "doctrine/event-manager": "^1.0"
+    },
+    "require-dev": {
+        "doctrine/coding-standard": "^5.0",
+        "jetbrains/phpstorm-stubs": "^2018.1.2",
+        "phpstan/phpstan": "^0.10.1",
+        "phpunit/phpunit": "^7.4",
+        "symfony/console": "^2.0.5|^3.0|^4.0",
+        "symfony/phpunit-bridge": "^3.4.5|^4.0.5"
+    },
+    "suggest": {
+        "symfony/console": "For helpful console commands such as SQL execution and import of files."
+    },
+    "bin": ["bin/doctrine-dbal"],
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": { "Doctrine\\DBAL\\": "lib/Doctrine/DBAL" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Doctrine\\Tests\\": "tests/Doctrine/Tests" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.9.x-dev",
+            "dev-develop": "3.0.x-dev"
+        }
+    }
+}

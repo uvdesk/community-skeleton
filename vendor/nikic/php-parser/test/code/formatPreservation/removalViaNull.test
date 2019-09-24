@@ -1,0 +1,194 @@
+Removing subnodes by setting them to null
+-----
+<?php
+function
+foo (
+    Bar $foo
+        = null,
+    Foo $bar) : baz
+{}
+
+function
+()
+: int
+{};
+
+class
+Foo
+extends
+Bar
+{
+    public
+    function
+    foo() : ?X {}
+
+    public
+      $prop = 'x'
+    ;
+
+    use T {
+        T
+        ::
+        x
+        as
+        public
+        y
+        ;
+    }
+}
+
+$foo [ $bar ];
+exit ( $bar );
+$foo
+? $bar :
+$baz;
+[ $a => $b
+, $c => $d];
+
+yield
+$foo
+=>
+$bar;
+yield
+$bar;
+
+break
+2
+;
+continue
+2
+;
+
+foreach(
+    $array
+as
+    $key
+ =>
+    $value
+) {}
+
+if
+($x)
+{
+}
+
+else {}
+
+return
+$val
+;
+static
+  $x
+  =
+  $y
+;
+
+try {} catch
+  (X $y)
+  {}
+finally
+{}
+-----
+$stmts[0]->returnType = null;
+$stmts[0]->params[0]->default = null;
+$stmts[0]->params[1]->type = null;
+$stmts[1]->expr->returnType = null;
+$stmts[2]->extends = null;
+$stmts[2]->stmts[0]->returnType = null;
+$stmts[2]->stmts[1]->props[0]->default = null;
+$stmts[2]->stmts[2]->adaptations[0]->newName = null;
+$stmts[3]->expr->dim = null;
+$stmts[4]->expr->expr = null;
+$stmts[5]->expr->if = null;
+$stmts[6]->expr->items[1]->key = null;
+$stmts[7]->expr->key = null;
+$stmts[8]->expr->value = null;
+$stmts[9]->num = null;
+$stmts[10]->num = null;
+$stmts[11]->keyVar = null;
+$stmts[12]->else = null;
+$stmts[13]->expr = null;
+$stmts[14]->vars[0]->default = null;
+$stmts[15]->finally = null;
+-----
+<?php
+function
+foo (
+    Bar $foo,
+    $bar)
+{}
+
+function
+()
+{};
+
+class
+Foo
+{
+    public
+    function
+    foo() {}
+
+    public
+      $prop
+    ;
+
+    use T {
+        T
+        ::
+        x
+        as
+        public
+        ;
+    }
+}
+
+$foo [];
+exit ();
+$foo
+?:
+$baz;
+[ $a => $b
+, $d];
+
+yield
+$bar;
+yield;
+
+break;
+continue;
+
+foreach(
+    $array
+as
+    $value
+) {}
+
+if
+($x)
+{
+}
+
+return;
+static
+  $x
+;
+
+try {} catch
+  (X $y)
+  {}
+-----
+<?php
+
+namespace
+A
+    {
+    }
+-----
+$stmts[0]->name = null;
+-----
+<?php
+
+namespace
+    {
+    }

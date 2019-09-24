@@ -1,0 +1,3 @@
+Resources/public/* linguist-vendored
+Resources/views/* linguist-vendored
+Templates/* linguist-vendored

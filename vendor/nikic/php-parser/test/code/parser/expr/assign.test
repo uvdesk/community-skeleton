@@ -1,0 +1,381 @@
+Assignments
+-----
+<?php
+// simple assign
+$a = $b;
+
+// combined assign
+$a &= $b;
+$a |= $b;
+$a ^= $b;
+$a .= $b;
+$a /= $b;
+$a -= $b;
+$a %= $b;
+$a *= $b;
+$a += $b;
+$a <<= $b;
+$a >>= $b;
+$a **= $b;
+$a ??= $b;
+
+// chained assign
+$a = $b *= $c **= $d;
+
+// by ref assign
+$a =& $b;
+
+// list() assign
+list($a) = $b;
+list($a, , $b) = $c;
+list($a, list(, $c), $d) = $e;
+
+// inc/dec
+++$a;
+$a++;
+--$a;
+$a--;
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // simple assign
+                )
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+            comments: array(
+                0: // simple assign
+            )
+        )
+        comments: array(
+            0: // simple assign
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_AssignOp_BitwiseAnd(
+            var: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // combined assign
+                )
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+            comments: array(
+                0: // combined assign
+            )
+        )
+        comments: array(
+            0: // combined assign
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_AssignOp_BitwiseOr(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_AssignOp_BitwiseXor(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_AssignOp_Concat(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_AssignOp_Div(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_AssignOp_Minus(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_AssignOp_Mod(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    8: Stmt_Expression(
+        expr: Expr_AssignOp_Mul(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    9: Stmt_Expression(
+        expr: Expr_AssignOp_Plus(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    10: Stmt_Expression(
+        expr: Expr_AssignOp_ShiftLeft(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    11: Stmt_Expression(
+        expr: Expr_AssignOp_ShiftRight(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    12: Stmt_Expression(
+        expr: Expr_AssignOp_Pow(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    13: Stmt_Expression(
+        expr: Expr_AssignOp_Coalesce(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    14: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // chained assign
+                )
+            )
+            expr: Expr_AssignOp_Mul(
+                var: Expr_Variable(
+                    name: b
+                )
+                expr: Expr_AssignOp_Pow(
+                    var: Expr_Variable(
+                        name: c
+                    )
+                    expr: Expr_Variable(
+                        name: d
+                    )
+                )
+            )
+            comments: array(
+                0: // chained assign
+            )
+        )
+        comments: array(
+            0: // chained assign
+        )
+    )
+    15: Stmt_Expression(
+        expr: Expr_AssignRef(
+            var: Expr_Variable(
+                name: a
+                comments: array(
+                    0: // by ref assign
+                )
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+            comments: array(
+                0: // by ref assign
+            )
+        )
+        comments: array(
+            0: // by ref assign
+        )
+    )
+    16: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_List(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: a
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+                comments: array(
+                    0: // list() assign
+                )
+            )
+            expr: Expr_Variable(
+                name: b
+            )
+            comments: array(
+                0: // list() assign
+            )
+        )
+        comments: array(
+            0: // list() assign
+        )
+    )
+    17: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_List(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: a
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: null
+                    2: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: b
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+            expr: Expr_Variable(
+                name: c
+            )
+        )
+    )
+    18: Stmt_Expression(
+        expr: Expr_Assign(
+            var: Expr_List(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: a
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Expr_List(
+                            items: array(
+                                0: null
+                                1: Expr_ArrayItem(
+                                    key: null
+                                    value: Expr_Variable(
+                                        name: c
+                                    )
+                                    byRef: false
+                                    unpack: false
+                                )
+                            )
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    2: Expr_ArrayItem(
+                        key: null
+                        value: Expr_Variable(
+                            name: d
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+            expr: Expr_Variable(
+                name: e
+            )
+        )
+    )
+    19: Stmt_Expression(
+        expr: Expr_PreInc(
+            var: Expr_Variable(
+                name: a
+            )
+            comments: array(
+                0: // inc/dec
+            )
+        )
+        comments: array(
+            0: // inc/dec
+        )
+    )
+    20: Stmt_Expression(
+        expr: Expr_PostInc(
+            var: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    21: Stmt_Expression(
+        expr: Expr_PreDec(
+            var: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    22: Stmt_Expression(
+        expr: Expr_PostDec(
+            var: Expr_Variable(
+                name: a
+            )
+        )
+    )
+)

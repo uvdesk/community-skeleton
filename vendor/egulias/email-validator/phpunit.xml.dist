@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false"
+         bootstrap="vendor/autoload.php"
+>
+<testsuites>
+  <testsuite name="EmailValidator Test Suite">
+    <directory>./Tests/EmailValidator</directory>
+    <exclude>./vendor/</exclude>
+  </testsuite>
+</testsuites>
+
+<filter>
+  <whitelist>
+    <directory>./EmailValidator/</directory>
+  </whitelist>
+</filter>
+
+<listeners>
+  <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+</listeners>
+</phpunit>

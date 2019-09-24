@@ -1,0 +1,13 @@
+Positions for leading nop statement
+-----
+<?php
+/* Comment */
+-----
+!!positions
+array(
+    0: Stmt_Nop[2:14 - 2:13](
+        comments: array(
+            0: /* Comment */
+        )
+    )
+)

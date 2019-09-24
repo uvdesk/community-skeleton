@@ -1,0 +1,12 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+
+{% block body %}
+
+	{% set themeTemplate = themeTemplate ? themeTemplate : 'masonryView' %}
+	{% include "@UVDeskSupportCenter/Themes/" ~ themeTemplate ~ ".html.twig" %}
+	{{parent()}}
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

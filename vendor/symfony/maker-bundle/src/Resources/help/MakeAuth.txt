@@ -1,0 +1,8 @@
+The <info>%command.name%</info> command generates various authentication systems,
+by asking questions.
+
+It can provide an empty authenticator, or a full login form authentication process.
+In both cases it also updates your <info>security.yaml</info>.
+For the login form, it also generates a controller and the twig template.
+
+<info>php %command.full_name%</info>

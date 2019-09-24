@@ -1,0 +1,13 @@
+<div class="uv-kb-section">
+	<div class="uv-kb-section-layout uv-kb-layout-article">
+		<div class="uv-kb-folder">
+			<h2>{{"Popular Articles"|trans}}</h2>
+			<p>{{"Here are some of the most popular articles, which helped number of users to get their queries and questions resolved."|trans}}</p>
+			<ul>
+    			{% for popArticle in popArticles %}
+					<li><a href="{{path('helpdesk_knowledgebase_read_article', {'article': popArticle.id})}}"> {% if popArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{ popArticle.name }}</a></li>
+    			{% endfor %}
+			</ul>
+		</div>
+	</div>
+</div>

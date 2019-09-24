@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit bootstrap="./vendor/autoload.php" colors="true">
+    <testsuites>
+        <testsuite name="SensioFrameworkExtraBundle">
+            <directory suffix="Test.php">./Tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <server name="KERNEL_CLASS" value="Tests\Fixtures\TestKernel" />
+        <server name="KERNEL_DIR" value="Tests/Fixtures/" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="/disabled/" />
+    </php>
+    <filter>
+        <whitelist>
+            <directory>./</directory>
+            <exclude>
+                <directory>./Resources</directory>
+                <directory>./Tests</directory>
+                <directory>./vendor</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

@@ -1,0 +1,10 @@
+{
+	"name": "iamcal/lib_autolink",
+	"description": "Adds anchors to urls in a text",
+	"keywords": ["link", "autolink", "anchor"],
+	"autoload": {
+		"files": ["lib_autolink.php"]
+	},
+	"license": "MIT"
+}
+

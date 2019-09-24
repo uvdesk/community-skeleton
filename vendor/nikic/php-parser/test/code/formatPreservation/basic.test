@@ -1,0 +1,190 @@
+abc1
+-----
+<?php
+echo
+    1
+        +
+            2
+                +
+                    3;
+-----
+$stmts[0]->exprs[0]->left->right->value = 42;
+-----
+<?php
+echo
+    1
+        +
+            42
+                +
+                    3;
+-----
+<?php
+function foo($a)
+    { return $a; }
+-----
+$stmts[0]->name = new Node\Identifier('bar');
+-----
+<?php
+function bar($a)
+    { return $a; }
+-----
+<?php
+function
+foo() {
+    call(
+        $bar
+    );
+}
+-----
+// This triggers a fallback
+$stmts[0]->byRef = true;
+-----
+<?php
+function &foo()
+{
+    call(
+        $bar
+    );
+}
+-----
+<?php
+function
+foo() {
+echo "Start
+End";
+}
+-----
+// This triggers a fallback
+$stmts[0]->byRef = true;
+-----
+<?php
+function &foo()
+{
+    echo "Start
+End";
+}
+-----
+<?php
+function test() {
+    call1(
+        $bar
+    );
+}
+call2(
+    $foo
+);
+-----
+$tmp = $stmts[0]->stmts[0];
+$stmts[0]->stmts[0] = $stmts[1];
+$stmts[1] = $tmp;
+-----
+<?php
+function test() {
+    call2(
+        $foo
+    );
+}
+call1(
+    $bar
+);
+-----
+<?php
+x;
+function test() {
+    call1(
+        $bar
+    );
+}
+call2(
+    $foo
+);
+-----
+$tmp = $stmts[1]->stmts[0];
+$stmts[1]->stmts[0] = $stmts[2];
+$stmts[2] = $tmp;
+// Same test, but also removing first statement, triggering fallback
+array_splice($stmts, 0, 1, []);
+-----
+<?php
+
+function test() {
+    call2(
+        $foo
+    );
+}
+call1(
+    $bar
+);
+-----
+<?php
+    echo 1;
+-----
+$stmts[0] = new Stmt\Expression(
+    new Expr\Assign(new Expr\Variable('a'), new Expr\Variable('b')));
+-----
+<?php
+    $a = $b;
+-----
+<?php
+echo$a;
+-----
+$stmts[0]->exprs[0] = new Expr\ConstFetch(new Node\Name('C'));
+-----
+<?php
+echo C;
+-----
+<?php
+function foo() {
+    foo();
+    /*
+     * bar
+     */
+    baz();
+}
+
+{
+    $x;
+}
+-----
+$tmp = $stmts[0];
+$stmts[0] = $stmts[1];
+$stmts[1] = $tmp;
+/* TODO This used to do two replacement operations, but with the node list diffing this is a
+ * remove, keep, add (which probably makes more sense). As such, this currently triggers a
+ * fallback. */
+-----
+<?php
+
+$x;
+function foo() {
+    foo();
+    /*
+     * bar
+     */
+    baz();
+}
+-----
+<?php
+echo "${foo}bar";
+echo "${foo['baz']}bar";
+-----
+$stmts[0]->exprs[0]->parts[0] = new Expr\Variable('bar');
+$stmts[1]->exprs[0]->parts[0] = new Expr\Variable('bar');
+-----
+<?php
+echo "{$bar}bar";
+echo "{$bar}bar";
+-----
+<?php
+[$a
+,$b
+,
+,] = $b;
+-----
+/* Nothing */
+-----
+<?php
+[$a
+,$b
+,
+,] = $b;

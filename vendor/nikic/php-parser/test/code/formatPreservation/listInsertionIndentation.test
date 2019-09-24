@@ -1,0 +1,17 @@
+Check correct indentation use when inserting into list node
+-----
+<?php
+$this->foo = new Foo;
+$this->foo->a()
+          ->b();
+-----
+$outerCall = $stmts[1]->expr;
+$innerCall = $outerCall->var;
+$var = $innerCall->var;
+$stmts[1]->expr = $innerCall;
+$stmts[2] = new Stmt\Expression(new Expr\MethodCall($var, $outerCall->name));
+-----
+<?php
+$this->foo = new Foo;
+$this->foo->a();
+$this->foo->b();

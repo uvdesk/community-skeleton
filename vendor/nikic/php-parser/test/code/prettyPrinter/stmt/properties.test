@@ -1,0 +1,20 @@
+Class properties
+-----
+<?php
+
+class A
+{
+    public $a;
+    public string $b;
+    protected static ?float $c = 5.0;
+    private static ?self $d;
+}
+-----
+!!php7
+class A
+{
+    public $a;
+    public string $b;
+    protected static ?float $c = 5.0;
+    private static ?self $d;
+}

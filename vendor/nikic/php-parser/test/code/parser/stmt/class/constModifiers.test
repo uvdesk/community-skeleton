@@ -1,0 +1,77 @@
+Class constant modifiers
+-----
+<?php
+
+class Foo {
+    const A = 1;
+    public const B = 2;
+    protected const C = 3;
+    private const D = 4;
+}
+-----
+!!php7
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: Foo
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_ClassConst(
+                flags: 0
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: A
+                        )
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                    )
+                )
+            )
+            1: Stmt_ClassConst(
+                flags: MODIFIER_PUBLIC (1)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: B
+                        )
+                        value: Scalar_LNumber(
+                            value: 2
+                        )
+                    )
+                )
+            )
+            2: Stmt_ClassConst(
+                flags: MODIFIER_PROTECTED (2)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: C
+                        )
+                        value: Scalar_LNumber(
+                            value: 3
+                        )
+                    )
+                )
+            )
+            3: Stmt_ClassConst(
+                flags: MODIFIER_PRIVATE (4)
+                consts: array(
+                    0: Const(
+                        name: Identifier(
+                            name: D
+                        )
+                        value: Scalar_LNumber(
+                            value: 4
+                        )
+                    )
+                )
+            )
+        )
+    )
+)

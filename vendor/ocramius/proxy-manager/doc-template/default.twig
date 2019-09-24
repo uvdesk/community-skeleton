@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html class="no-js" id="top">
+<head>
+    <title>ProxyManager Documentation{% if title is defined %} - {{ title }}{% endif %}</title>
+
+    <meta name="description" content="A proxyManager write in php" />
+    <meta name="keywords" content="ProxyManager, proxy, manager, ocramius, Marco Pivetta, php" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
+    <link href="{{ baseUrl }}/css/main.css" rel="stylesheet" />
+    <link href="{{ baseUrl }}/css/highlight.dark.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+
+<header class="site-header">
+<div class="container">
+<h1><a href="{{ baseUrl }}"><img alt="ProxyManager" src="{{ baseUrl }}/img/block.png" /></a></h1>
+
+<nav class="main-nav" role="navigation">
+<ul>
+    <li><a href="https://github.com/Ocramius/ProxyManager" target="_blank">Github</a></li>
+
+    {% if versions is defined %}
+        <li>
+            <a href="#">Version</a>
+
+            <ul>
+                {% for key, version in versions.items %}
+                    <li><a href="{{ version.link|e }}">{{ version.name|e }}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endif %}
+</ul>
+    <div class="bcms-clearfix"></div>
+</nav>
+</div>
+</header>
+<main role="main">
+<section class="component-content"><div class="page-title-wrapper">
+<div class="container">
+    <img src="https://github.com/Ocramius/ProxyManager/raw/master/proxy-manager.png">
+    <h2 class="page-title">Proxy Manager</h2>
+</div>
+</div>
+
+<div class="component-demo" id="live-demo">
+    <div class="container">
+            <div class="main-wrapper" style="text-align: right">
+                <iframe src="https://ghbtns.com/github-btn.html?user=ocramius&amp;repo=ProxyManager&amp;type=fork&amp;count=true&amp;size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="310" height="40"></iframe>
+
+                <iframe src="https://ghbtns.com/github-btn.html?user=ocramius&amp;repo=ProxyManager&amp;type=watch&amp;count=true&amp;size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200" height="40"></iframe>
+
+            </div>
+        <div class="bcms-clearfix bcms-clearfix"></div>
+    </div>
+</div>
+<div class="component-info">
+<div class="container">
+
+<aside class="sidebar">
+    <nav class="spy-nav">
+        <ul>
+            <li><a href="{{ baseUrl }}/index.html">Intro</a></li>
+            <li><a href="{{ baseUrl }}/docs/lazy-loading-value-holder.html">Virtual Proxy</a></li>
+            <li><a href="{{ baseUrl }}/docs/lazy-loading-ghost-object.html">Ghost Object</a></li>
+            <li><a href="{{ baseUrl }}/docs/access-interceptor-value-holder.html">Smart Reference</a></li>
+            <li><a href="{{ baseUrl }}/docs/access-interceptor-scope-localizer.html">Smart Reference<br/>(fluent safe)</a></li>
+            <li><a href="{{ baseUrl }}/docs/null-object.html">Null Objects</a></li>
+            <li><a href="{{ baseUrl }}/docs/remote-object.html">Remote Object</a></li>
+            <li><a href="{{ baseUrl }}/docs/generator-strategies.html">Code Evaluators</a></li>
+            <li><a href="{{ baseUrl }}/docs/tuning-for-production.html">Tuning for Production</a></li>
+        </ul>
+    </nav>
+<div class="bcms-clearfix bcms-clearfix"></div>
+<a class="btn btn-action btn-full download-component"
+    href="{{ baseUrl }}/docs/download.html">Download</a>
+    <div class="bcms-clearfix"></div>
+</aside>
+
+<div class="content">
+    {% block content %}
+
+        {{ content|raw }}
+
+    {% endblock %}
+</div>
+</div>
+</div>
+</section>
+</main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-logos">
+                <ul>
+                    <li><a href="{{ baseUrl }}/stability.html">Stability</a> | </li>
+                    <li><a href="{{ baseUrl }}/upgrade.html">Upgrade Notes</a> | </li>
+                    <li><a href="{{ baseUrl }}/changelog.html">Changelog</a> | </li>
+                    <li><a href="{{ baseUrl }}/contributing.html">Contributing</a> | </li>
+                    <li><a href="{{ baseUrl }}/docs/credits.html">Credits</a> | </li>
+                    <li><a href="{{ baseUrl }}/docs/copyright.html">Copyright</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bcms-clearfix"></div>
+    </footer>
+    <div class="bcms-clearfix"></div>
+    </body>
+</html>

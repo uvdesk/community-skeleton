@@ -1,0 +1,81 @@
+Switch
+-----
+<?php
+
+switch ($a) {
+    case 0:
+        break;
+    // Comment
+    case 1;
+    default:
+}
+
+// alternative syntax
+switch ($a):
+endswitch;
+
+// leading semicolon
+switch ($a) { ; }
+switch ($a): ; endswitch;
+-----
+array(
+    0: Stmt_Switch(
+        cond: Expr_Variable(
+            name: a
+        )
+        cases: array(
+            0: Stmt_Case(
+                cond: Scalar_LNumber(
+                    value: 0
+                )
+                stmts: array(
+                    0: Stmt_Break(
+                        num: null
+                    )
+                )
+            )
+            1: Stmt_Case(
+                cond: Scalar_LNumber(
+                    value: 1
+                )
+                stmts: array(
+                )
+                comments: array(
+                    0: // Comment
+                )
+            )
+            2: Stmt_Case(
+                cond: null
+                stmts: array(
+                )
+            )
+        )
+    )
+    1: Stmt_Switch(
+        cond: Expr_Variable(
+            name: a
+        )
+        cases: array(
+        )
+        comments: array(
+            0: // alternative syntax
+        )
+    )
+    2: Stmt_Switch(
+        cond: Expr_Variable(
+            name: a
+        )
+        cases: array(
+        )
+        comments: array(
+            0: // leading semicolon
+        )
+    )
+    3: Stmt_Switch(
+        cond: Expr_Variable(
+            name: a
+        )
+        cases: array(
+        )
+    )
+)

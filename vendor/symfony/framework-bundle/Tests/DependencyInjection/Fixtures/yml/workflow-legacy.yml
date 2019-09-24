@@ -1,0 +1,18 @@
+framework:
+    workflows:
+        legacy:
+            type: state_machine
+            marking_store:
+                type: single_state
+                arguments:
+                    - state
+            initial_place: draft
+            supports:
+                - stdClass
+            places:
+                - draft
+                - published
+            transitions:
+                publish:
+                    from: draft
+                    to: published

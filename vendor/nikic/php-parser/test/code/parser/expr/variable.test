@@ -1,0 +1,67 @@
+Variable syntaxes
+-----
+<?php
+
+$a;
+${'a'};
+${foo()};
+$$a;
+$$$a;
+$$a['b'];
+-----
+!!php5
+array(
+    0: Stmt_Expression(
+        expr: Expr_Variable(
+            name: a
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_Variable(
+            name: Scalar_String(
+                value: a
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_Variable(
+            name: Expr_FuncCall(
+                name: Name(
+                    parts: array(
+                        0: foo
+                    )
+                )
+                args: array(
+                )
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_Variable(
+            name: Expr_Variable(
+                name: a
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_Variable(
+            name: Expr_Variable(
+                name: Expr_Variable(
+                    name: a
+                )
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_Variable(
+            name: Expr_ArrayDimFetch(
+                var: Expr_Variable(
+                    name: a
+                )
+                dim: Scalar_String(
+                    value: b
+                )
+            )
+        )
+    )
+)

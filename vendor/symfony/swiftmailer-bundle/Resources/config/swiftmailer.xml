@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="swiftmailer.mailer.abstract" class="Swift_Mailer" public="true" abstract="true">
+            <argument type="service" id="swiftmailer.transport" />
+        </service>
+
+        <service id="swiftmailer.transport.smtp.configurator.abstract" class="Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SmtpTransportConfigurator" abstract="true" public="false" />
+
+        <service id="swiftmailer.transport.sendmail.abstract" class="Swift_Transport_SendmailTransport" abstract="true" public="false" />
+
+        <service id="swiftmailer.transport.null.abstract" class="Swift_Transport_NullTransport" abstract="true" public="false">
+        </service>
+
+        <service id="swiftmailer.transport.failover" class="Swift_Transport_FailoverTransport" public="false" />
+
+        <service id="swiftmailer.transport.buffer.abstract" class="Swift_Transport_StreamBuffer" abstract="true" public="false">
+            <argument type="service" id="swiftmailer.transport.replacementfactory" />
+        </service>
+
+        <service id="swiftmailer.transport.authhandler.abstract" class="Swift_Transport_Esmtp_AuthHandler" abstract="true" public="false">
+            <argument type="collection">
+                <argument type="service"><service class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false" /></argument>
+                <argument type="service"><service class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false" /></argument>
+                <argument type="service"><service class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false" /></argument>
+                <argument type="service"><service class="Swift_Transport_Esmtp_Auth_NTLMAuthenticator" public="false" /></argument>
+            </argument>
+        </service>
+
+        <service id="swiftmailer.transport.eventdispatcher.abstract" class="Swift_Events_SimpleEventDispatcher" abstract="true" public="false" />
+
+        <service id="swiftmailer.transport.replacementfactory" class="Swift_StreamFilters_StringReplacementFilterFactory" public="false" />
+
+        <service id="swiftmailer.plugin.redirecting.abstract" class="Swift_Plugins_RedirectingPlugin" abstract="true" public="false" />
+
+        <service id="swiftmailer.plugin.antiflood.abstract" class="Swift_Plugins_AntiFloodPlugin" abstract="true" public="false" />
+
+        <service id="swiftmailer.plugin.impersonate.abstract" class="Swift_Plugins_ImpersonatePlugin" abstract="true" public="false" />
+
+        <service id="swiftmailer.plugin.messagelogger.abstract" class="Swift_Plugins_MessageLogger" abstract="true" />
+
+        <service id="swiftmailer.transport.smtp.abstract" class="Swift_Transport_EsmtpTransport" public="false" abstract="true" />
+
+        <service id="swiftmailer.transport.spool.abstract" class="Swift_Transport_SpoolTransport" public="false" abstract="true" />
+
+        <service id="swiftmailer.spool.file.abstract" class="Swift_FileSpool" public="false" abstract="true">
+            <argument>%kernel.root_dir%/../data/swiftmailer/spool</argument>
+        </service>
+
+        <service id="swiftmailer.spool.memory.abstract" class="Swift_MemorySpool" public="false" abstract="true" />
+
+        <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
+            <tag name="kernel.event_subscriber" />
+            <tag name="kernel.reset" method="reset" />
+            <argument type="service" id="service_container" />
+            <argument type="service" id="logger" on-invalid="null" />
+        </service>
+
+        <service id="swiftmailer.data_collector" class="Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector" public="false">
+            <argument type="service" id="service_container" />
+        </service>
+
+    </services>
+</container>

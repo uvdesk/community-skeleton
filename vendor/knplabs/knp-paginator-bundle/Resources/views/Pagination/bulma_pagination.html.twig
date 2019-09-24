@@ -1,0 +1,69 @@
+{# bulma Sliding pagination control implementation #}
+
+{% set position = position|default('left') %}
+{% set rounded = rounded|default(false) %}
+{% set size = size|default(null) %}
+
+{% set classes = ['pagination'] %}
+
+{% if position != 'left' %}{% set classes = classes|merge(['is-' ~ position]) %}{% endif %}
+{% if rounded %}{% set classes = classes|merge(['is-rounded']) %}{% endif %}
+{% if size != null %}{% set classes = classes|merge(['is-' ~ size]) %}{% endif %}
+
+{% if pageCount > 1 %}
+    <nav class="{{ classes|join(' ') }}" role="navigation" aria-label="pagination">
+        {% if previous is defined %}
+            <a class="pagination-previous" href="{{ path(route, query|merge({(pageParameterName): previous})) }}">{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
+        {% else %}
+            <a class="pagination-previous" disabled>{{ 'label_previous'|trans({}, 'KnpPaginatorBundle') }}</a>
+        {% endif %}
+
+        {% if next is defined %}
+            <a class="pagination-next" href="{{ path(route, query|merge({(pageParameterName): next})) }}">{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}</a>
+        {% else %}
+            <a class="pagination-next" disabled>{{ 'label_next'|trans({}, 'KnpPaginatorBundle') }}</a>
+        {% endif %}
+
+        <ul class="pagination-list">
+            <li>
+                {% if current == first %}
+                    <a class="pagination-link is-current" aria-label="Page {{ current }}" aria-current="page" href="{{ path(route, query|merge({(pageParameterName): first})) }}">1</a>
+                {% else %}
+                    <a class="pagination-link" href="{{ path(route, query|merge({(pageParameterName): first})) }}">1</a>
+                {% endif %}
+            </li>
+
+            {% if pagesInRange[0] - first >= 2 %}
+                <li>
+                    <span class="pagination-ellipsis">&hellip;</span>
+                </li>
+            {% endif %}
+
+            {% for page in pagesInRange %}
+                {% if first != page and page != last %}
+                    <li>
+                        {% if page == current %}
+                            <a class="pagination-link is-current" aria-label="Page {{ current }}" aria-current="page" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                        {% else %}
+                            <a class="pagination-link" aria-label="Goto page {{ page }}" href="{{ path(route, query|merge({(pageParameterName): page})) }}">{{ page }}</a>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            {% if last - pagesInRange[pagesInRange|length - 1] >= 2 %}
+                <li>
+                    <span class="pagination-ellipsis">&hellip;</span>
+                </li>
+            {% endif %}
+
+            <li>
+                {% if current == last %}
+                    <a class="pagination-link is-current" aria-label="Page {{ current }}" aria-current="page" href="{{ path(route, query|merge({(pageParameterName): last})) }}">{{ last }}</a>
+                {% else %}
+                    <a class="pagination-link" href="{{ path(route, query|merge({(pageParameterName): last})) }}">{{ last }}</a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+{% endif %}

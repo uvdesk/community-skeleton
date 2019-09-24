@@ -1,0 +1,123 @@
+UVS static access
+-----
+<?php
+A::$b;
+$A::$b;
+'A'::$b;
+('A' . '')::$b;
+'A'[0]::$b;
+A::$$b;
+A::$$c[1];
+A::$A::$b;
+-----
+!!php7
+array(
+    0: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Name(
+                parts: array(
+                    0: A
+                )
+            )
+            name: VarLikeIdentifier(
+                name: b
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Expr_Variable(
+                name: A
+            )
+            name: VarLikeIdentifier(
+                name: b
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Scalar_String(
+                value: A
+            )
+            name: VarLikeIdentifier(
+                name: b
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Expr_BinaryOp_Concat(
+                left: Scalar_String(
+                    value: A
+                )
+                right: Scalar_String(
+                    value:
+                )
+            )
+            name: VarLikeIdentifier(
+                name: b
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Expr_ArrayDimFetch(
+                var: Scalar_String(
+                    value: A
+                )
+                dim: Scalar_LNumber(
+                    value: 0
+                )
+            )
+            name: VarLikeIdentifier(
+                name: b
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Name(
+                parts: array(
+                    0: A
+                )
+            )
+            name: Expr_Variable(
+                name: b
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_StaticPropertyFetch(
+                class: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                name: Expr_Variable(
+                    name: c
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_StaticPropertyFetch(
+            class: Expr_StaticPropertyFetch(
+                class: Name(
+                    parts: array(
+                        0: A
+                    )
+                )
+                name: VarLikeIdentifier(
+                    name: A
+                )
+            )
+            name: VarLikeIdentifier(
+                name: b
+            )
+        )
+    )
+)

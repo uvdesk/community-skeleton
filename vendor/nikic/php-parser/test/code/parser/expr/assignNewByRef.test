@@ -1,0 +1,43 @@
+Assigning new by reference (PHP 5 only)
+-----
+<?php
+$a =& new B;
+-----
+!!php5
+array(
+    0: Stmt_Expression(
+        expr: Expr_AssignRef(
+            var: Expr_Variable(
+                name: a
+            )
+            expr: Expr_New(
+                class: Name(
+                    parts: array(
+                        0: B
+                    )
+                )
+                args: array(
+                )
+            )
+        )
+    )
+)
+-----
+<?php
+$a =& new B;
+-----
+!!php7
+Syntax error, unexpected T_NEW from 2:7 to 2:9
+array(
+    0: Stmt_Expression(
+        expr: Expr_New(
+            class: Name(
+                parts: array(
+                    0: B
+                )
+            )
+            args: array(
+            )
+        )
+    )
+)

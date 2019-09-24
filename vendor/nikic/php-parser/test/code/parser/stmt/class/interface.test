@@ -1,0 +1,40 @@
+Interface
+-----
+<?php
+
+interface A extends C, D {
+    public function a();
+}
+-----
+array(
+    0: Stmt_Interface(
+        name: Identifier(
+            name: A
+        )
+        extends: array(
+            0: Name(
+                parts: array(
+                    0: C
+                )
+            )
+            1: Name(
+                parts: array(
+                    0: D
+                )
+            )
+        )
+        stmts: array(
+            0: Stmt_ClassMethod(
+                flags: MODIFIER_PUBLIC (1)
+                byRef: false
+                name: Identifier(
+                    name: a
+                )
+                params: array(
+                )
+                returnType: null
+                stmts: null
+            )
+        )
+    )
+)

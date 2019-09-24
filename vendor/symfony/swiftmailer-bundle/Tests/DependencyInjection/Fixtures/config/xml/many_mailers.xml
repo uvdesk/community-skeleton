@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:swiftmailer="http://symfony.com/schema/dic/swiftmailer"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
+                        http://symfony.com/schema/dic/swiftmailer http://symfony.com/schema/dic/swiftmailer/swiftmailer-1.0.xsd">
+
+    <swiftmailer:config default-mailer="secondary_mailer">
+        <swiftmailer:mailer name="first_mailer"
+            transport="smtp"
+            username="user_first"
+            password="pass_first"
+            host="example.org"
+            port="12345"
+            encryption="tls"
+            auth-mode="login"
+            timeout="1000"
+            source-ip="127.0.0.1"
+            local-domain="first.example.org"
+            logging="true">
+            <swiftmailer:antiflood/>
+            <swiftmailer:delivery-address>single@host.com</swiftmailer:delivery-address>
+        </swiftmailer:mailer>
+        <swiftmailer:mailer name="secondary_mailer"
+            transport="smtp"
+            username="user_secondary"
+            password="pass_secondary"
+            host="example.org"
+            port="54321"
+            encryption="tls"
+            auth-mode="login"
+            timeout="1000"
+            source-ip="127.0.0.1"
+            local-domain="second.example.org"
+            logging="true">
+            <swiftmailer:spool type="memory"/>
+            <swiftmailer:delivery-address>single@host.com</swiftmailer:delivery-address>
+        </swiftmailer:mailer>
+        <swiftmailer:mailer name="third_mailer"
+            transport="smtp"
+            username="user_third"
+            password="pass_third"
+            host="example.org"
+            port="12345"
+            encryption="tls"
+            auth-mode="login"
+            timeout="1000"
+            source-ip="127.0.0.1"
+            local-domain="third.example.org"
+            logging="true">
+            <swiftmailer:delivery-address>single@host.com</swiftmailer:delivery-address>
+        </swiftmailer:mailer>
+    </swiftmailer:config>
+</container>

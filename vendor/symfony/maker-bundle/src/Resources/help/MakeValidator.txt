@@ -1,0 +1,5 @@
+The <info>%command.name%</info> command generates a new validation constraint.
+
+<info>php %command.full_name% EnabledValidator</info>
+
+If the argument is missing, the command will ask for the constraint class name interactively.

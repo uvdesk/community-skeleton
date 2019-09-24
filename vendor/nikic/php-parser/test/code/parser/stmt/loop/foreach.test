@@ -1,0 +1,168 @@
+Foreach loop
+-----
+<?php
+
+// foreach on variable
+foreach ($a as $b)  {}
+foreach ($a as &$b) {}
+foreach ($a as $b => $c) {}
+foreach ($a as $b => &$c) {}
+foreach ($a as list($a, $b)) {}
+foreach ($a as $a => list($b, , $c)) {}
+
+// foreach on expression
+foreach (array() as $b) {}
+
+// alternative syntax
+foreach ($a as $b):
+endforeach;
+-----
+array(
+    0: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: null
+        byRef: false
+        valueVar: Expr_Variable(
+            name: b
+        )
+        stmts: array(
+        )
+        comments: array(
+            0: // foreach on variable
+        )
+    )
+    1: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: null
+        byRef: true
+        valueVar: Expr_Variable(
+            name: b
+        )
+        stmts: array(
+        )
+    )
+    2: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: Expr_Variable(
+            name: b
+        )
+        byRef: false
+        valueVar: Expr_Variable(
+            name: c
+        )
+        stmts: array(
+        )
+    )
+    3: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: Expr_Variable(
+            name: b
+        )
+        byRef: true
+        valueVar: Expr_Variable(
+            name: c
+        )
+        stmts: array(
+        )
+    )
+    4: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: null
+        byRef: false
+        valueVar: Expr_List(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: a
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                1: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: b
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+        stmts: array(
+        )
+    )
+    5: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: Expr_Variable(
+            name: a
+        )
+        byRef: false
+        valueVar: Expr_List(
+            items: array(
+                0: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: b
+                    )
+                    byRef: false
+                    unpack: false
+                )
+                1: null
+                2: Expr_ArrayItem(
+                    key: null
+                    value: Expr_Variable(
+                        name: c
+                    )
+                    byRef: false
+                    unpack: false
+                )
+            )
+        )
+        stmts: array(
+        )
+    )
+    6: Stmt_Foreach(
+        expr: Expr_Array(
+            items: array(
+            )
+        )
+        keyVar: null
+        byRef: false
+        valueVar: Expr_Variable(
+            name: b
+        )
+        stmts: array(
+        )
+        comments: array(
+            0: // foreach on expression
+        )
+    )
+    7: Stmt_Foreach(
+        expr: Expr_Variable(
+            name: a
+        )
+        keyVar: null
+        byRef: false
+        valueVar: Expr_Variable(
+            name: b
+        )
+        stmts: array(
+        )
+        comments: array(
+            0: // alternative syntax
+        )
+    )
+)

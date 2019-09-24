@@ -1,0 +1,38 @@
+Comment at end of class (#509)
+-----
+<?php
+class MyClass {
+    protected $a;
+    // my comment
+}
+-----
+array(
+    0: Stmt_Class(
+        flags: 0
+        name: Identifier(
+            name: MyClass
+        )
+        extends: null
+        implements: array(
+        )
+        stmts: array(
+            0: Stmt_Property(
+                flags: MODIFIER_PROTECTED (2)
+                type: null
+                props: array(
+                    0: Stmt_PropertyProperty(
+                        name: VarLikeIdentifier(
+                            name: a
+                        )
+                        default: null
+                    )
+                )
+            )
+            1: Stmt_Nop(
+                comments: array(
+                    0: // my comment
+                )
+            )
+        )
+    )
+)

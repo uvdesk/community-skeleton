@@ -1,0 +1,265 @@
+Array/string dereferencing
+-----
+<?php
+
+"abc"[2];
+"abc"[2][0][0];
+
+[1, 2, 3][2];
+[1, 2, 3][2][0][0];
+
+array(1, 2, 3)[2];
+array(1, 2, 3)[2][0][0];
+
+FOO[0];
+Foo::BAR[1];
+$foo::BAR[2][1][0];
+-----
+array(
+    0: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Scalar_String(
+                value: abc
+            )
+            dim: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+    1: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ArrayDimFetch(
+                var: Expr_ArrayDimFetch(
+                    var: Scalar_String(
+                        value: abc
+                    )
+                    dim: Scalar_LNumber(
+                        value: 2
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 0
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    2: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 2
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    2: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 3
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+    3: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ArrayDimFetch(
+                var: Expr_ArrayDimFetch(
+                    var: Expr_Array(
+                        items: array(
+                            0: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 1
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            1: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 2
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            2: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 3
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                        )
+                    )
+                    dim: Scalar_LNumber(
+                        value: 2
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 0
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    4: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_Array(
+                items: array(
+                    0: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 1
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    1: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 2
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                    2: Expr_ArrayItem(
+                        key: null
+                        value: Scalar_LNumber(
+                            value: 3
+                        )
+                        byRef: false
+                        unpack: false
+                    )
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 2
+            )
+        )
+    )
+    5: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ArrayDimFetch(
+                var: Expr_ArrayDimFetch(
+                    var: Expr_Array(
+                        items: array(
+                            0: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 1
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            1: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 2
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                            2: Expr_ArrayItem(
+                                key: null
+                                value: Scalar_LNumber(
+                                    value: 3
+                                )
+                                byRef: false
+                                unpack: false
+                            )
+                        )
+                    )
+                    dim: Scalar_LNumber(
+                        value: 2
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 0
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ConstFetch(
+                name: Name(
+                    parts: array(
+                        0: FOO
+                    )
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+    7: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ClassConstFetch(
+                class: Name(
+                    parts: array(
+                        0: Foo
+                    )
+                )
+                name: Identifier(
+                    name: BAR
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 1
+            )
+        )
+    )
+    8: Stmt_Expression(
+        expr: Expr_ArrayDimFetch(
+            var: Expr_ArrayDimFetch(
+                var: Expr_ArrayDimFetch(
+                    var: Expr_ClassConstFetch(
+                        class: Expr_Variable(
+                            name: foo
+                        )
+                        name: Identifier(
+                            name: BAR
+                        )
+                    )
+                    dim: Scalar_LNumber(
+                        value: 2
+                    )
+                )
+                dim: Scalar_LNumber(
+                    value: 1
+                )
+            )
+            dim: Scalar_LNumber(
+                value: 0
+            )
+        )
+    )
+)

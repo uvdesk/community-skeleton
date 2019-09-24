@@ -1,0 +1,271 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% set profiler_markup_version = profiler_markup_version|default(1) %}
+
+    {% if collector.messageCount %}
+        {% set icon %}
+            {% if profiler_markup_version == 1 %}
+                <img width="23" height="28" alt="Swiftmailer" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAcCAYAAACK7SRjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0NEOTU1MjM0OThFMTFFMDg3NzJBNTE2ODgwQzMxMzQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0NEOTU1MjQ0OThFMTFFMDg3NzJBNTE2ODgwQzMxMzQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMEQ5OTQ5QzQ5OEMxMUUwODc3MkE1MTY4ODBDMzEzNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo3Q0Q5NTUyMjQ5OEUxMUUwODc3MkE1MTY4ODBDMzEzNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpkRnSAAAAJ0SURBVHjaYvz//z8DrQATAw3BqOFYAaO9vT1FBhw4cGCAXA5MipxBQUHT3r17l0AVAxkZ/wkLC89as2ZNIcjlYkALXKnlWqBZTH/+/PEDmQsynLW/v3+NoaHhN2oYDjJn8uTJK4BMNpDhPwsLCwOKiop2+fn5vafEYC8vrw8gc/Lz8wOB3B8gw/nev38vn5WV5eTg4LA/Ly/vESsrK2npmYmJITU19SnQ8L0gc4DxpwgyF2S4EEjB58+f+crLy31YWFjOt7S0XBYUFPxHjMEcHBz/6+rqboqJiZ0qKSnxBpkDlRICGc4MU/j792+2CRMm+L18+fLSxIkTDykoKPzBZ7CoqOi/np6eE8rKylvb29v9fvz4wYEkzYKRzjk5OX/LyMjcnDRpEkjjdisrK6wRraOj8wvokAMLFy788ejRoxcaGhrPCWai4ODgB8DUE3/mzBknYMToASNoMzAfvEVW4+Tk9LmhoWFbTU2NwunTpx2BjiiMjo6+hm4WCzJHUlLyz+vXrxkfP36sDOI/ffpUPikpibe7u3sLsJjQW7VqlSrQxe+Avjmanp7u9PbtWzGQOmCCkARmmu/m5uYfT548yY/V5UpKSl+2b9+uiiz26dMnIWBSDTp27NgdYGrYCIzwE7m5uR4wg2Hg/PnzSsDI/QlKOcjZ3wGUBLm5uf+DwLdv38gub4AG/xcSEvr35s0bZmCB5sgCE/z69SsjyDJKMtG/f/8YQQYD8wkoGf8H51AbG5sH1CpbQBnQ09PzBiiHgoIFFHlBQGwLxLxUMP8dqJgH4k3gIhfIkAKVYkDMTmmhCHIxEL8A4peMo02L4WU4QIABANxZAoDIQDv3AAAAAElFTkSuQmCC" />
+                <span class="sf-toolbar-status">{{ collector.messageCount }}</span>
+            {% else %}
+                {{ include('@Swiftmailer/Collector/icon.svg') }}
+                <span class="sf-toolbar-value">{{ collector.messageCount }}</span>
+            {% endif %}
+        {% endset %}
+
+        {% set text %}
+            <div class="sf-toolbar-info-piece">
+                <b>Sent messages</b>
+                <span class="sf-toolbar-status">{{ collector.messageCount }}</span>
+            </div>
+
+            {% if profiler_markup_version == 1 %}
+                {% for name in collector.mailers %}
+                    <div class="sf-toolbar-info-piece">
+                        <b>{{ name }}</b>
+                        <span>{{ collector.messageCount(name) }}</span>
+                    </div>
+                    <div class="sf-toolbar-info-piece">
+                        <b>Is spooled?</b>
+                        <span>{{ collector.isSpool(name) ? 'yes' : 'no' }}</span>
+                    </div>
+
+                    {% if not loop.first %}
+                        <hr>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                {% for name in collector.mailers %}
+                    <div class="sf-toolbar-info-piece">
+                        <b>{{ name }} mailer</b>
+                        <span class="sf-toolbar-status">{{ collector.messageCount(name)|default(0) }}</span>
+                        &nbsp; (<small>{{ collector.isSpool(name) ? 'spooled' : 'sent' }}</small>)
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endset %}
+
+        {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { 'link': profiler_url }) }}
+    {% endif %}
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+        /* utility classes */
+        .m-t-0 { margin-top: 0 !important; }
+        .m-t-10 { margin-top: 10px !important; }
+
+        /* basic grid */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        .col {
+            flex-basis: 0;
+            flex-grow: 1;
+            max-width: 100%;
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .col-4 {
+            flex: 0 0 33.333333%;
+            max-width: 33.333333%;
+        }
+
+        /* small tabs */
+        .sf-tabs-sm .tab-navigation li {
+            font-size: 14px;
+            padding: .3em .5em;
+        }
+    </style>
+{% endblock %}
+
+{% block menu %}
+    {% set profiler_markup_version = profiler_markup_version|default(1) %}
+
+    <span class="label {{ collector.messageCount ? '' : 'disabled' }}">
+        {% if profiler_markup_version == 1 %}
+            <span class="icon"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAeCAYAAABaKIzgAAAEDElEQVR42u2XWUhUURjHy6isILAebO+lonpJ8qkHM3NFVFxAUVFM0RSXUKnwwdAQn3wQE0MyA1MwBEUQcxvHZTTTHNcZl9DUGqd0JBOzcsZ7+n8XJ0Z0GueOVwg68GfmnLn3O7/7Lee7s4cxZpHq6uos0bb3+Q+6DrG3u7v7RHt7u3tbW9uD5ubm8qamJnlDQ4NKIpG8HhkZOU3X7BYoD9Tb22sjk8mcWltb70ul0pcAegugBfzOjKmzs/MJ7j0kCujw8PBhADkAKAVAz+EZGYA+08bmCN79qdFo7sGmjaWg+wgIIUtoaWl5CqDmxsbGj7SJpYK3uYWFBRnsDmEfWyGg+zs6OkIBNEoGxVB9fT2bnZ1VIHff03xmZuY29rUyF9QWT6sWC5I0OTk5rVAo3unnSqXyEfa1Nhf0Kp5UKRYk8lsDD0oM1/r6+l5h32Pmgl5UqVTP5ubmlEgBHRlCobC8vDzm5eXFHB0dRZWzs/OXsLCwu5SCpkBPo4DaMVRI9rbp6Wk1vnP+/v5kaFfk4eGhAcdJU6Dn+/v7q9aTnpPL5YqVlRV5eXm5Fk+7Gx7lCgsL68Fx2RToWST7C8McQgr8yMrKWkLu/hQz/LDNIZojycnJb8BxwRTocYT8oSEoQs8bSkpK0k5MTGgiIiK4nYYMDg7mcBLIo6OjP9Ec44opUGvIF+eoTg/a1dX1x2BISMgyKncpLS1tbacgU1NT2djY2HxoaOi8fg3jhilQK+gmQvBVD4qQbzDs4+ND6bBWUFCgtRQyJyeHdwSKdcODY9zaTgu9jheMcWOgJFdXV1ZZWclqamp0bm5uQoqGVVRUrFHBuru782tCQC+hW0j/BkpCPlGXIY9wfn5+5hQN5T3dS+cz5btg0DNTU1NFpkBra2tZaWkpy8jIYOPj4ywmJmY7RcMGBwdZZmYmKykpoa7ELPGozeLiYrIetKenZ5OhuLg4ft3T05OfJyQk8LDp6el/LRq6JiUlheb8vXgzY7m5uYJBD0LeeDnRApQ8sKloqK3GxsZuWEPrYzhiWHFx8ZZFMzo6yiIjIw1DTTZ+qNXqMRcXF0GgVpADKltDoCisDcbj4+NZfn7+ll5D9fKeprYbFRXFwsPDWVVV1SodPwEBAVueEtnZ2QNIhTkhoKRrAxhb5WhRURFzcnIyGmIcX9rq6uoPq6urAzqdrresrGwIHtMZux62OOT6AD4FgZ5bXl5+DMhv6P16j/KhCwoK2vHO5O3t/SsxMfG7ENAjkAOUBUkMvMVDiiFKDSGge6Gj0CUoGmffpvwSEfg7dUch/0LtkWcdvr6+a2JDBgYG6tDt6DXPTgjoKegOVAo1QVKR1AgVQ8GQrRDQA+uw9ushuSWSyLYdQRr7K/JP6DcTwr8i7Fj8pwAAAABJRU5ErkJggg==" alt="Swiftmailer" /></span>
+        {% else %}
+            <span class="icon">{{ include('@Swiftmailer/Collector/icon.svg') }}</span>
+        {% endif %}
+
+        <strong>E-mails</strong>
+        {% if collector.messageCount > 0 %}
+            <span class="count">
+                <span>{{ collector.messageCount }}</span>
+            </span>
+        {% endif %}
+    </span>
+{% endblock %}
+
+{% block panel %}
+    {% set profiler_markup_version = profiler_markup_version|default(1) %}
+
+    {% if profiler_markup_version == 1 %}
+        <style>
+            h3 { margin-top: 2em; }
+            h3 span { color: #999; font-weight: normal; }
+            h3 small { color: #999; }
+            h4 { font-size: 14px; font-weight: bold; }
+            .card { background: #F5F5F5; margin: .5em 0 1em; padding: .5em; }
+            .card .label { display: block; font-size: 13px; font-weight: bold; margin-bottom: .5em; }
+            .card .card-block { margin-bottom: 1em; }
+        </style>
+    {% endif %}
+
+    <h2>E-mails</h2>
+
+    {% if not collector.mailers %}
+        <div class="empty">
+            <p>No e-mail messages were sent.</p>
+        </div>
+    {% endif %}
+
+    {% if profiler_markup_version == 1 or collector.mailers|length > 1 %}
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Mailer Name</th>
+                    <th scope="col">Num. of messages</th>
+                    <th scope="col">Messages status</th>
+                    <th scope="col">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for name in collector.mailers %}
+                    <tr>
+                        <th class="font-normal">{{ name }}</th>
+                        <td class="font-normal">{{ collector.messageCount(name) }}</td>
+                        <td class="font-normal">{{ collector.isSpool(name) ? 'spooled' : 'sent' }}</td>
+                        <td class="font-normal">{{ collector.isDefaultMailer(name) ? 'This is the default mailer' }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="metrics">
+            {% for name in collector.mailers %}
+                <div class="metric">
+                    <span class="value">{{ collector.messageCount(name) }}</span>
+                    <span class="label">{{ collector.isSpool(name) ? 'spooled' : 'sent' }} {{ collector.messageCount(name) == 1 ? 'message' : 'messages' }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% for name in collector.mailers %}
+        {% if collector.mailers|length > 1 %}
+            <h3>
+                {{ name }} <span>mailer</span>
+                <small>{{ collector.isDefaultMailer(name) ? '(default app mailer)' }}</small>
+            </h3>
+        {% endif %}
+
+        {% if not collector.messages(name) %}
+            <div class="empty">
+                <p>No e-mail messages were sent.</p>
+            </div>
+        {% else %}
+            {% for message in collector.messages(name) %}
+                {% if loop.length > 1 %}
+                    <h4>E-mail #{{ loop.index }} details</h4>
+                {% else %}
+                    <h4>E-mail details</h4>
+                {% endif %}
+
+                <div class="card">
+                    <div class="card-block">
+                        <span class="label">Subject</span>
+                        <h2 class="m-t-10">{{ message.headers.get('subject').value ?? '(empty)' }}</h2>
+                    </div>
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col col-4">
+                                <span class="label">From</span>
+                                <pre class="prewrap">{{ (message.headers.get('from').toString ?? '(empty)')|replace({'From:': ''}) }}</pre>
+
+                                <span class="label">To</span>
+                                <pre class="prewrap">{{ (message.headers.get('to').toString ?? '(empty)')|replace({'To:': ''}) }}</pre>
+                            </div>
+                            <div class="col">
+                                <span class="label">Headers</span>
+                                <pre class="prewrap">{% for header in message.headers.all|filter(header => (header.fieldName ?? '') not in ['Subject', 'From', 'To']) %}
+                                    {{- header -}}
+                                {% endfor %}</pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-block">
+                        <div class="sf-tabs sf-tabs-sm">
+                            <div class="tab">
+                                <h3 class="tab-title">Raw content</h3>
+
+                                <div class="tab-content">
+                                    <pre class="prewrap" style="max-height: 600px">
+                                        {%- if message.charset is defined and message.charset %}
+                                            {{- message.body|convert_encoding('UTF-8', message.charset) }}
+                                        {%- else %}
+                                            {{- message.body }}
+                                        {%- endif -%}
+                                    </pre>
+                                </div>
+                            </div>
+
+                            <div class="tab">
+                                <h3 class="tab-title">Rendered content</h3>
+
+                                <div class="tab-content">
+                                    <iframe class="full-width" style="min-height: 600px" src="data:{{ message.__contentType }};base64,{{ message.__base64EncodedBody }}"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% for messagePart in message.children|filter(messagePart => messagePart.contentType in ['text/plain', 'text/html']) %}
+                        <div class="card-block">
+                            <span class="label">Alternative part ({{ messagePart.contentType }})</span>
+                            <pre class="prewrap">
+                                {%- if messagePart.charset is defined and messagePart.charset %}
+                                    {{- messagePart.body|convert_encoding('UTF-8', messagePart.charset) }}
+                                {%- else %}
+                                    {{- messagePart.body }}
+                                {%- endif -%}
+                            </pre>
+                        </div>
+                    {% endfor %}
+
+                    {% set attachments = collector.extractAttachments(message) %}
+                    {% if attachments %}
+                        <div class="card-block">
+                            <span class="label">
+                                {% if attachments|length > 1 %}
+                                    {{ attachments|length }} Attachments
+                                {% else %}
+                                    1 Attachment
+                                {% endif %}
+                            </span>
+
+                            <ol>
+                                {% for attachment in attachments %}
+                                    <li>
+                                        Filename:
+                                        {{ attachment.filename }}
+                                    </li>
+                                {% endfor %}
+                            </ol>
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endblock %}

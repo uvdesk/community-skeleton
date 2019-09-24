@@ -1,0 +1,44 @@
+{
+    "name": "doctrine/reflection",
+    "type": "library",
+    "description": "Doctrine Reflection component",
+    "keywords": ["reflection"],
+    "homepage": "https://www.doctrine-project.org/projects/reflection.html",
+    "license": "MIT",
+    "authors": [
+        {"name": "Guilherme Blanco", "email": "guilhermeblanco@gmail.com"},
+        {"name": "Roman Borschel", "email": "roman@code-factory.org"},
+        {"name": "Benjamin Eberlei", "email": "kontakt@beberlei.de"},
+        {"name": "Jonathan Wage", "email": "jonwage@gmail.com"},
+        {"name": "Johannes Schmitt", "email": "schmittjoh@gmail.com"},
+        {"name": "Marco Pivetta", "email": "ocramius@gmail.com"}
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-tokenizer": "*",
+        "doctrine/annotations": "^1.0"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.9.2",
+        "phpstan/phpstan-phpunit": "^0.9.4",
+        "phpunit/phpunit": "^7.0",
+        "doctrine/coding-standard": "^4.0",
+        "doctrine/common": "^2.8",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Doctrine\\Common\\": "lib/Doctrine/Common"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Doctrine\\Tests\\": "tests/Doctrine/Tests"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "name": "symfony/debug-pack",
+    "type": "symfony-pack",
+    "license": "MIT",
+    "description": "A debug pack for Symfony projects",
+    "require": {
+        "php": "^7.0",
+        "symfony/debug-bundle": "*",
+        "symfony/monolog-bundle": "^3.0",
+        "easycorp/easy-log-handler": "^1.0.7",
+        "symfony/profiler-pack": "*",
+        "symfony/var-dumper": "*"
+    }
+}

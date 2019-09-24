@@ -1,0 +1,10 @@
+parameters:
+    autoload_directories:
+        - %currentWorkingDirectory%/tests/Doctrine/Tests/Common/ClassLoaderTest
+    excludes_analyse:
+        - %currentWorkingDirectory%/lib/vendor/doctrine-build-common
+        - %currentWorkingDirectory%/tests/Doctrine/Tests/Common/Proxy/InvalidReturnTypeClass.php
+        - %currentWorkingDirectory%/tests/Doctrine/Tests/Common/Proxy/InvalidTypeHintClass.php
+    ignoreErrors:
+        - '#Access to an undefined property Doctrine\\Common\\Proxy\\Proxy::\$publicField#'
+        - '#Access to an undefined property Doctrine\\Tests\\Common\\Proxy\\MagicGetByRefClass::\$nonExisting#'

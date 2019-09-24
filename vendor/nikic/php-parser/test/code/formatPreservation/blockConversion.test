@@ -1,0 +1,29 @@
+It may be necessary to convert a single statement into a block
+-----
+<?php
+
+if
+($a) $b;
+-----
+// TODO Avoid fallback
+$stmts[0]->stmts[] = new Stmt\Expression(new Expr\Variable('c'));
+-----
+<?php
+
+if ($a) {
+    $b;
+    $c;
+}
+-----
+<?php
+
+if
+($a) {$b;}
+-----
+$stmts[0]->stmts[] = new Stmt\Expression(new Expr\Variable('c'));
+-----
+<?php
+
+if
+($a) {$b;
+$c;}

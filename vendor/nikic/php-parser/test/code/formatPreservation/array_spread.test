@@ -1,0 +1,29 @@
+Array spread
+-----
+<?php
+$items = [
+...$value
+];
+-----
+$array = $stmts[0]->expr->expr;
+$array->items[] = new Expr\ArrayItem(new Expr\Variable('b'));
+-----
+<?php
+$items = [
+...$value, $b
+];
+-----
+<?php
+$items =
+[
+... $value
+];
+-----
+$array = $stmts[0]->expr->expr;
+$array->items[] = new Expr\ArrayItem(new Expr\Variable('c'), null, false, [], true);
+-----
+<?php
+$items =
+[
+... $value, ...$c
+];

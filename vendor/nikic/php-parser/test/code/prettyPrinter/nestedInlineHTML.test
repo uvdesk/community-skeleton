@@ -1,0 +1,16 @@
+InlineHTML node nested inside other code
+-----
+<?php
+
+function test() {
+    ?>
+Test
+    <?php
+}
+-----
+function test()
+{
+    ?>
+Test
+    <?php
+}

@@ -1,0 +1,26 @@
+language: php
+
+sudo: false
+
+before_script:
+    - cp tests/acceptance.conf.php.default tests/acceptance.conf.php
+    - cp tests/smoke.conf.php.default tests/smoke.conf.php
+    - composer self-update
+    - composer update --no-interaction --prefer-source
+    - gem install mime-types -v 2.99.1
+    - gem install mailcatcher
+    - mailcatcher --smtp-port 4456
+
+script: SYMFONY_PHPUNIT_VERSION=6.1 ./vendor/bin/simple-phpunit
+
+matrix:
+    include:
+        - php: 7.0
+        - php: 7.1
+        - php: 7.2
+        - php: 7.3
+    fast_finish: true
+
+cache:
+    directories:
+        - .phpunit

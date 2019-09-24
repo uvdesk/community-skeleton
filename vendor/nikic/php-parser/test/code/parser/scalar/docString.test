@@ -1,0 +1,115 @@
+Nowdoc and heredoc strings
+-----
+<?php
+
+// empty strings
+<<<'EOS'
+EOS;
+<<<EOS
+EOS;
+
+// constant encapsed strings
+<<<'EOS'
+Test '" $a \n
+EOS;
+<<<EOS
+Test '" \$a \n
+EOS;
+
+// encapsed strings
+<<<EOS
+Test $a
+EOS;
+<<<EOS
+Test $a and $b->c test
+EOS;
+
+b<<<EOS
+Binary
+EOS;
+
+-----
+array(
+    0: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+            comments: array(
+                0: // empty strings
+            )
+        )
+        comments: array(
+            0: // empty strings
+        )
+    )
+    1: Stmt_Expression(
+        expr: Scalar_String(
+            value:
+        )
+    )
+    2: Stmt_Expression(
+        expr: Scalar_String(
+            value: Test '" $a \n
+            comments: array(
+                0: // constant encapsed strings
+            )
+        )
+        comments: array(
+            0: // constant encapsed strings
+        )
+    )
+    3: Stmt_Expression(
+        expr: Scalar_String(
+            value: Test '" $a
+
+        )
+    )
+    4: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Scalar_EncapsedStringPart(
+                    value: Test
+                )
+                1: Expr_Variable(
+                    name: a
+                )
+            )
+            comments: array(
+                0: // encapsed strings
+            )
+        )
+        comments: array(
+            0: // encapsed strings
+        )
+    )
+    5: Stmt_Expression(
+        expr: Scalar_Encapsed(
+            parts: array(
+                0: Scalar_EncapsedStringPart(
+                    value: Test
+                )
+                1: Expr_Variable(
+                    name: a
+                )
+                2: Scalar_EncapsedStringPart(
+                    value:  and
+                )
+                3: Expr_PropertyFetch(
+                    var: Expr_Variable(
+                        name: b
+                    )
+                    name: Identifier(
+                        name: c
+                    )
+                )
+                4: Scalar_EncapsedStringPart(
+                    value:  test
+                )
+            )
+        )
+    )
+    6: Stmt_Expression(
+        expr: Scalar_String(
+            value: Binary
+        )
+    )
+)

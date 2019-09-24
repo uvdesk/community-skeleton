@@ -1,0 +1,44 @@
+language: php
+
+dist: trusty
+sudo: false
+
+cache:
+    directories:
+        - $HOME/.composer/cache/files
+        - .phpunit
+
+env:
+    global:
+        - SYMFONY_PHPUNIT_DIR=.phpunit
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.6
+      env: COMPOSER_FLAGS="--prefer-lowest" SYMFONY_DEPRECATIONS_HELPER=weak
+    # Test against Symfony LTS versions
+    - php: 5.6
+      env: SYMFONY_VERSION="3.4.*"
+    - php: 7.0
+    - php: 7.1
+      # There is a bug in PHPUnit 5.7
+      env: SYMFONY_PHPUNIT_VERSION=6.5
+    - php: 7.2
+    - php: 7.3
+    # Test against dev versions
+    - php: nightly
+      env: DEPENDENCIES=dev
+  allow_failures:
+    - env: DEPENDENCIES=dev
+
+before_install:
+    - composer self-update
+    - if [ "$DEPENDENCIES" = "dev" ]; then perl -pi -e 's/^}$/,"minimum-stability":"dev"}/' composer.json; fi;
+    - if [ "$SYMFONY_VERSION" != "" ]; then composer require --dev --no-update symfony/symfony:"$SYMFONY_VERSION"; fi
+
+install:
+    - composer update $COMPOSER_FLAGS
+    - ./vendor/bin/simple-phpunit install
+
+script: ./vendor/bin/simple-phpunit -v --coverage-text

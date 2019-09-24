@@ -1,0 +1,39 @@
+Adding property type
+-----
+<?php
+
+class A
+{
+
+    public $a
+    = 1;
+}
+-----
+$stmts[0]->stmts[0]->type = new Node\Identifier('string');
+-----
+<?php
+
+class A
+{
+
+    public string $a
+    = 1;
+}
+-----
+<?php
+
+class A
+{
+    public
+        $b;
+}
+-----
+$stmts[0]->stmts[0]->type = new Node\Identifier('int');
+-----
+<?php
+
+class A
+{
+    public
+        int $b;
+}

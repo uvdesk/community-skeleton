@@ -1,0 +1,64 @@
+Return type declarations
+-----
+<?php
+
+function test1() {}
+function test2() : array {}
+function test3() : callable {}
+function test4() : Foo\Bar {}
+-----
+array(
+    0: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test1
+        )
+        params: array(
+        )
+        returnType: null
+        stmts: array(
+        )
+    )
+    1: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test2
+        )
+        params: array(
+        )
+        returnType: Identifier(
+            name: array
+        )
+        stmts: array(
+        )
+    )
+    2: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test3
+        )
+        params: array(
+        )
+        returnType: Identifier(
+            name: callable
+        )
+        stmts: array(
+        )
+    )
+    3: Stmt_Function(
+        byRef: false
+        name: Identifier(
+            name: test4
+        )
+        params: array(
+        )
+        returnType: Name(
+            parts: array(
+                0: Foo
+                1: Bar
+            )
+        )
+        stmts: array(
+        )
+    )
+)

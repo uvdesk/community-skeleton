@@ -1,0 +1,32 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+{% block title %}{{category.name}}{% endblock %}
+{% block ogtitle %}{{category.name}}{% endblock %}
+{% block twtitle %}{{category.name}}{% endblock %}
+{% block metaDescription %}{{category.description}}{% endblock %}
+{% block metaKeywords %}{{uvdesk_service.createConentToKeywords(category.description)}}{% endblock %}
+
+{% block body %} 
+	<div class="uv-paper-article">
+		<div class="uv-paper-section">
+			<section>
+				<h1 class="uv-folder-title" data-count="{{articlesCount}} {{"Articles"|trans}}">{{category.name}}</h1>
+				<p>{{category.description}}</p>
+			</section>
+			<section class="uv-margin-top-30">
+				<h4>{{'ARTICLES'|trans}}</h4>
+
+				{% if articles %}
+					<ul>
+						{% for article in articles %}
+							{#<li> {% if article.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} <a href="{{path('helpdesk_knowledgebase_read_article', {'article': article.id})}}">{{article.name}}</a></li>#}
+							<li> {% if article.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} <a href="{{path('helpdesk_knowledgebase_read_slug_article', {'slug': article.slug})}}">{{ article.name }}</a></li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p>{{"No Article Found!"|trans}}</p>
+				{% endif %}
+			</section>
+		</div>
+	</div>
+	{{parent()}}
+{% endblock %}
