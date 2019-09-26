@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @UVDeskExtensionFramework//dashboard.html.twig */
+/* @UVDeskExtensionFramework/dashboard.html.twig */
 class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b0cc1f extends \Twig\Template
 {
     private $source;
@@ -42,12 +42,12 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework//dashboard.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework/dashboard.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework//dashboard.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskExtensionFramework/dashboard.html.twig"));
 
-        $this->parent = $this->loadTemplate("@UVDeskCoreFramework//Templates//layout.html.twig", "@UVDeskExtensionFramework//dashboard.html.twig", 1);
+        $this->parent = $this->loadTemplate("@UVDeskCoreFramework//Templates//layout.html.twig", "@UVDeskExtensionFramework/dashboard.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -434,7 +434,7 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 
     public function getTemplateName()
     {
-        return "@UVDeskExtensionFramework//dashboard.html.twig";
+        return "@UVDeskExtensionFramework/dashboard.html.twig";
     }
 
     public function isTraitable()
@@ -718,6 +718,6 @@ class __TwigTemplate_6817f04e579c17a92a05408c722b38969d38827e978a21e496ed33c074b
 \t\t});
 \t</script>
 {% endblock %}
-", "@UVDeskExtensionFramework//dashboard.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/extension-framework/Resources/views/dashboard.html.twig");
+", "@UVDeskExtensionFramework/dashboard.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/extension-framework/Resources/views/dashboard.html.twig");
     }
 }

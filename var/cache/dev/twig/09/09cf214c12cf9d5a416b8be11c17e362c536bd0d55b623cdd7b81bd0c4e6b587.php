@@ -254,18 +254,30 @@ class __TwigTemplate_b43efbb4239b302f60128242284c0cb342fee1210d227f73e4e0347f6ba
 \t\t\t\tvalidation: {
 \t\t\t\t\t'name': [{
 \t\t\t\t\t\trequired: true,
-\t\t\t\t\t\tmsg: 'This field is mandatory'
+\t\t\t\t\t\tmsg: \"";
+        // line 77
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field is mandatory"), "html", null, true);
+        echo "\"
 \t\t\t\t\t}, {
 \t\t\t\t\t\tpattern: '^((?![\$%<]).)*\$',
-\t\t\t\t\t\tmsg: 'This field must have valid characters only'
+\t\t\t\t\t\tmsg: \"";
+        // line 80
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field must have valid characters only"), "html", null, true);
+        echo "\"
 \t\t\t\t\t},
 \t\t\t\t\t{
 \t\t\t\t\t\tmaxLength:40,
-\t\t\t\t\t\tmsg:\"This field contain maximum 40 charectures.\"
+\t\t\t\t\t\tmsg:\"";
+        // line 84
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field contain maximum 40 charectures."), "html", null, true);
+        echo "\"
 \t\t\t\t\t}],
 \t\t\t\t\t'description': {
 \t\t\t\t\t\trequired: true,
-\t\t\t\t\t\tmsg:'This field is mandatory'
+\t\t\t\t\t\tmsg:\"";
+        // line 88
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field is mandatory"), "html", null, true);
+        echo "\"
 \t\t\t\t\t}
 \t\t\t\t}
 \t\t\t});
@@ -328,7 +340,7 @@ class __TwigTemplate_b43efbb4239b302f60128242284c0cb342fee1210d227f73e4e0347f6ba
 
     public function getDebugInfo()
     {
-        return array (  282 => 100,  247 => 69,  237 => 68,  222 => 62,  216 => 59,  205 => 56,  188 => 49,  186 => 48,  180 => 45,  173 => 41,  165 => 38,  159 => 37,  153 => 34,  146 => 30,  141 => 28,  136 => 26,  129 => 22,  124 => 20,  119 => 18,  112 => 14,  106 => 13,  101 => 11,  98 => 10,  95 => 9,  92 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
+        return array (  294 => 100,  279 => 88,  272 => 84,  265 => 80,  259 => 77,  247 => 69,  237 => 68,  222 => 62,  216 => 59,  205 => 56,  188 => 49,  186 => 48,  180 => 45,  173 => 41,  165 => 38,  159 => 37,  153 => 34,  146 => 30,  141 => 28,  136 => 26,  129 => 22,  124 => 20,  119 => 18,  112 => 14,  106 => 13,  101 => 11,  98 => 10,  95 => 9,  92 => 8,  89 => 6,  79 => 5,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -409,18 +421,18 @@ class __TwigTemplate_b43efbb4239b302f60128242284c0cb342fee1210d227f73e4e0347f6ba
 \t\t\t\tvalidation: {
 \t\t\t\t\t'name': [{
 \t\t\t\t\t\trequired: true,
-\t\t\t\t\t\tmsg: 'This field is mandatory'
+\t\t\t\t\t\tmsg: \"{{'This field is mandatory'|trans}}\"
 \t\t\t\t\t}, {
 \t\t\t\t\t\tpattern: '^((?![\$%<]).)*\$',
-\t\t\t\t\t\tmsg: 'This field must have valid characters only'
+\t\t\t\t\t\tmsg: \"{{'This field must have valid characters only'|trans}}\"
 \t\t\t\t\t},
 \t\t\t\t\t{
 \t\t\t\t\t\tmaxLength:40,
-\t\t\t\t\t\tmsg:\"This field contain maximum 40 charectures.\"
+\t\t\t\t\t\tmsg:\"{{'This field contain maximum 40 charectures.'|trans}}\"
 \t\t\t\t\t}],
 \t\t\t\t\t'description': {
 \t\t\t\t\t\trequired: true,
-\t\t\t\t\t\tmsg:'This field is mandatory'
+\t\t\t\t\t\tmsg:\"{{'This field is mandatory'|trans}}\"
 \t\t\t\t\t}
 \t\t\t\t}
 \t\t\t});

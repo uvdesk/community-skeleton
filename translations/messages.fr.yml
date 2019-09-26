@@ -806,7 +806,7 @@ Content: Contenu
 Slug: Limace
 'Slug is the url identity of this article.': "'Slug est l'identité de cet article dans l'URL.'"
 'Meta Title': 'Meta Title'
-'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': Les balises de titre et les méta-descriptions sont des bits de code HTML dans l'en-tête d'une page Web. Ils aident les moteurs de recherche à comprendre le contenu d'une page. La balise de titre et la méta description d'une page sont généralement affichées chaque fois que cette page apparaît dans les résultats des moteurs de recherche.
+# 'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': Les balises de titre et les méta-descriptions sont des bits de code HTML dans l'en-tête d'une page Web. Ils aident les moteurs de recherche à comprendre le contenu d'une page. La balise de titre et la méta description d'une page sont généralement affichées chaque fois que cette page apparaît dans les résultats des moteurs de recherche.
 'Meta Keywords': 'Meta Keywords'
 'comma "," separated': 'séparées par des virgules'
 'Meta Description': 'Meta Description'
@@ -1230,7 +1230,7 @@ ticket: billet
 "Success! Ticket type updated successfully.": "Succès! Le type de ticket a été mis à jour avec succès."
 "Error! Ticket type with same name already exist": "Erreur! Le type de ticket portant le même nom existe déjà"
 "SAVE": "ENREGISTRER"
-'Save': 'ENREGISTRER'
+# 'Save': 'ENREGISTRER'
 "Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Les balises de titre et les méta-descriptions sont des bits de code HTML dans l'en-tête d'une page Web. Ils aident les moteurs de recherche à comprendre le contenu d'une page. La balise de titre et la méta-description d'une page sont généralement affichées chaque fois que cette page apparaît dans les résultats des moteurs de recherche."
 #customer page
 "Howdy!": "Salut!"
@@ -1262,7 +1262,7 @@ ticket: billet
 "Forgot Password": "Mot de passe oublié"
 "Enter your email address and we will send you an email with instructions to update your login credentials.": "Entrez votre adresse e-mail et nous vous enverrons un e-mail avec les instructions pour mettre à jour vos informations de connexion."
 "Send Mail": "Envoyer un email"
-"Status:":"Statut:"
+"Status:": "Statut:"
 "Sign In to %websitename%": "Connectez-vous à %websitename%"
 "Enter your name": "Entrez votre nom"
 "Enter your email": "Entrer votre Email"
@@ -1271,3 +1271,45 @@ ticket: billet
 "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Certaines de nos pages de site utilisent %cookies% et d’autres technologies de suivi. Un %cookie% est un petit fichier texte pouvant être utilisé, par exemple, pour collecter des informations sur l'activité du site. Certains cookies et autres technologies peuvent servir à rappeler des informations personnelles précédemment indiquées par un utilisateur du site. Vous pouvez bloquer les cookies ou supprimer des cookies existants en ajustant les paramètres appropriés de votre navigateur. Veuillez consulter le menu %help% de votre navigateur pour savoir comment procéder. Si vous bloquez ou supprimez %cookies%, vous constaterez peut-être que l'utilité de notre site est compromise."
 "This field contain maximum 40 charectures.": "Ce champ contient au maximum 40 caractères."
 "This field contain maximum 50 charectures.": "Ce champ contient au maximum 50 caractères."
+"Time": "Temps"
+"Links": "Liens"
+"Broadcast Message": "Message de diffusion"
+"Wide Logo": "Logo large"
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "Télécharger une image (200px x 48px) au format </br> PNG ou JPG"
+"It will be shown as Logo on Knowledgebase and Helpdesk": "Il sera affiché sous forme de logo dans la base de connaissances et le Helpdesk"
+"Website Status": "Statut du site"
+"Enable front end website and knowledgebase for customer(s)": "Activer le site Web frontal et la base de connaissances pour le (s) client (s)"
+"Brand Color": "Couleur de la marque"
+"Page Background Color": "Couleur de fond de la page"
+"Header Background Color": "Couleur de fond de l'en-tête"
+"Banner Background Color": "Couleur de fond de la bannière"
+"Page Link Color": "Couleur du lien de page"
+"Page Link Hover Color": "Couleur de survol de lien de page"
+"Article Text Color": "Couleur du texte de l'article"
+"Tag Line": "Tag line"
+"Hi! how can we help?": "Salut! Comment pouvons-nous vous aider?"
+"Layout": "Disposition"
+"Ticket Create Option": "Option de création de ticket"
+"Login Required To Create Tickets": "Connexion requise pour créer des billets"
+"Remove Customer Login/Signin Button": "Supprimer le login / le bouton de connexion"
+"Disable Customer Login": "Désactiver la connexion client"
+"Meta Description (Recommended)": "Meta Description (Recommandé)"
+"Meta Keywords (Recommended)": "Meta Keywords (Recommandé)"
+"Header Link": "Lien d'en-tête"
+"URL (with http:// or https://)": "URL (avec http: // ou https: //)"
+"Footer Link": "Lien de pied de page"
+"Custom CSS (Optional)": "CSS personnalisé (facultatif)"
+"It will be add to the frontend knowledgebase only": "Il sera ajouté à la base de connaissances frontale uniquement"
+"Custom Javascript (Optional)": "Javascript personnalisé (facultatif)"
+"Broadcast message content to show on helpdesk": "Diffuser le contenu du message à afficher sur le support technique"
+"From": "De"
+"Time duration between which message will be displayed(if applicable)": "Durée entre laquelle le message sera affiché (le cas échéant)"
+"Broadcasting Status": "Statut de diffusion"
+"Broadcasting is Active": "La radiodiffusion est active"
+"Choose a default company's timezone": "Choisir le fuseau horaire d'une entreprise par défaut"
+"Date Time Format": "Format date-heure"
+"Choose a format to convert date to specified date time format": "Choisissez un format pour convertir la date au format de date / heure spécifié"
+"An empty file is not allowed.": "Un fichier vide n'est pas autorisé."
+"File size must not be greater than 200KB !!": "La taille du fichier ne doit pas dépasser 200 Ko !!"
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Merci de télécharger un fichier image valide (JPEG, JPG, PNG uniquement) !!"
+"Provide a valid url(with protocol)": "Fournir une URL valide (avec protocole)"

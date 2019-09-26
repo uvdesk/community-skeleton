@@ -9,7 +9,7 @@
 'Explore Apps': "استكشاف التطبيقات"
 'Form Builder': "منشئ النماذج"
 Knowledgebase: قاعدة المعرفة
-'Knowledgebase is a source of rigid and complex information which helps Customers to help themselves': "Knowledgebase هي مصدر معلومات جامدة ومعقدة تساعد العملاء على مساعدة أنفسهم"
+'Knowledgebase is a source of rigid and complex information which helps Customers to help themselves': "قاعدة المعرفة هي مصدر معلومات جامدة ومعقدة تساعد العملاء على مساعدة أنفسهم"
 Articles: مقالات
 Categories: التصنيفات
 Folders: المجلدات
@@ -1225,3 +1225,45 @@ ticket: تذكرة
 "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "تستخدم بعض صفحات موقعنا %cookies% وتقنيات التتبع الأخرى. %cookie%  هو ملف نصي صغير يمكن استخدامه ، على سبيل المثال ، لجمع معلومات حول نشاط الموقع. قد تعمل بعض ملفات تعريف الارتباط والتقنيات الأخرى على استدعاء المعلومات الشخصية التي سبق أن أشار إليها مستخدم الموقع. يمكنك حظر ملفات تعريف الارتباط ، أو حذف ملفات تعريف الارتباط الموجودة ، عن طريق ضبط الإعداد المناسب على متصفحك. يرجى الرجوع إلى قائمة %help% في متصفحك لمعرفة كيفية القيام بذلك. إذا قمت بحظر أو حذف %cookies% ، فقد تجد فائدة موقعنا ضعيفة."
 "This field contain maximum 40 charectures.": "يحتوي هذا الحقل على 40 مشاركة."
 "This field contain maximum 50 charectures.": "يحتوي هذا الحقل على 50 مشاركة."
+"Time": 'وقعت في مثل'
+"Links": 'ملفك الشخصي'
+"Broadcast Message": "إنشاء تذكرة"
+"Wide Logo": "إنشاء وكيل"
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "إنشاء عميل"
+"It will be shown as Logo on Knowledgebase and Helpdesk": 'خروج'
+"Website Status": 'تطبيقات'
+"Enable front end website and knowledgebase for customer(s)": "دمج التطبيقات وفقًا لاحتياجاتك لإنجاز الأمور بشكل أسرع من أي وقت مضى"
+"Brand Color": "استكشاف التطبيقات"
+"Page Background Color": "منشئ النماذج"
+"Header Background Color": قاعدة المعرفة
+"Banner Background Color": "Knowledgebase هي مصدر معلومات جامدة ومعقدة تساعد العملاء على مساعدة أنفسهم"
+"Page Link Color": مقالات
+"Page Link Hover Color": التصنيفات
+"Article Text Color": المجلدات
+"Tag Line": المجلدات
+"Hi! how can we help?": إنتاجية
+"Layout": "أتمتة عملياتك عن طريق إنشاء مجموعة من القواعد والإعدادات المسبقة للاستجابة بشكل أسرع للتذاكر"
+"Ticket Create Option": "الردود الجاهزة"
+"Login Required To Create Tickets": "الردود المحفوظة"
+"Remove Customer Login/Signin Button": "أنواع التذاكر"
+"Disable Customer Login": سير العمل
+"Meta Description (Recommended)": الإعدادات
+"Meta Keywords (Recommended)": "إدارة هوية علامتك التجارية ومعلومات الشركة والتفاصيل الأخرى في لمحة"
+"Header Link": العلامات التجارية
+"URL (with http:// or https://)": 'الحقول المخصصة'
+"Footer Link": 'إعدادات البريد الإلكتروني'
+"Custom CSS (Optional)": 'قوالب البريد الإلكتروني'
+"It will be add to the frontend knowledgebase only": صندوق بريد
+"Custom Javascript (Optional)": "إعدادات البريد العشوائي"
+"Broadcast message content to show on helpdesk": "سويفت ميلر"
+"From": الكلمات
+"Time duration between which message will be displayed(if applicable)": المستخدمين
+"Broadcasting Status": "التحكم في المجموعات والفرق والوكلاء والعملاء"
+"Broadcasting is Active": عملاء
+"Choose a default company's timezone": الزبائن
+"Date Time Format": مجموعات
+"Choose a format to convert date to specified date time format": امتيازات
+"An empty file is not allowed.": فرق
+"File size must not be greater than 200KB !!": تطبيقات
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "تزامن أوامر التجارة الإلكترونية"
+"Provide a valid url(with protocol)": "استيراد تفاصيل طلب التجارة الإلكترونية إلى تذاكر الدعم الخاصة بك من منصات مختلفة متاحة"

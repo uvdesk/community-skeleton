@@ -418,10 +418,16 @@ class __TwigTemplate_1a0c1305a145665e9f5a07e1889b6b6fa644d1f8fbb472099d9e02a5a1f
         echo "\"
 \t\t\t\t\t},{
 \t\t\t\t\t\tmaxLength:200,
-\t\t\t\t\t\tmsg: 'This field contain maximum 200 charecters only'
+\t\t\t\t\t\tmsg: \"";
+        // line 233
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field contain maximum 200 charecters only"), "html", null, true);
+        echo "\"
 \t\t\t\t\t}, {
 \t\t\t\t\t\tpattern: '^((?![\$%<]).)*\$',
-\t\t\t\t\t\tmsg: 'This field must have valid characters only'
+\t\t\t\t\t\tmsg: \"";
+        // line 236
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field must have valid characters only"), "html", null, true);
+        echo "\"
 \t\t\t\t\t}],
 \t\t\t\t\t'slug': function(val, attr, computed) {
 \t\t\t\t\t\tvar elSlug = \$(\"[name=\" + attr + \"]\");
@@ -437,7 +443,10 @@ class __TwigTemplate_1a0c1305a145665e9f5a07e1889b6b6fa644d1f8fbb472099d9e02a5a1f
 \t\t\t\t\t\t
 \t\t\t\t\t\tif(elSlugValue.length > 100) {
 \t\t\t\t\t\t\tconsole.log(\"invalid lenth\");
-\t\t\t\t\t\t\treturn \"This field slug contains maximum 100 charecters only.\";
+\t\t\t\t\t\t\treturn \"";
+        // line 249
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This field slug contains maximum 100 charecters only."), "html", null, true);
+        echo "\";
 
 \t\t\t\t\t\t}
 \t\t\t\t\t}
@@ -497,7 +506,7 @@ class __TwigTemplate_1a0c1305a145665e9f5a07e1889b6b6fa644d1f8fbb472099d9e02a5a1f
 
     public function getDebugInfo()
     {
-        return array (  466 => 270,  447 => 254,  434 => 244,  417 => 230,  380 => 196,  365 => 184,  313 => 135,  296 => 122,  286 => 121,  259 => 103,  254 => 101,  245 => 95,  240 => 93,  235 => 91,  226 => 85,  221 => 83,  216 => 81,  207 => 75,  202 => 73,  197 => 71,  185 => 62,  180 => 60,  170 => 53,  165 => 51,  151 => 40,  139 => 31,  135 => 30,  124 => 24,  118 => 23,  113 => 21,  110 => 20,  107 => 19,  104 => 18,  93 => 8,  83 => 7,  70 => 4,  60 => 3,  37 => 1,);
+        return array (  475 => 270,  456 => 254,  448 => 249,  440 => 244,  429 => 236,  423 => 233,  417 => 230,  380 => 196,  365 => 184,  313 => 135,  296 => 122,  286 => 121,  259 => 103,  254 => 101,  245 => 95,  240 => 93,  235 => 91,  226 => 85,  221 => 83,  216 => 81,  207 => 75,  202 => 73,  197 => 71,  185 => 62,  180 => 60,  170 => 53,  165 => 51,  151 => 40,  139 => 31,  135 => 30,  124 => 24,  118 => 23,  113 => 21,  110 => 20,  107 => 19,  104 => 18,  93 => 8,  83 => 7,  70 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -734,10 +743,10 @@ class __TwigTemplate_1a0c1305a145665e9f5a07e1889b6b6fa644d1f8fbb472099d9e02a5a1f
 \t\t\t\t\t\tmsg: \"{{'This field is mandatory'|trans}}\"
 \t\t\t\t\t},{
 \t\t\t\t\t\tmaxLength:200,
-\t\t\t\t\t\tmsg: 'This field contain maximum 200 charecters only'
+\t\t\t\t\t\tmsg: \"{{'This field contain maximum 200 charecters only'|trans}}\"
 \t\t\t\t\t}, {
 \t\t\t\t\t\tpattern: '^((?![\$%<]).)*\$',
-\t\t\t\t\t\tmsg: 'This field must have valid characters only'
+\t\t\t\t\t\tmsg: \"{{'This field must have valid characters only'|trans}}\"
 \t\t\t\t\t}],
 \t\t\t\t\t'slug': function(val, attr, computed) {
 \t\t\t\t\t\tvar elSlug = \$(\"[name=\" + attr + \"]\");
@@ -750,7 +759,7 @@ class __TwigTemplate_1a0c1305a145665e9f5a07e1889b6b6fa644d1f8fbb472099d9e02a5a1f
 \t\t\t\t\t\t
 \t\t\t\t\t\tif(elSlugValue.length > 100) {
 \t\t\t\t\t\t\tconsole.log(\"invalid lenth\");
-\t\t\t\t\t\t\treturn \"This field slug contains maximum 100 charecters only.\";
+\t\t\t\t\t\t\treturn \"{{'This field slug contains maximum 100 charecters only.'|trans}}\";
 
 \t\t\t\t\t\t}
 \t\t\t\t\t}

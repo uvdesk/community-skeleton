@@ -67,7 +67,7 @@ class __TwigTemplate_56ae640d53d9bbf286879e01e71c5b762061b8a5fc22f5e0bf926ff4c12
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Forgot Password";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Forgot Password"), "html", null, true);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -127,14 +127,23 @@ class __TwigTemplate_56ae640d53d9bbf286879e01e71c5b762061b8a5fc22f5e0bf926ff4c12
 \t\t\t<div class=\"uv-center-box uv-text-center\">
                 <form action=\"\" method=\"post\" id=\"loginForm\">
                     <div class=\"uv-adjacent-center\">
-                        <h1>Forgot Password</h1>
+                        <h1>";
+        // line 29
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Forgot Password"), "html", null, true);
+        echo "</h1>
                         <div class=\"uv-element-block\">
-                            <p>Enter your email address and we will send you an email with instructions to update your login credentials.</p>
+                            <p>";
+        // line 31
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Enter your email address and we will send you an email with instructions to update your login credentials."), "html", null, true);
+        echo "</p>
                         </div>
                         
                         <div class=\"uv-adjacent-form\">
                             <div class=\"uv-adjacent-element-block\">
-                                <label>Email</label>
+                                <label>";
+        // line 36
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Email"), "html", null, true);
+        echo "</label>
                                 <div class=\"uv-max-field\">
                                     <input class=\"uv-field\" type=\"email\" name=\"forgot_password_form[email]\">
                                 </div>
@@ -210,7 +219,10 @@ class __TwigTemplate_56ae640d53d9bbf286879e01e71c5b762061b8a5fc22f5e0bf926ff4c12
         echo "'
                     },{
                         pattern: 'email',
-                        msg: \"This is not a valid email address\"
+                        msg: \"";
+        // line 84
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This is not a valid email address"), "html", null, true);
+        echo "\"
                     }]
                 }
             });
@@ -264,14 +276,14 @@ class __TwigTemplate_56ae640d53d9bbf286879e01e71c5b762061b8a5fc22f5e0bf926ff4c12
 
     public function getDebugInfo()
     {
-        return array (  209 => 81,  184 => 60,  174 => 59,  158 => 52,  145 => 42,  125 => 24,  115 => 23,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
+        return array (  224 => 84,  218 => 81,  193 => 60,  183 => 59,  167 => 52,  154 => 42,  145 => 36,  137 => 31,  132 => 29,  125 => 24,  115 => 23,  90 => 6,  80 => 5,  61 => 3,  38 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends \"@UVDeskCoreFramework//Templates//layout.html.twig\" %}
 
-{% block title %}Forgot Password{% endblock %}
+{% block title %}{{'Forgot Password'|trans}}{% endblock %}
 
 {% block templateCSS %}
     <style>
@@ -297,14 +309,14 @@ class __TwigTemplate_56ae640d53d9bbf286879e01e71c5b762061b8a5fc22f5e0bf926ff4c12
 \t\t\t<div class=\"uv-center-box uv-text-center\">
                 <form action=\"\" method=\"post\" id=\"loginForm\">
                     <div class=\"uv-adjacent-center\">
-                        <h1>Forgot Password</h1>
+                        <h1>{{'Forgot Password'|trans}}</h1>
                         <div class=\"uv-element-block\">
-                            <p>Enter your email address and we will send you an email with instructions to update your login credentials.</p>
+                            <p>{{'Enter your email address and we will send you an email with instructions to update your login credentials.'|trans}}</p>
                         </div>
                         
                         <div class=\"uv-adjacent-form\">
                             <div class=\"uv-adjacent-element-block\">
-                                <label>Email</label>
+                                <label>{{'Email'|trans}}</label>
                                 <div class=\"uv-max-field\">
                                     <input class=\"uv-field\" type=\"email\" name=\"forgot_password_form[email]\">
                                 </div>
@@ -352,7 +364,7 @@ class __TwigTemplate_56ae640d53d9bbf286879e01e71c5b762061b8a5fc22f5e0bf926ff4c12
                         msg: '{{ \"This field is mandatory\"|trans }}'
                     },{
                         pattern: 'email',
-                        msg: \"This is not a valid email address\"
+                        msg: \"{{'This is not a valid email address'|trans}}\"
                     }]
                 }
             });

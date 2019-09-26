@@ -954,7 +954,7 @@ Note: Note
 'Last Replied Agent': 'Last Replied Agent'
 'created Ticket': 'created Ticket'
 'Uploaded Files': 'Uploaded Files'
-'Download (as .zip)': 'Download (as .zip)'
+'Download (as .zip)': 'Download ( as .zip)'
 'made last reply': 'made last reply'
 'N/A': 'N/A'
 'Unassigned': 'Unassigned'
@@ -1234,31 +1234,6 @@ ticket: ticket
 "Success! Ticket type updated successfully.": "Success! Ticket type updated successfully."
 "Error! Ticket type with same name already exist": "Error! Ticket type with same name already exist"
 'SAVE': 'SAVE'
-ticket.message.placeHolders.info: ticket.message.placeHolders.info
-ticket.attachments.placeHolders.info: 	ticket.attachments.placeHolders.info
-ticket.threadMessage.placeHolders.info: ticket.threadMessage.placeHolders.info
-ticket.tags.placeHolders.info: ticket.tags.placeHolders.info
-ticket.source.placeHolders.info: ticket.source.placeHolders.info
-ticket.collaborator.name.placeHolders.info: ticket.collaborator.name.placeHolders.info
-ticket.collaborator.email.placeHolders.info: ticket.collaborator.email.placeHolders.info
-user.name.info: user.name.info
-user.email.info: user.email.info
-user.account.validate.link.info: user.account.validate.link.info
-user.password.forgot.link.info: user.password.forgot.link.info
-global.companyName: global.companyName
-global.companyLogo: global.companyLogo
-global.companyUrl: global.companyUrl
-ticket.priority.placeHolders.info: 	ticket.priority.placeHolders.info
-ticket.group.placeHolders.info: ticket.group.placeHolders.info
-ticket.team.placeHolders.info: ticket.team.placeHolders.info
-ticket.customerName.placeHolders.info: 	ticket.customerName.placeHolders.info
-ticket.customerEmail.placeHolders.info: 	ticket.customerEmail.placeHolders.info
-ticket.agentName.placeHolders.info: ticket.agentName.placeHolders.info
-ticket.agentEmail.placeHolders.info: ticket.agentEmail.placeHolders.info
-ticket.link.placeHolders.info: 	ticket.link.placeHolders.info 
-ticket.id.placeHolders.info: ticket.id.placeHolders.info
-ticket.subject.placeHolders.info: 	ticket.subject.placeHolders.info
-ticket.status.placeHolders.info: ticket.status.placeHolders.info
 #customer page
 "Howdy!": "Howdy!"
 "New Ticket Request": "New Ticket Request"
@@ -1297,4 +1272,118 @@ ticket.status.placeHolders.info: ticket.status.placeHolders.info
 "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired."
 "This field contain maximum 40 charectures.": "This field contain maximum 40 charectures."
 "This field contain maximum 50 charectures.": "This field contain maximum 50 charectures."
+#misc
+"Time": "Time"
+"Links": "Links"
+"Broadcast Message": "Broadcast Message"
+"Wide Logo": "Wide Logo"
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "Upload an Image (200px x 48px) in</br> PNG or JPG Format"
+"It will be shown as Logo on Knowledgebase and Helpdesk": "It will be shown as Logo on Knowledgebase and Helpdesk"
+"Website Status": "Website Status"
+"Enable front end website and knowledgebase for customer(s)": "Enable front end website and knowledgebase for customer(s)"
+"Brand Color": "Brand Color"
+"Page Background Color": "Page Background Color"
+"Header Background Color": "Header Background Color"
+"Banner Background Color": "Banner Background Color"
+"Page Link Color": "Page Link Color"
+"Page Link Hover Color": "Page Link Hover Color"
+"Article Text Color": "Article Text Color"
+"Tag Line": "Tag Line"
+"Hi! how can we help?": "Hi! how can we help?"
+"Layout": "Layout"
+"Ticket Create Option": "Ticket Create Option"
+"Login Required To Create Tickets": "Login Required To Create Tickets"
+"Remove Customer Login/Signin Button": "Remove Customer Login/Signin Button"
+"Disable Customer Login": "Disable Customer Login"
+"Meta Description (Recommended)": "Meta Description (Recommended)"
+"Meta Keywords (Recommended)": "Meta Keywords (Recommended)"
+"Header Link": "Header Link"
+"URL (with http:// or https://)": "URL (with http:// or https://)"
+"Footer Link": "Footer Link"
+"Custom CSS (Optional)": "Custom CSS (Optional)"
+"It will be add to the frontend knowledgebase only": "It will be add to the frontend knowledgebase only"
+"Custom Javascript (Optional)": "Custom Javascript (Optional)"
+"Broadcast message content to show on helpdesk": "Broadcast message content to show on helpdesk"
+"From": "From"
+"Time duration between which message will be displayed(if applicable)": "Time duration between which message will be displayed(if applicable)"
+"Broadcasting Status": "Broadcasting Status"
+"Broadcasting is Active": "Broadcasting is Active"
+"Choose a default company's timezone": "Choose a default company's timezone"
+"Date Time Format": "Date Time Format"
+"Choose a format to convert date to specified date time format": "Choose a format to convert date to specified date time format"
+"An empty file is not allowed.": "An empty file is not allowed."
+"File size must not be greater than 200KB !!": "File size must not be greater than 200KB !!"
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!"
+"Provide a valid url(with protocol)": "Provide a valid url(with protocol)"
 
+
+
+
+# "Time"
+# "Links"
+# "Broadcast Message"
+# "Wide Logo"
+# "Upload an Image (200px x 48px) in</br> PNG or JPG Format"
+# "It will be shown as Logo on Knowledgebase and Helpdesk"
+# "Website Status"
+# "Enable front end website and knowledgebase for customer(s)"
+# "Brand Color"
+# "Page Background Color"
+# "Header Background Color"
+# "Banner Background Color"
+# "Page Link Color"
+# "Page Link Hover Color"
+# "Article Text Color"
+# "Tag Line"
+# "Hi! how can we help?"
+# "Layout"
+# "Ticket Create Option"
+# "Login Required To Create Tickets"
+# "Remove Customer Login/Signin Button"
+# "Disable Customer Login"
+# "Meta Description (Recommended)"
+# "Meta Keywords (Recommended)"
+# "Header Link"
+# "URL (with http:// or https://)"
+# "Footer Link"
+# "Custom CSS (Optional)"
+# "It will be add to the frontend knowledgebase only"
+# "Custom Javascript (Optional)"
+# "Broadcast message content to show on helpdesk"
+# "From"
+# "Time duration between which message will be displayed(if applicable)"
+# "Broadcasting Status"
+# "Broadcasting is Active"
+# "Choose a default company's timezone"
+# "Date Time Format"
+# "Choose a format to convert date to specified date time format"
+# "An empty file is not allowed."
+# "File size must not be greater than 200KB !!"
+# "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!"
+# "Provide a valid url(with protocol)"
+
+ticket.message.placeHolders.info: ticket.message.placeHolders.info
+ticket.attachments.placeHolders.info: 	ticket.attachments.placeHolders.info
+ticket.threadMessage.placeHolders.info: ticket.threadMessage.placeHolders.info
+ticket.tags.placeHolders.info: ticket.tags.placeHolders.info
+ticket.source.placeHolders.info: ticket.source.placeHolders.info
+ticket.collaborator.name.placeHolders.info: ticket.collaborator.name.placeHolders.info
+ticket.collaborator.email.placeHolders.info: ticket.collaborator.email.placeHolders.info
+user.name.info: user.name.info
+user.email.info: user.email.info
+user.account.validate.link.info: user.account.validate.link.info
+user.password.forgot.link.info: user.password.forgot.link.info
+global.companyName: global.companyName
+global.companyLogo: global.companyLogo
+global.companyUrl: global.companyUrl
+ticket.priority.placeHolders.info: 	ticket.priority.placeHolders.info
+ticket.group.placeHolders.info: ticket.group.placeHolders.info
+ticket.team.placeHolders.info: ticket.team.placeHolders.info
+ticket.customerName.placeHolders.info: 	ticket.customerName.placeHolders.info
+ticket.customerEmail.placeHolders.info: 	ticket.customerEmail.placeHolders.info
+ticket.agentName.placeHolders.info: ticket.agentName.placeHolders.info
+ticket.agentEmail.placeHolders.info: ticket.agentEmail.placeHolders.info
+ticket.link.placeHolders.info: 	ticket.link.placeHolders.info 
+ticket.id.placeHolders.info: ticket.id.placeHolders.info
+ticket.subject.placeHolders.info: 	ticket.subject.placeHolders.info
+ticket.status.placeHolders.info: ticket.status.placeHolders.info

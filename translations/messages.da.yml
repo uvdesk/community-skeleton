@@ -806,7 +806,7 @@ Content: Indhold
 Slug: Slug
 'Slug is the url identity of this article.': 'Slug er url-identiteten til denne artikel.'
 'Meta Title': 'Metatitel'
-'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': 'Titelkoder og metabeskrivelser er bit af HTML-kode i overskriften på en webside. De hjælper søgemaskiner med at forstå indholdet på en side. En sides titeltag og metabeskrivelse vises normalt, når denne side vises i søgemaskinens resultater '
+# 'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': 'Titelkoder og metabeskrivelser er bit af HTML-kode i overskriften på en webside. De hjælper søgemaskiner med at forstå indholdet på en side. En sides titeltag og metabeskrivelse vises normalt, når denne side vises i søgemaskinens resultater '
 'Meta Keywords': 'Meta-nøgleord'
 'comma "," separated': 'komma separeret'
 'Meta Description': 'Meta beskrivelse'
@@ -1270,3 +1270,45 @@ ticket: billet
 "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Nogle af vores sidesider bruger %cookies% og andre sporingsteknologier. En %cookie% er en lille tekstfil, der f.eks. Kan bruges til at indsamle oplysninger om webstedsaktivitet. Nogle cookies og andre teknologier kan tjene til at huske personlige oplysninger, der tidligere er angivet af en webstedsbruger. Du kan blokere cookies eller slette eksisterende cookies ved at justere den korrekte indstilling i din browser. Se menuen %help% i din browser for at lære, hvordan du gør det. Hvis du blokerer eller sletter %cookies%, kan du finde ud af, om nytten af ​​vores websted er forringet."
 "This field contain maximum 40 charectures.": "Dette felt indeholder maksimalt 40 karakterer."
 "This field contain maximum 50 charectures.": "Dette felt indeholder maksimalt 50 karakterer."
+"Time": 'Logget ind som'
+"Links": 'Din profil'
+"Broadcast Message": 'Opret billet'
+"Wide Logo": 'Opret agent'
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": 'Opret kunde'
+"It will be shown as Logo on Knowledgebase and Helpdesk": 'Log ud'
+"Website Status": 'Apps'
+"Enable front end website and knowledgebase for customer(s)": 'Integrer apps efter dine behov for at få tingene gjort hurtigere end nogensinde'
+"Brand Color": 'Udforsk apps'
+"Page Background Color": 'Form Builder'
+"Header Background Color": Vidensdatabase
+"Banner Background Color": 'Knowledgebase er en kilde til stiv og kompleks information, der hjælper kunderne med at hjælpe sig selv'
+"Page Link Color": Artikler
+"Page Link Hover Color": Kategorier
+"Article Text Color": mapper
+"Tag Line": MAPPER
+"Hi! how can we help?": Produktivitet
+"Layout": 'Automatiser dine processer ved at oprette sæt regler og forudindstillinger for at reagere hurtigere på billetterne'
+"Ticket Create Option": 'Forberedte svar'
+"Login Required To Create Tickets": 'Gemte svar'
+"Remove Customer Login/Signin Button": 'Billetyper'
+"Disable Customer Login": Arbejdsprocesser
+"Meta Description (Recommended)": Indstillinger
+"Meta Keywords (Recommended)": 'Administrer din brandidentitet, firmainformation og andre detaljer med et overblik'
+"Header Link": Branding
+"URL (with http:// or https://)": 'Tilpassede felter'
+"Footer Link": 'E-mail-indstillinger'
+"Custom CSS (Optional)": 'E-mail-skabeloner'
+"It will be add to the frontend knowledgebase only": Postkasse
+"Custom Javascript (Optional)": 'Indstillinger for spam'
+"Broadcast message content to show on helpdesk": 'Swift Mailer'
+"From": Tags
+"Time duration between which message will be displayed(if applicable)": Brugere
+"Broadcasting Status": 'Kontroller dine grupper, hold, agenter og kunder'
+"Broadcasting is Active": Agenter
+"Choose a default company's timezone": kunder
+"Date Time Format": grupper
+"Choose a format to convert date to specified date time format": privilegier
+"An empty file is not allowed.": Hold
+"File size must not be greater than 200KB !!": Applikationer
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": 'ECommerce ordresynkronisering'
+"Provide a valid url(with protocol)": 'Importer detaljer om e-handelsordre til dine supportbilletter fra forskellige tilgængelige platforme'

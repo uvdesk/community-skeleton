@@ -170,9 +170,15 @@ class __TwigTemplate_68c6716f69fec650f0ee2b5a3f2cd547489eaec522daf47909fc28e17c7
         <div class=\"uv-paper-section\">
             <form action=\"\" method=\"post\" id=\"resetPasswordForm\">
                 <section>
-                    <h1>Reset Password</h1>
+                    <h1>";
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Reset Password"), "html", null, true);
+        echo "</h1>
                     <div class=\"uv-element-block\">
-                        <p>Enter your new password below to update your login credentials.</p>
+                        <p>";
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Enter your new password below to update your login credentials."), "html", null, true);
+        echo "</p>
                     </div>
 
                     <div class=\"uv-form\">
@@ -315,7 +321,7 @@ class __TwigTemplate_68c6716f69fec650f0ee2b5a3f2cd547489eaec522daf47909fc28e17c7
 
     public function getDebugInfo()
     {
-        return array (  275 => 69,  269 => 67,  267 => 66,  252 => 54,  245 => 50,  239 => 47,  228 => 40,  218 => 39,  200 => 31,  191 => 25,  182 => 19,  159 => 7,  140 => 6,  121 => 5,  102 => 4,  83 => 3,  64 => 2,  41 => 1,);
+        return array (  281 => 69,  275 => 67,  273 => 66,  258 => 54,  251 => 50,  245 => 47,  234 => 40,  224 => 39,  206 => 31,  197 => 25,  188 => 19,  180 => 14,  175 => 12,  159 => 7,  140 => 6,  121 => 5,  102 => 4,  83 => 3,  64 => 2,  41 => 1,);
     }
 
     public function getSourceContext()
@@ -331,9 +337,9 @@ class __TwigTemplate_68c6716f69fec650f0ee2b5a3f2cd547489eaec522daf47909fc28e17c7
         <div class=\"uv-paper-section\">
             <form action=\"\" method=\"post\" id=\"resetPasswordForm\">
                 <section>
-                    <h1>Reset Password</h1>
+                    <h1>{{'Reset Password'|trans}}</h1>
                     <div class=\"uv-element-block\">
-                        <p>Enter your new password below to update your login credentials.</p>
+                        <p>{{'Enter your new password below to update your login credentials.'|trans}}</p>
                     </div>
 
                     <div class=\"uv-form\">

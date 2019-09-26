@@ -348,8 +348,8 @@ class __TwigTemplate_467db0f161feb943f236c245c55911b8610c4d9e7f69a8c1a98d48e951f
 \t\t\t\t\t\t\t<div class=\"uv-dropdown-btn uv-vertical-align uv-margin-right-5\">
 \t\t\t\t\t\t\t\t";
         // line 170
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Status:"), "html", null, true);
-        echo " ";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Status"), "html", null, true);
+        echo ": ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("All"), "html", null, true);
         echo "
 \t\t\t\t\t\t\t</div>
@@ -1082,8 +1082,8 @@ class __TwigTemplate_467db0f161feb943f236c245c55911b8610c4d9e7f69a8c1a98d48e951f
         echo "\";
 \t\t\t\t\t\$(\".filter-by-status .uv-dropdown-btn\").text(\"";
         // line 734
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Status:", [], "messages");
-        echo " \" + statusText);
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Status", [], "messages");
+        echo ": \" + statusText);
 \t\t\t\t\tcategoryCollection.filterParameters.search = query;
 \t\t\t\t\t\$(\".uv-search-inline\").val(query);
 \t\t\t\t}
@@ -1288,7 +1288,7 @@ class __TwigTemplate_467db0f161feb943f236c245c55911b8610c4d9e7f69a8c1a98d48e951f
 \t\t\t\t\t\t<!--Filter By Status-->
 \t\t\t\t\t\t<div class=\"uv-dropdown filter-by-status\">
 \t\t\t\t\t\t\t<div class=\"uv-dropdown-btn uv-vertical-align uv-margin-right-5\">
-\t\t\t\t\t\t\t\t{{ 'Status:'|trans }} {{ 'All'|trans }}
+\t\t\t\t\t\t\t\t{{ 'Status'|trans }}: {{ 'All'|trans }}
 \t\t\t\t\t\t\t</div>
 \t\t\t\t\t\t\t<div class=\"uv-dropdown-list uv-bottom-left\">
 \t\t\t\t\t\t\t\t<div class=\"uv-dropdown-container\">
@@ -1852,7 +1852,7 @@ class __TwigTemplate_467db0f161feb943f236c245c55911b8610c4d9e7f69a8c1a98d48e951f
 \t\t\t\t\t\tquery = query.replace(/\\+/g,' ');
 \t\t\t\t\tcategoryCollection.filterParameters.isActive = status;
 \t\t\t\t\tvar statusText = status ? \$(\".filter-by-status a[data-id='\" + status + \"']\").text() : \"{% trans %}All{% endtrans %}\";
-\t\t\t\t\t\$(\".filter-by-status .uv-dropdown-btn\").text(\"{% trans %}Status:{% endtrans %} \" + statusText);
+\t\t\t\t\t\$(\".filter-by-status .uv-dropdown-btn\").text(\"{% trans %}Status{% endtrans %}: \" + statusText);
 \t\t\t\t\tcategoryCollection.filterParameters.search = query;
 \t\t\t\t\t\$(\".uv-search-inline\").val(query);
 \t\t\t\t}

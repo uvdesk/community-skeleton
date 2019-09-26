@@ -66,7 +66,7 @@ class __TwigTemplate_e26fab54cda39ed1a7dea96e07e4daa4f0978f0f1fff8bf066970a3eb90
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Articles";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Articles"), "html", null, true);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -1095,7 +1095,7 @@ class __TwigTemplate_e26fab54cda39ed1a7dea96e07e4daa4f0978f0f1fff8bf066970a3eb90
     {
         return new Source("{% extends \"@UVDeskCoreFramework//Templates//layout.html.twig\" %}
 
-{% block title %}Articles{% endblock %}
+{% block title %}{{'Articles'|trans}}{% endblock %}
 
 {% block pageContent %}
 \t<style>

@@ -12,6 +12,7 @@ class Dashboard extends Controller
 {
     public function applications(Request $request)
     {
+
         return $this->render('@UVDeskExtensionFramework//dashboard.html.twig', []);
     }
 
@@ -34,9 +35,6 @@ class Dashboard extends Controller
             ];
         }, $applications->getCollection());
 
-        // dump($metadata->getName());
-        // dump($metadata->getQualifiedName());
-        // die; 
 
         return new JsonResponse($collection);
     }

@@ -1230,7 +1230,7 @@ ticket: Fahrkarte
 "Success! Ticket type updated successfully.": "Erfolgreich! Tickettyp erfolgreich aktualisiert."
 "Error! Ticket type with same name already exist": "Fehler! Ticket-Typ mit gleichem Namen existiert bereits"
 "SAVE": "SPAREN"
-"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird"
+# "Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird"
 #customer page
 "Howdy!": "Hallo!"
 "New Ticket Request": "Neue Ticketanfrage"
@@ -1270,7 +1270,48 @@ ticket: Fahrkarte
 "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Einige unserer Seiten verwenden %cookies% und andere Tracking-Technologien. Ein %cookie% ist eine kleine Textdatei, die beispielsweise zum Sammeln von Informationen über Site-Aktivitäten verwendet werden kann. Einige Cookies und andere Technologien können dazu dienen, persönliche Informationen abzurufen, die zuvor von einem Website-Benutzer angegeben wurden. Sie können Cookies blockieren oder vorhandene Cookies löschen, indem Sie die entsprechende Einstellung in Ihrem Browser vornehmen. Bitte konsultieren Sie das %help% -Menü Ihres Browsers, um zu erfahren, wie Sie dies tun können. Wenn Sie %cookies% blockieren oder löschen, kann die Nützlichkeit unserer Website beeinträchtigt werden."
 "This field contain maximum 40 charectures.": "Dieses Feld enthält maximal 40 Zeichen."
 "This field contain maximum 50 charectures.": "Dieses Feld enthält maximal 50 Zeichen."
-
+"Time": 'Eingeloggt als'
+"Links": 'Dein Profil'
+"Broadcast Message": 'Ticket erstellen'
+"Wide Logo": "Agent erstellen"
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "Kunden erstellen"
+"It will be shown as Logo on Knowledgebase and Helpdesk": 'Ausloggen'
+"Website Status": "Apps"
+"Enable front end website and knowledgebase for customer(s)": "Integrieren Sie Apps nach Ihren Wünschen, um die Dinge schneller als je zuvor zu erledigen."
+"Brand Color": "Apps erkunden"
+"Page Background Color": "Form Builder"
+"Header Background Color": Wissensbasis
+"Banner Background Color": "Knowledgebase ist eine Quelle starrer und komplexer Informationen, die den Kunden hilft, sich selbst zu helfen."
+"Page Link Color": Artikel
+"Page Link Hover Color": Kategorien
+"Article Text Color": Ordner
+"Tag Line": ORDNER
+"Hi! how can we help?": Produktivität
+"Layout": "Automatisieren Sie Ihre Prozesse, indem Sie eine Reihe von Regeln und Vorgaben erstellen, um schneller auf die Tickets zu reagieren."
+"Ticket Create Option": "Vorbereitete Antworten"
+"Login Required To Create Tickets": "Gespeicherte Antworten"
+"Remove Customer Login/Signin Button": "Tickettypen"
+"Disable Customer Login": Arbeitsabläufe
+"Meta Description (Recommended)": die Einstellungen
+"Meta Keywords (Recommended)": 'Verwalten Sie Ihre Markenidentität, Unternehmensinformationen und andere Details auf einen Blick'
+"Header Link": Branding
+"URL (with http:// or https://)": 'Benutzerdefinierte Felder'
+"Footer Link": 'Email Einstellungen'
+"Custom CSS (Optional)": 'E-Mail-Vorlagen'
+"It will be add to the frontend knowledgebase only": Briefkasten
+"Custom Javascript (Optional)": "Spam-Einstellungen"
+"Broadcast message content to show on helpdesk": "Swift Mailer"
+"From": Stichworte
+"Time duration between which message will be displayed(if applicable)": Benutzer
+"Broadcasting Status": "Kontrollieren Sie Ihre Gruppen, Teams, Agenten und Kunden"
+"Broadcasting is Active": Agenten
+"Choose a default company's timezone": Kunden
+"Date Time Format": Gruppen
+"Choose a format to convert date to specified date time format": Privilegien
+"An empty file is not allowed.": Mannschaften
+"File size must not be greater than 200KB !!": Anwendungen
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "ECommerce Order Syncronization"
+"Provide a valid url(with protocol)": "Importieren Sie E-Commerce-Bestelldetails von verschiedenen verfügbaren Plattformen in Ihre Support-Tickets."
 
                     
 

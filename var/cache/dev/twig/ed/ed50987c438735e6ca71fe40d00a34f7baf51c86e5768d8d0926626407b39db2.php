@@ -286,7 +286,9 @@ class __TwigTemplate_c16eea7993eaa96e65ce3b43dee1d15ecd3fb700177ff3c779790b40984
             // line 45
             if ((twig_get_attribute($this->env, $this->source, (isset($context["feedbacks"]) || array_key_exists("feedbacks", $context) ? $context["feedbacks"] : (function () { throw new RuntimeError('Variable "feedbacks" does not exist.', 45, $this->source); })()), "submitted", [], "any", false, false, false, 45) == true)) {
                 // line 46
-                echo "\t\t\t\t\t\t<p>Thank you for your feedback!</p>
+                echo "\t\t\t\t\t\t<p>";
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Thank you for your feedback!"), "html", null, true);
+                echo "</p>
 \t\t\t\t\t";
             }
             // line 48
@@ -338,10 +340,19 @@ class __TwigTemplate_c16eea7993eaa96e65ce3b43dee1d15ecd3fb700177ff3c779790b40984
         if ((((isset($context["feedbacks"]) || array_key_exists("feedbacks", $context)) && (twig_get_attribute($this->env, $this->source, (isset($context["feedbacks"]) || array_key_exists("feedbacks", $context) ? $context["feedbacks"] : (function () { throw new RuntimeError('Variable "feedbacks" does not exist.', 83, $this->source); })()), "enabled", [], "any", false, false, false, 83) == true)) && (twig_get_attribute($this->env, $this->source, (isset($context["feedbacks"]) || array_key_exists("feedbacks", $context) ? $context["feedbacks"] : (function () { throw new RuntimeError('Variable "feedbacks" does not exist.', 83, $this->source); })()), "submitted", [], "any", false, false, false, 83) == false))) {
             // line 84
             echo "\t\t<script id=\"article_feedback_template\" type=\"text/template\">
-\t\t\t<p>Was this article helpful?</p>
+\t\t\t<p>";
+            // line 85
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Was this article helpful?"), "html", null, true);
+            echo "</p>
 \t\t\t<ul>
-\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"positive\">Yes</li>
-\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"negative\">No</li>
+\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"positive\">";
+            // line 87
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Yes"), "html", null, true);
+            echo "</li>
+\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"negative\">";
+            // line 88
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("No"), "html", null, true);
+            echo "</li>
 \t\t\t</ul>
 \t\t</script>
 
@@ -423,7 +434,7 @@ class __TwigTemplate_c16eea7993eaa96e65ce3b43dee1d15ecd3fb700177ff3c779790b40984
 
     public function getDebugInfo()
     {
-        return array (  381 => 116,  368 => 105,  362 => 103,  360 => 102,  340 => 84,  337 => 83,  331 => 80,  321 => 79,  309 => 76,  306 => 75,  304 => 74,  300 => 72,  297 => 50,  293 => 48,  289 => 46,  287 => 45,  284 => 44,  282 => 43,  276 => 40,  268 => 34,  260 => 31,  254 => 30,  250 => 28,  244 => 26,  238 => 24,  236 => 23,  233 => 22,  231 => 21,  226 => 19,  218 => 18,  213 => 15,  203 => 14,  184 => 12,  165 => 11,  146 => 10,  127 => 9,  108 => 8,  89 => 5,  70 => 4,  59 => 1,  56 => 3,  43 => 1,);
+        return array (  392 => 116,  379 => 105,  373 => 103,  371 => 102,  354 => 88,  350 => 87,  345 => 85,  342 => 84,  339 => 83,  333 => 80,  323 => 79,  311 => 76,  308 => 75,  306 => 74,  302 => 72,  299 => 50,  295 => 48,  289 => 46,  287 => 45,  284 => 44,  282 => 43,  276 => 40,  268 => 34,  260 => 31,  254 => 30,  250 => 28,  244 => 26,  238 => 24,  236 => 23,  233 => 22,  231 => 21,  226 => 19,  218 => 18,  213 => 15,  203 => 14,  184 => 12,  165 => 11,  146 => 10,  127 => 9,  108 => 8,  89 => 5,  70 => 4,  59 => 1,  56 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -473,7 +484,7 @@ class __TwigTemplate_c16eea7993eaa96e65ce3b43dee1d15ecd3fb700177ff3c779790b40984
 \t\t\t{% if feedbacks is defined and feedbacks.enabled == true %}
 \t\t\t\t<section id=\"feedbacks\" class=\"article-feedbacks\">
 \t\t\t\t\t{% if feedbacks.submitted == true %}
-\t\t\t\t\t\t<p>Thank you for your feedback!</p>
+\t\t\t\t\t\t<p>{{'Thank you for your feedback!'|trans}}</p>
 \t\t\t\t\t{% endif %}
 \t\t\t\t</section>
 \t\t\t{% endif %}
@@ -512,10 +523,10 @@ class __TwigTemplate_c16eea7993eaa96e65ce3b43dee1d15ecd3fb700177ff3c779790b40984
 \t{# Article Feedbacks #}
 \t{% if feedbacks is defined and feedbacks.enabled == true and feedbacks.submitted == false %}
 \t\t<script id=\"article_feedback_template\" type=\"text/template\">
-\t\t\t<p>Was this article helpful?</p>
+\t\t\t<p>{{'Was this article helpful?'|trans}}</p>
 \t\t\t<ul>
-\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"positive\">Yes</li>
-\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"negative\">No</li>
+\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"positive\">{{'Yes'|trans}}</li>
+\t\t\t\t<li class=\"uv-btn-small article-badge-pta\" data-feedback=\"negative\">{{'No'|trans}}</li>
 \t\t\t</ul>
 \t\t</script>
 

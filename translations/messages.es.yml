@@ -1270,7 +1270,48 @@ ticket: boleto
 "Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Algunas de las páginas de nuestro sitio utilizan %cookies% y otras tecnologías de seguimiento. Un %cookie% es un pequeño archivo de texto que se puede utilizar, por ejemplo, para recopilar información sobre la actividad del sitio. Algunas cookies y otras tecnologías pueden servir para recuperar información personal previamente indicada por un usuario del sitio. Puede bloquear las cookies o eliminar las cookies existentes, ajustando la configuración adecuada en su navegador. Consulte el menú %help% de su navegador para obtener información sobre cómo hacerlo. Si bloquea o elimina %cookies%, es posible que la utilidad de nuestro sitio se vea afectada."
 "This field contain maximum 40 charectures.": "Este campo contiene un máximo de 40 correcciones."
 "This field contain maximum 50 charectures.": "Este campo contiene un máximo de 50 correcciones."
-
+"Time": 'Registrado como'
+"Links": 'Tu perfil'
+"Broadcast Message": 'Crear Ticket'
+"Wide Logo": 'Crear agente'
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": 'Crear cliente'
+"It will be shown as Logo on Knowledgebase and Helpdesk": 'Desconectar'
+"Website Status": 'Aplicaciones'
+"Enable front end website and knowledgebase for customer(s)": 'Integre aplicaciones según sus necesidades para hacer las cosas más rápido que nunca'
+"Brand Color": 'Explorar aplicaciones'
+"Page Background Color": 'Creador de formularios'
+"Header Background Color": Base de conocimientos
+"Banner Background Color": 'La base de conocimiento es una fuente de información rígida y compleja que ayuda a los clientes a ayudarse a sí mismos'
+"Page Link Color": Artículos
+"Page Link Hover Color": Categorias
+"Article Text Color": Carpetas
+"Tag Line": CARPETAS
+"Hi! how can we help?": Productividad
+"Layout": 'Automatice sus procesos creando un conjunto de reglas y ajustes preestablecidos para responder más rápido a los tickets'
+"Ticket Create Option": 'Respuestas preparadas'
+"Login Required To Create Tickets": 'Respuestas guardadas'
+"Remove Customer Login/Signin Button": 'Tipos de entradas'
+"Disable Customer Login": Flujos de trabajo
+"Meta Description (Recommended)": Configuraciones
+"Meta Keywords (Recommended)": 'Administre su identidad de marca, información de la empresa y otros detalles de un vistazo'
+"Header Link": Marca
+"URL (with http:// or https://)": 'Campos Personalizados'
+"Footer Link": 'Ajustes del correo electrónico'
+"Custom CSS (Optional)": 'Plantillas de correo electrónico'
+"It will be add to the frontend knowledgebase only": Buzón
+"Custom Javascript (Optional)": 'Configuración de spam'
+"Broadcast message content to show on helpdesk": 'Swift Mailer'
+"From": Etiquetas
+"Time duration between which message will be displayed(if applicable)": Los usuarios
+"Broadcasting Status": 'Controle sus grupos, equipos, agentes y clientes'
+"Broadcasting is Active": Agentes
+"Choose a default company's timezone": Clientes
+"Date Time Format": Grupos
+"Choose a format to convert date to specified date time format": Privilegios
+"An empty file is not allowed.": Equipos
+"File size must not be greater than 200KB !!": Aplicaciones
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": 'Sincronización de pedidos de comercio electrónico'
+"Provide a valid url(with protocol)": 'Importar detalles de pedidos de comercio electrónico a sus tickets de soporte desde diferentes plataformas disponibles'
 
 
 
