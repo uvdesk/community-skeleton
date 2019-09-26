@@ -300,10 +300,10 @@
                         if(value != undefined && value !== '') {
                             [{
                                 pattern: /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/,
-                                msg: 'This field must have characters only'
+                                msg: '{{"This field must have characters only"|trans}}'
                             },{
                                 maxLength:40,
-                                msg:'Maximum character length is 40'
+                                msg:'{{"Maximum character length is 40"|trans}}'
                             }]
                         }
                     },
@@ -429,4 +429,4 @@
             });
 		});
 	</script>
-{% endblock %}
+{% endblock %}  

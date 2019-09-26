@@ -4,9 +4,7 @@ namespace Webkul\UVDesk\SupportCenterBundle\UIComponents\Dashboard\Homepage\Item
 
 use Webkul\UVDesk\CoreFrameworkBundle\Dashboard\Segments\HomepageSectionItem;
 use Webkul\UVDesk\CoreFrameworkBundle\UIComponents\Dashboard\Homepage\Sections\Settings;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation\Loader\YamlFileLoader;
-use Symfony\Component\HttpFoundation\Request;
+use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
 
 class SpamSettings extends HomepageSectionItem
 {
@@ -23,7 +21,7 @@ SVG;
 
     public static function getTitle() : string
     {
-        return self::dynamicTranslation("Spam Settings");
+        return UVDeskService::dynamicTranslation("Spam Settings");
     }
 
     public static function getRouteName() : string

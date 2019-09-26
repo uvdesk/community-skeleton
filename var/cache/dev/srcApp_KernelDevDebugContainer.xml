@@ -306,6 +306,20 @@
     <parameter key="security.authentication.session_strategy.strategy">migrate</parameter>
     <parameter key="security.access.always_authenticate_before_granting">false</parameter>
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.name">smtp</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.encryption">ssl</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.port">465</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.host">smtp.gmail.com</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.username">bansalvaish@gmail.com</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.password">password</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.auth_mode">login</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.timeout">30</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.source_ip">null</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.transport.smtp.local_domain">null</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.spool.enabled">false</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.plugin.impersonate">null</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.single_address">null</parameter>
+    <parameter key="swiftmailer.mailer.mailer_7709.delivery.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.transport.name">smtp</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.encryption">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.smtp.port">25</parameter>
@@ -325,6 +339,7 @@
     <parameter key="swiftmailer.single_address">null</parameter>
     <parameter key="swiftmailer.mailers" type="collection">
       <parameter key="default">swiftmailer.mailer.default</parameter>
+      <parameter key="mailer_7709">swiftmailer.mailer.mailer_7709</parameter>
     </parameter>
     <parameter key="swiftmailer.default_mailer">default</parameter>
     <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/sliding.html.twig</parameter>
@@ -343,7 +358,22 @@
     <parameter key="uvdesk_extensions.dir">/home/users/anmol.rathi/www/html/opensourceLatest/apps</parameter>
     <parameter key="uvdesk.emails.delimiter">&lt;-- Please add content above this line --&gt;</parameter>
     <parameter key="uvdesk.emails.enable_delimiter">false</parameter>
-    <parameter key="uvdesk.mailboxes" type="collection"/>
+    <parameter key="uvdesk.mailboxes" type="collection">
+      <parameter>mailbox_5252</parameter>
+    </parameter>
+    <parameter key="uvdesk.mailboxes.mailbox_5252" type="collection">
+      <parameter key="name">asap mail</parameter>
+      <parameter key="enabled">true</parameter>
+      <parameter key="smtp_server" type="collection">
+        <parameter key="mailer_id">mailer_7709</parameter>
+      </parameter>
+      <parameter key="imap_server" type="collection">
+        <parameter key="host">{imap.gmail.com:993/imap/ssl}INBOX</parameter>
+        <parameter key="username">bansalvaish@gmail.com</parameter>
+        <parameter key="password">password</parameter>
+      </parameter>
+      <parameter key="email">bansalvaish@gmail.com</parameter>
+    </parameter>
     <parameter key="twig.exception_listener.controller">twig.controller.exception::showAction</parameter>
     <parameter key="twig.form.resources" type="collection">
       <parameter>form_div_layout.html.twig</parameter>
@@ -2363,14 +2393,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
@@ -4488,6 +4510,63 @@
       <call method="setName">
         <argument>swiftmailer:spool:send</argument>
       </call>
+    </service>
+    <service id="swiftmailer.mailer.mailer_7709.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
+    <service id="swiftmailer.mailer.mailer_7709.transport.authhandler" class="Swift_Transport_Esmtp_AuthHandler" public="false">
+      <argument type="collection">
+        <argument type="service" id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~sv.Hcbb"/>
+        <argument type="service" id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~sv.Hcbb"/>
+        <argument type="service" id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~sv.Hcbb"/>
+        <argument type="service" id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~sv.Hcbb"/>
+      </argument>
+      <call method="setUsername">
+        <argument>bansalvaish@gmail.com</argument>
+      </call>
+      <call method="setPassword">
+        <argument>password</argument>
+      </call>
+      <call method="setAuthMode">
+        <argument>login</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.mailer.mailer_7709.transport.buffer" class="Swift_Transport_StreamBuffer" public="false">
+      <argument type="service" id="swiftmailer.transport.replacementfactory"/>
+    </service>
+    <service id="swiftmailer.transport.configurator.mailer_7709" class="Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SmtpTransportConfigurator" public="false">
+      <argument>null</argument>
+      <argument type="service" id="router.request_context" on-invalid="null"/>
+    </service>
+    <service id="swiftmailer.mailer.mailer_7709.transport.smtp" class="Swift_Transport_EsmtpTransport" public="false">
+      <argument type="service" id="swiftmailer.mailer.mailer_7709.transport.buffer"/>
+      <argument type="collection">
+        <argument type="service" id="swiftmailer.mailer.mailer_7709.transport.authhandler"/>
+      </argument>
+      <argument type="service" id="swiftmailer.mailer.mailer_7709.transport.eventdispatcher"/>
+      <call method="setHost">
+        <argument>smtp.gmail.com</argument>
+      </call>
+      <call method="setPort">
+        <argument>465</argument>
+      </call>
+      <call method="setEncryption">
+        <argument>ssl</argument>
+      </call>
+      <call method="setTimeout">
+        <argument>30</argument>
+      </call>
+      <call method="setSourceIp">
+        <argument>null</argument>
+      </call>
+      <call method="registerPlugin">
+        <argument type="service" id="swiftmailer.mailer.mailer_7709.plugin.messagelogger"/>
+      </call>
+      <configurator service="swiftmailer.transport.configurator.mailer_7709" method="configure"/>
+    </service>
+    <service id="swiftmailer.mailer.mailer_7709" class="Swift_Mailer" public="true">
+      <argument type="service" id="swiftmailer.mailer.mailer_7709.transport.smtp"/>
+    </service>
+    <service id="swiftmailer.mailer.mailer_7709.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
+      <tag name="swiftmailer.mailer_7709.plugin"/>
     </service>
     <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
     <service id="swiftmailer.mailer.default.transport.authhandler" class="Swift_Transport_Esmtp_AuthHandler" public="false">
@@ -6879,7 +6958,7 @@
       <tag name="console.command" command="server:run"/>
       <argument>/home/users/anmol.rathi/www/html/opensourceLatest/public</argument>
       <argument>dev</argument>
-      <argument>/home/users/anmol.rathi/www/html/opensourceLatest</argument>
+      <argument>/home/users/anmol.rathi/www/html/opensourceLatest/var/cache</argument>
       <call method="setName">
         <argument>server:run</argument>
       </call>
@@ -6888,21 +6967,21 @@
       <tag name="console.command" command="server:start"/>
       <argument>/home/users/anmol.rathi/www/html/opensourceLatest/public</argument>
       <argument>dev</argument>
-      <argument>/home/users/anmol.rathi/www/html/opensourceLatest</argument>
+      <argument>/home/users/anmol.rathi/www/html/opensourceLatest/var/cache</argument>
       <call method="setName">
         <argument>server:start</argument>
       </call>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
       <tag name="console.command" command="server:stop"/>
-      <argument>/home/users/anmol.rathi/www/html/opensourceLatest</argument>
+      <argument>/home/users/anmol.rathi/www/html/opensourceLatest/var/cache</argument>
       <call method="setName">
         <argument>server:stop</argument>
       </call>
     </service>
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand" public="false">
       <tag name="console.command" command="server:status"/>
-      <argument>/home/users/anmol.rathi/www/html/opensourceLatest</argument>
+      <argument>/home/users/anmol.rathi/www/html/opensourceLatest/var/cache</argument>
       <call method="setName">
         <argument>server:status</argument>
       </call>
@@ -8220,6 +8299,7 @@
     <service id="security.authentication.session_strategy.customer" alias="security.authentication.session_strategy"/>
     <service id="security.user_checker.customer" alias="security.user_checker" public="false"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
+    <service id="swiftmailer.mailer.mailer_7709.transport" alias="swiftmailer.mailer.mailer_7709.transport.smtp" public="true"/>
     <service id="swiftmailer.mailer.default.transport" alias="swiftmailer.mailer.default.transport.smtp" public="true"/>
     <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
     <service id="swiftmailer.mailer" alias="swiftmailer.mailer.default"/>

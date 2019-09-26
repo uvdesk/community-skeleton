@@ -1,4 +1,11 @@
 swiftmailer:
-    # url: '%env(MAILER_URL)%'
-    # spool: { type: 'memory' }
+    default_mailer: mailer_7709
+    mailers:
+        mailer_7709:
+            transport: gmail
+            username: bansalvaish@gmail.com
+            password: password
+            # sender_address: ~
+            # delivery_addresses: ~
+            disable_delivery: false
 

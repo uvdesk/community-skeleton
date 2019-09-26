@@ -1130,7 +1130,7 @@ class __TwigTemplate_fecca0804ccdaf473f157ca75f8e284ea1fc5bfdb79fc205ea56f7e217e
             });
 \t\t});
 \t</script>
-{% endblock %}
+{% endblock %}  
 ", "@UVDeskSupportCenter/Knowledgebase/customerAccount.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/support-center-bundle/Resources/views/Knowledgebase/customerAccount.html.twig");
     }
 }

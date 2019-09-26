@@ -691,4 +691,8 @@ class UserService
         
         return $list;
     }
+    public function getTimezones()
+    {
+        return \DateTimeZone::listIdentifiers();
+    }
 }

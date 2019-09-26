@@ -33,7 +33,11 @@
 		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
 
 		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
-			<h1>{{'New Mailbox'|trans}}</h1>
+			{% if mailbox is defined and mailbox.id is not empty %}
+				<h1>{{'Update Mailbox'|trans}}</h1>
+			{% else %}
+				<h1>{{'New Mailbox'|trans}}</h1>
+			{% endif %}
 
             <div class="uv-hr"></div>
 			
@@ -136,7 +140,13 @@
 
 				<div class="uv-hr"></div>
 
-				<input class="uv-btn" href="#" value="{{ 'Create Mailbox'|trans }}" type="submit">
+				{# <input class="uv-btn" href="#" value="{{ 'Create Mailbox'|trans }}" type="submit"> #}
+				{% if mailbox is defined and mailbox.id is not empty %}
+					<input class="uv-btn" href="#" value="{{ 'Update Mailbox'|trans }}" type="submit">
+				{% else %}
+					<input class="uv-btn" href="#" value="{{ 'Create Mailbox'|trans }}" type="submit">
+				{% endif %}
+				
 			</form>
 		</div>
 	</div>

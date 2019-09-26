@@ -12,7 +12,7 @@ use Twig\Sandbox\SecurityNotAllowedFunctionError;
 use Twig\Source;
 use Twig\Template;
 
-/* @UVDeskMailbox/manageConfigurations.html.twig */
+/* @UVDeskMailbox//manageConfigurations.html.twig */
 class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661b9093 extends \Twig\Template
 {
     private $source;
@@ -41,12 +41,12 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
     {
         $macros = $this->macros;
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskMailbox/manageConfigurations.html.twig"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskMailbox//manageConfigurations.html.twig"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskMailbox/manageConfigurations.html.twig"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "@UVDeskMailbox//manageConfigurations.html.twig"));
 
-        $this->parent = $this->loadTemplate("@UVDeskCoreFramework//Templates//layout.html.twig", "@UVDeskMailbox/manageConfigurations.html.twig", 1);
+        $this->parent = $this->loadTemplate("@UVDeskCoreFramework//Templates//layout.html.twig", "@UVDeskMailbox//manageConfigurations.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -132,97 +132,109 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
             echo "uv-aside-view";
         }
         echo "\">
-\t\t\t<h1>";
+\t\t\t";
         // line 36
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("New Mailbox"), "html", null, true);
-        echo "</h1>
-
+        if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 36, $this->source); })()), "id", [], "any", false, false, false, 36)))) {
+            // line 37
+            echo "\t\t\t\t<h1>";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Update Mailbox"), "html", null, true);
+            echo "</h1>
+\t\t\t";
+        } else {
+            // line 39
+            echo "\t\t\t\t<h1>";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("New Mailbox"), "html", null, true);
+            echo "</h1>
+\t\t\t";
+        }
+        // line 41
+        echo "
             <div class=\"uv-hr\"></div>
 \t\t\t
 \t\t\t<form method=\"post\" action=\"\" id=\"mailbox-settings-view\">
 \t\t\t\t";
-        // line 42
+        // line 46
         echo "\t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">";
-        // line 43
+        // line 47
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("ID"), "html", null, true);
         echo ":</label>
 
 \t\t\t\t\t<div class=\"uv-field-block\">
 \t\t\t\t\t\t";
-        // line 46
-        if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 46, $this->source); })()), "id", [], "any", false, false, false, 46)))) {
-            // line 47
+        // line 50
+        if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 50, $this->source); })()), "id", [], "any", false, false, false, 50)))) {
+            // line 51
             echo "\t\t\t\t\t\t\t<input type=\"text\" name=\"id\" class=\"uv-field\" value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 47, $this->source); })()), "id", [], "any", false, false, false, 47), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 51, $this->source); })()), "id", [], "any", false, false, false, 51), "html", null, true);
             echo "\" placeholder=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Mailbox ID - Leave blank to automatically create id"), "html", null, true);
             echo "\" />
 \t\t\t\t\t\t";
         } else {
-            // line 49
+            // line 53
             echo "\t\t\t\t\t\t\t<input type=\"text\" name=\"id\" class=\"uv-field\" value=\"\" placeholder=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Mailbox ID - Leave blank to automatically create id"), "html", null, true);
             echo "\" />
 \t\t\t\t\t\t";
         }
-        // line 51
+        // line 55
         echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t\t";
-        // line 55
+        // line 59
         echo "\t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">";
-        // line 56
+        // line 60
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Name"), "html", null, true);
         echo ":</label>
 
 \t\t\t\t\t<div class=\"uv-field-block\">
 \t\t\t\t\t\t";
-        // line 59
-        if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 59, $this->source); })()), "name", [], "any", false, false, false, 59)))) {
-            // line 60
+        // line 63
+        if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 63, $this->source); })()), "name", [], "any", false, false, false, 63)))) {
+            // line 64
             echo "\t\t\t\t\t\t\t<input type=\"text\" name=\"name\" class=\"uv-field\" value=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 60, $this->source); })()), "name", [], "any", false, false, false, 60), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 64, $this->source); })()), "name", [], "any", false, false, false, 64), "html", null, true);
             echo "\" placeholder=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Mailbox Name"), "html", null, true);
             echo "\" />
 \t\t\t\t\t\t";
         } else {
-            // line 62
+            // line 66
             echo "\t\t\t\t\t\t\t<input type=\"text\" name=\"name\" class=\"uv-field\" value=\"\" placeholder=\"";
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Mailbox Name"), "html", null, true);
             echo "\" />
 \t\t\t\t\t\t";
         }
-        // line 64
+        // line 68
         echo "\t\t\t\t\t</div>
 \t\t\t\t</div>
 
 \t\t\t\t";
-        // line 68
+        // line 72
         echo "\t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label>
 \t\t\t\t\t\t<div class=\"uv-checkbox\">
 \t\t\t\t\t\t\t";
-        // line 71
-        if ((twig_get_attribute($this->env, $this->source, ($context["mailbox"] ?? null), "isEnabled", [], "any", true, true, false, 71) && (twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 71, $this->source); })()), "isEnabled", [], "any", false, false, false, 71) == true))) {
-            // line 72
+        // line 75
+        if ((twig_get_attribute($this->env, $this->source, ($context["mailbox"] ?? null), "isEnabled", [], "any", true, true, false, 75) && (twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 75, $this->source); })()), "isEnabled", [], "any", false, false, false, 75) == true))) {
+            // line 76
             echo "\t\t\t\t\t\t\t\t<input name=\"isEnabled\" type=\"checkbox\" checked=\"\">
 \t\t\t\t\t\t\t";
         } else {
-            // line 74
+            // line 78
             echo "\t\t\t\t\t\t\t\t<input name=\"isEnabled\" type=\"checkbox\">
 \t\t\t\t\t\t\t";
         }
-        // line 76
+        // line 80
         echo "
 \t\t\t\t\t\t\t<span class=\"uv-checkbox-view\"></span>
 \t\t\t\t\t\t</div>
 
 \t\t\t\t\t\t<span class=\"uv-checkbox-label\">";
-        // line 80
+        // line 84
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Enable Mailbox"), "html", null, true);
         echo "</span>
 \t\t\t\t\t</label>
@@ -231,65 +243,65 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t\t\t<div class=\"uv-hr\"></div>
 
 \t\t\t\t";
-        // line 87
+        // line 91
         echo "\t\t\t\t<h3 class=\"section-heading\">";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Incoming Mail (IMAP) Server"), "html", null, true);
         echo "</h3>
 \t\t\t\t<p class=\"section-description\">";
-        // line 88
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Configure your imap settings which will be used to fetch emails from your mailbox."), "html", null, true);
         echo "</p>
 
 \t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">";
-        // line 91
+        // line 95
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Transport"), "html", null, true);
         echo ":</label>
 
 \t\t\t\t\t";
-        // line 93
+        // line 97
         if ((isset($context["mailbox"]) || array_key_exists("mailbox", $context))) {
-            // line 94
+            // line 98
             echo "\t\t\t\t\t\t<select name=\"imap[transport]\" id=\"cta-mailbox-imap-transport\" class=\"uv-select\">
 \t\t\t\t\t\t\t<option value=\"custom\" ";
-            // line 95
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 95, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 95), "code", [], "any", false, false, false, 95) == "custom")) {
+            // line 99
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 99, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 99), "code", [], "any", false, false, false, 99) == "custom")) {
                 echo "selected";
             }
             echo ">IMAP</option>
 \t\t\t\t\t\t\t<option value=\"gmail\" ";
-            // line 96
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 96, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 96), "code", [], "any", false, false, false, 96) == "gmail")) {
+            // line 100
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 100, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 100), "code", [], "any", false, false, false, 100) == "gmail")) {
                 echo "selected";
             }
             echo ">Gmail</option>
 \t\t\t\t\t\t\t<option value=\"yahoo\" ";
-            // line 97
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 97, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 97), "code", [], "any", false, false, false, 97) == "yahoo")) {
+            // line 101
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 101, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 101), "code", [], "any", false, false, false, 101) == "yahoo")) {
                 echo "selected";
             }
             echo ">Yahoo Mail</option>
 \t\t\t\t\t\t</select>
 \t\t\t\t\t";
         } else {
-            // line 100
+            // line 104
             echo "\t\t\t\t\t\t<select name=\"imap[transport]\" id=\"cta-mailbox-imap-transport\" class=\"uv-select\">
 \t\t\t\t\t\t\t<option value=\"custom\" selected>";
-            // line 101
+            // line 105
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("IMAP"), "html", null, true);
             echo "</option>
 \t\t\t\t\t\t\t<option value=\"gmail\">";
-            // line 102
+            // line 106
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Gmail"), "html", null, true);
             echo "</option>
 \t\t\t\t\t\t\t<option value=\"yahoo\">";
-            // line 103
+            // line 107
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Yahoo"), "html", null, true);
             echo "</option>
 \t\t\t\t\t\t</select>
 \t\t\t\t\t";
         }
-        // line 106
+        // line 110
         echo "\t\t\t\t</div>
 
 \t\t\t\t<div class=\"imap-setting-references\"></div>
@@ -297,82 +309,96 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t\t\t<div class=\"uv-hr\"></div>
 
 \t\t\t\t";
-        // line 113
+        // line 117
         echo "\t\t\t\t<h3 class=\"section-heading\">";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Outgoing Mail (SMTP) Server"), "html", null, true);
         echo "</h3>
 \t\t\t\t<p class=\"section-description\">";
-        // line 114
+        // line 118
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Select a valid Swift Mailer configuration which will be used to send emails through your mailbox."), "html", null, true);
         echo "</p>
 
 \t\t\t\t<div class=\"uv-element-block\">
 \t\t\t\t\t<label class=\"uv-field-label\">";
-        // line 117
+        // line 121
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Swift Mailer ID"), "html", null, true);
         echo ":</label>
 
 \t\t\t\t\t";
-        // line 119
-        if (((isset($context["swiftmailerConfigurations"]) || array_key_exists("swiftmailerConfigurations", $context)) &&  !twig_test_empty((isset($context["swiftmailerConfigurations"]) || array_key_exists("swiftmailerConfigurations", $context) ? $context["swiftmailerConfigurations"] : (function () { throw new RuntimeError('Variable "swiftmailerConfigurations" does not exist.', 119, $this->source); })())))) {
-            // line 120
+        // line 123
+        if (((isset($context["swiftmailerConfigurations"]) || array_key_exists("swiftmailerConfigurations", $context)) &&  !twig_test_empty((isset($context["swiftmailerConfigurations"]) || array_key_exists("swiftmailerConfigurations", $context) ? $context["swiftmailerConfigurations"] : (function () { throw new RuntimeError('Variable "swiftmailerConfigurations" does not exist.', 123, $this->source); })())))) {
+            // line 124
             echo "\t\t\t\t\t\t<select name=\"swiftmailer_id\" class=\"uv-select\">
 \t\t\t\t\t\t\t<option value=\"none\">";
-            // line 121
+            // line 125
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("None Selected"), "html", null, true);
             echo "</option>
 \t\t\t\t\t\t\t";
-            // line 122
+            // line 126
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable((isset($context["swiftmailerConfigurations"]) || array_key_exists("swiftmailerConfigurations", $context) ? $context["swiftmailerConfigurations"] : (function () { throw new RuntimeError('Variable "swiftmailerConfigurations" does not exist.', 122, $this->source); })()));
+            $context['_seq'] = twig_ensure_traversable((isset($context["swiftmailerConfigurations"]) || array_key_exists("swiftmailerConfigurations", $context) ? $context["swiftmailerConfigurations"] : (function () { throw new RuntimeError('Variable "swiftmailerConfigurations" does not exist.', 126, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["configuration"]) {
-                // line 123
+                // line 127
                 echo "\t\t\t\t\t\t\t\t";
-                if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 123, $this->source); })()), "swiftmailerConfiguration", [], "any", false, false, false, 123), "id", [], "any", false, false, false, 123) == twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 123)))) {
-                    // line 124
+                if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) && (twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 127, $this->source); })()), "swiftmailerConfiguration", [], "any", false, false, false, 127), "id", [], "any", false, false, false, 127) == twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 127)))) {
+                    // line 128
                     echo "\t\t\t\t\t\t\t\t\t<option value=\"";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 124), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 128), "html", null, true);
                     echo "\" selected>";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 124), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 128), "html", null, true);
                     echo "</option>
 \t\t\t\t\t\t\t\t";
                 } else {
-                    // line 126
+                    // line 130
                     echo "\t\t\t\t\t\t\t\t\t<option value=\"";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 126), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 130), "html", null, true);
                     echo "\">";
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 126), "html", null, true);
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["configuration"], "id", [], "any", false, false, false, 130), "html", null, true);
                     echo "</option>
 \t\t\t\t\t\t\t\t";
                 }
-                // line 128
+                // line 132
                 echo "\t\t\t\t\t\t\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['configuration'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 129
+            // line 133
             echo "\t\t\t\t\t\t</select>
 \t\t\t\t\t";
         } else {
-            // line 131
+            // line 135
             echo "\t\t\t\t\t\t<select name=\"swiftmailer_id\" class=\"uv-select\">
 \t\t\t\t\t\t\t<option value=\"none\">";
-            // line 132
+            // line 136
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("None Selected"), "html", null, true);
             echo "</option>
 \t\t\t\t\t\t</select>
 \t\t\t\t\t";
         }
-        // line 135
+        // line 139
         echo "\t\t\t\t</div>
 
 \t\t\t\t<div class=\"uv-hr\"></div>
 
-\t\t\t\t<input class=\"uv-btn\" href=\"#\" value=\"";
-        // line 139
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Create Mailbox"), "html", null, true);
-        echo "\" type=\"submit\">
+\t\t\t\t";
+        // line 144
+        echo "\t\t\t\t";
+        if (((isset($context["mailbox"]) || array_key_exists("mailbox", $context)) &&  !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 144, $this->source); })()), "id", [], "any", false, false, false, 144)))) {
+            // line 145
+            echo "\t\t\t\t\t<input class=\"uv-btn\" href=\"#\" value=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Update Mailbox"), "html", null, true);
+            echo "\" type=\"submit\">
+\t\t\t\t";
+        } else {
+            // line 147
+            echo "\t\t\t\t\t<input class=\"uv-btn\" href=\"#\" value=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Create Mailbox"), "html", null, true);
+            echo "\" type=\"submit\">
+\t\t\t\t";
+        }
+        // line 149
+        echo "\t\t\t\t
 \t\t\t</form>
 \t\t</div>
 \t</div>
@@ -385,7 +411,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 
     }
 
-    // line 145
+    // line 155
     public function block_footer($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -395,7 +421,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "footer"));
 
-        // line 146
+        // line 156
         echo "\t";
         $this->displayParentBlock("footer", $context, $blocks);
         echo "
@@ -403,19 +429,19 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
     <script id=\"imap_conf_template_predefined\" type=\"text/template\">
         <div class=\"uv-element-block\">
 \t\t\t<label class=\"uv-field-label\">";
-        // line 150
+        // line 160
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Username"), "html", null, true);
         echo ":</label>
 \t\t\t
 \t\t\t<div class=\"uv-field-block\">
 \t\t\t\t<% if (typeof(username) != 'undefined' && username != '') { %>
 \t\t\t\t\t<input class=\"uv-field\" type=\"text\" name=\"imap[username]\" value=\"<%- username %>\" placeholder=\"";
-        // line 154
+        // line 164
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Email address"), "html", null, true);
         echo "\">
 \t\t\t\t<% } else { %>
 \t\t\t\t\t<input class=\"uv-field\" type=\"text\" name=\"imap[username]\" value=\"\" placeholder=\"";
-        // line 156
+        // line 166
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Email address"), "html", null, true);
         echo "\">
                 <% } %>
@@ -424,13 +450,13 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t
 \t\t<div class=\"uv-element-block\">
 \t\t\t<label class=\"uv-field-label\">";
-        // line 162
+        // line 172
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Password"), "html", null, true);
         echo ":</label>
 
 \t\t\t<div class=\"uv-field-block\">
 \t\t\t\t<input class=\"uv-field\" type=\"password\" name=\"imap[password]\" placeholder=\"";
-        // line 165
+        // line 175
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Associated Password"), "html", null, true);
         echo "\">
 \t\t\t</div>
@@ -440,7 +466,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
     <script id=\"imap_conf_template_custom\" type=\"text/template\">
         <div class=\"uv-element-block\">
 \t\t\t<label class=\"uv-field-label\">";
-        // line 172
+        // line 182
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Host"), "html", null, true);
         echo ":</label>
 \t\t\t
@@ -449,7 +475,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t\t\t\t<input class=\"uv-field\" type=\"text\" name=\"imap[host]\" value=\"<%- host %>\" placeholder=\"<%- host %>\">
 \t\t\t\t<% } else { %>
 \t\t\t\t\t<input class=\"uv-field\" type=\"text\" name=\"imap[host]\" value=\"\" placeholder=\"";
-        // line 178
+        // line 188
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("IMAP Host"), "html", null, true);
         echo "\">
                 <% } %>
@@ -458,19 +484,19 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 
 \t\t<div class=\"uv-element-block\">
 \t\t\t<label class=\"uv-field-label\">";
-        // line 184
+        // line 194
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Email"), "html", null, true);
         echo ":</label>
 \t\t\t
 \t\t\t<div class=\"uv-field-block\">
 \t\t\t\t<% if (typeof(username) != 'undefined' && username != '') { %>
 \t\t\t\t\t<input class=\"uv-field\" type=\"text\" name=\"imap[username]\" value=\"<%- username %>\" placeholder=\"";
-        // line 188
+        // line 198
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Email address"), "html", null, true);
         echo "\">
 \t\t\t\t<% } else { %>
 \t\t\t\t\t<input class=\"uv-field\" type=\"text\" name=\"imap[username]\" value=\"\" placeholder=\"";
-        // line 190
+        // line 200
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Email address"), "html", null, true);
         echo "\">
                 <% } %>
@@ -479,13 +505,13 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t
 \t\t<div class=\"uv-element-block\">
 \t\t\t<label class=\"uv-field-label\">";
-        // line 196
+        // line 206
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Password"), "html", null, true);
         echo ":</label>
 
 \t\t\t<div class=\"uv-field-block\">
 \t\t\t\t<input class=\"uv-field\" type=\"password\" name=\"imap[password]\" placeholder=\"";
-        // line 199
+        // line 209
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Associated Password"), "html", null, true);
         echo "\">
 \t\t\t</div>
@@ -500,7 +526,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t\t\t\tname: function(value) {
 \t\t\t\t\t\tif (value == undefined || value == '') {
 \t\t\t\t\t\t\treturn \"";
-        // line 211
+        // line 221
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Please specify a valid name for your mailbox."), "html", null, true);
         echo "\";
 \t\t\t\t\t\t}
@@ -508,7 +534,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t\t\t\tswiftmailer_id: function(value) {
 \t\t\t\t\t\tif (value == undefined || value == '' || value == 'none') {
 \t\t\t\t\t\t\treturn \"";
-        // line 216
+        // line 226
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Please select a valid swift-mailer configuration."), "html", null, true);
         echo "\";
 \t\t\t\t\t\t}
@@ -517,7 +543,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
                         if ('custom' == this.get('transport') || 'imap' == this.get('transport')) {
                             if (value == undefined || value == '') {
                                 return \"";
-        // line 222
+        // line 232
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Please specify a valid host address."), "html", null, true);
         echo "\";
                             }
@@ -527,14 +553,14 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
                         {
                             required: true,
                             msg: \"";
-        // line 229
+        // line 239
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Please specify a valid email address."), "html", null, true);
         echo "\"
                         },
                         {
                             pattern: /^([\\w-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([\\w-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)\$/,
                             msg: \"";
-        // line 233
+        // line 243
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Please specify a valid email address."), "html", null, true);
         echo "\"
                         }
@@ -542,7 +568,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
                     \"imap[password]\": function(value) {
                         if (value == undefined || value == '') {
                             return \"";
-        // line 238
+        // line 248
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Please enter the associated account password."), "html", null, true);
         echo "\";
                         }
@@ -594,36 +620,36 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t\t});
 
             ";
-        // line 287
+        // line 297
         if ((isset($context["mailbox"]) || array_key_exists("mailbox", $context))) {
-            // line 288
+            // line 298
             echo "                new MailboxConfigurationView({
                     el: \$(\"#mailbox-settings-view\"),
                     model: new MailboxConfigurationModel({
 \t\t\t\t\t\ttransport: \"";
-            // line 291
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 291, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 291), "code", [], "any", false, false, false, 291), "html", null, true);
+            // line 301
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 301, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 301), "code", [], "any", false, false, false, 301), "html", null, true);
             echo "\",
 \t\t\t\t\t\thost: \"";
-            // line 292
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 292, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 292), "host", [], "any", false, false, false, 292), "html", null, true);
+            // line 302
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 302, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 302), "host", [], "any", false, false, false, 302), "html", null, true);
             echo "\",
 \t\t\t\t\t\tusername: \"";
-            // line 293
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 293, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 293), "username", [], "any", false, false, false, 293), "html", null, true);
+            // line 303
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["mailbox"]) || array_key_exists("mailbox", $context) ? $context["mailbox"] : (function () { throw new RuntimeError('Variable "mailbox" does not exist.', 303, $this->source); })()), "imapConfiguration", [], "any", false, false, false, 303), "username", [], "any", false, false, false, 303), "html", null, true);
             echo "\",
 \t\t\t\t\t})
                 });
             ";
         } else {
-            // line 297
+            // line 307
             echo "                new MailboxConfigurationView({
                     el: \$(\"#mailbox-settings-view\"),
                     model: new MailboxConfigurationModel({ transport: 'custom' })
                 });
             ";
         }
-        // line 302
+        // line 312
         echo "\t\t});
 \t</script>
 ";
@@ -637,7 +663,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 
     public function getTemplateName()
     {
-        return "@UVDeskMailbox/manageConfigurations.html.twig";
+        return "@UVDeskMailbox//manageConfigurations.html.twig";
     }
 
     public function isTraitable()
@@ -647,7 +673,7 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 
     public function getDebugInfo()
     {
-        return array (  627 => 302,  620 => 297,  613 => 293,  609 => 292,  605 => 291,  600 => 288,  598 => 287,  546 => 238,  538 => 233,  531 => 229,  521 => 222,  512 => 216,  504 => 211,  489 => 199,  483 => 196,  474 => 190,  469 => 188,  462 => 184,  453 => 178,  444 => 172,  434 => 165,  428 => 162,  419 => 156,  414 => 154,  407 => 150,  399 => 146,  389 => 145,  374 => 139,  368 => 135,  362 => 132,  359 => 131,  355 => 129,  349 => 128,  341 => 126,  333 => 124,  330 => 123,  326 => 122,  322 => 121,  319 => 120,  317 => 119,  312 => 117,  306 => 114,  301 => 113,  293 => 106,  287 => 103,  283 => 102,  279 => 101,  276 => 100,  268 => 97,  262 => 96,  256 => 95,  253 => 94,  251 => 93,  246 => 91,  240 => 88,  235 => 87,  226 => 80,  220 => 76,  216 => 74,  212 => 72,  210 => 71,  205 => 68,  200 => 64,  194 => 62,  186 => 60,  184 => 59,  178 => 56,  175 => 55,  170 => 51,  164 => 49,  156 => 47,  154 => 46,  148 => 43,  145 => 42,  137 => 36,  131 => 35,  126 => 33,  123 => 32,  120 => 31,  117 => 30,  94 => 8,  84 => 7,  72 => 4,  60 => 3,  37 => 1,);
+        return array (  653 => 312,  646 => 307,  639 => 303,  635 => 302,  631 => 301,  626 => 298,  624 => 297,  572 => 248,  564 => 243,  557 => 239,  547 => 232,  538 => 226,  530 => 221,  515 => 209,  509 => 206,  500 => 200,  495 => 198,  488 => 194,  479 => 188,  470 => 182,  460 => 175,  454 => 172,  445 => 166,  440 => 164,  433 => 160,  425 => 156,  415 => 155,  401 => 149,  395 => 147,  389 => 145,  386 => 144,  380 => 139,  374 => 136,  371 => 135,  367 => 133,  361 => 132,  353 => 130,  345 => 128,  342 => 127,  338 => 126,  334 => 125,  331 => 124,  329 => 123,  324 => 121,  318 => 118,  313 => 117,  305 => 110,  299 => 107,  295 => 106,  291 => 105,  288 => 104,  280 => 101,  274 => 100,  268 => 99,  265 => 98,  263 => 97,  258 => 95,  252 => 92,  247 => 91,  238 => 84,  232 => 80,  228 => 78,  224 => 76,  222 => 75,  217 => 72,  212 => 68,  206 => 66,  198 => 64,  196 => 63,  190 => 60,  187 => 59,  182 => 55,  176 => 53,  168 => 51,  166 => 50,  160 => 47,  157 => 46,  151 => 41,  145 => 39,  139 => 37,  137 => 36,  131 => 35,  126 => 33,  123 => 32,  120 => 31,  117 => 30,  94 => 8,  84 => 7,  72 => 4,  60 => 3,  37 => 1,);
     }
 
     public function getSourceContext()
@@ -687,7 +713,11 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 \t\t{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
 
 \t\t<div class=\"uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}\">
-\t\t\t<h1>{{'New Mailbox'|trans}}</h1>
+\t\t\t{% if mailbox is defined and mailbox.id is not empty %}
+\t\t\t\t<h1>{{'Update Mailbox'|trans}}</h1>
+\t\t\t{% else %}
+\t\t\t\t<h1>{{'New Mailbox'|trans}}</h1>
+\t\t\t{% endif %}
 
             <div class=\"uv-hr\"></div>
 \t\t\t
@@ -790,7 +820,13 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
 
 \t\t\t\t<div class=\"uv-hr\"></div>
 
-\t\t\t\t<input class=\"uv-btn\" href=\"#\" value=\"{{ 'Create Mailbox'|trans }}\" type=\"submit\">
+\t\t\t\t{# <input class=\"uv-btn\" href=\"#\" value=\"{{ 'Create Mailbox'|trans }}\" type=\"submit\"> #}
+\t\t\t\t{% if mailbox is defined and mailbox.id is not empty %}
+\t\t\t\t\t<input class=\"uv-btn\" href=\"#\" value=\"{{ 'Update Mailbox'|trans }}\" type=\"submit\">
+\t\t\t\t{% else %}
+\t\t\t\t\t<input class=\"uv-btn\" href=\"#\" value=\"{{ 'Create Mailbox'|trans }}\" type=\"submit\">
+\t\t\t\t{% endif %}
+\t\t\t\t
 \t\t\t</form>
 \t\t</div>
 \t</div>
@@ -955,6 +991,6 @@ class __TwigTemplate_856d738b4a22d6463cd37930d475b3131f1d4a03d636f4d6a5ed249f661
             {% endif %}
 \t\t});
 \t</script>
-{% endblock %}", "@UVDeskMailbox/manageConfigurations.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/mailbox-component/Resources/views/manageConfigurations.html.twig");
+{% endblock %}", "@UVDeskMailbox//manageConfigurations.html.twig", "/home/users/anmol.rathi/www/html/opensourceLatest/vendor/uvdesk/mailbox-component/Resources/views/manageConfigurations.html.twig");
     }
 }
