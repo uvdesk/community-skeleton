@@ -1,0 +1,1314 @@
+'Signed in as': 'Olarak giriş yapıldı'
+'Your Profile': 'Senin profil'
+'Create Ticket': 'Bilet Oluştur'
+'Create Agent': 'Ajan Yarat'
+'Create Customer': 'Müşteri Yarat'
+'Sign Out': 'Oturumu Kapat'
+'Apps': 'Uygulamalar'
+'Integrate apps as per your needs to get things done faster than ever': 'İşleri her zamankinden daha hızlı yapmak için uygulamaları ihtiyaçlarınız doğrultusunda entegre edin'
+'Explore Apps': 'Uygulamaları Keşfedin'
+'Form Builder': 'Form Oluşturucu'
+Knowledgebase: Bilgi tabanı
+'Knowledgebase is a source of rigid and complex information which helps Customers to help themselves': 'Bilgi Bankası, Müşterilerin kendilerine yardım etmesine yardımcı olan sağlam ve karmaşık bir bilgi kaynağıdır'
+Articles: Makaleler
+Categories: Kategoriler
+Folders: Klasörler
+FOLDERS: FOLDERS
+Productivity: verimlilik
+'Automate your processes by creating set of rules and presets to respond faster to the tickets': 'Biletlere daha hızlı yanıt verebilmek için kurallar ve hazır ayarlar oluşturarak işlemlerinizi otomatikleştirin'
+'Prepared Responses': 'Hazırlanmış Cevaplar'
+'Saved Replies': 'Kayıtlı Cevaplar'
+'Ticket Types': 'Bilet Türleri'
+Workflows: İş Akışları
+Settings: Ayarlar
+'Manage your Brand Identity, Company Information and other details at a glance': 'Marka Kimliğinizi, Şirket Bilgilerini ve diğer detayları bir bakışta yönetin'
+Branding: dağlama
+'Custom Fields': 'Özel Alanlar'
+'Email Settings': 'E mail ayarları'
+'Email Templates': 'E-posta Şablonları'
+Mailbox: Posta kutusu
+'Spam Settings': 'Spam Ayarları'
+'Swift Mailer': 'Swift Mailer'
+Tags: Etiketler
+Users: Kullanıcılar
+'Control your Groups, Teams, Agents and Customers': 'Gruplarınızı, Ekiplerinizi, Acentelerinizi ve Müşterilerinizi Kontrol Edin'
+Agents: Ajanlar
+Customers: Müşteriler
+Groups: Gruplar
+Privileges: Ayrıcalıklar
+Teams: Takımlar
+Applications: Uygulamalar
+'ECommerce Order Syncronization': 'E-Ticaret Sipariş Senkronizasyonu'
+'Import ecommerce order details to your support tickets from different available platforms': 'Farklı ticari platformlardan e-ticaret siparişi detaylarını destek biletinize aktarın'
+Search: Ara
+'Sort By': 'Göre sırala'
+'Sort By:': 'Göre sırala:'
+'Status': 'Durum'
+'Created At': 'Oluşturuldu'
+Name: isim
+All: Herşey
+Published: Yayınlanan
+Draft: taslak
+'New Folder': 'Yeni dosya'
+'Create Knowledgebase Folder': 'Bilgi Bankası Klasörü Oluştur'
+'You didn''t add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.': 'Bilgi Merkezinize henüz bir klasör eklemediniz, İlk Klasörünüzü oluşturun ve müşterilerinizin kendilerine yardımcı olması için Kategoriler / Makaleler eklemeye başlayın.'
+'Clear Filters': 'Filtreleri Temizle'
+Back: Geri
+Open: Açık
+Pending: Bekleyen
+Answered: Yanıtlanan
+Resolved: kararlı
+Closed: Kapalı
+Spam: İstenmeyen e
+New: Yeni
+UnAssigned: Atanmayanlar
+UnAnswered: cevaplanmamış
+'My Tickets': 'Biletlerim'
+Starred: Yıldızlı
+Trashed: Çöpe atılmış
+'New Label': 'Yeni etiket'
+Tickets: Biletler
+'Ticket Id': 'Bilet Kimliği'
+'Last Replied': 'Son Cevaplandı'
+'Assign To': 'Atamak'
+'Customer Email': 'Müşteri e-postası'
+'Customer Name': 'Müşteri adı'
+'Assets Visibility': 'Varlıkların Görünürlüğü'
+Channel/Source: Kanal / Kaynak
+Channel: Kanal
+Website: İnternet sitesi
+Timestamp: Zaman Damgası
+TimeStamp: Zaman Damgası
+Team: Takım
+Type: tip
+Replies: Cevaplar
+Agent: ajan
+ID: İD
+Subject: Konu, özne
+'Filter View': 'Filtre Görünümü'
+'Save set of filters as a preset to stay more productive': 'Daha üretken kalabilmek için filtre kümesini hazır ayar olarak kaydedin'
+'Saved Filters': 'Kayıtlı Filtreler'
+'No saved filter created': 'Kayıtlı filtre oluşturulmadı'
+Customer: Müşteri
+Priority: öncelik
+Tag: Etiket
+Source: Kaynak
+Before: Önce
+After: Sonra
+'Replies less than': 'Den küçük yanıtlar'
+'Replies more than': 'Den fazla yanıt veriyor'
+'Clear All': 'Hepsini temizle'
+Account: hesap
+Profile: Profil
+'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format': 'Bir Profil Resmi Yükle (100px x 100px) <br> PNG veya JPG Biçiminde'
+'First Name': 'İsim'
+'Last Name': 'Soyadı'
+Email: E-posta
+'Contact Number': 'İletişim numarası'
+Timezone: Saat dilimi
+Africa/Abidjan: Afrika / Abidjan
+Africa/Accra: Afrika / Accra
+Africa/Addis_Ababa: Afrika / Addis_Ababa
+Africa/Algiers: Afrika / Cezayir
+Africa/Asmara: Afrika / Asmara
+Africa/Bamako: Africa / Bamako
+Africa/Bangui: Afrika / Bangui
+Africa/Banjul: Afrika / Banjul
+Africa/Bissau: Afrika / Bissau
+Africa/Blantyre: Afrika / Blantyre
+Africa/Brazzaville: Afrika / Brazzaville
+Africa/Bujumbura: Afrika / Bujumbura
+Africa/Cairo: Afrika / Kahire
+Africa/Casablanca: Afrika / Casablanca
+Africa/Ceuta: Afrika / Ceuta
+Africa/Conakry: Afrika / Conakry
+Africa/Dakar: Afrika / Dakar
+Africa/Dar_es_Salaam: Afrika / Dar_es_Salaam
+Africa/Djibouti: Afrika / Cibuti
+Africa/Douala: Afrika / Douala
+Africa/El_Aaiun: Afrika / El_Aaiun
+Africa/Freetown: Afrika / Freetown
+Africa/Gaborone: Afrika / Gaborone
+Africa/Harare: Afrika / Harare
+Africa/Johannesburg: Afrika / Johannesburg
+Africa/Juba: Afrika / Juba
+Africa/Kampala: Afrika / Kampala
+Africa/Khartoum: Afrika / Khartoum
+Africa/Kigali: Afrika / Kigali
+Africa/Kinshasa: Afrika / Kinshasa
+Africa/Lagos: Afrika / Lagos
+Africa/Libreville: Afrika / Libreville
+Africa/Lome: Afrika / Lome
+Africa/Luanda: Afrika / Luanda
+Africa/Lubumbashi: Afrika / Lubumbaşi
+Africa/Lusaka: Afrika / Lusaka
+Africa/Malabo: Afrika / Malabo
+Africa/Maputo: Afrika / Maputo
+Africa/Maseru: Afrika / Maseru
+Africa/Mbabane: Afrika / Mbabane
+Africa/Mogadishu: Afrika / Mogadişu
+Africa/Monrovia: Afrika / Monrovia
+Africa/Nairobi: Afrika / Nairobi
+Africa/Ndjamena: Afrika / Ndjamena
+Africa/Niamey: Afrika / Niamey
+Africa/Nouakchott: Afrika / Nouakchott
+Africa/Ouagadougou: Afrika / Ouagadougou
+Africa/Porto-Novo: Afrika / Porto-Novo
+Africa/Sao_Tome: Afrika / Sao_Tome
+Africa/Tripoli: Afrika / Tripoli
+Africa/Tunis: Afrika / Tunus
+Africa/Windhoek: Afrika / Windhoek
+America/Adak: Amerika / Adak
+America/Anchorage: Amerika / Anchorage
+America/Anguilla: Amerika / Anguilla
+America/Antigua: Amerika / Antigua
+America/Araguaina: Amerika / Araguaina
+America/Argentina/Buenos_Aires: Amerika / Arjantin / Buenos_Aires
+America/Argentina/Catamarca: Amerika / Arjantin / Catamarca
+America/Argentina/Cordoba: Amerika / Arjantin / Cordoba
+America/Argentina/Jujuy: Amerika / Arjantin / Jujuy
+America/Argentina/La_Rioja: Amerika / Arjantin / La_ Rioja
+America/Argentina/Mendoza: Amerika / Arjantin / Mendoza
+America/Argentina/Rio_Gallegos: Amerika / Arjantin / Rio_Gallegos
+America/Argentina/Salta: Amerika / Arjantin / Salta
+America/Argentina/San_Juan: Amerika / Arjantin / San_ Juan
+America/Argentina/San_Luis: Amerika / Arjantin / San_Luis
+America/Argentina/Tucuman: Amerika / Arjantin / Tucuman
+America/Argentina/Ushuaia: Amerika / Arjantin / Ushuaia
+America/Aruba: Amerika / Aruba
+America/Asuncion: Amerika / Asuncion
+America/Atikokan: Amerika / Atikokan
+America/Bahia: Amerika / Bahia
+America/Bahia_Banderas: Amerika / Bahia_Banderas
+America/Barbados: Amerika / Barbados
+America/Belem: Amerika / Belem
+America/Belize: Amerika / Belize
+America/Blanc-Sablon: Amerika / Blanc-Sablon
+America/Boa_Vista: Amerika / Boa_Vista
+America/Bogota: Amerika / Bogota
+America/Boise: Amerika / Boise
+America/Cambridge_Bay: Amerika / Cambridge_Bay
+America/Campo_Grande: Amerika / Campo_Grande
+America/Cancun: Amerika / Cancun
+America/Caracas: Amerika / Caracas
+America/Cayenne: Amerika / Cayenne
+America/Cayman: Amerika / Kayman
+America/Chicago: Amerika / Chicago
+America/Chihuahua: Amerika / Chihuahua
+America/Costa_Rica: Amerika / Costa_Rica
+America/Creston: Amerika / Creston
+America/Cuiaba: Amerika / Cuiaba
+America/Curacao: Amerika / Curacao
+America/Danmarkshavn: Amerika / Danmarkshavn
+America/Dawson: Amerika / Dawson
+America/Dawson_Creek: Amerika / Dawson_Creek
+America/Denver: Amerika / Denver
+America/Detroit: Amerika / Detroit
+America/Dominica: Amerika / Dominica
+America/Edmonton: Amerika / Edmonton
+America/Eirunepe: Amerika / Eirunepe
+America/El_Salvador: Amerika / El_Salvador
+America/Fort_Nelson: Amerika / Fort_Nelson
+America/Fortaleza: Amerika / Fortaleza
+America/Glace_Bay: Amerika / Glace_Bay
+America/Godthab: Amerika / Godthab
+America/Goose_Bay: Amerika / Goose_Bay
+America/Grand_Turk: Amerika / Grand_Turk
+America/Grenada: Amerika / Grenada
+America/Guadeloupe: Amerika / Guadeloupe
+America/Guatemala: Amerika / Guatemala
+America/Guayaquil: Amerika / Guayaquil
+America/Guyana: Amerika / Guyana
+America/Halifax: Amerika / Halifax
+America/Havana: Amerika / Havana
+America/Hermosillo: Amerika / Hermosillo
+America/Indiana/Indianapolis: Amerika / Indiana / Indianapolis
+America/Indiana/Knox: Amerika / Indiana / Knox
+America/Indiana/Marengo: Amerika / Indiana / Marengo
+America/Indiana/Petersburg: Amerika / Indiana / Petersburg
+America/Indiana/Tell_City: Amerika / Indiana / Tell_City
+America/Indiana/Vevay: Amerika / Indiana / Vevay
+America/Indiana/Vincennes: Amerika / Indiana / Vincennes
+America/Indiana/Winamac: Amerika / Indiana / Winamac
+America/Inuvik: Amerika / Inuvik
+America/Iqaluit: Amerika / Iqaluit
+America/Jamaica: Amerika / Jamaika
+America/Juneau: Amerika / Juneau
+America/Kentucky/Louisville: Amerika / Kentucky / Louisville
+America/Kentucky/Monticello: Amerika / Kentucky / Monticello
+America/Kralendijk: Amerika / Kralendijk
+America/La_Paz: Amerika / La_Paz
+America/Lima: Amerika / Lima
+America/Los_Angeles: Tane /
+America/Lower_Princes: Amerika / Lower_Princes
+America/Maceio: Amerika / Maceio
+America/Managua: Amerika / Managua
+America/Manaus: Amerika / Manaus
+America/Marigot: Amerika / Marigot
+America/Martinique: Amerika / Martinique
+America/Matamoros: Amerika / Matamoros
+America/Mazatlan: Amerika / Mazatlan
+America/Menominee: Amerika / Menominee
+America/Merida: Amerika / Merida
+America/Metlakatla: Amerika / Metlakatla
+America/Mexico_City: Amerika / Mexico_City
+America/Miquelon: America / Miquelon
+America/Moncton: Amerika / Moncton
+America/Monterrey: Amerika / Monterrey
+America/Montevideo: Amerika / Montevideo
+America/Montserrat: Amerika / Montserrat
+America/Nassau: Amerika / Nassau
+America/New_York: Amerika / New_York
+America/Nipigon: Amerika / Nipigon
+America/Nome: Amerika / Nome
+America/Noronha: Amerika / Noronha
+America/North_Dakota/Beulah: Amerika / North_Dakota / Beulah
+America/North_Dakota: Amerika / North_Dakota
+America/Ojinaga: Amerika / Ojinaga
+America/Panama: Amerika / Panama
+America/Pangnirtung: Amerika / Pangnirtung
+America/Paramaribo: Amerika / Paramaribo
+America/Phoenix: Amerika / Phoenix
+America/Port-au-Prince: Amerika / Port-au-Prince
+America/Port_of_Spain: Amerika / Port_of_Spain
+America/Porto_Velho: Amerika / Porto_Velho
+America/Puerto_Rico: Amerika / Porto_Riko
+America/Punta_Arenas: Amerika / Punta_Arenas
+America/Rainy_River: Amerika / Rainy_River
+America/Rankin_Inlet: Amerika / Rankin_Inlet
+America/Recife: Amerika / Recife
+America/Regina: Amerika / Regina
+America/Resolute: Amerika / Resolute
+America/Rio_Branco: Amerika / Rio_Branco
+America/Santarem: Amerika / Santarem
+America/Santiago: Amerika / Santiago
+America/Santo_Domingo: Amerika / Santo_Domingo
+America/Sao_Paulo: Amerika / Sao_Paulo
+America/Scoresbysund: Amerika / Scoresbysund
+America/Sitka: Amerika / Sitka
+America/St_Barthelemy: Amerika / St_Barthelemy
+America/St_Johns: Amerika / St_Johns
+America/St_Kitts: Amerika / St_Kitts
+America/St_Lucia: Amerika / St_Lucia
+America/St_Thomas: Amerika / St_Thomas
+America/St_Vincent: Amerika / St_Vincent
+America/Swift_Current: Amerika / Swift_Current
+America/Tegucigalpa: Amerika / Tegucigalpa
+America/Thule: Amerika / Thule
+America/Thunder_Bay: Amerika / Thunder_Bay
+America/Tijuana: Amerika / Tijuana
+America/Toronto: Amerika / Toronto
+America/Tortola: Amerika / Tortola
+America/Vancouver: Amerika / Vancouver
+America/Whitehorse: Amerika / Whitehorse
+America/Winnipeg: Amerika / Winnipeg
+America/Yakutat: Amerika / Yakutat
+America/Yellowknife: Amerika / Yellowknife
+Antarctica/Casey: Antarktika / Casey
+Antarctica/Davis: Antarktika / Davis
+Antarctica/DumontDUrville: Antarktika / DumontDUrville
+Antarctica/Macquarie: Antarktika / Macquarie
+Antarctica/McMurdo: Antarktika / McMurdo
+Antarctica/Mawson: Antarktika / Mawson
+Antarctica/Palmer: Antarktika / Palmer
+Antarctica/Rothera: Antarktika / Rothera
+Antarctica/Syowa: Antarktika / Syowa
+Antarctica/Troll: Antarktika / Troll
+Antarctica/Vostok: Antarktika / Vostok
+Arctic/Longyearbyen: Arktik / Longyearbyen
+Asia/Aden: Asya / Aden
+Asia/Almaty: Asya / Almatı
+Asia/Amman: Asya / Amman
+Asia/Anadyr: Asya / Anadır
+Asia/Aqtau: Asya / Aqtau
+Asia/Aqtobe: Asya / Aqtobe
+Asia/Ashgabat: Asya / Aşkabat
+Asia/Atyrau: Asya / Atyrau
+Asia/Baghdad: Asya / Bağdat
+Asia/Bahrain: Asya / Bahreyn
+Asia/Baku: Asya / Bakü
+Asia/Bangkok: Asya / Bangkok
+Asia/Barnaul: Asya / Barnaul
+Asia/Beirut: Asya / Beyrut
+Asia/Bishkek: Asya / Bişkek
+Asia/Brunei: Asya / Brunei
+Asia/Chita: Asya / Chita
+Asia/Choibalsan: Asya / Çoybalsan
+Asia/Colombo: Asya / Colombo
+Asia/Damascus: Asya / Şam
+Asia/Dhaka: Asya / Dhaka
+Asia/Dili: Asya / Dili
+Asia/Dubai: Asya / Dubai
+Asia/Dushanbe: Asya / Duşanbe
+Asia/Famagusta: Asya / Mağusa
+Asia/Gaza: Asya / Gaza
+Asia/Hebron: Asya / Hebron
+Asia/Ho_Chi_Minh: Asya / Ho_Chi_Minh
+Asia/Hong_Kong: Asya / Hong_Kong
+Asia/Hovd: Asya / Kobdo
+Asia/Irkutsk: Asya / Irkutsk
+Asia/Jakarta: Asya / Cakarta
+Asia/Jayapura: Asya / Jayapura
+Asia/Jerusalem: Asya / Kudüs
+Asia/Kabul: Asya / Kabil
+Asia/Kamchatka: Asya / Kamçatka
+Asia/Karachi: Asya / Karaçi
+Asia/Kathmandu: Asya / Katmandu
+Asia/Khandyga: Asya / Khandyga
+Asia/Kolkata: Asya / Kalküta
+Asia/Krasnoyarsk: Asya / Krasnoyarsk
+Asia/Kuala_Lumpur: Asya / Kuala_Lumpur
+Asia/Kuching: Asya / Kuching
+Asia/Kuwait: Asya / Kuveyt
+Asia/Macau: Asya / Macau
+Asia/Magadan: Asya / Magadan
+Asia/Makassar: Asya / Makassar
+Asia/Manila: Asya / Manila
+Asia/Muscat: Asya / Muscat
+Asia/Nicosia: Asya / Lefkoşa
+Asia/Novokuznetsk: Asya / Novokuznetsk
+Asia/Novosibirsk: Asya / Novosibirsk
+Asia/Omsk: Asya / Omsk
+Asia/Oral: Asya / Sözlü
+Asia/Phnom_Penh: Asya / Phnom_Penh
+Asia/Pontianak: Asya / Pontianak
+Asia/Pyongyang: Asya / Pyongyang
+Asia/Qatar: Asya / Katar
+Asia/Qostanay: Asya / Qostanay
+Asia/Qyzylorda: Asya / Qyzylorda
+Asia/Riyadh: Asya / Riyad
+Asia/Sakhalin: Asya / Sakhalin
+Asia/Samarkand: Asya / Semerkant
+Asia/Seoul: Asya / Seul
+Asia/Shanghai: Asya / Şanghay
+Asia/Singapore: Asya / Singapur
+Asia/Srednekolymsk: Asya / Srednekolymsk
+Asia/Taipei: Asya / Taipei
+Asia/Tashkent: Asya / Taşkent
+Asia/Tbilisi: Asya / Tbilisi
+Asia/Tehran: Asya / Tahran
+Asia/Thimphu: Asya / Thimphu
+Asia/Tokyo: Asya / Tokyo
+Asia/Tomsk: Asya / Tomsk
+Asia/Ulaanbaatar: Asya / Ulaanbaatar
+Asia/Urumqi: Asya / Urumçi
+Asia/Ust-Nera: Asya / Ust-Nera
+Asia/Vientiane: Asya / Vientiane
+Asia/Vladivostok: Asya / Vladivostok
+Asia/Yakutsk: Asya / Yakutsk
+Asia/Yangon: Asya / Yangon
+Asia/Yekaterinburg: Asya / Yekaterinburg
+Asia/Yerevan: Asya / Erivan
+Atlantic/Azores: Atlantik / Azores
+Atlantic/Bermuda: Atlantik / Bermuda
+Atlantic/Canary: Atlantik / Kanarya
+Atlantic/Cape_Verde: Atlantik / Cape_Verde
+Atlantic/Faroe: Atlantik / Faroe
+Atlantic/Madeira: Atlantik / Madeira
+Atlantic/Reykjavik: Atlantik / Reykjavik
+Atlantic/South_Georgia: Atlantik / South_Georgia
+Atlantic/St_Helena: Atlantik / St_Helena
+Atlantic/Stanley: Atlantik / Stanley
+Australia/Adelaide: Avustralya / Adelaide
+Australia/Brisbane: Avustralya / Brisbane
+Australia/Broken_Hill: Avustralya / Broken_Hill
+Australia/Currie: Avustralya / Currie
+Australia/Darwin: Avustralya / Darwin
+Australia/Eucla: Avustralya / Eucla
+Australia/Hobart: Avustralya / Hobart
+Australia/Lindeman: Avustralya / Lindeman
+Australia/Lord_Howe: Avustralya / Lord_Howe
+Australia/Melbourne: Avustralya / Melbourne
+Australia/Perth: Avustralya / Perth
+Australia/Sydney: Avusturalya / Sidney
+Europe/Amsterdam: Avrupa / Amsterdam
+Europe/Andorra: Avrupa / Andorra
+Europe/Astrakhan: Avrupa / Astrahan
+Europe/Athens: Avrupa / Atina
+Europe/Belgrade: Avrupa / Belgrad
+Europe/Berlin: Avrupa / Berlin
+Europe/Bratislava: Avrupa / Bratislava
+Europe/Brussels: Avrupa / Brüksel
+Europe/Bucharest: Avrupa / Bükreş
+Europe/Budapest: Avrupa / Budapeşte
+Europe/Busingen: Avrupa / Busingen
+Europe/Chisinau: Avrupa / Chisinau
+Europe/Copenhagen: Avrupa / Kopenhag
+Europe/Dublin: Avrupa / Dublin
+Europe/Gibraltar: Avrupa / Cebelitarık
+Europe/Guernsey: Avrupa / Guernsey
+Europe/Helsinki: Avrupa / Helsinki
+Europe/Isle_of_Man: Avrupa / Isle_of_Man
+Europe/Istanbul: Avrupa / İstanbul
+Europe/Jersey: Avrupa / Jersey
+Europe/Kaliningrad: Avrupa / Kaliningrad
+Europe/Kiev: Avrupa / Kiev
+Europe/Kirov: Avrupa / Kirov
+Europe/Lisbon: Avrupa / Lizbon
+Europe/Ljubljana: Avrupa / Ljubljana
+Europe/London: Avrupa / Londra
+Europe/Luxembourg: Avrupa / Lüksemburg
+Europe/Madrid: Avrupa / Madrid
+Europe/Malta: Avrupa / Malta
+Europe/Mariehamn: Avrupa / Mariehamn
+Europe/Minsk: Avrupa / Minsk
+Europe/Monaco: Avrupa / Monako
+Europe/Moscow: Avrupa / Moskova
+Europe/Oslo: Avrupa / Oslo
+Europe/Paris: Avrupa / Paris
+Europe/Podgorica: Avrupa / Podgorica
+Europe/Prague: Avrupa / Prag
+Europe/Riga: Avrupa / Riga
+Europe/Rome: Avrupa / Roma
+Europe/Samara: Avrupa / Samara
+Europe/San_Marino: Avrupa / San_Marino
+Europe/Sarajevo: Avrupa / Saraybosna
+Europe/Saratov: Avrupa / Saratov
+Europe/Simferopol: Avrupa / Simferopol
+Europe/Skopje: Avrupa / Üsküp
+Europe/Sofia: Avrupa / Sofya
+Europe/Stockholm: Avrupa / Stockholm
+Europe/Tallinn: Avrupa / Tallinn
+Europe/Tirane: Avrupa / Tiran
+Europe/Ulyanovsk: Avrupa / Ulyanovsk
+Europe/Uzhgorod: Avrupa / Uzhgorod
+Europe/Vaduz: Avrupa / Vaduz
+Europe/Vatican: Avrupa / Vatikan
+Europe/Vienna: Avrupa / Viyana
+Europe/Vilnius: Avrupa / Vilnius
+Europe/Volgograd: Avrupa / Volgograd
+Europe/Warsaw: Avrupa / Varşova
+Europe/Zagreb: Avrupa / Zagreb
+Europe/Zaporozhye: Avrupa / Zaporozhye
+Europe/Zurich: Avrupa / Zürih
+Indian/Antananarivo: Hint / Antananarivo
+Indian/Chagos: Hint / Chagos
+Indian/Christmas: Hint / Noel
+Indian/Cocos: Hint / Cocos
+Indian/Comoro: Hint / Komorlar
+Indian/Kerguelen: Hint / Kerguelen
+Indian/Mahe: Hint / Mahe
+Indian/Maldives: Hint / Maldivler
+Indian/Mauritius: Hint / Mauritius
+Indian/Mayotte: Hint / Mayotte
+Indian/Reunion: Hint / Reunion
+Pacific/Apia: Pasifik / Apia
+Pacific/Auckland: Pasifik / Auckland
+Pacific/Bougainville: Pasifik / Bougainville
+Pacific/Chatham: Pasifik / Chatham
+Pacific/Chuuk: Pasifik / Chuuk
+Pacific/Easter: Pasifik / Easter
+Pacific/Efate: Pasifik / Efate
+Pacific/Enderbury: Pasifik / Enderbury
+Pacific/Fakaofo: Pasifik / Fakaofo
+Pacific/Fiji: Pasifik / Fiji
+Pacific/Funafuti: Pasifik / Funafuti
+Pacific/Galapagos: Pasifik / Galapagos
+Pacific/Gambier: Pasifik / Gambier
+Pacific/Guadalcanal: Pasifik / Guadalcanal
+Pacific/Guam: Pasifik / Guam
+Pacific/Honolulu: Pasifik / Honolulu
+Pacific/Kiritimati: Pasifik / Kiritimati
+Pacific/Kosrae: Pasifik / Kosrae
+Pacific/Kwajalein: Pasifik / Kwajalein
+Pacific/Majuro: Pasifik / Majuro
+Pacific/Marquesas: Pasifik / Markiz
+Pacific/Midway: Pasifik / Midway
+Pacific/Nauru: Pasifik / Nauru
+Pacific/Niue: Pasifik / Niue
+Pacific/Norfolk: Pasifik / Norfolk
+Pacific/Noumea: Pasifik / Noumea
+Pacific/Pago_Pago: Pasifik / Pago_Pago
+Pacific/Palau: Pasifik / Palau
+Pacific/Pitcairn: Pasifik / Pitcairn
+Pacific/Pohnpei: Pasifik / Pohnpei
+Pacific/Port_Moresby: Pasifik / Port_Moresby
+Pacific/Rarotonga: Pasifik / Rarotonga
+Pacific/Saipan: Pasifik / Saipan
+Pacific/Tahiti: Pasifik / Tahiti
+Pacific/Tarawa: Pasifik / Tarawa
+Pacific/Tongatapu: Pasifik / Tongatapu
+Pacific/Wake: Pasifik / Uyandır
+Pacific/Wallis: Pasifik / Wallis
+UTC: UTC
+'Time Format': 'Zaman formatı'
+'Choose your default timezone': 'Varsayılan saat diliminizi seçin'
+Signature: İmza
+'User signature will be append at the bottom of ticket reply box': 'Kullanıcı imzası, bilet cevap kutusunun altına eklenecek'
+Password: Parola
+'Password will remain same if you are not entering something in this field': 'Bu alana bir şey girmiyorsanız şifre aynı kalacaktır'
+'Confirm Password': 'Şifreyi Onayla'
+'Save Changes': 'Değişiklikleri Kaydet'
+'SAVE CHANGES': 'DEĞİŞİKLİKLERİ KAYDET'
+'CREATE TICKET': 'BİLET OLUŞTURUN'
+'Customer full name': 'Müşteri tam adı'
+'Customer email address': 'Müşteri e-posta adresi'
+'Select Type': 'Tür Seçin'
+Support: Destek
+'Choose ticket type': 'Bilet türünü seçin'
+'Ticket subject': 'Bilet konusu'
+Message: İleti
+'Query Message': 'Sorgu Mesajı'
+'Add Attachment': 'Eklenti Ekle'
+'This field is mandatory': 'Bu alan zorunlu'
+General: Genel
+Designation: tayin
+'Contant Number': 'Sabit Sayı'
+'User signature will be append in the bottom of ticket reply box': 'Kullanıcı imzası bilet cevap kutusunun altına eklenecek'
+'Account Status': 'Hesap durumu'
+'Account is Active': 'Hesap Aktif'
+'Assigning group(s) to user to view tickets regardless assignment.': 'Atanıza bakılmaksızın biletleri görüntülemek için kullanıcıya kullanıcı grubu atama.'
+Default: Varsayılan
+'Select All': 'Hepsini seç'
+'Remove All': 'Hepsini kaldır'
+'Assigning team(s) to user to view tickets regardless assignment.': 'Göreve bakılmaksızın biletleri görüntülemek için kullanıcıya takım (lar) atama.'
+'No Team added !': 'Hiçbir takım eklenmedi!'
+Permission: izin
+Role: rol
+Administrator: yönetici
+'Select agent role': 'Ajan rolü seç'
+'Add Customer': 'Müşteri Ekle'
+Action: Aksiyon
+'Account Owner': 'Hesap sahibi'
+Active: Aktif
+Edit: Düzenle
+Delete: silmek
+Disabled: engelli
+'New Group': 'Yeni Grup'
+'Default Privileges': 'Varsayılan Ayrıcalıklar'
+'New Privileges': 'Yeni Ayrıcalıklar'
+'NEW PRIVILEGE': 'YENİ ÖZEL'
+'New Privilege': 'Yeni Ayrıcalık'
+'New Team': 'Yeni takım'
+'No Record Found': 'Kayıt Bulunamadı'
+'Order Synchronization': 'Sipariş Senkronizasyonu'
+'Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.': 'Farklı e-ticaret platformlarını, yardım masanıza kolayca entegre edin; bu daha sonra e-ticaret sipariş ayrıntılarını hızlı bir şekilde destek biletlerinizle entegre etmek için kullanılabilir.'
+BigCommerce: BigCommerce
+'No channels have been added.': 'Hiçbir kanal eklenmedi.'
+'Add BigCommerce Store': 'BigCommerce Mağazası Ekle'
+'ADD BIGCOMMERCE STORE': 'BIGCOMMERCE MAĞAZASI EKLE'
+Mangento: Mangento
+'Add Magento Store': 'Magento Mağazası Ekle'
+OpenCart: OpenCart
+'Add OpenCart Store': 'OpenCart Mağazası Ekle'
+'ADD OPENCART STORE': 'OPENCART MAĞAZASI EKLE'
+Shopify: Shopify
+'Add Shopify Store': 'Shopify Mağazası Ekle'
+'ADD SHOPIFY STORE': 'MAĞAZA DEPOSU EKLE'
+'Integrate a new BigCommerce store': 'Yeni bir BigCommerce mağazasını entegre et'
+'Your BigCommerce Store Name': 'BigCommerce Mağaza Adınız'
+'Your BigCommerce Store Hash': 'BigCommerce Mağaza Karmanız'
+'Your BigCommerce Api Token': 'BigCommerce Api Simgeniz'
+'Your BigCommerce Api Client ID': 'BigCommerce Api Müşteri Kimliğiniz'
+'Enable Channel': 'Kanalı Etkinleştir'
+'Add Store': 'Mağaza Ekle'
+'ADD STORE': 'MAĞAZA EKLE'
+'Integrate a new Magento store': 'Yeni bir Magento mağazasını entegre et'
+'Your Magento Api Username': 'Magento Api Kullanıcı Adınız'
+'Your Magento Api Password': 'Magento Api Şifreniz'
+'Integrate a new OpenCart store': 'Yeni bir OpenCart mağazası ekle'
+'Your OpenCart Api Key': 'OpenCart Api Anahtarınız'
+'Your Shopify Store Name': 'Shopify Mağaza Adınız'
+'Your Shopify Api Key': 'Shopify Api Anahtarınız'
+'Your Shopify Api Password': 'Shopify Api Şifreniz'
+'Easily embed custom form to help generate helpdesk tickets.': 'Yardım masası biletleri oluşturmanıza yardımcı olmak için özel formu kolayca gömün.'
+Form-Builder: Form-Oluşturucu
+'Add Formbuilder': 'Formbuilder ekle'
+'ADD FORMBUILDER': 'FORMBUILDER EKLE'
+'No FormBuilder have been added.': 'Hiçbir FormBuilder eklenmedi.'
+'Create a New Custom Form Below': 'Aşağıda Yeni Bir Özel Form Oluşturun'
+'Form Name': 'Form Adı'
+'It will be shown in the list of created forms': 'Oluşturulan formlar listesinde gösterilecektir'
+'MANDATORY FIELDS': 'ZORUNLU ALANLAR'
+'These fields will be visible in form and can''t be edited': 'Bu alanlar formda görünür olacak ve düzenlenemezler'
+Reply: cevap
+'OPTIONAL FIELDS': 'İSTEĞE BAĞLI ALANLAR'
+'Select These Fields to Add in your Form': 'Formunuza Eklemek İçin Bu Alanları Seçin'
+GDPR: GDPR
+Order: Sipariş
+Categorybuilder: Categorybuilder
+File: Dosya
+'Add Form': 'Form Ekle'
+'ADD FORM': 'FORM EKLE'
+'UPDATE FORM': 'GÜNCELLEME FORMU'
+'Update Form': 'Güncelleme Formu'
+Embed: Göm
+EMBED: GÖM
+'EMBED FORMBUILDER': "'Formbuilder'ı Göm'"
+'Embed Formbuilder': "'Formbuilder'ı Göm'"
+Visit: "Ziyaret etmek"
+VISIT: "ZİYARET ETMEK"
+Code: kod
+'Total Ticket(s)': 'Toplam Bilet (ler)'
+'Ticket Count': 'Bilet Sayısı'
+'SwiftMailer Configurations': 'SwiftMailer Konfigürasyonları'
+'No swiftmailer configurations found': 'Hiçbir swiftmailer yapılandırması bulunamadı'
+'CREATE CONFIGURATION': 'YAPILANDIRMA OLUŞTURMA'
+'Add configuration': 'Yapılandırma ekle'
+'Mailer ID': 'Mailer Kimliği'
+'Mailer ID - Leave blank to automatically create id': 'Mailer ID - otomatik olarak kimlik oluşturmak için boş bırakın'
+'Transport Type': 'Taşıma Türü'
+SMTP: SMTP
+'Enable Delivery': 'Teslimatı Etkinleştir'
+Server: Sunucu
+Port: Liman
+'Encryption Mode': 'Şifreleme Modu'
+ssl: sSL
+tsl: tsl
+None: Yok
+'Authentication Mode': 'Kimlik Doğrulama Modu'
+login: oturum aç
+Plain: Sade
+CRAM-MD5: CRAM-MD5
+'Sender Address': 'Gönderen adresi'
+'Delivery Address': 'Teslimat adresi'
+'Block Spam': 'Spam Spam'
+'Black list': 'Kara liste'
+'Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)': 'Virgül (,) ile ayrılmış değerler (Örn. Support@example.com, @ example.com, 68.98.31.226)'
+'White list': 'Beyaz liste'
+'Mailbox Settings': 'Posta Kutusu Ayarları'
+'No mailbox configurations found': 'Posta kutusu yapılandırması bulunamadı'
+'NEW MAILBOX': 'YENİ MAILBOX'
+'New Mailbox': 'Yeni Posta Kutusu'
+'Mailbox ID - Leave blank to automatically create id': 'Posta Kutusu Kimliği - Otomatik olarak kimlik oluşturmak için boş bırakın'
+'Mailbox Name': 'Posta Kutusu Adı'
+'Enable Mailbox': 'Posta Kutusunu Etkinleştir'
+'Incoming Mail (IMAP) Server': 'Gelen Posta (IMAP) Sunucusu'
+'Configure your imap settings which will be used to fetch emails from your mailbox.': 'Posta kutunuzdan e-postaları almak için kullanılacak imap ayarlarınızı yapılandırın.'
+Transport: taşıma
+IMAP: IMAP
+Gmail: Gmail
+Yahoo: Yahoo
+Host: evsahibi
+'IMAP Host': 'IMAP Sunucusu'
+'Email address': 'E'
+'Associated Password': 'İlişkili Şifre'
+'Outgoing Mail (SMTP) Server': 'Giden Posta (SMTP) Sunucusu'
+'Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.': 'Posta kutunuzdan e-posta göndermek için kullanılacak geçerli bir Swift Mailer yapılandırması seçin.'
+'Swift Mailer ID': 'Swift Mailer Kimliği'
+'None Selected': 'Hiçbiri seçilmedi'
+'Create Mailbox': 'Posta Kutusu Oluştur'
+'CREATE MAILBOX': 'POSTA OLUŞTURMA'
+'New Template': 'Yeni şablon'
+'NEW TEMPLATE': 'YENİ ŞABLON'
+'Customer Forgot Password': 'Müşteri Şifremi Unuttum'
+'Customer Account Created': 'Müşteri Hesabı Oluşturuldu'
+'Ticket generated success mail to customer': 'Bilet müşteriye başarılı postalar üretti'
+'Customer Reply To The Agent': 'Temsilciye Müşteri Yanıtı'
+'Ticket Assign': 'Bilet Ata'
+'Agent Forgot Password': 'Ajan Şifremi Unuttum'
+'Agent Account Created': 'Ajan Hesabı Oluşturuldu'
+'Ticket generated by customer': 'Müşteri tarafından oluşturulan bilet'
+'Agent Reply To The Customer''s ticket': 'Müşteri Temsilcisine Müşteri Temsilcisi'
+'Email template name': 'E-posta şablonu adı'
+'Email template subject': 'E-posta şablonu konusu'
+'Template For': 'Şablon İçin'
+'Nothing Selected': 'Hiçbir şey seçilmedi'
+'email template will be used for work related with selected option': 'e-posta şablonu seçilen seçenekle ilgili işlerde kullanılacak'
+'Email template body': 'E-posta şablonu gövdesi'
+Body: Vücut
+placeholders: tutucuları
+'Ticket Subject': 'Bilet Konusu'
+'Ticket Message': 'Bilet Mesajı'
+'Ticket Attachments': 'Bilet Ekleri'
+'Ticket Tags': 'Bilet Etiketleri'
+'Ticket Source': 'Bilet Kaynağı'
+'Ticket Status': 'Bilet Durumu'
+'Ticket Priority': 'Bilet Önceliği'
+'Ticket Group': 'Bilet Grubu'
+'Ticket Team': 'Bilet Takımı'
+'Ticket Thread Message': 'Bilet Konusu Mesajı'
+'Ticket Customer Name': 'Bilet Müşteri Adı'
+'Ticket Customer Email': 'Bilet Müşteri E-postası'
+'Ticket Agent Name': 'Bilet Aracı Adı'
+'Ticket Agent Email': 'Bilet Aracı E-postası'
+'Ticket Agent Link': 'Bilet Aracı Bağlantısı'
+'Ticket Customer Link': 'Bilet Müşteri Bağlantısı'
+'Last Collaborator Name': 'Son İşbirliği Adı'
+'Last Collaborator Email': 'Son İşbirliği E-postası'
+'Agent/ Customer Name': 'Ajan / Müşteri Adı'
+'Account Validation Link': 'Hesap Doğrulama Bağlantısı'
+'Password Forgot Link': 'Şifre Bağlantıyı Unuttum'
+'Company Name': 'Şirket Adı'
+'Company Logo': 'Şirket logosu'
+'Company URL': "'Şirket url'si'"
+'Swiftmailer id (Select from drop down)': 'Swiftmailer kimliği (Aşağıdan seç)'
+PROCEED: İLERLEMEK
+Proceed: İlerlemek
+'Theme Color': "'Tema Rengi'"
+'Customer Created': 'Müşteri Oluşturuldu'
+'Agent Created': 'Ajan Oluşturuldu'
+'Ticket Created': 'Bilet Oluşturuldu'
+'Agent Replied on Ticket': 'Bilet Üzerine Ajan Cevaplandı'
+'Customer Replied on Ticket': 'Müşteri Bilete Yanıt Verdi'
+'Workflow Status': 'İş Akışı Durumu'
+'Workflow is Active': 'İş Akışı Aktif'
+Events: Etkinlikler
+'An event automatically triggers to check conditions and perform a respective pre-defined set of actions': 'Bir olay, koşulları kontrol etmeyi ve önceden tanımlanmış bir eylemler dizisini gerçekleştirmeyi otomatik olarak tetikler'
+'Select an Event': 'Bir Etkinlik Seçin'
+'Add More': 'Daha ekle'
+Conditions: Koşullar
+'Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions': 'Koşullar, belirli senaryoları kontrol eden ve belirli durumlarda tetiklenen kurallar kümesidir'
+'Subject or Description': 'Konu veya Açıklama'
+Actions: Eylemler
+'An action not only reduces the workload but also makes it quite easier for ticket automation': 'Bir eylem yalnızca iş yükünü azaltmakla kalmaz, aynı zamanda bilet otomasyonu için oldukça kolaylaştırır'
+'Select an Action': 'Bir Eylem Seçin'
+'Add Note': 'Not ekle'
+'Mail to Agent': "'Ajan'a Mail'"
+'Mail to Customer': 'Müşteriye Posta'
+'Mail to group': 'Gruba postala'
+'Mail to last collaborator': 'Son ortak çalışana posta gönder'
+'Mail to team': 'Ekibe postala'
+'Mark Spam': "'Spam'i İşaretle'"
+'Assign to agent': 'Temsilciye tayin et'
+'Assign to group': 'Gruba ata'
+'Set Priority As': 'Önceliği Farklı Ayarla'
+'Set Status As': 'Durumu Farklı Olarak Ayarla'
+'Set Tag As': 'Etiketi Farklı Yap'
+'Assign to Team': 'Takıma Ata'
+'Set Type As': 'Türü Ayarla'
+'Add Workflow': 'İş Akışı Ekle'
+'ADD WORKFLOW': 'İŞ AKIŞI EKLE'
+'Ticket Type code': 'Bilet Tipi kodu'
+'Ticket Type description': 'Bilet Türü açıklaması'
+'Type Status': 'Tip Durumu'
+'Type is Active': 'Tür Etkindir'
+'Add Save Reply': 'Yanıt Ekle Kaydet'
+'Saved reply name': 'Kayıtlı cevap adı'
+'Share saved reply with user(s) in these group(s)': 'Bu gruptaki kullanıcılarla paylaşılan cevabı paylaş'
+'Share saved reply with user(s) in these teams(s)': 'Bu takım (lar) daki kullanıcı (lar) ile kaydedilmiş yanıtı kaydet'
+'Saved reply Body': 'Kayıtlı cevap Beden'
+'New Prepared Response': 'Yeni Hazırlanmış Cevap'
+'Prepared Response Status': 'Hazırlanan Müdahale Durumu'
+'Prepared Response is Active': 'Hazırlanan Cevap Etkin'
+'Share prepared response with user(s) in these group(s)': 'Bu gruplardaki kullanıcılarla hazırlanan yanıtı paylaş'
+'Share prepared response with user(s) in these teams(s)': 'Bu ekiplerdeki kullanıcılarla hazırlanan yanıtı paylaş'
+'ADD PREPARED RESPONSE': 'HAZIRLANMIŞ YANIT EKLE'
+'Add Prepared Response': 'Hazırlanmış Yanıt Ekle'
+'Folder Name is shown upfront at Knowledge Base': "'Klasör Adı Knowledge Base'de önceden gösteriliyor'"
+'A small text about the folder helps user to navigate more easily': 'Klasörle ilgili küçük bir metin kullanıcının daha kolay gezinmesine yardımcı olur'
+Publish: Yayınla
+'Choose appropriate status': 'Uygun durumu seç'
+'Folder Image': 'Klasör Resmi'
+'An image is worth a thousands words and makes folder more accessible': 'Bir görüntü binlerce kelimeye değer ve klasörü daha erişilebilir hale getirir'
+'Add Category': 'Kategori ekle'
+'Category Name is shown upfront at Knowledge Base': "'Kategori Adı Bilgi Bankası'nda önceden gösteriliyor'"
+'A small text about the category helps user to navigate more easily': 'Kategori hakkında küçük bir metin, kullanıcının daha kolay gezinmesine yardımcı olur'
+'Using Category Order, you can decide which category should display first': 'Kategori Sırasını kullanarak ilk önce hangi kategorinin gösterilmesi gerektiğine karar verebilirsiniz'
+Sorting: sınıflandırma
+'Ascending Order (A-Z)': 'Artan Düzen (A-Z)'
+'Descending Order (Z-A)': 'Azalan Sipariş (Z-A)'
+'Based on Popularity': 'Popülerliğe göre'
+'Article of this category will display according to selected option': 'Bu kategorinin maddesi seçili seçeneğe göre gösterilecek'
+Article: makale
+Title: Başlık
+Content: içerik
+Slug: sümüklüböcek
+'Slug is the url identity of this article.': "'Sümüklü böcek bu makalenin URL'sidir.'"
+'Meta Title': 'Meta Başlığı'
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": 'Başlık etiketleri ve meta açıklamaları, bir web sayfasının başlığındaki HTML kodlarının parçalarıdır. Arama motorlarının bir sayfadaki içeriği anlamalarına yardımcı olur. Bir sayfanın başlık etiketi ve meta açıklaması genellikle bu sayfa arama motoru sonuçlarında göründüğünde gösterilir.'
+'Meta Keywords': 'Anahtar Kelimeler'
+'comma "," separated': 'virgülle ayrılmış'
+'Meta Description': 'Meta Açıklaması'
+Description: Açıklama
+'Team Status': 'Takım Durumu'
+'Team is Active': 'Takım Aktif'
+'Edit Privilege': 'Ayrıcalık Düzenle'
+'Can create ticket': 'Bilet yaratabilir'
+'Can edit ticket': 'Bilet düzenleyebilir'
+'Can delete ticket': 'Bilet silebilir'
+'Can restore trashed ticket': 'Düşen bileti geri yükleyebilir'
+'Can assign ticket': 'Bilet atayabilir'
+'Can assign ticket group': 'Bilet grubu atayabilir'
+'Can update ticket status': 'Bilet durumunu güncelleyebilir'
+'Can update ticket priority': 'Bilet önceliğini güncelleyebilir'
+'Can update ticket type': 'Bilet türünü güncelleyebilir'
+'Can add internal notes to ticket': 'Bilete dahili notlar ekleyebilir'
+'Can edit thread/notes': 'Konuyu / notları düzenleyebilir'
+'Can lock/unlock thread': 'İpliği kilitleyebilir / kilidini açabilir'
+'Can add collaborator to ticket': 'Bilete ortak çalışabilir mi?'
+'Can delete collaborator from ticket': 'Ortak çalışanı biletten silebilir'
+'Can delete thread/notes': 'Konuyu / notları silebilir'
+'Can apply prepared response on ticket': 'Bilet hazır yanıtı uygulayabilir'
+'Can add ticket tags': 'Bilet etiketi ekleyebilirim'
+'Can delete ticket tags': 'Bilet etiketlerini silebilir'
+'Can kick other ticket users': 'Diğer bilet kullanıcılarını tekmeleyebilir'
+'Can manage email templates': 'E-posta şablonlarını yönetebilir'
+'Can manage groups': 'Grupları yönetebilir'
+'Can manage Sub-Groups/ Teams': 'Alt Grupları / Takımları Yönetebilir'
+'Can manage agents': 'Ajanları yönetebilir'
+'Can manage agent privileges': 'Ajan ayrıcalıklarını yönetebilir'
+'Can manage ticket types': 'Bilet türlerini yönetebilir'
+'Can manage ticket custom fields': 'Özel bilet alanlarını yönetebilir'
+'Can manage customers': 'Müşterileri yönetebilir'
+'Can manage Prepared Responses': 'Hazırlanmış Yanıtları Yönetebilir'
+'Can manage Automatic workflow': 'Otomatik iş akışını yönetebilir'
+'Can manage tags': 'Etiketleri yönetebilir'
+'Can manage knowledgebase': 'Bilgi tabanını yönetebilir'
+"Can manage Group's Saved Reply": "Grubun Kayıtlı Yanıtını Yönetebilir"
+'Add Privilege': 'Ayrıcalık ekle'
+'Choose set of privileges which will be available to the agent.': 'Temsilciye sunulacak bir dizi imtiyaz seçin.'
+'Advanced': 'İleri'
+'Privilege Name must have characters only': 'Ayrıcalık Adı yalnızca karakter içermeli'
+'Maximum character length is 50': 'Maksimum karakter uzunluğu 50'
+'Open Tickets': 'Açık Biletler'
+'New Customer': 'Yeni müşteri'
+'New Agent': 'Yeni Ajan'
+'Total Article(s)': 'Toplam Makale (ler)'
+'Please specify a valid email address': 'Lütfen geçerli bir e-posta adresi belirtin'
+'Please enter the password associated with your email address': 'Lütfen e-posta adresinizle ilişkili şifreyi girin'
+'Please enter your server host address': 'Lütfen sunucu ana adresinizi girin'
+'Please specify a port number to connect with your mail server': 'Lütfen posta sunucunuza bağlanmak için bir bağlantı noktası numarası belirtin'
+'Success ! Branding details saved successfully.': 'Başarı! Marka detayları başarıyla kaydedildi. '
+'Success ! Time details saved successfully.': 'Başarı! Zaman detayları başarıyla kaydedildi. '
+'Spam setting saved successfully.': 'Spam ayarı başarıyla kaydedildi.'
+'Please specify a valid name for your mailbox.': 'Lütfen posta kutunuz için geçerli bir ad belirtin.'
+'Please select a valid swift-mailer configuration.': 'Lütfen geçerli bir hızlı posta göndericisi yapılandırması seçin.'
+'Please specify a valid host address.': 'Lütfen geçerli bir ana bilgisayar adresi belirtin.'
+'Please specify a valid email address.': 'Lütfen geçerli bir e-posta adresi belirtin.'
+'Please enter the associated account password.': 'Lütfen ilişkili hesap şifresini girin.'
+'New Saved Reply': 'Yeni Kayıtlı Yanıt'
+'New Category': 'Yeni kategori'
+'Folder': 'Klasör'
+'Category': 'Kategori'
+'Created': 'Düzenlendi'
+'All Articles': 'Bütün makaleler'
+'Viewed': 'Görüntülenen'
+'New Article': 'Yeni makale'
+'Thank you for your feedback!': 'Geri bildiriminiz için teşekkür ederiz!'
+'Was this article helpful?': 'Bu makale yardımcı oldu mu?'
+'Helpdesk': 'Yardım Masası'
+'Support Center': 'Destek Merkezi'
+'Mailboxes': 'Posta kutuları'
+By: Tarafından
+'Search Tickets': 'Arama Biletleri'
+'Customer Information': 'Müşteri Bilgileri'
+'Total Replies': 'Toplam Cevap'
+'Filter With': 'İle Filtrele'
+'Type email to add': 'Eklenecek e-postayı yazın'
+Collaborators: İşbirlikçiler
+Labels: Etiketler
+Group: grup
+'Stay on ticket': 'Bilette kal'
+'Redirect to list': 'Listeye yönlendir'
+'Nothing interesting here': 'Burada ilginç bir şey yok'
+'Previous Ticket': 'Önceki Bilet'
+'Next Ticket': 'Sonraki Bilet'
+Forward: İleri, ileriye doğru
+Note: Not
+'Write a reply': 'Bir cevap yaz'
+'Created Ticket': 'Bilet Oluşturuldu'
+'All Threads': 'Tüm konular'
+'Forwards': 'Forvetler'
+'Notes': 'Notlar'
+'Pinned': 'Pinned'
+'Edit Ticket': 'Bilet Düzenle'
+'Print Ticket': 'Yazdır Bilet'
+'Mark as Spam': 'Spam olarak işaretle'
+'Mark as Closed': 'Kapalı Olarak İşaretle'
+'Delete Ticket': 'Bilet Sil'
+'View order details from different eCommerce channels': 'Farklı e-ticaret kanallarından sipariş ayrıntılarını görüntüleyin'
+'ECOMMERCE CHANNELS': 'ECOMMERCE KANALLARI'
+'Select channel': 'Kanal seç'
+'Order Id': 'Sipariş Kimliği'
+'Fetch Order': 'Siparişi Al'
+'No orders have been integrated to this ticket yet.': 'Bu bilete henüz bir sipariş eklenmedi.'
+'Enter your credentials below to gain access to your helpdesk account.': 'Yardım masası hesabınıza erişmek için bilgilerinizi aşağıya girin.'
+'Keep me logged in': 'Oturumumu açık tut'
+'Forgot Password?': 'Parolanızı mı unuttunuz?'
+'Log in to your': 'Giriş yapın'
+'Sign In': 'Oturum aç'
+'Edit Customer': 'Müşteriyi Düzenle'
+'Update': 'Güncelleme'
+'Discard': 'Sil'
+'Cancel': 'İptal etmek'
+'Not Assigned': 'Atanmadı'
+'Submit': 'Sunmak'
+'Submit And Open': 'Gönder ve Aç'
+'Submit And Pending': 'Gönder ve Beklemede'
+'Submit And Answered': 'Gönder Ve Cevaplandı'
+'Submit And Resolved': 'Gönder ve Çözüldü'
+'Submit And Closed': 'Gönder ve Kapat'
+'Choose a Color': 'Bir renk seç'
+'Create': 'Yaratmak, yapmak, tasarlamak, üretmek'
+'Edit Label': 'Etiketi Düzenle'
+'Add Label': 'Etiket Ekle'
+'To': 'Kime'
+'Ticket': 'Bilet'
+'Your browser does not support JavaScript or You disabled JavaScript, Please enable those !': "'Tarayıcınız JavaScript'i desteklemiyor veya JavaScript'i devre dışı bıraktınız, lütfen bunları etkinleştirin!'"
+'Confirm Action': 'İşlemi Onayla'
+'Confirm': 'Onaylamak'
+'No result found': 'Sonuç bulunamadı'
+'ticket delivery status': 'bilet teslim durumu'
+'Warning! Select valid image file.': 'Uyarı! Geçerli bir resim dosyası seçin. '
+'Error': 'Hata'
+'Save': 'Kayıt etmek'
+'SEO': 'SEO'
+'Edit Saved Filter': 'Kayıtlı Filtreyi Düzenle'
+'Type atleast 2 letters': 'En az 2 harf yazın'
+'Remove Label': 'Etiketi Kaldır'
+'New Saved Filter': 'Yeni Kayıtlı Filtre'
+'Is Default': 'Varsayılandır'
+'Remove Saved Filter': 'Kayıtlı Filtreyi Kaldır'
+'Ticket Info': 'Bilet Bilgisi'
+'Last Replied Agent': 'Son Cevaplanan Ajans'
+'created Ticket': 'Bilet oluşturuldu'
+'Uploaded Files': 'Yüklenmiş dosyalar'
+'Download (as .zip)': 'Zip şeklinde indir)'
+'made last reply': 'son cevabı yaptım'
+'N/A': 'N / A'
+'Unassigned': 'Atanmayanlar'
+'Label': 'Etiket'
+'Assigned to me': 'Beni görevlendirdi'
+'Search Query': 'Arama Sorgusu'
+'Searching': 'Aranıyor'
+'Saved Filter': 'Kayıtlı Filtre'
+'No Label Created': 'Hiçbir Etiket Oluşturulmadı'
+'Label with same name already exist.': 'Aynı ada sahip etiket zaten var.'
+'Create New': 'Yeni oluşturmak'
+'Mail status': 'Posta durumu'
+'replied': 'cevap verdi'
+'added note': 'eklenmiş not'
+'forwarded': 'İletilen'
+'TO': 'İÇİN'
+'CC': 'CC'
+'BCC': 'BCC'
+Locked: Kilitli
+'Edit Thread': 'Konuyu Düzenle'
+'Delete Thread': 'Konuyu Sil'
+'Unpin Thread': 'Konuyu Kaldır'
+'Pin Thread': 'Pin Konusu'
+'Unlock Thread': 'Konunun Kilidini Aç'
+'Lock Thread': 'Konuyu Kilitle'
+'Translate Thread': 'Konuyu Çevir'
+'Language': 'Dil'
+'English': 'İngilizce'
+'French': 'Fransızca'
+'Italian': 'İtalyan'
+'Arabic': 'Arapça'
+'German': 'Almanca'
+'Spanish': 'İspanyol'
+'Turkish': 'Türk'
+'Danish': 'Danimarka'
+'System': 'Sistem'
+'Open in Files': 'Dosyalarda Aç'
+'Email address is invalid': 'Email adresi geçersiz'
+'Tag with same name already exist': 'Aynı ada sahip etiket zaten var'
+'Text length should be less than 20 charactors': 'Metin uzunluğu 20 karakterden az olmalıdır'
+'Label with same name already exist': 'Aynı ada sahip etiket zaten var'
+'Agent Name': 'Ajan adı'
+'Agent Email': 'Ajan E-postası'
+open: açık
+'Currently active agents on ticket': 'Şu anda bilette aktif aracılar'
+'Edit Customer Information': 'Müşteri Bilgilerini Düzenle'
+'Restore': 'Onarmak'
+'Delete Forever': 'Sonsuza Kadar Sil'
+'Add Team': 'Takım Ekle'
+'delete': 'Sil'
+"You didn't have any folder for current filter(s).": Msgstr "Mevcut filtreler için klasörünüz yoktu."
+'Add Folder': 'Klasörü eklemek'
+'This field must have valid characters only': 'Bu alanın yalnızca geçerli karakterleri olması gerekir'
+'Can edit task': 'Görevi düzenleyebilir'
+'Can create task': 'Görev oluşturabilirim'
+'Can delete task': 'Görevi silebilir'
+'Can add member to task': 'Göreve üye ekleyebilir miyim'
+'Can remove member from task': 'Üyeyi görevden kaldırabilirim'
+'Agent Privileges': 'Ajan Ayrıcalıkları'
+'Agent Privilege represents overall permissions in System.': 'Ajan Ayrıcalığı, Sistemdeki genel izinleri temsil eder.'
+'Ticket View': 'Bilet Görünümü'
+'User can view tickets based on selected scope.': 'Kullanıcı seçilen kapsamı temel alarak biletleri görebilir.'
+'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': 'Bireysel erişim varsa, kullanıcı yalnızca Atanmış Biletleri Gösterebiliyorsa, Ekip erişimi varsa, kullanıcı ait olduğu ekipteki tüm Bilet (ler) i görebilir ve böyle devam eder'
+'Global Access': 'Küresel Erişim'
+'Group Access': 'Grup Erişimi'
+'Team Access': 'Ekip Erişimi'
+'Individual Access': 'Bireysel Erişim'
+'This field must have characters only': 'Bu alan sadece karakter içermeli'
+'Maximum character length is 40': 'Maksimum karakter uzunluğu 40'
+'This is not a valid email address': 'Bu geçerli bir email adresi değildir'
+'Password must contains 8 Characters': 'Şifre 8 Karakter İçermelidir'
+'The passwords does not match': 'Şifreler uyuşmuyor'
+'Enabled': 'Etkin'
+'Create Configuration': 'Yapılandırma Oluştur'
+'Swift Mailer Settings': 'Swift Mailer Ayarları'
+'Username': 'Kullanıcı adı'
+'Please select a swiftmailer id': 'Lütfen bir swiftmailer kimliği seçin'
+'Please enter a valid e-mail id': 'Lütfen geçerli bir e-posta adresi giriniz'
+'Please enter a mailer id': 'Lütfen bir posta numarası girin'
+'Email Id': 'Email kimliği'
+'Are you sure? You want to perform this action.': 'Emin misiniz? Bu işlemi yapmak istiyorsun. '
+'Reorder': 'Yeniden sıralama'
+'New Workflow': 'Yeni İş Akışı'
+'OR': 'VEYA'
+'AND': 'VE'
+'Please enter a valid name.': 'Lütfen geçerli bir isim girin.'
+'Please select a value.': 'Lütfen bir değer seçin.'
+'Please add a value.': 'Lütfen bir değer ekleyin.'
+'This field is required': 'Bu alan gereklidir'
+'or': 'veya'
+'and': 've'
+'Select a Condition': 'Bir Koşul Seçin'
+'Loading...': 'Yükleniyor...'
+'Select Option': 'Seçeneği Seçin'
+'Inactive': 'Etkin'
+'New Type': 'Yeni tip'
+'Placeholders': 'Yer tutucular'
+'Ticket Link': 'Bilet Bağlantısı'
+'Id': 'İD'
+'Preview': 'Ön izleme'
+'Sort Order': 'Sıralama düzeni'
+'This field must be a number': 'Bu alan bir sayı olmalıdır'
+'User': 'Kullanıcı'
+'Edit Group': 'Grubu Düzenle'
+'Group Status': 'Grup Durumu'
+'Group is Active': 'Grup Aktif'
+'Add Group': 'Grup ekle'
+'Contact number is invalid': 'İrtibat numarası geçersiz'
+'Edit Agent': 'Ajanı Düzenle'
+'No Privilege added, Please add Privilege(s) first !': 'Hiçbir Ayrıcalık eklenmedi, lütfen önce Ayrıcalık (lar) ı ekleyin!'
+'Edit Email Template': 'E-posta Şablonunu Düzenle'
+'Edit Workflow': 'İş Akışını Düzenle'
+'Save Workflow': 'İş Akışını Kaydet'
+'Edit Ticket Type': 'Bilet Türünü Düzenle'
+'Add Ticket Type': 'Bilet Türü Ekle'
+'Date Released': 'Çıkış tarihi'
+'Free': 'Beleş'
+'Premium': 'Ödül'
+'Installed': 'Kurulmuş'
+'Installed Applications': 'Yüklü Uygulamalar'
+'Nothing Interesting here': 'Burada ilginç bir şey yok'
+'No Categories Added': 'Kategori Eklenmedi'
+ticket: bilet
+'Add Email Template': 'E-posta Şablonu Ekle'
+'This field contain 100 characters only': 'Bu alan sadece 100 karakter içeriyor'
+'This field contain characters only': 'Bu alan sadece karakter içeriyor'
+'Name length must not be greater than 200 !!': "'İsim uzunluğu 200'den büyük olmamalıdır !!'"
+'Warning! Correct all field values first!': 'Uyarı! Önce tüm alan değerlerini düzeltin! '
+'Warning ! This is not a valid request': 'Uyarı! Bu geçerli bir istek değil '
+'Success ! Tag removed successfully.': 'Başarı! Etiket başarıyla kaldırıldı. '
+'Success ! Tags Saved successfully.': 'Başarı! Etiketler başarıyla kaydedildi. '
+'Success ! Revision restored successfully.': 'Başarı! Düzeltme başarıyla geri yüklendi. '
+'Success ! Categories updated successfully.': 'Başarı! Kategoriler başarıyla güncellendi. '
+'Success ! Article Related removed successfully.': 'Başarı! Madde İlgili başarıyla kaldırıldı. '
+'Success ! Article Related is already added.': 'Başarı! İlgili Makale zaten eklenmiş. '
+'Success ! Cannot add self as relative article.': 'Başarı! Kendini göreceli makale olarak ekleyemiyorum. '
+'Success ! Article Related updated successfully.': 'Başarı! Madde İlgili başarıyla güncellendi. '
+'Success ! Articles removed successfully.': 'Başarı! Makaleler başarıyla kaldırıldı. '
+'Success ! Article status updated successfully.': 'Başarı! Makale durumu başarıyla güncellendi. '
+'Success ! Article star updated successfully.': 'Başarı! Makale yıldızı başarıyla güncellendi. '
+'Success! Article updated successfully': 'Başarı! Makale başarıyla güncellendi'
+'Success ! Category sort  order updated successfully.': 'Başarı! Kategori sıralama düzeni başarıyla güncellendi. '
+'Success ! Category status updated successfully.': 'Başarı! Kategori durumu başarıyla güncellendi. '
+'Success ! Folders updated successfully.': 'Başarı! Klasörler başarıyla güncellendi. '
+'Success ! Categories removed successfully.': 'Başarı! Kategoriler başarıyla kaldırıldı. '
+'Success ! Category updated successfully.': 'Başarı! Kategori başarıyla güncellendi. '
+'Error ! Category is not exist.': 'Hata ! Kategori mevcut değil. '
+'Warning ! Customer Login disabled by admin.': 'Uyarı! Müşteri Girişi yönetici tarafından devre dışı bırakıldı. '
+'This Email is not registered with us.': 'Bu e-posta bize kayıtlı değil.'
+'Your password has been updated successfully.': 'Şifreniz başarıyla güncellendi.'
+"Password don't match.": "Parola eşleşmiyor."
+'Error ! Profile image is not valid, please upload a valid format': 'Hata ! Profil resmi geçerli değil, lütfen geçerli bir biçim yükle'
+'Success! Folder has been added successfully.': 'Başarı! Klasör başarıyla eklendi. '
+'Folder updated successfully.': 'Klasör başarıyla güncellendi.'
+'Success ! Folder status updated successfully.': 'Başarı! Klasör durumu başarıyla güncellendi. '
+'Error ! Folder is not exist.': 'Hata ! Klasör mevcut değil. '
+'Success ! Folder updated successfully.': 'Başarı! Klasör başarıyla güncellendi. '
+'Error ! Folder does not exist.': 'Hata ! Klasör mevcut değil. '
+'Success ! Folder deleted successfully.': 'Başarı! Klasör başarıyla silindi. '
+"Warning ! Folder doesn't exists!": "Uyarı! Klasör mevcut değil!"
+'Warning ! Cannot create ticket, given email is blocked by admin.': 'Uyarı! Bilet oluşturulamıyor, verilen e-posta admin tarafından engelleniyor. '
+'Success ! Ticket has been created successfully.': 'Başarı! Bilet başarıyla oluşturuldu. '
+'Warning ! Can not create ticket, invalid details.': 'Uyarı! Bilet oluşturulamıyor, geçersiz bilgiler var. '
+"Warning ! Post size can not exceed 25MB": "Uyarı! Yazı boyutu 25 MB'ı geçemez"
+"Create Ticket Request": "Bilet İsteği Oluştur"
+"Success ! Reply added successfully.": "Başarı! Cevap başarıyla eklendi."
+"Warning ! Reply field can not be blank.": "Uyarı! Cevap alanı boş bırakılamaz."
+'Success ! Rating has been successfully added.': 'Başarı! Değerlendirme başarıyla eklendi. '
+'Warning ! Invalid rating.': 'Uyarı! Geçersiz derecelendirme. '
+'Error ! Can not add customer as a collaborator.': 'Hata ! Müşteriyi ortak çalışan olarak ekleyemiyorum. '
+'Success ! Collaborator added successfully.': 'Başarı! Ortak çalışan başarıyla eklendi. '
+'Error ! Collaborator is already added.': 'Hata ! Ortak çalışan zaten eklenmiş. '
+'Success ! Collaborator removed successfully.': 'Başarı! Ortak çalışan başarıyla kaldırıldı. '
+'Error ! Invalid Collaborator.': 'Hata ! Geçersiz Ortak Çalışan. '
+'An unexpected error occurred. Please try again later.': 'Beklenmeyen bir hata oluştu. Lütfen daha sonra tekrar deneyiniz.'
+'Feedback saved successfully.': 'Geri bildirim başarıyla kaydedildi.'
+'Feedback updated successfully.': 'Geri bildirim başarıyla güncellendi.'
+'Invalid feedback provided.': 'Geçersiz geri bildirim sağlandı.'
+'Article not found.': 'Makale bulunamadı.'
+'You need to login to your account before can perform this action.': 'Bu işlemi yapabilmek için önce hesabınıza giriş yapmanız gerekiyor.'
+'Warning! Please add valid Actions!': 'Uyarı! Lütfen geçerli İşlemler ekleyin! '
+'Warning! In Free Plan you can not change Events!': 'Uyarı! Ücretsiz Planda, Olayları değiştiremezsiniz! '
+'Success! Prepared Response has been updated successfully.': 'Başarı! Hazırlanan Yanıt başarıyla güncellendi. '
+'Success! Prepared Response has been added successfully.': 'Başarı! Hazırlanan yanıt başarıyla eklendi. '
+'Warning  This is not a valid request': 'Uyarı Bu geçerli bir istek değil'
+'Use Default Colors': 'Varsayılan Renkleri Kullan'
+'Masonry': 'Duvar'
+'Popular Article': 'Popüler Makale'
+'Manage Ticket Custom Fields': 'Bilet Özel Alanlarını Yönet'
+"You don't have premission to edit this Prepared response": "Bu Hazırlanan yanıtı düzenlemek için bir önceliğiniz yok"
+'Save Prepared Response': 'Hazırlanmış Yanıtı Kaydet'
+'Success ! Prepared response removed successfully.': 'Başarı! Hazırlanan yanıt başarıyla kaldırıldı. '
+'Warning! You are not allowed to perform this action.': 'Uyarı! Bu işlemi gerçekleştirme izniniz yok. '
+'Success! Workflow has been updated successfully.': 'Başarı! İş akışı başarıyla güncellendi. '
+'Success! Workflow has been added successfully.': 'Başarı! İş akışı başarıyla eklendi. '
+'Success! Order has been updated successfully.': 'Başarı! Sipariş başarıyla güncellendi. '
+'Success! Workflow has been removed successfully.': 'Başarı! İş akışı başarıyla kaldırıldı. '
+'Mailbox successfully created.': 'Posta kutusu başarıyla oluşturuldu.'
+'Mailbox successfully updated.': 'Posta kutusu başarıyla güncellendi.'
+'Warning ! Bad request !': 'Uyarı! Geçersiz istek !'
+'Error! Given current password is incorrect.': 'Hata! Verilen mevcut şifre yanlış. '
+'Success ! Profile update successfully.': 'Başarı! Profil başarıyla güncellendi. '
+'Error ! User with same email is already exist.': 'Hata ! Aynı e-postaya sahip bir kullanıcı zaten var. '
+'Success ! Agent updated successfully.': 'Başarı! Ajan başarıyla güncellendi. '
+'Success ! Agent removed successfully.': 'Başarı! Ajan başarıyla kaldırıldı. '
+"Warning ! You are allowed to remove account owner's account.": "Uyarı! Hesap sahibinin hesabını kaldırma izniniz var."
+"Error ! Invalid user id.": "Hata! Geçersiz kullanıcı kimliği."
+"Success ! Filter has been saved successfully.": "Başarı! Filtre başarıyla kaydedildi."
+"Success ! Filter has been updated successfully.": "Başarı! Filtre başarıyla güncellendi."
+"Success ! Filter has been removed successfully.": "Başarı! Filtre başarıyla kaldırıldı."
+"Please check your mail for password update.": "Lütfen şifrenizi güncellemek için postanızı kontrol edin."
+"This Email address is not registered with us.": "Bu e-posta adresi bize kayıtlı değil."
+"Success ! Customer saved successfully.": "Başarı! Müşteri başarıyla kaydedildi."
+"Error ! User with same email already exist.": "Hata! Aynı e-postaya sahip kullanıcı zaten var."
+"Success ! Customer information updated successfully.": "Başarı! Müşteri bilgileri başarıyla güncellendi."
+"Success ! Customer updated successfully.": "Başarı! Müşteri başarıyla güncellendi."
+"Error ! Customer with same email already exist.": "Hata! Aynı e-postaya sahip müşteri zaten var."
+"unstarred Action Completed successfully": "başlatılmamış işlem başarıyla tamamlandı"
+"starred Action Completed successfully": "yıldızlı Eylem başarıyla tamamlandı"
+"Success ! Customer removed successfully.": "Başarı! Müşteri başarıyla kaldırıldı."
+"Error ! Invalid customer id.": "Hata! Geçersiz müşteri kimliği."
+"Success! Template has been updated successfully.": "Başarı! Şablon başarıyla güncellendi."
+"Success! Template has been added successfully.": "Başarı! Şablon başarıyla eklendi."
+"Success! Template has been deleted successfully.": "Başarı! Şablon başarıyla silindi."
+"Warning! resource not found.": "Uyarı! Kaynak bulunamadı."
+"Warning! You can not remove predefined email template which is being used in workflow(s).": "Uyarı! İş akışlarında kullanılan önceden tanımlanmış e-posta şablonunu kaldıramazsınız."
+"Success ! Email settings are updated successfully.": "Başarı! E-posta ayarları başarıyla güncellendi."
+"Success ! Group information updated successfully.": "Başarı! Grup bilgileri başarıyla güncellendi."
+"Success ! Group information saved successfully.": "Başarı! Grup bilgileri başarıyla kaydedildi."
+"Support Group removed successfully.": "Destek Grubu başarıyla kaldırıldı."
+"Success ! Privilege information saved successfully.": "Başarı! Ayrıcalık bilgileri başarıyla kaydedildi."
+"Privilege updated successfully.": "Ayrıcalık başarıyla güncellendi."
+"Support Privilege removed successfully.": "Destek Ayrıcalığı başarıyla kaldırıldı."
+"Success! Reply has been updated successfully.": "Başarı! Cevap başarıyla güncellendi."
+"Success! Reply has been added successfully.": "Başarı! Cevap başarıyla eklendi."
+"Success! Saved Reply has been deleted successfully": "Başarı! Kayıtlı Yanıt başarıyla silindi"
+"SwiftMailer configuration updated successfully.": "SwiftMailer yapılandırması başarıyla güncellendi."
+"Swiftmailer configuration removed successfully.": "Swiftmailer yapılandırması başarıyla kaldırıldı."
+"Success ! Team information saved successfully.": "Başarı! Takım bilgileri başarıyla kaydedildi."
+"Success ! Team information updated successfully.": "Başarı! Takım bilgileri başarıyla güncellendi."
+"Support Team removed successfully.": "Destek Ekibi başarıyla kaldırıldı."
+"Success! Reply has been added successfully": "Başarı! Cevap başarıyla eklendi"
+"Success ! Thread updated successfully.": "Başarı! Konu başarıyla güncellendi."
+"Error ! Reply field can not be blank.": "Hata! Yanıt alanı boş bırakılamaz."
+"Success ! Thread removed successfully.": "Başarı! Konu başarıyla kaldırıldı."
+"Success ! Thread locked successfully": "Başarı! Konu başarıyla kilitlendi"
+"Success ! Thread unlocked successfully": "Başarı! Konu başarıyla kilitlendi"
+"Success ! Thread pinned successfully": "Başarı! Konu başarıyla sabitlendi"
+"Error ! Invalid thread.": "Hata! Geçersiz konu."
+"Could not create ticket, invalid details.": "Bilet oluşturulamadı, geçersiz detaylar."
+"Success ! Tag updated successfully.": "Başarı! Tag başarıyla güncellendi."
+"Error ! Customer can not be added as collaborator.": "Hata! Müşteri ortak çalışan olarak eklenemez."
+"Success ! Tag unassigned successfully.": "Success! Tag başarıyla atandı."
+"Success ! Tag added successfully.": "Başarı! Tag başarıyla eklendi."
+"Please enter tag name.": "Lütfen etiketin adını girin."
+"Error ! Invalid tag.": "Hata! Geçersiz etiket."
+"Success ! Type removed successfully.": "Başarılı! Tür başarıyla kaldırıldı."
+"Success ! Ticket to label removed successfully.": "Başarı! Etiketi etiket başarıyla kaldırıldı."
+"Unable to retrieve support team details": "Destek ekibi detayları alınamadı"
+"Ticket support group updated successfully": "Bilet destek grubu başarıyla güncellendi"
+"Unable to retrieve status details": "Durum ayrıntıları alınamadı"
+"Insufficient details provided.": "Yetersiz detay verildi."
+"Error! Subject field is mandatory": "Hata! Konu alanı zorunlu"
+"Error! Reply field is mandatory": "Hata! Cevap alanı zorunlu"
+"Success ! Ticket has been updated successfully.": "Başarı! Bilet başarıyla güncellendi."
+"Success ! Label updated successfully.": "Başarı! Etiket başarıyla güncellendi."
+"Error ! Invalid label id.": "Hata! Geçersiz etiket kimliği."
+"'Success ! Label removed successfully.": "'Başarı! Etiket başarıyla kaldırıldı."
+"Success ! Label created successfully.": "Başarı! Etiket başarıyla oluşturuldu."
+"Error ! Label name can not be blank.": "Hata! Etiket adı boş bırakılamaz."
+"Success ! Ticket moved to trash successfully.": "Başarı! Bilet başarıyla çöpe taşındı."
+"Success! Ticket type saved successfully.": "Başarı! Bilet türü başarıyla kaydedildi."
+"Success! Ticket type updated successfully.": "Başarı! Bilet türü başarıyla güncellendi."
+"Error! Ticket type with same name already exist": "Hata! Aynı adı taşıyan bilet türü zaten var"
+'SAVE': 'KAYIT ETMEK'
+# 'Save': 'Kayit Etmek'
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Başlık etiketleri ve meta açıklamaları, bir web sayfasının başlığındaki HTML kodlarının parçalarıdır. Arama motorlarının bir sayfadaki içeriği anlamalarına yardımcı olur. Bir sayfanın başlık etiketi ve meta açıklaması genellikle bu sayfa arama motoru sonuçlarında göründüğünde gösterilir."
+#customer page
+"Howdy!": "Naber!"
+"New Ticket Request": 'Yeni Bilet İsteği'
+"Ticket Requests": "Bilet İstekleri"
+"Cookie Usage Policy": "Çerez Kullanım Politikası"
+"cookie": "kurabiye"
+"cookies": "kurabiye"
+"HELP": "YARDIM"
+"Home": "Ev"
+"Cookie Policy": "Çerez politikası"
+"Prev": "Önceki"
+"Ticket query message": "Bilet sorgu mesajı"
+"Select type": "Türünü seçin"
+"Search KnowledgeBase": "Bilgi Bankası'nda Ara"
+"You can't merge an account with itself.": "Bir hesabı kendisiyle birleştiremezsiniz."
+"Edit Profile": "Profili Düzenle"
+"Customer Login": "müşteri girişi"
+"Contact Us": "Bizimle iletişime geçin"
+"If you've ever contacted our support previously, your account would have already been created.": "Daha önce desteğimize başvurduysanız, hesabınız çoktan oluşturulmuştu."
+"HelpDesk": "Yardım Masası"
+"Enter search keyword": "Search anahtar sözcüğünü girin"
+"Browse via Folders": "Klasörler yoluyla göz atın"
+"Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Genel olarak sorgulanan bir şey mi arıyorsunuz? Olası çözümleri keşfetmek için aşağıdan ilgili bir klasör seçin"
+"Unable to find an answer?": "Bir cevap bulamadınız mı?"
+"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Genel sorgularda yer alan belirli bir makaleyi mi arıyorsunuz? Sadece çeşitli ilgili klasör ve kategorilere göz attığınızda istediğiniz makaleyi bulacaksınız."
+#forgotpassword
+"Forgot Password": "Parolanızı mı unuttunuz"
+"Enter your email address and we will send you an email with instructions to update your login credentials.": "E-posta adresinizi girin, giriş bilgilerinizi güncellemeniz için talimatları içeren bir e-posta göndereceğiz."
+"Send Mail": "Eposta gönder"
+"Status:": "Durum:"
+"Sign In to %websitename%": "Giriş yap %websitename%"
+"Enter your name": "Adınızı giriniz"
+"Enter your email": "E-postanızı giriniz"
+"Learn more about %deliveryStatus%.": "Hakkında daha fazla öğren  %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Gizlilik politikamızın nasıl çalıştığı hakkında daha fazla bilgi için, lütfen %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Site sayfalarımızdan bazıları %cookies% ve diğer izleme teknolojilerini kullanır. %cookie%, örneğin site etkinliği hakkında bilgi toplamak için kullanılabilecek küçük bir metin dosyasıdır. Bazı çerezler ve diğer teknolojiler, daha önce bir site kullanıcısı tarafından belirtilen kişisel bilgileri geri çağırmaya hizmet edebilir. Tarayıcınızdaki uygun ayarı yaparak çerezleri engelleyebilir veya mevcut çerezleri silebilirsiniz. Bunun nasıl yapılacağını öğrenmek için lütfen tarayıcınızın %help% menüsüne bakın. %cookies%  engeller veya silerseniz, sitemizin yararını engelli olarak bulabilirsiniz."
+"This field contain maximum 40 charectures.": "Bu alan maksimum 40 adet grafik içermektedir."
+"This field contain maximum 50 charectures.": "Bu alan maksimum 50 adet grafik içermektedir."
+"Time": "Zaman"
+"Links": "Bağlantılar"
+"Broadcast Message": "Yayın mesajı"
+"Wide Logo": "Geniş Logo"
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "PNG veya JPG Formatında Resim Yükle (200px x 48px)"
+"It will be shown as Logo on Knowledgebase and Helpdesk": "Bilgi Bankası ve Yardım Masası üzerinde Logo olarak gösterilecek"
+"Website Status": "Web Sitesi Durumu"
+"Enable front end website and knowledgebase for customer(s)": "Müşteri için ön uç web sitesini ve bilgi bankasını etkinleştir"
+"Brand Color": "Marka Rengi"
+"Page Background Color": "Sayfa Arka Plan Rengi"
+"Header Background Color": "Başlık Arka Plan Rengi"
+"Banner Background Color": "Afiş Arka Plan Rengi"
+"Page Link Color": "Sayfa Bağlantısı Rengi"
+"Page Link Hover Color": "Sayfa Bağlantısı Vurgulu Rengi"
+"Article Text Color": "Makale Metin Rengi"
+"Tag Line": "Etiket Satırı"
+"Hi! how can we help?": “Merhaba! Nasıl yardımcı olabiliriz?”
+"Layout": "Yerleşim"
+"Ticket Create Option": "Bilet Oluşturma Seçeneği"
+"Login Required To Create Tickets": "Bilet Oluşturmak için Giriş Yapmanız Gerekiyor"
+"Remove Customer Login/Signin Button": "Müşteri Giriş / Giriş Düğmesini Kaldır"
+"Disable Customer Login": "Müşteri Girişini Devre Dışı Bırak"
+"Meta Description (Recommended)": "Meta Açıklama (Önerilen)"
+"Meta Keywords (Recommended)": "Meta Anahtar Kelimeler (Önerilen)"
+"Header Link": "Başlık Bağlantısı"
+"URL (with http:// or https://)": "URL (http: // veya https: // ile)"
+"Footer Link": "Altbilgi Bağlantısı"
+"Custom CSS (Optional)": "Özel CSS (İsteğe bağlı)"
+"It will be add to the frontend knowledgebase only": "Sadece ön bilgi tabanına eklenecek"
+"Custom Javascript (Optional)": "Özel Javascript (İsteğe bağlı)"
+"Broadcast message content to show on helpdesk": "Yardım masasında gösterilecek mesaj içeriğini yayınla"
+"From": "Kimden"
+"Time duration between which message will be displayed(if applicable)": "Hangi mesajın görüntüleneceği arasındaki süre (varsa)"
+"Broadcasting Status": "Yayın Durumu"
+"Broadcasting is Active": "Yayın Etkindir"
+"Choose a default company's timezone": "Varsayılan bir şirketin saat dilimini seçin"
+"Date Time Format": "Tarih Saat Biçimi"
+"Choose a format to convert date to specified date time format": "Tarihi belirtilen tarih saat biçimine dönüştürmek için bir biçim seçin"
+"An empty file is not allowed.": "Boş bir dosyaya izin verilmiyor."
+"File size must not be greater than 200KB !!": "Dosya boyutu 200KB'tan büyük olmamalıdır !!"
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Lütfen geçerli bir resim dosyası yükle (Sadece JPEG, JPG, PNG izin verilir) !!"
+"Provide a valid url(with protocol)": "Geçerli bir URL sağla (protokollü)"
