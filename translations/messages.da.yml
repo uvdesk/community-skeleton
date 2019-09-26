@@ -1,0 +1,1314 @@
+'Signed in as': 'Logget ind som'
+'Your Profile': 'Din profil'
+'Create Ticket': 'Opret billet'
+'Create Agent': 'Opret agent'
+'Create Customer': 'Opret kunde'
+'Sign Out': 'Log ud'
+'Apps': 'Apps'
+'Integrate apps as per your needs to get things done faster than ever': 'Integrer apps efter dine behov for at få tingene gjort hurtigere end nogensinde'
+'Explore Apps': 'Udforsk apps'
+'Form Builder': 'Form Builder'
+Knowledgebase: Vidensdatabase
+'Knowledgebase is a source of rigid and complex information which helps Customers to help themselves': 'Knowledgebase er en kilde til stiv og kompleks information, der hjælper kunderne med at hjælpe sig selv'
+Articles: Artikler
+Categories: Kategorier
+Folders: mapper
+FOLDERS: MAPPER
+Productivity: Produktivitet
+'Automate your processes by creating set of rules and presets to respond faster to the tickets': 'Automatiser dine processer ved at oprette sæt regler og forudindstillinger for at reagere hurtigere på billetterne'
+'Prepared Responses': 'Forberedte svar'
+'Saved Replies': 'Gemte svar'
+'Ticket Types': 'Billetyper'
+Workflows: Arbejdsprocesser
+Settings: Indstillinger
+'Manage your Brand Identity, Company Information and other details at a glance': 'Administrer din brandidentitet, firmainformation og andre detaljer med et overblik'
+Branding: Branding
+'Custom Fields': 'Tilpassede felter'
+'Email Settings': 'E-mail-indstillinger'
+'Email Templates': 'E-mail-skabeloner'
+Mailbox: Postkasse
+'Spam Settings': 'Indstillinger for spam'
+'Swift Mailer': 'Swift Mailer'
+Tags: Tags
+Users: Brugere
+'Control your Groups, Teams, Agents and Customers': 'Kontroller dine grupper, hold, agenter og kunder'
+Agents: Agenter
+Customers: kunder
+Groups: grupper
+Privileges: privilegier
+Teams: Hold
+Applications: Applikationer
+'ECommerce Order Syncronization': 'ECommerce ordresynkronisering'
+'Import ecommerce order details to your support tickets from different available platforms': 'Importer detaljer om e-handelsordre til dine supportbilletter fra forskellige tilgængelige platforme'
+Search: Søg
+'Sort By': 'Sorter efter'
+'Sort By:': 'Sorter efter:'
+'Status': 'status'
+'Created At': 'Oprettet ved'
+Name: Navn
+All: Alle
+Published: Udgivet
+Draft: Udkast
+'New Folder': 'Ny mappe'
+'Create Knowledgebase Folder': 'Opret vidensbaseret mappe'
+'You didn''t add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.': 'Du har ikke tilføjet nogen mappe til din vidensbase endnu, opret din første mappe og begynd at tilføje kategorier / artikler for at få dine kunder til at hjælpe sig selv.'
+'Clear Filters': 'Ryd filtre'
+Back: Tilbage
+Open: Åben
+Pending: Verserende
+Answered: besvaret
+Resolved: løst
+Closed: Lukket
+Spam: Spam
+New: Ny
+UnAssigned: Ikke-tildelte
+UnAnswered: ubesvarede
+'My Tickets': 'Mine billetter'
+Starred: Stjernemarkerede
+Trashed: trashed
+'New Label': 'Ny etiket'
+Tickets: Billetter
+'Ticket Id': 'Billet-id'
+'Last Replied': Sidst besvaret
+'Assign To': 'Tildel til'
+'Customer Email': 'Kundepost'
+'Customer Name': 'Kundenavn'
+'Assets Visibility': 'Aktiv synlighed'
+Channel/Source: Kanal / kilde
+Channel: Kanal
+Website: Internet side
+Timestamp: Tidsstempel
+TimeStamp: Tidsstempel
+Team: Hold
+Type: Type
+Replies: Svar
+Agent: Agent
+ID: ID
+Subject: Emne
+'Filter View': 'Filtervisning'
+'Save set of filters as a preset to stay more productive': 'Gem et sæt filtre som en forudindstilling for at forblive mere produktiv'
+'Saved Filters': 'Gemte filtre'
+'No saved filter created': 'Intet gemt filter oprettet'
+Customer: Kunde
+Priority: Prioritet
+Tag: tag
+Source: Kilde
+Before: Før
+After: Efter
+'Replies less than': 'Svar mindre end'
+'Replies more than': 'Svar mere end'
+'Clear All': 'Slet alt'
+Account: Konto
+Profile: Profil
+'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format': 'Upload et profilbillede (100px x 100px) <br> i PNG- eller JPG-format'
+'First Name': 'Fornavn'
+'Last Name': 'Efternavn'
+Email: E-mail
+'Contact Number': 'Kontakt nummer'
+Timezone: Tidszone
+Africa/Abidjan: Afrika / Abidjan
+Africa/Accra: Afrika / Accra
+Africa/Addis_Ababa: Afrika / Addis_Ababa
+Africa/Algiers: Afrika / Algiers
+Africa/Asmara: Afrika / Asmara
+Africa/Bamako: Afrika / Bamako
+Africa/Bangui: Afrika / Bangui
+Africa/Banjul: Afrika / Banjul
+Africa/Bissau: Afrika / Bissau
+Africa/Blantyre: Afrika / Blantyre
+Africa/Brazzaville: Afrika / Brazzaville
+Africa/Bujumbura: Afrika / Bujumbura
+Africa/Cairo: Afrika / Cairo
+Africa/Casablanca: Afrika / Casablanca
+Africa/Ceuta: Afrika / Ceuta
+Africa/Conakry: Afrika / Conakry
+Africa/Dakar: Afrika / Dakar
+Africa/Dar_es_Salaam: Afrika / Dar_es_Salaam
+Africa/Djibouti: Afrika / Djibouti
+Africa/Douala: Afrika / Douala
+Africa/El_Aaiun: Afrika / El_Aaiun
+Africa/Freetown: Afrika / Freetown
+Africa/Gaborone: Afrika / Gaborone
+Africa/Harare: Afrika / Harare
+Africa/Johannesburg: Afrika / Johannesburg
+Africa/Juba: Afrika / Juba
+Africa/Kampala: Afrika / Kampala
+Africa/Khartoum: Afrika / Khartoum
+Africa/Kigali: Afrika / Kigali
+Africa/Kinshasa: Afrika / Kinshasa
+Africa/Lagos: Afrika / Lagos
+Africa/Libreville: Afrika / Libreville
+Africa/Lome: Afrika / Lome
+Africa/Luanda: Afrika / Luanda
+Africa/Lubumbashi: Afrika / Lubumbashi
+Africa/Lusaka: Afrika / Lusaka
+Africa/Malabo: Afrika / Malabo
+Africa/Maputo: Afrika / Maputo
+Africa/Maseru: Afrika / Maseru
+Africa/Mbabane: Afrika / Mbabane
+Africa/Mogadishu: Afrika / Mogadishu
+Africa/Monrovia: Afrika / Monrovia
+Africa/Nairobi: Afrika / Nairobi
+Africa/Ndjamena: Afrika / Ndjamena
+Africa/Niamey: Afrika / Niamey
+Africa/Nouakchott: Afrika / Nouakchott
+Africa/Ouagadougou: Afrika / Ouagadougou
+Africa/Porto-Novo: Afrika / Porto-Novo
+Africa/Sao_Tome: Afrika / Sao_Tome
+Africa/Tripoli: Afrika / Tripoli
+Africa/Tunis: Afrika / Tunis
+Africa/Windhoek: Afrika / Windhoek
+America/Adak: Amerika / Adak
+America/Anchorage: Amerika / Anchorage
+America/Anguilla: Amerika / Anguilla
+America/Antigua: Amerika / Antigua
+America/Araguaina: Amerika / Araguaina
+America/Argentina/Buenos_Aires: Amerika / Argentina / Buenos_ Aires
+America/Argentina/Catamarca: Amerika / Argentina / Catamarca
+America/Argentina/Cordoba: Amerika / Argentina / Cordoba
+America/Argentina/Jujuy: Amerika / Argentina / Jujuy
+America/Argentina/La_Rioja: Amerika / Argentina / La_Rioja
+America/Argentina/Mendoza: Amerika / Argentina / Mendoza
+America/Argentina/Rio_Gallegos: Amerika / Argentina / Rio_Gallegos
+America/Argentina/Salta: Amerika / Argentina / Salta
+America/Argentina/San_Juan: Amerika / Argentina / San_Juan
+America/Argentina/San_Luis: Amerika / Argentina / San_Luis
+America/Argentina/Tucuman: Amerika / Argentina / Tucuman
+America/Argentina/Ushuaia: Amerika / Argentina / Ushuaia
+America/Aruba: Amerika / Aruba
+America/Asuncion: Amerika / Asuncion
+America/Atikokan: Amerika / Atikokan
+America/Bahia: Amerika / Bahia
+America/Bahia_Banderas: Amerika / Bahia_Banderas
+America/Barbados: Amerika / Barbados
+America/Belem: Amerika / Belem
+America/Belize: Amerika / Belize
+America/Blanc-Sablon: Amerika / Blanc-Sablon
+America/Boa_Vista: Amerika / Boa_ Vista
+America/Bogota: Amerika / Bogota
+America/Boise: Amerika / Boise
+America/Cambridge_Bay: Amerika / Cambridge_Bay
+America/Campo_Grande: Amerika / Campo_Grande
+America/Cancun: Amerika / Cancun
+America/Caracas: Amerika / Caracas
+America/Cayenne: Amerika / Cayenne
+America/Cayman: Amerika / Cayman
+America/Chicago: Amerika / Chicago
+America/Chihuahua: Amerika / Chihuahua
+America/Costa_Rica: Amerika / Costa_Rica
+America/Creston: Amerika / Creston
+America/Cuiaba: Amerika / Cuiaba
+America/Curacao: Amerika / Curacao
+America/Danmarkshavn: Amerika / Danmarkshavn
+America/Dawson: Amerika / Dawson
+America/Dawson_Creek: Amerika / Dawson_Creek
+America/Denver: Amerika / Denver
+America/Detroit: Amerika / Detroit
+America/Dominica: Amerika / Dominica
+America/Edmonton: Amerika / Edmonton
+America/Eirunepe: Amerika / Eirunepe
+America/El_Salvador: Amerika / El_Salvador
+America/Fort_Nelson: Amerika / Fort_Nelson
+America/Fortaleza: Amerika / Fortaleza
+America/Glace_Bay: Amerika / Glace_Bay
+America/Godthab: Amerika / Godthåb
+America/Goose_Bay: Amerika / Goose_Bay
+America/Grand_Turk: Amerika / Grand_Turk
+America/Grenada: Amerika / Grenada
+America/Guadeloupe: Amerika / Guadeloupe
+America/Guatemala: Amerika / Guatemala
+America/Guayaquil: Amerika / Guayaquil
+America/Guyana: Amerika / Guyana
+America/Halifax: Amerika / Halifax
+America/Havana: Amerika / Havanna
+America/Hermosillo: Amerika / Hermosillo
+America/Indiana/Indianapolis: Amerika / Indiana / Indianapolis
+America/Indiana/Knox: Amerika / Indiana / Knox
+America/Indiana/Marengo: Amerika / Indiana / Marengo
+America/Indiana/Petersburg: Amerika / Indiana / Petersburg
+America/Indiana/Tell_City: Amerika / Indiana / Tell_City
+America/Indiana/Vevay: Amerika / Indiana / Vevay
+America/Indiana/Vincennes: Amerika / Indiana / Vincennes
+America/Indiana/Winamac: Amerika / Indiana / Winamac
+America/Inuvik: Amerika / Inuvik
+America/Iqaluit: Amerika / Iqaluit
+America/Jamaica: Amerika / Jamaica
+America/Juneau: Amerika / Juneau
+America/Kentucky/Louisville: Amerika / Kentucky / Louisville
+America/Kentucky/Monticello: Amerika / Kentucky / Monticello
+America/Kralendijk: Amerika / Kralendijk
+America/La_Paz: Amerika / La_Paz
+America/Lima: Amerika / Lima
+America/Los_Angeles: Amerika / Los_Angeles
+America/Lower_Princes: Amerika / Lower_Princes
+America/Maceio: Amerika / Maceio
+America/Managua: Amerika / Managua
+America/Manaus: Amerika / Manaus
+America/Marigot: Amerika / Marigot
+America/Martinique: Amerika / Martinique
+America/Matamoros: Amerika / Matamoros
+America/Mazatlan: Amerika / Mazatlan
+America/Menominee: Amerika / Menominee
+America/Merida: Amerika / Merida
+America/Metlakatla: Amerika / Metlakatla
+America/Mexico_City: Amerika / Mexico_City
+America/Miquelon: Amerika / Miquelon
+America/Moncton: Amerika / Moncton
+America/Monterrey: Amerika / Monterrey
+America/Montevideo: Amerika / Montevideo
+America/Montserrat: Amerika / Montserrat
+America/Nassau: Amerika / Nassau
+America/New_York: Amerika / New_York
+America/Nipigon: Amerika / Nipigon
+America/Nome: Amerika / Nome
+America/Noronha: Amerika / Noronha
+America/North_Dakota/Beulah: Amerika / North_ / Beulah
+America/North_Dakota: Amerika / North_
+America/Ojinaga: Amerika / Ojinaga
+America/Panama: Amerika / Panama
+America/Pangnirtung: Amerika / Pangnirtung
+America/Paramaribo: Amerika / Paramaribo
+America/Phoenix: Amerika / Phoenix
+America/Port-au-Prince: Amerika / Port-au-Prince
+America/Port_of_Spain: Amerika / Port_of_Spain
+America/Porto_Velho: Amerika / Porto_Velho
+America/Puerto_Rico: Amerika / Puerto_Rico
+America/Punta_Arenas: Amerika / Punta_Arenas
+America/Rainy_River: Amerika / Rainy_ River
+America/Rankin_Inlet: Amerika / Rankin_Inlet
+America/Recife: Amerika / Recife
+America/Regina: Amerika / Regina
+America/Resolute: Amerika / Resolute
+America/Rio_Branco: Amerika / Rio_Branco
+America/Santarem: Amerika / Santarem
+America/Santiago: Amerika / Santiago
+America/Santo_Domingo: Amerika / Santo_Domingo
+America/Sao_Paulo: Amerika / Sao_Paulo
+America/Scoresbysund: Amerika / Scoresbysund
+America/Sitka: Amerika / Sitka
+America/St_Barthelemy: Amerika / St_Barthelemy
+America/St_Johns: Amerika / St_Johns
+America/St_Kitts: Amerika / St_Kitts
+America/St_Lucia: Amerika / St_Lucia
+America/St_Thomas: Amerika / St_Thomas
+America/St_Vincent: Amerika / St_Vincent
+America/Swift_Current: Amerika / Swift_Current
+America/Tegucigalpa: Amerika / Tegucigalpa
+America/Thule: Amerika / Thule
+America/Thunder_Bay: Amerika / Thunder_Bay
+America/Tijuana: Amerika / Tijuana
+America/Toronto: Amerika / Toronto
+America/Tortola: Amerika / Tortola
+America/Vancouver: Amerika / Vancouver
+America/Whitehorse: Amerika / Whitehorse
+America/Winnipeg: Amerika / Winnipeg
+America/Yakutat: Amerika / Yakutat
+America/Yellowknife: Amerika / Yellowknife
+Antarctica/Casey: Antarktis / Casey
+Antarctica/Davis: Antarktis / Davis
+Antarctica/DumontDUrville: Antarktis / DumontDUrville
+Antarctica/Macquarie: Antarktis / Macquarie
+Antarctica/McMurdo: Antarktis / McMurdo
+Antarctica/Mawson: Antarktis / Mawson
+Antarctica/Palmer: Antarktis / Palmer
+Antarctica/Rothera: Antarktis / Rothera
+Antarctica/Syowa: Antarktis / Syowa
+Antarctica/Troll: Antarktis / Troll
+Antarctica/Vostok: Antarktis / Vostok
+Arctic/Longyearbyen: Arctic / Longyearbyen
+Asia/Aden: Asien / Aden
+Asia/Almaty: Asien / Almaty
+Asia/Amman: Asien / Amman
+Asia/Anadyr: Asien / Anadyr
+Asia/Aqtau: Asien / Aqtau
+Asia/Aqtobe: Asien / Aqtobe
+Asia/Ashgabat: Asien / Ashgabat
+Asia/Atyrau: Asien / Atyrau
+Asia/Baghdad: Asien / Bagdad
+Asia/Bahrain: Asien / Bahrain
+Asia/Baku: Asien / Baku
+Asia/Bangkok: Asien / Bangkok
+Asia/Barnaul: Asien / Barnaul
+Asia/Beirut: Asien / Beirut
+Asia/Bishkek: Asien / Bishkek
+Asia/Brunei: Asien / Brunei
+Asia/Chita: Asien / Chita
+Asia/Choibalsan: Asien / Choibalsan
+Asia/Colombo: Asien / Colombo
+Asia/Damascus: Asien / Damaskus
+Asia/Dhaka: Asien / Dhaka
+Asia/Dili: Asien / Dili
+Asia/Dubai: Asien / Dubai
+Asia/Dushanbe: Asien / Dushanbe
+Asia/Famagusta: Asien / Famagusta
+Asia/Gaza: Asien / Gaza
+Asia/Hebron: Asien / Hebron
+Asia/Ho_Chi_Minh: Asien / Ho_Chi_Minh
+Asia/Hong_Kong: Asien / Hong_Kong
+Asia/Hovd: Asien / Hovd
+Asia/Irkutsk: Asien / Irkutsk
+Asia/Jakarta: Asien / Jakarta
+Asia/Jayapura: Asien / Jayapura
+Asia/Jerusalem: Asien / Jerusalem
+Asia/Kabul: Asien / Kabul
+Asia/Kamchatka: Asien / Kamchatka
+Asia/Karachi: Asien / Karachi
+Asia/Kathmandu: Asien / Kathmandu
+Asia/Khandyga: Asien / Khandyga
+Asia/Kolkata: Asien / Kolkata
+Asia/Krasnoyarsk: Asien / Krasnoyarsk
+Asia/Kuala_Lumpur: Asien / Kuala_Lumpur
+Asia/Kuching: Asien / Kuching
+Asia/Kuwait: Asien / Kuwait
+Asia/Macau: Asien / Macau
+Asia/Magadan: Asien / Magadan
+Asia/Makassar: Asien / Makassar
+Asia/Manila: Asien / Manila
+Asia/Muscat: Asien / Muscat
+Asia/Nicosia: Asien / Nicosia
+Asia/Novokuznetsk: Asien / Novokuznetsk
+Asia/Novosibirsk: Asien / Novosibirsk
+Asia/Omsk: Asien / Omsk
+Asia/Oral: Asien / Oral
+Asia/Phnom_Penh: Asien / Phnom_Penh
+Asia/Pontianak: Asien / Pontianak
+Asia/Pyongyang: Asien / Pyongyang
+Asia/Qatar: Asien / Qatar
+Asia/Qostanay: Asien / Qostanay
+Asia/Qyzylorda: Asien / Qyzylorda
+Asia/Riyadh: Asien / Riyadh
+Asia/Sakhalin: Asien / Sakhalin
+Asia/Samarkand: Asien / Samarkand
+Asia/Seoul: Asien / Seoul
+Asia/Shanghai: Asien / Shanghai
+Asia/Singapore: Asien / Singapore
+Asia/Srednekolymsk: Asien / Srednekolymsk
+Asia/Taipei: Asien / Taipei
+Asia/Tashkent: Asien / Tashkent
+Asia/Tbilisi: Asien / Tbilisi
+Asia/Tehran: Asien / Tehran
+Asia/Thimphu: Asien / Thimphu
+Asia/Tokyo: Asien / Tokyo
+Asia/Tomsk: Asien / Tomsk
+Asia/Ulaanbaatar: Asien / Ulaanbaatar
+Asia/Urumqi: Asien / Urumqi
+Asia/Ust-Nera: Asien / Ust-Nera
+Asia/Vientiane: Asien / Vientiane
+Asia/Vladivostok: Asien / Vladivostok
+Asia/Yakutsk: Asien / Yakutsk
+Asia/Yangon: Asien / Yangon
+Asia/Yekaterinburg: Asien / Jekaterinburg
+Asia/Yerevan: Asien / Yerevan
+Atlantic/Azores: Atlantic / Azores
+Atlantic/Bermuda: Atlantic / Bermuda
+Atlantic/Canary: Atlantic / Canary
+Atlantic/Cape_Verde: Atlantic / Cape_Verde
+Atlantic/Faroe: Atlantic / Faroe
+Atlantic/Madeira: Atlantic / Madeira
+Atlantic/Reykjavik: Atlantic / Reykjavik
+Atlantic/South_Georgia: Atlantic / South_
+Atlantic/St_Helena: Atlantic / St_Helena
+Atlantic/Stanley: Atlantic / Stanley
+Australia/Adelaide: Australien / Adelaide
+Australia/Brisbane: Australien / Brisbane
+Australia/Broken_Hill: Australien / Broken_Hill
+Australia/Currie: Australien / Currie
+Australia/Darwin: Australien / Darwin
+Australia/Eucla: Australien / Eucla
+Australia/Hobart: Australien / Hobart
+Australia/Lindeman: Australien / Lindeman
+Australia/Lord_Howe: Australien / Lord_Howe
+Australia/Melbourne: Australien / Melbourne
+Australia/Perth: Australien / Perth
+Australia/Sydney: Australien / Sydney
+Europe/Amsterdam: Europa / Amsterdam
+Europe/Andorra: Europa / Andorra
+Europe/Astrakhan: Europa / Astrakhan
+Europe/Athens: Europa / Athen
+Europe/Belgrade: Europa / Belgrade
+Europe/Berlin: Europe / Berlin
+Europe/Bratislava: Europa / Bratislava
+Europe/Brussels: Europa / Bruxelles
+Europe/Bucharest: Europa / Bukarest
+Europe/Budapest: Europa / Budapest
+Europe/Busingen: Europa / Busingen
+Europe/Chisinau: Europa / Chisinau
+Europe/Copenhagen: Europa / København
+Europe/Dublin: Europa / Dublin
+Europe/Gibraltar: Europa / Gibraltar
+Europe/Guernsey: Europa / Guernsey
+Europe/Helsinki: Europa / Helsinki
+Europe/Isle_of_Man: Europa / Isle_of_Man
+Europe/Istanbul: Europa / Istanbul
+Europe/Jersey: Europa / Jersey
+Europe/Kaliningrad: Europa / Kaliningrad
+Europe/Kiev: Europa / Kiev
+Europe/Kirov: Europa / Kirov
+Europe/Lisbon: Europa / Lissabon
+Europe/Ljubljana: Europa / Ljubljana
+Europe/London: Europa / London
+Europe/Luxembourg: Europa / Luxembourg
+Europe/Madrid: Europa / Madrid
+Europe/Malta: Europa / Malta
+Europe/Mariehamn: Europa / Mariehamn
+Europe/Minsk: Europa / Minsk
+Europe/Monaco: Europa / Monaco
+Europe/Moscow: Europa / Moskva
+Europe/Oslo: Europa / Oslo
+Europe/Paris: Europa / Paris
+Europe/Podgorica: Europa / Podgorica
+Europe/Prague: Europa / Prag
+Europe/Riga: Europa / Riga
+Europe/Rome: Europa / Rom
+Europe/Samara: Europa / Samara
+Europe/San_Marino: Europa / San_Marino
+Europe/Sarajevo: Europa / Sarajevo
+Europe/Saratov: Europa / Saratov
+Europe/Simferopol: Europa / Simferopol
+Europe/Skopje: Europa / Skopje
+Europe/Sofia: Europa / Sofia
+Europe/Stockholm: Europa / Stockholm
+Europe/Tallinn: Europa / Tallinn
+Europe/Tirane: Europa / Tirane
+Europe/Ulyanovsk: Europa / Ulyanovsk
+Europe/Uzhgorod: Europa / Uzhgorod
+Europe/Vaduz: Europa / Vaduz
+Europe/Vatican: Europa / Vatikanet
+Europe/Vienna: Europa / Wien
+Europe/Vilnius: Europa / Vilnius
+Europe/Volgograd: Europa / Volgograd
+Europe/Warsaw: Europa / Warszawa
+Europe/Zagreb: Europa / Zagreb
+Europe/Zaporozhye: Europa / Zaporozhye
+Europe/Zurich: Europa / Zurich
+Indian/Antananarivo: Indian / Antananarivo
+Indian/Chagos: Indian / Chagos
+Indian/Christmas: Indian / jul
+Indian/Cocos: Indian / Cocos
+Indian/Comoro: Indian / Comorerne
+Indian/Kerguelen: Indian / Kerguelen
+Indian/Mahe: Indian / Mahe
+Indian/Maldives: Indian / Maldiverne
+Indian/Mauritius: Indian / Mauritius
+Indian/Mayotte: Indian / Mayotte
+Indian/Reunion: Indian / Reunion
+Pacific/Apia: Pacific / Apia
+Pacific/Auckland: Pacific / Auckland
+Pacific/Bougainville: Pacific / Bougainville
+Pacific/Chatham: Pacific / Chatham
+Pacific/Chuuk: Pacific / Chuuk
+Pacific/Easter: Pacific / påske
+Pacific/Efate: Pacific / Efate
+Pacific/Enderbury: Pacific / Enderbury
+Pacific/Fakaofo: Pacific / Fakaofo
+Pacific/Fiji: Pacific / Fiji
+Pacific/Funafuti: Pacific / Funafuti
+Pacific/Galapagos: Pacific / Galapagos
+Pacific/Gambier: Stillehavet / Gambier
+Pacific/Guadalcanal: Stillehavet / Guadalcanal
+Pacific/Guam: Pacific / Guam
+Pacific/Honolulu: Pacific / Honolulu
+Pacific/Kiritimati: Stillehavet / Kiritimati
+Pacific/Kosrae: Pacific / Kosrae
+Pacific/Kwajalein: Pacific / Kwajalein
+Pacific/Majuro: Pacific / Majuro
+Pacific/Marquesas: Pacific / Marquesas
+Pacific/Midway: Pacific / Midway
+Pacific/Nauru: Stillehavet / Nauru
+Pacific/Niue: Pacific / Niue
+Pacific/Norfolk: Pacific / Norfolk
+Pacific/Noumea: Pacific / Noumea
+Pacific/Pago_Pago: Pacific / Pago_Pago
+Pacific/Palau: Pacific / Palau
+Pacific/Pitcairn: Pacific / Pitcairn
+Pacific/Pohnpei: Pacific / Pohnpei
+Pacific/Port_Moresby: Pacific / Port_Moresby
+Pacific/Rarotonga: Pacific / Rarotonga
+Pacific/Saipan: Pacific / Saipan
+Pacific/Tahiti: Pacific / Tahiti
+Pacific/Tarawa: Pacific / Tarawa
+Pacific/Tongatapu: Stillehavet / Tongatapu
+Pacific/Wake: Pacific / Wake
+Pacific/Wallis: Pacific / Wallis
+UTC: UTC
+'Time Format': 'Tidsformat'
+'Choose your default timezone': 'Vælg din standard tidszone'
+Signature: Underskrift
+'User signature will be append at the bottom of ticket reply box': 'Brugersignatur vil blive tilføjet i bunden af ​​billetsvareboksen'
+Password: Adgangskode
+'Password will remain same if you are not entering something in this field': 'Adgangskode forbliver det samme, hvis du ikke indtaster noget i dette felt'
+'Confirm Password': 'Bekræft kodeord'
+'Save Changes': 'Gem ændringer'
+'SAVE CHANGES': 'GEM ÆNDRINGER'
+'CREATE TICKET': 'Opret TICKET'
+'Customer full name': 'Kundens fulde navn'
+'Customer email address': 'Kundens e-mail-adresse'
+'Select Type': 'Vælg type'
+Support: Support
+'Choose ticket type': 'Vælg billetype'
+'Ticket subject': 'Billetemne'
+Message: Besked
+'Query Message': 'Forespørgsel'
+'Add Attachment': 'Tilføj vedhæftet fil'
+'This field is mandatory': 'Dette felt er obligatorisk'
+General: Generel
+Designation: Betegnelse
+'Contant Number': 'Indholdsnummer'
+'User signature will be append in the bottom of ticket reply box': 'Brugersignatur vil blive tilføjet i bunden af ​​billetsvareboksen'
+'Account Status': 'Kontostatus'
+'Account is Active': 'Konto er aktiv'
+'Assigning group(s) to user to view tickets regardless assignment.': 'Tildeling af gruppe (r) til bruger for at se billetter uanset opgave.'
+Default: Standard
+'Select All': 'Vælg alle'
+'Remove All': 'Fjern alt'
+'Assigning team(s) to user to view tickets regardless assignment.': 'Tildeling af team (er) til bruger for at se billetter uanset opgave.'
+'No Team added !': "Intet hold tilføjet!"
+Permission: Tilladelse
+Role: rolle
+Administrator: Administrator
+'Select agent role': 'Vælg agentrolle'
+'Add Customer': 'Tilføj kunde'
+Action: Handling
+'Account Owner': 'Kontoejer'
+Active: Aktiv
+Edit: Redigere
+Delete: Slet
+Disabled: handicappet
+'New Group': 'Ny gruppe'
+'Default Privileges': 'Standardrettigheder'
+'New Privileges': 'Nye privilegier'
+'NEW PRIVILEGE': 'NY PRIVILEGE'
+'New Privilege': 'Nyt privilegium'
+'New Team': 'Nyt team'
+'No Record Found': "Ingen poster fundet"
+'Order Synchronization': 'Bestillingssynkronisering'
+'Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.': 'Integrer nemt forskellige e-handelsplatforme med din helpdesk, som derefter senere kan bruges til hurtigt at integrere e-handelsordredetaljer med dine supportbilletter.'
+BigCommerce: BigCommerce
+'No channels have been added.': 'Ingen kanaler er tilføjet.'
+'Add BigCommerce Store': 'Tilføj BigCommerce Store'
+'ADD BIGCOMMERCE STORE': 'TILFØJ BIGCOMMERCE STORE'
+Mangento: Mangento
+'Add Magento Store': 'Tilføj Magento-butik'
+OpenCart: OpenCart
+'Add OpenCart Store': 'Tilføj OpenCart Store'
+'ADD OPENCART STORE': 'TILFØJ OPENCART STORE'
+Shopify: Shopify
+'Add Shopify Store': 'Tilføj Shopify-butik'
+'ADD SHOPIFY STORE': 'TILFØJ SHOPIFY BUTIK'
+'Integrate a new BigCommerce store': 'Integrer en ny BigCommerce-butik'
+'Your BigCommerce Store Name': 'Dit BigCommerce Store-navn'
+'Your BigCommerce Store Hash': 'Din BigCommerce Store Hash'
+'Your BigCommerce Api Token': 'Din BigCommerce Api-token'
+'Your BigCommerce Api Client ID': 'Din BigCommerce Api-klient-id'
+'Enable Channel': 'Aktivér kanal'
+'Add Store': 'Tilføj butik'
+'ADD STORE': 'TILFØJ BUTIK'
+'Integrate a new Magento store': 'Integrer en ny Magento-butik'
+'Your Magento Api Username': 'Dit Magento Api brugernavn'
+'Your Magento Api Password': 'Dit Magento Api-adgangskode'
+'Integrate a new OpenCart store': 'Integrer en ny OpenCart-butik'
+'Your OpenCart Api Key': 'Din OpenCart Api-nøgle'
+'Your Shopify Store Name': 'Dit Shopify-butiksnavn'
+'Your Shopify Api Key': 'Din Shopify Api-nøgle'
+'Your Shopify Api Password': 'Dit Shopify Api-adgangskode'
+'Easily embed custom form to help generate helpdesk tickets.': 'Integrer let tilpasset form til at hjælpe med at generere helpdesk-billetter.'
+Form-Builder: Form-Builder
+'Add Formbuilder': 'Tilføj Formbuilder'
+'ADD FORMBUILDER': 'TILFØJ FORBRUGER'
+'No FormBuilder have been added.': 'Ingen FormBuilder er tilføjet.'
+'Create a New Custom Form Below': 'Opret en ny brugerdefineret form nedenfor'
+'Form Name': 'Form Navn'
+'It will be shown in the list of created forms': 'Det vises på listen over oprettede formularer'
+'MANDATORY FIELDS': 'OBLIGATORISKE FELTER'
+'These fields will be visible in form and can''t be edited': 'Disse felter vil være synlige i form og kan ikke redigeres '
+Reply: Svar
+'OPTIONAL FIELDS': 'VALGFRIL'
+'Select These Fields to Add in your Form': 'Vælg disse felter, der skal tilføjes i din form'
+GDPR: BNPR
+Order: Bestille
+Categorybuilder: Categorybuilder
+File: Fil
+'Add Form': 'Tilføj formular'
+'ADD FORM': 'TILFØJ FORM'
+'UPDATE FORM': 'UPDATE FORM'
+'Update Form': 'Opdateringsformular'
+Embed: Indlejre
+EMBED: INDLEJRE
+'EMBED FORMBUILDER': 'EMBED FORMBUILDER'
+'Embed Formbuilder': 'Embed Formbuilder'
+Visit: Besøg
+VISIT: BESØG
+Code: Kode
+'Total Ticket(s)': 'Total billet (er)'
+'Ticket Count': 'Billetælling'
+'SwiftMailer Configurations': 'SwiftMailer-konfigurationer'
+'No swiftmailer configurations found': 'Ingen swiftmailer-konfigurationer fundet'
+'CREATE CONFIGURATION': 'CREATE CONFIGURATION'
+'Add configuration': 'Tilføj konfiguration'
+'Mailer ID': 'Mailer ID'
+'Mailer ID - Leave blank to automatically create id': 'Mailer ID - Lad være tom for automatisk at oprette id'
+'Transport Type': 'Transporttype'
+SMTP: SMTP
+'Enable Delivery': 'Aktiver levering'
+Server: Server
+Port: Havn
+'Encryption Mode': 'Krypteringstilstand'
+ssl: ssl
+tsl: TSL
+None: Ingen
+'Authentication Mode': 'Godkendelsestilstand'
+login: Log på
+Plain: Almindeligt
+CRAM-MD5: CRAM-MD5
+'Sender Address': 'Afsenderadresse'
+'Delivery Address': 'Leveringsadresse'
+'Block Spam': 'Bloker spam'
+'Black list': 'Sort liste'
+'Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)': 'Komma (,) adskilte værdier (f.eks. Support@eksempel.com, @ eksempel.com, 68.98.31.226)'
+'White list': 'Hvid liste'
+'Mailbox Settings': 'Mailbox-indstillinger'
+'No mailbox configurations found': 'Ingen postkassekonfigurationer fundet'
+'NEW MAILBOX': 'NY MAILBOX'
+'New Mailbox': 'Ny postkasse'
+'Mailbox ID - Leave blank to automatically create id': 'Postkasse-id - lad det være tomt for automatisk at oprette id'
+'Mailbox Name': 'Postkassenavn'
+'Enable Mailbox': 'Aktivér postkasse'
+'Incoming Mail (IMAP) Server': 'IMAP-server (indgående post)'
+'Configure your imap settings which will be used to fetch emails from your mailbox.': 'Konfigurer dine imap-indstillinger, som vil blive brugt til at hente e-mails fra din postkasse.'
+Transport: Transportere
+IMAP: IMAP
+Gmail: Gmail
+Yahoo: Yahoo
+Host: Vært
+'IMAP Host': 'IMAP vært'
+'Email address': 'Email adresse'
+'Associated Password': 'Tilknyttet adgangskode'
+'Outgoing Mail (SMTP) Server': 'Udgående mail (SMTP) server'
+'Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.': 'Vælg en gyldig Swift Mailer-konfiguration, der vil blive brugt til at sende e-mails gennem din postkasse.'
+'Swift Mailer ID': 'Swift Mailer ID'
+'None Selected': 'Ingen valgt'
+'Create Mailbox': 'Opret postkasse'
+'CREATE MAILBOX': 'CREATE MAILBOX'
+'New Template': 'Ny skabelon'
+'NEW TEMPLATE': 'NY TEMPLAT'
+'Customer Forgot Password': 'Kunden har glemt password'
+'Customer Account Created': 'Kundekonto oprettet'
+'Ticket generated success mail to customer': 'Ticket genereret succes mail til kunden'
+'Customer Reply To The Agent': 'Kundes svar til agenten'
+'Ticket Assign': 'Billetildeling'
+'Agent Forgot Password': 'Agent glemt adgangskode'
+'Agent Account Created': 'Agentkonto oprettet'
+'Ticket generated by customer': 'Billet genereret af kunden'
+'Agent Reply To The Customer''s ticket': 'Agent svar til kundens billet'
+'Email template name': 'Navn på e-mail-skabelon'
+'Email template subject': 'E-mail-skabelonemne'
+'Template For': 'Skabelon til'
+'Nothing Selected': "Intet valgt"
+'email template will be used for work related with selected option': 'e-mail-skabelon bruges til arbejde relateret til den valgte indstilling'
+'Email template body': 'Skabelon for e-mail'
+Body: Legeme
+placeholders: pladsholdere
+'Ticket Subject': 'Ticket Subject'
+'Ticket Message': 'Billetbesked'
+'Ticket Attachments': 'Billetbilag'
+'Ticket Tags': 'Billetmærker'
+'Ticket Source': 'Billetkilde'
+'Ticket Status': 'Billetstatus'
+'Ticket Priority': 'Billetprioritet'
+'Ticket Group': 'Billetgruppe'
+'Ticket Team': 'Ticket Team'
+'Ticket Thread Message': 'Billettrådbesked'
+'Ticket Customer Name': 'Billetkundenavn'
+'Ticket Customer Email': 'Billet-e-mail'
+'Ticket Agent Name': 'Ticket Agent Name'
+'Ticket Agent Email': 'Ticket Agent Email'
+'Ticket Agent Link': 'Ticket Agent Link'
+'Ticket Customer Link': 'Billetkundelink'
+'Last Collaborator Name': 'Sidste samarbejdsnavn'
+'Last Collaborator Email': 'Sidste samarbejds-e-mail'
+'Agent/ Customer Name': 'Agent / kundenavn'
+'Account Validation Link': 'Konto valideringslink'
+'Password Forgot Link': 'Adgangskode glemt link'
+'Company Name': 'Firmanavn'
+'Company Logo': 'Virksomheds logo'
+'Company URL': 'Virksomheds-URL'
+'Swiftmailer id (Select from drop down)': 'Swiftmailer-id (vælg fra dropdown)'
+PROCEED: FORTSÆT
+Proceed: Fortsæt
+'Theme Color': 'Tema farve'
+'Customer Created': 'Kundeskabt'
+'Agent Created': 'Agent oprettet'
+'Ticket Created': 'Ticket oprettet'
+'Agent Replied on Ticket': 'Agent svaret på billet'
+'Customer Replied on Ticket': 'Kunden svarede på billet'
+'Workflow Status': 'Arbejdsgangsstatus'
+'Workflow is Active': 'Arbejdsgang er aktiv'
+Events: Begivenheder
+'An event automatically triggers to check conditions and perform a respective pre-defined set of actions': 'En begivenhed udløser automatisk for at kontrollere forholdene og udføre et respektive foruddefineret sæt handlinger'
+'Select an Event': 'Vælg en begivenhed'
+'Add More': 'Tilføj mere'
+Conditions: Betingelser
+'Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions': 'Betingelser er sæt af regler, der kontrollerer for specifikke scenarier og udløses ved specifikke lejligheder'
+'Subject or Description': 'Emne eller beskrivelse'
+Actions: Handlinger
+'An action not only reduces the workload but also makes it quite easier for ticket automation': 'En handling reducerer ikke kun arbejdsbyrden, men gør det også meget lettere for billetautomatisering'
+'Select an Action': 'Vælg en handling'
+'Add Note': 'Tilføj note'
+'Mail to Agent': 'Mail til agent'
+'Mail to Customer': 'Mail til kunde'
+'Mail to group': 'Mail til gruppe'
+'Mail to last collaborator': 'Mail til sidste samarbejdspartner'
+'Mail to team': 'Mail til team'
+'Mark Spam': 'Mark spam'
+'Assign to agent': 'Tildel til agent'
+'Assign to group': 'Tildel til gruppe'
+'Set Priority As': 'Indstil prioritet som'
+'Set Status As': 'Indstil status som'
+'Set Tag As': 'Indstil tag som'
+'Assign to Team': 'Tildel til team'
+'Set Type As': 'Indstil type som'
+'Add Workflow': 'Tilføj arbejdsgang'
+'ADD WORKFLOW': 'TILFØJ ARBEJDSFLØDE'
+'Ticket Type code': 'Billetypekode'
+'Ticket Type description': 'Billetype beskrivelse'
+'Type Status': 'Type Status'
+'Type is Active': 'Type er aktiv'
+'Add Save Reply': 'Tilføj Gem svar'
+'Saved reply name': 'Gemt svarnavn'
+'Share saved reply with user(s) in these group(s)': 'Del gemt svar med bruger (e) i denne gruppe (r)'
+'Share saved reply with user(s) in these teams(s)': 'Del gemt svar med bruger (e) i disse hold (r)'
+'Saved reply Body': 'Gemt svar organ'
+'New Prepared Response': 'Ny forberedt svar'
+'Prepared Response Status': 'Forberedt svarstatus'
+'Prepared Response is Active': 'Forberedt svar er aktivt'
+'Share prepared response with user(s) in these group(s)': 'Del forberedt svar med bruger (e) i denne gruppe (r)'
+'Share prepared response with user(s) in these teams(s)': 'Del forberedt svar med bruger (e) i disse teams (r)'
+'ADD PREPARED RESPONSE': 'TILFØJ FORBEREDET RESPONSE'
+'Add Prepared Response': 'Tilføj forberedt svar'
+'Folder Name is shown upfront at Knowledge Base': 'Mappenavn vises på forhånd ved Knowledge Base'
+'A small text about the folder helps user to navigate more easily': 'En lille tekst om mappen hjælper brugeren med at navigere lettere'
+Publish: Offentliggøre
+'Choose appropriate status': 'Vælg passende status'
+'Folder Image': 'Mappebillede'
+'An image is worth a thousands words and makes folder more accessible': 'Et billede er værd tusinder ord og gør mappen mere tilgængelig'
+'Add Category': 'Tilføj kategori'
+'Category Name is shown upfront at Knowledge Base': 'Kategorinavn vises på forhånd ved Knowledge Base'
+'A small text about the category helps user to navigate more easily': 'En lille tekst om kategorien hjælper brugeren med at navigere lettere'
+'Using Category Order, you can decide which category should display first': 'Ved hjælp af kategorirækkefølge kan du bestemme, hvilken kategori der skal vises først'
+Sorting: Sortering
+'Ascending Order (A-Z)': 'Stigende ordre (A-Z)'
+'Descending Order (Z-A)': 'Faldende rækkefølge (Z-A)'
+'Based on Popularity': "Baseret på popularitet"
+'Article of this category will display according to selected option': 'Artikel i denne kategori vises efter den valgte indstilling'
+Article: Genstand
+Title: Titel
+Content: Indhold
+Slug: Slug
+'Slug is the url identity of this article.': 'Slug er url-identiteten til denne artikel.'
+'Meta Title': 'Metatitel'
+# 'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': 'Titelkoder og metabeskrivelser er bit af HTML-kode i overskriften på en webside. De hjælper søgemaskiner med at forstå indholdet på en side. En sides titeltag og metabeskrivelse vises normalt, når denne side vises i søgemaskinens resultater '
+'Meta Keywords': 'Meta-nøgleord'
+'comma "," separated': 'komma separeret'
+'Meta Description': 'Meta beskrivelse'
+Description: Beskrivelse
+'Team Status': 'Team Status'
+'Team is Active': 'Team er aktivt'
+'Edit Privilege': 'Rediger privilegium'
+'Can create ticket': 'Kan oprette billet'
+'Can edit ticket': 'Kan redigere billet'
+'Can delete ticket': 'Kan slette billet'
+'Can restore trashed ticket': 'Kan gendanne papirkurven'
+'Can assign ticket': 'Kan tildele billet'
+'Can assign ticket group': 'Kan tildele billetgruppe'
+'Can update ticket status': 'Kan opdatere billetstatus'
+'Can update ticket priority': 'Kan opdatere billetprioritet'
+'Can update ticket type': 'Kan opdatere billetype'
+'Can add internal notes to ticket': 'Kan tilføje interne noter til billetten'
+'Can edit thread/notes': 'Kan redigere tråd / noter'
+'Can lock/unlock thread': 'Kan låse / låse op tråd'
+'Can add collaborator to ticket': 'Kan tilføje samarbejdspartner til billet'
+'Can delete collaborator from ticket': 'Kan slette samarbejdspartner fra billet'
+'Can delete thread/notes': 'Kan slette tråd / noter'
+'Can apply prepared response on ticket': 'Kan anvende forberedt svar på billet'
+'Can add ticket tags': 'Kan tilføje billetmærker'
+'Can delete ticket tags': 'Kan slette billetmærker'
+'Can kick other ticket users': 'Kan sparke andre billetbrugere'
+'Can manage email templates': 'Kan administrere e-mail-skabeloner'
+'Can manage groups': 'Kan administrere grupper'
+'Can manage Sub-Groups/ Teams': 'Kan administrere undergrupper / hold'
+'Can manage agents': 'Kan administrere agenter'
+'Can manage agent privileges': 'Kan administrere agentrettigheder'
+'Can manage ticket types': 'Kan administrere billettyper'
+'Can manage ticket custom fields': 'Kan administrere brugerdefinerede billetfelter'
+'Can manage customers': 'Kan administrere kunder'
+'Can manage Prepared Responses': 'Kan administrere forberedte svar'
+'Can manage Automatic workflow': 'Kan administrere automatisk arbejdsgang'
+'Can manage tags': 'Kan administrere tags'
+'Can manage knowledgebase': 'Kan administrere vidensbase'
+"Can manage Group's Saved Reply": "Kan administrere Gruppens gemte svar"
+'Add Privilege': 'Tilføj privilegium'
+'Choose set of privileges which will be available to the agent.': 'Vælg et sæt privilegier, der vil være tilgængelige for agenten.'
+'Advanced': 'Fremskreden'
+'Privilege Name must have characters only': 'Privilege-navn skal kun have tegn'
+'Maximum character length is 50': 'Maksimal karakterlængde er 50'
+'Open Tickets': 'Åbne billetter'
+'New Customer': 'Ny kunde'
+'New Agent': 'Ny agent'
+'Total Article(s)': 'Samlede artikel (er)'
+'Please specify a valid email address': 'Angiv venligst en gyldig e-mail-adresse'
+'Please enter the password associated with your email address': 'Indtast det adgangskode, der er knyttet til din e-mail-adresse'
+'Please enter your server host address': 'Indtast venligst din serverværtsadresse'
+'Please specify a port number to connect with your mail server': 'Angiv venligst et portnummer for at oprette forbindelse til din mailserver'
+'Success ! Branding details saved successfully.': 'Succes! Brandingdetaljer er gemt med succes. '
+'Success ! Time details saved successfully.': 'Succes! Tidsoplysninger er gemt med succes. '
+'Spam setting saved successfully.': 'Spamindstilling er gemt med succes.'
+'Please specify a valid name for your mailbox.': 'Angiv venligst et gyldigt navn til din postkasse.'
+'Please select a valid swift-mailer configuration.': 'Vælg en gyldig hurtig-mailer-konfiguration.'
+'Please specify a valid host address.': 'Angiv venligst en gyldig værtadresse.'
+'Please specify a valid email address.': 'Angiv venligst en gyldig e-mail-adresse.'
+'Please enter the associated account password.': 'Indtast den tilknyttede kontoadgangskode.'
+'New Saved Reply': 'Nyt gemt svar'
+'New Category': 'Ny kategori'
+'Folder': 'Folder'
+'Category': 'Kategori'
+'Created': 'Oprettet'
+'All Articles': 'Alle artikler'
+'Viewed': 'Har set'
+'New Article': 'Ny artikel'
+'Thank you for your feedback!': 'Tak for din feedback!'
+'Was this article helpful?': 'Var denne artikel til hjælp?'
+'Helpdesk': 'Helpdesk'
+'Support Center': 'Support Center'
+'Mailboxes': 'postkasser'
+By: Ved
+'Search Tickets': 'Søg billetter'
+'Customer Information': 'Kunde information'
+'Total Replies': 'Total svar'
+'Filter With': 'Filtrer med'
+'Type email to add': 'Skriv e-mail for at tilføje'
+Collaborators: Samarbejdspartnere
+Labels: Etiketter
+Group: Gruppe
+'Stay on ticket': 'Bliv på billet'
+'Redirect to list': 'Omdirigering til liste'
+'Nothing interesting here': "Intet interessant her"
+'Previous Ticket': 'Forrige billet'
+'Next Ticket': 'Næste billet'
+Forward: Frem
+Note: Bemærk
+'Write a reply': 'Skriv et svar'
+'Created Ticket': 'Oprettet billet'
+'All Threads': 'Alle tråde'
+'Forwards': 'Fremad'
+'Notes': 'Notes'
+'Pinned': 'Pinned'
+'Edit Ticket': 'Rediger billet'
+'Print Ticket': 'Udskriv billet'
+'Mark as Spam': 'Marker som spam'
+'Mark as Closed': 'Markér som lukket'
+'Delete Ticket': 'Slet billet'
+'View order details from different eCommerce channels': 'Se ordredetaljer fra forskellige e-handelskanaler'
+'ECOMMERCE CHANNELS': 'ECOMMERCE CHANNELS'
+'Select channel': 'Vælg kanal'
+'Order Id': 'Ordre ID'
+'Fetch Order': 'Hent ordre'
+'No orders have been integrated to this ticket yet.': 'Der er endnu ikke integreret nogen ordrer til denne billet.'
+'Enter your credentials below to gain access to your helpdesk account.': 'Indtast dine legitimationsoplysninger nedenfor for at få adgang til din helpdesk-konto.'
+'Keep me logged in': 'Lad mig forblive logget ind'
+'Forgot Password?': 'Glemt kodeord?'
+'Log in to your': 'Log ind på din'
+'Sign In': 'Log ind'
+'Edit Customer': 'Rediger kunde'
+'Update': 'Opdater'
+'Discard': 'Kassér'
+'Cancel': 'Afbestille'
+'Not Assigned': 'Ikke tildelt'
+'Submit': 'Indsend'
+'Submit And Open': 'Indsend og åben'
+'Submit And Pending': 'Indsend og venter'
+'Submit And Answered': 'Indsend og besvaret'
+'Submit And Resolved': 'Indsend og løst'
+'Submit And Closed': 'Indsend og lukket'
+'Choose a Color': 'Vælg en farve'
+'Create': 'Skab'
+'Edit Label': 'Rediger etiket'
+'Add Label': 'Tilføj etiket'
+'To': 'Til'
+'Ticket': 'Billet'
+'Your browser does not support JavaScript or You disabled JavaScript, Please enable those !': 'Din browser understøtter ikke JavaScript eller du deaktiverede JavaScript. Aktivér venligst disse!'
+'Confirm Action': 'Bekræft handling'
+'Confirm': 'Bekræfte'
+'No result found': "Intet resultat fundet"
+'ticket delivery status': 'billetleveringsstatus'
+'Warning! Select valid image file.': 'Advarsel! Vælg gyldig billedfil. '
+'Error': 'Fejl'
+'Save': 'Gemme'
+'SEO': 'SEO'
+'Edit Saved Filter': 'Rediger gemt filter'
+'Type atleast 2 letters': 'Skriv mindst 2 bogstaver'
+'Remove Label': 'Fjern etiket'
+'New Saved Filter': 'Nyt gemt filter'
+'Is Default': 'Er standard'
+'Remove Saved Filter': 'Fjern gemt filter'
+'Ticket Info': 'Billetinfo'
+'Last Replied Agent': 'Sidste replikerede agent'
+'created Ticket': 'oprettet billet'
+'Uploaded Files': 'Uploadede filer'
+'Download (as .zip)': 'Download (som .zip)'
+'made last reply': 'lavet sidste svar'
+'N/A': 'N / A'
+'Unassigned': 'Utildelt'
+'Label': 'Etiket'
+'Assigned to me': 'Tildelt til mig'
+'Search Query': 'Søgeforespørgsel'
+'Searching': 'Søger'
+'Saved Filter': 'Gemt filter'
+'No Label Created': 'Ingen etiket oprettet'
+'Label with same name already exist.': 'Etiket med samme navn findes allerede.'
+'Create New': 'Lav ny'
+'Mail status': 'Poststatus'
+'replied': 'Svarede'
+'added note': 'tilføjet note'
+'forwarded': 'Videresendt'
+'TO': 'TIL'
+'CC': 'CC'
+'BCC': 'BCC'
+Locked: Låst
+'Edit Thread': 'Rediger tråd'
+'Delete Thread': 'Slet tråd'
+'Unpin Thread': 'Fjern tråden'
+'Pin Thread': 'Pin tråd'
+'Unlock Thread': 'Lås tråd op'
+'Lock Thread': 'Lås tråd'
+'Translate Thread': 'Oversæt tråd'
+'Language': 'Sprog'
+'English': 'Engelsk'
+'French': 'Fransk'
+'Italian': 'Italiensk'
+'Arabic': 'Arabisk'
+'German': 'Tysk'
+'Spanish': 'Spansk'
+'Turkish': 'Tyrkisk'
+'Danish': 'Dansk'
+'System': 'System'
+'Open in Files': 'Åbn i filer'
+'Email address is invalid': 'Email adressen er ugyldig'
+'Tag with same name already exist': 'Tag med samme navn findes allerede'
+'Text length should be less than 20 charactors': 'Tekstlængde skal være mindre end 20 karakterer'
+'Label with same name already exist': 'Etiket med samme navn findes allerede'
+'Agent Name': 'Agentnavn'
+'Agent Email': 'Agent-e-mail'
+open: åben
+'Currently active agents on ticket': 'Aktuelt aktive agenter på billet'
+'Edit Customer Information': 'Rediger kundeoplysninger'
+'Restore': 'Restore'
+'Delete Forever': 'Slet for evigt'
+'Add Team': 'Tilføj team'
+'delete': 'Slet'
+"You didn't have any folder for current filter(s).": "Du havde ikke nogen mappe til aktuelle filter (er)."
+'Add Folder': 'Tilføj mappe'
+'This field must have valid characters only': 'Dette felt skal kun have gyldige tegn'
+'Can edit task': 'Kan redigere opgave'
+'Can create task': 'Kan oprette opgave'
+'Can delete task': 'Kan slette opgave'
+'Can add member to task': 'Kan tilføje medlem til opgaven'
+'Can remove member from task': 'Kan fjerne medlem fra opgaven'
+'Agent Privileges': Agent privilegier
+'Agent Privilege represents overall permissions in System.': 'Agent Privilege repræsenterer overordnede tilladelser i System.'
+'Ticket View': 'Ticket View'
+'User can view tickets based on selected scope.': 'Bruger kan se billetter baseret på det valgte omfang.'
+'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': 'Hvis individuel adgang, kan brugeren kun se tildelte billet (er), hvis teamadgang, kan brugeren se alle billet (er) i team (er), han tilhører og så videre'
+'Global Access': 'Global Access'
+'Group Access': 'Gruppeadgang'
+'Team Access': 'Team Access'
+'Individual Access': 'Individuel adgang'
+'This field must have characters only': 'Dette felt skal kun have tegn'
+'Maximum character length is 40': 'Maksimal karakterlængde er 40'
+'This is not a valid email address': 'Dette er ikke en gyldig e-mail-adresse'
+'Password must contains 8 Characters': 'Adgangskode skal indeholde 8 tegn'
+'The passwords does not match': 'Adgangskoderne stemmer ikke overens'
+'Enabled': 'Aktiveret'
+'Create Configuration': 'Opret konfiguration'
+'Swift Mailer Settings': 'Swift Mailer-indstillinger'
+'Username': 'Brugernavn'
+'Please select a swiftmailer id': "Vælg en hurtig-mail-id"
+'Please enter a valid e-mail id': 'Indtast et gyldigt e-mail-id'
+'Please enter a mailer id': 'Indtast en mailer-id'
+'Email Id': 'E-mail-id'
+'Are you sure? You want to perform this action.': 'Er du sikker? Du vil udføre denne handling. '
+'Reorder': 'Genbestil'
+'New Workflow': 'Ny arbejdsgang'
+'OR': 'ELLER'
+'AND': 'OG'
+'Please enter a valid name.': 'Indtast et gyldigt navn.'
+'Please select a value.': 'Vælg en værdi.'
+'Please add a value.': 'Tilføj en værdi.'
+'This field is required': 'Dette felt er påkrævet'
+'or': 'eller'
+'and': 'og'
+'Select a Condition': 'Vælg en betingelse'
+'Loading...': 'Indlæser...'
+'Select Option': 'Vælg mulighed'
+'Inactive': 'Inaktiv'
+'New Type': 'Ny type'
+'Placeholders': 'Pladsholdere'
+'Ticket Link': 'Billetlink'
+'Id': 'Id'
+'Preview': 'Preview'
+'Sort Order': 'Sorteringsrækkefølge'
+'This field must be a number': 'Dette felt skal være et tal'
+'User': 'Bruger'
+'Edit Group': 'Rediger gruppe'
+'Group Status': 'Gruppestatus'
+'Group is Active': 'Gruppen er aktiv'
+'Add Group': 'Tilføj gruppe'
+'Contact number is invalid': 'Kontaktnummer er ugyldigt'
+'Edit Agent': 'Rediger agent'
+'No Privilege added, Please add Privilege(s) first !': 'Intet privilegium tilføjet, skal du tilføje privilegier (e) først!'
+'Edit Email Template': 'Rediger e-mail-skabelon'
+'Edit Workflow': 'Rediger arbejdsgang'
+'Save Workflow': 'Gem arbejdsgang'
+'Edit Ticket Type': 'Rediger billetype'
+'Add Ticket Type': 'Tilføj billetype'
+'Date Released': 'Udgivet dato'
+'Free': 'Ledig'
+'Premium': 'Præmie'
+'Installed': 'Installeret'
+'Installed Applications': 'Installerede applikationer'
+'Nothing Interesting here': "Intet interessant her"
+'No Categories Added': 'Ingen kategorier tilføjet'
+ticket: billet
+'Add Email Template': 'Tilføj e-mail-skabelon'
+'This field contain 100 characters only': 'Dette felt indeholder kun 100 tegn'
+'This field contain characters only': 'Dette felt indeholder kun tegn'
+'Name length must not be greater than 200 !!': 'Navnets længde må ikke være større end 200 !!'
+'Warning! Correct all field values first!': 'Advarsel! Korrekt alle feltværdier først! '
+'Warning ! This is not a valid request': 'Advarsel! Dette er ikke en gyldig anmodning '
+'Success ! Tag removed successfully.': 'Succes! Mærket blev fjernet. '
+'Success ! Tags Saved successfully.': 'Succes! Mærker er gemt med succes. '
+'Success ! Revision restored successfully.': 'Succes! Revision gendannet med succes. '
+'Success ! Categories updated successfully.': 'Succes! Kategorier opdateret med succes. '
+'Success ! Article Related removed successfully.': 'Succes! Artikelrelateret fjernet med succes. '
+'Success ! Article Related is already added.': 'Succes! Artikel relateret er allerede tilføjet. '
+'Success ! Cannot add self as relative article.': 'Succes! Kan ikke tilføje mig selv som relativ artikel. '
+'Success ! Article Related updated successfully.': 'Succes! Artikelrelateret opdateret med succes. '
+'Success ! Articles removed successfully.': 'Succes! Artikler fjernet med succes. '
+'Success ! Article status updated successfully.': 'Succes! Artikelstatus blev opdateret. '
+'Success ! Article star updated successfully.': 'Succes! Artikelstjernen er opdateret. '
+'Success! Article updated successfully': 'Succes! Artikel opdateret med succes '
+'Success ! Category sort  order updated successfully.': 'Succes! Kategorisorteringsrækkefølge blev opdateret. '
+'Success ! Category status updated successfully.': 'Succes! Kategoristatus blev opdateret. '
+'Success ! Folders updated successfully.': 'Succes! Mapper opdateret med succes. '
+'Success ! Categories removed successfully.': 'Succes! Kategorier fjernet med succes. '
+'Success ! Category updated successfully.': 'Succes! Kategori opdateret med succes. '
+'Error ! Category is not exist.': 'Fejl! Kategori findes ikke. '
+'Warning ! Customer Login disabled by admin.': 'Advarsel! Kunde login deaktiveret af admin. '
+'This Email is not registered with us.': 'Denne e-mail er ikke registreret hos os.'
+'Your password has been updated successfully.': 'Din adgangskode er blevet opdateret.'
+"Password don't match.": "Adgangskode stemmer ikke overens."
+'Error ! Profile image is not valid, please upload a valid format': 'Fejl! Profilbillede er ikke gyldigt, skal du uploade et gyldigt format '
+'Success! Folder has been added successfully.': 'Succes! Mappen er tilføjet med succes. '
+'Folder updated successfully.': 'Mappen er opdateret.'
+'Success ! Folder status updated successfully.': 'Succes! Mappestatus blev opdateret. '
+'Error ! Folder is not exist.': 'Fejl! Mappen findes ikke. '
+'Success ! Folder updated successfully.': 'Succes! Mappen er opdateret. '
+'Error ! Folder does not exist.': 'Fejl! Mappen findes ikke. '
+'Success ! Folder deleted successfully.': 'Succes! Mappen blev slettet. '
+"Warning ! Folder doesn't exists!": "Advarsel! Mappen findes ikke!"
+'Warning ! Cannot create ticket, given email is blocked by admin.': 'Advarsel! Kan ikke oprette billet, da den givne e-mail er blokeret af admin. '
+'Success ! Ticket has been created successfully.': 'Succes! Billetten er oprettet med succes. '
+'Warning ! Can not create ticket, invalid details.': 'Advarsel! Kan ikke oprette billet, ugyldige detaljer. '
+"Warning ! Post size can not exceed 25MB": "Advarsel! Indlægsstørrelse kan ikke overstige 25 MB"
+"Create Ticket Request": "Opret billetanmodning"
+"Success ! Reply added successfully.": "Succes! Svar tilføjet med succes."
+"Warning ! Reply field can not be blank.": "Advarsel! Svarfelt kan ikke være tomt."
+'Success ! Rating has been successfully added.': 'Succes! Bedømmelsen er tilføjet. '
+'Warning ! Invalid rating.': 'Advarsel! Ugyldig bedømmelse. '
+'Error ! Can not add customer as a collaborator.': 'Fejl! Kan ikke tilføje kunde som en samarbejdspartner. '
+'Success ! Collaborator added successfully.': 'Succes! Medarbejder tilføjet med succes. '
+'Error ! Collaborator is already added.': 'Fejl! Samarbejder er allerede tilføjet. '
+'Success ! Collaborator removed successfully.': 'Succes! Medarbejder blev fjernet. '
+'Error ! Invalid Collaborator.': 'Fejl! Ugyldig samarbejdspartner. '
+'An unexpected error occurred. Please try again later.': 'Der opstod en uventet fejl. Prøv igen senere.'
+'Feedback saved successfully.': 'Feedback er gemt.'
+'Feedback updated successfully.': 'Feedback er opdateret.'
+'Invalid feedback provided.': 'Ugyldig feedback givet.'
+'Article not found.': 'Artikel ikke fundet.'
+'You need to login to your account before can perform this action.': 'Du skal logge ind på din konto før du kan udføre denne handling.'
+'Warning! Please add valid Actions!': 'Advarsel! Tilføj venligst gyldige handlinger! '
+'Warning! In Free Plan you can not change Events!': 'Advarsel! I gratis plan kan du ikke ændre begivenheder! '
+'Success! Prepared Response has been updated successfully.': 'Succes! Den forberedte respons er blevet opdateret. '
+'Success! Prepared Response has been added successfully.': 'Succes! Forberedt svar er tilføjet med succes. '
+"Warning  This is not a valid request": 'Advarsel Dette er ikke en gyldig anmodning'
+'Use Default Colors': 'Brug standardfarver'
+'Masonry': 'Murværk'
+'Popular Article': 'Populær artikel'
+'Manage Ticket Custom Fields': 'Administrer brugerdefinerede billetfelter'
+"You don't have premission to edit this Prepared response": "Du har ikke forudsætning for at redigere dette forberedte svar"
+'Save Prepared Response': 'Gem forberedt svar'
+'Success ! Prepared response removed successfully.': 'Succes! Det forberedte svar blev fjernet. '
+'Warning! You are not allowed to perform this action.': 'Advarsel! Du har ikke tilladelse til at udføre denne handling. '
+'Success! Workflow has been updated successfully.': 'Succes! Arbejdsgang er blevet opdateret. '
+'Success! Workflow has been added successfully.': 'Succes! Arbejdsgang er tilføjet med succes. '
+'Success! Order has been updated successfully.': 'Succes! Bestillingen er blevet opdateret. '
+'Success! Workflow has been removed successfully.': 'Succes! Arbejdsgang er blevet fjernet. '
+'Mailbox successfully created.': 'Postkasse er oprettet.'
+'Mailbox successfully updated.': 'Postkasse er opdateret.'
+'Warning ! Bad request !': 'Advarsel! Dårlig anmodning !'
+'Error! Given current password is incorrect.': 'Fejl! Givet den aktuelle adgangskode er forkert. '
+'Success ! Profile update successfully.': 'Succes! Profilopdatering med succes. '
+'Error ! User with same email is already exist.': 'Fejl! Bruger med samme e-mail findes allerede. '
+'Success ! Agent updated successfully.': 'Succes! Agent opdateret. '
+'Success ! Agent removed successfully.': 'Succes! Agent blev fjernet. '
+"Warning ! You are allowed to remove account owner's account.": "Advarsel! Du har tilladelse til at fjerne kontoejers konto."
+"Error ! Invalid user id.": "Fejl! Ugyldigt bruger-id."
+"Success ! Filter has been saved successfully.": "Succes! Filteret er gemt med succes."
+"Success ! Filter has been updated successfully.": "Succes! Filteret er blevet opdateret."
+"Success ! Filter has been removed successfully.": "Succes! Filter er blevet fjernet med succes."
+"Please check your mail for password update.": "Kontroller venligst din mail for opdatering af adgangskode."
+"This Email address is not registered with us.": "Denne e-mail-adresse er ikke registreret hos os."
+"Success ! Customer saved successfully.": "Succes! Kunden er gemt med succes."
+"Error ! User with same email already exist.": "Fejl! Bruger med samme e-mail findes allerede."
+"Success ! Customer information updated successfully.": "Succes! Kundeinformation er opdateret med succes."
+"Success ! Customer updated successfully.": "Succes! Kunden blev opdateret."
+"Error ! Customer with same email already exist.": "Fejl! Kunde med samme e-mail findes allerede."
+"unstarred Action Completed successfully": "ustjernet handling afsluttet med succes"
+"starred Action Completed successfully": "stjernemarkeret handling afsluttet med succes"
+"Success ! Customer removed successfully.": "Succes! Kunden blev fjernet med succes."
+"Error ! Invalid customer id.": "Fejl! Ugyldigt kunde-id."
+"Success! Template has been updated successfully.": "Succes! Skabelonen er blevet opdateret."
+"Success! Template has been added successfully.": "Succes! Skabelon er tilføjet med succes."
+"Success! Template has been deleted successfully.": "Succes! Skabelonen er blevet slettet."
+"Warning! resource not found.": "Advarsel! Ressource ikke fundet."
+"Warning! You can not remove predefined email template which is being used in workflow(s).": "Advarsel! Du kan ikke fjerne foruddefineret e-mail-skabelon, der bruges i arbejdsgang (er)."
+"Success ! Email settings are updated successfully.": "Succes! E-mail-indstillinger er opdateret med succes."
+"Success ! Group information updated successfully.": "Succes! Gruppinformation er opdateret med succes."
+"Success ! Group information saved successfully.": "Succes! Gruppens oplysninger er gemt med succes."
+"Support Group removed successfully.": "Support Group blev fjernet med succes."
+"Success ! Privilege information saved successfully.": "Succes! Oplysninger om privilegier er gemt med succes."
+"Privilege updated successfully.": "Privilege blev opdateret."
+"Support Privilege removed successfully.": "Support Privilege fjernet med succes."
+"Success! Reply has been updated successfully.": "Succes! Svar er blevet opdateret."
+"Success! Reply has been added successfully.": "Succes! Svar er tilføjet med succes."
+"Success! Saved Reply has been deleted successfully": "Succes! Gemt svar er blevet slettet"
+"SwiftMailer configuration updated successfully.": "SwiftMailer-konfiguration blev opdateret med succes."
+"Swiftmailer configuration removed successfully.": "Swiftmailer-konfiguration blev fjernet med succes."
+"Success ! Team information saved successfully.": "Succes! Holdoplysninger er gemt med succes."
+"Success ! Team information updated successfully.": "Succes! Holdoplysninger er opdateret med succes."
+"Support Team removed successfully.": "Supportteamet blev fjernet med succes."
+"Success! Reply has been added successfully": "Succes! Svar er tilføjet med succes"
+"Success ! Thread updated successfully.": "Succes! Tråden er opdateret med succes."
+"Error ! Reply field can not be blank.": "Fejl! Svarfelt kan ikke være tomt."
+"Success ! Thread removed successfully.": "Succes! Tråd fjernet med succes."
+"Success ! Thread locked successfully": "Succes! Tråd låst med succes"
+"Success ! Thread unlocked successfully": "Succes! Tråd låst med succes"
+"Success ! Thread pinned successfully": "Succes! Tråd fastgjort med succes"
+"Error ! Invalid thread.": "Fejl! Ugyldig tråd."
+"Could not create ticket, invalid details.": "Kunne ikke oprette billet, ugyldige detaljer."
+"Success ! Tag updated successfully.": "Succes! Tag blev opdateret med succes."
+"Error ! Customer can not be added as collaborator.": "Fejl! Kunden kan ikke tilføjes som samarbejdspartner."
+"Success ! Tag unassigned successfully.": "Succes! Tag ikke tildelt med succes."
+"Success ! Tag added successfully.": "Succes! Tag tilføjet med succes."
+"Please enter tag name.": "Indtast tag-navn."
+"Error ! Invalid tag.": "Fejl! Ugyldigt tag."
+"Success ! Type removed successfully.": "Succes! Type fjernet med succes."
+"Success ! Ticket to label removed successfully.": "Succes! Billet til etiketten blev fjernet med succes."
+"Unable to retrieve support team details": "Kan ikke hente oplysninger om supportteam"
+"Ticket support group updated successfully": "Billet supportgruppe opdateret med succes"
+"Unable to retrieve status details": "Kan ikke hente statusoplysninger"
+"Insufficient details provided.": "Utilstrækkelige detaljer leveret."
+"Error! Subject field is mandatory": "Fejl! Emnefelt er obligatorisk"
+"Error! Reply field is mandatory": "Fejl! Svarfelt er obligatorisk"
+"Success ! Ticket has been updated successfully.": "Succes! Billet er blevet opdateret."
+"Success ! Label updated successfully.": "Succes! Etiketten blev opdateret med succes."
+"Error ! Invalid label id.": "Fejl! Ugyldigt etiket-id."
+"'Success ! Label removed successfully.": "'Succes! Etiketten blev fjernet."
+"Success ! Label created successfully.": "Succes! Etiket oprettet med succes."
+"Error ! Label name can not be blank.": "Fejl! Etiketnavnet kan ikke være tomt."
+"Success ! Ticket moved to trash successfully.": "Succes! Billet flyttes til papirkurven med succes."
+"Success! Ticket type saved successfully.": "Succes! Billetypen er gemt med succes."
+"Success! Ticket type updated successfully.": "Succes! Billetypen blev opdateret med succes."
+"Error! Ticket type with same name already exist": "Fejl! Billetype med samme navn findes allerede"
+'SAVE': "GEMME"
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Titelkoder og metabeskrivelser er bit af HTML-kode i overskriften på en webside. De hjælper søgemaskiner med at forstå indholdet på en side. En sides titeltag og metabeskrivelse vises normalt, når denne side vises i søgemaskinens resultater"
+#customer page
+"Howdy!": "Howdy!"
+"New Ticket Request": "Ny billetanmodning"
+"Ticket Requests": "Billetanmodninger"
+"Cookie Usage Policy": "Cookie-brugspolitik"
+"cookie": "Cookie"
+"cookies": "cookies"
+"HELP": "HJÆLP"
+"Home": "Hjem"
+"Cookie Policy": "Cookiepolitik"
+"Prev": "Forrige"
+"Ticket query message": "Billetforespørgselsmeddelelse"
+"Select type": "Vælg type"
+"Search KnowledgeBase": "Søg vidensbase"
+"You can't merge an account with itself.": "Du kan ikke flette en konto med sig selv."
+"Edit Profile": "Rediger profil"
+"Customer Login": "Kundelogin"
+"Contact Us": "Kontakt os"
+"If you've ever contacted our support previously, your account would have already been created.": "Hvis du nogensinde har kontaktet vores support tidligere, ville din konto allerede være oprettet."
+"support": "support"
+"HelpDesk": "HelpDesk"
+"Enter search keyword": "Indtast søgeord"
+"Browse via Folders": "Gennemse via mapper"
+"Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Leder du efter noget, der generelt bliver forespurgt? Vælg en relevant mappe nedenunder for at udforske mulige løsninger"
+"Unable to find an answer?": "Kan du ikke finde et svar?"
+"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Leder du efter noget specifikt produkt, der findes i generelle spørgsmål? Gennemse blot de forskellige relevante mapper og kategorier, så finder du den ønskede artikel."
+#forgotpassword
+"Forgot Password": "Glemt kodeord"
+"Enter your email address and we will send you an email with instructions to update your login credentials.": "Indtast din e-mail-adresse, så sender vi dig en e-mail med instruktioner til at opdatere dine loginoplysninger."
+"Send Mail": "Send e-mail"
+"Status:": "Status:"
+"Sign In to %websitename%": "Log ind på %websitename%"
+"Enter your name": "Indtast dit navn"
+"Enter your email": "Indtast din e-mail"
+"Learn more about %deliveryStatus%.": "Lær mere om %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Hvis du vil vide mere om, hvordan vores privatlivspolitik fungerer, bedes du venligst %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Nogle af vores sidesider bruger %cookies% og andre sporingsteknologier. En %cookie% er en lille tekstfil, der f.eks. Kan bruges til at indsamle oplysninger om webstedsaktivitet. Nogle cookies og andre teknologier kan tjene til at huske personlige oplysninger, der tidligere er angivet af en webstedsbruger. Du kan blokere cookies eller slette eksisterende cookies ved at justere den korrekte indstilling i din browser. Se menuen %help% i din browser for at lære, hvordan du gør det. Hvis du blokerer eller sletter %cookies%, kan du finde ud af, om nytten af ​​vores websted er forringet."
+"This field contain maximum 40 charectures.": "Dette felt indeholder maksimalt 40 karakterer."
+"This field contain maximum 50 charectures.": "Dette felt indeholder maksimalt 50 karakterer."
+"Time": 'Logget ind som'
+"Links": 'Din profil'
+"Broadcast Message": 'Opret billet'
+"Wide Logo": 'Opret agent'
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": 'Opret kunde'
+"It will be shown as Logo on Knowledgebase and Helpdesk": 'Log ud'
+"Website Status": 'Apps'
+"Enable front end website and knowledgebase for customer(s)": 'Integrer apps efter dine behov for at få tingene gjort hurtigere end nogensinde'
+"Brand Color": 'Udforsk apps'
+"Page Background Color": 'Form Builder'
+"Header Background Color": Vidensdatabase
+"Banner Background Color": 'Knowledgebase er en kilde til stiv og kompleks information, der hjælper kunderne med at hjælpe sig selv'
+"Page Link Color": Artikler
+"Page Link Hover Color": Kategorier
+"Article Text Color": mapper
+"Tag Line": MAPPER
+"Hi! how can we help?": Produktivitet
+"Layout": 'Automatiser dine processer ved at oprette sæt regler og forudindstillinger for at reagere hurtigere på billetterne'
+"Ticket Create Option": 'Forberedte svar'
+"Login Required To Create Tickets": 'Gemte svar'
+"Remove Customer Login/Signin Button": 'Billetyper'
+"Disable Customer Login": Arbejdsprocesser
+"Meta Description (Recommended)": Indstillinger
+"Meta Keywords (Recommended)": 'Administrer din brandidentitet, firmainformation og andre detaljer med et overblik'
+"Header Link": Branding
+"URL (with http:// or https://)": 'Tilpassede felter'
+"Footer Link": 'E-mail-indstillinger'
+"Custom CSS (Optional)": 'E-mail-skabeloner'
+"It will be add to the frontend knowledgebase only": Postkasse
+"Custom Javascript (Optional)": 'Indstillinger for spam'
+"Broadcast message content to show on helpdesk": 'Swift Mailer'
+"From": Tags
+"Time duration between which message will be displayed(if applicable)": Brugere
+"Broadcasting Status": 'Kontroller dine grupper, hold, agenter og kunder'
+"Broadcasting is Active": Agenter
+"Choose a default company's timezone": kunder
+"Date Time Format": grupper
+"Choose a format to convert date to specified date time format": privilegier
+"An empty file is not allowed.": Hold
+"File size must not be greater than 200KB !!": Applikationer
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": 'ECommerce ordresynkronisering'
+"Provide a valid url(with protocol)": 'Importer detaljer om e-handelsordre til dine supportbilletter fra forskellige tilgængelige platforme'
