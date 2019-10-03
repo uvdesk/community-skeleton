@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+  <head>
+
+
+    <meta http-equiv="Content-Type" content="text/html;" charset="UTF-8"/>
+    <meta name="robots" content="INDEX,FOLLOW"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>
+        {{ code }} - {{ message }}
+    </title>
+
+    <link rel="canonical" href="{{ path('helpdesk_knowledgebase') }}">
+    <link href="https://cdn.uvdesk.com/uvdesk/css/main.css" type="text/css" rel="stylesheet" media="all" />
+    <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}"/>
+  </head>
+
+  <body class=" ">
+    <div class="uv-loader-view" id="uv-def-loader">
+      <div class="uv-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- Notifications Block -->
+    <div class="uv-notifications-wrapper">
+      <noscript>
+        <div class="uv-notification page-load uv-error">
+          <p>Your browser does not support JavaScript or You disabled JavaScript, Please enable those !</p>
+        </div>
+        <style>
+          .uv-loader-view {
+            display: none;
+          }
+        </style>
+      </noscript>
+    </div>
+    <!-- //Notifications Block -->
+
+    <style>
+      .uv-logo {
+        height: 70px;
+        display: table-cell;
+      }
+      .uv-logo img {
+        height: 50px;
+      }
+      .uv-loader-view {
+        display: none;
+      }
+    </style>
+    <div class="uv-box-server-error">
+      <div class="uv-box-server-error-lt">
+        <a class="uv-logo" href="/en/member/dashboard">
+          <img src="{{ asset('bundles/uvdeskcoreframework/images/uvdesk-logo.svg') }}" title="UVDesk">
+        </a>
+        <div class="uv-box-block">
+          <p class="uv-error-title">
+            <span>{{ code }}</span>- {{ message}}
+          <p>{{ description }}</p>
+          </p>
+        </p>
+      </div>
+
+      <div class="uv-box-block">
+        <p>Few of the links which may help you to get back on the track -</p>
+        <ul>
+          <li><a href="{{ path('helpdesk_member_dashboard') }}">Home</a></li>
+          <li><a href="https://support.uvdesk.com">Support</a></li>
+          <li><a href="{{ path('helpdesk_member_handle_login') }}">Sign In</a></li>
+          <li><a href="{{ path('helpdesk_customer_create_ticket') }}">Contact Team UVdesk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="uv-box-server-error-rt">
+      {% set imageUrl = 'bundles/uvdeskcoreframework/images/' ~ code ~ '.png' %}
+      <img class="error-grooves" src="{{ asset(imageUrl) }}" alt="{{ code }}"/>
+    </div>
+  </body>
+</html>
+
