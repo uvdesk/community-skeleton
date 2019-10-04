@@ -414,6 +414,10 @@
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
                     
+                    if (document.getElementById("wizard-error-id")) {
+                        var element = document.getElementById("wizard-error-id");
+                        element.parentNode.removeChild(element);
+                    }                    
                     if (event.keyCode == 13) {
                         let button = document.getElementById('wizardCTA-IterateInstallation');
                         button ? button.click() : '';
@@ -582,7 +586,7 @@
                 } else if(this.model.get('php-extensions').hasOwnProperty('extensions')) {
                     var activeExtensionCount = 0;
                     var extensionCount = this.model.get('php-extensions').extensions.length;
-                    document.querySelector('.PHPExtensions-toggle-details').classList.remove('display-none');
+                    $('.PHPExtensions-toggle-details').removeClass('display-none');
                     // count the active extensions and set each extension with it's status in the extension list
                     this.model.get('php-extensions').extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
