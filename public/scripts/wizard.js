@@ -494,7 +494,7 @@
                 } else if (this.get('php-extensions').hasOwnProperty('extensions')) {
                     let extensions = this.get('php-extensions').extensions;
 
-                    let isExtensionError = undefined;
+                    let isExtensionError;
                     extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
                         if (!extension[currentExtensionName]) {
