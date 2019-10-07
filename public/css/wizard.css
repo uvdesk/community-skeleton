@@ -282,3 +282,7 @@ ul.button-groups > li:last-child {
 .extension-info-container {
     margin-bottom: 10px;
 }
+
+.display-none {
+    display: none;
+}
