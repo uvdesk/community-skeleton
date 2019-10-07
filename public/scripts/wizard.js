@@ -414,6 +414,10 @@
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
                     
+                    if (document.getElementById("wizard-error-id")) {
+                        var element = document.getElementById("wizard-error-id");
+                        element.parentNode.removeChild(element);
+                    }                    
                     if (event.keyCode == 13) {
                         let button = document.getElementById('wizardCTA-IterateInstallation');
                         button ? button.click() : '';
@@ -457,10 +461,10 @@
 
                 $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-version', response);
-                }).fail(() => {
+                }).fail((jqXHR, textStatus, errorThrown) => {
                     this.set('php-version', {
                         status: false,
-                        message: 'An unexpected error occurred during the PHP version verification process.',
+                        message: errorThrown,
                     });
                 }).always(() => {
                     this.view.renderPHPVersion();
@@ -474,10 +478,10 @@
 
                 $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-extensions', response);
-                }).fail(() => {
+                }).fail((jqXHR, textStatus, errorThrown) => {
                     this.set('php-extensions', {
                         status: false,
-                        message: 'An unexpected error occurred while examining your system for missing extensions.',
+                        message: errorThrown,
                     });
                 }).always(() => {
                     this.view.renderPHPExtensionsCriteria();
@@ -487,10 +491,10 @@
             evaluateOverallRequirements: function() {
                 if (false == this.get('php-version').status) {
                     this.set('verified', false);
-                } else {
+                } else if (this.get('php-extensions').hasOwnProperty('extensions')) {
                     let extensions = this.get('php-extensions').extensions;
 
-                    let isExtensionError = undefined;
+                    let isExtensionError;
                     extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
                         if (!extension[currentExtensionName]) {
@@ -502,6 +506,8 @@
                     if (!isExtensionError) {
                         this.set('verified', true);
                     }
+                } else {
+                    this.set('verified', false);
                 }
 
                 if (true === this.get('verified')) {
@@ -577,10 +583,10 @@
                 if (false == this.model.get('fetch')) {
                     this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
-                } else {
+                } else if(this.model.get('php-extensions').hasOwnProperty('extensions')) {
                     var activeExtensionCount = 0;
                     var extensionCount = this.model.get('php-extensions').extensions.length;
-
+                    $('.PHPExtensions-toggle-details').removeClass('display-none');
                     // count the active extensions and set each extension with it's status in the extension list
                     this.model.get('php-extensions').extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
@@ -608,6 +614,12 @@
 
                     extension_info.find('.wizard-svg-icon-extension-criteria-checklist').html(overallExtensionStatus);
                     extension_info.find('.extension-criteria-label').html("You meet " + activeExtensionCount + " out of " + extensionCount + " PHP extensions requirements.");
+                } else {
+                    $('.wizard-svg-icon-extension-criteria-checklist').html(this.wizard_icons_notice_template());
+                    $('.extension-criteria-label').html(
+                        this.model.get('php-extensions').hasOwnProperty('message')
+                            ? this.model.get('php-extensions').message
+                            : 'An unexpected error occurred during the PHP extension evaluation process.');
                 }
             }
         });
