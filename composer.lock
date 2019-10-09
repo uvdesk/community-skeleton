@@ -6144,16 +6144,16 @@
         },
         {
             "name": "uvdesk/automation-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/automation-bundle.git",
-                "reference": "9dceeafb42f8c88dae157c1147dcd676229e7a60"
+                "reference": "80af84337a7c8e8ceb34fb892857e2344b00303c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/9dceeafb42f8c88dae157c1147dcd676229e7a60",
-                "reference": "9dceeafb42f8c88dae157c1147dcd676229e7a60",
+                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/80af84337a7c8e8ceb34fb892857e2344b00303c",
+                "reference": "80af84337a7c8e8ceb34fb892857e2344b00303c",
                 "shasum": ""
             },
             "require": {
@@ -6163,10 +6163,7 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\AutomationBundle\\Package\\Composer",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "uvdesk-package-extension": "Webkul\\UVDesk\\AutomationBundle\\Package\\Composer"
             },
             "autoload": {
                 "psr-4": {
@@ -6184,20 +6181,20 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Automations Bundle",
-            "time": "2019-09-26T08:59:57+00:00"
+            "time": "2019-10-09T16:03:51+00:00"
         },
         {
             "name": "uvdesk/composer-plugin",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/composer-plugin.git",
-                "reference": "49fb992488b9131521d597201ee84d2ca0575bf4"
+                "reference": "856a8bd4aa6f920a6f9fa0fe3cd4ba74726ea0fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/composer-plugin/zipball/49fb992488b9131521d597201ee84d2ca0575bf4",
-                "reference": "49fb992488b9131521d597201ee84d2ca0575bf4",
+                "url": "https://api.github.com/repos/uvdesk/composer-plugin/zipball/856a8bd4aa6f920a6f9fa0fe3cd4ba74726ea0fa",
+                "reference": "856a8bd4aa6f920a6f9fa0fe3cd4ba74726ea0fa",
                 "shasum": ""
             },
             "require": {
@@ -6209,10 +6206,7 @@
             },
             "type": "composer-plugin",
             "extra": {
-                "class": "Webkul\\UVDesk\\PackageManager\\Manager",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "class": "Webkul\\UVDesk\\PackageManager\\Manager"
             },
             "autoload": {
                 "psr-4": {
@@ -6230,20 +6224,20 @@
                 }
             ],
             "description": "Generic purpose composer plugin to auto-configure your packages",
-            "time": "2019-07-25T13:25:01+00:00"
+            "time": "2019-10-09T16:08:19+00:00"
         },
         {
             "name": "uvdesk/core-framework",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "ade4f0bb2534310da90be3c3c2c4aa43c5694316"
+                "reference": "5c1f94e836d626e889d84a4b722d198d4c171f6b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/ade4f0bb2534310da90be3c3c2c4aa43c5694316",
-                "reference": "ade4f0bb2534310da90be3c3c2c4aa43c5694316",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/5c1f94e836d626e889d84a4b722d198d4c171f6b",
+                "reference": "5c1f94e836d626e889d84a4b722d198d4c171f6b",
                 "shasum": ""
             },
             "require": {
@@ -6261,10 +6255,7 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer"
             },
             "autoload": {
                 "psr-4": {
@@ -6282,20 +6273,20 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-10-07T03:51:12+00:00"
+            "time": "2019-10-09T16:06:33+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/extension-framework.git",
-                "reference": "cc75e3eb2f8c3475d5bb21b1c4b1d0d789f4e44f"
+                "reference": "2a85beab51874224e0937f92661eb44be56d55a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/cc75e3eb2f8c3475d5bb21b1c4b1d0d789f4e44f",
-                "reference": "cc75e3eb2f8c3475d5bb21b1c4b1d0d789f4e44f",
+                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/2a85beab51874224e0937f92661eb44be56d55a9",
+                "reference": "2a85beab51874224e0937f92661eb44be56d55a9",
                 "shasum": ""
             },
             "require": {
@@ -6305,10 +6296,7 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\ExtensionFrameworkBundle\\Package\\Composer",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "uvdesk-package-extension": "Webkul\\UVDesk\\ExtensionFrameworkBundle\\Package\\Composer"
             },
             "autoload": {
                 "psr-4": {
@@ -6326,20 +6314,20 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Extension Framework Bundle",
-            "time": "2019-08-19T11:29:25+00:00"
+            "time": "2019-10-09T16:00:16+00:00"
         },
         {
             "name": "uvdesk/mailbox-component",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/mailbox-component.git",
-                "reference": "7ed0cf68ed0f51fa5af8d512129f9a4df3f262ec"
+                "reference": "0d6965e68a2803b586c89624b7f5deb4053b03d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/7ed0cf68ed0f51fa5af8d512129f9a4df3f262ec",
-                "reference": "7ed0cf68ed0f51fa5af8d512129f9a4df3f262ec",
+                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/0d6965e68a2803b586c89624b7f5deb4053b03d1",
+                "reference": "0d6965e68a2803b586c89624b7f5deb4053b03d1",
                 "shasum": ""
             },
             "require": {
@@ -6351,10 +6339,7 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\MailboxBundle\\Package\\Composer",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "uvdesk-package-extension": "Webkul\\UVDesk\\MailboxBundle\\Package\\Composer"
             },
             "autoload": {
                 "psr-4": {
@@ -6372,20 +6357,20 @@
                 }
             ],
             "description": "The Mailbox component provides tools that allows your helpdesk to process tickets from multiple email sources.",
-            "time": "2019-10-07T03:53:03+00:00"
+            "time": "2019-10-09T16:04:48+00:00"
         },
         {
             "name": "uvdesk/support-center-bundle",
-            "version": "dev-master",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "55fe8ee14a5e4ea351b0c2a3cf073497df3e58bf"
+                "reference": "d29ab3d0fd8c3082faa5c51fbec78b7286eb7173"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/55fe8ee14a5e4ea351b0c2a3cf073497df3e58bf",
-                "reference": "55fe8ee14a5e4ea351b0c2a3cf073497df3e58bf",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/d29ab3d0fd8c3082faa5c51fbec78b7286eb7173",
+                "reference": "d29ab3d0fd8c3082faa5c51fbec78b7286eb7173",
                 "shasum": ""
             },
             "require": {
@@ -6395,10 +6380,7 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\SupportCenterBundle\\Package\\Composer",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "uvdesk-package-extension": "Webkul\\UVDesk\\SupportCenterBundle\\Package\\Composer"
             },
             "autoload": {
                 "psr-4": {
@@ -6416,7 +6398,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2019-10-07T03:51:51+00:00"
+            "time": "2019-10-09T16:02:32+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -7265,14 +7247,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "uvdesk/composer-plugin": 20,
-        "uvdesk/core-framework": 20,
-        "uvdesk/extension-framework": 20,
-        "uvdesk/automation-bundle": 20,
-        "uvdesk/support-center-bundle": 20,
-        "uvdesk/mailbox-component": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
