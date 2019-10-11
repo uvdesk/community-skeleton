@@ -15,6 +15,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class ExceptionSubscriber implements EventSubscriberInterface
 {
 	private $container;
+	private $twig;
 
 	public function __construct(ContainerInterface $container, Environment $twig)
 	{
@@ -34,23 +35,16 @@ class ExceptionSubscriber implements EventSubscriberInterface
 	public function onKernelException(ExceptionEvent $event)
 	{
 		$exception = $event->getException();
-
+		
 		if ($this->container->get('kernel')->getEnvironment() === 'prod') {
 			if ($exception->getCode() == 403) {
-				$notFoundTemplate = $this->twig->render('errors/error.html.twig', [
-					'code' => 403,
-					'message' => 'Access Forbidden',
-					'description' => 'You are not authorized to access this page.',
-				]);
-
-				$notFoundResponse = new Response($notFoundTemplate, 403);
+				return;
 			} elseif ($exception instanceof NotFoundHttpException) {
 				$notFoundTemplate = $this->twig->render('errors/error.html.twig', [
 					'code' => 404,
 					'message' => 'Page not Found',
 					'description' => 'We were not able to find the page you are looking for.',
 				]);
-
 				$notFoundResponse = new Response($notFoundTemplate, 404);
 			} else {
 				$notFoundTemplate = $this->twig->render('errors/error.html.twig', [
@@ -58,10 +52,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
 					'code' => 500,
 					'description' => 'Something has gone wrong on the server. Please try again later.',
 				]);
-
 				$notFoundResponse = new Response($notFoundTemplate, 500);
 			}
-
 			$event->setResponse($notFoundResponse);
 		}
 	}
