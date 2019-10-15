@@ -3,21 +3,23 @@
 namespace App\EventListener;
 
 use Twig\Environment;
-use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ExceptionSubscriber implements EventSubscriberInterface
 {
+	private $user;
+	private $twig;
 	private $container;
 
-	public function __construct(ContainerInterface $container, Environment $twig)
+	public function __construct(Environment $twig, ContainerInterface $container, UserInterface $user = null)
 	{
+		$this->user = $user;
 		$this->twig = $twig;
 		$this->container = $container;
 	}
@@ -33,36 +35,46 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
 	public function onKernelException(ExceptionEvent $event)
 	{
+		// We only need to suppress errors in production environment
+		if ($this->container->get('kernel')->getEnvironment() != 'prod') {
+			return;
+		}
+
+		// @TODO: We need to take into account the response type as well (html, xml, json)
 		$exception = $event->getException();
 
-		if ($this->container->get('kernel')->getEnvironment() === 'prod') {
-			if ($exception->getCode() == 403) {
-				$notFoundTemplate = $this->twig->render('errors/error.html.twig', [
+		if ($exception->getCode() == 403) {
+			// On forbidden exception, we need to either:
+			// 		a) If user session is set, display forbidden page
+			// 		b) If user session is not set, redirect to login page
+
+			if (!empty($this->user)) {
+				$template = $this->twig->render('errors/error.html.twig', [
 					'code' => 403,
 					'message' => 'Access Forbidden',
 					'description' => 'You are not authorized to access this page.',
 				]);
-
-				$notFoundResponse = new Response($notFoundTemplate, 403);
-			} elseif ($exception instanceof NotFoundHttpException) {
-				$notFoundTemplate = $this->twig->render('errors/error.html.twig', [
+	
+				$event->setResponse(new Response($template, 403));
+			}
+		} else {
+			if ($exception instanceof NotFoundHttpException) {
+				$template = $this->twig->render('errors/error.html.twig', [
 					'code' => 404,
 					'message' => 'Page not Found',
 					'description' => 'We were not able to find the page you are looking for.',
 				]);
-
-				$notFoundResponse = new Response($notFoundTemplate, 404);
+	
+				$event->setResponse(new Response($template, 404));
 			} else {
-				$notFoundTemplate = $this->twig->render('errors/error.html.twig', [
+				$template = $this->twig->render('errors/error.html.twig', [
 					'message' => 'Internal Server Error',
 					'code' => 500,
 					'description' => 'Something has gone wrong on the server. Please try again later.',
 				]);
-
-				$notFoundResponse = new Response($notFoundTemplate, 500);
+	
+				$event->setResponse(new Response($template, 500));
 			}
-
-			$event->setResponse($notFoundResponse);
 		}
 	}
 }
