@@ -6,8 +6,8 @@
 <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/license.svg" alt="License"></a>
-<a href="#backers"><img src="https://opencollective.com/uvdesk-open-source/backers/badge.svg" alt="Backers on Open Collective"></a>
-<a href="#sponsors"><img src="https://opencollective.com/uvdesk-open-source/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
+<a href="#backers"><img src="https://opencollective.com/uvdesk/backers/badge.svg" alt="Backers on Open Collective"></a>
+<a href="#sponsors"><img src="https://opencollective.com/uvdesk/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
 </p>
 
 A fully-functional [UVDesk Community Edition][1] project skeleton packaged along with the bare essential utilities that you can use to develop your own custom helpdesk solutions.
@@ -91,19 +91,19 @@ Please don't disclose security vulnerabilities publicly. If you find any securit
 
 This project is on [Open Collective][13] and it exists thanks to this people who contribute.
 
-<a href="https://github.com/uvdesk/community-skeleton/graphs/contributors"><img src="https://opencollective.com/uvdesk-open-source/contributors.svg?width=890&button=false"/></a>
+<a href="https://github.com/uvdesk/community-skeleton/graphs/contributors"><img src="https://opencollective.com/uvdesk/contributors.svg?width=890&button=false"/></a>
 
 #### Backers
 
 Thank you to all our backers! 🙏
 
-<a href="https://opencollective.com/uvdesk-open-source#contributors" target="_blank"><img src="https://opencollective.com/uvdesk-open-source/backers.svg?width=890"></a>
+<a href="https://opencollective.com/uvdesk#contributors" target="_blank"><img src="https://opencollective.com/uvdesk/backers.svg?width=890"></a>
 
 #### Sponsors
 
 Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
 
-<a href="https://opencollective.com/uvdesk-open-source/contribute/sponsor-7372/checkout" target="_blank"><img src="https://images.opencollective.com/static/images/become_sponsor.svg"></a>
+<a href="https://opencollective.com/uvdesk/contribute/sponsor-7372/checkout" target="_blank"><img src="https://images.opencollective.com/static/images/become_sponsor.svg"></a>
 
 [1]: https://www.uvdesk.com/
 [3]: https://github.com/uvdesk/core-framework
@@ -116,7 +116,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [10]: https://www.uvdesk.com/en/team/
 [11]: https://github.com/uvdesk/mailbox-component
 [12]: https://github.com/uvdesk/community-skeleton/blob/master/LICENSE
-[13]: https://opencollective.com/uvdesk-open-source
+[13]: https://opencollective.com/uvdesk
 [14]: https://docs.uvdesk.com/
 [15]: https://demo.uvdesk.com/
 [16]: https://forums.uvdesk.com/
