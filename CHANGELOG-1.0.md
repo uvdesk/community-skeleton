@@ -5,6 +5,8 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
 
 * 1.0.1 (2019-10-15)
     * **Issue #209:** User's session out will redirect to 404 error page
+    * **Misc. Changes:**
+        * Updated dependent packages to latest stable release
 
 * 1.0.0 (Released on 2019-10-09)
     * **Issue #163:** Swift mailer and Email settings configuration for outlook not working (raised by alexanderoitx)
