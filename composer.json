@@ -82,5 +82,5 @@
     "conflict": {
         "symfony/symfony": "*"
     },
-    "prefer-stable": true
+    "minimum-stability": "dev"
 }
