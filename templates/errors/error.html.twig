@@ -24,7 +24,6 @@
 			}
 		</style>
 	</head>
-	
 	<body class="">
 		<div class="uv-loader-view" id="uv-def-loader">
 			<div class="uv-loader">
@@ -34,7 +33,6 @@
 			</div>
 		</div>
 
-		<!-- Notifications Block -->
 		<div class="uv-notifications-wrapper">
 			<noscript>
 				<div class="uv-notification page-load uv-error">
@@ -42,7 +40,6 @@
 				</div>
 			</noscript>
 		</div>
-		<!-- //Notifications Block -->
 
 		<div class="uv-box-server-error">
 			<div class="uv-box-server-error-lt">
@@ -52,21 +49,20 @@
 
 				<div class="uv-box-block">
 					<p class="uv-error-title">
-						<span>{{ code }}</span>- {{ message}}
+						<span>{{ code }}</span>- {{ message }}
 						<p>{{ description }}</p>
 					</p>
 				</div>
 
-				<div class="uv-box-block">
-					<p>Few of the links which may help you to get back on the track -</p>
+				{# 
+					<!-- @TODO: We should only display relevant links based on firewalls in order to prevent information leakage. -->
 
-					<ul>
-						<li><a href="{{ path('helpdesk_member_dashboard') }}">Home</a></li>
-						<li><a href="https://support.uvdesk.com">Support</a></li>
-						<li><a href="{{ path('helpdesk_member_handle_login') }}">Sign In</a></li>
-						<li><a href="{{ path('helpdesk_customer_create_ticket') }}">Contact Team UVdesk</a></li>
-					</ul>
-				</div>
+					<div class="uv-box-block">
+						<p>Few of the links which may help you to get back on the track -</p>
+
+						<ul></ul>
+					</div>
+				#}
 			</div>
 
 			<div class="uv-box-server-error-rt">
