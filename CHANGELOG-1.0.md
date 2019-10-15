@@ -3,6 +3,9 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.1 (2019-10-15)
+    * **Issue #209:** User's session out will redirect to 404 error page
+
 * 1.0.0 (Released on 2019-10-09)
     * **Issue #163:** Swift mailer and Email settings configuration for outlook not working (raised by alexanderoitx)
     * **Issue #135:** MAMP not working as 127.0.0.1 but works as localhost (raised by vaishaliwebkul)
