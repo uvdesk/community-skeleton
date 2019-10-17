@@ -1,4 +1,15 @@
 (function ($) {
+    const ERRORS = {
+        error404: {
+            title: 'Unable to locate the path on the server.',
+            description: 'Try putting index.php after your helpdesk installation\'s site url or If you are using apache, make sure that mode_rewrite module is enabled and AllowOverride directive for document root is set to All/FileInfo in your server\'s configuration file.',
+        },
+        error500: {
+            title: 'Something\'s bad happened with the server.',
+            description: ' Try again by clicking the back button or launch the wizard again by refershing the webpage or clicking the cancel button.'
+        },
+    };
+
     // Wait for all assets to load
     $(window).bind("load", function() {
         var UVDeskCommunityInstallSetupView = Backbone.View.extend({
@@ -458,13 +469,15 @@
                 let postData = {
                     specification: 'php-version',
                 };
-
+                
                 $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-version', response);
                 }).fail((jqXHR, textStatus, errorThrown) => {
+                    
                     this.set('php-version', {
                         status: false,
-                        message: errorThrown,
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the PHP version verification process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
                     });
                 }).always(() => {
                     this.view.renderPHPVersion();
@@ -479,9 +492,11 @@
                 $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-extensions', response);
                 }).fail((jqXHR, textStatus, errorThrown) => {
+                    
                     this.set('php-extensions', {
                         status: false,
-                        message: errorThrown,
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the PHP extension evaluation process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
                     });
                 }).always(() => {
                     this.view.renderPHPExtensionsCriteria();
@@ -523,15 +538,15 @@
             model: undefined,
             wizard: undefined,
             events: {
-                "click .PHPExtensions-toggle-details": function () {
+                "click .PHPExtensions-toggle-details, .PHPVersion-toggle-details": function (e) {
                     // show and hide extension details
-                    this.$el.find('#systemCriteria-PHPExtensions-Details').toggle();
+                    const currentElement = Backbone.$(e.currentTarget)
+                    currentElement.parents('[class*="info-container"]').siblings('.systemCriteria-Details').toggle();
                     
-                    let detailsActionSpan = this.$el.find('.PHPExtensions-toggle-details');
-                    if (detailsActionSpan.html() == "Show details") {
-                        detailsActionSpan.html("Hide details");
+                    if (currentElement.html() == "Show details") {
+                        currentElement.html("Hide details");
                     } else {
-                        detailsActionSpan.html("Show details");
+                        currentElement.html("Show details");
                     }
                 }
             },
@@ -563,7 +578,8 @@
             },
             renderPHPVersion: function(status) {
                 this.reference_nodes.version.html(this.wizard_system_requirements_php_ver_template(this.model.get('php-version')));
-
+                this.reference_nodes.version.find('.PHPVersion-toggle-details').hide();
+                
                 if (false == this.model.get('fetch')) {
                     this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.version.find('label').html('Checking currently enabled PHP version');
@@ -574,19 +590,23 @@
                     } else {
                         this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_notice_template());
                         this.reference_nodes.version.find('label').html(this.model.get('php-version').message);
+                        if (this.model.get('php-version').hasOwnProperty('description')) {
+                            this.reference_nodes.version.find('.PHPVersion-toggle-details').show();                        
+                        } 
+                        this.reference_nodes.version.find('.systemCriteria-Details').addClass('systemCriteria-Info-Message');
+                        this.reference_nodes.version.find('#systemCriteria-PHPVersion-Details').html(this.model.get('php-version').description);
                     }
                 }
             },
             renderPHPExtensionsCriteria: function(status) {
                 this.reference_nodes.extension.html(this.wizard_system_requirements_php_ext_template(this.model.get('php-extensions')));
-
+                
                 if (false == this.model.get('fetch')) {
                     this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
                 } else if(this.model.get('php-extensions').hasOwnProperty('extensions')) {
                     var activeExtensionCount = 0;
                     var extensionCount = this.model.get('php-extensions').extensions.length;
-                    $('.PHPExtensions-toggle-details').removeClass('display-none');
                     // count the active extensions and set each extension with it's status in the extension list
                     this.model.get('php-extensions').extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
@@ -615,11 +635,10 @@
                     extension_info.find('.wizard-svg-icon-extension-criteria-checklist').html(overallExtensionStatus);
                     extension_info.find('.extension-criteria-label').html("You meet " + activeExtensionCount + " out of " + extensionCount + " PHP extensions requirements.");
                 } else {
-                    $('.wizard-svg-icon-extension-criteria-checklist').html(this.wizard_icons_notice_template());
-                    $('.extension-criteria-label').html(
-                        this.model.get('php-extensions').hasOwnProperty('message')
-                            ? this.model.get('php-extensions').message
-                            : 'An unexpected error occurred during the PHP extension evaluation process.');
+                    this.reference_nodes.extension.find('.wizard-svg-icon-extension-criteria-checklist').html(this.wizard_icons_notice_template());
+                    this.reference_nodes.extension.find('.extension-criteria-label').html(this.model.get('php-extensions').message);
+                    this.reference_nodes.extension.find('#systemCriteria-PHPExtensions-Details').html(this.model.get('php-extensions').description);
+                    this.reference_nodes.extension.find('#systemCriteria-PHPExtensions-Details').addClass('systemCriteria-Info-Message');
                 }
             }
         });
