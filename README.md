@@ -10,10 +10,24 @@
 <a href="#sponsors"><img src="https://opencollective.com/uvdesk/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
 </p>
 
+## Topics
+1. [Introduction](#introduction)
+2. [Documentation](#documentation)
+3. [Requirements](#requirements)
+4. [Installation & Configuration](#installation-and-configuration)
+5. [License](#license)
+6. [Security Vulnerabilities](#security-vulnerabilities)
+7. [Miscellaneous](#miscellaneous)
+
+### Introduction
+
 A fully-functional [UVDesk Community Edition][1] project skeleton packaged along with the bare essential utilities that you can use to develop your own custom helpdesk solutions.
 
-What's Included?
---------------
+It designed on some of the hottest opensource technologies
+such as [Symfony](https://symfony.com/) a [PHP](https://secure.php.net/) framework, [Backbone.js](https://backbonejs.org/)
+a progressive Javascript framework.
+
+### What's Included?
 
 The standard distribution comes pre-configured with the following bundles:
 
@@ -25,15 +39,15 @@ The standard distribution comes pre-configured with the following bundles:
   
   * [**UVDeskMailBoxBundle**][11] - Convert and get all your emails to support tickets on UVDesk and manage customer query easily.
 
-### Documentation -
+### Documentation
 
 Learn more about UVDesk from [UVDesk Developer Guide][14].
 
-### Demo -
+### Demo 
 
 Visit [UVDesk Live Demo][15].
 
-### Forum -
+### Forum
 
 We are also having a forum for any type of your concern, feature request discussions. Please visit: [UVDesk Community Forum][16].
 
@@ -50,8 +64,7 @@ We are also having a forum for any type of your concern, feature request discuss
 * **IMAP**: [PHP IMAP][6]
 * **MailParse**: [PHP Mailparse][7]
 
-Installation -
---------------
+### Installation and Configuration
 
 To create your project, run the following command:
 
@@ -71,18 +84,18 @@ $ php bin/console uvdesk:configure-helpdesk
 
 After opening your project in the web browser, where you will be greeted by the web installer to guide you in setting up your project.
 
-About Us
---------------
+### About Us
+
 The development of the UVDesk Community Edition is supported by [Webkul][9], led by the [UVDesk Team][10].
 
 Visit our official [website][1] to learn more about the UVDesk Helpdesk System.
 
-License
---------------
+### License
 
 All libraries and bundles included in the UVDesk Community Edition are released under the [MIT][12] license.
 
 ### Security Vulnerabilities
+
 Please don't disclose security vulnerabilities publicly. If you find any security vulnerability in UVDesk opensource then please write us mail: mailto:support@uvdesk.com.
 
 ### Miscellaneous
