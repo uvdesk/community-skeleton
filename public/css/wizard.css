@@ -265,11 +265,10 @@ ul.button-groups > li:last-child {
 }
 
 #systemCriteria-PHPExtensions-Details {
-    display: none;
     margin-left: 30px;
 }
 
-.PHPExtensions-toggle-details {
+.PHPExtensions-toggle-details, .PHPVersion-toggle-details {
     cursor: pointer;
     color: blue;
     text-decoration: underline;
@@ -279,10 +278,14 @@ ul.button-groups > li:last-child {
     font-weight: 700;
 }
 
-.extension-info-container {
+.extension-info-container, .version-info-container {
     margin-bottom: 10px;
 }
 
-.display-none {
+.systemCriteria-Details {
     display: none;
+}
+
+.systemCriteria-Info-Message {
+    margin-left: 30px;
 }
