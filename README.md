@@ -16,7 +16,7 @@ A [uvdesk community][1] helpdesk project skeleton packaged along with the bare e
 Getting Started
 --------------
 
-* [About](#uvdesk-community)
+* [About](#about)
 * [Documentation](#documentation)
 * [Requirements](#requirements)
 * [Installation & Configuration](#installation-and-configuration)
@@ -71,7 +71,8 @@ Requirements
 * **IMAP**: [PHP IMAP][6]
 * **MailParse**: [PHP Mailparse][7]
 
-### Installation and Configuration
+Installation and Configuration
+--------------
 
 To create your project, run the following command:
 
