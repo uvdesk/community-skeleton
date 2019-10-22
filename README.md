@@ -3,58 +3,63 @@
 </a></p>
 
 <p align="center">
-<a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/license.svg" alt="License"></a>
-<a href="#backers"><img src="https://opencollective.com/uvdesk/backers/badge.svg" alt="Backers on Open Collective"></a>
-<a href="#sponsors"><img src="https://opencollective.com/uvdesk/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
-<a href="https://gitter.im/uvdesk/community"><img src="https://badges.gitter.im/uvdesk/community-skeleton.svg" alt="connect on gitter"></a>
+    <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/v/stable.svg" alt="Latest Stable Version"></a>
+    <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/d/total.svg" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/license.svg" alt="License"></a>
+    <a href="#backers"><img src="https://opencollective.com/uvdesk/backers/badge.svg" alt="Backers on Open Collective"></a>
+    <a href="#sponsors"><img src="https://opencollective.com/uvdesk/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
+    <a href="https://gitter.im/uvdesk/community"><img src="https://badges.gitter.im/uvdesk/community-skeleton.svg" alt="connect on gitter"></a>
 </p>
 
+A [uvdesk community][1] helpdesk project skeleton packaged along with the bare essential utilities that you can use to build and customize your own helpdesk solutions.
 
-## Topics
-1. [Introduction](#introduction)
-2. [Documentation](#documentation)
-3. [Requirements](#requirements)
-4. [Installation & Configuration](#installation-and-configuration)
-5. [License](#license)
-6. [Security Vulnerabilities](#security-vulnerabilities)
-7. [Miscellaneous](#miscellaneous)
+Getting Started
+--------------
 
-### Introduction
+* [About](#uvdesk-community)
+* [Documentation](#documentation)
+* [Requirements](#requirements)
+* [Installation & Configuration](#installation-and-configuration)
+* [License](#license)
+* [Security Vulnerabilities](#security-vulnerabilities)
+* [Contributions](#contributions)
 
-A fully-functional [UVDesk Community Edition][1] project skeleton packaged along with the bare essential utilities that you can use to develop your own custom helpdesk solutions.
+About
+--------------
 
-It designed on some of the hottest opensource technologies
-such as [Symfony](https://symfony.com/) a [PHP](https://secure.php.net/) framework, [Backbone.js](https://backbonejs.org/)
-a progressive Javascript framework.
+Build on top of [symfony](https://symfony.com/) and [backbone.js](https://backbonejs.org/), uvdesk community is a service oriented, event driven extensible opensource helpdesk system that can be used by your organization to provide efficient support to your clients effortlessly whichever way you imagine.
 
-### What's Included?
+The standard distribution comes packaged along with the following helpdesk packages to cover a wide range of use-cases and requirements:
 
-The standard distribution comes pre-configured with the following bundles:
+  * [**Core Framework**][2] - At the heart of the helpdesk system, the core framework consists of all the necessary apis required by your project and dependent packages to keep things running smoothly
 
-  * [**UVDeskCoreBundle**][3] - The core framework bundle for bulding helpdesk solutions
+  * [**Extension Framework**][3] - Introduces support for third-party package integration and development to easily build and extend the functionalities of your helpdesk system as per your requirements
 
-  * [**UVDeskAutomationBundle**][4] - Adds support for workflows and prepared responses to automate any specific operations within your helpdesk system
+  * [**Automation Bundle**][4] - Adds support for workflows and prepared responses to automate any specific operations within your helpdesk system
 
-  * [**UVDeskSupportCenterBundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
-  
-  * [**UVDeskMailBoxBundle**][11] - Convert and get all your emails to support tickets on UVDesk and manage customer query easily.
+  * [**Mailbox Component**][11] - Convert and get all your emails to support tickets on UVDesk and manage customer query easily.
 
-### Documentation
+  * [**Support Center Bundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
+
+You can learn more about the uvdesk community project by visting our [official website][1].
+
+Documentation
+--------------
 
 Learn more about UVDesk from [UVDesk Developer Guide][14].
 
-### Demo 
+Demo
+--------------
 
 Visit [UVDesk Live Demo][15].
 
-### Forum
+Forum
+--------------
 
 We are also having a forum for any type of your concern, feature request discussions. Please visit: [UVDesk Community Forum][16].
 
-
-### Requirements
+Requirements
+--------------
 
 * **OS**: Ubuntu 16.04 LTS or higher / Windows 7 or Higher (WAMP / XAMPP).
 * **SERVER**: Apache 2 or NGINX.
@@ -86,23 +91,25 @@ $ php bin/console uvdesk:configure-helpdesk
 
 After opening your project in the web browser, where you will be greeted by the web installer to guide you in setting up your project.
 
-### About Us
+About Us
+--------------
 
 The development of the UVDesk Community Edition is supported by [Webkul][9], led by the [UVDesk Team][10].
 
 Visit our official [website][1] to learn more about the UVDesk Helpdesk System.
 
-### License
+License
+--------------
 
 All libraries and bundles included in the UVDesk Community Edition are released under the [MIT][12] license.
 
-### Security Vulnerabilities
+Security Vulnerabilities
+--------------
 
 Please don't disclose security vulnerabilities publicly. If you find any security vulnerability in UVDesk opensource then please write us mail: mailto:support@uvdesk.com.
 
-### Miscellaneous
-
-#### Contributors
+Contributions
+--------------
 
 This project is on [Open Collective][13] and it exists thanks to this people who contribute.
 
@@ -121,7 +128,8 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 <a href="https://opencollective.com/uvdesk/contribute/sponsor-7372/checkout" target="_blank"><img src="https://images.opencollective.com/static/images/become_sponsor.svg"></a>
 
 [1]: https://www.uvdesk.com/
-[3]: https://github.com/uvdesk/core-framework
+[2]: https://github.com/uvdesk/core-framework
+[3]: https://github.com/uvdesk/extension-framework
 [4]: https://github.com/uvdesk/automation-bundle
 [5]: https://github.com/uvdesk/support-center-bundle
 [6]: http://php.net/manual/en/book.imap.php
