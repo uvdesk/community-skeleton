@@ -11,7 +11,7 @@
     <a href="https://gitter.im/uvdesk/community"><img src="https://badges.gitter.im/uvdesk/community-skeleton.svg" alt="connect on gitter"></a>
 </p>
 
-A [uvdesk community][1] helpdesk project skeleton packaged along with the bare essential utilities that you can use to build and customize your own helpdesk solutions.
+[Uvdesk Community][1] helpdesk project skeleton packaged along with the bare essential utilities that you can use to build and customize your own helpdesk solutions.
 
 Getting Started
 --------------
