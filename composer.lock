@@ -6148,12 +6148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/automation-bundle.git",
-                "reference": "b1899ae9a6dcd276a7c7dfb781b3668a802161f7"
+                "reference": "bb838de0902d621025de3e580459e4ba712b7666"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/b1899ae9a6dcd276a7c7dfb781b3668a802161f7",
-                "reference": "b1899ae9a6dcd276a7c7dfb781b3668a802161f7",
+                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/bb838de0902d621025de3e580459e4ba712b7666",
+                "reference": "bb838de0902d621025de3e580459e4ba712b7666",
                 "shasum": ""
             },
             "require": {
@@ -6184,7 +6184,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Automations Bundle",
-            "time": "2019-10-09T15:31:26+00:00"
+            "time": "2019-10-22T05:34:20+00:00"
         },
         {
             "name": "uvdesk/composer-plugin",
@@ -6238,12 +6238,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "9850142ec3a4a7a9fc3d37bb29ee9501927d5bc1"
+                "reference": "976a0f549139e5306286a39c02edb82216c34a17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/9850142ec3a4a7a9fc3d37bb29ee9501927d5bc1",
-                "reference": "9850142ec3a4a7a9fc3d37bb29ee9501927d5bc1",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/976a0f549139e5306286a39c02edb82216c34a17",
+                "reference": "976a0f549139e5306286a39c02edb82216c34a17",
                 "shasum": ""
             },
             "require": {
@@ -6282,7 +6282,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-10-15T12:04:42+00:00"
+            "time": "2019-10-22T10:18:46+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -6290,12 +6290,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/extension-framework.git",
-                "reference": "b3f64efcfe62dd6566f122b16b7348673e3f8992"
+                "reference": "a1f607b575e958c18d3d1573461803da916f01f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/b3f64efcfe62dd6566f122b16b7348673e3f8992",
-                "reference": "b3f64efcfe62dd6566f122b16b7348673e3f8992",
+                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/a1f607b575e958c18d3d1573461803da916f01f9",
+                "reference": "a1f607b575e958c18d3d1573461803da916f01f9",
                 "shasum": ""
             },
             "require": {
@@ -6326,7 +6326,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Extension Framework Bundle",
-            "time": "2019-10-09T15:31:27+00:00"
+            "time": "2019-10-22T07:43:38+00:00"
         },
         {
             "name": "uvdesk/mailbox-component",
@@ -6334,12 +6334,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/mailbox-component.git",
-                "reference": "1df0f314c5a1e497e194b6b9734821bdfd3af5fb"
+                "reference": "04d2a16802c1706346e15c11309ae8a0b87e4243"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/1df0f314c5a1e497e194b6b9734821bdfd3af5fb",
-                "reference": "1df0f314c5a1e497e194b6b9734821bdfd3af5fb",
+                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/04d2a16802c1706346e15c11309ae8a0b87e4243",
+                "reference": "04d2a16802c1706346e15c11309ae8a0b87e4243",
                 "shasum": ""
             },
             "require": {
@@ -6372,7 +6372,7 @@
                 }
             ],
             "description": "The Mailbox component provides tools that allows your helpdesk to process tickets from multiple email sources.",
-            "time": "2019-10-15T10:32:01+00:00"
+            "time": "2019-10-22T06:47:08+00:00"
         },
         {
             "name": "uvdesk/support-center-bundle",
@@ -6380,12 +6380,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "dee27e37169fa7c60451a0fa370b377b122fb699"
+                "reference": "3f5309ac434441d2bc3111fd3f6e08a5d46e454c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/dee27e37169fa7c60451a0fa370b377b122fb699",
-                "reference": "dee27e37169fa7c60451a0fa370b377b122fb699",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/3f5309ac434441d2bc3111fd3f6e08a5d46e454c",
+                "reference": "3f5309ac434441d2bc3111fd3f6e08a5d46e454c",
                 "shasum": ""
             },
             "require": {
@@ -6416,7 +6416,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2019-10-15T10:32:01+00:00"
+            "time": "2019-10-22T07:18:32+00:00"
         },
         {
             "name": "webmozart/assert",
