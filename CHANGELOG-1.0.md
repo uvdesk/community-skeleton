@@ -3,7 +3,7 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
-* 1.0.2 (2019-10-22)
+* 1.0.3 (2019-10-23)
     * **Misc. Changes:**
         * Updated web installer for better error reporting
         * Updated README.md with link to the official gitter chat for the community project
