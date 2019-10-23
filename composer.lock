@@ -6148,12 +6148,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/automation-bundle.git",
-                "reference": "79dfd286000101312355601fb3f2ed849751b44a"
+                "reference": "57a8b959d7e9d06d71689841c7d4b6ef1ad0432e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/79dfd286000101312355601fb3f2ed849751b44a",
-                "reference": "79dfd286000101312355601fb3f2ed849751b44a",
+                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/57a8b959d7e9d06d71689841c7d4b6ef1ad0432e",
+                "reference": "57a8b959d7e9d06d71689841c7d4b6ef1ad0432e",
                 "shasum": ""
             },
             "require": {
@@ -6184,7 +6184,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Automations Bundle",
-            "time": "2019-10-22T13:35:31+00:00"
+            "time": "2019-10-23T10:34:23+00:00"
         },
         {
             "name": "uvdesk/composer-plugin",
@@ -6238,12 +6238,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "98725b267ed66768859cf5189c9bf106881e8e68"
+                "reference": "55254cd14b93e4eb9e618a4d2eba81317b4a2a3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/98725b267ed66768859cf5189c9bf106881e8e68",
-                "reference": "98725b267ed66768859cf5189c9bf106881e8e68",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/55254cd14b93e4eb9e618a4d2eba81317b4a2a3d",
+                "reference": "55254cd14b93e4eb9e618a4d2eba81317b4a2a3d",
                 "shasum": ""
             },
             "require": {
@@ -6282,7 +6282,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-10-22T13:36:56+00:00"
+            "time": "2019-10-23T10:33:57+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
