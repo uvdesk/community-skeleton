@@ -243,7 +243,7 @@ ul.button-groups > li:last-child {
     padding: 20px 0px 35px 0px;
 }
 .wizard-box-rt .criteria-checklist li {
-    margin-bottom: 10px;
+    padding-top: 10px;
 }
 
 #wizardSetupNavigation button .processing-request, #wizard-finalizeInstall .installation-progress-loader {
@@ -391,15 +391,14 @@ ul.button-groups > li:last-child {
      background: #FFFFFE;
  }
  
- li p {
+ .progress-bar li p {
     margin-left: 40px;
-    margin-top: -15px;   
+    margin-top: -23px;   
      
  }
  
  li {
      list-style: none;
-     line-height: 1px;
  }
 
  .fetching-details label{

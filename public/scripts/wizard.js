@@ -593,7 +593,15 @@
                             var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently active.";
                         } else {
                             var currentExtensionIconStatus = this.wizard_icons_notice_template();
-                            var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently in-active.";
+                            if (currentExtensionName == 'imap'){
+                                var currentExtensionTextStatus = "<span class='extension_name'> PHP" + currentExtensionName + "extension </span><p>Need to resolve this issue can be done by reading this blog link:<a href='https://www.php.net/manual/en/imap.setup.php' target='_blank'>How to resolve PHP imap extension</a></p>";
+                            }
+                            else if(currentExtensionName == 'mailparse'){
+                                var currentExtensionTextStatus = "<span class='extension_name'> PHP" + currentExtensionName + "extension </span><p>Need to resolve this issue can be done by reading this blog link:<a href='https://www.php.net/manual/en/book.mailparse.php' target='_blank'>How to resolve PHP mailparse extension</a></p>";
+                            }
+                            else{
+                                var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "extension is currently inactive</span>";
+                            }
                         }
 
                         currentExtensionTemplateInfo.find('.wizard-svg-icon-criteria-checklist').html(currentExtensionIconStatus);
