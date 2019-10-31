@@ -51,7 +51,7 @@ The development of the uvdesk community edition is led by the [uvdesk][10] team 
 Documentation
 --------------
 
-Visit [docs.uvdesk.com](14) to read our official documentation and learn more about the uvdesk community project.
+Visit [docs.uvdesk.com](https://docs.uvdesk.com/) to read our official documentation and learn more about the uvdesk community project.
 
 We use Jekyll to develop and maintain our documentations. Consider contributing by submitting a pull request to our project's [jeykll repository](https://github.com/uvdesk/uvdesk.github.io).
 
