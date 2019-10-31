@@ -3,6 +3,11 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.4 (2019-10-31)
+    * **Feature:** Easily dockerize your helpdesk project to deploy it from within a container
+    * **Misc. Changes:**
+        * Updated README.md and included instructions to deploying the project from within a docker conatiner
+
 * 1.0.3 (2019-10-23)
     * **Misc. Changes:**
         * Updated web installer for better error reporting
