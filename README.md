@@ -11,7 +11,9 @@
     <a href="https://gitter.im/uvdesk/community"><img src="https://badges.gitter.im/uvdesk/community-skeleton.svg" alt="connect on gitter"></a>
 </p>
 
-[Uvdesk Community][1] helpdesk project skeleton packaged along with the bare essential utilities that you can use to build and customize your own helpdesk solutions.
+[Uvdesk community helpdesk][1] project skeleton packaged along with the bare essential utilities and tools to build and customize your own helpdesk solutions.
+
+Visit our official demo website to [see it in action!][15]
 
 Getting Started
 --------------
@@ -19,7 +21,8 @@ Getting Started
 * [About](#about)
 * [Documentation](#documentation)
 * [Requirements](#requirements)
-* [Installation & Configuration](#installation-and-configuration)
+* [Installation](#installation)
+* [Docker Runtime](#docker-runtime)
 * [License](#license)
 * [Security Vulnerabilities](#security-vulnerabilities)
 * [Contributions](#contributions)
@@ -41,22 +44,16 @@ The standard distribution comes packaged along with the following helpdesk packa
 
   * [**Support Center Bundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
 
-You can learn more about the uvdesk community project by visting our [official website][1].
+Reach out to us at our official [gitter chat](https://gitter.im/uvdesk/community) or [forum][16] for any queries, concerns and feature request discussions.
+
+The development of the uvdesk community edition is led by the [uvdesk][10] team and backed by [Webkul][9]. Visit our [website][1] to learn more about the UVDesk Helpdesk System.
 
 Documentation
 --------------
 
-Learn more about UVDesk from [UVDesk Developer Guide][14].
+Visit [docs.uvdesk.com](14) to read our official documentation and learn more about the uvdesk community project.
 
-Demo
---------------
-
-Visit [UVDesk Live Demo][15].
-
-Forum
---------------
-
-We are also having a forum for any type of your concern, feature request discussions. Please visit: [UVDesk Community Forum][16].
+We use Jekyll to develop and maintain our documentations. Consider contributing by submitting a pull request to our project's [jeykll repository](https://github.com/uvdesk/uvdesk.github.io).
 
 Requirements
 --------------
@@ -71,33 +68,122 @@ Requirements
 * **IMAP**: [PHP IMAP][6]
 * **MailParse**: [PHP Mailparse][7]
 
-Installation and Configuration
+Installation
 --------------
 
-To create your project, run the following command:
+The installation process is broken down into two distinct steps:
+
+* Setup
+* Configuration
+
+### Setting up your helpdesk project
+
+In this step of the installation process, you'll be downloading the helpdesk project skeleton and installing all of its dependent components.
+
+As per your convenience, you can choose to either use composer for download the project and install all its dependencies automatically or directly download the project archive that comes pre-packaged with all of the project dependencies already installed.
+
+We recommend using composer over direct download whenever possible. However, if your system does not have enough ram to execute composer operations properly (for example: installing on a shared host with limited system resources), we suggest using the direct download method instead to mitigate these kind of issues.
+
+Irrespective of the method you use, the process to configuring your helpdesk remains the same.
+
+#### Composer
+
+You can use composer to setup your project by simply running the following command from your terminal:
 
 ```bash
 $ composer create-project uvdesk/community-skeleton helpdesk-project
 ```
 
-After creating your project, you can setup the project in the following ways:
+#### Direct Download
 
-**Via Terminal**
+Alternatively, you can also [download the zip archive](https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip) of the latest stable release and extract its content by running the following commands from your terminal:
+
+```bash
+$ wget "https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip" -P /var/www/
+$ unzip -q /var/www/uvdesk-community-current-stable.zip -d /var/www/ \
+```
+
+### Configuring your helpdesk project
+
+After you've downloaded and installed all the project dependencies, you can configure your helpdesk installation using either of the following ways:
+
+#### Using Terminal
 
 ```bash
 $ php bin/console uvdesk:configure-helpdesk
 ```
 
-**Via Web Installer**
+#### Using Web Installer Wizard
 
-After opening your project in the web browser, where you will be greeted by the web installer to guide you in setting up your project.
+After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
 
-About Us
+Docker Runtime
 --------------
 
-The development of the UVDesk Community Edition is supported by [Webkul][9], led by the [UVDesk Team][10].
+You can also dockerize your helpdesk project to easily deploy your setup from within a docker container.
 
-Visit our official [website][1] to learn more about the UVDesk Helpdesk System.
+To build an image, simply switch to your project's directory and run the following command:
+
+```bash
+$ docker build -t {IMAGE_NAME} .
+```
+
+Upon successfull execution, this will create a docker image with the specified tag using the -t option. You can use this image to deploy your helpdesk project using either `docker run` or `docker-compose`.
+
+### Deploying Containers
+
+Containers can be launched using one of the two given methods:
+
+#### Using Docker Run
+
+You can simply launch a standalone container using the following command:
+
+```bash
+# If you wish to use a local database within container
+$ docker run -dit -p {AVAILABLE_PORT}:80 \
+    -e MYSQL_USER={MYSQL_USER} \
+    -e MYSQL_ROOT_PASSWORD={MYSQL_ROOT_PASSWORD} \
+    -e MYSQL_PASSWORD={MYSQL_PASSWORD} \
+    -e MYSQL_DATABASE={MYSQL_DATABASE} \
+    --name {CONTAINER_NAME} {IMAGE_NAME}
+
+# If you wish to use an external database outside container
+$ docker run -dit -p {AVAILABLE_PORT}:80 --name {CONTAINER_NAME} {IMAGE_NAME}
+```
+
+#### Using Docker Compose
+
+Create a configuration file docker-compose.yaml and set it's configuration details as follows:
+
+```bash
+version: '3'
+services:
+    uvdesk:
+        image: {IMAGE_NAME}:latest
+        tty: true
+        environment:
+            MYSQL_USER: {MYSQL_USER}
+            MYSQL_PASSWORD: {MYSQL_PASSWORD}
+            MYSQL_ROOT_PASSWORD: {MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: {MYSQL_DATABASE}
+        ports:
+            - {AVAILABLE_PORT}:80
+```
+
+Once you've created the configuration file, deploy your containers as services using the following command:
+
+```bash
+$ docker-compose up -d -f {PATH_TO_DOCKER_FILE}
+```
+
+References:
+* **IMAGE_NAME**: Name of the image to being build
+* **CONTAINER_NAME**: Name of the created container
+* **AVAILABLE_PORT**: Map port 80 (apache) within the container to an available port on your host
+* **MYSQL_USER**: MySQL user name
+* **MYSQL_ROOT_PASSWORD**: MySQL root user password
+* **MYSQL_PASSWORD**: MySQL user password
+* **MYSQL_DATABASE**: MySQL database name
 
 License
 --------------
@@ -107,12 +193,12 @@ All libraries and bundles included in the UVDesk Community Edition are released 
 Security Vulnerabilities
 --------------
 
-Please don't disclose security vulnerabilities publicly. If you find any security vulnerability in UVDesk opensource then please write us mail: mailto:support@uvdesk.com.
+Please don't disclose any security vulnerabilities publicly. If you find any security vulnerability in our platform then please write us at [support@uvdesk.com](mailto:support@uvdesk.com).
 
 Contributions
 --------------
 
-This project is on [Open Collective][13] and it exists thanks to this people who contribute.
+This project is hosted on [Open Collective][13] and exists thanks to our contributors:
 
 <a href="https://github.com/uvdesk/community-skeleton/graphs/contributors"><img src="https://opencollective.com/uvdesk/contributors.svg?width=890&button=false"/></a>
 

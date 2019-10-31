@@ -1,0 +1,4 @@
+# Ignore files that aren't required to be in the build context when building images
+/var/log/*
+/var/cache/*
+/Dockerfile
