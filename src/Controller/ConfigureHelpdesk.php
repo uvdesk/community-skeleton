@@ -87,57 +87,49 @@ class ConfigureHelpdesk extends Controller
         
         // unset($_SESSION['DB_CONFIG']);
 
-        $dbParams = [
-            'driver' => 'pdo_mysql',
-            "host" => $request->request->get('serverName'),
-            "port" => $request->request->get('serverPort'),
-            'user' => $request->request->get('username'),
-            'password' => $request->request->get('password'),
-        ];
         try {
+            $dbParams = [
+                'driver' => 'pdo_mysql',
+                "host" => $request->request->get('serverName'),
+                "port" => $request->request->get('serverPort'),
+                'user' => $request->request->get('username'),
+                'password' => $request->request->get('password'),
+            ];
             $ifNotExists = (bool) $request->request->get('ifNotExists');
-            $tmpConnection = DriverManager::getConnection($dbParams);
-            $dbName = $request->request->get('database');
-            $dbParams = array_merge($dbParams, ['dbname' => $dbName]);
-            $shouldCreateDatabase = $ifNotExists && !in_array($dbName, $tmpConnection->getSchemaManager()->listDatabases());
+            
+            // Creating a connection without specifying database
+            $databaseConnection = DriverManager::getConnection($dbParams);
+            $dbname = $request->request->get('database');
+            $shouldCreateDatabase = $ifNotExists && !in_array($dbname, $databaseConnection->getSchemaManager()->listDatabases());
 
             if ($shouldCreateDatabase) {
-                $tmpConnection->getSchemaManager()->createDatabase($tmpConnection->getDatabasePlatform()->quoteSingleIdentifier($dbName));
+                $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($dbname));
             }
+            // Closing the existing connection
+            $databaseConnection->close();
+            
+            // Creating a new Connection (with database name)
+            $dbParams = array_merge($dbParams, ['dbname' => $dbname]);
+            $databaseConnection = DriverManager::getConnection($dbParams);
 
+            if (!$databaseConnection->isConnected()) {
+                // Try connecting with the database if the connection is not active.
+                $databaseConnection->connect();
+
+                $_SESSION['DB_CONFIG'] = [
+                    'host' => $dbParams['host'] . $dbParams['port'],
+                    'username' => $dbParams['user'],
+                    'password' => $dbParams['password'],
+                    'database' => $dbParams['dbname'],
+                ];
+
+                return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
+            }
         } catch (\Exception $e) {
             // Unable to create database
             // @TODO: Error reporting to user.
             return new Response(json_encode(['status' => false]), 200, self::DEFAULT_JSON_HEADERS);
         }
-
-        // Get entity manager
-        $entityManager = EntityManager::create($dbParams, Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
-        $databaseConnection = $entityManager->getConnection();
-        $connectionResponse = [
-            'status' => $databaseConnection->isConnected(),
-        ];
-
-        // Try connecting with the database if the connection is not active.
-        if (false == $connectionResponse['status']) {
-            try {    
-                $databaseConnection->connect();
-                
-                $connectionResponse['status'] = true;
-
-                $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
-                $_SESSION['DB_CONFIG'] = [
-                    'host' => $request->request->get('serverName') . $port,
-                    'username' => $request->request->get('username'),
-                    'password' => $request->request->get('password'),
-                    'database' => $request->request->get('database'),
-                ];
-            } catch (\Doctrine\DBAL\DBALException $e) {
-                // Unable to connect with the database - Invalid Credentials.
-            }
-        }
-        
-        return new Response(json_encode($connectionResponse), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function prepareSuperUserDetailsXHR(Request $request)
