@@ -338,6 +338,7 @@
                     username: 'root',
                     password: null,
                     database: null,
+                    ifNotExists: 1,
                 }
             },
             initialize: function (attributes) {
@@ -346,10 +347,11 @@
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
                     serverName: this.view.$el.find('input[name="serverName"]').val(),
-                    serverPort: this.view.$el.find('input[name="port"]').val(),
+                    serverPort: this.view.$el.find('input[name="serverPort"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
                     database: this.view.$el.find('input[name="database"]').val(),
+                    ifNotExists: this.view.$el.find('input[name="ifNotExists"]').prop("checked") ? 1 : 0,
                 });
 
                 let wizard = this.view.wizard;
@@ -364,7 +366,7 @@
                             element.parentNode.removeChild(element); 
                         }
 
-                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
+                        this.view.$el.find('.form-content input[name="ifNotExists"]').parents('.form-content').append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }.bind(this)).fail(function(response) {
@@ -382,6 +384,7 @@
             database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
             events: {
                 "keyup #wizard-configureDatabase .form-content input" : "validateForm",
+                "change #wizard-configureDatabase .form-content input[type='checkbox']" : "validateForm",
             },
             initialize: function(params) {
                 if (params.existingModel instanceof UVDeskCommunityDatabaseConfigurationModel) {
@@ -412,7 +415,7 @@
 
                 let credentials = {
                     hostname: this.$el.find('input[name="serverName"]').val(),
-                    port: this.$el.find('input[name="port"]').val(),
+                    serverPort: this.$el.find('input[name="serverPort"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
                     database: this.$el.find('input[name="database"]').val(),

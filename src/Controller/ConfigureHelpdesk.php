@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Doctrine\DBAL\DriverManager;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -86,16 +87,32 @@ class ConfigureHelpdesk extends Controller
         
         // unset($_SESSION['DB_CONFIG']);
 
-        // Get entity manager
-        $entityManager = EntityManager::create([
+        $dbParams = [
             'driver' => 'pdo_mysql',
             "host" => $request->request->get('serverName'),
-            "port" => $request->request->get('port'),
+            "port" => $request->request->get('serverPort'),
             'user' => $request->request->get('username'),
             'password' => $request->request->get('password'),
-            'dbname' => $request->request->get('database'),
-        ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
-        
+        ];
+        try {
+            $ifNotExists = (bool) $request->request->get('ifNotExists');
+            $tmpConnection = DriverManager::getConnection($dbParams);
+            $dbName = $request->request->get('database');
+            $dbParams = array_merge($dbParams, ['dbname' => $dbName]);
+            $shouldCreateDatabase = $ifNotExists && !in_array($dbName, $tmpConnection->getSchemaManager()->listDatabases());
+
+            if ($shouldCreateDatabase) {
+                $tmpConnection->getSchemaManager()->createDatabase($tmpConnection->getDatabasePlatform()->quoteSingleIdentifier($dbName));
+            }
+
+        } catch (\Exception $e) {
+            // Unable to create database
+            // @TODO: Error reporting to user.
+            return new Response(json_encode(['status' => false]), 200, self::DEFAULT_JSON_HEADERS);
+        }
+
+        // Get entity manager
+        $entityManager = EntityManager::create($dbParams, Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
         $databaseConnection = $entityManager->getConnection();
         $connectionResponse = [
             'status' => $databaseConnection->isConnected(),
@@ -105,7 +122,7 @@ class ConfigureHelpdesk extends Controller
         if (false == $connectionResponse['status']) {
             try {    
                 $databaseConnection->connect();
-
+                
                 $connectionResponse['status'] = true;
 
                 $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
