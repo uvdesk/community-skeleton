@@ -117,12 +117,12 @@ class ConfigureHelpdesk extends Controller
                 $databaseConnection->connect();
 
                 $_SESSION['DB_CONFIG'] = [
-                    'host' => $dbParams['host'] . $dbParams['port'],
+                    'host' => $dbParams['host'] . (!empty($dbParams['port']) ? ":$dbParams[port]" : ""),
                     'username' => $dbParams['user'],
                     'password' => $dbParams['password'],
                     'database' => $dbParams['dbname'],
                 ];
-
+                
                 return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
             }
         } catch (\Exception $e) {
