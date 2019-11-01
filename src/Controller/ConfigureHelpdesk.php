@@ -104,32 +104,29 @@ class ConfigureHelpdesk extends Controller
 
             if ($shouldCreateDatabase) {
                 $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($dbname));
-            }
-            // Closing the existing connection
-            $databaseConnection->close();
+            }            
+
+            if (in_array($dbname, $databaseConnection->getSchemaManager()->listDatabases())) {
             
-            // Creating a new Connection (with database name)
-            $dbParams = array_merge($dbParams, ['dbname' => $dbname]);
-            $databaseConnection = DriverManager::getConnection($dbParams);
-
-            if (!$databaseConnection->isConnected()) {
-                // Try connecting with the database if the connection is not active.
-                $databaseConnection->connect();
-
+                // Storing database configuration to session. 
                 $_SESSION['DB_CONFIG'] = [
                     'host' => $dbParams['host'] . (!empty($dbParams['port']) ? ":$dbParams[port]" : ""),
                     'username' => $dbParams['user'],
                     'password' => $dbParams['password'],
-                    'database' => $dbParams['dbname'],
+                    'database' => $dbname,
                 ];
-                
+
+                // Closing the existing connection
+                $databaseConnection->close();
+
                 return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
             }
         } catch (\Exception $e) {
-            // Unable to create database
+            // Connection failed
             // @TODO: Error reporting to user.
-            return new Response(json_encode(['status' => false]), 200, self::DEFAULT_JSON_HEADERS);
         }
+
+        return new Response(json_encode(['status' => false]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function prepareSuperUserDetailsXHR(Request $request)
