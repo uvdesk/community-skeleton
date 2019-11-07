@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Doctrine\DBAL\DriverManager;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -86,41 +87,46 @@ class ConfigureHelpdesk extends Controller
         
         // unset($_SESSION['DB_CONFIG']);
 
-        // Get entity manager
-        $entityManager = EntityManager::create([
-            'driver' => 'pdo_mysql',
-            "host" => $request->request->get('serverName'),
-            "port" => $request->request->get('port'),
-            'user' => $request->request->get('username'),
-            'password' => $request->request->get('password'),
-            'dbname' => $request->request->get('database'),
-        ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
-        
-        $databaseConnection = $entityManager->getConnection();
-        $connectionResponse = [
-            'status' => $databaseConnection->isConnected(),
-        ];
+        try {
+            $dbParams = [
+                'driver' => 'pdo_mysql',
+                "host" => $request->request->get('serverName'),
+                "port" => $request->request->get('serverPort'),
+                'user' => $request->request->get('username'),
+                'password' => $request->request->get('password'),
+            ];
+            $ifNotExists = (bool) $request->request->get('ifNotExists');
+            
+            // Creating a connection without specifying database
+            $databaseConnection = DriverManager::getConnection($dbParams);
+            $dbname = $request->request->get('database');
+            $shouldCreateDatabase = $ifNotExists && !in_array($dbname, $databaseConnection->getSchemaManager()->listDatabases());
 
-        // Try connecting with the database if the connection is not active.
-        if (false == $connectionResponse['status']) {
-            try {    
-                $databaseConnection->connect();
+            if ($shouldCreateDatabase) {
+                $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($dbname));
+            }            
 
-                $connectionResponse['status'] = true;
-
-                $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
+            if (in_array($dbname, $databaseConnection->getSchemaManager()->listDatabases())) {
+            
+                // Storing database configuration to session. 
                 $_SESSION['DB_CONFIG'] = [
-                    'host' => $request->request->get('serverName') . $port,
-                    'username' => $request->request->get('username'),
-                    'password' => $request->request->get('password'),
-                    'database' => $request->request->get('database'),
+                    'host' => $dbParams['host'] . (!empty($dbParams['port']) ? ":$dbParams[port]" : ""),
+                    'username' => $dbParams['user'],
+                    'password' => $dbParams['password'],
+                    'database' => $dbname,
                 ];
-            } catch (\Doctrine\DBAL\DBALException $e) {
-                // Unable to connect with the database - Invalid Credentials.
+
+                // Closing the existing connection
+                $databaseConnection->close();
+
+                return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
             }
+        } catch (\Exception $e) {
+            // Connection failed
+            // @TODO: Error reporting to user.
         }
-        
-        return new Response(json_encode($connectionResponse), 200, self::DEFAULT_JSON_HEADERS);
+
+        return new Response(json_encode(['status' => false]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
     public function prepareSuperUserDetailsXHR(Request $request)
