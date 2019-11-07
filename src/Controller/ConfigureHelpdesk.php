@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use Doctrine\DBAL\DriverManager;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -85,48 +84,49 @@ class ConfigureHelpdesk extends Controller
             session_start();
         }
         
-        // unset($_SESSION['DB_CONFIG']);
-
         try {
-            $dbParams = [
+            $entityManager = EntityManager::create([
                 'driver' => 'pdo_mysql',
                 "host" => $request->request->get('serverName'),
                 "port" => $request->request->get('serverPort'),
                 'user' => $request->request->get('username'),
                 'password' => $request->request->get('password'),
-            ];
-            $ifNotExists = (bool) $request->request->get('ifNotExists');
-            
-            // Creating a connection without specifying database
-            $databaseConnection = DriverManager::getConnection($dbParams);
-            $dbname = $request->request->get('database');
-            $shouldCreateDatabase = $ifNotExists && !in_array($dbname, $databaseConnection->getSchemaManager()->listDatabases());
+            ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
 
-            if ($shouldCreateDatabase) {
-                $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($dbname));
-            }            
+            $databaseConnection = $entityManager->getConnection();
 
-            if (in_array($dbname, $databaseConnection->getSchemaManager()->listDatabases())) {
-            
-                // Storing database configuration to session. 
-                $_SESSION['DB_CONFIG'] = [
-                    'host' => $dbParams['host'] . (!empty($dbParams['port']) ? ":$dbParams[port]" : ""),
-                    'username' => $dbParams['user'],
-                    'password' => $dbParams['password'],
-                    'database' => $dbname,
-                ];
-
-                // Closing the existing connection
-                $databaseConnection->close();
-
-                return new Response(json_encode(['status' => true]), 200, self::DEFAULT_JSON_HEADERS);
+            // Establish a connection if not active
+            if (false == $databaseConnection->isConnected()) {
+                $databaseConnection->connect();
             }
-        } catch (\Exception $e) {
-            // Connection failed
-            // @TODO: Error reporting to user.
-        }
 
-        return new Response(json_encode(['status' => false]), 200, self::DEFAULT_JSON_HEADERS);
+            // Check if database exists
+            $createDatabase = (bool) $request->request->get('createDatabase');
+
+            if (!in_array($request->request->get('database'), $databaseConnection->getSchemaManager()->listDatabases()) && false == $createDatabase) {
+                return new JsonResponse([
+                    'status' => false,
+                    'message' => "The requested database was not found."
+                ]);
+            }
+
+            // Storing database configuration to session.
+            $_SESSION['DB_CONFIG'] = [
+                'host' => $request->request->get('serverName'),
+                "port" => $request->request->get('serverPort'),
+                'username' => $request->request->get('username'),
+                'password' => $request->request->get('password'),
+                'database' => $request->request->get('database'),
+                'createDatabase' => $createDatabase,
+            ];
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'status' => false,
+                'message' => "Failed to establish a connection with database server."
+            ]);
+        }
+        
+        return new JsonResponse(['status' => true]);
     }
 
     public function prepareSuperUserDetailsXHR(Request $request)
@@ -152,22 +152,54 @@ class ConfigureHelpdesk extends Controller
             session_start();
         }
 
-        $application = new Application($kernel);
-        $application->setAutoExit(false);
-
         $database_host = $_SESSION['DB_CONFIG']['host'];
+        $database_port = $_SESSION['DB_CONFIG']['port'];
         $database_user = $_SESSION['DB_CONFIG']['username'];
         $database_pass = $_SESSION['DB_CONFIG']['password'];
         $database_name = $_SESSION['DB_CONFIG']['database'];
+        $create_database = $_SESSION['DB_CONFIG']['createDatabase'];
 
-        $exit_code = $application->run(new ArrayInput([
-            'command' => 'uvdesk_wizard:env:update', 
-            'name' => 'DATABASE_URL', 
-            'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, $database_pass, $database_host, $database_name)
-        ]), new NullOutput());
+        try {
+            $entityManager = EntityManager::create([
+                'driver' => 'pdo_mysql',
+                "host" => $database_host,
+                "port" => $database_port,
+                'user' => $database_user,
+                'password' => $database_pass,
+            ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
 
-        if (0 === $exit_code) {
-            return new JsonResponse(['success' => true]);
+            // Establish an active connection with database server
+            $databaseConnection = $entityManager->getConnection();
+
+            if (false == $databaseConnection->isConnected()) {
+                $databaseConnection->connect();
+            }
+
+            // Check if database exists
+            if (!in_array($database_name, $databaseConnection->getSchemaManager()->listDatabases())) {
+                if (false == $create_database) {
+                    throw new \Exception('Database does not exist.');
+                }
+                
+                // Create database
+                $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($database_name));
+            }
+
+            // Update .env
+            $application = new Application($kernel);
+            $application->setAutoExit(false);
+
+            $returnCode = $application->run(new ArrayInput([
+                'command' => 'uvdesk_wizard:env:update', 
+                'name' => 'DATABASE_URL', 
+                'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, $database_pass, $database_host . ($database_port ? ':' . $database_port : ''), $database_name)
+            ]), new NullOutput());
+    
+            if (0 === $returnCode) {
+                return new JsonResponse(['success' => true]);
+            }
+        } catch (\Exception $e) {
+            // Do nothing ...
         }
 
         return new JsonResponse(['success' => false], 500);

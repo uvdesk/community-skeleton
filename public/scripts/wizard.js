@@ -338,7 +338,7 @@
                     username: 'root',
                     password: null,
                     database: null,
-                    ifNotExists: 1,
+                    createDatabase: 1,
                 }
             },
             initialize: function (attributes) {
@@ -351,7 +351,7 @@
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
                     database: this.view.$el.find('input[name="database"]').val(),
-                    ifNotExists: this.view.$el.find('input[name="ifNotExists"]').prop("checked") ? 1 : 0,
+                    createDatabase: this.view.$el.find('input[name="createDatabase"]').prop("checked") ? 1 : 0,
                 });
 
                 let wizard = this.view.wizard;
@@ -366,7 +366,7 @@
                             element.parentNode.removeChild(element); 
                         }
 
-                        this.view.$el.find('.form-content input[name="ifNotExists"]').parents('.form-content').append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
+                        this.view.$el.find('.form-content input[name="createDatabase"]').parents('.form-content').append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }.bind(this)).fail(function(response) {

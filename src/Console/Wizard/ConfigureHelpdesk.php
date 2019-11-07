@@ -7,7 +7,6 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\DBAL\DBALException;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Process\Process;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Input\InputInterface;
@@ -27,10 +26,9 @@ class ConfigureHelpdesk extends Command
     private $entityManager;
     private $questionHelper;
 
-    public function __construct(ContainerInterface $container, EntityManagerInterface $entityManager)
+    public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->entityManager = $entityManager;
 
         parent::__construct();
     }
@@ -57,13 +55,15 @@ class ConfigureHelpdesk extends Command
         list($db_host, $db_port, $db_name, $db_user, $db_password) = $this->getUpdatedDatabaseCredentials();
 
         // Check 1: Verify database connection
-        $output->writeln("  [-] Establishing a connection with database <comment>$db_name</comment>");
+        $output->writeln("  [-] Establishing a connection with database server");
 
-        if (false == $this->isDatabaseConfigurationValid($db_host, $db_port, $db_name, $db_user, $db_password)) {
-            $output->writeln("<fg=red;>  [x]</> Unable to establish a connection with database <comment>$db_name</comment></>");
+        list($isServerAccessible, $isDatabaseAccessible) = $this->refreshDatabaseConnection($db_host, $db_port, $db_name, $db_user, $db_password);
+
+        if (false == $isServerAccessible || false == $isDatabaseAccessible) {
+            $output->writeln("<fg=red;>  [x]</> Unable to establish a connection with database server</>");
 
             // Interactively prompt user to re-configure their database
-            $interactiveQuestion = new Question("\n      <comment>Proceed with re-configuring your database? [Y/N]</comment> ", 'Y');
+            $interactiveQuestion = new Question("\n      <comment>Proceed with re-configuring your database credentials? [Y/N]</comment> ", 'Y');
 
             if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
                 $continue = false;
@@ -80,8 +80,10 @@ class ConfigureHelpdesk extends Command
                     $db_password = $this->askInteractiveQuestion("<info>Database User Password</info>: ", null, 6, false, true, "Please enter your user password to connect with the database");
     
                     $output->write([self::MCA, self::CLL, self::MCA, self::CLL, self::MCA, self::CLL]);
-    
-                    if (false == $this->isDatabaseConfigurationValid($db_host, $db_port, $db_name, $db_user, $db_password)) {
+
+                    list($isServerAccessible, $isDatabaseAccessible) = $this->refreshDatabaseConnection($db_host, $db_port, $db_name, $db_user, $db_password);
+
+                    if (false == $isServerAccessible) {
                         $interactiveQuestion = new Question("\n      <comment>Unable to connect with your database server, please check the details provided.\n      Do you wish to try again? [Y/N]</comment> ", 'Y');
 
                         if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
@@ -89,10 +91,36 @@ class ConfigureHelpdesk extends Command
                         }
 
                         $output->write([self::MCA, self::CLL, self::MCA, self::CLL, self::MCA, self::CLL]);
+                    } else if (false == $isDatabaseAccessible) {
+                        $interactiveQuestion = new Question("\n      <comment>Database <comment>$db_name</comment> does not exist. Proceed with creating database? [Y/N]</comment> ", 'Y');
+
+                        if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
+                            $output->write([self::MCA, self::CLL, self::MCA, self::CLL]);
+                            
+                            // Create Database
+                            if (false == $this->createDatabase($db_host, $db_port, $db_name, $db_user, $db_password)) {
+                                $output->writeln([
+                                    "<fg=red;>  [x]</> An unexpected error occurred while trying to create database <comment>$db_name</comment>.</>",
+                                    "\n  Exiting evaluation process.\n"
+                                ]);
+                            }
+                        } else {
+                            $output->write([self::MCA, self::CLL, self::MCA, self::CLL]);
+
+                            $interactiveQuestion = new Question("\n      <comment>Unable to connect with your database server, please check the details provided.\n      Do you wish to try again? [Y/N]</comment> ", 'Y');
+
+                            if ('Y' === strtoupper($this->questionHelper->ask($input, $output, $interactiveQuestion))) {
+                                $continue = true;
+                            }
+
+                            $output->write([self::MCA, self::CLL, self::MCA, self::CLL, self::MCA, self::CLL]);
+                        }
                     }
                 } while (true == $continue);
-                
-                if ($this->isDatabaseConfigurationValid($db_host, $db_port, $db_name, $db_user, $db_password)) {
+
+                list($isServerAccessible, $isDatabaseAccessible) = $this->refreshDatabaseConnection($db_host, $db_port, $db_name, $db_user, $db_password);
+
+                if (true == $isServerAccessible && true == $isDatabaseAccessible) {
                     $databaseUrl = sprintf("mysql://%s:%s@%s:%s/%s", $db_user, $db_password, $db_host, $db_port, $db_name);
 
                     $output->writeln("\n  [-] Switching to database <info>$db_name</info>");
@@ -299,7 +327,52 @@ class ConfigureHelpdesk extends Command
      * 
      * @return boolean
      */
-    private function isDatabaseConfigurationValid($host, $port, $name, $user, $password)
+    private function refreshDatabaseConnection($host, $port, $name, $user, $password)
+    {
+        $response = [
+            'isServerAccessible' => true,
+            'isDatabaseAccessible' => true,
+        ];
+
+        $entityManager = EntityManager::create([
+            'driver' => 'pdo_mysql',
+            "host" => $host,
+            "port" => $port,
+            'user' => $user,
+            'password' => $password,
+        ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
+        
+        $databaseConnection = $entityManager->getConnection();
+
+        if (false == $databaseConnection->isConnected()) {
+            try {
+                $databaseConnection->connect();
+                $response['isServerAccessible'] = true;
+
+            } catch (\Doctrine\DBAL\DBALException $e) {
+                return false;
+            }
+        }
+
+        if (!in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
+            $response['isDatabaseAccessible'] = false;
+        }
+
+        return [$response['isServerAccessible'], $response['isDatabaseAccessible']];
+    }
+
+    /**
+     * Creates a database if not found.
+     *
+     * @param string $host
+     * @param string $port
+     * @param string $name
+     * @param string $user
+     * @param string $password
+     * 
+     * @return boolean
+     */
+    private function createDatabase($host, $port, $name, $user, $password)
     {
         $entityManager = EntityManager::create([
             'driver' => 'pdo_mysql',
@@ -307,16 +380,23 @@ class ConfigureHelpdesk extends Command
             "port" => $port,
             'user' => $user,
             'password' => $password,
-            'dbname' => $name,
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
         
-        $connection = $entityManager->getConnection();
+        $databaseConnection = $entityManager->getConnection();
 
-        // Try connecting with the database if the connection is not active.
-        if (false == $connection->isConnected()) {
+        if (false == $databaseConnection->isConnected()) {
             try {
-                $connection->connect();
+                $databaseConnection->connect();
             } catch (\Doctrine\DBAL\DBALException $e) {
+                return false;
+            }
+        }
+
+        if (!in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
+            try {
+                // Create database
+                $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($name));
+            } catch (\Exception $e) {
                 return false;
             }
         }
