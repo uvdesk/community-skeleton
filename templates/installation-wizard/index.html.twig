@@ -146,7 +146,7 @@
                      <div class="form-field">
                         <label class="form-label">Port</label>
                         <div class="form-content">
-                            <input name="port" type="text" value="<%- credentials.serverPort %>" placeholder="3306" />
+                            <input name="serverPort" type="text" value="<%- credentials.serverPort %>" placeholder="3306" />
                             <p class="wizard-form-info">Port number of the database (on which port database is hosted).</p>
                         </div>
                     </div>
@@ -171,7 +171,17 @@
                         <label class="form-label">Database<span class="uv-mandatory">*</span></label>
                         <div class="form-content">
                             <input name="database" type="text" value="<%- credentials.database %>" placeholder="" />
-                            <p class="wizard-form-info">Name of the database/schema to connect to.</p>
+                            <p class="wizard-form-info">Name of the database/schema</p>
+                        </div>
+                    </div>
+
+                    <div class="form-field checkbox-form-field">
+                        <label class="form-label"></label>
+                        <div class="form-content">
+                            <div class="checkbox">
+                                <input id="createDatabase" name="createDatabase" type="checkbox" <%= credentials.createDatabase == 1 ? "checked" : "" %>  />
+                                <label for="createDatabase" class="checkbox-info">Automatically create database if not found?</label>
+                            </div>
                         </div>
                     </div>
                 </form>
