@@ -146,7 +146,7 @@
                      <div class="form-field">
                         <label class="form-label">Port</label>
                         <div class="form-content">
-                            <input name="port" type="text" value="<%- credentials.serverPort %>" placeholder="3306" />
+                            <input name="serverPort" type="text" value="<%- credentials.serverPort %>" placeholder="3306" />
                             <p class="wizard-form-info">Port number of the database (on which port database is hosted).</p>
                         </div>
                     </div>
@@ -172,6 +172,16 @@
                         <div class="form-content">
                             <input name="database" type="text" value="<%- credentials.database %>" placeholder="" />
                             <p class="wizard-form-info">Name of the database/schema to connect to.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-field checkbox-form-field">
+                        <label class="form-label"></label>
+                        <div class="form-content">
+                            <div class="checkbox">
+                                <input id="ifNotExists" name="ifNotExists" type="checkbox" <%= credentials.ifNotExists == 1 ? "checked" : "" %>  />
+                                <label for="ifNotExists" class="checkbox-info">Create database if not exists.</label>
+                            </div>
                         </div>
                     </div>
                 </form>
