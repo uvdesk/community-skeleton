@@ -3,13 +3,12 @@ body {
     color: #24292e;
     width: 100%;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    font-size: 16px;
-    line-height: 1.4em;
+    font-size: 14px;
+   
+
 }
 
-.brand-theme {
-    color: #8b6bfa;
-}
+
 
 .blink-text {
     animation: blinker 1s linear infinite;
@@ -22,27 +21,35 @@ body {
 }
 
 /* Wizard Header */
-.wizard-header {
-    text-align: center;
-    padding: 20px 40px;
-    background: #f5f5f5;
-    border-bottom: 1px solid #ddd;
+.wizard-box-lt {
+    display: table;
+    position: fixed;
+    width: 500px;
+    min-height: 600px;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-image: -moz-linear-gradient(90deg, #7c70f4 0%, #ba81f1 100%);
+    background-image: -webkit-linear-gradient(90deg, #7c70f4 0%, #ba81f1 100%);
+    background-image: -ms-linear-gradient(90deg, #7c70f4 0%, #ba81f1 100%);
+    z-index: 2;
+    
 }
 
-.wizard-header .uvdesk-logo {
-    width: 58px;
+.wizard-box-lt .uvdesk-logo {
+    width: 215px;
     line-height: 1em;
     overflow: hidden;
-    margin: 0px auto 10px;
+    margin: 70px auto 10px;
 }
 
-.wizard-header h1 {
+.wizard-box-lt h1 {
     font-size: 2em;
     font-weight: bold;
     line-height: 1.4em;
 }
 
-.wizard-header .line-break {
+.wizard-box-lt .line-break {
     height: 1px;
     width: 40px;
     background: #b5b5b5;
@@ -50,63 +57,73 @@ body {
 }
 
 /* Wizard Container */
-.wizard-container {
-    padding: 40px;
+.wizard-box-rt {
+    position: absolute;
+    height: 100%;
+    padding: 130px 60px 60px 560px;
+    display: table;
+    z-index: 1;
+    
 }
 
-.wizard-container h2 {
+.wizard-box-rt h2 {
     color: #333333;
     font-size: 24px;
     font-weight: 400;
     text-align: left;
-    text-decoration: underline;
     margin: 0;
     margin-bottom: 20px;
 }
+.wizard-box-rt p{
+    line-height: 1.5;
+}
 
-.wizard-container .line-break {
+.wizard-box-rt .line-break {
     height: 1px;
     background: #b5b5b5;
     margin: 30px 0px 40px;
 }
 
-.wizard-container form {
+.wizard-box-rt form {
     text-align: left;
 }
 
-.wizard-container form .form-label {
-    width: 200px;
+.wizard-box-rt form .form-label {
+    width: 56px;
     display: inline-block;
     vertical-align: top;
     margin-right: 20px;
     position: relative;
-    top: 8px;
+    top: 0px;
 }
 
-.wizard-container form .form-content {
+.wizard-box-rt form .form-content {
     display: inline-block;
     vertical-align: top;
 }
 
-.wizard-container form .wizard-form-info {
-    display: block;
+.wizard-box-rt form .wizard-form-info {
+    display: inline-block;
     font-size: 14px;
     color: #6F6F6F !important;
+    width: 208px;
+    vertical-align: top;
+    margin-left: 10px;
 }
 
-.wizard-container form .wizard-form-notice {
+.wizard-box-rt form .wizard-form-notice {
     display: block;
     font-size: 14px;
     color: #FF5656 !important;
 }
 
-.wizard-container form input {
-    width: 300px;
-    height: 36px;
+.wizard-box-rt form input {
+    width: 215px;
+    height: 30px;
     border: solid 1px #B1B1AE;
     border-radius: 3px;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: top;
     transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 0px 10px;
     font-size: 15px;
@@ -114,11 +131,11 @@ body {
     margin-bottom: 6px;
 }
 
-.wizard-container form .form-field {
+.wizard-box-rt form .form-field {
     margin-bottom: 20px;
 }
 
-.wizard-container form .form-field:last-child {
+.wizard-box-rt form .form-field:last-child {
     margin-bottom: unset;
 }
 
@@ -141,13 +158,14 @@ ul.button-groups > li:last-child {
     color: #24292e;
     font-weight: 700;
     font-size: 13px;
-    padding: 10px 14px;
+    padding: 9px 10px;
     border: 1px solid #24292e;
     border-radius: 4px;
     background: white;
     text-transform: uppercase;
     cursor: pointer;
     transition: color linear 0.2s, background-color linear 0.2s;
+    margin-top: 20px;
 }
 
 .wizard-button:hover {
@@ -210,27 +228,22 @@ ul.button-groups > li:last-child {
     transform: translate(-50%, -50%);
 }
 
-.wizard-svg-icon-criteria-checklist svg rect {
-    fill: #9161ff;
-}
 
 /* Wizard Installation */
-#start-installation, #wizard-finalizeInstall {
-    width: 60%;
-    text-align: center;
-    margin: 0px auto;
-}
+
 
 #start-installation ul.button-groups, #wizard-finalizeInstall ul.button-groups {
     margin-top: 20px;
 }
 
-.wizard-container .criteria-checklist, .wizard-container .database-integration {
-    margin: 0px 0px 30px;
+.wizard-form {
+    margin: 18px 0px 30px;
 }
-
-.wizard-container .criteria-checklist li {
-    margin-bottom: 10px;
+.criteria-checklist {
+    padding: 20px 0px 35px 0px;
+}
+.wizard-box-rt .criteria-checklist li {
+    padding-top: 10px;
 }
 
 #wizardSetupNavigation button .processing-request, #wizard-finalizeInstall .installation-progress-loader {
@@ -248,18 +261,18 @@ ul.button-groups > li:last-child {
     opacity: 0.6;
 }
 
-#wizardSetupComplete {
+/* #wizardSetupComplete {
     width: 60%;
     text-align: center;
     margin: 0px auto;
-}
+} */
 
-#wizardSetupComplete svg {
+/* #wizardSetupComplete svg {
     margin-bottom: 20px;
-}
+} */
 
 .uv-mandatory {
-    color: red;
+    color: #F44336;;
     font-size: 16px;
     vertical-align: text-bottom;
 }
@@ -271,14 +284,159 @@ ul.button-groups > li:last-child {
 
 .PHPExtensions-toggle-details {
     cursor: pointer;
-    color: blue;
+    color: #9272F8;
     text-decoration: underline;
 }
 
 #systemCriteria-PHPExtensions-Details .extension_name {
     font-weight: 700;
 }
+#systemCriteria-PHPExtensions-Details p{
+    margin-top: 0px;
+    line-height: 26px;
+    margin-left: 0px;
+}
+#systemCriteria-PHPExtensions-Details a{
+    color: #9272F8
+}
 
 .extension-info-container {
     margin-bottom: 10px;
 }
+
+.display-none {
+    display: none;
+}
+.progress-bar{
+    color: #ffffff;
+    margin: 50px 0px 0px 135px; 
+ 
+ }
+ .uv-version {
+     text-align: center;
+     font-size: 12px;
+     color: #DAC1FA;
+ }
+
+ .node {
+    background: #FFFFFE;
+   border-radius: 50%;
+   height: 30px;
+   width: 30px;
+   position: relative;
+   
+ }
+ .inner-circle {
+    position: absolute;
+    background: #FFFFFE;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+   
+    top: 50%;
+    left: 50%;
+    margin-top: -4px;
+    margin-left: -4px;
+   
+  }
+  .active-node .outer-circle{
+    position: absolute;
+    background: #7C6AF7;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -9px;
+   
+  }
+  .check .outer-circle{
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 14px;
+    width: 6px;
+    border-bottom: 3px solid #7B70F4;
+    border-right: 3px solid #7B70F4;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -4px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 12%;
+    background: #ffffff;
+ }
+  .outer-circle {
+    position: absolute;
+    background: #D3D3D3;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -9px;
+   
+  }
+
+ 
+ .divider {
+     height: 55px;
+     width: 4px;
+     margin-left: 14px;
+     transition: all 800ms ease;
+     background: #FFFFFE;
+ }
+ 
+ .progress-bar li p {
+    margin-left: 40px;
+    margin-top: -23px;   
+     
+ }
+ 
+ li {
+     list-style: none;
+ }
+
+ .fetching-details label{
+     margin-top: 5px;
+ }
+ .lg-icon{
+    display: inline-block;
+    margin-top: 30px
+    }
+    .lg-icon svg{ 
+    
+    transform-origin:50% 50%;
+    animation:2s rotateRight infinite linear; 
+    }
+    .sm-icon{
+        display: inline-block;
+        vertical-align: top;
+    }
+    .sm-icon svg{ 
+    
+    transform-origin:50% 50%;
+    animation:2s rotateleft infinite linear; 
+    }
+
+@keyframes rotateRight{
+    from {
+    transform: rotate(0deg);
+  }
+  to { 
+    transform: rotate(360deg);
+  } }
+
+@keyframes rotateleft{
+    from {
+    transform: rotate(360deg);
+  }
+  to { 
+    transform: rotate(0deg);
+  }
+}
+ 
