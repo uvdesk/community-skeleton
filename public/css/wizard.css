@@ -130,6 +130,10 @@ body {
     color: #333333;
     margin-bottom: 6px;
 }
+input[type = 'checkbox'] {
+    height: 15px !important;
+    width: 15px !important;
+  }
 
 .wizard-box-rt form .form-field {
     margin-bottom: 20px;
@@ -277,33 +281,35 @@ ul.button-groups > li:last-child {
     vertical-align: text-bottom;
 }
 
-#systemCriteria-PHPExtensions-Details {
-    display: none;
+#systemCriteria-Details {
     margin-left: 30px;
 }
 
-.PHPExtensions-toggle-details {
+.PHPExtensions-toggle-details, .PHPVersion-toggle-details {
     cursor: pointer;
     color: #9272F8;
     text-decoration: underline;
 }
 
-#systemCriteria-PHPExtensions-Details .extension_name {
+#systemCriteria-Details .extension_name {
     font-weight: 700;
 }
-#systemCriteria-PHPExtensions-Details p{
+#systemCriteria-Details p{
     margin-top: 0px;
     line-height: 26px;
     margin-left: 0px;
 }
-#systemCriteria-PHPExtensions-Details a{
+#systemCriteria-Details a{
     color: #9272F8
 }
 
-.extension-info-container {
+.extension-info-container, .version-info-container {
     margin-bottom: 10px;
 }
-
+input[type = 'checkbox'] {
+    height: 15px !important;
+    width: 15px !important;
+  }
 .display-none {
     display: none;
 }
@@ -440,3 +446,35 @@ ul.button-groups > li:last-child {
   }
 }
  
+.systemCriteria-Details {
+    display: none;
+}
+
+.systemCriteria-Info-Message {
+    margin-left: 30px;
+}
+
+.wizard-container .database-integration .checkbox {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.wizard-container .database-integration .checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.wizard-container .database-integration .checkbox .checkbox-info {
+    font-size: 15px;
+    color: #333333;
+    padding-left: 5px;
+    user-select: none;
+}
+
+.wizard-container .database-integration .checkbox-form-field {
+    margin-top: -10px;
+}

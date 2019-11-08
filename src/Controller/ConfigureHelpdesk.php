@@ -84,43 +84,49 @@ class ConfigureHelpdesk extends Controller
             session_start();
         }
         
-        // unset($_SESSION['DB_CONFIG']);
+        try {
+            $entityManager = EntityManager::create([
+                'driver' => 'pdo_mysql',
+                "host" => $request->request->get('serverName'),
+                "port" => $request->request->get('serverPort'),
+                'user' => $request->request->get('username'),
+                'password' => $request->request->get('password'),
+            ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
 
-        // Get entity manager
-        $entityManager = EntityManager::create([
-            'driver' => 'pdo_mysql',
-            "host" => $request->request->get('serverName'),
-            "port" => $request->request->get('port'),
-            'user' => $request->request->get('username'),
-            'password' => $request->request->get('password'),
-            'dbname' => $request->request->get('database'),
-        ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
-        
-        $databaseConnection = $entityManager->getConnection();
-        $connectionResponse = [
-            'status' => $databaseConnection->isConnected(),
-        ];
+            $databaseConnection = $entityManager->getConnection();
 
-        // Try connecting with the database if the connection is not active.
-        if (false == $connectionResponse['status']) {
-            try {    
+            // Establish a connection if not active
+            if (false == $databaseConnection->isConnected()) {
                 $databaseConnection->connect();
-
-                $connectionResponse['status'] = true;
-
-                $port = $request->request->get('port') ? ':' . $request->request->get('port') : '';
-                $_SESSION['DB_CONFIG'] = [
-                    'host' => $request->request->get('serverName') . $port,
-                    'username' => $request->request->get('username'),
-                    'password' => $request->request->get('password'),
-                    'database' => $request->request->get('database'),
-                ];
-            } catch (\Doctrine\DBAL\DBALException $e) {
-                // Unable to connect with the database - Invalid Credentials.
             }
+
+            // Check if database exists
+            $createDatabase = (bool) $request->request->get('createDatabase');
+
+            if (!in_array($request->request->get('database'), $databaseConnection->getSchemaManager()->listDatabases()) && false == $createDatabase) {
+                return new JsonResponse([
+                    'status' => false,
+                    'message' => "The requested database was not found."
+                ]);
+            }
+
+            // Storing database configuration to session.
+            $_SESSION['DB_CONFIG'] = [
+                'host' => $request->request->get('serverName'),
+                "port" => $request->request->get('serverPort'),
+                'username' => $request->request->get('username'),
+                'password' => $request->request->get('password'),
+                'database' => $request->request->get('database'),
+                'createDatabase' => $createDatabase,
+            ];
+        } catch (\Exception $e) {
+            return new JsonResponse([
+                'status' => false,
+                'message' => "Failed to establish a connection with database server."
+            ]);
         }
         
-        return new Response(json_encode($connectionResponse), 200, self::DEFAULT_JSON_HEADERS);
+        return new JsonResponse(['status' => true]);
     }
 
     public function prepareSuperUserDetailsXHR(Request $request)
@@ -146,22 +152,54 @@ class ConfigureHelpdesk extends Controller
             session_start();
         }
 
-        $application = new Application($kernel);
-        $application->setAutoExit(false);
-
         $database_host = $_SESSION['DB_CONFIG']['host'];
+        $database_port = $_SESSION['DB_CONFIG']['port'];
         $database_user = $_SESSION['DB_CONFIG']['username'];
         $database_pass = $_SESSION['DB_CONFIG']['password'];
         $database_name = $_SESSION['DB_CONFIG']['database'];
+        $create_database = $_SESSION['DB_CONFIG']['createDatabase'];
 
-        $exit_code = $application->run(new ArrayInput([
-            'command' => 'uvdesk_wizard:env:update', 
-            'name' => 'DATABASE_URL', 
-            'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, $database_pass, $database_host, $database_name)
-        ]), new NullOutput());
+        try {
+            $entityManager = EntityManager::create([
+                'driver' => 'pdo_mysql',
+                "host" => $database_host,
+                "port" => $database_port,
+                'user' => $database_user,
+                'password' => $database_pass,
+            ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
 
-        if (0 === $exit_code) {
-            return new JsonResponse(['success' => true]);
+            // Establish an active connection with database server
+            $databaseConnection = $entityManager->getConnection();
+
+            if (false == $databaseConnection->isConnected()) {
+                $databaseConnection->connect();
+            }
+
+            // Check if database exists
+            if (!in_array($database_name, $databaseConnection->getSchemaManager()->listDatabases())) {
+                if (false == $create_database) {
+                    throw new \Exception('Database does not exist.');
+                }
+                
+                // Create database
+                $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($database_name));
+            }
+
+            // Update .env
+            $application = new Application($kernel);
+            $application->setAutoExit(false);
+
+            $returnCode = $application->run(new ArrayInput([
+                'command' => 'uvdesk_wizard:env:update', 
+                'name' => 'DATABASE_URL', 
+                'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, $database_pass, $database_host . ($database_port ? ':' . $database_port : ''), $database_name)
+            ]), new NullOutput());
+    
+            if (0 === $returnCode) {
+                return new JsonResponse(['success' => true]);
+            }
+        } catch (\Exception $e) {
+            // Do nothing ...
         }
 
         return new JsonResponse(['success' => false], 500);

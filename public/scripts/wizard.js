@@ -1,4 +1,15 @@
 (function ($) {
+    const ERRORS = {
+        error404: {
+            title: 'Unable to locate the path on the server.',
+            description: 'Try putting index.php after your helpdesk installation\'s site url or If you are using apache, make sure that mode_rewrite module is enabled and AllowOverride directive for document root is set to All/FileInfo in your server\'s configuration file.',
+        },
+        error500: {
+            title: 'Something\'s bad happened with the server.',
+            description: ' Try again by clicking the back button or launch the wizard again by refershing the webpage or clicking the cancel button.'
+        },
+    };
+
     // Wait for all assets to load
     $(window).bind("load", function() {
         var UVDeskCommunityInstallSetupView = Backbone.View.extend({
@@ -329,6 +340,7 @@
                     username: 'root',
                     password: null,
                     database: null,
+                    createDatabase: 1,
                 }
             },
             initialize: function (attributes) {
@@ -337,10 +349,11 @@
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
                     serverName: this.view.$el.find('input[name="serverName"]').val(),
-                    serverPort: this.view.$el.find('input[name="port"]').val(),
+                    serverPort: this.view.$el.find('input[name="serverPort"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
                     database: this.view.$el.find('input[name="database"]').val(),
+                    createDatabase: this.view.$el.find('input[name="createDatabase"]').prop("checked") ? 1 : 0,
                 });
 
                 let wizard = this.view.wizard;
@@ -355,7 +368,7 @@
                             element.parentNode.removeChild(element); 
                         }
 
-                        this.view.$el.find('.form-content input[name="database"]').parent().append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
+                        this.view.$el.find('.form-content input[name="createDatabase"]').parents('.form-content').append("<span id='wizard-error-id' class='wizard-form-notice'>Details are incorrect ! Connection not established.</span>");
                         wizard.disableNextStep();
                     }
                 }.bind(this)).fail(function(response) {
@@ -373,6 +386,7 @@
             database_configuration_template: _.template($("#installationWizard-DatabaseConfigurationTemplate").html()),
             events: {
                 "keyup #wizard-configureDatabase .form-content input" : "validateForm",
+                "change #wizard-configureDatabase .form-content input[type='checkbox']" : "validateForm",
             },
             initialize: function(params) {
                 if (params.existingModel instanceof UVDeskCommunityDatabaseConfigurationModel) {
@@ -403,7 +417,7 @@
 
                 let credentials = {
                     hostname: this.$el.find('input[name="serverName"]').val(),
-                    port: this.$el.find('input[name="port"]').val(),
+                    serverPort: this.$el.find('input[name="serverPort"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
                     database: this.$el.find('input[name="database"]').val(),
@@ -416,6 +430,10 @@
                 if (false == errorFlag) {
                     this.wizard.enableNextStep();
                     
+                    if (document.getElementById("wizard-error-id")) {
+                        var element = document.getElementById("wizard-error-id");
+                        element.parentNode.removeChild(element);
+                    }                    
                     if (event.keyCode == 13) {
                         let button = document.getElementById('wizardCTA-IterateInstallation');
                         button ? button.click() : '';
@@ -456,13 +474,15 @@
                 let postData = {
                     specification: 'php-version',
                 };
-
+                
                 $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-version', response);
-                }).fail(() => {
+                }).fail((jqXHR, textStatus, errorThrown) => {
+                    
                     this.set('php-version', {
                         status: false,
-                        message: 'An unexpected error occurred during the PHP version verification process.',
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the PHP version verification process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
                     });
                 }).always(() => {
                     this.view.renderPHPVersion();
@@ -476,10 +496,12 @@
 
                 $.post('./wizard/xhr/check-requirements', postData, response => {
                     this.set('php-extensions', response);
-                }).fail(() => {
+                }).fail((jqXHR, textStatus, errorThrown) => {
+                    
                     this.set('php-extensions', {
                         status: false,
-                        message: 'An unexpected error occurred while examining your system for missing extensions.',
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the PHP extension evaluation process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
                     });
                 }).always(() => {
                     this.view.renderPHPExtensionsCriteria();
@@ -489,10 +511,10 @@
             evaluateOverallRequirements: function() {
                 if (false == this.get('php-version').status) {
                     this.set('verified', false);
-                } else {
+                } else if (this.get('php-extensions').hasOwnProperty('extensions')) {
                     let extensions = this.get('php-extensions').extensions;
 
-                    let isExtensionError = undefined;
+                    let isExtensionError;
                     extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
                         if (!extension[currentExtensionName]) {
@@ -504,6 +526,8 @@
                     if (!isExtensionError) {
                         this.set('verified', true);
                     }
+                } else {
+                    this.set('verified', false);
                 }
 
                 if (true === this.get('verified')) {
@@ -519,15 +543,15 @@
             model: undefined,
             wizard: undefined,
             events: {
-                "click .PHPExtensions-toggle-details": function () {
+                "click .PHPExtensions-toggle-details, .PHPVersion-toggle-details": function (e) {
                     // show and hide extension details
-                    this.$el.find('#systemCriteria-PHPExtensions-Details').toggle();
+                    const currentElement = Backbone.$(e.currentTarget)
+                    currentElement.parents('[class*="info-container"]').siblings('.systemCriteria-Details').toggle();
                     
-                    let detailsActionSpan = this.$el.find('.PHPExtensions-toggle-details');
-                    if (detailsActionSpan.html() == "Show details") {
-                        detailsActionSpan.html("Hide details");
+                    if (currentElement.html() == "Show details") {
+                        currentElement.html("Hide details");
                     } else {
-                        detailsActionSpan.html("Show details");
+                        currentElement.html("Show details");
                     }
                 }
             },
@@ -559,7 +583,8 @@
             },
             renderPHPVersion: function(status) {
                 this.reference_nodes.version.html(this.wizard_system_requirements_php_ver_template(this.model.get('php-version')));
-
+                this.reference_nodes.version.find('.PHPVersion-toggle-details').hide();
+                
                 if (false == this.model.get('fetch')) {
                     this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.version.find('label').html('Checking currently enabled PHP version');
@@ -570,19 +595,23 @@
                     } else {
                         this.reference_nodes.version.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_notice_template());
                         this.reference_nodes.version.find('label').html(this.model.get('php-version').message);
+                        if (this.model.get('php-version').hasOwnProperty('description')) {
+                            this.reference_nodes.version.find('.PHPVersion-toggle-details').show();                        
+                        } 
+                        this.reference_nodes.version.find('.systemCriteria-Details').addClass('systemCriteria-Info-Message');
+                        this.reference_nodes.version.find('#systemCriteria-PHPVersion-Details').html(this.model.get('php-version').description);
                     }
                 }
             },
             renderPHPExtensionsCriteria: function(status) {
                 this.reference_nodes.extension.html(this.wizard_system_requirements_php_ext_template(this.model.get('php-extensions')));
-
+                
                 if (false == this.model.get('fetch')) {
                     this.reference_nodes.extension.find('.wizard-svg-icon-criteria-checklist').html(this.wizard_icons_loader_template());
                     this.reference_nodes.extension.find('label').html('Checking currently enabled PHP extensions');
-                } else {
+                } else if(this.model.get('php-extensions').hasOwnProperty('extensions')) {
                     var activeExtensionCount = 0;
                     var extensionCount = this.model.get('php-extensions').extensions.length;
-
                     // count the active extensions and set each extension with it's status in the extension list
                     this.model.get('php-extensions').extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
@@ -618,6 +647,11 @@
 
                     extension_info.find('.wizard-svg-icon-extension-criteria-checklist').html(overallExtensionStatus);
                     extension_info.find('.extension-criteria-label').html("You meet " + activeExtensionCount + " out of " + extensionCount + " PHP extensions requirements.");
+                } else {
+                    this.reference_nodes.extension.find('.wizard-svg-icon-extension-criteria-checklist').html(this.wizard_icons_notice_template());
+                    this.reference_nodes.extension.find('.extension-criteria-label').html(this.model.get('php-extensions').message);
+                    this.reference_nodes.extension.find('#systemCriteria-PHPExtensions-Details').html(this.model.get('php-extensions').description);
+                    this.reference_nodes.extension.find('#systemCriteria-PHPExtensions-Details').addClass('systemCriteria-Info-Message');
                 }
             }
         });
