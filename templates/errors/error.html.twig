@@ -66,8 +66,10 @@
 			</div>
 
 			<div class="uv-box-server-error-rt">
-				{% set imageUrl = 'bundles/uvdeskcoreframework/images/' ~ code ~ '.png' %}
-				<img class="error-grooves" src="{{ asset(imageUrl) }}" alt="{{ code }}" />
+				{% if isImageValid %}
+					{% set imageUrl = 'bundles/uvdeskcoreframework/images/' ~ code ~ '.png' %}
+					<img class="error-grooves" src="{{ asset(imageUrl) }}" alt="{{ code }}" />
+				{% endif %}
 			</div>
 		</div>
 	</body>
