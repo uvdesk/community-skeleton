@@ -16,10 +16,9 @@ class ExceptionSubscriber implements EventSubscriberInterface
 	private $user;
 	private $twig;
 	private $container;
-	const IMAGE_DIR = 'bundles/uvdeskcoreframework/images/';
 
 	public function __construct(Environment $twig, ContainerInterface $container, UserInterface $user = null)
-	{	
+	{
 		$this->user = $user;
 		$this->twig = $twig;
 		$this->container = $container;
@@ -54,7 +53,6 @@ class ExceptionSubscriber implements EventSubscriberInterface
 					'code' => 403,
 					'message' => 'Access Forbidden',
 					'description' => 'You are not authorized to access this page.',
-					'isImageValid' => $this->validateImage('403.png'),
 				]);
 	
 				$event->setResponse(new Response($template, 403));
@@ -65,7 +63,6 @@ class ExceptionSubscriber implements EventSubscriberInterface
 					'code' => 404,
 					'message' => 'Page not Found',
 					'description' => 'We were not able to find the page you are looking for.',
-					'isImageValid' => $this->validateImage('404.png'),
 				]);
 	
 				$event->setResponse(new Response($template, 404));
@@ -74,15 +71,10 @@ class ExceptionSubscriber implements EventSubscriberInterface
 					'message' => 'Internal Server Error',
 					'code' => 500,
 					'description' => 'Something has gone wrong on the server. Please try again later.',
-					'isImageValid' => $this->validateImage('500.png'),
 				]);
 	
 				$event->setResponse(new Response($template, 500));
 			}
 		}
-	}
-
-	private function validateImage($filename) {
-		return @exif_imagetype($this->container->get('kernel')->getProjectDir() . '/public/'. self::IMAGE_DIR . $filename) !== false;
 	}
 }
