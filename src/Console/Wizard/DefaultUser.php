@@ -46,6 +46,7 @@ class DefaultUser extends Command
 
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
+        $this->user = new CoreEntities\User();
         $this->questionHelper = $this->getHelper('question');
     }
 
@@ -64,7 +65,7 @@ class DefaultUser extends Command
         $email = $this->promptUserEmailInteractively($input, $output);
         
         // Retrieve existing user or generate new empty user
-        $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
+        $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: $this->user->setEmail($email);
 
         // Prompt user name
         $username = trim($this->user->getFirstName() . ' ' . $this->user->getLastName());
@@ -114,16 +115,24 @@ class DefaultUser extends Command
             $name = $input->getArgument('name');
             $email = $input->getArgument('email');
             $password = $input->getArgument('password');
-
+            
+            // Check if the provided role is valid. Skip otherwise.
+            $this->role = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode($input->getArgument('role'));
+            
             if (empty($name) || empty($email) | empty($password)) {
                 $output->writeln("\n      <fg=red;>[Error]</> Insufficient arguments provided.");
 
                 return 2;
+            } else if (empty($this->role)) {
+                $output->writeln("\n      <fg=red;>[Error]</> No valid support role provided.");
+
+                return 2;
             } else {
+                $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: $this->user->setEmail($email);
+
                 $username = explode(' ', $name, 2);
                 $encodedPassword = $this->container->get('security.password_encoder')->encodePassword($this->user, $password);
 
-                $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
                 $this->user
                     ->setFirstName($username[0])
                     ->setLastName(!empty($username[1]) ? $username[1] : null)
