@@ -6148,18 +6148,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/automation-bundle.git",
-                "reference": "57a8b959d7e9d06d71689841c7d4b6ef1ad0432e"
+                "reference": "f8797a44a0bd48560ac40aaffec3944638494d44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/57a8b959d7e9d06d71689841c7d4b6ef1ad0432e",
-                "reference": "57a8b959d7e9d06d71689841c7d4b6ef1ad0432e",
+                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/f8797a44a0bd48560ac40aaffec3944638494d44",
+                "reference": "f8797a44a0bd48560ac40aaffec3944638494d44",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2",
                 "uvdesk/composer-plugin": "^1.0",
-                "uvdesk/core-framework": "^1.0"
+                "uvdesk/core-framework": "^1.0.4"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -6184,7 +6184,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Automations Bundle",
-            "time": "2019-10-23T10:34:23+00:00"
+            "time": "2019-11-15T06:24:26+00:00"
         },
         {
             "name": "uvdesk/composer-plugin",
@@ -6238,12 +6238,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "55254cd14b93e4eb9e618a4d2eba81317b4a2a3d"
+                "reference": "1855ea14f6f4a8f068d9cfc19cc5ab5dc0728416"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/55254cd14b93e4eb9e618a4d2eba81317b4a2a3d",
-                "reference": "55254cd14b93e4eb9e618a4d2eba81317b4a2a3d",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/1855ea14f6f4a8f068d9cfc19cc5ab5dc0728416",
+                "reference": "1855ea14f6f4a8f068d9cfc19cc5ab5dc0728416",
                 "shasum": ""
             },
             "require": {
@@ -6251,7 +6251,7 @@
                 "doctrine/doctrine-fixtures-bundle": "^3.2",
                 "doctrine/doctrine-migrations-bundle": "^2.0",
                 "knplabs/knp-paginator-bundle": "^4.0",
-                "php": "^7.1.3",
+                "php": "^7.2",
                 "symfony/framework-bundle": "4.3.*",
                 "uvdesk/composer-plugin": "^1.0"
             },
@@ -6282,7 +6282,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-10-23T10:33:57+00:00"
+            "time": "2019-11-15T06:24:22+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -6290,18 +6290,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/extension-framework.git",
-                "reference": "a1f607b575e958c18d3d1573461803da916f01f9"
+                "reference": "b1f1af6550df3bba854e7a259f63bb11d4a13b95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/a1f607b575e958c18d3d1573461803da916f01f9",
-                "reference": "a1f607b575e958c18d3d1573461803da916f01f9",
+                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/b1f1af6550df3bba854e7a259f63bb11d4a13b95",
+                "reference": "b1f1af6550df3bba854e7a259f63bb11d4a13b95",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2",
                 "uvdesk/composer-plugin": "^1.0",
-                "uvdesk/core-framework": "^1.0"
+                "uvdesk/core-framework": "^1.0.3"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -6326,7 +6326,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Extension Framework Bundle",
-            "time": "2019-10-22T07:43:38+00:00"
+            "time": "2019-11-15T06:24:24+00:00"
         },
         {
             "name": "uvdesk/mailbox-component",
@@ -6334,17 +6334,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/mailbox-component.git",
-                "reference": "04d2a16802c1706346e15c11309ae8a0b87e4243"
+                "reference": "731487824a78fbb7e88e9e3443575014319a2e2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/04d2a16802c1706346e15c11309ae8a0b87e4243",
-                "reference": "04d2a16802c1706346e15c11309ae8a0b87e4243",
+                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/731487824a78fbb7e88e9e3443575014319a2e2e",
+                "reference": "731487824a78fbb7e88e9e3443575014319a2e2e",
                 "shasum": ""
             },
             "require": {
                 "iamcal/lib_autolink": "^1.7",
-                "php": "^7.1.3",
+                "php": "^7.2",
                 "php-mime-mail-parser/php-mime-mail-parser": "^3.0",
                 "uvdesk/composer-plugin": "^1.0",
                 "uvdesk/core-framework": "^1.0"
@@ -6372,7 +6372,7 @@
                 }
             ],
             "description": "The Mailbox component provides tools that allows your helpdesk to process tickets from multiple email sources.",
-            "time": "2019-10-22T06:47:08+00:00"
+            "time": "2019-11-15T06:24:29+00:00"
         },
         {
             "name": "uvdesk/support-center-bundle",
@@ -6380,18 +6380,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "3f5309ac434441d2bc3111fd3f6e08a5d46e454c"
+                "reference": "d3679ba02dcc501dbb52725212560e0fe5a00825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/3f5309ac434441d2bc3111fd3f6e08a5d46e454c",
-                "reference": "3f5309ac434441d2bc3111fd3f6e08a5d46e454c",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/d3679ba02dcc501dbb52725212560e0fe5a00825",
+                "reference": "d3679ba02dcc501dbb52725212560e0fe5a00825",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1.3",
+                "php": "^7.2",
                 "uvdesk/composer-plugin": "^1.0",
-                "uvdesk/core-framework": "^1.0"
+                "uvdesk/core-framework": "^1.0.4"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -6416,7 +6416,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2019-10-22T07:18:32+00:00"
+            "time": "2019-11-15T06:56:30+00:00"
         },
         {
             "name": "webmozart/assert",
