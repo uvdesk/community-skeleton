@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "15317fec0eeaeaea8e95f92fb5abc4a1",
+    "content-hash": "b74aad20b409a05421c2e7a0080de9d6",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -6238,12 +6238,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "1855ea14f6f4a8f068d9cfc19cc5ab5dc0728416"
+                "reference": "ec87223d2393ad9b54ec920734b0a26f171a4f88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/1855ea14f6f4a8f068d9cfc19cc5ab5dc0728416",
-                "reference": "1855ea14f6f4a8f068d9cfc19cc5ab5dc0728416",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/ec87223d2393ad9b54ec920734b0a26f171a4f88",
+                "reference": "ec87223d2393ad9b54ec920734b0a26f171a4f88",
                 "shasum": ""
             },
             "require": {
@@ -6282,7 +6282,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-11-15T06:24:22+00:00"
+            "time": "2019-11-15T07:33:09+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -7269,7 +7269,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1.3",
+        "php": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*"
     },
