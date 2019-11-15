@@ -3,6 +3,11 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.5 (2019-11-15)
+    * **Issue #226:** Missing icon for internal server error page
+    * **Misc. Changes:**
+        * Installation wizard (web & cli) now allows users to automaticatlly create a database if it doesn't exist
+
 * 1.0.4 (2019-10-31)
     * **Issue #137:** Dockerize application for easy installation
     * **Feature:** Easily dockerize your helpdesk project to deploy it from within a container
