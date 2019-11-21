@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b74aad20b409a05421c2e7a0080de9d6",
+    "content-hash": "4d1666695f7d04f2b0132731cc542c70",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -7261,11 +7261,57 @@
             "description": "Symfony WebServerBundle",
             "homepage": "https://symfony.com",
             "time": "2019-04-29T09:33:16+00:00"
+        },
+        {
+            "name": "uvdesk/api-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uvdesk/api-bundle.git",
+                "reference": "b11b311e221d9799a0f8d0d1bd8abb14f9be9003"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uvdesk/api-bundle/zipball/b11b311e221d9799a0f8d0d1bd8abb14f9be9003",
+                "reference": "b11b311e221d9799a0f8d0d1bd8abb14f9be9003",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "uvdesk/composer-plugin": "^1.0",
+                "uvdesk/core-framework": "^1.0.4"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "uvdesk-package-extension": "Webkul\\UVDesk\\ApiBundle\\Package\\PackageConfiguration",
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webkul\\UVDesk\\ApiBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akshay Kumar",
+                    "email": "akshay.kumar758@webkul.com"
+                }
+            ],
+            "description": "Easily integrate with your community helpdesk system using the uvdesk api bundle.",
+            "time": "2019-11-21T14:18:34+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "uvdesk/api-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
