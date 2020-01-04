@@ -6265,16 +6265,16 @@
         },
         {
             "name": "uvdesk/core-framework",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "090f42a5a3e26a9e342b636fb32417568319427a"
+                "reference": "05c7db75acc1f93fbb06f29f23cf09c6fd633b7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/090f42a5a3e26a9e342b636fb32417568319427a",
-                "reference": "090f42a5a3e26a9e342b636fb32417568319427a",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/05c7db75acc1f93fbb06f29f23cf09c6fd633b7d",
+                "reference": "05c7db75acc1f93fbb06f29f23cf09c6fd633b7d",
                 "shasum": ""
             },
             "require": {
@@ -6292,10 +6292,7 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer",
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+                "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer"
             },
             "autoload": {
                 "psr-4": {
@@ -6313,7 +6310,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2020-01-03T06:07:30+00:00"
+            "time": "2020-01-04T06:18:24+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
