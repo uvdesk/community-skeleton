@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba4a030eac522e07b8f0b3d651ba205f",
+    "content-hash": "1caf90efc824986f64d912443306f42f",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -6265,16 +6265,16 @@
         },
         {
             "name": "uvdesk/core-framework",
-            "version": "v1.0.4",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "857cbe297940eeffdc3d2fc6c1be8d359b6e0a8a"
+                "reference": "05c7db75acc1f93fbb06f29f23cf09c6fd633b7d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/857cbe297940eeffdc3d2fc6c1be8d359b6e0a8a",
-                "reference": "857cbe297940eeffdc3d2fc6c1be8d359b6e0a8a",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/05c7db75acc1f93fbb06f29f23cf09c6fd633b7d",
+                "reference": "05c7db75acc1f93fbb06f29f23cf09c6fd633b7d",
                 "shasum": ""
             },
             "require": {
@@ -6310,7 +6310,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2019-11-15T07:33:50+00:00"
+            "time": "2020-01-04T06:18:24+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -6538,6 +6538,7 @@
                 "code",
                 "zf"
             ],
+            "abandoned": "laminas/laminas-code",
             "time": "2019-10-05T23:18:22+00:00"
         },
         {
@@ -6592,6 +6593,7 @@
                 "events",
                 "zf2"
             ],
+            "abandoned": "laminas/laminas-eventmanager",
             "time": "2018-04-25T15:33:34+00:00"
         }
     ],
