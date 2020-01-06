@@ -3,6 +3,10 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.6 (2020-01-06)
+    * **Misc. Changes:**
+        * Web Installer design changes.
+
 * 1.0.5 (2019-11-15)
     * **Issue #226:** Missing icon for internal server error page
     * **Misc. Changes:**
