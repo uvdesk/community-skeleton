@@ -71,10 +71,12 @@
                             this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
                         }
                     });
-
                     this.wizard.prefix.member = websiteRoutes.memberLogin;
                     this.wizard.prefix.knowledgebase = websiteRoutes.knowledgebase;
-                    
+
+                    $('.install').removeClass('active-node');
+                    $('.install').addClass('check');
+
                     this.redirectToWelcomePage();
                 })();
             },
@@ -620,7 +622,15 @@
                             var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently active.";
                         } else {
                             var currentExtensionIconStatus = this.wizard_icons_notice_template();
-                            var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "</span> extension is currently in-active.";
+                            if (currentExtensionName == 'imap'){
+                                var currentExtensionTextStatus = "<span class='extension_name'> PHP" + currentExtensionName + "extension </span><p>Need to resolve this issue can be done by reading this blog link:<a href='https://www.php.net/manual/en/imap.setup.php' target='_blank'>How to resolve PHP imap extension</a></p>";
+                            }
+                            else if(currentExtensionName == 'mailparse'){
+                                var currentExtensionTextStatus = "<span class='extension_name'> PHP" + currentExtensionName + "extension </span><p>Need to resolve this issue can be done by reading this blog link:<a href='https://www.php.net/manual/en/book.mailparse.php' target='_blank'>How to resolve PHP mailparse extension</a></p>";
+                            }
+                            else{
+                                var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "extension is currently inactive</span>";
+                            }
                         }
 
                         currentExtensionTemplateInfo.find('.wizard-svg-icon-criteria-checklist').html(currentExtensionIconStatus);
@@ -666,6 +676,10 @@
             wizard_setup_component_template: _.template($("#installationWizard-SetupTemplate").html()),
             events: {
                 'click #wizardCTA-StartInstallation': function() {
+                    $('.active-node').addClass('check');
+                    $('.active-node').removeClass('active-node');
+                    this.$el.find('.check-requirements').addClass('active-node');
+                    
                     this.enabled = true;
                     this.reference_nodes.content.empty();
                     this.reference_nodes.content.html(this.wizard_setup_component_template());
@@ -674,6 +688,21 @@
                 },
                 'click #wizardCTA-IterateInstallation': function() {
                     if (typeof(this.activeSetupProcedure) != 'undefined') {
+                        this.$el.find('.check-requirements').removeClass('active-node');
+                        this.$el.find('.check-requirements').addClass('check');
+                       
+                        this.timeline.filter((values, index) => {
+                            if (values.isActive && this.timeline[index + 1]) {
+                                var cls = this.timeline[index + 1].path;
+                                this.$el.find('.'+cls).addClass('active-node');
+                            }
+                            if (values.isChecked && this.timeline[index + 1]){
+                                var cls = this.timeline[index + 1].path;
+                                this.$el.find('.'+cls).removeClass('active-node');
+                                this.$el.find('.'+cls).addClass('check');
+                            }
+                        });
+
                         this.activeSetupProcedure.model.isProcedureCompleted(function ({wizard, model}) {
                             let activeInstanceIndex = undefined;
 
