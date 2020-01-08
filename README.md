@@ -96,7 +96,7 @@ $ composer create-project uvdesk/community-skeleton helpdesk-project
 
 #### Direct Download
 
-Alternatively, you can also [download the zip archive](https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip) of the latest stable release and extract its content by running the following commands from your terminal:
+Alternatively, you can also [download the zip archive](https://github.com/uvdesk/community-skeleton/archive/v1.0.6.zip) of the latest stable release and extract its content by running the following commands from your terminal:
 
 ```bash
 $ wget "https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip" -P /var/www/
