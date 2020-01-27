@@ -3,6 +3,14 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.7 (2020-01-27)
+    * **Misc. Changes:**
+        * .htaccess mode rewrite condition changes.
+        *  Web Installer design changes.
+        *  Dependent packages updates.
+
+    * **Issue #238:**  Showing older version in web-installer  
+
 * 1.0.6 (2020-01-06)
     * **Misc. Changes:**
         * Web Installer design changes.
