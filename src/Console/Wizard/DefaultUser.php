@@ -73,7 +73,7 @@ class DefaultUser extends Command
         $username = explode(' ', $username, 2);
 
         $this->user->setFirstName($username[0]);
-        $this->user->setLastName(!empty($username[1]) ? $username[1] : null);
+        $this->user->setLastName(!empty($username[1]) ? $username[1] : '');
         
         // Prompt user password if not set
         if ($this->user->getPassword() == null) {
