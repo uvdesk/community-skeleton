@@ -1257,6 +1257,12 @@ ticket: bilet
 "Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Genel olarak sorgulanan bir şey mi arıyorsunuz? Olası çözümleri keşfetmek için aşağıdan ilgili bir klasör seçin"
 "Unable to find an answer?": "Bir cevap bulamadınız mı?"
 "Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Genel sorgularda yer alan belirli bir makaleyi mi arıyorsunuz? Sadece çeşitli ilgili klasör ve kategorilere göz attığınızda istediğiniz makaleyi bulacaksınız."
+"Popular Articles" : "Popüler Makaleler"
+"Here are some of the most popular articles, which helped number of users to get their queries and questions resolved." : "Aşağıda, kullanıcıların sayısının sorgularını ve sorularını çözmelerini sağlayan en popüler makalelerden bazıları yer almaktadır."
+"Browse via Categories": "Kategoriler yoluyla göz atın"
+"Looking for something specific? Choose a relevant category from below to explore possible solutions": "Belirli bir şey mi arıyorsunuz? Olası çözümleri keşfetmek için aşağıdan alakalı bir kategori seçin"
+"No Categories Found": "Kategori Bulunamadı"
+
 #forgotpassword
 "Forgot Password": "Parolanızı mı unuttunuz"
 "Enter your email address and we will send you an email with instructions to update your login credentials.": "E-posta adresinizi girin, giriş bilgilerinizi güncellemeniz için talimatları içeren bir e-posta göndereceğiz."
