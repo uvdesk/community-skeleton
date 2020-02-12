@@ -3,6 +3,16 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.8 (2020-02-12)
+    * **Features**
+        * **Translation Support(Multilingual).**
+    * **Misc. Changes:**
+        * .htaccess mode rewrite condition changes(For API Bundle).
+    * **Issue #247:**  Translator
+    * **Issue #246:**  UVDesk hangs trying to create Customer / Agent / Team / Group.
+    * **Issue #242:** Database migration gets failed if automatically created db in production environment.
+    * **Issue #242:** Language Spanish.  
+
 * 1.0.7 (2020-01-27)
     * **Misc. Changes:**
         * .htaccess mode rewrite condition changes.
