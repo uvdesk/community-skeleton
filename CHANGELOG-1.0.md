@@ -5,7 +5,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
 
 * 1.0.8 (2020-02-12)
     * **Features**
-        * **Translation Support(Multilingual).**
+        * **Translation Support (Multilingual).**
     * **Misc. Changes:**
         * .htaccess mode rewrite condition changes(For API Bundle).
     * **Issue #247:**  Translator
