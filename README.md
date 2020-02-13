@@ -44,7 +44,7 @@ The standard distribution comes packaged along with the following helpdesk packa
 
   * [**Support Center Bundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
 
-Reach out to us at our official [gitter chat](https://gitter.im/uvdesk/community) or [forum][16] for any queries, concerns and feature request discussions.
+Reach out to us at our official [gitter chat](https://gitter.im/uvdesk/community) for any queries, concerns and feature request discussions.
 
 The development of the uvdesk community edition is led by the [uvdesk][10] team and backed by [Webkul][9]. Visit our [website][1] to learn more about the UVDesk Helpdesk System.
 
