@@ -72,7 +72,7 @@ Features
 * Effective search
 * User Friendly Web Installer
 * Add multiple attachments
-* Powerful Knowledgebase/Faq(article, category & folder)
+* Powerful Knowledgebase/Faq (article, category & folder)
 * Ticket types, Multiple Tags
 * Email Templates
 * [API][16]
@@ -107,8 +107,9 @@ The installation process is broken down into two distinct steps:
 * Setup
 * Configuration
 
-### Setting up your helpdesk project
-
+```diff
++ ### Setting up your helpdesk project
+```
 In this step of the installation process, you'll be downloading the helpdesk project skeleton and installing all of its dependent components.
 
 As per your convenience, you can choose to either use composer for download the project and install all its dependencies automatically or directly download the project archive that comes pre-packaged with all of the project dependencies already installed.
@@ -117,7 +118,9 @@ We recommend using composer over direct download whenever possible. However, if 
 
 Irrespective of the method you use, the process to configuring your helpdesk remains the same.
 
-#### Composer
+```diff
+! #### Composer
+```
 
 You can use composer to setup your project by simply running the following command from your terminal:
 
@@ -125,7 +128,9 @@ You can use composer to setup your project by simply running the following comma
 $ composer create-project uvdesk/community-skeleton helpdesk-project
 ```
 
-#### Direct Download
+```diff
+! #### Direct Download
+```
 
 Alternatively, you can also [download the zip archive](https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip) of the latest stable release and extract its content by running the following commands from your terminal:
 
