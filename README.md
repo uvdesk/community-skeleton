@@ -47,21 +47,22 @@ The standard distribution comes packaged along with the following helpdesk packa
 
   * [**Support Center Bundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
 
-Reach out to us at our official [gitter chat](https://gitter.im/uvdesk/community) for any queries, concerns and feature request discussions.
+Reach out to us at our official [gitter chat][20] for any queries, concerns and feature request discussions.
 
 The development of the uvdesk community edition is led by the [uvdesk][10] team and backed by [Webkul][9]. Visit our [website][1] to learn more about the UVDesk Helpdesk System.
 
 Features
 --------------
 
-* Unlimited Agents, Group, team, customers, tickets etc.
+* Translation Support (Multilingual).
+* Unlimited Agents, Group, Team, Customers, Tickets etc.
 * Agent Privileges.
-* No limit on the number of Mailbox/email integration.
+* No limit on the number of Mailbox/Email integration.
 * Saved Replies for common queries.
 * Kudos(Customer satisfaction rating).
 * Filter based on ticket status, Id, agent, customer, etc.
 * Block Spam.
-* Standard automated workflow.
+* Standard automated workflows.
 * Notes for agents.
 * Custom branding.
 * Change logo & favicon.
@@ -85,10 +86,6 @@ Documentation
 Visit [docs.uvdesk.com](https://docs.uvdesk.com/) to read our official documentation and learn more about the uvdesk community project.
 
 We use Jekyll to develop and maintain our documentations. Consider contributing by submitting a pull request to our project's [jeykll repository](https://github.com/uvdesk/uvdesk.github.io).
-
-Modules
-
-[Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
 
 Requirements
 --------------
@@ -220,6 +217,11 @@ References:
 * **MYSQL_PASSWORD**: MySQL user password
 * **MYSQL_DATABASE**: MySQL database name
 
+Modules
+--------------
+
+[Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
+
 License
 --------------
 
@@ -274,3 +276,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [17]: https://www.trustpilot.com/review/uvdesk.com
 [18]: https://www.capterra.com/p/158346/UVdesk/
 [19]: https://www.softwaresuggest.com/uvdesk
+[20]: https://gitter.im/uvdesk/community
