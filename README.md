@@ -59,7 +59,6 @@ Features
 * Agent Privileges
 * No limit on the number of Mailbox/Email integration
 * Saved Replies for common queries
-* Kudos(Customer satisfaction rating)
 * Filter based on ticket status, Id, agent, customer, etc
 * Block Spam
 * Standard automated workflows
