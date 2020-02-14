@@ -151,70 +151,7 @@ After opening your project in the web browser, you will be greeted by the web in
 Docker Runtime
 --------------
 
-You can also dockerize your helpdesk project to easily deploy your setup from within a docker container.
-
-To build an image, simply switch to your project's directory and run the following command:
-
-```bash
-$ docker build -t {IMAGE_NAME} .
-```
-
-Upon successfull execution, this will create a docker image with the specified tag using the -t option. You can use this image to deploy your helpdesk project using either `docker run` or `docker-compose`.
-
-### Deploying Containers
-
-Containers can be launched using one of the two given methods:
-
-#### Using Docker Run
-
-You can simply launch a standalone container using the following command:
-
-```bash
-# If you wish to use a local database within container
-$ docker run -dit -p {AVAILABLE_PORT}:80 \
-    -e MYSQL_USER={MYSQL_USER} \
-    -e MYSQL_ROOT_PASSWORD={MYSQL_ROOT_PASSWORD} \
-    -e MYSQL_PASSWORD={MYSQL_PASSWORD} \
-    -e MYSQL_DATABASE={MYSQL_DATABASE} \
-    --name {CONTAINER_NAME} {IMAGE_NAME}
-
-# If you wish to use an external database outside container
-$ docker run -dit -p {AVAILABLE_PORT}:80 --name {CONTAINER_NAME} {IMAGE_NAME}
-```
-
-#### Using Docker Compose
-
-Create a configuration file docker-compose.yaml and set it's configuration details as follows:
-
-```bash
-version: '3'
-services:
-    uvdesk:
-        image: {IMAGE_NAME}:latest
-        tty: true
-        environment:
-            MYSQL_USER: {MYSQL_USER}
-            MYSQL_PASSWORD: {MYSQL_PASSWORD}
-            MYSQL_ROOT_PASSWORD: {MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: {MYSQL_DATABASE}
-        ports:
-            - {AVAILABLE_PORT}:80
-```
-
-Once you've created the configuration file, deploy your containers as services using the following command:
-
-```bash
-$ docker-compose up -d -f {PATH_TO_DOCKER_FILE}
-```
-
-References:
-* **IMAGE_NAME**: Name of the image to being build
-* **CONTAINER_NAME**: Name of the created container
-* **AVAILABLE_PORT**: Map port 80 (apache) within the container to an available port on your host
-* **MYSQL_USER**: MySQL user name
-* **MYSQL_ROOT_PASSWORD**: MySQL root user password
-* **MYSQL_PASSWORD**: MySQL user password
-* **MYSQL_DATABASE**: MySQL database name
+[Dockerize your helpdesk project][22]
 
 Modules
 --------------
@@ -277,3 +214,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [19]: https://www.softwaresuggest.com/uvdesk
 [20]: https://gitter.im/uvdesk/community
 [21]: https://join.slack.com/t/uvdeskopensource/shared_invite/enQtOTUwODEzNTQ1NjY5LTU1M2EyOGQ2ZjNiOGMxZTgwOGZjNTAyZGRkMGE3NWUxOWU5OGQxNjliNmZjNTA4MDRhZTFhNWMyOWE2M2M5NGM
+[22]: https://github.com/uvdesk/community-skeleton/wiki/dockerize-helpdesk-project
