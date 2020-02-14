@@ -75,7 +75,7 @@ Features
 * Powerful Knowledgebase/Faq(article, category & folder).
 * Ticket types, Multiple Tags.
 * Email Templates.
-* API[16]
+* [API][16]
 * Edit/delete/pinned ticket and thread.
 * Add a collaborator and much more.
 
@@ -233,12 +233,11 @@ Please don't disclose any security vulnerabilities publicly. If you find any sec
 Contributions
 --------------
 
-### Feedback (Support Community project by raising feedback)
----------------------------------------------------------
+#### Feedback (Support Community project by raising feedback)
 
-* Trustpilot[17]
-* Capterra[18]
-* Software suggest[19]
+* [Trustpilot][17]
+* [Capterra][18]
+* [Software suggest][19]
 
 This project is hosted on [Open Collective][13] and exists thanks to our contributors:
 
