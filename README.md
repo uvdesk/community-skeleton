@@ -19,12 +19,15 @@ Getting Started
 --------------
 
 * [About](#about)
+* [Features](#features)
 * [Documentation](#documentation)
+* [Modules](#modules)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Docker Runtime](#docker-runtime)
 * [License](#license)
 * [Security Vulnerabilities](#security-vulnerabilities)
+* [Feedback](#feedback)
 * [Contributions](#contributions)
 
 About
@@ -44,9 +47,37 @@ The standard distribution comes packaged along with the following helpdesk packa
 
   * [**Support Center Bundle**][5] - Integrates the easily customizable support center portal to enable users to easily interact with the support staff through your helpdesk system
 
-Reach out to us at our official [gitter chat](https://gitter.im/uvdesk/community) for any queries, concerns and feature request discussions.
+Reach out to us at our official [gitter chat][20] or by joining [slack][21] for any queries, concerns and feature request discussions.
 
 The development of the uvdesk community edition is led by the [uvdesk][10] team and backed by [Webkul][9]. Visit our [website][1] to learn more about the UVDesk Helpdesk System.
+
+Features
+--------------
+
+* Translation Support (Multilingual)
+* Unlimited Agents, Group, Team, Customers, Tickets etc
+* Agent Privileges
+* No limit on the number of Mailbox/Email integration
+* Saved Replies for common queries
+* Filter based on ticket status, Id, agent, customer, etc
+* Block Spam
+* Standard automated workflows
+* Notes for agents
+* Custom branding
+* Change logo & favicon
+* Broadcasting message
+* Ticket Forwarding
+* Prepared Response
+* Email Notification
+* Effective search
+* User Friendly Web Installer
+* Add multiple attachments
+* Powerful Knowledgebase/Faq (article, category & folder)
+* Ticket types, Multiple Tags
+* Email Templates
+* [API][16]
+* Edit/delete/pinned ticket and thread
+* Add a collaborator and much more.
 
 Documentation
 --------------
@@ -120,70 +151,12 @@ After opening your project in the web browser, you will be greeted by the web in
 Docker Runtime
 --------------
 
-You can also dockerize your helpdesk project to easily deploy your setup from within a docker container.
+[Dockerize your helpdesk project][22]
 
-To build an image, simply switch to your project's directory and run the following command:
+Modules
+--------------
 
-```bash
-$ docker build -t {IMAGE_NAME} .
-```
-
-Upon successfull execution, this will create a docker image with the specified tag using the -t option. You can use this image to deploy your helpdesk project using either `docker run` or `docker-compose`.
-
-### Deploying Containers
-
-Containers can be launched using one of the two given methods:
-
-#### Using Docker Run
-
-You can simply launch a standalone container using the following command:
-
-```bash
-# If you wish to use a local database within container
-$ docker run -dit -p {AVAILABLE_PORT}:80 \
-    -e MYSQL_USER={MYSQL_USER} \
-    -e MYSQL_ROOT_PASSWORD={MYSQL_ROOT_PASSWORD} \
-    -e MYSQL_PASSWORD={MYSQL_PASSWORD} \
-    -e MYSQL_DATABASE={MYSQL_DATABASE} \
-    --name {CONTAINER_NAME} {IMAGE_NAME}
-
-# If you wish to use an external database outside container
-$ docker run -dit -p {AVAILABLE_PORT}:80 --name {CONTAINER_NAME} {IMAGE_NAME}
-```
-
-#### Using Docker Compose
-
-Create a configuration file docker-compose.yaml and set it's configuration details as follows:
-
-```bash
-version: '3'
-services:
-    uvdesk:
-        image: {IMAGE_NAME}:latest
-        tty: true
-        environment:
-            MYSQL_USER: {MYSQL_USER}
-            MYSQL_PASSWORD: {MYSQL_PASSWORD}
-            MYSQL_ROOT_PASSWORD: {MYSQL_ROOT_PASSWORD}
-            MYSQL_DATABASE: {MYSQL_DATABASE}
-        ports:
-            - {AVAILABLE_PORT}:80
-```
-
-Once you've created the configuration file, deploy your containers as services using the following command:
-
-```bash
-$ docker-compose up -d -f {PATH_TO_DOCKER_FILE}
-```
-
-References:
-* **IMAGE_NAME**: Name of the image to being build
-* **CONTAINER_NAME**: Name of the created container
-* **AVAILABLE_PORT**: Map port 80 (apache) within the container to an available port on your host
-* **MYSQL_USER**: MySQL user name
-* **MYSQL_ROOT_PASSWORD**: MySQL root user password
-* **MYSQL_PASSWORD**: MySQL user password
-* **MYSQL_DATABASE**: MySQL database name
+[Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
 
 License
 --------------
@@ -197,6 +170,12 @@ Please don't disclose any security vulnerabilities publicly. If you find any sec
 
 Contributions
 --------------
+
+#### Feedback (Support Community project by raising feedback)
+
+* [Trustpilot][17]
+* [Capterra][18]
+* [Software suggest][19]
 
 This project is hosted on [Open Collective][13] and exists thanks to our contributors:
 
@@ -229,4 +208,10 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [13]: https://opencollective.com/uvdesk
 [14]: https://docs.uvdesk.com/
 [15]: https://demo.uvdesk.com/
-[16]: https://forums.uvdesk.com/
+[16]: https://github.com/uvdesk/api-bundle
+[17]: https://www.trustpilot.com/review/uvdesk.com
+[18]: https://www.capterra.com/p/158346/UVdesk/
+[19]: https://www.softwaresuggest.com/uvdesk
+[20]: https://gitter.im/uvdesk/community
+[21]: https://join.slack.com/t/uvdeskopensource/shared_invite/enQtOTUwODEzNTQ1NjY5LTU1M2EyOGQ2ZjNiOGMxZTgwOGZjNTAyZGRkMGE3NWUxOWU5OGQxNjliNmZjNTA4MDRhZTFhNWMyOWE2M2M5NGM
+[22]: https://github.com/uvdesk/community-skeleton/wiki/dockerize-helpdesk-project
