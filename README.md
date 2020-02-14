@@ -108,7 +108,7 @@ The installation process is broken down into two distinct steps:
 * Configuration
 
 ```diff
-+ ### Setting up your helpdesk project
++ Setting up your helpdesk project
 ```
 In this step of the installation process, you'll be downloading the helpdesk project skeleton and installing all of its dependent components.
 
@@ -119,7 +119,7 @@ We recommend using composer over direct download whenever possible. However, if 
 Irrespective of the method you use, the process to configuring your helpdesk remains the same.
 
 ```diff
-! #### Composer
+! Composer
 ```
 
 You can use composer to setup your project by simply running the following command from your terminal:
@@ -129,7 +129,7 @@ $ composer create-project uvdesk/community-skeleton helpdesk-project
 ```
 
 ```diff
-! #### Direct Download
+! Direct Download
 ```
 
 Alternatively, you can also [download the zip archive](https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip) of the latest stable release and extract its content by running the following commands from your terminal:
