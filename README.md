@@ -19,12 +19,15 @@ Getting Started
 --------------
 
 * [About](#about)
+* [Features](#features)
 * [Documentation](#documentation)
+* [Modules](#modules)
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Docker Runtime](#docker-runtime)
 * [License](#license)
 * [Security Vulnerabilities](#security-vulnerabilities)
+* [Feedback](#feedback)
 * [Contributions](#contributions)
 
 About
@@ -48,12 +51,44 @@ Reach out to us at our official [gitter chat](https://gitter.im/uvdesk/community
 
 The development of the uvdesk community edition is led by the [uvdesk][10] team and backed by [Webkul][9]. Visit our [website][1] to learn more about the UVDesk Helpdesk System.
 
+Features
+--------------
+
+* Unlimited Agents, Group, team, customers, tickets etc.
+* Agent Privileges.
+* No limit on the number of Mailbox/email integration.
+* Saved Replies for common queries.
+* Kudos(Customer satisfaction rating).
+* Filter based on ticket status, Id, agent, customer, etc.
+* Block Spam.
+* Standard automated workflow.
+* Notes for agents.
+* Custom branding.
+* Change logo & favicon.
+* Broadcasting message.
+* Ticket Forwarding.
+* Prepared Response.
+* Email Notification.
+* Effective search.
+* User Friendly Web Installer.
+* Add multiple attachments.
+* Powerful Knowledgebase/Faq(article, category & folder).
+* Ticket types, Multiple Tags.
+* Email Templates.
+* API[16]
+* Edit/delete/pinned ticket and thread.
+* Add a collaborator and much more.
+
 Documentation
 --------------
 
 Visit [docs.uvdesk.com](https://docs.uvdesk.com/) to read our official documentation and learn more about the uvdesk community project.
 
 We use Jekyll to develop and maintain our documentations. Consider contributing by submitting a pull request to our project's [jeykll repository](https://github.com/uvdesk/uvdesk.github.io).
+
+Modules
+
+[Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
 
 Requirements
 --------------
@@ -198,6 +233,13 @@ Please don't disclose any security vulnerabilities publicly. If you find any sec
 Contributions
 --------------
 
+### Feedback (Support Community project by raising feedback)
+---------------------------------------------------------
+
+* Trustpilot[17]
+* Capterra[18]
+* Software suggest[19]
+
 This project is hosted on [Open Collective][13] and exists thanks to our contributors:
 
 <a href="https://github.com/uvdesk/community-skeleton/graphs/contributors"><img src="https://opencollective.com/uvdesk/contributors.svg?width=890&button=false"/></a>
@@ -229,4 +271,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [13]: https://opencollective.com/uvdesk
 [14]: https://docs.uvdesk.com/
 [15]: https://demo.uvdesk.com/
-[16]: https://forums.uvdesk.com/
+[16]: https://github.com/uvdesk/api-bundle
+[17]: https://www.trustpilot.com/review/uvdesk.com
+[18]: https://www.capterra.com/p/158346/UVdesk/
+[19]: https://www.softwaresuggest.com/uvdesk
