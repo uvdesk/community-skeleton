@@ -157,6 +157,7 @@ Modules
 --------------
 
 [Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
+Need something else? email us at support@uvdesk.com
 
 License
 --------------
