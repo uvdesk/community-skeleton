@@ -54,30 +54,30 @@ The development of the uvdesk community edition is led by the [uvdesk][10] team 
 Features
 --------------
 
-* Translation Support (Multilingual).
-* Unlimited Agents, Group, Team, Customers, Tickets etc.
-* Agent Privileges.
-* No limit on the number of Mailbox/Email integration.
-* Saved Replies for common queries.
-* Kudos(Customer satisfaction rating).
-* Filter based on ticket status, Id, agent, customer, etc.
-* Block Spam.
-* Standard automated workflows.
-* Notes for agents.
-* Custom branding.
-* Change logo & favicon.
-* Broadcasting message.
-* Ticket Forwarding.
-* Prepared Response.
-* Email Notification.
-* Effective search.
-* User Friendly Web Installer.
-* Add multiple attachments.
-* Powerful Knowledgebase/Faq(article, category & folder).
-* Ticket types, Multiple Tags.
-* Email Templates.
+* Translation Support (Multilingual)
+* Unlimited Agents, Group, Team, Customers, Tickets etc
+* Agent Privileges
+* No limit on the number of Mailbox/Email integration
+* Saved Replies for common queries
+* Kudos(Customer satisfaction rating)
+* Filter based on ticket status, Id, agent, customer, etc
+* Block Spam
+* Standard automated workflows
+* Notes for agents
+* Custom branding
+* Change logo & favicon
+* Broadcasting message
+* Ticket Forwarding
+* Prepared Response
+* Email Notification
+* Effective search
+* User Friendly Web Installer
+* Add multiple attachments
+* Powerful Knowledgebase/Faq(article, category & folder)
+* Ticket types, Multiple Tags
+* Email Templates
 * [API][16]
-* Edit/delete/pinned ticket and thread.
+* Edit/delete/pinned ticket and thread
 * Add a collaborator and much more.
 
 Documentation
