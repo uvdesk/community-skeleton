@@ -1,58 +1,59 @@
-'Signed in as': "Accesso eseguito come"
-'Your Profile': 'Il tuo profilo'
-'Create Ticket': "Crea biglietto"
-'Create Agent': "Crea agente"
-'Create Customer': "Crea cliente"
-'Sign Out': 'Disconnessione'
-'Apps': 'Apps'
-'Integrate apps as per your needs to get things done faster than ever': 'Integra le app secondo le tue esigenze per fare le cose più velocemente che mai'
-'Explore Apps': "Esplora le app"
-'Form Builder': 'Form Builder'
+Signed in as: Accesso eseguito come
+Your Profile: Il tuo profilo
+Create Ticket: Crea biglietto
+Create Agent: Crea agente
+Create Customer: Crea cliente
+Sign Out: Disconnessione
+Apps: Apps
+Integrate apps as per your needs to get things done faster than ever: Integra le app secondo le tue esigenze per fare le cose più velocemente che mai
+Explore Apps: Esplora le app
+Form Builder: Form Builder
 Knowledgebase: Base di conoscenza
-'Knowledgebase is a source of rigid and complex information which helps Customers to help themselves': "La knowledge base è una fonte di informazioni rigide e complesse che aiutano i clienti ad aiutare se stessi"
+Knowledgebase is a source of rigid and complex information which helps Customers to help themselves: La knowledge base è una fonte di informazioni rigide e complesse che aiutano i clienti ad aiutare se stessi
 Articles: articoli
 Categories: categorie
 Folders: Cartelle
 FOLDERS: CARTELLE
 Productivity: Produttività
-'Automate your processes by creating set of rules and presets to respond faster to the tickets': "Automatizza i tuoi processi creando un set di regole e preset per rispondere più rapidamente ai ticket"
-'Prepared Responses': "Risposte preparate"
-'Saved Replies': "Risposte salvate"
-'Ticket Types': "Tipi di biglietto"
+Automate your processes by creating set of rules and presets to respond faster to the tickets: Automatizza i tuoi processi creando un set di regole e preset per rispondere più rapidamente ai ticket
+Prepared Responses: Risposte preparate
+Saved Replies: Risposte salvate
+Edit Saved Reply: Modifica risposta salvata
+Ticket Types: Tipi di biglietto
 Workflows: Flussi di lavoro
 Settings: impostazioni
-'Manage your Brand Identity, Company Information and other details at a glance': "Gestisci la tua identità di marchio, le informazioni sulla società e altri dettagli a colpo d'occhio"
+Manage your Brand Identity, Company Information and other details at a glance: Gestisci la tua identità di marchio, le informazioni sulla società e altri dettagli a colpo docchio
 Branding: Branding
-'Custom Fields': 'Campi personalizzati'
-'Email Settings': 'Impostazioni dell email'
-'Email Templates': "Modelli email"
+Custom Fields: Campi personalizzati
+Email Settings: Impostazioni dell email
+Email Templates: Modelli email
 Mailbox: Cassetta postale
-'Spam Settings': "Impostazioni spam"
-'Swift Mailer': "Swift Mailer"
+Spam Settings: Impostazioni spam
+Swift Mailer: Swift Mailer
 Tags: tag
 Users: utenti
-'Control your Groups, Teams, Agents and Customers': "Controlla i tuoi gruppi, team, agenti e clienti"
+Control your Groups, Teams, Agents and Customers: Controlla i tuoi gruppi, team, agenti e clienti
 Agents: Agents
 Customers: I clienti
 Groups: gruppi
 Privileges: privilegi
 Teams: squadre
 Applications: applicazioni
-'ECommerce Order Syncronization': "Sincronizzazione degli ordini e-commerce"
-'Import ecommerce order details to your support tickets from different available platforms': "Importa i dettagli dell'ordine e-commerce nei ticket di supporto da diverse piattaforme disponibili"
+ECommerce Order Syncronization: Sincronizzazione degli ordini e-commerce
+Import ecommerce order details to your support tickets from different available platforms: Importa i dettagli dellordine e-commerce nei ticket di supporto da diverse piattaforme disponibili
 Search: Ricerca
-'Sort By': 'Ordina per'
-'Sort By:': 'Ordina per:'
-'Status': 'Stato'
-'Created At': "Creato a"
+Sort By: Ordina per
+Sort By:: Ordina per:
+Status: Stato
+Created At: Creato a
 Name: Nome
 All: Tutti
 Published: Pubblicato
 Draft: Bozza
-'New Folder': 'Nuova cartella'
-'Create Knowledgebase Folder': "Crea cartella della knowledge base"
-'You didn''t add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.': "Non hai ancora aggiunto alcuna cartella alla tua knowledge base, crea la tua prima cartella e inizia ad aggiungere categorie / articoli per aiutare i tuoi clienti."
-'Clear Filters': "Elimina filtri"
+New Folder: Nuova cartella
+Create Knowledgebase Folder: Crea cartella della knowledge base
+You did not add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.: Non hai ancora aggiunto alcuna cartella alla tua knowledge base, crea la tua prima cartella e inizia ad aggiungere categorie / articoli per aiutare i tuoi clienti.
+Clear Filters: Elimina filtri
 Back: Indietro
 Open: Aperto
 Pending: in attesa di
@@ -63,17 +64,18 @@ Spam: Spam
 New: Nuovo
 UnAssigned: Non assegnato
 UnAnswered: Senza risposta
-'My Tickets': "I miei biglietti"
+My Tickets: I miei biglietti
 Starred: Ha recitato
 Trashed: Cestinati
-'New Label': "Nuova etichetta"
+New Label: Nuova etichetta
 Tickets: Biglietti
-'Ticket Id': "ID biglietto"
-'Last Replied': "Ultima risposta"
-'Assign To': 'Assegnato a'
-'Customer Email': "Email cliente"
-'Customer Name': 'Nome del cliente'
-'Assets Visibility': "Visibilità delle risorse"
+Ticket Id: ID biglietto
+Last Replied: Ultima risposta
+Assign To: Assegnato a
+After Reply: Dopo la risposta
+Customer Email: Email cliente
+Customer Name: Nome del cliente
+Assets Visibility: Visibilità delle risorse
 Channel/Source: Canale / Fonte
 Channel: Canale
 Website: Sito web
@@ -85,26 +87,26 @@ Replies: risposte
 Agent: Agente
 ID: ID
 Subject: Soggetto
-'Filter View': "Visualizzazione filtro"
-'Save set of filters as a preset to stay more productive': 'Salva set di filtri come predefinito per rimanere più produttivo'
-'Saved Filters': "Filtri salvati"
-'No saved filter created': "Nessun filtro salvato creato"
+Filter View: Visualizzazione filtro
+Save set of filters as a preset to stay more productive: Salva set di filtri come predefinito per rimanere più produttivo
+Saved Filters: Filtri salvati
+No saved filter created: Nessun filtro salvato creato
 Customer: Cliente
 Priority: Priorità
 Tag: Etichetta
 Source: fonte
 Before: Prima
 After: Dopo
-'Replies less than': "Risposte meno di"
-'Replies more than': "Risposte più di"
-'Clear All': 'Cancella tutto'
+Replies less than: Risposte meno di
+Replies more than: Risposte più di
+Clear All: Cancella tutto
 Account: account
 Profile: Profilo
-'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format': "Carica un'immagine del profilo (100px x 100px) <br> in formato PNG o JPG"
-'First Name': 'Nome di battesimo'
-'Last Name': 'Cognome'
+Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format: Carica unimmagine del profilo (100px x 100px) <br> in formato PNG o JPG
+First Name: Nome di battesimo
+Last Name: Cognome
 Email: E-mail
-'Contact Number': "Numero di contatto"
+Contact Number: Numero di contatto
 Timezone: Fuso orario
 Africa/Abidjan: Africa / Abidjan
 Africa/Accra: Africa / Accra
@@ -531,790 +533,803 @@ Pacific/Tongatapu: Pacifico / Tongatapu
 Pacific/Wake: Pacifico / Wake
 Pacific/Wallis: Pacifico / Wallis
 UTC: UTC
-'Time Format': 'Formato orario'
-'Choose your default timezone': "Scegli il fuso orario predefinito"
+Time Format: Formato orario
+Choose your default timezone: Scegli il fuso orario predefinito
 Signature: Firma
-'User signature will be append at the bottom of ticket reply box': "La firma dell'utente verrà aggiunta nella parte inferiore della casella di risposta del ticket"
-Password: Parola d'ordine
-'Password will remain same if you are not entering something in this field': 'La password rimarrà la stessa se non si inserisce qualcosa in questo campo'
-'Confirm Password': 'Conferma password'
-'Save Changes': 'Salvare le modifiche'
-'SAVE CHANGES': 'SALVARE LE MODIFICHE'
-'CREATE TICKET': "CREA BIGLIETTO"
-'Customer full name': "Nome completo del cliente"
-'Customer email address': "Indirizzo email cliente"
-'Select Type': 'Seleziona tipo'
+User signature will be append at the bottom of ticket reply box: La firma dellutente verrà aggiunta nella parte inferiore della casella di risposta del ticket
+Password: Parola dordine
+Password will remain same if you are not entering something in this field: La password rimarrà la stessa se non si inserisce qualcosa in questo campo
+Confirm Password: Conferma password
+Save Changes: Salvare le modifiche
+SAVE CHANGES: SALVARE LE MODIFICHE
+CREATE TICKET: CREA BIGLIETTO
+Customer full name: Nome completo del cliente
+Customer email address: Indirizzo email cliente
+Select Type: Seleziona tipo
 Support: Supporto
-'Choose ticket type': "Scegli il tipo di biglietto"
-'Ticket subject': "Oggetto del biglietto"
+Choose ticket type: Scegli il tipo di biglietto
+Ticket subject: Oggetto del biglietto
 Message: Messaggio
-'Query Message': "Messaggio di query"
-'Add Attachment': 'Aggiungi allegato'
-'This field is mandatory': 'Questo campo è obbligatorio'
+Query Message: Messaggio di query
+Add Attachment: Aggiungi allegato
+This field is mandatory: Questo campo è obbligatorio
 General: Generale
 Designation: Designazione
-'Contant Number': "Numero concorrente"
-'User signature will be append in the bottom of ticket reply box': "La firma dell'utente verrà aggiunta nella parte inferiore della casella di risposta del ticket"
-'Account Status': 'Stato dell account'
-'Account is Active': "L'account è attivo"
-'Assigning group(s) to user to view tickets regardless assignment.': "Assegnazione di gruppo / i all'utente per visualizzare i biglietti indipendentemente dall'assegnazione."
+Contant Number: Numero concorrente
+User signature will be append in the bottom of ticket reply box: La firma dellutente verrà aggiunta nella parte inferiore della casella di risposta del ticket
+Account Status: Stato dell account
+Account is Active: Laccount è attivo
+Assigning group(s) to user to view tickets regardless assignment.: Assegnazione di gruppo / i allutente per visualizzare i biglietti indipendentemente dallassegnazione.
 Default: Predefinito
-'Select All': 'Seleziona tutto'
-'Remove All': 'Rimuovi tutto'
-'Assigning team(s) to user to view tickets regardless assignment.': "Assegnazione di una o più squadre all'utente per visualizzare i biglietti indipendentemente dall'assegnazione."
-'No Team added !': "Nessuna squadra aggiunta!"
+Select All: Seleziona tutto
+Remove All: Rimuovi tutto
+Assigning team(s) to user to view tickets regardless assignment.: Assegnazione di una o più squadre allutente per visualizzare i biglietti indipendentemente dallassegnazione.
+No Team added !: Nessuna squadra aggiunta!
 Permission: Autorizzazione
 Role: Ruolo
 Administrator: Amministratore
-'Select agent role': "Seleziona ruolo agente"
-'Add Customer': "Aggiungi cliente"
+Select agent role: Seleziona ruolo agente
+Add Customer: Aggiungi cliente
 Action: Azione
-'Account Owner': "'Titolare dell'account'"
+Account Owner: Titolare dellaccount
 Active: Attivo
 Edit: modificare
 Delete: Elimina
 Disabled: Disabilitato
-'New Group': 'Nuovo gruppo'
-'Default Privileges': "Privilegi predefiniti"
-'New Privileges': "Nuovi privilegi"
-'NEW PRIVILEGE': "NUOVO PRIVILEGE"
-'New Privilege': "Nuovo privilegio"
-'New Team': "Nuova squadra"
-'No Record Found': "Nessun record trovato"
-'Order Synchronization': "Sincronizzazione ordini"
-'Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.': "Integra facilmente diverse piattaforme di e-commerce con il tuo helpdesk che può essere successivamente utilizzato per integrare rapidamente i dettagli dell'ordine e-commerce con i tuoi ticket di supporto."
+New Group: Nuovo gruppo
+Default Privileges: Privilegi predefiniti
+New Privileges: Nuovi privilegi
+NEW PRIVILEGE: NUOVO PRIVILEGE
+New Privilege: Nuovo privilegio
+New Team: Nuova squadra
+No Record Found: Nessun record trovato
+Order Synchronization: Sincronizzazione ordini
+Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.: Integra facilmente diverse piattaforme di e-commerce con il tuo helpdesk che può essere successivamente utilizzato per integrare rapidamente i dettagli dellordine e-commerce con i tuoi ticket di supporto.
 BigCommerce: BigCommerce
-'No channels have been added.': "Nessun canale aggiunto."
-'Add BigCommerce Store': "Aggiungi negozio BigCommerce"
-'ADD BIGCOMMERCE STORE': "AGGIUNGI BIGCOMMERCE STORE"
+No channels have been added.: Nessun canale aggiunto.
+Add BigCommerce Store: Aggiungi negozio BigCommerce
+ADD BIGCOMMERCE STORE: AGGIUNGI BIGCOMMERCE STORE
 Mangento: Mangento
-'Add Magento Store': "Aggiungi Magento Store"
+Add Magento Store: Aggiungi Magento Store
 OpenCart: OpenCart
-'Add OpenCart Store': 'Aggiungi OpenCart Store'
-'ADD OPENCART STORE': 'AGGIUNGI NEGOZIO OPENCART'
+Add OpenCart Store: Aggiungi OpenCart Store
+ADD OPENCART STORE: AGGIUNGI NEGOZIO OPENCART
 Shopify: Shopify
-'Add Shopify Store': "Aggiungi negozio Shopify"
-'ADD SHOPIFY STORE': "AGGIUNGI NEGOZIO SHOPIFY"
-'Integrate a new BigCommerce store': 'Integra un nuovo negozio BigCommerce'
-'Your BigCommerce Store Name': "Il nome del tuo negozio BigCommerce"
-'Your BigCommerce Store Hash': 'Hash del tuo negozio BigCommerce'
-'Your BigCommerce Api Token': "Il tuo token Api BigCommerce"
-'Your BigCommerce Api Client ID': "Il tuo ID client Api BigCommerce"
-'Enable Channel': "Abilita canale"
-'Add Store': "Aggiungi negozio"
-'ADD STORE': 'AGGIUNGI NEGOZIO'
-'Integrate a new Magento store': 'Integra un nuovo negozio Magento'
-'Your Magento Api Username': 'Il tuo nome utente Magento Api'
-'Your Magento Api Password': "La tua password Api Magento"
-'Integrate a new OpenCart store': 'Integra un nuovo negozio OpenCart'
-'Your OpenCart Api Key': "La tua chiave Api OpenCart"
-'Your Shopify Store Name': "Il nome del tuo negozio Shopify"
-'Your Shopify Api Key': "La tua chiave Api di Shopify"
-'Your Shopify Api Password': "La tua password Api di Shopify"
-'Easily embed custom form to help generate helpdesk tickets.': "Incorpora facilmente un modulo personalizzato per aiutare a generare ticket di helpdesk."
+Add Shopify Store: Aggiungi negozio Shopify
+ADD SHOPIFY STORE: AGGIUNGI NEGOZIO SHOPIFY
+Integrate a new BigCommerce store: Integra un nuovo negozio BigCommerce
+Your BigCommerce Store Name: Il nome del tuo negozio BigCommerce
+Your BigCommerce Store Hash: Hash del tuo negozio BigCommerce
+Your BigCommerce Api Token: Il tuo token Api BigCommerce
+Your BigCommerce Api Client ID: Il tuo ID client Api BigCommerce
+Enable Channel: Abilita canale
+Add Store: Aggiungi negozio
+ADD STORE: AGGIUNGI NEGOZIO
+Integrate a new Magento store: Integra un nuovo negozio Magento
+Your Magento Api Username: Il tuo nome utente Magento Api
+Your Magento Api Password: La tua password Api Magento
+Integrate a new OpenCart store: Integra un nuovo negozio OpenCart
+Your OpenCart Api Key: La tua chiave Api OpenCart
+Your Shopify Store Name: Il nome del tuo negozio Shopify
+Your Shopify Api Key: La tua chiave Api di Shopify
+Your Shopify Api Password: La tua password Api di Shopify
+Easily embed custom form to help generate helpdesk tickets.: Incorpora facilmente un modulo personalizzato per aiutare a generare ticket di helpdesk.
 Form-Builder: Form-Builder
-'Add Formbuilder': "Aggiungi formbuilder"
-'ADD FORMBUILDER': "AGGIUNGI FORMBUILDER"
-'No FormBuilder have been added.': "Nessun FormBuilder è stato aggiunto."
-'Create a New Custom Form Below': "Crea un nuovo modulo personalizzato di seguito"
-'Form Name': "Nome modulo"
-'It will be shown in the list of created forms': "Verrà visualizzato nell'elenco dei moduli creati"
-'MANDATORY FIELDS': 'CAMPI OBBLIGATORI'
-'These fields will be visible in form and can''t be edited': "Questi campi saranno visibili nel modulo e non possono essere modificati"
+Add Formbuilder: Aggiungi formbuilder
+ADD FORMBUILDER: AGGIUNGI FORMBUILDER
+No FormBuilder have been added.: Nessun FormBuilder è stato aggiunto.
+Create a New Custom Form Below: Crea un nuovo modulo personalizzato di seguito
+Form Name: Nome modulo
+It will be shown in the list of created forms: Verrà visualizzato nellelenco dei moduli creati
+MANDATORY FIELDS: CAMPI OBBLIGATORI
+These fields will be visible in form and cant be edited: Questi campi saranno visibili nel modulo e non possono essere modificati
 Reply: rispondere
-'OPTIONAL FIELDS': "CAMPI OPZIONALI"
-'Select These Fields to Add in your Form': "Seleziona questi campi da aggiungere nel modulo"
+OPTIONAL FIELDS: CAMPI OPZIONALI
+Select These Fields to Add in your Form: Seleziona questi campi da aggiungere nel modulo
 GDPR: GDPR
 Order: Ordine
 Categorybuilder: Categorybuilder
 File: File
-'Add Form': "Aggiungi modulo"
-'ADD FORM': "AGGIUNGI MODULO"
-'UPDATE FORM': "MODULO DI AGGIORNAMENTO"
-'Update Form': "Modulo di aggiornamento"
+Add Form: Aggiungi modulo
+ADD FORM: AGGIUNGI MODULO
+UPDATE FORM: MODULO DI AGGIORNAMENTO
+Update Form: Modulo di aggiornamento
 Embed: Incorporare
 EMBED: INCORPORARE
-'EMBED FORMBUILDER': 'FORMBUILDER EMBED'
-'Embed Formbuilder': 'Incorpora Formbuilder'
+EMBED FORMBUILDER: FORMBUILDER EMBED
+Embed Formbuilder: Incorpora Formbuilder
 Visit: Visita
 VISIT: VISITA
 Code: Codice
-'Total Ticket(s)': "Totale biglietto / i"
-'Ticket Count': "Conteggio biglietti"
-'SwiftMailer Configurations': "Configurazioni SwiftMailer"
-'No swiftmailer configurations found': "Nessuna configurazione di swiftmailer trovata"
-'CREATE CONFIGURATION': "CREA CONFIGURAZIONE"
-'Add configuration': "Aggiungi configurazione"
-'Mailer ID': "ID mailer"
-'Mailer ID - Leave blank to automatically create id': "ID mailer - Lascia vuoto per creare automaticamente l'id"
-'Transport Type': "Tipo di trasporto"
+Total Ticket(s): Totale biglietto / i
+Ticket Count: Conteggio biglietti
+SwiftMailer Configurations: Configurazioni SwiftMailer
+No swiftmailer configurations found: Nessuna configurazione di swiftmailer trovata
+CREATE CONFIGURATION: CREA CONFIGURAZIONE
+Add configuration: Aggiungi configurazione
+Update configuration: Aggiorna configurazione
+Mailer ID: ID mailer
+Mailer ID - Leave blank to automatically create id: ID mailer - Lascia vuoto per creare automaticamente lid
+Transport Type: Tipo di trasporto
 SMTP: SMTP
-'Enable Delivery': 'Abilita consegna'
+Enable Delivery: Abilita consegna
 Server: server
 Port: Porta
-'Encryption Mode': 'Modalità di crittografia'
+Encryption Mode: Modalità di crittografia
 ssl: ssl
 tsl: tsl
 None: Nessuna
-'Authentication Mode': "Modalità di autenticazione"
+Authentication Mode: Modalità di autenticazione
 login: accesso
 Plain: pianura
 CRAM-MD5: CRAM-MD5
-'Sender Address': "Indirizzo mittente"
-'Delivery Address': 'Indirizzo di consegna'
-'Block Spam': "Blocca spam"
-'Black list': 'Lista nera'
-'Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)': "Virgola (,) valori separati (es. Support@example.com, @ esempio.com, 68.98.31.226)"
-'White list': 'Lista bianca'
-'Mailbox Settings': "Impostazioni cassetta postale"
-'No mailbox configurations found': "Nessuna configurazione di cassetta postale trovata"
-'NEW MAILBOX': 'NUOVA MAILBOX'
-'New Mailbox': "Nuova cassetta postale"
-'Mailbox ID - Leave blank to automatically create id': "ID cassetta postale - Lascia vuoto per creare automaticamente l'id"
-'Mailbox Name': "Nome casella postale"
-'Enable Mailbox': "Abilita cassetta postale"
-'Incoming Mail (IMAP) Server': "Server posta in arrivo (IMAP)"
-'Configure your imap settings which will be used to fetch emails from your mailbox.': "Configura le impostazioni di imap che verranno utilizzate per recuperare le e-mail dalla tua casella di posta."
+Sender Address: Indirizzo mittente
+Delivery Address: Indirizzo di consegna
+Block Spam: Blocca spam
+Black list: Lista nera
+Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226): Virgola (,) valori separati (es. Support@example.com, @ esempio.com, 68.98.31.226)
+White list: Lista bianca
+Mailbox Settings: Impostazioni cassetta postale
+No mailbox configurations found: Nessuna configurazione di cassetta postale trovata
+NEW MAILBOX: NUOVA MAILBOX
+New Mailbox: Nuova cassetta postale
+Update Mailbox: Aggiorna cassetta postale
+Add Mailbox: Aggiungi cassetta postale
+Mailbox ID - Leave blank to automatically create id: ID cassetta postale - Lascia vuoto per creare automaticamente lid
+Mailbox Name: Nome casella postale
+Enable Mailbox: Abilita cassetta postale
+Incoming Mail (IMAP) Server: Server posta in arrivo (IMAP)
+Configure your imap settings which will be used to fetch emails from your mailbox.: Configura le impostazioni di imap che verranno utilizzate per recuperare le e-mail dalla tua casella di posta.
 Transport: Trasporto
 IMAP: IMAP
 Gmail: Gmail
 Yahoo: Yahoo
 Host: Ospite
-'IMAP Host': "Host IMAP"
-'Email address': 'Indirizzo email'
-'Associated Password': "Password associata"
-'Outgoing Mail (SMTP) Server': "Server posta in uscita (SMTP)"
-'Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.': "Seleziona una configurazione Swift Mailer valida che verrà utilizzata per inviare e-mail tramite la tua casella di posta."
-'Swift Mailer ID': "Swift Mailer ID"
-'None Selected': 'Nessuno selezionato'
-'Create Mailbox': "Crea cassetta postale"
-'CREATE MAILBOX': "CREA MAILBOX"
-'New Template': "Nuovo modello"
-'NEW TEMPLATE': "NUOVO MODELLO"
-'Customer Forgot Password': "Password dimenticata cliente"
-'Customer Account Created': "Account cliente creato"
-'Ticket generated success mail to customer': "Ticket ha generato posta di successo al cliente"
-'Customer Reply To The Agent': "Risposta del cliente all'agente"
-'Ticket Assign': 'Ticket Assign'
-'Agent Forgot Password': "Password dimenticata agente"
-'Agent Account Created': "Account agente creato"
-'Ticket generated by customer': "Biglietto generato dal cliente"
-'Agent Reply To The Customer''s ticket': "Biglietto dell'agente per la risposta al cliente"
-'Email template name': "Nome modello email"
-'Email template subject': "Oggetto modello email"
-'Template For': "Modello per"
-'Nothing Selected': "Niente di selezionato"
-'email template will be used for work related with selected option': "'modello di email verrà utilizzato per lavori relativi all'opzione selezionata'"
-'Email template body': "Corpo modello email"
+IMAP Host: Host IMAP
+Email address: Indirizzo email
+Associated Password: Password associata
+Outgoing Mail (SMTP) Server: Server posta in uscita (SMTP)
+Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.: Seleziona una configurazione Swift Mailer valida che verrà utilizzata per inviare e-mail tramite la tua casella di posta.
+Swift Mailer ID: Swift Mailer ID
+None Selected: Nessuno selezionato
+Create Mailbox: Crea cassetta postale
+CREATE MAILBOX: CREA MAILBOX
+New Template: Nuovo modello
+NEW TEMPLATE: NUOVO MODELLO
+Customer Forgot Password: Password dimenticata cliente
+Customer Account Created: Account cliente creato
+Ticket generated success mail to customer: Ticket ha generato posta di successo al cliente
+Customer Reply To The Agent: Risposta del cliente allagente
+Ticket Assign: Ticket Assign
+Agent Forgot Password: Password dimenticata agente
+Agent Account Created: Account agente creato
+Ticket generated by customer: Biglietto generato dal cliente
+Agent Reply To The Customers ticket: Biglietto dellagente per la risposta al cliente
+Email template name: Nome modello email
+Email template subject: Oggetto modello email
+Template For: Modello per
+Nothing Selected: Niente di selezionato
+email template will be used for work related with selected option: modello di email verrà utilizzato per lavori relativi allopzione selezionata
+Email template body: Corpo modello email
 Body: Corpo
 placeholders: segnaposto
-'Ticket Subject': "Ticket Subject"
-'Ticket Message': "Ticket Ticket"
-'Ticket Attachments': "Allegati ai biglietti"
-'Ticket Tags': "Tag dei biglietti"
-'Ticket Source': "Fonte del biglietto"
-'Ticket Status': "Stato del biglietto"
-'Ticket Priority': "Priorità biglietti"
-'Ticket Group': "Gruppo di biglietti"
-'Ticket Team': "Ticket Team"
-'Ticket Thread Message': "Messaggio thread del biglietto"
-'Ticket Customer Name': "Nome cliente biglietto"
-'Ticket Customer Email': "Ticket email cliente"
-'Ticket Agent Name': "Nome agente ticket"
-'Ticket Agent Email': "Email agente ticket"
-'Ticket Agent Link': "Ticket Agent Link"
-'Ticket Customer Link': 'Ticket Customer Link'
-'Last Collaborator Name': "Cognome collaboratore precedente"
-'Last Collaborator Email': "Ultima email del collaboratore"
-'Agent/ Customer Name': "Nome agente / cliente"
-'Account Validation Link': "Link di convalida dell'account"
-'Password Forgot Link': "Password dimenticata collegamento"
-'Company Name': 'Nome della ditta'
-'Company Logo': 'Logo della compagnia'
-'Company URL': "URL dell'azienda"
-'Swiftmailer id (Select from drop down)': "ID Swiftmailer (seleziona dal menu a discesa)"
+Ticket Subject: Ticket Subject
+Ticket Message: Ticket Ticket
+Ticket Attachments: Allegati ai biglietti
+Ticket Tags: Tag dei biglietti
+Ticket Source: Fonte del biglietto
+Ticket Status: Stato del biglietto
+Ticket Priority: Priorità biglietti
+Ticket Group: Gruppo di biglietti
+Ticket Team: Ticket Team
+Ticket Thread Message: Messaggio thread del biglietto
+Ticket Customer Name: Nome cliente biglietto
+Ticket Customer Email: Ticket email cliente
+Ticket Agent Name: Nome agente ticket
+Ticket Agent Email: Email agente ticket
+Ticket Agent Link: Ticket Agent Link
+Ticket Customer Link: Ticket Customer Link
+Last Collaborator Name: Cognome collaboratore precedente
+Last Collaborator Email: Ultima email del collaboratore
+Agent/ Customer Name: Nome agente / cliente
+Account Validation Link: Link di convalida dellaccount
+Password Forgot Link: Password dimenticata collegamento
+Company Name: Nome della ditta
+Company Logo: Logo della compagnia
+Company URL: URL dellazienda
+Swiftmailer id (Select from drop down): ID Swiftmailer (seleziona dal menu a discesa)
 PROCEED: PROCEDERE
 Proceed: Procedere
-'Theme Color': 'Colore del tema'
-'Customer Created': 'Cliente creato'
-'Agent Created': "Agente creato"
-'Ticket Created': "Biglietto creato"
-'Agent Replied on Ticket': "Risposta dell'agente sul biglietto"
-'Customer Replied on Ticket': "Risposta del cliente sul biglietto"
-'Workflow Status': "Stato del flusso di lavoro"
-'Workflow is Active': "Il flusso di lavoro è attivo"
+Theme Color: Colore del tema
+Customer Created: Cliente creato
+Agent Created: Agente creato
+Ticket Created: Biglietto creato
+Agent Replied on Ticket: Risposta dellagente sul biglietto
+Customer Replied on Ticket: Risposta del cliente sul biglietto
+Workflow Status: Stato del flusso di lavoro
+Workflow is Active: Il flusso di lavoro è attivo
 Events: eventi
-'An event automatically triggers to check conditions and perform a respective pre-defined set of actions': "Un evento si attiva automaticamente per verificare le condizioni ed eseguire un rispettivo set di azioni predefinito"
-'Select an Event': "Seleziona un evento"
-'Add More': 'Aggiungere altro'
+An event automatically triggers to check conditions and perform a respective pre-defined set of actions: Un evento si attiva automaticamente per verificare le condizioni ed eseguire un rispettivo set di azioni predefinito
+Select an Event: Seleziona un evento
+Add More: Aggiungere altro
 Conditions: condizioni
-'Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions': "Le condizioni sono un insieme di regole che verificano scenari specifici e sono attivate in occasioni specifiche"
-'Subject or Description': "Oggetto o descrizione"
+Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions: Le condizioni sono un insieme di regole che verificano scenari specifici e sono attivate in occasioni specifiche
+Subject or Description: Oggetto o descrizione
 Actions: Azioni
-'An action not only reduces the workload but also makes it quite easier for ticket automation': "Un'azione non solo riduce il carico di lavoro, ma lo rende anche più semplice per l'automazione dei ticket"
-'Select an Action': "Seleziona un'azione"
-'Add Note': 'Aggiungi nota'
-'Mail to Agent': "Mail to Agent"
-'Mail to Customer': "Posta al cliente"
-'Mail to group': "Posta al gruppo"
-'Mail to last collaborator': "Posta all'ultimo collaboratore"
-'Mail to team': "Posta al team"
-'Mark Spam': "Mark Spam"
-'Assign to agent': "Assegna a agente"
-'Assign to group': "Assegna a gruppo"
-'Set Priority As': "Imposta priorità come"
-'Set Status As': "Imposta stato come"
-'Set Tag As': "Imposta tag come"
-'Assign to Team': "Assegna a squadra"
-'Set Type As': 'Imposta tipo come'
-'Add Workflow': "Aggiungi flusso di lavoro"
-'ADD WORKFLOW': "AGGIUNGI FLUSSO DI LAVORO"
-'Ticket Type code': "Codice del tipo di biglietto"
-'Ticket Type description': "Descrizione del tipo di biglietto"
-'Type Status': "Tipo di stato"
-'Type is Active': 'Tipo è attivo'
-'Add Save Reply': "Aggiungi Salva risposta"
-'Saved reply name': "Nome risposta salvato"
-'Share saved reply with user(s) in these group(s)': "Condividi la risposta salvata con gli utenti in questi gruppi"
-'Share saved reply with user(s) in these teams(s)': "Condividi la risposta salvata con gli utenti in questi team"
-'Saved reply Body': "Organismo di risposta salvato"
-'New Prepared Response': "Nuova risposta preparata"
-'Prepared Response Status': "Stato di risposta preparato"
-'Prepared Response is Active': "La risposta preparata è attiva"
-'Share prepared response with user(s) in these group(s)': "Condividi le risposte preparate con gli utenti in questi gruppi"
-'Share prepared response with user(s) in these teams(s)': "Condividi le risposte preparate con gli utenti in questi team"
-'ADD PREPARED RESPONSE': "AGGIUNGI RISPOSTA PREPARATA"
-'Add Prepared Response': "Aggiungi risposta preparata"
-'Folder Name is shown upfront at Knowledge Base': "Il nome della cartella viene mostrato in anticipo nella Knowledge Base"
-'A small text about the folder helps user to navigate more easily': "Un piccolo testo sulla cartella aiuta l'utente a navigare più facilmente"
+An action not only reduces the workload but also makes it quite easier for ticket automation: Unazione non solo riduce il carico di lavoro, ma lo rende anche più semplice per lautomazione dei ticket
+Select an Action: Seleziona unazione
+Add Note: Aggiungi nota
+Mail to Agent: Mail to Agent
+Mail to Customer: Posta al cliente
+Mail to group: Posta al gruppo
+Mail to last collaborator: Posta allultimo collaboratore
+Mail to team: Posta al team
+Mark Spam: Mark Spam
+Assign to agent: Assegna a agente
+Assign to group: Assegna a gruppo
+Set Priority As: Imposta priorità come
+Set Status As: Imposta stato come
+Set Tag As: Imposta tag come
+Assign to Team: Assegna a squadra
+Set Type As: Imposta tipo come
+Add Workflow: Aggiungi flusso di lavoro
+ADD WORKFLOW: AGGIUNGI FLUSSO DI LAVORO
+Ticket Type code: Codice del tipo di biglietto
+Ticket Type description: Descrizione del tipo di biglietto
+Type Status: Tipo di stato
+Type is Active: Tipo è attivo
+Add Save Reply: Aggiungi Salva risposta
+Saved reply name: Nome risposta salvato
+Share saved reply with user(s) in these group(s): Condividi la risposta salvata con gli utenti in questi gruppi
+Share saved reply with user(s) in these teams(s): Condividi la risposta salvata con gli utenti in questi team
+Saved reply Body: Organismo di risposta salvato
+New Prepared Response: Nuova risposta preparata
+Prepared Response Status: Stato di risposta preparato
+Prepared Response is Active: La risposta preparata è attiva
+Share prepared response with user(s) in these group(s): Condividi le risposte preparate con gli utenti in questi gruppi
+Share prepared response with user(s) in these teams(s): Condividi le risposte preparate con gli utenti in questi team
+ADD PREPARED RESPONSE: AGGIUNGI RISPOSTA PREPARATA
+Add Prepared Response: Aggiungi risposta preparata
+Folder Name is shown upfront at Knowledge Base: Il nome della cartella viene mostrato in anticipo nella Knowledge Base
+A small text about the folder helps user to navigate more easily: Un piccolo testo sulla cartella aiuta lutente a navigare più facilmente
 Publish: Pubblicare
-'Choose appropriate status': "Scegli lo stato appropriato"
-'Folder Image': 'Immagine cartella'
-'An image is worth a thousands words and makes folder more accessible': "Un'immagine vale più di mille parole e rende la cartella più accessibile"
-'Add Category': 'Aggiungi categoria'
-'Category Name is shown upfront at Knowledge Base': "Il nome della categoria è mostrato in anticipo nella Knowledge Base"
-'A small text about the category helps user to navigate more easily': "Un piccolo testo sulla categoria aiuta l'utente a navigare più facilmente"
-'Using Category Order, you can decide which category should display first': "Utilizzando l'ordine delle categorie, puoi decidere quale categoria visualizzare per prima"
+Choose appropriate status: Scegli lo stato appropriato
+Folder Image: Immagine cartella
+An image is worth a thousands words and makes folder more accessible: Unimmagine vale più di mille parole e rende la cartella più accessibile
+Add Category: Aggiungi categoria
+Category Name is shown upfront at Knowledge Base: Il nome della categoria è mostrato in anticipo nella Knowledge Base
+A small text about the category helps user to navigate more easily: Un piccolo testo sulla categoria aiuta lutente a navigare più facilmente
+Using Category Order, you can decide which category should display first: Utilizzando lordine delle categorie, puoi decidere quale categoria visualizzare per prima
 Sorting: Ordinamento
-'Ascending Order (A-Z)': "Ordine crescente (A-Z)"
-'Descending Order (Z-A)': "Ordine decrescente (Z-A)"
-'Based on Popularity': "Basato sulla popolarità"
-'Article of this category will display according to selected option': "L'articolo di questa categoria verrà visualizzato in base all'opzione selezionata"
+Ascending Order (A-Z): Ordine crescente (A-Z)
+Descending Order (Z-A): Ordine decrescente (Z-A)
+Based on Popularity: Basato sulla popolarità
+Article of this category will display according to selected option: Larticolo di questa categoria verrà visualizzato in base allopzione selezionata
 Article: Articolo
 Title: Titolo
+View: Visualizza
+Make as Starred: Crea come preferito
+Yes: sì
+No: No
+Stared: Stared
+Revisions: revisioni
+Related Articles: articoli Correlati
+Delete Article:	Elimina articolo
 Content: Soddisfare
 Slug: lumaca
-'Slug is the url identity of this article.': "La lumaca è l'identità dell'URL di questo articolo."
-'Meta Title': "Meta Title"
-# "Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "I tag del titolo e le meta descrizioni sono frammenti di codice HTML nell'intestazione di una pagina web. Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina vengono generalmente visualizzati ogni volta che tale pagina appare nei risultati del motore di ricerca "
-'Meta Keywords': "Meta parole chiave"
-'comma "," separated': 'separato da virgola'
-'Meta Description': 'Meta Description'
+Slug is the url identity of this article.: La lumaca è lidentità dellURL di questo articolo.
+Meta Title: Meta Title
+# Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results: I tag del titolo e le meta descrizioni sono frammenti di codice HTML nellintestazione di una pagina web. Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina vengono generalmente visualizzati ogni volta che tale pagina appare nei risultati del motore di ricerca 
+Meta Keywords: Meta parole chiave
+Meta Description: Meta Description
 Description: Descrizione
-'Team Status': "Stato della squadra"
-'Team is Active': 'Team is Active'
-'Edit Privilege': "Modifica privilegio"
-'Can create ticket': 'Può creare un biglietto'
-'Can edit ticket': 'Può modificare il biglietto'
-'Can delete ticket': "Può eliminare il biglietto"
-'Can restore trashed ticket': 'Può ripristinare il ticket cestinato'
-'Can assign ticket': 'Può assegnare il biglietto'
-'Can assign ticket group': "Può assegnare un gruppo di ticket"
-'Can update ticket status': "Può aggiornare lo stato del biglietto"
-'Can update ticket priority': 'Può aggiornare la priorità del ticket'
-'Can update ticket type': 'Può aggiornare il tipo di biglietto'
-'Can add internal notes to ticket': "Può aggiungere note interne al ticket"
-'Can edit thread/notes': 'Può modificare thread / note'
-'Can lock/unlock thread': 'Può bloccare / sbloccare il thread'
-'Can add collaborator to ticket': "Può aggiungere un collaboratore al ticket"
-'Can delete collaborator from ticket': "Può eliminare il collaboratore dal ticket"
-'Can delete thread/notes': 'Può eliminare thread / note'
-'Can apply prepared response on ticket': "Può applicare una risposta preparata sul biglietto"
-'Can add ticket tags': "Può aggiungere tag ticket"
-'Can delete ticket tags': "Può eliminare i tag ticket"
-'Can kick other ticket users': 'Può calciare altri utenti di biglietti'
-'Can manage email templates': 'Può gestire i modelli di email'
-'Can manage groups': 'Può gestire i gruppi'
-'Can manage Sub-Groups/ Teams': 'Può gestire sottogruppi / squadre'
-'Can manage agents': 'Può gestire gli agenti'
-'Can manage agent privileges': 'Può gestire i privilegi degli agenti'
-'Can manage ticket types': 'Può gestire i tipi di biglietto'
-'Can manage ticket custom fields': 'Può gestire i campi personalizzati dei ticket'
-'Can manage customers': 'Può gestire i clienti'
-'Can manage Prepared Responses': 'Può gestire le risposte preparate'
-'Can manage Automatic workflow': 'Può gestire il flusso di lavoro automatico'
-'Can manage tags': 'Può gestire i tag'
-'Can manage knowledgebase': 'Può gestire la knowledge base'
-"Can manage Group's Saved Reply": "Può gestire la risposta salvata del gruppo"
-'Add Privilege': "Aggiungi privilegio"
-'Choose set of privileges which will be available to the agent.': "Scegli un set di privilegi che saranno disponibili per l'agente."
-'Advanced': 'Avanzate'
-'Privilege Name must have characters only': "Il nome privilegio deve contenere solo caratteri"
-'Maximum character length is 50': 'La lunghezza massima dei caratteri è 50'
-'Open Tickets': "Biglietti aperti"
-'New Customer': 'Nuovo cliente'
-'New Agent': "Nuovo agente"
-'Total Article(s)': "Totale articoli"
-'Please specify a valid email address': "Specifica un indirizzo email valido"
-'Please enter the password associated with your email address': "Inserisci la password associata al tuo indirizzo email"
-'Please enter your server host address': "Inserisci l'indirizzo del tuo server"
-'Please specify a port number to connect with your mail server': 'Specificare un numero di porta per connettersi con il proprio server di posta'
-'Success ! Branding details saved successfully.': "Successo! Dettagli di branding salvati correttamente. "
-'Success ! Time details saved successfully.': "Successo! Dettagli temporali salvati correttamente. "
-'Spam setting saved successfully.': "Impostazioni spam salvate correttamente."
-'Please specify a valid name for your mailbox.': "Specifica un nome valido per la tua casella di posta."
-'Please select a valid swift-mailer configuration.': "Seleziona una configurazione swift-mailer valida."
-'Please specify a valid host address.': "Specificare un indirizzo host valido."
-'Please specify a valid email address.': "Specifica un indirizzo email valido."
-'Please enter the associated account password.': "Inserisci la password dell'account associata."
-'New Saved Reply': "Nuova risposta salvata"
-'New Category': 'Nuova categoria'
-'Folder': 'Cartella'
-'Category': 'Categoria'
-'Created': 'Creato'
-'All Articles': "Tutti gli articoli"
-'Viewed': 'Visto'
-'New Article': "Nuovo articolo"
-'Thank you for your feedback!': 'Grazie per il tuo feedback!'
-'Was this article helpful?': 'Questo articolo è stato utile?'
-'Helpdesk': 'Helpdesk'
-'Support Center': 'Centro di supporto'
-'Mailboxes': 'caselle postali'
+Team Status: Stato della squadra
+Team is Active: Team is Active
+Edit Privilege: Modifica privilegio
+Can create ticket: Può creare un biglietto
+Can edit ticket: Può modificare il biglietto
+Can delete ticket: Può eliminare il biglietto
+Can restore trashed ticket: Può ripristinare il ticket cestinato
+Can assign ticket: Può assegnare il biglietto
+Can assign ticket group: Può assegnare un gruppo di ticket
+Can update ticket status: Può aggiornare lo stato del biglietto
+Can update ticket priority: Può aggiornare la priorità del ticket
+Can update ticket type: Può aggiornare il tipo di biglietto
+Can add internal notes to ticket: Può aggiungere note interne al ticket
+Can edit thread/notes: Può modificare thread / note
+Can lock/unlock thread: Può bloccare / sbloccare il thread
+Can add collaborator to ticket: Può aggiungere un collaboratore al ticket
+Can delete collaborator from ticket: Può eliminare il collaboratore dal ticket
+Can delete thread/notes: Può eliminare thread / note
+Can apply prepared response on ticket: Può applicare una risposta preparata sul biglietto
+Can add ticket tags: Può aggiungere tag ticket
+Can delete ticket tags: Può eliminare i tag ticket
+Can kick other ticket users: Può calciare altri utenti di biglietti
+Can manage email templates: Può gestire i modelli di email
+Can manage groups: Può gestire i gruppi
+Can manage Sub-Groups/ Teams: Può gestire sottogruppi / squadre
+Can manage agents: Può gestire gli agenti
+Can manage agent privileges: Può gestire i privilegi degli agenti
+Can manage ticket types: Può gestire i tipi di biglietto
+Can manage ticket custom fields: Può gestire i campi personalizzati dei ticket
+Can manage customers: Può gestire i clienti
+Can manage Prepared Responses: Può gestire le risposte preparate
+Can manage Automatic workflow: Può gestire il flusso di lavoro automatico
+Can manage tags: Può gestire i tag
+Can manage knowledgebase: Può gestire la knowledge base
+Can manage Groups Saved Reply: Può gestire la risposta salvata del gruppo
+Add Privilege: Aggiungi privilegio
+Choose set of privileges which will be available to the agent.: Scegli un set di privilegi che saranno disponibili per lagente.
+Advanced: Avanzate
+Privilege Name must have characters only: Il nome privilegio deve contenere solo caratteri
+Maximum character length is 50: La lunghezza massima dei caratteri è 50
+Open Tickets: Biglietti aperti
+New Customer: Nuovo cliente
+New Agent: Nuovo agente
+Total Article(s): Totale articoli
+Please specify a valid email address: Specifica un indirizzo email valido
+Please enter the password associated with your email address: Inserisci la password associata al tuo indirizzo email
+Please enter your server host address: Inserisci lindirizzo del tuo server
+Please specify a port number to connect with your mail server: Specificare un numero di porta per connettersi con il proprio server di posta
+Success ! Branding details saved successfully.: Successo! Dettagli di branding salvati correttamente. 
+Success ! Time details saved successfully.: Successo! Dettagli temporali salvati correttamente. 
+Spam setting saved successfully.: Impostazioni spam salvate correttamente.
+Please specify a valid name for your mailbox.: Specifica un nome valido per la tua casella di posta.
+Please select a valid swift-mailer configuration.: Seleziona una configurazione swift-mailer valida.
+Please specify a valid host address.: Specificare un indirizzo host valido.
+Please specify a valid email address.: Specifica un indirizzo email valido.
+Please enter the associated account password.: Inserisci la password dellaccount associata.
+New Saved Reply: Nuova risposta salvata
+New Category: Nuova categoria
+Folder: Cartella
+Category: Categoria
+Created: Creato
+All Articles: Tutti gli articoli
+Viewed: Visto
+New Article: Nuovo articolo
+Thank you for your feedback!: Grazie per il tuo feedback!
+Was this article helpful?: Questo articolo è stato utile?
+Helpdesk: Helpdesk
+Support Center: Centro di supporto
+Mailboxes: caselle postali
 By: Di
-'Search Tickets': "Cerca biglietti"
-'Customer Information': 'Informazioni per il cliente'
-'Total Replies': "Risposte totali"
-'Filter With': "Filtra con"
-'Type email to add': "Digita l'email da aggiungere"
+Search Tickets: Cerca biglietti
+Customer Information: Informazioni per il cliente
+Total Replies: Risposte totali
+Filter With: Filtra con
+Type email to add: Digita lemail da aggiungere
 Collaborators: collaboratori
 Labels: etichette
 Group: Gruppo
-'Stay on ticket': 'Resta sul biglietto'
-'Redirect to list': "Reindirizza all'elenco"
-'Nothing interesting here': 'Niente di interessante qui'
-'Previous Ticket': "Biglietto precedente"
-'Next Ticket': 'Prossimo biglietto'
+Stay on ticket: Resta sul biglietto
+Redirect to list: Reindirizza allelenco
+Nothing interesting here...: Niente di interessante qui
+Previous Ticket: Biglietto precedente
+Next Ticket: Prossimo biglietto
 Forward: Inoltrare
 Note: Nota
-'Write a reply': 'Scrivi una risposta'
-'Created Ticket': "Biglietto creato"
-'All Threads': "Tutte le discussioni"
-'Forwards': ' Attaccanti'
-'Notes': 'Appunti'
-'Pinned': 'Pinned'
-'Edit Ticket': "Modifica biglietto"
-'Print Ticket': 'Stampa biglietto'
-'Mark as Spam': 'Segna come spam'
-'Mark as Closed': "Segna come chiuso"
-'Delete Ticket': "Elimina biglietto"
-'View order details from different eCommerce channels': "Visualizza i dettagli dell'ordine da diversi canali di e-commerce"
-'ECOMMERCE CHANNELS': "CANALI ECOMMERCE"
-'Select channel': "Seleziona canale"
-'Order Id': 'ID ordine'
-'Fetch Order': 'Recupera ordine'
-'No orders have been integrated to this ticket yet.': "Nessun ordine è stato ancora integrato in questo ticket."
-'Enter your credentials below to gain access to your helpdesk account.': "Inserisci le tue credenziali di seguito per accedere al tuo account di helpdesk."
-'Keep me logged in': 'Resta collegato'
-'Forgot Password?': 'Ha dimenticato la password?'
-'Log in to your': "Accedi al tuo"
-'Sign In': 'Registrati'
-'Edit Customer': "Modifica cliente"
-'Update': 'Aggiornare'
-'Discard': 'Scartare'
-'Cancel': 'Annulla'
-'Not Assigned': 'Non assegnato'
-'Submit': 'Sottoscrivi'
-'Submit And Open': "Invia e apri"
-'Submit And Pending': "Invia e in attesa"
-'Submit And Answered': "Invia e rispondi"
-'Submit And Resolved': "Invia e risolto"
-'Submit And Closed': 'Invia e chiuso'
-'Choose a Color': "Scegli un colore"
-'Create': 'Creare'
-'Edit Label': "Modifica etichetta"
-'Add Label': "Aggiungi etichetta"
-'To': 'Per'
-'Ticket': 'Biglietto'
-'Your browser does not support JavaScript or You disabled JavaScript, Please enable those !': "Il tuo browser non supporta JavaScript o hai disabilitato JavaScript, abilitalo!"
-'Confirm Action': "Conferma azione"
-'Confirm': 'Confermare'
-'No result found': 'Nessun risultato trovato'
-'ticket delivery status': "stato di consegna del biglietto"
-'Warning! Select valid image file.': "Avvertimento! Seleziona un file di immagine valido. "
-'Error': 'Errore'
-'Save': 'Salva'
-'SEO': 'SEO'
-'Edit Saved Filter': "Modifica filtro salvato"
-'Type atleast 2 letters': "Digitare almeno 2 lettere"
-'Remove Label': "Rimuovi etichetta"
-'New Saved Filter': "Nuovo filtro salvato"
-'Is Default': 'È predefinito'
-'Remove Saved Filter': "Rimuovi filtro salvato"
-'Ticket Info': "Informazioni biglietto"
-'Last Replied Agent': "Ultimo agente replicato"
-'created Ticket': 'Ticket creato'
-'Uploaded Files': "File caricati"
-'Download (as .zip)': 'Scarica (con il nome .zip)'
-'made last reply': "ha fatto l'ultima risposta"
-'N/A': 'N / A'
-'Unassigned': 'Non assegnati'
-'Label': 'Etichetta'
-'Assigned to me': "Assegnato a me"
-'Search Query': 'Query di ricerca'
-'Searching': 'Ricerca'
-'Saved Filter': "Filtro salvato"
-'No Label Created': "Nessuna etichetta creata"
-'Label with same name already exist.': "L'etichetta con lo stesso nome esiste già."
-'Create New': 'Creare nuovo'
-'Mail status': "Stato della posta"
-'replied': 'Risposto'
-'added note': "nota aggiunta"
-'forwarded': 'Trasmessa'
-'TO': 'PER'
-'CC': 'CC'
-'BCC': 'BCC'
+Write a reply: Scrivi una risposta
+Created Ticket: Biglietto creato
+All Threads: Tutte le discussioni
+Forwards:  Attaccanti
+Notes: Appunti
+Pinned: Pinned
+Edit Ticket: Modifica biglietto
+Print Ticket: Stampa biglietto
+Mark as Spam: Segna come spam
+Mark as Closed: Segna come chiuso
+Delete Ticket: Elimina biglietto
+View order details from different eCommerce channels: Visualizza i dettagli dellordine da diversi canali di e-commerce
+ECOMMERCE CHANNELS: CANALI ECOMMERCE
+Select channel: Seleziona canale
+Order Id: ID ordine
+Fetch Order: Recupera ordine
+No orders have been integrated to this ticket yet.: Nessun ordine è stato ancora integrato in questo ticket.
+Enter your credentials below to gain access to your helpdesk account.: Inserisci le tue credenziali di seguito per accedere al tuo account di helpdesk.
+Keep me logged in: Resta collegato
+Forgot Password?: Ha dimenticato la password?
+Log in to your: Accedi al tuo
+Sign In: Registrati
+Edit Customer: Modifica cliente
+Update: Aggiornare
+Discard: Scartare
+Cancel: Annulla
+Not Assigned: Non assegnato
+Submit: Sottoscrivi
+Submit And Open: Invia e apri
+Submit And Pending: Invia e in attesa
+Submit And Answered: Invia e rispondi
+Submit And Resolved: Invia e risolto
+Submit And Closed: Invia e chiuso
+Choose a Color: Scegli un colore
+Create: Creare
+Edit Label: Modifica etichetta
+Add Label: Aggiungi etichetta
+To: Per
+Ticket: Biglietto
+Your browser does not support JavaScript or You disabled JavaScript, Please enable those !: Il tuo browser non supporta JavaScript o hai disabilitato JavaScript, abilitalo!
+Confirm Action: Conferma azione
+Confirm: Confermare
+No result found: Nessun risultato trovato
+ticket delivery status: stato di consegna del biglietto
+Warning! Select valid image file.: Avvertimento! Seleziona un file di immagine valido. 
+Error: Errore
+Save: Salva
+SEO: SEO
+Edit Saved Filter: Modifica filtro salvato
+Type atleast 2 letters: Digitare almeno 2 lettere
+Remove Label: Rimuovi etichetta
+New Saved Filter: Nuovo filtro salvato
+Is Default: È predefinito
+Remove Saved Filter: Rimuovi filtro salvato
+Ticket Info: Informazioni biglietto
+Last Replied Agent: Ultimo agente replicato
+created Ticket: Ticket creato
+Uploaded Files: File caricati
+Download (as .zip): Scarica (con il nome .zip)
+made last reply: ha fatto lultima risposta
+N/A: N / A
+Unassigned: Non assegnati
+Label: Etichetta
+Assigned to me: Assegnato a me
+Search Query: Query di ricerca
+Searching: Ricerca
+Saved Filter: Filtro salvato
+No Label Created: Nessuna etichetta creata
+Label with same name already exist.: Letichetta con lo stesso nome esiste già.
+Create New: Creare nuovo
+Mail status: Stato della posta
+replied: Risposto
+added note: nota aggiunta
+forwarded: Trasmessa
+TO: PER
+CC: CC
+BCC: BCC
 Locked: Bloccato
-'Edit Thread': 'Modifica discussione'
-'Delete Thread': 'Elimina discussione'
-'Unpin Thread': 'Sblocca discussione'
-'Pin Thread': 'Pin Thread'
-'Unlock Thread': 'Sblocca discussione'
-'Lock Thread': 'Blocca discussione'
-'Translate Thread': 'Traduci discussione'
-'Language': 'Linguaggio'
-'English': 'Inglese'
-'French': 'Francese'
-'Italian': 'Italiano'
-'Arabic': 'Arabo'
-'German': 'Tedesco'
-'Spanish': 'Spagnolo'
-'Turkish': 'Turco'
-'Danish': 'Danese'
-'System': 'Sistema'
-'Open in Files': "Apri in file"
-'Email address is invalid': "'L'indirizzo email non è valido'"
-'Tag with same name already exist': "Il tag con lo stesso nome esiste già"
-'Text length should be less than 20 charactors': "La lunghezza del testo deve essere inferiore a 20 caratteri"
-'Label with same name already exist': "L'etichetta con lo stesso nome esiste già"
-'Agent Name': "Nome agente"
-'Agent Email': "Email agente"
+Edit Thread: Modifica discussione
+Delete Thread: Elimina discussione
+Unpin Thread: Sblocca discussione
+Pin Thread: Pin Thread
+Unlock Thread: Sblocca discussione
+Lock Thread: Blocca discussione
+Translate Thread: Traduci discussione
+Language: Linguaggio
+English: Inglese
+French: Francese
+Italian: Italiano
+Arabic: Arabo
+German: Tedesco
+Spanish: Spagnolo
+Turkish: Turco
+Danish: Danese
+System: Sistema
+Open in Files: Apri in file
+Email address is invalid: Lindirizzo email non è valido
+Tag with same name already exist: Il tag con lo stesso nome esiste già
+Text length should be less than 20 charactors: La lunghezza del testo deve essere inferiore a 20 caratteri
+Label with same name already exist: Letichetta con lo stesso nome esiste già
+Agent Name: Nome agente
+Agent Email: Email agente
 open: Aperto
-'Currently active agents on ticket': "Agenti attualmente attivi sul biglietto"
-'Edit Customer Information': "Modifica informazioni cliente"
-'Restore': 'Ristabilire'
-'Delete Forever': 'Elimina per sempre'
-'Add Team': "Aggiungi squadra"
-'delete': 'Elimina'
-"You didn't have any folder for current filter(s).": "Non avevi nessuna cartella per i filtri correnti."
-'Add Folder': 'Aggiungi cartella'
-'This field must have valid characters only': 'Questo campo deve contenere solo caratteri validi'
-'Can edit task': "'Può modificare l'attività'"
-'Can create task': 'Può creare attività'
-'Can delete task': "Può eliminare l'attività"
-'Can add member to task': "Può aggiungere un membro all'attività"
-'Can remove member from task': "Può rimuovere un membro dall'attività"
-'Agent Privileges': "Privilegi agente"
-'Agent Privilege represents overall permissions in System.': "Privilegio agente rappresenta le autorizzazioni generali nel sistema."
-'Ticket View': "Ticket View"
-'User can view tickets based on selected scope.': "L'utente può visualizzare i biglietti in base all'ambito selezionato."
-'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': "Se l'accesso individuale quindi l'utente può visualizzare solo i ticket assegnati, se l'accesso alla squadra quindi l'utente può visualizzare tutti i ticket della squadra a cui appartiene e così via"
-'Global Access': "Accesso globale"
-'Group Access': "Accesso al gruppo"
-'Team Access': "Accesso alla squadra"
-'Individual Access': "Accesso individuale"
-'This field must have characters only': 'Questo campo deve contenere solo caratteri'
-'Maximum character length is 40': 'La lunghezza massima dei caratteri è 40'
-'This is not a valid email address': 'Questo non è un indirizzo e-mail valido'
-'Password must contains 8 Characters': "La password deve contenere 8 caratteri"
-'The passwords does not match': "Le password non corrispondono"
-'Enabled': 'Abilitato'
-'Create Configuration': "Crea configurazione"
-'Swift Mailer Settings': "Impostazioni di Swift Mailer"
-'Username': 'Nome utente'
-'Please select a swiftmailer id': "Seleziona un ID swiftmailer"
-'Please enter a valid e-mail id': "Inserisci un ID e-mail valido"
-'Please enter a mailer id': "Inserisci un ID mailer"
-'Email Id': 'E-mail identificativo utente'
-'Are you sure? You want to perform this action.': 'Sei sicuro? Vuoi eseguire questa azione. '
-'Reorder': 'Riordina'
-'New Workflow': "Nuovo flusso di lavoro"
-'OR': 'O'
-'AND': 'E'
-'Please enter a valid name.': 'Per favore inserire un nome valido.'
-'Please select a value.': "Seleziona un valore."
-'Please add a value.': "Per favore, aggiungi un valore."
-'This field is required': 'Questo campo è obbligatorio'
-'or': 'o'
-'and': 'e'
-'Select a Condition': "Seleziona una condizione"
-'Loading...': 'Caricamento in corso...'
-'Select Option': "'Selezionare l'opzione'"
-'Inactive': 'Inattivo'
-'New Type': 'Nuovo tipo'
-'Placeholders': 'segnaposto'
-'Ticket Link': "Ticket Link"
-'Id': 'Id'
-'Preview': 'Anteprima'
-'Sort Order': 'Ordinamento'
-'This field must be a number': 'Questo campo deve essere un numero'
-'User': 'Utente'
-'Edit Group': "Modifica gruppo"
-'Group Status': "Stato del gruppo"
-'Group is Active': 'Il gruppo è attivo'
-'Add Group': 'Aggiungere gruppo'
-'Contact number is invalid': "Il numero di contatto non è valido"
-'Edit Agent': "Modifica agente"
-'No Privilege added, Please add Privilege(s) first !': "Nessun privilegio aggiunto, per favore aggiungi prima i privilegi!"
-'Edit Email Template': "Modifica modello email"
-'Edit Workflow': "Modifica flusso di lavoro"
-'Save Workflow': "Salva flusso di lavoro"
-'Edit Ticket Type': "Modifica tipo di biglietto"
-'Add Ticket Type': "Aggiungi tipo di biglietto"
-'Date Released': "Data di rilascio"
-'Free': 'Gratuito'
-'Premium': 'Premium'
-'Installed': 'Installata'
-'Installed Applications': "Applicazioni installate"
-'Nothing Interesting here': "Niente di interessante qui"
-'No Categories Added': 'Nessuna categoria aggiunta'
+Currently active agents on ticket: Agenti attualmente attivi sul biglietto
+Edit Customer Information: Modifica informazioni cliente
+Restore: Ristabilire
+Delete Forever: Elimina per sempre
+Add Team: Aggiungi squadra
+delete: Elimina
+You didnt have any folder for current filter(s).: Non avevi nessuna cartella per i filtri correnti.
+Add Folder: Aggiungi cartella
+This field must have valid characters only: Questo campo deve contenere solo caratteri validi
+Can edit task: Può modificare lattività
+Can create task: Può creare attività
+Can delete task: Può eliminare lattività
+Can add member to task: Può aggiungere un membro allattività
+Can remove member from task: Può rimuovere un membro dallattività
+Agent Privileges: Privilegi agente
+Agent Privilege represents overall permissions in System.: Privilegio agente rappresenta le autorizzazioni generali nel sistema.
+Ticket View: Ticket View
+User can view tickets based on selected scope.: Lutente può visualizzare i biglietti in base allambito selezionato.
+If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on: Se laccesso individuale quindi lutente può visualizzare solo i ticket assegnati, se laccesso alla squadra quindi lutente può visualizzare tutti i ticket della squadra a cui appartiene e così via
+Global Access: Accesso globale
+Group Access: Accesso al gruppo
+Team Access: Accesso alla squadra
+Individual Access: Accesso individuale
+This field must have characters only: Questo campo deve contenere solo caratteri
+Maximum character length is 40: La lunghezza massima dei caratteri è 40
+This is not a valid email address: Questo non è un indirizzo e-mail valido
+Password must contains 8 Characters: La password deve contenere 8 caratteri
+The passwords does not match: Le password non corrispondono
+Enabled: Abilitato
+Create Configuration: Crea configurazione
+Swift Mailer Settings: Impostazioni di Swift Mailer
+Username: Nome utente
+Please select a swiftmailer id: Seleziona un ID swiftmailer
+Please enter a valid e-mail id: Inserisci un ID e-mail valido
+Please enter a mailer id: Inserisci un ID mailer
+Email Id: E-mail identificativo utente
+Are you sure? You want to perform this action.: Sei sicuro? Vuoi eseguire questa azione. 
+Reorder: Riordina
+New Workflow: Nuovo flusso di lavoro
+OR: O
+AND: E
+Please enter a valid name.: Per favore inserire un nome valido.
+Please select a value.: Seleziona un valore.
+Please add a value.: Per favore, aggiungi un valore.
+This field is required: Questo campo è obbligatorio
+or: o
+and: e
+Select a Condition: Seleziona una condizione
+Loading...: Caricamento in corso...
+Select Option: Selezionare lopzione
+Inactive: Inattivo
+New Type: Nuovo tipo
+Placeholders: segnaposto
+Ticket Link: Ticket Link
+Id: Id
+Preview: Anteprima
+Sort Order: Ordinamento
+This field must be a number: Questo campo deve essere un numero
+User: Utente
+Edit Group: Modifica gruppo
+Group Status: Stato del gruppo
+Group is Active: Il gruppo è attivo
+Add Group: Aggiungere gruppo
+Contact number is invalid: Il numero di contatto non è valido
+Edit Agent: Modifica agente
+No Privilege added, Please add Privilege(s) first !: Nessun privilegio aggiunto, per favore aggiungi prima i privilegi!
+Edit Email Template: Modifica modello email
+Edit Workflow: Modifica flusso di lavoro
+Save Workflow: Salva flusso di lavoro
+Edit Ticket Type: Modifica tipo di biglietto
+Add Ticket Type: Aggiungi tipo di biglietto
+Date Released: Data di rilascio
+Free: Gratuito
+Premium: Premium
+Installed: Installata
+Installed Applications: Applicazioni installate
+Apps Dashboard: Dashboard delle app
+Nothing Interesting here: Niente di interessante qui
+No Categories Added: Nessuna categoria aggiunta
 ticket: biglietto
-'Add Email Template': "Aggiungi modello email"
-'This field contain 100 characters only': 'Questo campo contiene solo 100 caratteri'
-'This field contain characters only': 'Questo campo contiene solo caratteri'
-'Name length must not be greater than 200 !!': 'La lunghezza del nome non deve essere maggiore di 200 !!'
-'Warning! Correct all field values first!': 'Avvertimento! Prima correggi tutti i valori dei campi! '
-'Warning ! This is not a valid request': 'Avvertimento ! Questa non è una richiesta valida '
-'Success ! Tag removed successfully.': 'Successo! Tag rimosso correttamente. '
-'Success ! Tags Saved successfully.': 'Successo! Tag salvati correttamente. '
-'Success ! Revision restored successfully.': 'Successo! Revisione ripristinata correttamente. '
-'Success ! Categories updated successfully.': 'Successo! Categorie aggiornate correttamente. '
-'Success ! Article Related removed successfully.': 'Successo! Articolo correlato rimosso correttamente. '
-'Success ! Article Related is already added.': "'Successo! L'articolo è già stato aggiunto. '"
-'Success ! Cannot add self as relative article.': 'Successo! Impossibile aggiungere se stesso come articolo relativo. '
-'Success ! Article Related updated successfully.': 'Successo! Articolo correlato aggiornato correttamente. '
-'Success ! Articles removed successfully.': 'Successo! Articoli rimossi correttamente. '
-'Success ! Article status updated successfully.': "'Successo! Stato dell'articolo aggiornato correttamente. '"
-'Success ! Article star updated successfully.': "'Successo! Stella dell'articolo aggiornata correttamente. '"
-'Success! Article updated successfully': 'Successo! Articolo aggiornato correttamente '
-'Success ! Category sort  order updated successfully.': 'Successo! Ordinamento delle categorie aggiornato correttamente. '
-'Success ! Category status updated successfully.': 'Successo! Stato della categoria aggiornato correttamente. '
-'Success ! Folders updated successfully.': 'Successo! Cartelle aggiornate correttamente. '
-'Success ! Categories removed successfully.': 'Successo! Categorie rimosse correttamente. '
-'Success ! Category updated successfully.': 'Successo! Categoria aggiornata correttamente. '
-'Error ! Category is not exist.': "Errore! La categoria non esiste. '
-'Warning ! Customer Login disabled by admin.': 'Avvertimento ! Accesso cliente disabilitato dall'amministratore. "
-'This Email is not registered with us.': "Questa email non è registrata con noi."
-'Your password has been updated successfully.': "La tua password è stata aggiornata correttamente."
-"Password don't match.": "La password non corrisponde."
-'Error ! Profile image is not valid, please upload a valid format': "Errore! L'immagine del profilo non è valida, carica un formato valido "
-'Success! Folder has been added successfully.': 'Successo! La cartella è stata aggiunta correttamente. '
-'Folder updated successfully.': "Cartella aggiornata correttamente."
-'Success ! Folder status updated successfully.': "Successo! Stato della cartella aggiornato correttamente. "
-'Error ! Folder is not exist.': "Errore! La cartella non esiste. "
-'Success ! Folder updated successfully.': 'Successo! Cartella aggiornata correttamente. '
-'Error ! Folder does not exist.': 'Errore! La cartella non esiste. '
-'Success ! Folder deleted successfully.': 'Successo! Cartella eliminata correttamente. '
-"Warning ! Folder doesn't exists!": "Attenzione! La cartella non esiste!"
-'Warning ! Cannot create ticket, given email is blocked by admin.': "'Avvertimento ! Impossibile creare il ticket, dato che l'e-mail è bloccata dall'amministratore. '"
-'Success ! Ticket has been created successfully.': 'Successo! Il ticket è stato creato correttamente. '
-'Warning ! Can not create ticket, invalid details.': "Avvertimento ! Impossibile creare il ticket, dettagli non validi."
-"Warning ! Post size can not exceed 25MB": "Attenzione! Le dimensioni del post non possono superare i 25 MB"
-"Create Ticket Request": "Crea richiesta ticket"
-"Success ! Reply added successfully.": "Successo! Risposta aggiunta correttamente."
-"Warning ! Reply field can not be blank.": "Attenzione! Il campo di risposta non può essere vuoto."
-"Success ! Rating has been successfully added.": "Successo! La valutazione è stata aggiunta correttamente. "
-"Warning ! Invalid rating.": "Avvertimento ! Valutazione non valida."
-"Error ! Can not add customer as a collaborator.": "Errore! Impossibile aggiungere il cliente come collaboratore "
-"Success ! Collaborator added successfully.": "Successo! Collaboratore aggiunto correttamente. "
-"Error ! Collaborator is already added.": "Errore! Il collaboratore è già stato aggiunto. "
-"Success ! Collaborator removed successfully.": "Successo! Collaboratore rimosso con successo."
-"Error ! Invalid Collaborator.": "Errore! Collaboratore non valido. "
-"An unexpected error occurred. Please try again later.": "Si è verificato un errore imprevisto. Per favore riprova più tardi."
-"Feedback saved successfully.": "Feedback salvato correttamente."
-"Feedback updated successfully.": "Feedback aggiornato correttamente."
-"Invalid feedback provided.": "Feedback non valido fornito."
-"Article not found.": "Articolo non trovato."
-"You need to login to your account before can perform this action.": "Devi accedere al tuo account prima di poter eseguire questa azione."
-"Warning! Please add valid Actions!": "Avvertimento! Aggiungi azioni valide! "
-"Warning! In Free Plan you can not change Events!": "Avvertimento! In Free Plan non puoi cambiare Eventi! "
-"Success! Prepared Response has been updated successfully.": "Successo! La risposta preparata è stata aggiornata correttamente. "
-"Success! Prepared Response has been added successfully.": "Successo! La risposta preparata è stata aggiunta correttamente. "
-"Warning  This is not a valid request": "Avviso Questa non è una richiesta valida"
-"Use Default Colors": "Usa colori predefiniti"
-Masonry: "Opere murarie"
-"Popular Article": "Articolo popolare"
-"Manage Ticket Custom Fields": "Gestisci campi personalizzati ticket"
-"You don't have premission to edit this Prepared response" : "Non hai la premessa di modificare questa risposta preparata"
-"Save Prepared Response": "Salva risposta preparata"
-'Success ! Prepared response removed successfully.': "Successo! Risposta preparata rimossa correttamente. "
-'Warning! You are not allowed to perform this action.': "Avvertimento! Non ti è consentito eseguire questa azione. "
-'Success! Workflow has been updated successfully.': "Successo! Il flusso di lavoro è stato aggiornato correttamente. "
-'Success! Workflow has been added successfully.': "Successo! Il flusso di lavoro è stato aggiunto correttamente. "
-'Success! Order has been updated successfully.': "Successo! L'ordine è stato aggiornato correttamente. "
-'Success! Workflow has been removed successfully.': "Successo! Il flusso di lavoro è stato rimosso correttamente. "
-'Mailbox successfully created.': "Cassetta postale creata correttamente."
-'Mailbox successfully updated.': "Cassetta postale aggiornata correttamente."
-'Warning ! Bad request !': "'Avvertimento ! Brutta richiesta !'"
-'Error! Given current password is incorrect.': "Errore! La password corrente è errata. "
-'Success ! Profile update successfully.': "Successo! Aggiornamento del profilo eseguito correttamente. "
-'Error ! User with same email is already exist.': "Errore! L'utente con la stessa email è già esistente. "
-'Success ! Agent updated successfully.': "Successo! Agente aggiornato correttamente. "
-'Success ! Agent removed successfully.': "Successo! Agente rimosso correttamente. "
-"Warning ! You are allowed to remove account owner's account.": "Avviso! Puoi rimuovere l'account del proprietario dell'account."
-"Error ! Invalid user id.": "Errore! ID utente non valido."
-"Success ! Filter has been saved successfully.": "Successo! Il filtro è stato salvato con successo."
-"Success ! Filter has been updated successfully.": "Successo! Il filtro è stato aggiornato con successo."
-"Success ! Filter has been removed successfully.": "Operazione riuscita! Il filtro è stato rimosso correttamente."
-"Please check your mail for password update.": "Controlla la tua posta per l'aggiornamento della password."
-"This Email address is not registered with us.": "Questo indirizzo email non è registrato presso di noi."
-"Success ! Customer saved successfully.": "Successo! Il cliente è stato salvato con successo."
-"Error ! User with same email already exist.": "Errore! Esistono già utenti con la stessa e-mail."
-"Success ! Customer information updated successfully.": "Successo! Informazioni sui clienti aggiornate con successo."
-"Success ! Customer updated successfully.": "Successo! Il cliente è stato aggiornato con successo."
-"Error ! Customer with same email already exist.": "Errore! Esistono già clienti con la stessa e-mail."
-"unstarred Action Completed successfully": "Azione non contrassegnata completata correttamente"
-"starred Action Completed successfully": "Azione speciale completata correttamente"
-"Success ! Customer removed successfully.": "Successo! Cliente rimosso con successo."
-"Error ! Invalid customer id.": "Errore! ID cliente non valido."
-"Success! Template has been updated successfully.": "Successo! Il modello è stato aggiornato con successo."
-"Success! Template has been added successfully.": "Successo! Il modello è stato aggiunto correttamente."
-"Success! Template has been deleted successfully.": "Successo! Il modello è stato cancellato con successo."
-"Warning! resource not found.": "Attenzione! Risorsa non trovata."
-"Warning! You can not remove predefined email template which is being used in workflow(s).": "Attenzione! Non è possibile rimuovere il modello di posta elettronica predefinito utilizzato nei flussi di lavoro."
-"Success ! Email settings are updated successfully.": "Operazione riuscita. Le impostazioni e-mail sono state aggiornate correttamente."
-"Success ! Group information updated successfully.": "Successo! Informazioni sul gruppo aggiornate con successo."
-"Success ! Group information saved successfully.": "Successo! Informazioni di gruppo salvate correttamente."
-"Support Group removed successfully.": "Gruppo di supporto rimosso correttamente."
-"Success ! Privilege information saved successfully.": "Successo! Informazioni sui privilegi salvate correttamente."
-"Privilege updated successfully.": "Privilegio aggiornato con successo."
-"Support Privilege removed successfully.": "Privilegio di supporto rimosso correttamente."
-"Success! Reply has been updated successfully.": "Successo! La risposta è stata aggiornata correttamente."
-"Success! Reply has been added successfully.": "Successo! La risposta è stata aggiunta correttamente."
-"Success! Saved Reply has been deleted successfully": "Successo! La risposta salvata è stata eliminata correttamente"
-"SwiftMailer configuration updated successfully.": "Configurazione SwiftMailer aggiornata correttamente."
-"Swiftmailer configuration removed successfully.": "La configurazione di Swiftmailer è stata rimossa correttamente."
-"Success ! Team information saved successfully.": "Successo! Informazioni sulla squadra salvate correttamente."
-"Success ! Team information updated successfully.": "Successo! Informazioni sulla squadra aggiornate con successo."
-"Support Team removed successfully.": "Il team di supporto è stato rimosso correttamente."
-"Success! Reply has been added successfully": "Successo! La risposta è stata aggiunta correttamente"
-"Success ! Thread updated successfully.": "Successo! Discussione aggiornata con successo."
-"Error ! Reply field can not be blank.": "Errore! Il campo di risposta non può essere vuoto."
-"Success ! Thread removed successfully.": "Operazione riuscita. Discussione rimossa correttamente."
-"Success ! Thread locked successfully": "Successo! Discussione bloccata con successo"
-"Success ! Thread unlocked successfully": "Successo! Discussione sbloccata con successo"
-"Success ! Thread pinned successfully": "Successo! Discussione appuntata correttamente"
-"Error ! Invalid thread.": "Errore! Discussione non valida."
-"Could not create ticket, invalid details.": "Impossibile creare il ticket, dettagli non validi."
-"Success ! Tag updated successfully.": "Successo! Tag aggiornato correttamente."
-"Error ! Customer can not be added as collaborator.": "Errore! Il cliente non può essere aggiunto come collaboratore."
-"Success ! Tag unassigned successfully.": "Successo! Tag non assegnato con successo."
-"Success ! Tag added successfully.": "Successo! Tag aggiunto correttamente."
-"Please enter tag name.": "Inserisci il nome del tag."
-"Error ! Invalid tag.": "Errore! Tag non valido."
-"Success ! Type removed successfully.": "Operazione riuscita. Tipo rimosso con successo."
-"Success ! Ticket to label removed successfully.": "Successo! Il biglietto per l'etichetta è stato rimosso con successo."
-"Unable to retrieve support team details": "Impossibile recuperare i dettagli del team di supporto"
-"Ticket support group updated successfully": "Gruppo di supporto ticket aggiornato correttamente"
-"Unable to retrieve status details": "Impossibile recuperare i dettagli dello stato"
-"Insufficient details provided.": "Dettagli insufficienti forniti."
-"Error! Subject field is mandatory": "Errore! Il campo dell'oggetto è obbligatorio"
-"Error! Reply field is mandatory": "Errore! Il campo di risposta è obbligatorio"
-"Success ! Ticket has been updated successfully.": "Successo! Il biglietto è stato aggiornato con successo."
-"Success ! Label updated successfully.": "Successo! Etichetta aggiornata con successo."
-"Error ! Invalid label id.": "Errore! ID etichetta non valido."
-"'Success ! Label removed successfully.": "'Successo! Etichetta rimossa correttamente."
-"Success ! Label created successfully.": "Successo! Etichetta creata con successo."
-"Error ! Label name can not be blank.": "Errore! Il nome dell'etichetta non può essere vuoto."
-"Success ! Ticket moved to trash successfully.": "Successo! Il biglietto è stato spostato correttamente nel cestino."
-"Success! Ticket type saved successfully.": "Successo! Tipo di biglietto salvato con successo."
-"Success! Ticket type updated successfully.": "Operazione riuscita. Tipo di ticket aggiornato correttamente."
-"Error! Ticket type with same name already exist": "Errore! Il tipo di biglietto con lo stesso nome esiste già"
-"SAVE": "SALVA"
-# 'Save': 'Salva'
-"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "I tag del titolo e le meta descrizioni sono frammenti di codice HTML nell'intestazione di una pagina Web. Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina sono generalmente mostrati ogni volta che quella pagina appare nei risultati del motore di ricerca"
+Add Email Template: Aggiungi modello email
+This field contain 100 characters only: Questo campo contiene solo 100 caratteri
+This field contain characters only: Questo campo contiene solo caratteri
+Name length must not be greater than 200 !!: La lunghezza del nome non deve essere maggiore di 200 !!
+Warning! Correct all field values first!: Avvertimento! Prima correggi tutti i valori dei campi! 
+Warning ! This is not a valid request: Avvertimento ! Questa non è una richiesta valida 
+Success ! Tag removed successfully.: Successo! Tag rimosso correttamente. 
+Success ! Tags Saved successfully.: Successo! Tag salvati correttamente. 
+Success ! Revision restored successfully.: Successo! Revisione ripristinata correttamente. 
+Success ! Categories updated successfully.: Successo! Categorie aggiornate correttamente. 
+Success ! Article Related removed successfully.: Successo! Articolo correlato rimosso correttamente. 
+Success ! Article Related is already added.: Successo! Larticolo è già stato aggiunto. 
+Success ! Cannot add self as relative article.: Successo! Impossibile aggiungere se stesso come articolo relativo. 
+Success ! Article Related updated successfully.: Successo! Articolo correlato aggiornato correttamente. 
+Success ! Articles removed successfully.: Successo! Articoli rimossi correttamente. 
+Success ! Article status updated successfully.: Successo! Stato dellarticolo aggiornato correttamente. 
+Success ! Article star updated successfully.: Successo! Stella dellarticolo aggiornata correttamente. 
+Success! Article updated successfully: Successo! Articolo aggiornato correttamente 
+Success ! Category sort  order updated successfully.: Successo! Ordinamento delle categorie aggiornato correttamente. 
+Success ! Category status updated successfully.: Successo! Stato della categoria aggiornato correttamente. 
+Success ! Folders updated successfully.: Successo! Cartelle aggiornate correttamente. 
+Success ! Categories removed successfully.: Successo! Categorie rimosse correttamente. 
+Success ! Category updated successfully.: Successo! Categoria aggiornata correttamente. 
+Error ! Category is not exist.: Errore! La categoria non esiste. 
+Warning ! Customer Login disabled by admin.: Avvertimento ! Accesso cliente disabilitato dallamministratore. 
+This Email is not registered with us.: Questa email non è registrata con noi.
+Your password has been updated successfully.: La tua password è stata aggiornata correttamente.
+Password dont match.: La password non corrisponde.
+Error ! Profile image is not valid, please upload a valid format: Errore! Limmagine del profilo non è valida, carica un formato valido 
+Success! Folder has been added successfully.: Successo! La cartella è stata aggiunta correttamente. 
+Folder updated successfully.: Cartella aggiornata correttamente.
+Success ! Folder status updated successfully.: Successo! Stato della cartella aggiornato correttamente. 
+Error ! Folder is not exist.: Errore! La cartella non esiste. 
+Success ! Folder updated successfully.: Successo! Cartella aggiornata correttamente. 
+Error ! Folder does not exist.: Errore! La cartella non esiste. 
+Success ! Folder deleted successfully.: Successo! Cartella eliminata correttamente. 
+Warning ! Folder doesnt exists!: Attenzione! La cartella non esiste!
+Warning ! Cannot create ticket, given email is blocked by admin.: Avvertimento ! Impossibile creare il ticket, dato che le-mail è bloccata dallamministratore. 
+Success ! Ticket has been created successfully.: Successo! Il ticket è stato creato correttamente. 
+Warning ! Can not create ticket, invalid details.: Avvertimento ! Impossibile creare il ticket, dettagli non validi.
+Warning ! Post size can not exceed 25MB: Attenzione! Le dimensioni del post non possono superare i 25 MB
+Create Ticket Request: Crea richiesta ticket
+Success ! Reply added successfully.: Successo! Risposta aggiunta correttamente.
+Warning ! Reply field can not be blank.: Attenzione! Il campo di risposta non può essere vuoto.
+Success ! Rating has been successfully added.: Successo! La valutazione è stata aggiunta correttamente. 
+Warning ! Invalid rating.: Avvertimento ! Valutazione non valida.
+Error ! Can not add customer as a collaborator.: Errore! Impossibile aggiungere il cliente come collaboratore 
+Success ! Collaborator added successfully.: Successo! Collaboratore aggiunto correttamente. 
+Error ! Collaborator is already added.: Errore! Il collaboratore è già stato aggiunto. 
+Success ! Collaborator removed successfully.: Successo! Collaboratore rimosso con successo.
+Error ! Invalid Collaborator.: Errore! Collaboratore non valido. 
+An unexpected error occurred. Please try again later.: Si è verificato un errore imprevisto. Per favore riprova più tardi.
+Feedback saved successfully.: Feedback salvato correttamente.
+Feedback updated successfully.: Feedback aggiornato correttamente.
+Invalid feedback provided.: Feedback non valido fornito.
+Article not found.: Articolo non trovato.
+You need to login to your account before can perform this action.: Devi accedere al tuo account prima di poter eseguire questa azione.
+Warning! Please add valid Actions!: Avvertimento! Aggiungi azioni valide! 
+Warning! In Free Plan you can not change Events!: Avvertimento! In Free Plan non puoi cambiare Eventi! 
+Success! Prepared Response has been updated successfully.: Successo! La risposta preparata è stata aggiornata correttamente. 
+Success! Prepared Response has been added successfully.: Successo! La risposta preparata è stata aggiunta correttamente. 
+Warning  This is not a valid request: Avviso Questa non è una richiesta valida
+Use Default Colors: Usa colori predefiniti
+Masonry: Opere murarie
+Popular Article: Articolo popolare
+Manage Ticket Custom Fields: Gestisci campi personalizzati ticket
+You dont have premission to edit this Prepared response : Non hai la premessa di modificare questa risposta preparata
+Save Prepared Response: Salva risposta preparata
+Success ! Prepared response removed successfully.: Successo! Risposta preparata rimossa correttamente. 
+Warning! You are not allowed to perform this action.: Avvertimento! Non ti è consentito eseguire questa azione. 
+Success! Workflow has been updated successfully.: Successo! Il flusso di lavoro è stato aggiornato correttamente. 
+Success! Workflow has been added successfully.: Successo! Il flusso di lavoro è stato aggiunto correttamente. 
+Success! Order has been updated successfully.: Successo! Lordine è stato aggiornato correttamente. 
+Success! Workflow has been removed successfully.: Successo! Il flusso di lavoro è stato rimosso correttamente. 
+Mailbox successfully created.: Cassetta postale creata correttamente.
+Mailbox successfully updated.: Cassetta postale aggiornata correttamente.
+Warning ! Bad request !: Avvertimento ! Brutta richiesta !
+Error! Given current password is incorrect.: Errore! La password corrente è errata. 
+Success ! Profile update successfully.: Successo! Aggiornamento del profilo eseguito correttamente. 
+Error ! User with same email is already exist.: Errore! Lutente con la stessa email è già esistente. 
+Success ! Agent updated successfully.: Successo! Agente aggiornato correttamente. 
+Success ! Agent removed successfully.: Successo! Agente rimosso correttamente. 
+Warning ! You are allowed to remove account owners account.: Avviso! Puoi rimuovere laccount del proprietario dellaccount.
+Error ! Invalid user id.: Errore! ID utente non valido.
+Success ! Filter has been saved successfully.: Successo! Il filtro è stato salvato con successo.
+Success ! Filter has been updated successfully.: Successo! Il filtro è stato aggiornato con successo.
+Success ! Filter has been removed successfully.: Operazione riuscita! Il filtro è stato rimosso correttamente.
+Please check your mail for password update.: Controlla la tua posta per laggiornamento della password.
+This Email address is not registered with us.: Questo indirizzo email non è registrato presso di noi.
+Success ! Customer saved successfully.: Successo! Il cliente è stato salvato con successo.
+Error ! User with same email already exist.: Errore! Esistono già utenti con la stessa e-mail.
+Success ! Customer information updated successfully.: Successo! Informazioni sui clienti aggiornate con successo.
+Success ! Customer updated successfully.: Successo! Il cliente è stato aggiornato con successo.
+Error ! Customer with same email already exist.: Errore! Esistono già clienti con la stessa e-mail.
+unstarred Action Completed successfully: Azione non contrassegnata completata correttamente
+starred Action Completed successfully: Azione speciale completata correttamente
+Success ! Customer removed successfully.: Successo! Cliente rimosso con successo.
+Error ! Invalid customer id.: Errore! ID cliente non valido.
+Success! Template has been updated successfully.: Successo! Il modello è stato aggiornato con successo.
+Success! Template has been added successfully.: Successo! Il modello è stato aggiunto correttamente.
+Success! Template has been deleted successfully.: Successo! Il modello è stato cancellato con successo.
+Warning! resource not found.: Attenzione! Risorsa non trovata.
+Warning! You can not remove predefined email template which is being used in workflow(s).: Attenzione! Non è possibile rimuovere il modello di posta elettronica predefinito utilizzato nei flussi di lavoro.
+Success ! Email settings are updated successfully.: Operazione riuscita. Le impostazioni e-mail sono state aggiornate correttamente.
+Success ! Group information updated successfully.: Successo! Informazioni sul gruppo aggiornate con successo.
+Success ! Group information saved successfully.: Successo! Informazioni di gruppo salvate correttamente.
+Support Group removed successfully.: Gruppo di supporto rimosso correttamente.
+Success ! Privilege information saved successfully.: Successo! Informazioni sui privilegi salvate correttamente.
+Privilege updated successfully.: Privilegio aggiornato con successo.
+Support Privilege removed successfully.: Privilegio di supporto rimosso correttamente.
+Success! Reply has been updated successfully.: Successo! La risposta è stata aggiornata correttamente.
+Success! Reply has been added successfully.: Successo! La risposta è stata aggiunta correttamente.
+Success! Saved Reply has been deleted successfully: Successo! La risposta salvata è stata eliminata correttamente
+SwiftMailer configuration updated successfully.: Configurazione SwiftMailer aggiornata correttamente.
+Swiftmailer configuration removed successfully.: La configurazione di Swiftmailer è stata rimossa correttamente.
+Success ! Team information saved successfully.: Successo! Informazioni sulla squadra salvate correttamente.
+Success ! Team information updated successfully.: Successo! Informazioni sulla squadra aggiornate con successo.
+Support Team removed successfully.: Il team di supporto è stato rimosso correttamente.
+Success! Reply has been added successfully: Successo! La risposta è stata aggiunta correttamente
+Success ! Thread updated successfully.: Successo! Discussione aggiornata con successo.
+Error ! Reply field can not be blank.: Errore! Il campo di risposta non può essere vuoto.
+Success ! Thread removed successfully.: Operazione riuscita. Discussione rimossa correttamente.
+Success ! Thread locked successfully: Successo! Discussione bloccata con successo
+Success ! Thread unlocked successfully: Successo! Discussione sbloccata con successo
+Success ! Thread pinned successfully: Successo! Discussione appuntata correttamente
+Error ! Invalid thread.: Errore! Discussione non valida.
+Could not create ticket, invalid details.: Impossibile creare il ticket, dettagli non validi.
+Success ! Tag updated successfully.: Successo! Tag aggiornato correttamente.
+Error ! Customer can not be added as collaborator.: Errore! Il cliente non può essere aggiunto come collaboratore.
+Success ! Tag unassigned successfully.: Successo! Tag non assegnato con successo.
+Success ! Tag added successfully.: Successo! Tag aggiunto correttamente.
+Please enter tag name.: Inserisci il nome del tag.
+Error ! Invalid tag.: Errore! Tag non valido.
+Success ! Type removed successfully.: Operazione riuscita. Tipo rimosso con successo.
+Success ! Ticket to label removed successfully.: Successo! Il biglietto per letichetta è stato rimosso con successo.
+Unable to retrieve support team details: Impossibile recuperare i dettagli del team di supporto
+Ticket support group updated successfully: Gruppo di supporto ticket aggiornato correttamente
+Unable to retrieve status details: Impossibile recuperare i dettagli dello stato
+Insufficient details provided.: Dettagli insufficienti forniti.
+Error! Subject field is mandatory: Errore! Il campo delloggetto è obbligatorio
+Error! Reply field is mandatory: Errore! Il campo di risposta è obbligatorio
+Success ! Ticket has been updated successfully.: Successo! Il biglietto è stato aggiornato con successo.
+Success ! Label updated successfully.: Successo! Etichetta aggiornata con successo.
+Error ! Invalid label id.: Errore! ID etichetta non valido.
+Success ! Label removed successfully.: Successo! Etichetta rimossa correttamente.
+Success ! Label created successfully.: Successo! Etichetta creata con successo.
+Error ! Label name can not be blank.: Errore! Il nome delletichetta non può essere vuoto.
+Success ! Ticket moved to trash successfully.: Successo! Il biglietto è stato spostato correttamente nel cestino.
+Success! Ticket type saved successfully.: Successo! Tipo di biglietto salvato con successo.
+Success! Ticket type updated successfully.: Operazione riuscita. Tipo di ticket aggiornato correttamente.
+Error! Ticket type with same name already exist: Errore! Il tipo di biglietto con lo stesso nome esiste già
+SAVE: SALVA
+# Save: Salva
+Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results: I tag del titolo e le meta descrizioni sono frammenti di codice HTML nellintestazione di una pagina Web. Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina sono generalmente mostrati ogni volta che quella pagina appare nei risultati del motore di ricerca
 #customer page
-"Howdy!": "Salve!"
-"New Ticket Request": "Nuova richiesta di biglietto"
-"Ticket Requests": "Richieste di biglietti"
-"Cookie Usage Policy": "Informativa sull'uso dei cookie"
-"cookie": "biscotto"
-"cookies": "biscotti"
-"HELP": "AIUTO"
-"Home": "Casa"
-"Cookie Policy": "Gestione dei Cookie"
-"Prev": "Precedente"
-"Ticket query message": "Messaggio di richiesta ticket"
-"Select type": "Seleziona il tipo"
-"Search KnowledgeBase": "Cerca nella knowledge base"
-"You can't merge an account with itself.": "Non puoi unire un account con se stesso."
-"Edit Profile": "Modifica Profilo"
-"Customer Login": "accesso cliente"
-"Contact Us": "Contattaci"
-"If you've ever contacted our support previously, your account would have already been created.": "Se hai mai contattato il nostro supporto in precedenza, il tuo account sarebbe già stato creato."
-"HelpDesk": "HelpDesk"
-"Enter search keyword": "Inserisci la parola chiave di ricerca"
-"Browse via Folders": "Sfoglia tramite cartelle"
-"Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Alla ricerca di qualcosa che viene interrogato in generale? Scegli una cartella pertinente dal basso per esplorare le possibili soluzioni"
-"Unable to find an answer?": "Impossibile trovare una risposta?"
-"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Cerchi qualcosa di specifico che risieda nelle domande generali? Sfoglia le varie cartelle e categorie pertinenti e troverai l'articolo desiderato."
-"Popular Articles" : "Articoli popolari"
-"Here are some of the most popular articles, which helped number of users to get their queries and questions resolved." : "Ecco alcuni degli articoli più popolari, che hanno aiutato il numero di utenti a risolvere le loro domande e domande."
-"Browse via Categories": "Sfoglia le categorie"
-"Looking for something specific? Choose a relevant category from below to explore possible solutions": "Alla ricerca di qualcosa di specifico? Scegli una categoria pertinente dal basso per esplorare le possibili soluzioni"
-"No Categories Found": "Nessuna categoria trovata"
+Howdy!: Salve!
+New Ticket Request: Nuova richiesta di biglietto
+Ticket Requests: Richieste di biglietti
+Cookie Usage Policy: Informativa sulluso dei cookie
+cookie: biscotto
+cookies: biscotti
+HELP: AIUTO
+Home: Casa
+Cookie Policy: Gestione dei Cookie
+Prev: Precedente
+Ticket query message: Messaggio di richiesta ticket
+Select type: Seleziona il tipo
+Search KnowledgeBase: Cerca nella knowledge base
+You cant merge an account with itself.: Non puoi unire un account con se stesso.
+Edit Profile: Modifica Profilo
+Customer Login: accesso cliente
+Contact Us: Contattaci
+If you have ever contacted our support previously, your account would have already been created.: Se hai mai contattato il nostro supporto in precedenza, il tuo account sarebbe già stato creato.
+HelpDesk: HelpDesk
+Enter search keyword: Inserisci la parola chiave di ricerca
+Browse via Folders: Sfoglia tramite cartelle
+Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions: Alla ricerca di qualcosa che viene interrogato in generale? Scegli una cartella pertinente dal basso per esplorare le possibili soluzioni
+Unable to find an answer?: Impossibile trovare una risposta?
+Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.: Cerchi qualcosa di specifico che risieda nelle domande generali? Sfoglia le varie cartelle e categorie pertinenti e troverai larticolo desiderato.
+Popular Articles : Articoli popolari
+Here are some of the most popular articles, which helped number of users to get their queries and questions resolved. : Ecco alcuni degli articoli più popolari, che hanno aiutato il numero di utenti a risolvere le loro domande e domande.
+Browse via Categories: Sfoglia le categorie
+Looking for something specific? Choose a relevant category from below to explore possible solutions: Alla ricerca di qualcosa di specifico? Scegli una categoria pertinente dal basso per esplorare le possibili soluzioni
+No Categories Found!: Nessuna categoria trovata
+Powered by: Offerto da
 
 #forgotpassword
-"Forgot Password": "Ha dimenticato la password"
-"Enter your email address and we will send you an email with instructions to update your login credentials.": "Inserisci il tuo indirizzo email e ti invieremo un'email con le istruzioni per aggiornare le tue credenziali di accesso."
-"Send Mail": "Invia una email"
-"Status:": "Stato:"
-"Sign In to %websitename%": "Accedere a %websitename%"
-"Enter your name": "Inserisci il tuo nome"
-"Enter your email": "Inserisci il tuo indirizzo email"
-"Learn more about %deliveryStatus%.": "Impara di più riguardo %deliveryStatus%."
-"To know more about how our privacy policy works, please %websiteLink%.": "Per saperne di più su come funziona la nostra politica sulla privacy, per favore %websiteLink%."
-"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Alcune delle nostre pagine del sito utilizzano %cookies% e altre tecnologie di tracciamento. Un %cookie% è un piccolo file di testo che può essere utilizzato, ad esempio, per raccogliere informazioni sull'attività del sito. Alcuni cookie e altre tecnologie potrebbero servire a richiamare informazioni personali precedentemente indicate da un utente del sito. È possibile bloccare i cookie o eliminare i cookie esistenti, modificando l'impostazione appropriata sul proprio browser. Consulta il menu %help% del tuo browser per sapere come fare. Se blocchi o elimini %cookie%, potresti scoprire che l'utilità del nostro sito è compromessa."
-"This field contain maximum 40 charectures.": "Questo campo contiene un massimo di 40 lezioni."
-"This field contain maximum 50 charectures.": "Questo campo contiene un massimo di 50 lezioni."
-"Time": "Tempo"
-"Links": "Links"
-"Broadcast Message": "Messaggio broadcast"
-"Wide Logo": "Logo largo"
-"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "Carica un'immagine (200px x 48px) in </br> formato PNG o JPG"
-"It will be shown as Logo on Knowledgebase and Helpdesk": "Verrà mostrato come logo nella knowledge base e nell'helpdesk"
-"Website Status": "Stato del sito Web"
-"Enable front end website and knowledgebase for customer(s)": "Abilita sito Web front-end e knowledge base per i clienti"
-"Brand Color": "Colore del marchio"
-"Page Background Color": "Colore sfondo pagina"
-"Header Background Color": "Colore di sfondo dell'intestazione"
-"Banner Background Color": "Colore sfondo banner"
-"Page Link Color": "Colore link pagina"
-"Page Link Hover Color": "Colore al passaggio del mouse sul collegamento della pagina"
-"Article Text Color": "Colore testo articolo"
-"Tag Line": "Tag Line"
-"Hi! how can we help?": "Ciao! Come possiamo aiutare?"
-"Layout": "Disposizione"
-"Ticket Create Option": "Opzione di creazione ticket"
-"Login Required To Create Tickets": "Accesso richiesto per creare biglietti"
-"Remove Customer Login/Signin Button": "Rimuovi pulsante Login / accesso cliente"
-"Disable Customer Login": "Disabilita accesso cliente"
-"Meta Description (Recommended)": "Meta Description (consigliato)"
-"Meta Keywords (Recommended)": "Meta parole chiave (consigliate)"
-"Header Link": "Link intestazione"
-"URL (with http:// or https://)": "URL (con http: // o https: //)"
-"Footer Link": "Link piè di pagina"
-"Custom CSS (Optional)": "CSS personalizzato (opzionale)"
-"It will be add to the frontend knowledgebase only": "Verrà aggiunto solo alla knowledge base del frontend"
-"Custom Javascript (Optional)": "Javascript personalizzato (opzionale)"
-"Broadcast message content to show on helpdesk": "Trasmetti il ​​contenuto del messaggio da mostrare sull'helpdesk"
-"From": "A partire dal"
-"Time duration between which message will be displayed(if applicable)": "Durata tra cui verrà visualizzato il messaggio (se applicabile)"
-"Broadcasting Status": "Stato di trasmissione"
-"Broadcasting is Active": "La trasmissione è attiva"
-"Choose a default company's timezone": "Scegli il fuso orario di un'azienda predefinita"
-"Date Time Format": "Formato data e ora"
-"Choose a format to convert date to specified date time format": "Scegli un formato per convertire la data nel formato di data e ora specificato"
-"An empty file is not allowed.": "Un file vuoto non è consentito."
-"File size must not be greater than 200KB !!": "La dimensione del file non deve essere superiore a 200 KB !!"
-"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Carica un file di immagine valido (sono consentiti solo JPEG, JPG, PNG) !!"
-"Provide a valid url(with protocol)": "Fornisci un URL valido (con protocollo)"
+Forgot Password: Ha dimenticato la password
+Enter your email address and we will send you an email with instructions to update your login credentials.: Inserisci il tuo indirizzo email e ti invieremo unemail con le istruzioni per aggiornare le tue credenziali di accesso.
+Send Mail: Invia una email
+Status:: Stato:
+Sign In to %websitename%: Accedere a %websitename%
+Enter your name: Inserisci il tuo nome
+Enter your email: Inserisci il tuo indirizzo email
+Learn more about %deliveryStatus%.: Impara di più riguardo %deliveryStatus%.
+To know more about how our privacy policy works, please %websiteLink%.: Per saperne di più su come funziona la nostra politica sulla privacy, per favore %websiteLink%.
+Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.: Alcune delle nostre pagine del sito utilizzano %cookies% e altre tecnologie di tracciamento. Un %cookie% è un piccolo file di testo che può essere utilizzato, ad esempio, per raccogliere informazioni sullattività del sito. Alcuni cookie e altre tecnologie potrebbero servire a richiamare informazioni personali precedentemente indicate da un utente del sito. È possibile bloccare i cookie o eliminare i cookie esistenti, modificando limpostazione appropriata sul proprio browser. Consulta il menu %help% del tuo browser per sapere come fare. Se blocchi o elimini %cookie%, potresti scoprire che lutilità del nostro sito è compromessa.
+This field contain maximum 40 charectures.: Questo campo contiene un massimo di 40 lezioni.
+This field contain maximum 50 charectures.: Questo campo contiene un massimo di 50 lezioni.
+Time: Tempo
+Links: Links
+Broadcast Message: Messaggio broadcast
+Wide Logo: Logo largo
+Upload an Image (200px x 48px) in</br> PNG or JPG Format: Carica unimmagine (200px x 48px) in </br> formato PNG o JPG
+It will be shown as Logo on Knowledgebase and Helpdesk: Verrà mostrato come logo nella knowledge base e nellhelpdesk
+Website Status: Stato del sito Web
+Enable front end website and knowledgebase for customer(s): Abilita sito Web front-end e knowledge base per i clienti
+Brand Color: Colore del marchio
+Page Background Color: Colore sfondo pagina
+Header Background Color: Colore di sfondo dellintestazione
+Banner Background Color: Colore sfondo banner
+Page Link Color: Colore link pagina
+Page Link Hover Color: Colore al passaggio del mouse sul collegamento della pagina
+Article Text Color: Colore testo articolo
+Tag Line: Tag Line
+Hi! how can we help?: Ciao! Come possiamo aiutare?
+Layout: Disposizione
+Ticket Create Option: Opzione di creazione ticket
+Login Required To Create Tickets: Accesso richiesto per creare biglietti
+Remove Customer Login/Signin Button: Rimuovi pulsante Login / accesso cliente
+Disable Customer Login: Disabilita accesso cliente
+Meta Description (Recommended): Meta Description (consigliato)
+Meta Keywords (Recommended): Meta parole chiave (consigliate)
+Header Link: Link intestazione
+URL (with http:// or https://): URL (con http: // o https: //)
+Footer Link: Link piè di pagina
+Custom CSS (Optional): CSS personalizzato (opzionale)
+It will be add to the frontend knowledgebase only: Verrà aggiunto solo alla knowledge base del frontend
+Custom Javascript (Optional): Javascript personalizzato (opzionale)
+Broadcast message content to show on helpdesk: Trasmetti il ​​contenuto del messaggio da mostrare sullhelpdesk
+From: A partire dal
+Time duration between which message will be displayed(if applicable): Durata tra cui verrà visualizzato il messaggio (se applicabile)
+Broadcasting Status: Stato di trasmissione
+Broadcasting is Active: La trasmissione è attiva
+Choose a default company timezone: Scegli il fuso orario di unazienda predefinita
+Date Time Format: Formato data e ora
+Choose a format to convert date to specified date time format: Scegli un formato per convertire la data nel formato di data e ora specificato
+An empty file is not allowed.: Un file vuoto non è consentito.
+File size must not be greater than 200KB !!: La dimensione del file non deve essere superiore a 200 KB !!
+comma "," separated: separato da virgola
+Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!: Carica un file di immagine valido (sono consentiti solo JPEG, JPG, PNG) !!
+Provide a valid url(with protocol): Fornisci un URL valido (con protocollo)
