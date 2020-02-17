@@ -43,7 +43,7 @@ ECommerce Order Syncronization: تزامن أوامر التجارة الإلك�
 Import ecommerce order details to your support tickets from different available platforms: استيراد تفاصيل طلب التجارة الإلكترونية إلى تذاكر الدعم الخاصة بك من منصات مختلفة متاحة
 Search: بحث
 Sort By: صنف حسب
-Sort By:: صنف حسب:
+"Sort By:" :" صنف حسب:"
 Status: الحالة
 Created At: أنشئت في
 Name: اسم
@@ -1237,7 +1237,7 @@ Powered by: مشغل بواسطة
 Forgot Password: هل نسيت كلمة المرور
 Enter your email address and we will send you an email with instructions to update your login credentials.: أدخل عنوان بريدك الإلكتروني وسنرسل إليك رسالة بريد إلكتروني تحتوي على تعليمات لتحديث بيانات اعتماد تسجيل الدخول الخاصة بك.
 Send Mail: ارسل بريد الكتروني
-Status:: الحالة:
+"Status:" :" الحالة:"
 Sign In to %websitename%:  تسجيل الدخول إلى %websitename%
 Enter your name: أدخل أسمك
 Enter your email: أدخل بريدك الالكتروني

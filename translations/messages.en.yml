@@ -43,7 +43,7 @@ ECommerce Order Syncronization: ECommerce Order Syncronization
 Import ecommerce order details to your support tickets from different available platforms: Import ecommerce order details to your support tickets from different available platforms
 Search: Search
 Sort By: Sort By
-Sort By:: Sort By:
+"Sort By:": "Sort By:"
 Status: Status
 Created At: Created At
 Name: Name
@@ -1090,8 +1090,8 @@ Installed Applications: Installed Applications
 Apps Dashboard: Apps Dashboard
 Nothing Interesting here: Nothing Interesting here
 No Categories Added: No Categories Added
-Status:: Status:
-Error : Something went wrong, please try again later: Error : Something went wrong, please try again later
+"Status:": "Status:"
+"Error : Something went wrong, please try again later": "Error : Something went wrong, please try again later"
 ticket: ticket
 Add Email Template: Add Email Template
 This field contain 100 characters only: This field contain 100 characters only
@@ -1160,7 +1160,7 @@ Use Default Colors: Use Default Colors
 Masonry: Masonry
 Popular Article: Popular Article
 Manage Ticket Custom Fields: Manage Ticket Custom Fields
-Mail status:: Mail status:
+"Mail status:": "Mail status:"
 You dont have premission to edit this Prepared response: You dont have premission to edit this Prepared response
 Save Prepared Response: Save Prepared Response
 Success ! Prepared response removed successfully.: Success ! Prepared response removed successfully.
