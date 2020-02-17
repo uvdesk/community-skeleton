@@ -1,1338 +1,1338 @@
-Signed in as: Eingeloggt als
-Your Profile: Dein Profil
-Create Ticket: Ticket erstellen
-Create Agent: Agent erstellen
-Create Customer: Kunden erstellen
-Sign Out: Ausloggen
-Apps: Apps
-Integrate apps as per your needs to get things done faster than ever: Integrieren Sie Apps nach Ihren Wünschen, um die Dinge schneller als je zuvor zu erledigen.
-Explore Apps: Apps erkunden
-Form Builder: Form Builder
-Knowledgebase: Wissensbasis
-Knowledgebase is a source of rigid and complex information which helps Customers to help themselves: Knowledgebase ist eine Quelle starrer und komplexer Informationen, die den Kunden hilft, sich selbst zu helfen.
-Articles: Artikel
-Categories: Kategorien
-Folders: Ordner
-FOLDERS: ORDNER
-Productivity: Produktivität
-Automate your processes by creating set of rules and presets to respond faster to the tickets: Automatisieren Sie Ihre Prozesse, indem Sie eine Reihe von Regeln und Vorgaben erstellen, um schneller auf die Tickets zu reagieren.
-Prepared Responses: Vorbereitete Antworten
-Saved Replies: Gespeicherte Antworten
-Edit Saved Reply: Gespeicherte Antwort bearbeiten
-Ticket Types: Tickettypen
-Workflows: Arbeitsabläufe
-Settings: die Einstellungen
-Manage your Brand Identity, Company Information and other details at a glance: Verwalten Sie Ihre Markenidentität, Unternehmensinformationen und andere Details auf einen Blick
-Branding: Branding
-Custom Fields: Benutzerdefinierte Felder
-Email Settings: Email Einstellungen
-Email Templates: E-Mail-Vorlagen
-Mailbox: Briefkasten
-Spam Settings: Spam-Einstellungen
-Swift Mailer: Swift Mailer
-Tags: Stichworte
-Users: Benutzer
-Control your Groups, Teams, Agents and Customers: Kontrollieren Sie Ihre Gruppen, Teams, Agenten und Kunden
-Agents: Agenten
-Customers: Kunden
-Groups: Gruppen
-Privileges: Privilegien
-Teams: Mannschaften
-Applications: Anwendungen
-ECommerce Order Syncronization: ECommerce Order Syncronization
-Import ecommerce order details to your support tickets from different available platforms: Importieren Sie E-Commerce-Bestelldetails von verschiedenen verfügbaren Plattformen in Ihre Support-Tickets.
-Search: Suche
-Sort By: Sortieren nach
+"Signed in as": "Eingeloggt als"
+"Your Profile": "Dein Profil"
+"Create Ticket": "Ticket erstellen"
+"Create Agent": "Agent erstellen"
+"Create Customer": "Kunden erstellen"
+"Sign Out": "Ausloggen"
+"Apps": "Apps"
+"Integrate apps as per your needs to get things done faster than ever": "Integrieren Sie Apps nach Ihren Wünschen, um die Dinge schneller als je zuvor zu erledigen."
+"Explore Apps": "Apps erkunden"
+"Form Builder": "Form Builder"
+"Knowledgebase": "Wissensbasis"
+"Knowledgebase is a source of rigid and complex information which helps Customers to help themselves": "Knowledgebase ist eine Quelle starrer und komplexer Informationen, die den Kunden hilft, sich selbst zu helfen."
+"Articles": "Artikel"
+"Categories": "Kategorien"
+"Folders": "Ordner"
+"FOLDERS": "ORDNER"
+"Productivity": "Produktivität"
+"Automate your processes by creating set of rules and presets to respond faster to the tickets": "Automatisieren Sie Ihre Prozesse, indem Sie eine Reihe von Regeln und Vorgaben erstellen, um schneller auf die Tickets zu reagieren."
+"Prepared Responses": "Vorbereitete Antworten"
+"Saved Replies": "Gespeicherte Antworten"
+"Edit Saved Reply": "Gespeicherte Antwort bearbeiten"
+"Ticket Types": "Tickettypen"
+"Workflows": "Arbeitsabläufe"
+"Settings": "die Einstellungen"
+"Manage your Brand Identity, Company Information and other details at a glance": "Verwalten Sie Ihre Markenidentität, Unternehmensinformationen und andere Details auf einen Blick"
+"Branding": "Branding"
+"Custom Fields": "Benutzerdefinierte Felder"
+"Email Settings": "Email Einstellungen"
+"Email Templates": "E-Mail-Vorlagen"
+"Mailbox": "Briefkasten"
+"Spam Settings": "Spam-Einstellungen"
+"Swift Mailer": "Swift Mailer"
+"Tags": "Stichworte"
+"Users": "Benutzer"
+"Control your Groups, Teams, Agents and Customers": "Kontrollieren Sie Ihre Gruppen, Teams, Agenten und Kunden"
+"Agents": "Agenten"
+"Customers": "Kunden"
+"Groups": "Gruppen"
+"Privileges": "Privilegien"
+"Teams": "Mannschaften"
+"Applications": "Anwendungen"
+"ECommerce Order Syncronization": "ECommerce Order Syncronization"
+"Import ecommerce order details to your support tickets from different available platforms": "Importieren Sie E-Commerce-Bestelldetails von verschiedenen verfügbaren Plattformen in Ihre Support-Tickets."
+"Search": "Suche"
+"Sort By": "Sortieren nach"
 "Sort By:": "Sortieren nach:"
-Status: Status
-Created At: Hergestellt in
-Name: Name
-All: Alle
-Published: Veröffentlicht
-Draft: Entwurf
-New Folder: Neuer Ordner
-Create Knowledgebase Folder: Knowledgebase-Ordner erstellen
-You did not add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.: Sie haben noch keinen Ordner zu Ihrer Knowledgebase hinzugefügt. Erstellen Sie Ihren ersten Ordner und fügen Sie Kategorien / Artikel hinzu, damit Ihre Kunden sich selbst helfen können.
-Clear Filters: Filter löschen
-Back: Zurück
-Open: Öffnen
-Pending: steht aus
-Answered: Antwortete
-Resolved: Aufgelöst
-Closed: Geschlossen
-Spam: Spam
-New: Neu
-UnAssigned: Nicht zugewiesen
-UnAnswered: Unbeantwortet
-My Tickets: Meine Tickets
-Starred: Markiert
-Trashed: Trashed
-New Label: Neues Label
-Tickets: Tickets
-Ticket Id: Ticketnummer
-Last Replied: Letzte Antwort
-Assign To: Zuweisen
-After Reply: Nach der Antwort
-Customer Email: Kunden-eMail
-Customer Name: Kundenname
-Assets Visibility: Sichtbarkeit von Assets
-Channel/Source: Kanal / Quelle
-Channel: Kanal
-Website: Webseite
-Timestamp: Zeitstempel
-TimeStamp: Zeitstempel
-Team: Mannschaft
-Type: Art
-Replies: Antworten
-Agent: Agent
-ID: ICH WÜRDE
-Subject: Gegenstand
-Filter View: Filteransicht
-Save set of filters as a preset to stay more productive: Filter als Voreinstellung speichern, um produktiver zu bleiben
-Saved Filters: Gespeicherte Filter
-No saved filter created: Kein gespeicherter Filter erstellt
-Customer: Kunde
-Priority: Priorität
-Tag: Etikett
-Source: Quelle
-Before: Vor
-After: Nach
-Replies less than: Antworten weniger als
-Replies more than: Antworten mehr als
-Clear All: Alles löschen
-Account: Konto
-Profile: Profil
-Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format: Hochladen eines Profilbilds (100 x 100 Pixel) im PNG- oder JPG-Format
-First Name: Vorname
-Last Name: Familienname, Nachname
-Email: Email
-Contact Number: Kontakt Nummer
-Timezone: Zeitzone
-Africa/Abidjan: Afrika / Abidjan
-Africa/Accra: Africa / Accra
-Africa/Addis_Ababa: Africa / Addis_Ababa
-Africa/Algiers: Afrika / Algier
-Africa/Asmara: Afrika / Asmara
-Africa/Bamako: Africa / Bamako
-Africa/Bangui: Afrika / Bangui
-Africa/Banjul: Africa / Banjul
-Africa/Bissau: Africa / Bissau
-Africa/Blantyre: Africa / Blantyre
-Africa/Brazzaville: Africa / Brazzaville
-Africa/Bujumbura: Afrika / Bujumbura
-Africa/Cairo: Afrika / Kairo
-Africa/Casablanca: Afrika / Casablanca
-Africa/Ceuta: Africa / Ceuta
-Africa/Conakry: Afrika / Conakry
-Africa/Dakar: Africa / Dakar
-Africa/Dar_es_Salaam: Africa / Dar_es_Salaam
-Africa/Djibouti: Afrika / Dschibuti
-Africa/Douala: Africa / Douala
-Africa/El_Aaiun: Africa / El_Aaiun
-Africa/Freetown: Afrika / Freetown
-Africa/Gaborone: Afrika / Gaborone
-Africa/Harare: Africa / Harare
-Africa/Johannesburg: Africa / Johannesburg
-Africa/Juba: Africa / Juba
-Africa/Kampala: Africa / Kampala
-Africa/Khartoum: Africa / Khartoum
-Africa/Kigali: Africa / Kigali
-Africa/Kinshasa: Afrika / Kinshasa
-Africa/Lagos: Afrika / Lagos
-Africa/Libreville: Africa / Libreville
-Africa/Lome: Africa / Lome
-Africa/Luanda: Afrika / Luanda
-Africa/Lubumbashi: Africa / Lubumbashi
-Africa/Lusaka: Africa / Lusaka
-Africa/Malabo: Africa / Malabo
-Africa/Maputo: Afrika / Maputo
-Africa/Maseru: Africa / Maseru
-Africa/Mbabane: Africa / Mbabane
-Africa/Mogadishu: Afrika / Mogadischu
-Africa/Monrovia: Afrika / Monrovia
-Africa/Nairobi: Africa / Nairobi
-Africa/Ndjamena: Africa / Ndjamena
-Africa/Niamey: Africa / Niamey
-Africa/Nouakchott: Africa / Nouakchott
-Africa/Ouagadougou: Africa / Ouagadougou
-Africa/Porto-Novo: Afrika / Porto-Novo
-Africa/Sao_Tome: Africa / Sao_Tome
-Africa/Tripoli: Africa / Tripoli
-Africa/Tunis: Afrika / Tunis
-Africa/Windhoek: Afrika / Windhoek
-America/Adak: America / Adak
-America/Anchorage: Amerika / Anchorage
-America/Anguilla: Amerika / Anguilla
-America/Antigua: Amerika / Antigua
-America/Araguaina: America / Araguaina
-America/Argentina/Buenos_Aires: Amerika / Argentinien / Buenos_Aires
-America/Argentina/Catamarca: Amerika / Argentinien / Catamarca
-America/Argentina/Cordoba: Amerika / Argentinien / Cordoba
-America/Argentina/Jujuy: Amerika / Argentinien / Jujuy
-America/Argentina/La_Rioja: Amerika / Argentinien / La Rioja
-America/Argentina/Mendoza: Amerika / Argentinien / Mendoza
-America/Argentina/Rio_Gallegos: Amerika / Argentinien / Rio_Gallegos
-America/Argentina/Salta: Amerika / Argentinien / Salta
-America/Argentina/San_Juan: Amerika / Argentinien / San Juan
-America/Argentina/San_Luis: Amerika / Argentinien / San Luis
-America/Argentina/Tucuman: Amerika / Argentinien / Tucuman
-America/Argentina/Ushuaia: Amerika / Argentinien / Ushuaia
-America/Aruba: Amerika / Aruba
-America/Asuncion: Amerika / Asuncion
-America/Atikokan: Amerika / Atikokan
-America/Bahia: Amerika / Bahia
-America/Bahia_Banderas: America / Bahia_Banderas
-America/Barbados: Amerika / Barbados
-America/Belem: America / Belem
-America/Belize: Amerika / Belize
-America/Blanc-Sablon: Amerika / Blanc-Sablon
-America/Boa_Vista: America / Boa_Vista
-America/Bogota: Amerika / Bogota
-America/Boise: Amerika / Boise
-America/Cambridge_Bay: America / Cambridge_Bay
-America/Campo_Grande: America / Campo_Grande
-America/Cancun: America / Cancun
-America/Caracas: Amerika / Caracas
-America/Cayenne: America / Cayenne
-America/Cayman: America / Cayman
-America/Chicago: Amerika / Chicago
-America/Chihuahua: Amerika / Chihuahua
-America/Costa_Rica: Amerika / Costa_Rica
-America/Creston: Amerika / Creston
-America/Cuiaba: America / Cuiaba
-America/Curacao: Amerika / Curaçao
-America/Danmarkshavn: America / Danmarkshavn
-America/Dawson: America / Dawson
-America/Dawson_Creek: America / Dawson_Creek
-America/Denver: Amerika / Denver
-America/Detroit: Amerika / Detroit
-America/Dominica: Amerika / Dominica
-America/Edmonton: America / Edmonton
-America/Eirunepe: Amerika / Eirunepe
-America/El_Salvador: America / El_Salvador
-America/Fort_Nelson: America / Fort Nelson
-America/Fortaleza: America / Fortaleza
-America/Glace_Bay: America / Glace_Bay
-America/Godthab: Amerika / Godthab
-America/Goose_Bay: America / Goose_Bay
-America/Grand_Turk: America / Grand_Turk
-America/Grenada: Amerika / Grenada
-America/Guadeloupe: Amerika / Guadeloupe
-America/Guatemala: Amerika / Guatemala
-America/Guayaquil: America / Guayaquil
-America/Guyana: Amerika / Guyana
-America/Halifax: America / Halifax
-America/Havana: Amerika / Havanna
-America/Hermosillo: Amerika / Hermosillo
-America/Indiana/Indianapolis: Amerika / Indiana / Indianapolis
-America/Indiana/Knox: Amerika / Indiana / Knox
-America/Indiana/Marengo: Amerika / Indiana / Marengo
-America/Indiana/Petersburg: Amerika / Indiana / Petersburg
-America/Indiana/Tell_City: Amerika / Indiana / Tell_City
-America/Indiana/Vevay: Amerika / Indiana / Vevay
-America/Indiana/Vincennes: Amerika / Indiana / Vincennes
-America/Indiana/Winamac: Amerika / Indiana / Winamac
-America/Inuvik: America / Inuvik
-America/Iqaluit: Amerika / Iqaluit
-America/Jamaica: Amerika / Jamaika
-America/Juneau: America / Juneau
-America/Kentucky/Louisville: Amerika / Kentucky / Louisville
-America/Kentucky/Monticello: Amerika / Kentucky / Monticello
-America/Kralendijk: America / Kralendijk
-America/La_Paz: America / La_Paz
-America/Lima: America / Lima
-America/Los_Angeles: Amerika / Los_Angeles
-America/Lower_Princes: America / Lower_Princes
-America/Maceio: America / Maceio
-America/Managua: Amerika / Managua
-America/Manaus: America / Manaus
-America/Marigot: Amerika / Marigot
-America/Martinique: Amerika / Martinique
-America/Matamoros: Amerika / Matamoros
-America/Mazatlan: America / Mazatlan
-America/Menominee: Amerika / Menominee
-America/Merida: America / Merida
-America/Metlakatla: America / Metlakatla
-America/Mexico_City: America / Mexico_City
-America/Miquelon: Amerika / Miquelon
-America/Moncton: America / Moncton
-America/Monterrey: Amerika / Monterrey
-America/Montevideo: Amerika / Montevideo
-America/Montserrat: Amerika / Montserrat
-America/Nassau: Amerika / Nassau
-America/New_York: America / New_York
-America/Nipigon: America / Nipigon
-America/Nome: Amerika / Nome
-America/Noronha: America / Noronha
-America/North_Dakota/Beulah: Amerika / North Dakota / Beulah
-America/North_Dakota: America / North_Dakota
-America/Ojinaga: America / Ojinaga
-America/Panama: Amerika / Panama
-America/Pangnirtung: Amerika / Pangnirtung
-America/Paramaribo: America / Paramaribo
-America/Phoenix: Amerika / Phoenix
-America/Port-au-Prince: Amerika / Port-au-Prince
-America/Port_of_Spain: Amerika / Port_of_Spain
-America/Porto_Velho: America / Porto_Velho
-America/Puerto_Rico: America / Puerto Rico
-America/Punta_Arenas: Amerika / Punta_Arenas
-America/Rainy_River: America / Rainy_River
-America/Rankin_Inlet: America / Rankin_Inlet
-America/Recife: Amerika / Recife
-America/Regina: America / Regina
-America/Resolute: America / Resolute
-America/Rio_Branco: America / Rio_Branco
-America/Santarem: America / Santarem
-America/Santiago: Amerika / Santiago
-America/Santo_Domingo: America / Santo_Domingo
-America/Sao_Paulo: America / Sao_Paulo
-America/Scoresbysund: Amerika / Scoresbysund
-America/Sitka: Amerika / Sitka
-America/St_Barthelemy: America / St_Barthelemy
-America/St_Johns: America / St_Johns
-America/St_Kitts: America / St_Kitts
-America/St_Lucia: America / St_Lucia
-America/St_Thomas: America / St_Thomas
-America/St_Vincent: America / St_Vincent
-America/Swift_Current: America / Swift_Current
-America/Tegucigalpa: America / Tegucigalpa
-America/Thule: Amerika / Thule
-America/Thunder_Bay: America / Thunder_Bay
-America/Tijuana: America / Tijuana
-America/Toronto: Amerika / Toronto
-America/Tortola: America / Tortola
-America/Vancouver: Amerika / Vancouver
-America/Whitehorse: Amerika / Whitehorse
-America/Winnipeg: America / Winnipeg
-America/Yakutat: America / Yakutat
-America/Yellowknife: Amerika / Yellowknife
-Antarctica/Casey: Antarktis / Casey
-Antarctica/Davis: Antarktis / Davis
-Antarctica/DumontDUrville: Antarktis / DumontDUrville
-Antarctica/Macquarie: Antarktis / Macquarie
-Antarctica/McMurdo: Antarktis / McMurdo
-Antarctica/Mawson: Antarktis / Mawson
-Antarctica/Palmer: Antarktis / Palmer
-Antarctica/Rothera: Antarktis / Rothera
-Antarctica/Syowa: Antarktis / Syowa
-Antarctica/Troll: Antarktis / Troll
-Antarctica/Vostok: Antarktis / Wostok
-Arctic/Longyearbyen: Arktis / Longyearbyen
-Asia/Aden: Asien / Aden
-Asia/Almaty: Asien / Almaty
-Asia/Amman: Asien / Amman
-Asia/Anadyr: Asia / Anadyr
-Asia/Aqtau: Asia / Aqtau
-Asia/Aqtobe: Asia / Aqtobe
-Asia/Ashgabat: Asia / Ashgabat
-Asia/Atyrau: Asia / Atyrau
-Asia/Baghdad: Asien / Bagdad
-Asia/Bahrain: Asien / Bahrain
-Asia/Baku: Asia / Baku
-Asia/Bangkok: Asien / Bangkok
-Asia/Barnaul: Asia / Barnaul
-Asia/Beirut: Asien / Beirut
-Asia/Bishkek: Asien / Bischkek
-Asia/Brunei: Asien / Brunei
-Asia/Chita: Asia / Chita
-Asia/Choibalsan: Asien / Tschoibalsan
-Asia/Colombo: Asien / Colombo
-Asia/Damascus: Asien / Damaskus
-Asia/Dhaka: Asia / Dhaka
-Asia/Dili: Asia / Dili
-Asia/Dubai: Asien / Dubai
-Asia/Dushanbe: Asien / Duschanbe
-Asia/Famagusta: Asien / Famagusta
-Asia/Gaza: Asien / Gaza
-Asia/Hebron: Asien / Hebron
-Asia/Ho_Chi_Minh: Asia / Ho_Chi_Minh
-Asia/Hong_Kong: Asia / Hong_Kong
-Asia/Hovd: Asia / Hovd
-Asia/Irkutsk: Asia / Irkutsk
-Asia/Jakarta: Asien / Jakarta
-Asia/Jayapura: Asien / Jayapura
-Asia/Jerusalem: Asien / Jerusalem
-Asia/Kabul: Asia / Kabul
-Asia/Kamchatka: Asien / Kamtschatka
-Asia/Karachi: Asia / Karachi
-Asia/Kathmandu: Asien / Kathmandu
-Asia/Khandyga: Asien / Khandyga
-Asia/Kolkata: Asia / Kolkata
-Asia/Krasnoyarsk: Asien / Krasnojarsk
-Asia/Kuala_Lumpur: Asia / Kuala_Lumpur
-Asia/Kuching: Asien / Kuching
-Asia/Kuwait: Asien / Kuwait
-Asia/Macau: Asia / Macau
-Asia/Magadan: Asia / Magadan
-Asia/Makassar: Asien / Makassar
-Asia/Manila: Asien / Manila
-Asia/Muscat: Asia / Muscat
-Asia/Nicosia: Asien / Nikosia
-Asia/Novokuznetsk: Asia / Novokuznetsk
-Asia/Novosibirsk: Asien / Nowosibirsk
-Asia/Omsk: Asia / Omsk
-Asia/Oral: Asia / Oral
-Asia/Phnom_Penh: Asia / Phnom_Penh
-Asia/Pontianak: Asia / Pontianak
-Asia/Pyongyang: Asien / Pjöngjang
-Asia/Qatar: Asien / Katar
-Asia/Qostanay: Asien / Qostanay
-Asia/Qyzylorda: Asia / Qyzylorda
-Asia/Riyadh: Asien / Riad
-Asia/Sakhalin: Asien / Sachalin
-Asia/Samarkand: Asien / Samarkand
-Asia/Seoul: Asien / Seoul
-Asia/Shanghai: Asien / Shanghai
-Asia/Singapore: Asien / Singapur
-Asia/Srednekolymsk: Asia / Srednekolymsk
-Asia/Taipei: Asia / Taipei
-Asia/Tashkent: Asien / Taschkent
-Asia/Tbilisi: Asien / Tiflis
-Asia/Tehran: Asien / Teheran
-Asia/Thimphu: Asia / Thimphu
-Asia/Tokyo: Asien / Tokio
-Asia/Tomsk: Asia / Tomsk
-Asia/Ulaanbaatar: Asien / Ulaanbaatar
-Asia/Urumqi: Asia / Urumqi
-Asia/Ust-Nera: Asien / Ust-Nera
-Asia/Vientiane: Asien / Vientiane
-Asia/Vladivostok: Asien / Wladiwostok
-Asia/Yakutsk: Asia / Yakutsk
-Asia/Yangon: Asien / Yangon
-Asia/Yekaterinburg: Asien / Jekaterinburg
-Asia/Yerevan: Asien / Eriwan
-Atlantic/Azores: Atlantik / Azoren
-Atlantic/Bermuda: Atlantik / Bermuda
-Atlantic/Canary: Atlantik / Kanarische Inseln
-Atlantic/Cape_Verde: Atlantic / Cape_Verde
-Atlantic/Faroe: Atlantik / Färöer
-Atlantic/Madeira: Atlantik / Madeira
-Atlantic/Reykjavik: Atlantic / Reykjavik
-Atlantic/South_Georgia: Atlantik / Südgeorgien
-Atlantic/St_Helena: Atlantic / St_Helena
-Atlantic/Stanley: Atlantic / Stanley
-Australia/Adelaide: Australien / Adelaide
-Australia/Brisbane: Australien / Brisbane
-Australia/Broken_Hill: Australien / Broken_Hill
-Australia/Currie: Australien / Currie
-Australia/Darwin: Australien / Darwin
-Australia/Eucla: Australien / Eucla
-Australia/Hobart: Australien / Hobart
-Australia/Lindeman: Australien / Lindeman
-Australia/Lord_Howe: Australien / Lord_Howe
-Australia/Melbourne: Australien / Melbourne
-Australia/Perth: Australien / Perth
-Australia/Sydney: Australien / Sydney
-Europe/Amsterdam: Europa / Amsterdam
-Europe/Andorra: Europa / Andorra
-Europe/Astrakhan: Europa / Astrachan
-Europe/Athens: Europa / Athen
-Europe/Belgrade: Europa / Belgrad
-Europe/Berlin: Europa / Berlin
-Europe/Bratislava: Europa / Bratislava
-Europe/Brussels: Europa / Brüssel
-Europe/Bucharest: Europa / Bukarest
-Europe/Budapest: Europa / Budapest
-Europe/Busingen: Europa / Busingen
-Europe/Chisinau: Europa / Chisinau
-Europe/Copenhagen: Europa / Kopenhagen
-Europe/Dublin: Europa / Dublin
-Europe/Gibraltar: Europa / Gibraltar
-Europe/Guernsey: Europa / Guernsey
-Europe/Helsinki: Europa / Helsinki
-Europe/Isle_of_Man: Europe / Isle_of_Man
-Europe/Istanbul: Europa / Istanbul
-Europe/Jersey: Europa / Jersey
-Europe/Kaliningrad: Europa / Kaliningrad
-Europe/Kiev: Europa / Kiew
-Europe/Kirov: Europe / Kirov
-Europe/Lisbon: Europa / Lissabon
-Europe/Ljubljana: Europa / Ljubljana
-Europe/London: Europa / London
-Europe/Luxembourg: Europa / Luxemburg
-Europe/Madrid: Europa / Madrid
-Europe/Malta: Europa / Malta
-Europe/Mariehamn: Europe / Mariehamn
-Europe/Minsk: Europa / Minsk
-Europe/Monaco: Europa / Monaco
-Europe/Moscow: Europa / Moskau
-Europe/Oslo: Europa / Oslo
-Europe/Paris: Europa / Paris
-Europe/Podgorica: Europa / Podgorica
-Europe/Prague: Europa / Prag
-Europe/Riga: Europa / Riga
-Europe/Rome: Europa / Rom
-Europe/Samara: Europa / Samara
-Europe/San_Marino: Europe / San_Marino
-Europe/Sarajevo: Europa / Sarajevo
-Europe/Saratov: Europe / Saratov
-Europe/Simferopol: Europa / Simferopol
-Europe/Skopje: Europa / Skopje
-Europe/Sofia: Europa / Sofia
-Europe/Stockholm: Europa / Stockholm
-Europe/Tallinn: Europa / Tallinn
-Europe/Tirane: Europa / Tirane
-Europe/Ulyanovsk: Europa / Uljanowsk
-Europe/Uzhgorod: Europa / Uschgorod
-Europe/Vaduz: Europe / Vaduz
-Europe/Vatican: Europa / Vatikan
-Europe/Vienna: Europa / Wien
-Europe/Vilnius: Europa / Vilnius
-Europe/Volgograd: Europa / Wolgograd
-Europe/Warsaw: Europa / Warschau
-Europe/Zagreb: Europa / Zagreb
-Europe/Zaporozhye: Europa / Zaporozhye
-Europe/Zurich: Europa / Zürich
-Indian/Antananarivo: Inder / Antananarivo
-Indian/Chagos: Inder / Chagos
-Indian/Christmas: Inder / Weihnachten
-Indian/Cocos: Indianer / Cocos
-Indian/Comoro: Inder / Comoro
-Indian/Kerguelen: Inder / Kerguelen
-Indian/Mahe: Inder / Mahe
-Indian/Maldives: Inder / Malediven
-Indian/Mauritius: Inder / Mauritius
-Indian/Mayotte: Inder / Mayotte
-Indian/Reunion: Indianer / Wiedersehen
-Pacific/Apia: Pacific / Apia
-Pacific/Auckland: Pazifik / Auckland
-Pacific/Bougainville: Pacific / Bougainville
-Pacific/Chatham: Pacific / Chatham
-Pacific/Chuuk: Pacific / Chuuk
-Pacific/Easter: Pazifik / Ostern
-Pacific/Efate: Pacific / Efate
-Pacific/Enderbury: Pazifik / Enderbury
-Pacific/Fakaofo: Pacific / Fakaofo
-Pacific/Fiji: Pazifik / Fidschi
-Pacific/Funafuti: Pacific / Funafuti
-Pacific/Galapagos: Pazifik / Galapagos
-Pacific/Gambier: Pacific / Gambier
-Pacific/Guadalcanal: Pazifik / Guadalcanal
-Pacific/Guam: Pacific / Guam
-Pacific/Honolulu: Pazifik / Honolulu
-Pacific/Kiritimati: Pacific / Kiritimati
-Pacific/Kosrae: Pazifik / Kosrae
-Pacific/Kwajalein: Pacific / Kwajalein
-Pacific/Majuro: Pazifik / Majuro
-Pacific/Marquesas: Pazifik / Marquesas
-Pacific/Midway: Pazifik / Auf halbem Weg
-Pacific/Nauru: Pazifik / Nauru
-Pacific/Niue: Pacific / Niue
-Pacific/Norfolk: Pacific / Norfolk
-Pacific/Noumea: Pazifik / Noumea
-Pacific/Pago_Pago: Pacific / Pago_Pago
-Pacific/Palau: Pazifik / Palau
-Pacific/Pitcairn: Pacific / Pitcairn
-Pacific/Pohnpei: Pacific / Pohnpei
-Pacific/Port_Moresby: Pacific / Port_Moresby
-Pacific/Rarotonga: Pazifik / Rarotonga
-Pacific/Saipan: Pazifik / Saipan
-Pacific/Tahiti: Pazifik / Tahiti
-Pacific/Tarawa: Pacific / Tarawa
-Pacific/Tongatapu: Pacific / Tongatapu
-Pacific/Wake: Pacific / Wake
-Pacific/Wallis: Pazifik / Wallis
-UTC: koordinierte Weltzeit
-Time Format: Zeitformat
-Choose your default timezone: Wählen Sie Ihre Standard-Zeitzone
-Signature: Unterschrift
-User signature will be append at the bottom of ticket reply box: Die Unterschrift des Benutzers wird am unteren Rand des Antwortfelds des Tickets angehängt.
-Password: Passwort
-Password will remain same if you are not entering something in this field: Das Passwort bleibt gleich, wenn Sie in dieses Feld nichts eingeben.
-Confirm Password: Passwort bestätigen
-Save Changes: Änderungen speichern
-SAVE CHANGES: ÄNDERUNGEN SPEICHERN
-CREATE TICKET: TICKET ERSTELLEN
-Customer full name: Vollständiger Name des Kunden
-Customer email address: E-Mail-Adresse des Kunden
-Select Type: Art auswählen
-Support: Unterstützung
-Choose ticket type: Ticketart wählen
-Ticket subject: Ticket Betreff
-Message: Botschaft
-Query Message: Nachricht abfragen
-Add Attachment: Anhang hinzufügen
-This field is mandatory: Das Feld ist obligatorisch
-General: Allgemeines
-Designation: Bezeichnung
-Contant Number: Contant Number
-User signature will be append in the bottom of ticket reply box: Die Unterschrift des Benutzers wird unten im Antwortfeld des Tickets angehängt.
-Account Status: Kontostatus
-Account is Active: Konto ist aktiv
-Assigning group(s) to user to view tickets regardless assignment.: Zuweisen von Gruppen zu Benutzern, um Tickets unabhängig von der Zuweisung anzuzeigen.
-Default: Standard
-Select All: Wählen Sie Alle
-Remove All: Alles entfernen
-Assigning team(s) to user to view tickets regardless assignment.: Zuweisen von Teams zu Benutzern, um Tickets unabhängig von der Zuweisung anzuzeigen.
-No Team added !: Kein Team hinzugefügt!
-Permission: Genehmigung
-Role: Rolle
-Administrator: Administrator
-Select agent role: Agentenrolle auswählen
-Add Customer: Kunde hinzufügen
-Action: Aktion
-Account Owner: Kontoinhaber
-Active: Aktiv
-Edit: Bearbeiten
-Delete: Löschen
-Disabled: Deaktiviert
-New Group: Neue Gruppe
-Default Privileges: Standardprivilegien
-New Privileges: Neue Privilegien
-NEW PRIVILEGE: NEUES PRIVILEGE
-New Privilege: Neues Privileg
-New Team: Neues Team
-No Record Found: Kein Eintrag gefunden
-Order Synchronization: Bestellungssynchronisation
-Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.: Integrieren Sie problemlos verschiedene E-Commerce-Plattformen in Ihren Helpdesk. Diese können später verwendet werden, um E-Commerce-Bestelldetails schnell in Ihre Support-Tickets zu integrieren.
-BigCommerce: BigCommerce
-No channels have been added.: Es wurden keine Kanäle hinzugefügt.
-Add BigCommerce Store: BigCommerce Store hinzufügen
-ADD BIGCOMMERCE STORE: ADD BIGCOMMERCE STORE
-Mangento: Mangento
-Add Magento Store: Magento Store hinzufügen
-OpenCart: OpenCart
-Add OpenCart Store: OpenCart Store hinzufügen
-ADD OPENCART STORE: OPENCART STORE HINZUFÜGEN
-Shopify: Shopify
-Add Shopify Store: Shopify Store hinzufügen
-ADD SHOPIFY STORE: SHOPIFY STORE HINZUFÜGEN
-Integrate a new BigCommerce store: Integriere einen neuen BigCommerce Store
-Your BigCommerce Store Name: Ihr BigCommerce Store Name
-Your BigCommerce Store Hash: Ihr BigCommerce Store Hash
-Your BigCommerce Api Token: Ihr BigCommerce-API-Token
-Your BigCommerce Api Client ID: Ihre BigCommerce-API-Kunden-ID
-Enable Channel: Kanal aktivieren
-Add Store: Store hinzufügen
-ADD STORE: STORE HINZUFÜGEN
-Integrate a new Magento store: Integriere einen neuen Magento Store
-Your Magento Api Username: Dein Magento Api Benutzername
-Your Magento Api Password: Dein Magento-API-Passwort
-Integrate a new OpenCart store: Integriere einen neuen OpenCart Store
-Your OpenCart Api Key: Ihr OpenCart-API-Schlüssel
-Your Shopify Store Name: Ihr Shopify-Filialname
-Your Shopify Api Key: Ihr Shopify-API-Schlüssel
-Your Shopify Api Password: Ihr Shopify-API-Passwort
-Easily embed custom form to help generate helpdesk tickets.: Einfaches Einbetten eines benutzerdefinierten Formulars zur Erstellung von Helpdesk-Tickets.
-Form-Builder: Formular-Generator
-Add Formbuilder: Formbuilder hinzufügen
-ADD FORMBUILDER: FORMBUILDER HINZUFÜGEN
-No FormBuilder have been added.: Es wurde kein FormBuilder hinzugefügt.
-Create a New Custom Form Below: Erstellen Sie unten ein neues benutzerdefiniertes Formular
-Form Name: Formularname
-It will be shown in the list of created forms: Es wird in der Liste der erstellten Formulare angezeigt.
-MANDATORY FIELDS: PFLICHTFELDER
-These fields will be visible in form and cant be edited: Diese Felder werden im Formular angezeigt und können nicht bearbeitet werden
-Reply: Antworten
-OPTIONAL FIELDS: OPTIONALE FELDER
-Select These Fields to Add in your Form: Wählen Sie diese Felder aus, um sie in Ihr Formular einzufügen
-GDPR: GDPR
-Order: Bestellung
-Categorybuilder: Categorybuilder
-File: Datei
-Add Form: Formular hinzufügen
-ADD FORM: FORMULAR HINZUFÜGEN
-UPDATE FORM: UPDATE FORMULAR
-Update Form: Formular aktualisieren
-Embed: Einbetten
-EMBED: EINBETTEN
-EMBED FORMBUILDER: EMBED FORMBUILDER
-Embed Formbuilder: Formbuilder einbetten
-Visit: Besuch
-VISIT: BESUCH
-Code: Code
-Total Ticket(s): Ticket (s) insgesamt
-Ticket Count: Ticket Count
-SwiftMailer Configurations: SwiftMailer-Konfigurationen
-No swiftmailer configurations found: Keine Swiftmailer-Konfigurationen gefunden
-CREATE CONFIGURATION: KONFIGURATION ERSTELLEN
-Add configuration: Konfiguration hinzufügen
-Update configuration: Konfiguration aktualisieren
-Mailer ID: Mailer ID
-Mailer ID - Leave blank to automatically create id: Mailer ID - Leer lassen, um automatisch eine ID zu erstellen
-Transport Type: Transportart
-SMTP: SMTP
-Enable Delivery: Zustellung aktivieren
-Server: Server
-Port: Hafen
-Encryption Mode: Verschlüsselungsmodus
-ssl: ssl
-tsl: tsl
-None: Keiner
-Authentication Mode: Authentifizierungsmodus
-login: Anmeldung
-Plain: Einfach
-CRAM-MD5: CRAM-MD5
-Sender Address: Absenderadresse
-Delivery Address: Lieferadresse
-Block Spam: Spam blockieren
-Black list: Schwarze Liste
-Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226): Durch Komma (,) getrennte Werte (z. B. support@example.com, @ example.com, 68.98.31.226)
-White list: Weiße Liste
-Mailbox Settings: Mailbox-Einstellungen
-No mailbox configurations found: Keine Mailbox-Konfigurationen gefunden
-NEW MAILBOX: NEUE MAILBOX
-New Mailbox: NEUE MAILBOX
-Update Mailbox: Mailbox aktualisieren
-Add Mailbox: Mailbox hinzufügen
-Mailbox ID - Leave blank to automatically create id: Mailbox ID - Leer lassen, um automatisch eine ID zu erstellen
-Mailbox Name: Postfachname
-Enable Mailbox: Mailbox aktivieren
-Incoming Mail (IMAP) Server: Posteingangsserver (IMAP)
-Configure your imap settings which will be used to fetch emails from your mailbox.: Konfigurieren Sie Ihre IMAP-Einstellungen, die zum Abrufen von E-Mails aus Ihrer Mailbox verwendet werden.
-Transport: Transport
-IMAP: IMAP
-Gmail: Google Mail
-Yahoo: Yahoo
-Host: Wirt
-IMAP Host: IMAP-Host
-Email address: E-Mail-Addresse
-Associated Password: Zugehöriges Passwort
-Outgoing Mail (SMTP) Server: Postausgangsserver (SMTP)
-Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.: Wählen Sie eine gültige Swift Mailer-Konfiguration aus, mit der E-Mails über Ihre Mailbox gesendet werden.
-Swift Mailer ID: Swift Mailer ID
-None Selected: Nichts ausgewählt
-Create Mailbox: Mailbox erstellen
-CREATE MAILBOX: MAILBOX ERSTELLEN
-New Template: Neue Vorlage
-NEW TEMPLATE: NEUE VORLAGE
-Customer Forgot Password: Kunde hat Passwort vergessen
-Customer Account Created: Kundenkonto erstellt
-Ticket generated success mail to customer: Ticket generierte Erfolgsmail an Kunden
-Customer Reply To The Agent: Kundenantwort an den Agenten
-Ticket Assign: Ticket zuweisen
-Agent Forgot Password: Agent Passwort vergessen
-Agent Account Created: Agentenkonto erstellt
-Ticket generated by customer: Ticket vom Kunden generiert
-Agent Reply To The Customers ticket: Agentenantwort auf das Ticket des Kunden
-Email template name: Name der E-Mail-Vorlage
-Email template subject: Betreff der E-Mail-Vorlage
-Template For: Vorlage für
-Nothing Selected: Nichts ausgewählt
-email template will be used for work related with selected option: Die E-Mail-Vorlage wird für die Arbeit mit der ausgewählten Option verwendet.
-Email template body: E-Mail-Vorlagenkörper
-Body: Körper
-placeholders: Platzhalter
-Ticket Subject: Ticket Betreff
-Ticket Message: Ticket Nachricht
-Ticket Attachments: Ticket-Anhänge
-Ticket Tags: Ticket-Tags
-Ticket Source: Ticketquelle
-Ticket Status: Ticket Status
-Ticket Priority: Ticket Priorität
-Ticket Group: Ticketgruppe
-Ticket Team: Ticket-Team
-Ticket Thread Message: Ticket Thread Nachricht
-Ticket Customer Name: Ticket-Kundenname
-Ticket Customer Email: Ticket-Kunden-E-Mail
-Ticket Agent Name: Ticket Agent Name
-Ticket Agent Email: Ticket Agent Email
-Ticket Agent Link: Ticket Agent Link
-Ticket Customer Link: Ticket-Kunden-Link
-Last Collaborator Name: Name des letzten Mitarbeiters
-Last Collaborator Email: Letzte Mitarbeiter-E-Mail
-Agent/ Customer Name: Agent / Kundenname
-Account Validation Link: Link zur Kontoüberprüfung
-Password Forgot Link: Passwort vergessener Link
-Company Name: Name der Firma
-Company Logo: Firmenlogo
-Company URL: Firmen-URL
-Swiftmailer id (Select from drop down): Swiftmailer-ID (Auswahl aus Dropdown-Liste)
-PROCEED: VORGEHEN
-Proceed: Vorgehen
-Theme Color: Themenfarbe
-Customer Created: Kunde erstellt
-Agent Created: Agent erstellt
-Ticket Created: Ticket erstellt
-Agent Replied on Ticket: Agent hat auf Ticket geantwortet
-Customer Replied on Ticket: Kunde hat auf Ticket geantwortet
-Workflow Status: Workflow Status
-Workflow is Active: Workflow ist aktiv
-Events: Veranstaltungen
-An event automatically triggers to check conditions and perform a respective pre-defined set of actions: Ein Ereignis wird automatisch ausgelöst, um die Bedingungen zu überprüfen und einen entsprechenden vordefinierten Satz von Aktionen auszuführen.
-Select an Event: Event auswählen
-Add More: Weitere hinzufügen
-Conditions: Bedingungen
-Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions: Bedingungen sind Regeln, die nach bestimmten Szenarien suchen und bei bestimmten Gelegenheiten ausgelöst werden.
-Subject or Description: Betreff oder Beschreibung
-Actions: Aktionen
-An action not only reduces the workload but also makes it quite easier for ticket automation: Eine Aktion reduziert nicht nur den Arbeitsaufwand, sondern erleichtert auch die Ticketautomatisierung erheblich.
-Select an Action: Aktion auswählen
-Add Note: Notiz hinzufügen
-Mail to Agent: Mail to Agent
-Mail to Customer: Mail an Kunden
-Mail to group: Mail an Gruppe
-Mail to last collaborator: Mail an letzten Mitarbeiter
-Mail to team: Mail an das Team
-Mark Spam: Spam markieren
-Assign to agent: Agent zuweisen
-Assign to group: Zu Gruppe zuordnen
-Set Priority As: Priorität festlegen als
-Set Status As: Status setzen als
-Set Tag As: Tag setzen als
-Assign to Team: Zu Team zuordnen
-Set Type As: Typ festlegen als
-Add Workflow: Workflow hinzufügen
-ADD WORKFLOW: WORKFLOW HINZUFÜGEN
-Ticket Type code: Ticket Type Code
-Ticket Type description: Ticket Typ Beschreibung
-Type Status: Typstatus
-Type is Active: Typ ist aktiv
-Add Save Reply: Hinzufügen Antwort speichern
-Saved reply name: Name der gespeicherten Antwort
-Share saved reply with user(s) in these group(s): Gespeicherte Antwort mit Benutzern in diesen Gruppen teilen
-Share saved reply with user(s) in these teams(s): Gespeicherte Antwort mit Benutzern in diesen Teams teilen
-Saved reply Body: Gespeicherter Antworttext
-New Prepared Response: Neue vorbereitete Antwort
-Prepared Response Status: Status der vorbereiteten Antwort
-Prepared Response is Active: Vorbereitete Antwort ist aktiv
-Share prepared response with user(s) in these group(s): Teilen Sie vorbereitete Antworten mit Benutzern in diesen Gruppen
-Share prepared response with user(s) in these teams(s): Teilen Sie vorbereitete Antworten mit Benutzern in diesen Teams.
-ADD PREPARED RESPONSE: VORBEREITETE ANTWORT HINZUFÜGEN
-Add Prepared Response: Vorbereitete Antwort hinzufügen
-Folder Name is shown upfront at Knowledge Base: Ordnername wird in der Knowledge Base im Voraus angezeigt
-A small text about the folder helps user to navigate more easily: Ein kleiner Text über den Ordner erleichtert dem Benutzer das Navigieren.
-Publish: Veröffentlichen
-Choose appropriate status: Wählen Sie den entsprechenden Status
-Folder Image: Ordnerbild
-An image is worth a thousands words and makes folder more accessible: Ein Bild sagt mehr als tausend Worte und macht Ordner zugänglicher
-Add Category: Kategorie hinzufügen
-Category Name is shown upfront at Knowledge Base: Der Kategoriename wird in der Knowledge Base im Voraus angezeigt.
-A small text about the category helps user to navigate more easily: Ein kleiner Text über die Kategorie erleichtert dem Benutzer das Navigieren.
-Using Category Order, you can decide which category should display first: Mit der Kategoriereihenfolge können Sie entscheiden, welche Kategorie zuerst angezeigt werden soll.
-Sorting: Sortierung
-Ascending Order (A-Z): Aufsteigende Reihenfolge (A-Z)
-Descending Order (Z-A): Absteigende Reihenfolge (Z-A)
-Based on Popularity: Basierend auf Popularität
-Article of this category will display according to selected option: Artikel dieser Kategorie werden nach ausgewählter Option angezeigt
-Article: Artikel
-Title: Titel
-View: Aussicht
-Make as Starred: Machen Sie wie markiert
-Yes: Ja
-No: Nein
-Stared: Starrte
-Revisions: Überarbeitungen
-Related Articles: In Verbindung stehende Artikel
-Delete Article:	Artikel löschen
-Content: Inhalt
-Slug: Schnecke
-Slug is the url identity of this article.: Slug ist die URL-Identität dieses Artikels.
-Meta Title: Meta-Titel
-Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results: Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird.
-Meta Keywords: Meta-Keywords
-Meta Description: Meta Description
-Description: Beschreibung
-Team Status: Team Status
-Team is Active: Team ist aktiv
-Edit Privilege: Berechtigung bearbeiten
-Can create ticket: Kann Ticket erstellen
-Can edit ticket: Kann Ticket bearbeiten
-Can delete ticket: Kann Ticket löschen
-Can restore trashed ticket: Kann das Ticket im Papierkorb wiederherstellen
-Can assign ticket: Kann Ticket zuweisen
-Can assign ticket group: Kann Ticketgruppe zuordnen
-Can update ticket status: Kann Ticketstatus aktualisieren
-Can update ticket priority: Kann Ticketpriorität aktualisieren
-Can update ticket type: Kann Tickettyp aktualisieren
-Can add internal notes to ticket: Kann interne Notizen zum Ticket hinzufügen
-Can edit thread/notes: Kann Thread / Notizen bearbeiten
-Can lock/unlock thread: Kann Thread sperren / entsperren
-Can add collaborator to ticket: Kann Mitbearbeiter zum Ticket hinzufügen
-Can delete collaborator from ticket: Kann Mitbearbeiter aus Ticket löschen
-Can delete thread/notes: Kann Thread / Notizen löschen
-Can apply prepared response on ticket: Kann vorbereitete Antwort auf Ticket anwenden
-Can add ticket tags: Kann Ticket-Tags hinzufügen
-Can delete ticket tags: Kann Ticket-Tags löschen
-Can kick other ticket users: Kann andere Ticketbenutzer kicken
-Can manage email templates: Kann E-Mail-Vorlagen verwalten
-Can manage groups: Kann Gruppen verwalten
-Can manage Sub-Groups/ Teams: Kann Untergruppen / Teams verwalten
-Can manage agents: Kann Agenten verwalten
-Can manage agent privileges: Kann Agentenrechte verwalten
-Can manage ticket types: Kann Tickettypen verwalten
-Can manage ticket custom fields: Kann benutzerdefinierte Ticketfelder verwalten
-Can manage customers: Kann Kunden verwalten
-Can manage Prepared Responses: Kann vorbereitete Antworten verwalten
-Can manage Automatic workflow: Kann den automatischen Workflow verwalten
-Can manage tags: Kann Tags verwalten
-Can manage knowledgebase: Kann Wissensdatenbank verwalten
-Can manage Groups Saved Reply: Kann gespeicherte Antworten der Gruppe verwalten
-Add Privilege: Privileg hinzufügen
-Choose set of privileges which will be available to the agent.: Wählen Sie eine Reihe von Berechtigungen aus, die dem Agenten zur Verfügung stehen.
-Advanced: Fortgeschritten
-Privilege Name must have characters only: Berechtigungsname darf nur Zeichen enthalten
-Maximum character length is 50: Maximale Zeichenlänge beträgt 50
-Open Tickets: Offene Tickets
-New Customer: Neukunde
-New Agent: Neuer Agent
-Total Article(s): Artikel insgesamt
-Please specify a valid email address: Bitte geben Sie eine gültige E-Mail-Adresse an.
-Please enter the password associated with your email address: Bitte geben Sie das mit Ihrer E-Mail-Adresse verknüpfte Passwort ein.
-Please enter your server host address: Bitte geben Sie Ihre Server-Host-Adresse ein
-Please specify a port number to connect with your mail server: Bitte geben Sie eine Portnummer an, um sich mit Ihrem Mailserver zu verbinden
-Success ! Branding details saved successfully.: Erfolg! Markendetails wurden erfolgreich gespeichert. 
-Success ! Time details saved successfully.: Erfolg! Zeitangaben erfolgreich gespeichert. 
-Spam setting saved successfully.: Spam-Einstellung erfolgreich gespeichert.
-Please specify a valid name for your mailbox.: Bitte geben Sie einen gültigen Namen für Ihre Mailbox an.
-Please select a valid swift-mailer configuration.: Bitte wählen Sie eine gültige E-Mail-Konfiguration.
-Please specify a valid host address.: Bitte geben Sie eine gültige Hostadresse an.
-Please specify a valid email address.: Bitte geben Sie eine gültige E-Mail-Adresse an.
-Please enter the associated account password.: Bitte geben Sie das zugehörige Passwort ein.
-New Saved Reply: Neue gespeicherte Antwort
-New Category: Neue Kategorie
-Folder: Mappe
-Category: Kategorie
-Created: Erstellt
-All Articles: Alle Artikel
-Viewed: Gesehen
-New Article: Neuer Artikel
-Thank you for your feedback!: Danke für Ihre Rückmeldung!
-Was this article helpful?: War dieser Artikel hilfreich?
-Helpdesk: Beratungsstelle
-Support Center: Hilfecenter
-Mailboxes: Postfächer
-By: Durch
-Search Tickets: Tickets suchen
-Customer Information: Kundeninformation
-Total Replies: Antworten insgesamt
-Filter With: Filtern mit
-Type email to add: E-Mail zum Hinzufügen eingeben
-Collaborators: Mitarbeiter
-Labels: Etiketten
-Group: Gruppe
-Stay on ticket: Bleiben Sie auf Ticket
-Redirect to list: Zur Liste umleiten
-Nothing interesting here...: Nichts interessantes hier
-Previous Ticket: Vorheriges Ticket
-Next Ticket: Nächstes Ticket
-Forward: Nach vorne
-Note: Hinweis
-Write a reply: Eine Antwort schreiben
-Created Ticket: Erstelltes Ticket
-All Threads: Alle Themen
-Forwards: Vorwärts
-Notes: Anmerkungen
-Pinned: Festgesteckt
-Edit Ticket: Ticket bearbeiten
-Print Ticket: Ticket drucken
-Mark as Spam: Als Spam markieren
-Mark as Closed: Als geschlossen markieren
-Delete Ticket: Ticket löschen
-View order details from different eCommerce channels: Bestelldetails aus verschiedenen E-Commerce-Kanälen anzeigen
-ECOMMERCE CHANNELS: ECOMMERCE-KANÄLE
-Select channel: Kanal auswählen
-Order Id: Auftragsnummer
-Fetch Order: Bestellung abrufen
-No orders have been integrated to this ticket yet.: Zu diesem Ticket wurden noch keine Bestellungen integriert.
-Enter your credentials below to gain access to your helpdesk account.: Geben Sie unten Ihre Anmeldeinformationen ein, um Zugriff auf Ihr Helpdesk-Konto zu erhalten.
-Keep me logged in: Angemeldet bleiben
-Forgot Password?: Passwort vergessen?
-Log in to your: Melden Sie sich bei Ihrem an.
-Sign In: Einloggen
-Edit Customer: Kunden bearbeiten
-Update: Aktualisieren
-Discard: Verwerfen
-Cancel: Stornieren
-Not Assigned: Nicht zugeordnet
-Submit: Einreichen
-Submit And Open: Senden und öffnen
-Submit And Pending: Senden und ausstehend
-Submit And Answered: Senden und beantwortet
-Submit And Resolved: Senden und gelöst
-Submit And Closed: Senden und geschlossen
-Choose a Color: Wähle eine Farbe
-Create: Erstellen
-Edit Label: Label bearbeiten
-Add Label: Label hinzufügen
-To: Zu
-Ticket: Fahrkarte
-Your browser does not support JavaScript or You disabled JavaScript, Please enable those !: Ihr Browser unterstützt kein JavaScript oder Sie haben JavaScript deaktiviert, bitte aktivieren Sie diese!
-Confirm Action: Aktion bestätigen
-Confirm: Bestätigen
-No result found: Keine Einträge gefunden
-ticket delivery status: Ticket Lieferstatus
-Warning! Select valid image file.: Warnung! Wählen Sie eine gültige Bilddatei. 
-Error: Error
-Save: Sparen
-SEO: SEO
-Edit Saved Filter: Gespeicherten Filter bearbeiten
-Type atleast 2 letters: Geben Sie mindestens 2 Buchstaben ein
-Remove Label: Label entfernen
-New Saved Filter: Neuer gespeicherter Filter
-Is Default: Ist Standard
-Remove Saved Filter: Gespeicherten Filter entfernen
-Ticket Info: Ticket Info
-Last Replied Agent: Letzter geantworteter Agent
-created Ticket: Ticket erstellt
-Uploaded Files: Hochgeladene Dateien
-Download (as .zip): Als ZIP herunterladen)
-made last reply: Letzte Antwort gemacht
-N/A: N / A
-Unassigned: Nicht zugewiesen
-Label: Etikette
-Assigned to me: Mir zugewiesen
-Search Query: Suchanfrage
-Searching: Suchen
-Saved Filter: Gespeicherter Filter
-No Label Created: Kein Label erstellt
-Label with same name already exist.: Label mit gleichem Namen existiert bereits.
-Create New: Erstelle neu
-Mail status: Mail Status
-replied: geantwortet
-added note: Notiz hinzugefügt
-forwarded: weitergeleitet
-TO: ZU
-CC: CC
-BCC: BCC
-Locked: Verschlossen
-Edit Thread: Thread bearbeiten
-Delete Thread: Thread löschen
-Unpin Thread: Thread abheften
-Pin Thread: Pin Thread
-Unlock Thread: Thread freischalten
-Lock Thread: Thread sperren
-Translate Thread: Thread übersetzen
-Language: Sprache
-English: Englisch
-French: Französisch
-Italian: Italienisch
-Arabic: Arabisch
-German: Deutsche
-Spanish: Spanisch
-Turkish: Türkisch
-Danish: Dänisch
-System: System
-Open in Files: In Dateien öffnen
-Email address is invalid: E-mail Adresse ist nicht korrekt
-Tag with same name already exist: Tag mit gleichem Namen existiert bereits
-Text length should be less than 20 charactors: Die Textlänge sollte weniger als 20 Zeichen betragen.
-Label with same name already exist: Label mit gleichem Namen existiert bereits
-Agent Name: Agentenname
-Agent Email: Agenten-E-Mail
-open: öffnen
-Currently active agents on ticket: Derzeit aktive Agenten im Ticket
-Edit Customer Information: Kundeninformationen bearbeiten
-Restore: Wiederherstellen
-Delete Forever: Unwiederuflich löschen
-Add Team: Team hinzufügen
-delete: löschen
-You didnt have any folder for current filter(s).: Msgstr Sie hatten keinen Ordner für aktuelle Filter.
-Add Folder: Ordner hinzufügen
-This field must have valid characters only: Dieses Feld darf nur gültige Zeichen enthalten
-Can edit task: Kann Aufgabe bearbeiten
-Can create task: Kann Aufgabe erstellen
-Can delete task: Kann Aufgabe löschen
-Can add member to task: Kann Mitglied zur Aufgabe hinzufügen
-Can remove member from task: Kann Mitglied von Aufgabe entfernen
-Agent Privileges: Agentenrechte
-Agent Privilege represents overall permissions in System.: Die Agentenberechtigung repräsentiert die allgemeinen Berechtigungen im System.
-Ticket View: Ticketansicht
-User can view tickets based on selected scope.: Der Benutzer kann Tickets basierend auf dem ausgewählten Bereich anzeigen.
-If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on: Wenn der Benutzer über einen individuellen Zugriff verfügt, können nur zugewiesene Tickets angezeigt werden. Wenn der Teamzugriff verfügt, kann der Benutzer alle Tickets in Teams anzeigen, denen er angehört, usw.
-Global Access: Globaler Zugriff
-Group Access: Gruppenzugriff
-Team Access: Teamzugang
-Individual Access: Individueller Zugang
-This field must have characters only: Dieses Feld darf nur Zeichen enthalten
-Maximum character length is 40: Maximale Zeichenlänge beträgt 40
-This is not a valid email address: Dies ist keine gültige e-mail Adresse
-Password must contains 8 Characters: Passwort muss 8 Zeichen enthalten
-The passwords does not match: Die Passwörter stimmen nicht überein
-Enabled: Aktiviert
-Create Configuration: Konfiguration erstellen
-Swift Mailer Settings: Swift Mailer-Einstellungen
-Username: Nutzername
-Please select a swiftmailer id: Bitte wählen Sie eine swiftmailer ID
-Please enter a valid e-mail id: Bitte geben Sie eine gültige E-Mail-ID ein
-Please enter a mailer id: Bitte geben Sie eine Mailer-ID ein
-Email Id: E-Mail-ID
-Are you sure? You want to perform this action.: Bist du sicher? Sie möchten diese Aktion ausführen. 
-Reorder: Nachbestellen
-New Workflow: Neuer Workflow
-OR: ODER
-AND: UND
-Please enter a valid name.: Bitte geben Sie einen gültigen Namen ein.
-Please select a value.: Bitte wählen Sie einen Wert aus.
-Please add a value.: Bitte addieren Sie einen Wert.
-This field is required: Dieses Feld wird benötigt
-or: oder
-and: und
-Select a Condition: Wählen Sie eine Bedingung aus
-Loading...: Wird geladen...
-Select Option: Wähle eine Option
-Inactive: Inaktiv
-New Type: Neuer Typ
-Placeholders: Platzhalter
-Ticket Link: Ticket Link
-Id: Ich würde
-Preview: Vorschau
-Sort Order: Sortierung
-This field must be a number: Dieses Feld muss eine Zahl sein
-User: Benutzer
-Edit Group: Gruppe bearbeiten
-Group Status: Gruppenstatus
-Group is Active: Gruppe ist aktiv
-Add Group: Gruppe hinzufügen
-Contact number is invalid: Kontaktnummer ist ungültig
-Edit Agent: Agent bearbeiten
-No Privilege added, Please add Privilege(s) first !: Keine Berechtigungen hinzugefügt, bitte zuerst Berechtigungen hinzufügen!
-Edit Email Template: E-Mail-Vorlage bearbeiten
-Edit Workflow: Workflow bearbeiten
-Save Workflow: Workflow speichern
-Edit Ticket Type: Ticket-Typ bearbeiten
-Add Ticket Type: Tickettyp hinzufügen
-Date Released: Freigabedatum
-Free: Kostenlos
-Premium: Prämie
-Installed: Eingerichtet
-Installed Applications: Installierte Anwendungen
-Apps Dashboard: Apps-Dashboard
-Nothing Interesting here: Nichts Interessantes hier
-No Categories Added: Keine Kategorien hinzugefügt
-ticket: Fahrkarte
-Add Email Template: E-Mail-Vorlage hinzufügen
-This field contain 100 characters only: Dieses Feld enthält nur 100 Zeichen
-This field contain characters only: Dieses Feld enthält nur Zeichen
-Name length must not be greater than 200 !!: Die Länge des Namens darf 200 nicht überschreiten !!
-Warning! Correct all field values first!: Warnung! Korrigieren Sie zuerst alle Feldwerte! 
-Warning ! This is not a valid request: Warnung ! Dies ist keine gültige Anfrage. 
-Success ! Tag removed successfully.: Erfolg! Tag erfolgreich entfernt. 
-Success ! Tags Saved successfully.: Erfolg! Tags wurden erfolgreich gespeichert. 
-Success ! Revision restored successfully.: Erfolg! Revision erfolgreich wiederhergestellt. 
-Success ! Categories updated successfully.: Erfolg! Kategorien wurden erfolgreich aktualisiert. 
-Success ! Article Related removed successfully.: Erfolg! Artikelverwandte erfolgreich entfernt. 
-Success ! Article Related is already added.: Erfolg! Artikel ist bereits hinzugefügt. 
-Success ! Cannot add self as relative article.: Erfolg! Ich kann mich nicht als relativen Artikel hinzufügen. 
-Success ! Article Related updated successfully.: Erfolg! Artikelverwandt erfolgreich aktualisiert. 
-Success ! Articles removed successfully.: Erfolg! Artikel erfolgreich entfernt. 
-Success ! Article status updated successfully.: Erfolg! Artikelstatus erfolgreich aktualisiert. 
-Success ! Article star updated successfully.: Erfolg! Artikelstern erfolgreich aktualisiert. 
-Success! Article updated successfully: Erfolg! Artikel erfolgreich aktualisiert
-Success ! Category sort  order updated successfully.: Erfolg! Sortierreihenfolge der Kategorie erfolgreich aktualisiert. 
-Success ! Category status updated successfully.: Erfolg! Kategoriestatus erfolgreich aktualisiert. 
-Success ! Folders updated successfully.: Erfolg! Ordner wurden erfolgreich aktualisiert. 
-Success ! Categories removed successfully.: Erfolg! Kategorien wurden erfolgreich entfernt. 
-Success ! Category updated successfully.: Erfolg! Kategorie erfolgreich aktualisiert. 
-Error ! Category is not exist.: Error ! Kategorie ist nicht vorhanden. 
-Warning ! Customer Login disabled by admin.: Warnung ! Kunden-Login von Administrator deaktiviert. 
-This Email is not registered with us.: Diese E-Mail ist bei uns nicht registriert.
-Your password has been updated successfully.: Ihr Passwort wurde erfolgreich aktuallisiert.
-Password dont match.: Passwort stimmt nicht überein.
-Error ! Profile image is not valid, please upload a valid format: Error ! Profilbild ist ungültig. Bitte laden Sie ein gültiges Format hoch. 
-Success! Folder has been added successfully.: Erfolg! Ordner wurde erfolgreich hinzugefügt. 
-Folder updated successfully.: Ordner erfolgreich aktualisiert.
-Success ! Folder status updated successfully.: Erfolg! Ordnerstatus erfolgreich aktualisiert. 
-Error ! Folder is not exist.: Error ! Ordner ist nicht vorhanden. 
-Success ! Folder updated successfully.: Erfolg! Ordner erfolgreich aktualisiert. 
-Error ! Folder does not exist.: Error ! Ordner existiert nicht. 
-Success ! Folder deleted successfully.: Erfolg! Ordner erfolgreich gelöscht. 
-Warning ! Folder doesnt exists!: Warnung! Ordner existiert nicht!
-Warning ! Cannot create ticket, given email is blocked by admin.: Warnung ! Ticket kann nicht erstellt werden, da die angegebene E-Mail-Adresse vom Administrator blockiert wird. 
-Success ! Ticket has been created successfully.: Erfolg! Ticket wurde erfolgreich erstellt. 
-Warning ! Can not create ticket, invalid details.: Warnung ! Ticket kann nicht erstellt werden, ungültige Angaben. 
-Warning ! Post size can not exceed 25MB: Warnung! Die Postgröße darf 25 MB nicht überschreiten.
-Create Ticket Request: Ticketanfrage erstellen
-Success ! Reply added successfully.: Erfolgreich! Antwort erfolgreich hinzugefügt.
-Warning ! Reply field can not be blank.: Warnung! Das Antwortfeld darf nicht leer sein.
-Success ! Rating has been successfully added.: Erfolg! Die Bewertung wurde erfolgreich hinzugefügt. 
-Warning ! Invalid rating.: Warnung ! Ungültige Bewertung. 
-Error ! Can not add customer as a collaborator.: Error ! Kunde kann nicht als Mitbearbeiter hinzugefügt werden. 
-Success ! Collaborator added successfully.: Erfolg! Mitbearbeiter erfolgreich hinzugefügt. 
-Error ! Collaborator is already added.: Error ! Der Mitbearbeiter wurde bereits hinzugefügt. 
-Success ! Collaborator removed successfully.: Erfolg! Mitbearbeiter erfolgreich entfernt. 
-Error ! Invalid Collaborator.: Error ! Ungültiger Mitbearbeiter. 
-An unexpected error occurred. Please try again later.: Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal. 
-Feedback saved successfully.: Feedback erfolgreich gespeichert.
-Feedback updated successfully.: Feedback erfolgreich aktualisiert.
-Invalid feedback provided.: Ungültiges Feedback angegeben.
-Article not found.: Artikel nicht gefunden.
-You need to login to your account before can perform this action.: Sie müssen sich bei Ihrem Konto anmelden, bevor Sie diese Aktion ausführen können.
-Warning! Please add valid Actions!: Warnung! Bitte gültige Aktionen hinzufügen! 
-Warning! In Free Plan you can not change Events!: Warnung! In Free Plan können Sie keine Events ändern! 
-Success! Prepared Response has been updated successfully.: Erfolg! Die vorbereitete Antwort wurde erfolgreich aktualisiert. 
-Success! Prepared Response has been added successfully.: Erfolg! Die vorbereitete Antwort wurde erfolgreich hinzugefügt. 
-Warning  This is not a valid request: Warnung Dies ist keine gültige Anfrage
-Use Default Colors: Standardfarben verwenden
-Masonry: Mauerwerk
-Popular Article: Populärer Artikel
-Manage Ticket Custom Fields: Benutzerdefinierte Ticketfelder verwalten
-You dont have premission to edit this Prepared response: Sie haben keine Berechtigung, diese vorbereitete Antwort zu bearbeiten.
-Save Prepared Response: Vorbereitete Antwort speichern
-Success ! Prepared response removed successfully.: Erfolg! Vorbereitete Antwort erfolgreich entfernt. 
-Warning! You are not allowed to perform this action.: Warnung! Sie dürfen diese Aktion nicht ausführen. 
-Success! Workflow has been updated successfully.: Erfolg! Der Workflow wurde erfolgreich aktualisiert. 
-Success! Workflow has been added successfully.: Erfolg! Workflow wurde erfolgreich hinzugefügt. 
-Success! Order has been updated successfully.: Erfolg! Bestellung wurde erfolgreich aktualisiert. 
-Success! Workflow has been removed successfully.: Erfolg! Workflow wurde erfolgreich entfernt. 
-Mailbox successfully created.: Postfach erfolgreich erstellt.
-Mailbox successfully updated.: Postfach erfolgreich aktualisiert.
-Warning ! Bad request !: Warnung ! Ungültige Anforderung !
-Error! Given current password is incorrect.: Error! Das angegebene aktuelle Passwort ist falsch. 
-Success ! Profile update successfully.: Erfolg! Profil erfolgreich aktualisiert. 
-Error ! User with same email is already exist.: Error ! Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden. 
-Success ! Agent updated successfully.: Erfolg! Agent erfolgreich aktualisiert. 
-Success ! Agent removed successfully.: Erfolg! Agent erfolgreich entfernt. 
-Warning ! You are allowed to remove account owners account.: Warnung! Sie dürfen das Konto des Kontoinhabers entfernen.
-Error ! Invalid user id.: Fehler! Ungültige Benutzer-ID.
-Success ! Filter has been saved successfully.: Erfolgreich! Filter wurde erfolgreich gespeichert.
-Success ! Filter has been updated successfully.: Erfolgreich! Filter wurde erfolgreich aktualisiert.
-Success ! Filter has been removed successfully.: Erfolgreich! Filter wurde erfolgreich entfernt.
-Please check your mail for password update.: Bitte überprüfen Sie Ihre E - Mails auf Passwortaktualisierung.
-This Email address is not registered with us.: Diese E-Mail-Adresse ist bei uns nicht registriert.
-Success ! Customer saved successfully.: Erfolgreich! Kunde erfolgreich gespeichert.
-Error ! User with same email already exist.: Fehler! Benutzer mit derselben E-Mail existiert bereits.
-Success ! Customer information updated successfully.: Erfolgreich! Kundeninformationen wurden erfolgreich aktualisiert.
-Success ! Customer updated successfully.: Erfolgreich! Kunde erfolgreich aktualisiert.
-Error ! Customer with same email already exist.: Fehler! Kunde mit derselben E-Mail existiert bereits.
-unstarred Action Completed successfully: nicht markierte Aktion erfolgreich abgeschlossen
-starred Action Completed successfully: markierte Aktion erfolgreich abgeschlossen
-Success ! Customer removed successfully.: Erfolgreich! Kunde erfolgreich entfernt.
-Error ! Invalid customer id.: Fehler! Ungültige Kunden-ID.
-Success! Template has been updated successfully.: Erfolg! Vorlage wurde erfolgreich aktualisiert.
-Success! Template has been added successfully.: Erfolg! Vorlage wurde erfolgreich hinzugefügt.
-Success! Template has been deleted successfully.: Erfolg! Vorlage wurde erfolgreich gelöscht.
-Warning! resource not found.: Warnung! Ressource nicht gefunden.
-Warning! You can not remove predefined email template which is being used in workflow(s).: Warnung! Sie können vordefinierte E-Mail-Vorlagen, die in Workflows verwendet werden, nicht entfernen.
-Success ! Email settings are updated successfully.: Erfolgreich! E-Mail-Einstellungen wurden erfolgreich aktualisiert.
-Success ! Group information updated successfully.: Erfolgreich! Gruppeninformationen wurden erfolgreich aktualisiert.
-Success ! Group information saved successfully.: Erfolgreich! Gruppeninformationen erfolgreich gespeichert.
-Support Group removed successfully.: Support Group erfolgreich entfernt.
-Success ! Privilege information saved successfully.: Erfolgreich! Berechtigungsinformationen erfolgreich gespeichert.
-Privilege updated successfully.: Privileg erfolgreich aktualisiert.
-Support Privilege removed successfully.: Msgstr Support - Berechtigung erfolgreich entfernt.
-Success! Reply has been updated successfully.: Erfolgreich! Die Antwort wurde erfolgreich aktualisiert.
-Success! Reply has been added successfully.: Erfolgreich! Antwort wurde erfolgreich hinzugefügt.
-Success! Saved Reply has been deleted successfully: Erfolgreich! Gespeicherte Antwort wurde erfolgreich gelöscht
-SwiftMailer configuration updated successfully.: Die SwiftMailer-Konfiguration wurde erfolgreich aktualisiert.
-Swiftmailer configuration removed successfully.: Msgstr Swiftmailer - Konfiguration erfolgreich entfernt.
-Success ! Team information saved successfully.: Erfolg! Teaminformationen erfolgreich gespeichert.
-Success ! Team information updated successfully.: Erfolgreich! Die Teaminformationen wurden erfolgreich aktualisiert.
-Support Team removed successfully.: Msgstr Support - Team erfolgreich entfernt.
-Success! Reply has been added successfully: Erfolgreich! Antwort wurde erfolgreich hinzugefügt
-Success ! Thread updated successfully.: Erfolgreich! Thread erfolgreich aktualisiert.
-Error ! Reply field can not be blank.: Fehler! Das Antwortfeld darf nicht leer sein.
-Success ! Thread removed successfully.: Erfolgreich! Thread erfolgreich entfernt.
-Success ! Thread locked successfully: Erfolg! Thread erfolgreich gesperrt
-Success ! Thread unlocked successfully: Erfolg! Thread erfolgreich entsperrt
-Success ! Thread pinned successfully: Erfolg! Thread erfolgreich gepinnt
-Error ! Invalid thread.: Fehler! Ungültiger Thread.
-Could not create ticket, invalid details.: Ticket konnte nicht erstellt werden, ungültige Angaben.
-Success ! Tag updated successfully.: Erfolgreich! Tag erfolgreich aktualisiert.
-Error ! Customer can not be added as collaborator.: Fehler! Kunde kann nicht als Mitbearbeiter hinzugefügt werden.
-Success ! Tag unassigned successfully.: Erfolgreich! Tag nicht erfolgreich zugewiesen.
-Success ! Tag added successfully.: Erfolgreich! Tag erfolgreich hinzugefügt.
-Please enter tag name.: Bitte geben Sie den Tag-Namen ein.
-Error ! Invalid tag.: Fehler! Ungültiges Tag.
-Success ! Type removed successfully.: Erfolgreich! Typ erfolgreich entfernt.
-Success ! Ticket to label removed successfully.: Erfolg! Ticket zum Etikett erfolgreich entfernt.
-Unable to retrieve support team details: Support-Team-Details können nicht abgerufen werden
-Ticket support group updated successfully: Ticket Support Group erfolgreich aktualisiert
-Unable to retrieve status details: Statusdetails können nicht abgerufen werden
-Insufficient details provided.: Msgstr Unzureichende Angaben gemacht.
-Error! Subject field is mandatory: Fehler! Betreff ist Pflichtfeld
-Error! Reply field is mandatory: Fehler! Antwortfeld ist obligatorisch
-Success ! Ticket has been updated successfully.: Erfolg! Ticket wurde erfolgreich aktualisiert.
-Success ! Label updated successfully.: Erfolgreich! Label erfolgreich aktualisiert.
-Error ! Invalid label id.: Fehler! Ungültige Label-ID.
-Success ! Label removed successfully.: Erfolg! Label erfolgreich entfernt.
-Success ! Label created successfully.: Erfolg! Label erfolgreich erstellt.
-Error ! Label name can not be blank.: Fehler! Der Labelname darf nicht leer sein.
-Success ! Ticket moved to trash successfully.: Erfolg! Ticket wurde erfolgreich in den Papierkorb verschoben.
-Success! Ticket type saved successfully.: Erfolgreich! Tickettyp erfolgreich gespeichert.
-Success! Ticket type updated successfully.: Erfolgreich! Tickettyp erfolgreich aktualisiert.
-Error! Ticket type with same name already exist: Fehler! Ticket-Typ mit gleichem Namen existiert bereits
-SAVE: SPAREN
-# Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results: Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird
+"Status": "Status"
+"Created At": "Hergestellt in"
+"Name": "Name"
+"All": "Alle"
+"Published": "Veröffentlicht"
+"Draft": "Entwurf"
+"New Folder": "Neuer Ordner"
+"Create Knowledgebase Folder": "Knowledgebase-Ordner erstellen"
+"You did not add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.": "Sie haben noch keinen Ordner zu Ihrer Knowledgebase hinzugefügt. Erstellen Sie Ihren ersten Ordner und fügen Sie Kategorien / Artikel hinzu, damit Ihre Kunden sich selbst helfen können."
+"Clear Filters": "Filter löschen"
+"Back": "Zurück"
+"Open": "Öffnen"
+"Pending": "steht aus"
+"Answered": "Antwortete"
+"Resolved": "Aufgelöst"
+"Closed": "Geschlossen"
+"Spam": "Spam"
+"New": "Neu"
+"UnAssigned": "Nicht zugewiesen"
+"UnAnswered": "Unbeantwortet"
+"My Tickets": "Meine Tickets"
+"Starred": "Markiert"
+"Trashed": "Trashed"
+"New Label": "Neues Label"
+"Tickets": "Tickets"
+"Ticket Id": "Ticketnummer"
+"Last Replied": "Letzte Antwort"
+"Assign To": "Zuweisen"
+"After Reply": "Nach der Antwort"
+"Customer Email": "Kunden-eMail"
+"Customer Name": "Kundenname"
+"Assets Visibility": "Sichtbarkeit von Assets"
+"Channel/Source": "Kanal / Quelle"
+"Channel": "Kanal"
+"Website": "Webseite"
+"Timestamp": "Zeitstempel"
+"TimeStamp": "Zeitstempel"
+"Team": "Mannschaft"
+"Type": "Art"
+"Replies": "Antworten"
+"Agent": "Agent"
+"ID": "ICH WÜRDE"
+"Subject": "Gegenstand"
+"Filter View": "Filteransicht"
+"Save set of filters as a preset to stay more productive": "Filter als Voreinstellung speichern, um produktiver zu bleiben"
+"Saved Filters": "Gespeicherte Filter"
+"No saved filter created": "Kein gespeicherter Filter erstellt"
+"Customer": "Kunde"
+"Priority": "Priorität"
+"Tag": "Etikett"
+"Source": "Quelle"
+"Before": "Vor"
+"After": "Nach"
+"Replies less than": "Antworten weniger als"
+"Replies more than": "Antworten mehr als"
+"Clear All": "Alles löschen"
+"Account": "Konto"
+"Profile": "Profil"
+"Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format": "Hochladen eines Profilbilds (100 x 100 Pixel) im PNG- oder JPG-Format"
+"First Name": "Vorname"
+"Last Name": "Familienname, Nachname"
+"Email": "Email"
+"Contact Number": "Kontakt Nummer"
+"Timezone": "Zeitzone"
+"Africa/Abidjan": "Afrika / Abidjan"
+"Africa/Accra": "Africa / Accra"
+"Africa/Addis_Ababa": "Africa / Addis_Ababa"
+"Africa/Algiers": "Afrika / Algier"
+"Africa/Asmara": "Afrika / Asmara"
+"Africa/Bamako": "Africa / Bamako"
+"Africa/Bangui": "Afrika / Bangui"
+"Africa/Banjul": "Africa / Banjul"
+"Africa/Bissau": "Africa / Bissau"
+"Africa/Blantyre": "Africa / Blantyre"
+"Africa/Brazzaville": "Africa / Brazzaville"
+"Africa/Bujumbura": "Afrika / Bujumbura"
+"Africa/Cairo": "Afrika / Kairo"
+"Africa/Casablanca": "Afrika / Casablanca"
+"Africa/Ceuta": "Africa / Ceuta"
+"Africa/Conakry": "Afrika / Conakry"
+"Africa/Dakar": "Africa / Dakar"
+"Africa/Dar_es_Salaam": "Africa / Dar_es_Salaam"
+"Africa/Djibouti": "Afrika / Dschibuti"
+"Africa/Douala": "Africa / Douala"
+"Africa/El_Aaiun": "Africa / El_Aaiun"
+"Africa/Freetown": "Afrika / Freetown"
+"Africa/Gaborone": "Afrika / Gaborone"
+"Africa/Harare": "Africa / Harare"
+"Africa/Johannesburg": "Africa / Johannesburg"
+"Africa/Juba": "Africa / Juba"
+"Africa/Kampala": "Africa / Kampala"
+"Africa/Khartoum": "Africa / Khartoum"
+"Africa/Kigali": "Africa / Kigali"
+"Africa/Kinshasa": "Afrika / Kinshasa"
+"Africa/Lagos": "Afrika / Lagos"
+"Africa/Libreville": "Africa / Libreville"
+"Africa/Lome": "Africa / Lome"
+"Africa/Luanda": "Afrika / Luanda"
+"Africa/Lubumbashi": "Africa / Lubumbashi"
+"Africa/Lusaka": "Africa / Lusaka"
+"Africa/Malabo": "Africa / Malabo"
+"Africa/Maputo": "Afrika / Maputo"
+"Africa/Maseru": "Africa / Maseru"
+"Africa/Mbabane": "Africa / Mbabane"
+"Africa/Mogadishu": "Afrika / Mogadischu"
+"Africa/Monrovia": "Afrika / Monrovia"
+"Africa/Nairobi": "Africa / Nairobi"
+"Africa/Ndjamena": "Africa / Ndjamena"
+"Africa/Niamey": "Africa / Niamey"
+"Africa/Nouakchott": "Africa / Nouakchott"
+"Africa/Ouagadougou": "Africa / Ouagadougou"
+"Africa/Porto-Novo": "Afrika / Porto-Novo"
+"Africa/Sao_Tome": "Africa / Sao_Tome"
+"Africa/Tripoli": "Africa / Tripoli"
+"Africa/Tunis": "Afrika / Tunis"
+"Africa/Windhoek": "Afrika / Windhoek"
+"America/Adak": "America / Adak"
+"America/Anchorage": "Amerika / Anchorage"
+"America/Anguilla": "Amerika / Anguilla"
+"America/Antigua": "Amerika / Antigua"
+"America/Araguaina": "America / Araguaina"
+"America/Argentina/Buenos_Aires": "Amerika / Argentinien / Buenos_Aires"
+"America/Argentina/Catamarca": "Amerika / Argentinien / Catamarca"
+"America/Argentina/Cordoba": "Amerika / Argentinien / Cordoba"
+"America/Argentina/Jujuy": "Amerika / Argentinien / Jujuy"
+"America/Argentina/La_Rioja": "Amerika / Argentinien / La Rioja"
+"America/Argentina/Mendoza": "Amerika / Argentinien / Mendoza"
+"America/Argentina/Rio_Gallegos": "Amerika / Argentinien / Rio_Gallegos"
+"America/Argentina/Salta": "Amerika / Argentinien / Salta"
+"America/Argentina/San_Juan": "Amerika / Argentinien / San Juan"
+"America/Argentina/San_Luis": "Amerika / Argentinien / San Luis"
+"America/Argentina/Tucuman": "Amerika / Argentinien / Tucuman"
+"America/Argentina/Ushuaia": "Amerika / Argentinien / Ushuaia"
+"America/Aruba": "Amerika / Aruba"
+"America/Asuncion": "Amerika / Asuncion"
+"America/Atikokan": "Amerika / Atikokan"
+"America/Bahia": "Amerika / Bahia"
+"America/Bahia_Banderas": "America / Bahia_Banderas"
+"America/Barbados": "Amerika / Barbados"
+"America/Belem": "America / Belem"
+"America/Belize": "Amerika / Belize"
+"America/Blanc-Sablon": "Amerika / Blanc-Sablon"
+"America/Boa_Vista": "America / Boa_Vista"
+"America/Bogota": "Amerika / Bogota"
+"America/Boise": "Amerika / Boise"
+"America/Cambridge_Bay": "America / Cambridge_Bay"
+"America/Campo_Grande": "America / Campo_Grande"
+"America/Cancun": "America / Cancun"
+"America/Caracas": "Amerika / Caracas"
+"America/Cayenne": "America / Cayenne"
+"America/Cayman": "America / Cayman"
+"America/Chicago": "Amerika / Chicago"
+"America/Chihuahua": "Amerika / Chihuahua"
+"America/Costa_Rica": "Amerika / Costa_Rica"
+"America/Creston": "Amerika / Creston"
+"America/Cuiaba": "America / Cuiaba"
+"America/Curacao": "Amerika / Curaçao"
+"America/Danmarkshavn": "America / Danmarkshavn"
+"America/Dawson": "America / Dawson"
+"America/Dawson_Creek": "America / Dawson_Creek"
+"America/Denver": "Amerika / Denver"
+"America/Detroit": "Amerika / Detroit"
+"America/Dominica": "Amerika / Dominica"
+"America/Edmonton": "America / Edmonton"
+"America/Eirunepe": "Amerika / Eirunepe"
+"America/El_Salvador": "America / El_Salvador"
+"America/Fort_Nelson": "America / Fort Nelson"
+"America/Fortaleza": "America / Fortaleza"
+"America/Glace_Bay": "America / Glace_Bay"
+"America/Godthab": "Amerika / Godthab"
+"America/Goose_Bay": "America / Goose_Bay"
+"America/Grand_Turk": "America / Grand_Turk"
+"America/Grenada": "Amerika / Grenada"
+"America/Guadeloupe": "Amerika / Guadeloupe"
+"America/Guatemala": "Amerika / Guatemala"
+"America/Guayaquil": "America / Guayaquil"
+"America/Guyana": "Amerika / Guyana"
+"America/Halifax": "America / Halifax"
+"America/Havana": "Amerika / Havanna"
+"America/Hermosillo": "Amerika / Hermosillo"
+"America/Indiana/Indianapolis": "Amerika / Indiana / Indianapolis"
+"America/Indiana/Knox": "Amerika / Indiana / Knox"
+"America/Indiana/Marengo": "Amerika / Indiana / Marengo"
+"America/Indiana/Petersburg": "Amerika / Indiana / Petersburg"
+"America/Indiana/Tell_City": "Amerika / Indiana / Tell_City"
+"America/Indiana/Vevay": "Amerika / Indiana / Vevay"
+"America/Indiana/Vincennes": "Amerika / Indiana / Vincennes"
+"America/Indiana/Winamac": "Amerika / Indiana / Winamac"
+"America/Inuvik": "America / Inuvik"
+"America/Iqaluit": "Amerika / Iqaluit"
+"America/Jamaica": "Amerika / Jamaika"
+"America/Juneau": "America / Juneau"
+"America/Kentucky/Louisville": "Amerika / Kentucky / Louisville"
+"America/Kentucky/Monticello": "Amerika / Kentucky / Monticello"
+"America/Kralendijk": "America / Kralendijk"
+"America/La_Paz": "America / La_Paz"
+"America/Lima": "America / Lima"
+"America/Los_Angeles": "Amerika / Los_Angeles"
+"America/Lower_Princes": "America / Lower_Princes"
+"America/Maceio": "America / Maceio"
+"America/Managua": "Amerika / Managua"
+"America/Manaus": "America / Manaus"
+"America/Marigot": "Amerika / Marigot"
+"America/Martinique": "Amerika / Martinique"
+"America/Matamoros": "Amerika / Matamoros"
+"America/Mazatlan": "America / Mazatlan"
+"America/Menominee": "Amerika / Menominee"
+"America/Merida": "America / Merida"
+"America/Metlakatla": "America / Metlakatla"
+"America/Mexico_City": "America / Mexico_City"
+"America/Miquelon": "Amerika / Miquelon"
+"America/Moncton": "America / Moncton"
+"America/Monterrey": "Amerika / Monterrey"
+"America/Montevideo": "Amerika / Montevideo"
+"America/Montserrat": "Amerika / Montserrat"
+"America/Nassau": "Amerika / Nassau"
+"America/New_York": "America / New_York"
+"America/Nipigon": "America / Nipigon"
+"America/Nome": "Amerika / Nome"
+"America/Noronha": "America / Noronha"
+"America/North_Dakota/Beulah": "Amerika / North Dakota / Beulah"
+"America/North_Dakota": "America / North_Dakota"
+"America/Ojinaga": "America / Ojinaga"
+"America/Panama": "Amerika / Panama"
+"America/Pangnirtung": "Amerika / Pangnirtung"
+"America/Paramaribo": "America / Paramaribo"
+"America/Phoenix": "Amerika / Phoenix"
+"America/Port-au-Prince": "Amerika / Port-au-Prince"
+"America/Port_of_Spain": "Amerika / Port_of_Spain"
+"America/Porto_Velho": "America / Porto_Velho"
+"America/Puerto_Rico": "America / Puerto Rico"
+"America/Punta_Arenas": "Amerika / Punta_Arenas"
+"America/Rainy_River": "America / Rainy_River"
+"America/Rankin_Inlet": "America / Rankin_Inlet"
+"America/Recife": "Amerika / Recife"
+"America/Regina": "America / Regina"
+"America/Resolute": "America / Resolute"
+"America/Rio_Branco": "America / Rio_Branco"
+"America/Santarem": "America / Santarem"
+"America/Santiago": "Amerika / Santiago"
+"America/Santo_Domingo": "America / Santo_Domingo"
+"America/Sao_Paulo": "America / Sao_Paulo"
+"America/Scoresbysund": "Amerika / Scoresbysund"
+"America/Sitka": "Amerika / Sitka"
+"America/St_Barthelemy": "America / St_Barthelemy"
+"America/St_Johns": "America / St_Johns"
+"America/St_Kitts": "America / St_Kitts"
+"America/St_Lucia": "America / St_Lucia"
+"America/St_Thomas": "America / St_Thomas"
+"America/St_Vincent": "America / St_Vincent"
+"America/Swift_Current": "America / Swift_Current"
+"America/Tegucigalpa": "America / Tegucigalpa"
+"America/Thule": "Amerika / Thule"
+"America/Thunder_Bay": "America / Thunder_Bay"
+"America/Tijuana": "America / Tijuana"
+"America/Toronto": "Amerika / Toronto"
+"America/Tortola": "America / Tortola"
+"America/Vancouver": "Amerika / Vancouver"
+"America/Whitehorse": "Amerika / Whitehorse"
+"America/Winnipeg": "America / Winnipeg"
+"America/Yakutat": "America / Yakutat"
+"America/Yellowknife": "Amerika / Yellowknife"
+"Antarctica/Casey": "Antarktis / Casey"
+"Antarctica/Davis": "Antarktis / Davis"
+"Antarctica/DumontDUrville": "Antarktis / DumontDUrville"
+"Antarctica/Macquarie": "Antarktis / Macquarie"
+"Antarctica/McMurdo": "Antarktis / McMurdo"
+"Antarctica/Mawson": "Antarktis / Mawson"
+"Antarctica/Palmer": "Antarktis / Palmer"
+"Antarctica/Rothera": "Antarktis / Rothera"
+"Antarctica/Syowa": "Antarktis / Syowa"
+"Antarctica/Troll": "Antarktis / Troll"
+"Antarctica/Vostok": "Antarktis / Wostok"
+"Arctic/Longyearbyen": "Arktis / Longyearbyen"
+"Asia/Aden": "Asien / Aden"
+"Asia/Almaty": "Asien / Almaty"
+"Asia/Amman": "Asien / Amman"
+"Asia/Anadyr": "Asia / Anadyr"
+"Asia/Aqtau": "Asia / Aqtau"
+"Asia/Aqtobe": "Asia / Aqtobe"
+"Asia/Ashgabat": "Asia / Ashgabat"
+"Asia/Atyrau": "Asia / Atyrau"
+"Asia/Baghdad": "Asien / Bagdad"
+"Asia/Bahrain": "Asien / Bahrain"
+"Asia/Baku": "Asia / Baku"
+"Asia/Bangkok": "Asien / Bangkok"
+"Asia/Barnaul": "Asia / Barnaul"
+"Asia/Beirut": "Asien / Beirut"
+"Asia/Bishkek": "Asien / Bischkek"
+"Asia/Brunei": "Asien / Brunei"
+"Asia/Chita": "Asia / Chita"
+"Asia/Choibalsan": "Asien / Tschoibalsan"
+"Asia/Colombo": "Asien / Colombo"
+"Asia/Damascus": "Asien / Damaskus"
+"Asia/Dhaka": "Asia / Dhaka"
+"Asia/Dili": "Asia / Dili"
+"Asia/Dubai": "Asien / Dubai"
+"Asia/Dushanbe": "Asien / Duschanbe"
+"Asia/Famagusta": "Asien / Famagusta"
+"Asia/Gaza": "Asien / Gaza"
+"Asia/Hebron": "Asien / Hebron"
+"Asia/Ho_Chi_Minh": "Asia / Ho_Chi_Minh"
+"Asia/Hong_Kong": "Asia / Hong_Kong"
+"Asia/Hovd": "Asia / Hovd"
+"Asia/Irkutsk": "Asia / Irkutsk"
+"Asia/Jakarta": "Asien / Jakarta"
+"Asia/Jayapura": "Asien / Jayapura"
+"Asia/Jerusalem": "Asien / Jerusalem"
+"Asia/Kabul": "Asia / Kabul"
+"Asia/Kamchatka": "Asien / Kamtschatka"
+"Asia/Karachi": "Asia / Karachi"
+"Asia/Kathmandu": "Asien / Kathmandu"
+"Asia/Khandyga": "Asien / Khandyga"
+"Asia/Kolkata": "Asia / Kolkata"
+"Asia/Krasnoyarsk": "Asien / Krasnojarsk"
+"Asia/Kuala_Lumpur": "Asia / Kuala_Lumpur"
+"Asia/Kuching": "Asien / Kuching"
+"Asia/Kuwait": "Asien / Kuwait"
+"Asia/Macau": "Asia / Macau"
+"Asia/Magadan": "Asia / Magadan"
+"Asia/Makassar": "Asien / Makassar"
+"Asia/Manila": "Asien / Manila"
+"Asia/Muscat": "Asia / Muscat"
+"Asia/Nicosia": "Asien / Nikosia"
+"Asia/Novokuznetsk": "Asia / Novokuznetsk"
+"Asia/Novosibirsk": "Asien / Nowosibirsk"
+"Asia/Omsk": "Asia / Omsk"
+"Asia/Oral": "Asia / Oral"
+"Asia/Phnom_Penh": "Asia / Phnom_Penh"
+"Asia/Pontianak": "Asia / Pontianak"
+"Asia/Pyongyang": "Asien / Pjöngjang"
+"Asia/Qatar": "Asien / Katar"
+"Asia/Qostanay": "Asien / Qostanay"
+"Asia/Qyzylorda": "Asia / Qyzylorda"
+"Asia/Riyadh": "Asien / Riad"
+"Asia/Sakhalin": "Asien / Sachalin"
+"Asia/Samarkand": "Asien / Samarkand"
+"Asia/Seoul": "Asien / Seoul"
+"Asia/Shanghai": "Asien / Shanghai"
+"Asia/Singapore": "Asien / Singapur"
+"Asia/Srednekolymsk": "Asia / Srednekolymsk"
+"Asia/Taipei": "Asia / Taipei"
+"Asia/Tashkent": "Asien / Taschkent"
+"Asia/Tbilisi": "Asien / Tiflis"
+"Asia/Tehran": "Asien / Teheran"
+"Asia/Thimphu": "Asia / Thimphu"
+"Asia/Tokyo": "Asien / Tokio"
+"Asia/Tomsk": "Asia / Tomsk"
+"Asia/Ulaanbaatar": "Asien / Ulaanbaatar"
+"Asia/Urumqi": "Asia / Urumqi"
+"Asia/Ust-Nera": "Asien / Ust-Nera"
+"Asia/Vientiane": "Asien / Vientiane"
+"Asia/Vladivostok": "Asien / Wladiwostok"
+"Asia/Yakutsk": "Asia / Yakutsk"
+"Asia/Yangon": "Asien / Yangon"
+"Asia/Yekaterinburg": "Asien / Jekaterinburg"
+"Asia/Yerevan": "Asien / Eriwan"
+"Atlantic/Azores": "Atlantik / Azoren"
+"Atlantic/Bermuda": "Atlantik / Bermuda"
+"Atlantic/Canary": "Atlantik / Kanarische Inseln"
+"Atlantic/Cape_Verde": "Atlantic / Cape_Verde"
+"Atlantic/Faroe": "Atlantik / Färöer"
+"Atlantic/Madeira": "Atlantik / Madeira"
+"Atlantic/Reykjavik": "Atlantic / Reykjavik"
+"Atlantic/South_Georgia": "Atlantik / Südgeorgien"
+"Atlantic/St_Helena": "Atlantic / St_Helena"
+"Atlantic/Stanley": "Atlantic / Stanley"
+"Australia/Adelaide": "Australien / Adelaide"
+"Australia/Brisbane": "Australien / Brisbane"
+"Australia/Broken_Hill": "Australien / Broken_Hill"
+"Australia/Currie": "Australien / Currie"
+"Australia/Darwin": "Australien / Darwin"
+"Australia/Eucla": "Australien / Eucla"
+"Australia/Hobart": "Australien / Hobart"
+"Australia/Lindeman": "Australien / Lindeman"
+"Australia/Lord_Howe": "Australien / Lord_Howe"
+"Australia/Melbourne": "Australien / Melbourne"
+"Australia/Perth": "Australien / Perth"
+"Australia/Sydney": "Australien / Sydney"
+"Europe/Amsterdam": "Europa / Amsterdam"
+"Europe/Andorra": "Europa / Andorra"
+"Europe/Astrakhan": "Europa / Astrachan"
+"Europe/Athens": "Europa / Athen"
+"Europe/Belgrade": "Europa / Belgrad"
+"Europe/Berlin": "Europa / Berlin"
+"Europe/Bratislava": "Europa / Bratislava"
+"Europe/Brussels": "Europa / Brüssel"
+"Europe/Bucharest": "Europa / Bukarest"
+"Europe/Budapest": "Europa / Budapest"
+"Europe/Busingen": "Europa / Busingen"
+"Europe/Chisinau": "Europa / Chisinau"
+"Europe/Copenhagen": "Europa / Kopenhagen"
+"Europe/Dublin": "Europa / Dublin"
+"Europe/Gibraltar": "Europa / Gibraltar"
+"Europe/Guernsey": "Europa / Guernsey"
+"Europe/Helsinki": "Europa / Helsinki"
+"Europe/Isle_of_Man": "Europe / Isle_of_Man"
+"Europe/Istanbul": "Europa / Istanbul"
+"Europe/Jersey": "Europa / Jersey"
+"Europe/Kaliningrad": "Europa / Kaliningrad"
+"Europe/Kiev": "Europa / Kiew"
+"Europe/Kirov": "Europe / Kirov"
+"Europe/Lisbon": "Europa / Lissabon"
+"Europe/Ljubljana": "Europa / Ljubljana"
+"Europe/London": "Europa / London"
+"Europe/Luxembourg": "Europa / Luxemburg"
+"Europe/Madrid": "Europa / Madrid"
+"Europe/Malta": "Europa / Malta"
+"Europe/Mariehamn": "Europe / Mariehamn"
+"Europe/Minsk": "Europa / Minsk"
+"Europe/Monaco": "Europa / Monaco"
+"Europe/Moscow": "Europa / Moskau"
+"Europe/Oslo": "Europa / Oslo"
+"Europe/Paris": "Europa / Paris"
+"Europe/Podgorica": "Europa / Podgorica"
+"Europe/Prague": "Europa / Prag"
+"Europe/Riga": "Europa / Riga"
+"Europe/Rome": "Europa / Rom"
+"Europe/Samara": "Europa / Samara"
+"Europe/San_Marino": "Europe / San_Marino"
+"Europe/Sarajevo": "Europa / Sarajevo"
+"Europe/Saratov": "Europe / Saratov"
+"Europe/Simferopol": "Europa / Simferopol"
+"Europe/Skopje": "Europa / Skopje"
+"Europe/Sofia": "Europa / Sofia"
+"Europe/Stockholm": "Europa / Stockholm"
+"Europe/Tallinn": "Europa / Tallinn"
+"Europe/Tirane": "Europa / Tirane"
+"Europe/Ulyanovsk": "Europa / Uljanowsk"
+"Europe/Uzhgorod": "Europa / Uschgorod"
+"Europe/Vaduz": "Europe / Vaduz"
+"Europe/Vatican": "Europa / Vatikan"
+"Europe/Vienna": "Europa / Wien"
+"Europe/Vilnius": "Europa / Vilnius"
+"Europe/Volgograd": "Europa / Wolgograd"
+"Europe/Warsaw": "Europa / Warschau"
+"Europe/Zagreb": "Europa / Zagreb"
+"Europe/Zaporozhye": "Europa / Zaporozhye"
+"Europe/Zurich": "Europa / Zürich"
+"Indian/Antananarivo": "Inder / Antananarivo"
+"Indian/Chagos": "Inder / Chagos"
+"Indian/Christmas": "Inder / Weihnachten"
+"Indian/Cocos": "Indianer / Cocos"
+"Indian/Comoro": "Inder / Comoro"
+"Indian/Kerguelen": "Inder / Kerguelen"
+"Indian/Mahe": "Inder / Mahe"
+"Indian/Maldives": "Inder / Malediven"
+"Indian/Mauritius": "Inder / Mauritius"
+"Indian/Mayotte": "Inder / Mayotte"
+"Indian/Reunion": "Indianer / Wiedersehen"
+"Pacific/Apia": "Pacific / Apia"
+"Pacific/Auckland": "Pazifik / Auckland"
+"Pacific/Bougainville": "Pacific / Bougainville"
+"Pacific/Chatham": "Pacific / Chatham"
+"Pacific/Chuuk": "Pacific / Chuuk"
+"Pacific/Easter": "Pazifik / Ostern"
+"Pacific/Efate": "Pacific / Efate"
+"Pacific/Enderbury": "Pazifik / Enderbury"
+"Pacific/Fakaofo": "Pacific / Fakaofo"
+"Pacific/Fiji": "Pazifik / Fidschi"
+"Pacific/Funafuti": "Pacific / Funafuti"
+"Pacific/Galapagos": "Pazifik / Galapagos"
+"Pacific/Gambier": "Pacific / Gambier"
+"Pacific/Guadalcanal": "Pazifik / Guadalcanal"
+"Pacific/Guam": "Pacific / Guam"
+"Pacific/Honolulu": "Pazifik / Honolulu"
+"Pacific/Kiritimati": "Pacific / Kiritimati"
+"Pacific/Kosrae": "Pazifik / Kosrae"
+"Pacific/Kwajalein": "Pacific / Kwajalein"
+"Pacific/Majuro": "Pazifik / Majuro"
+"Pacific/Marquesas": "Pazifik / Marquesas"
+"Pacific/Midway": "Pazifik / Auf halbem Weg"
+"Pacific/Nauru": "Pazifik / Nauru"
+"Pacific/Niue": "Pacific / Niue"
+"Pacific/Norfolk": "Pacific / Norfolk"
+"Pacific/Noumea": "Pazifik / Noumea"
+"Pacific/Pago_Pago": "Pacific / Pago_Pago"
+"Pacific/Palau": "Pazifik / Palau"
+"Pacific/Pitcairn": "Pacific / Pitcairn"
+"Pacific/Pohnpei": "Pacific / Pohnpei"
+"Pacific/Port_Moresby": "Pacific / Port_Moresby"
+"Pacific/Rarotonga": "Pazifik / Rarotonga"
+"Pacific/Saipan": "Pazifik / Saipan"
+"Pacific/Tahiti": "Pazifik / Tahiti"
+"Pacific/Tarawa": "Pacific / Tarawa"
+"Pacific/Tongatapu": "Pacific / Tongatapu"
+"Pacific/Wake": "Pacific / Wake"
+"Pacific/Wallis": "Pazifik / Wallis"
+"UTC": "koordinierte Weltzeit"
+"Time Format": "Zeitformat"
+"Choose your default timezone": "Wählen Sie Ihre Standard-Zeitzone"
+"Signature": "Unterschrift"
+"User signature will be append at the bottom of ticket reply box": "Die Unterschrift des Benutzers wird am unteren Rand des Antwortfelds des Tickets angehängt."
+"Password": "Passwort"
+"Password will remain same if you are not entering something in this field": "Das Passwort bleibt gleich, wenn Sie in dieses Feld nichts eingeben."
+"Confirm Password": "Passwort bestätigen"
+"Save Changes": "Änderungen speichern"
+"SAVE CHANGES": "ÄNDERUNGEN SPEICHERN"
+"CREATE TICKET": "TICKET ERSTELLEN"
+"Customer full name": "Vollständiger Name des Kunden"
+"Customer email address": "E-Mail-Adresse des Kunden"
+"Select Type": "Art auswählen"
+"Support": "Unterstützung"
+"Choose ticket type": "Ticketart wählen"
+"Ticket subject": "Ticket Betreff"
+"Message": "Botschaft"
+"Query Message": "Nachricht abfragen"
+"Add Attachment": "Anhang hinzufügen"
+"This field is mandatory": "Das Feld ist obligatorisch"
+"General": "Allgemeines"
+"Designation": "Bezeichnung"
+"Contant Number": "Contant Number"
+"User signature will be append in the bottom of ticket reply box": "Die Unterschrift des Benutzers wird unten im Antwortfeld des Tickets angehängt."
+"Account Status": "Kontostatus"
+"Account is Active": "Konto ist aktiv"
+"Assigning group(s) to user to view tickets regardless assignment.": "Zuweisen von Gruppen zu Benutzern, um Tickets unabhängig von der Zuweisung anzuzeigen."
+"Default": "Standard"
+"Select All": "Wählen Sie Alle"
+"Remove All": "Alles entfernen"
+"Assigning team(s) to user to view tickets regardless assignment.": "Zuweisen von Teams zu Benutzern, um Tickets unabhängig von der Zuweisung anzuzeigen."
+"No Team added !": "Kein Team hinzugefügt!"
+"Permission": "Genehmigung"
+"Role": "Rolle"
+"Administrator": "Administrator"
+"Select agent role": "Agentenrolle auswählen"
+"Add Customer": "Kunde hinzufügen"
+"Action": "Aktion"
+"Account Owner": "Kontoinhaber"
+"Active": "Aktiv"
+"Edit": "Bearbeiten"
+"Delete": "Löschen"
+"Disabled": "Deaktiviert"
+"New Group": "Neue Gruppe"
+"Default Privileges": "Standardprivilegien"
+"New Privileges": "Neue Privilegien"
+"NEW PRIVILEGE": "NEUES PRIVILEGE"
+"New Privilege": "Neues Privileg"
+"New Team": "Neues Team"
+"No Record Found": "Kein Eintrag gefunden"
+"Order Synchronization": "Bestellungssynchronisation"
+"Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.": "Integrieren Sie problemlos verschiedene E-Commerce-Plattformen in Ihren Helpdesk. Diese können später verwendet werden, um E-Commerce-Bestelldetails schnell in Ihre Support-Tickets zu integrieren."
+"BigCommerce": "BigCommerce"
+"No channels have been added.": "Es wurden keine Kanäle hinzugefügt."
+"Add BigCommerce Store": "BigCommerce Store hinzufügen"
+"ADD BIGCOMMERCE STORE": "ADD BIGCOMMERCE STORE"
+"Mangento": "Mangento"
+"Add Magento Store": "Magento Store hinzufügen"
+"OpenCart": "OpenCart"
+"Add OpenCart Store": "OpenCart Store hinzufügen"
+"ADD OPENCART STORE": "OPENCART STORE HINZUFÜGEN"
+"Shopify": "Shopify"
+"Add Shopify Store": "Shopify Store hinzufügen"
+"ADD SHOPIFY STORE": "SHOPIFY STORE HINZUFÜGEN"
+"Integrate a new BigCommerce store": "Integriere einen neuen BigCommerce Store"
+"Your BigCommerce Store Name": "Ihr BigCommerce Store Name"
+"Your BigCommerce Store Hash": "Ihr BigCommerce Store Hash"
+"Your BigCommerce Api Token": "Ihr BigCommerce-API-Token"
+"Your BigCommerce Api Client ID": "Ihre BigCommerce-API-Kunden-ID"
+"Enable Channel": "Kanal aktivieren"
+"Add Store": "Store hinzufügen"
+"ADD STORE": "STORE HINZUFÜGEN"
+"Integrate a new Magento store": "Integriere einen neuen Magento Store"
+"Your Magento Api Username": "Dein Magento Api Benutzername"
+"Your Magento Api Password": "Dein Magento-API-Passwort"
+"Integrate a new OpenCart store": "Integriere einen neuen OpenCart Store"
+"Your OpenCart Api Key": "Ihr OpenCart-API-Schlüssel"
+"Your Shopify Store Name": "Ihr Shopify-Filialname"
+"Your Shopify Api Key": "Ihr Shopify-API-Schlüssel"
+"Your Shopify Api Password": "Ihr Shopify-API-Passwort"
+"Easily embed custom form to help generate helpdesk tickets.": "Einfaches Einbetten eines benutzerdefinierten Formulars zur Erstellung von Helpdesk-Tickets."
+"Form-Builder": "Formular-Generator"
+"Add Formbuilder": "Formbuilder hinzufügen"
+"ADD FORMBUILDER": "FORMBUILDER HINZUFÜGEN"
+"No FormBuilder have been added.": "Es wurde kein FormBuilder hinzugefügt."
+"Create a New Custom Form Below": "Erstellen Sie unten ein neues benutzerdefiniertes Formular"
+"Form Name": "Formularname"
+"It will be shown in the list of created forms": "Es wird in der Liste der erstellten Formulare angezeigt."
+"MANDATORY FIELDS": "PFLICHTFELDER"
+"These fields will be visible in form and cant be edited": "Diese Felder werden im Formular angezeigt und können nicht bearbeitet werden"
+"Reply": "Antworten"
+"OPTIONAL FIELDS": "OPTIONALE FELDER"
+"Select These Fields to Add in your Form": "Wählen Sie diese Felder aus, um sie in Ihr Formular einzufügen"
+"GDPR": "GDPR"
+"Order": "Bestellung"
+"Categorybuilder": "Categorybuilder"
+"File": "Datei"
+"Add Form": "Formular hinzufügen"
+"ADD FORM": "FORMULAR HINZUFÜGEN"
+"UPDATE FORM": "UPDATE FORMULAR"
+"Update Form": "Formular aktualisieren"
+"Embed": "Einbetten"
+"EMBED": "EINBETTEN"
+"EMBED FORMBUILDER": "EMBED FORMBUILDER"
+"Embed Formbuilder": "Formbuilder einbetten"
+"Visit": "Besuch"
+"VISIT": "BESUCH"
+"Code": "Code"
+"Total Ticket(s)": "Ticket (s) insgesamt"
+"Ticket Count": "Ticket Count"
+"SwiftMailer Configurations": "SwiftMailer-Konfigurationen"
+"No swiftmailer configurations found": "Keine Swiftmailer-Konfigurationen gefunden"
+"CREATE CONFIGURATION": "KONFIGURATION ERSTELLEN"
+"Add configuration": "Konfiguration hinzufügen"
+"Update configuration": "Konfiguration aktualisieren"
+"Mailer ID": "Mailer ID"
+"Mailer ID - Leave blank to automatically create id": "Mailer ID - Leer lassen, um automatisch eine ID zu erstellen"
+"Transport Type": "Transportart"
+"SMTP": "SMTP"
+"Enable Delivery": "Zustellung aktivieren"
+"Server": "Server"
+"Port": "Hafen"
+"Encryption Mode": "Verschlüsselungsmodus"
+"ssl": "ssl"
+"tsl": "tsl"
+"None": "Keiner"
+"Authentication Mode": "Authentifizierungsmodus"
+"login": "Anmeldung"
+"Plain": "Einfach"
+"CRAM-MD5": "CRAM-MD5"
+"Sender Address": "Absenderadresse"
+"Delivery Address": "Lieferadresse"
+"Block Spam": "Spam blockieren"
+"Black list": "Schwarze Liste"
+"Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)": "Durch Komma (,) getrennte Werte (z. B. support@example.com, @ example.com, 68.98.31.226)"
+"White list": "Weiße Liste"
+"Mailbox Settings": "Mailbox-Einstellungen"
+"No mailbox configurations found": "Keine Mailbox-Konfigurationen gefunden"
+"NEW MAILBOX": "NEUE MAILBOX"
+"New Mailbox": "NEUE MAILBOX"
+"Update Mailbox": "Mailbox aktualisieren"
+"Add Mailbox": "Mailbox hinzufügen"
+"Mailbox ID - Leave blank to automatically create id": "Mailbox ID - Leer lassen, um automatisch eine ID zu erstellen"
+"Mailbox Name": "Postfachname"
+"Enable Mailbox": "Mailbox aktivieren"
+"Incoming Mail (IMAP) Server": "Posteingangsserver (IMAP)"
+"Configure your imap settings which will be used to fetch emails from your mailbox.": "Konfigurieren Sie Ihre IMAP-Einstellungen, die zum Abrufen von E-Mails aus Ihrer Mailbox verwendet werden."
+"Transport": "Transport"
+"IMAP": "IMAP"
+"Gmail": "Google Mail"
+"Yahoo": "Yahoo"
+"Host": "Wirt"
+"IMAP Host": "IMAP-Host"
+"Email address": "E-Mail-Addresse"
+"Associated Password": "Zugehöriges Passwort"
+"Outgoing Mail (SMTP) Server": "Postausgangsserver (SMTP)"
+"Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.": "Wählen Sie eine gültige Swift Mailer-Konfiguration aus, mit der E-Mails über Ihre Mailbox gesendet werden."
+"Swift Mailer ID": "Swift Mailer ID"
+"None Selected": "Nichts ausgewählt"
+"Create Mailbox": "Mailbox erstellen"
+"CREATE MAILBOX": "MAILBOX ERSTELLEN"
+"New Template": "Neue Vorlage"
+"NEW TEMPLATE": "NEUE VORLAGE"
+"Customer Forgot Password": "Kunde hat Passwort vergessen"
+"Customer Account Created": "Kundenkonto erstellt"
+"Ticket generated success mail to customer": "Ticket generierte Erfolgsmail an Kunden"
+"Customer Reply To The Agent": "Kundenantwort an den Agenten"
+"Ticket Assign": "Ticket zuweisen"
+"Agent Forgot Password": "Agent Passwort vergessen"
+"Agent Account Created": "Agentenkonto erstellt"
+"Ticket generated by customer": "Ticket vom Kunden generiert"
+"Agent Reply To The Customers ticket": "Agentenantwort auf das Ticket des Kunden"
+"Email template name": "Name der E-Mail-Vorlage"
+"Email template subject": "Betreff der E-Mail-Vorlage"
+"Template For": "Vorlage für"
+"Nothing Selected": "Nichts ausgewählt"
+"email template will be used for work related with selected option": "Die E-Mail-Vorlage wird für die Arbeit mit der ausgewählten Option verwendet."
+"Email template body": "E-Mail-Vorlagenkörper"
+"Body": "Körper"
+"placeholders": "Platzhalter"
+"Ticket Subject": "Ticket Betreff"
+"Ticket Message": "Ticket Nachricht"
+"Ticket Attachments": "Ticket-Anhänge"
+"Ticket Tags": "Ticket-Tags"
+"Ticket Source": "Ticketquelle"
+"Ticket Status": "Ticket Status"
+"Ticket Priority": "Ticket Priorität"
+"Ticket Group": "Ticketgruppe"
+"Ticket Team": "Ticket-Team"
+"Ticket Thread Message": "Ticket Thread Nachricht"
+"Ticket Customer Name": "Ticket-Kundenname"
+"Ticket Customer Email": "Ticket-Kunden-E-Mail"
+"Ticket Agent Name": "Ticket Agent Name"
+"Ticket Agent Email": "Ticket Agent Email"
+"Ticket Agent Link": "Ticket Agent Link"
+"Ticket Customer Link": "Ticket-Kunden-Link"
+"Last Collaborator Name": "Name des letzten Mitarbeiters"
+"Last Collaborator Email": "Letzte Mitarbeiter-E-Mail"
+"Agent/ Customer Name": "Agent / Kundenname"
+"Account Validation Link": "Link zur Kontoüberprüfung"
+"Password Forgot Link": "Passwort vergessener Link"
+"Company Name": "Name der Firma"
+"Company Logo": "Firmenlogo"
+"Company URL": "Firmen-URL"
+"Swiftmailer id (Select from drop down)": "Swiftmailer-ID (Auswahl aus Dropdown-Liste)"
+"PROCEED": "VORGEHEN"
+"Proceed": "Vorgehen"
+"Theme Color": "Themenfarbe"
+"Customer Created": "Kunde erstellt"
+"Agent Created": "Agent erstellt"
+"Ticket Created": "Ticket erstellt"
+"Agent Replied on Ticket": "Agent hat auf Ticket geantwortet"
+"Customer Replied on Ticket": "Kunde hat auf Ticket geantwortet"
+"Workflow Status": "Workflow Status"
+"Workflow is Active": "Workflow ist aktiv"
+"Events": "Veranstaltungen"
+"An event automatically triggers to check conditions and perform a respective pre-defined set of actions": "Ein Ereignis wird automatisch ausgelöst, um die Bedingungen zu überprüfen und einen entsprechenden vordefinierten Satz von Aktionen auszuführen."
+"Select an Event": "Event auswählen"
+"Add More": "Weitere hinzufügen"
+"Conditions": "Bedingungen"
+"Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions": "Bedingungen sind Regeln, die nach bestimmten Szenarien suchen und bei bestimmten Gelegenheiten ausgelöst werden."
+"Subject or Description": "Betreff oder Beschreibung"
+"Actions": "Aktionen"
+"An action not only reduces the workload but also makes it quite easier for ticket automation": "Eine Aktion reduziert nicht nur den Arbeitsaufwand, sondern erleichtert auch die Ticketautomatisierung erheblich."
+"Select an Action": "Aktion auswählen"
+"Add Note": "Notiz hinzufügen"
+"Mail to Agent": "Mail to Agent"
+"Mail to Customer": "Mail an Kunden"
+"Mail to group": "Mail an Gruppe"
+"Mail to last collaborator": "Mail an letzten Mitarbeiter"
+"Mail to team": "Mail an das Team"
+"Mark Spam": "Spam markieren"
+"Assign to agent": "Agent zuweisen"
+"Assign to group": "Zu Gruppe zuordnen"
+"Set Priority As": "Priorität festlegen als"
+"Set Status As": "Status setzen als"
+"Set Tag As": "Tag setzen als"
+"Assign to Team": "Zu Team zuordnen"
+"Set Type As": "Typ festlegen als"
+"Add Workflow": "Workflow hinzufügen"
+"ADD WORKFLOW": "WORKFLOW HINZUFÜGEN"
+"Ticket Type code": "Ticket Type Code"
+"Ticket Type description": "Ticket Typ Beschreibung"
+"Type Status": "Typstatus"
+"Type is Active": "Typ ist aktiv"
+"Add Save Reply": "Hinzufügen Antwort speichern"
+"Saved reply name": "Name der gespeicherten Antwort"
+"Share saved reply with user(s) in these group(s)": "Gespeicherte Antwort mit Benutzern in diesen Gruppen teilen"
+"Share saved reply with user(s) in these teams(s)": "Gespeicherte Antwort mit Benutzern in diesen Teams teilen"
+"Saved reply Body": "Gespeicherter Antworttext"
+"New Prepared Response": "Neue vorbereitete Antwort"
+"Prepared Response Status": "Status der vorbereiteten Antwort"
+"Prepared Response is Active": "Vorbereitete Antwort ist aktiv"
+"Share prepared response with user(s) in these group(s)": "Teilen Sie vorbereitete Antworten mit Benutzern in diesen Gruppen"
+"Share prepared response with user(s) in these teams(s)": "Teilen Sie vorbereitete Antworten mit Benutzern in diesen Teams."
+"ADD PREPARED RESPONSE": "VORBEREITETE ANTWORT HINZUFÜGEN"
+"Add Prepared Response": "Vorbereitete Antwort hinzufügen"
+"Folder Name is shown upfront at Knowledge Base": "Ordnername wird in der Knowledge Base im Voraus angezeigt"
+"A small text about the folder helps user to navigate more easily": "Ein kleiner Text über den Ordner erleichtert dem Benutzer das Navigieren."
+"Publish": "Veröffentlichen"
+"Choose appropriate status": "Wählen Sie den entsprechenden Status"
+"Folder Image": "Ordnerbild"
+"An image is worth a thousands words and makes folder more accessible": "Ein Bild sagt mehr als tausend Worte und macht Ordner zugänglicher"
+"Add Category": "Kategorie hinzufügen"
+"Category Name is shown upfront at Knowledge Base": "Der Kategoriename wird in der Knowledge Base im Voraus angezeigt."
+"A small text about the category helps user to navigate more easily": "Ein kleiner Text über die Kategorie erleichtert dem Benutzer das Navigieren."
+"Using Category Order, you can decide which category should display first": "Mit der Kategoriereihenfolge können Sie entscheiden, welche Kategorie zuerst angezeigt werden soll."
+"Sorting": "Sortierung"
+"Ascending Order (A-Z)": "Aufsteigende Reihenfolge (A-Z)"
+"Descending Order (Z-A)": "Absteigende Reihenfolge (Z-A)"
+"Based on Popularity": "Basierend auf Popularität"
+"Article of this category will display according to selected option": "Artikel dieser Kategorie werden nach ausgewählter Option angezeigt"
+"Article": "Artikel"
+"Title": "Titel"
+"View": "Aussicht"
+"Make as Starred": "Machen Sie wie markiert"
+"Yes": "Ja"
+"No": "Nein"
+"Stared": "Starrte"
+"Revisions": "Überarbeitungen"
+"Related Articles": "In Verbindung stehende Artikel"
+"Delete Article":	"Artikel löschen"
+"Content": "Inhalt"
+"Slug": "Schnecke"
+"Slug is the url identity of this article.": "Slug ist die URL-Identität dieses Artikels."
+"Meta Title": "Meta-Titel"
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": "Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird."
+"Meta Keywords": "Meta-Keywords"
+"Meta Description": "Meta Description"
+"Description": "Beschreibung"
+"Team Status": "Team Status"
+"Team is Active": "Team ist aktiv"
+"Edit Privilege": "Berechtigung bearbeiten"
+"Can create ticket": "Kann Ticket erstellen"
+"Can edit ticket": "Kann Ticket bearbeiten"
+"Can delete ticket": "Kann Ticket löschen"
+"Can restore trashed ticket": "Kann das Ticket im Papierkorb wiederherstellen"
+"Can assign ticket": "Kann Ticket zuweisen"
+"Can assign ticket group": "Kann Ticketgruppe zuordnen"
+"Can update ticket status": "Kann Ticketstatus aktualisieren"
+"Can update ticket priority": "Kann Ticketpriorität aktualisieren"
+"Can update ticket type": "Kann Tickettyp aktualisieren"
+"Can add internal notes to ticket": "Kann interne Notizen zum Ticket hinzufügen"
+"Can edit thread/notes": "Kann Thread / Notizen bearbeiten"
+"Can lock/unlock thread": "Kann Thread sperren / entsperren"
+"Can add collaborator to ticket": "Kann Mitbearbeiter zum Ticket hinzufügen"
+"Can delete collaborator from ticket": "Kann Mitbearbeiter aus Ticket löschen"
+"Can delete thread/notes": "Kann Thread / Notizen löschen"
+"Can apply prepared response on ticket": "Kann vorbereitete Antwort auf Ticket anwenden"
+"Can add ticket tags": "Kann Ticket-Tags hinzufügen"
+"Can delete ticket tags": "Kann Ticket-Tags löschen"
+"Can kick other ticket users": "Kann andere Ticketbenutzer kicken"
+"Can manage email templates": "Kann E-Mail-Vorlagen verwalten"
+"Can manage groups": "Kann Gruppen verwalten"
+"Can manage Sub-Groups/ Teams": "Kann Untergruppen / Teams verwalten"
+"Can manage agents": "Kann Agenten verwalten"
+"Can manage agent privileges": "Kann Agentenrechte verwalten"
+"Can manage ticket types": "Kann Tickettypen verwalten"
+"Can manage ticket custom fields": "Kann benutzerdefinierte Ticketfelder verwalten"
+"Can manage customers": "Kann Kunden verwalten"
+"Can manage Prepared Responses": "Kann vorbereitete Antworten verwalten"
+"Can manage Automatic workflow": "Kann den automatischen Workflow verwalten"
+"Can manage tags": "Kann Tags verwalten"
+"Can manage knowledgebase": "Kann Wissensdatenbank verwalten"
+"Can manage Groups Saved Reply": "Kann gespeicherte Antworten der Gruppe verwalten"
+"Add Privilege": "Privileg hinzufügen"
+"Choose set of privileges which will be available to the agent.": "Wählen Sie eine Reihe von Berechtigungen aus, die dem Agenten zur Verfügung stehen."
+"Advanced": "Fortgeschritten"
+"Privilege Name must have characters only": "Berechtigungsname darf nur Zeichen enthalten"
+"Maximum character length is 50": "Maximale Zeichenlänge beträgt 50"
+"Open Tickets": "Offene Tickets"
+"New Customer": "Neukunde"
+"New Agent": "Neuer Agent"
+"Total Article(s)": "Artikel insgesamt"
+"Please specify a valid email address": "Bitte geben Sie eine gültige E-Mail-Adresse an."
+"Please enter the password associated with your email address": "Bitte geben Sie das mit Ihrer E-Mail-Adresse verknüpfte Passwort ein."
+"Please enter your server host address": "Bitte geben Sie Ihre Server-Host-Adresse ein"
+"Please specify a port number to connect with your mail server": "Bitte geben Sie eine Portnummer an, um sich mit Ihrem Mailserver zu verbinden"
+"Success ! Branding details saved successfully.": "Erfolg! Markendetails wurden erfolgreich gespeichert. "
+"Success ! Time details saved successfully.": "Erfolg! Zeitangaben erfolgreich gespeichert. "
+"Spam setting saved successfully.": "Spam-Einstellung erfolgreich gespeichert."
+"Please specify a valid name for your mailbox.": "Bitte geben Sie einen gültigen Namen für Ihre Mailbox an."
+"Please select a valid swift-mailer configuration.": "Bitte wählen Sie eine gültige E-Mail-Konfiguration."
+"Please specify a valid host address.": "Bitte geben Sie eine gültige Hostadresse an."
+"Please specify a valid email address.": "Bitte geben Sie eine gültige E-Mail-Adresse an."
+"Please enter the associated account password.": "Bitte geben Sie das zugehörige Passwort ein."
+"New Saved Reply": "Neue gespeicherte Antwort"
+"New Category": "Neue Kategorie"
+"Folder": "Mappe"
+"Category": "Kategorie"
+"Created": "Erstellt"
+"All Articles": "Alle Artikel"
+"Viewed": "Gesehen"
+"New Article": "Neuer Artikel"
+"Thank you for your feedback!": "Danke für Ihre Rückmeldung!"
+"Was this article helpful?": "War dieser Artikel hilfreich?"
+"Helpdesk": "Beratungsstelle"
+"Support Center": "Hilfecenter"
+"Mailboxes": "Postfächer"
+"By": "Durch"
+"Search Tickets": "Tickets suchen"
+"Customer Information": "Kundeninformation"
+"Total Replies": "Antworten insgesamt"
+"Filter With": "Filtern mit"
+"Type email to add": "E-Mail zum Hinzufügen eingeben"
+"Collaborators": "Mitarbeiter"
+"Labels": "Etiketten"
+"Group": "Gruppe"
+"Stay on ticket": "Bleiben Sie auf Ticket"
+"Redirect to list": "Zur Liste umleiten"
+"Nothing interesting here...": "Nichts interessantes hier"
+"Previous Ticket": "Vorheriges Ticket"
+"Next Ticket": "Nächstes Ticket"
+"Forward": "Nach vorne"
+"Note": "Hinweis"
+"Write a reply": "Eine Antwort schreiben"
+"Created Ticket": "Erstelltes Ticket"
+"All Threads": "Alle Themen"
+"Forwards": "Vorwärts"
+"Notes": "Anmerkungen"
+"Pinned": "Festgesteckt"
+"Edit Ticket": "Ticket bearbeiten"
+"Print Ticket": "Ticket drucken"
+"Mark as Spam": "Als Spam markieren"
+"Mark as Closed": "Als geschlossen markieren"
+"Delete Ticket": "Ticket löschen"
+"View order details from different eCommerce channels": "Bestelldetails aus verschiedenen E-Commerce-Kanälen anzeigen"
+"ECOMMERCE CHANNELS": "ECOMMERCE-KANÄLE"
+"Select channel": "Kanal auswählen"
+"Order Id": "Auftragsnummer"
+"Fetch Order": "Bestellung abrufen"
+"No orders have been integrated to this ticket yet.": "Zu diesem Ticket wurden noch keine Bestellungen integriert."
+"Enter your credentials below to gain access to your helpdesk account.": "Geben Sie unten Ihre Anmeldeinformationen ein, um Zugriff auf Ihr Helpdesk-Konto zu erhalten."
+"Keep me logged in": "Angemeldet bleiben"
+"Forgot Password?": "Passwort vergessen?"
+"Log in to your": "Melden Sie sich bei Ihrem an."
+"Sign In": "Einloggen"
+"Edit Customer": "Kunden bearbeiten"
+"Update": "Aktualisieren"
+"Discard": "Verwerfen"
+"Cancel": "Stornieren"
+"Not Assigned": "Nicht zugeordnet"
+"Submit": "Einreichen"
+"Submit And Open": "Senden und öffnen"
+"Submit And Pending": "Senden und ausstehend"
+"Submit And Answered": "Senden und beantwortet"
+"Submit And Resolved": "Senden und gelöst"
+"Submit And Closed": "Senden und geschlossen"
+"Choose a Color": "Wähle eine Farbe"
+"Create": "Erstellen"
+"Edit Label": "Label bearbeiten"
+"Add Label": "Label hinzufügen"
+"To": "Zu"
+"Ticket": "Fahrkarte"
+"Your browser does not support JavaScript or You disabled JavaScript, Please enable those !": "Ihr Browser unterstützt kein JavaScript oder Sie haben JavaScript deaktiviert, bitte aktivieren Sie diese!"
+"Confirm Action": "Aktion bestätigen"
+"Confirm": "Bestätigen"
+"No result found": "Keine Einträge gefunden"
+"ticket delivery status": "Ticket Lieferstatus"
+"Warning! Select valid image file.": "Warnung! Wählen Sie eine gültige Bilddatei. "
+"Error": "Error"
+"Save": "Sparen"
+"SEO": "SEO"
+"Edit Saved Filter": "Gespeicherten Filter bearbeiten"
+"Type atleast 2 letters": "Geben Sie mindestens 2 Buchstaben ein"
+"Remove Label": "Label entfernen"
+"New Saved Filter": "Neuer gespeicherter Filter"
+"Is Default": "Ist Standard"
+"Remove Saved Filter": "Gespeicherten Filter entfernen"
+"Ticket Info": "Ticket Info"
+"Last Replied Agent": "Letzter geantworteter Agent"
+"created Ticket": "Ticket erstellt"
+"Uploaded Files": "Hochgeladene Dateien"
+"Download (as .zip)": "Als ZIP herunterladen)"
+"made last reply": "Letzte Antwort gemacht"
+"N/A": "N / A"
+"Unassigned": "Nicht zugewiesen"
+"Label": "Etikette"
+"Assigned to me": "Mir zugewiesen"
+"Search Query": "Suchanfrage"
+"Searching": "Suchen"
+"Saved Filter": "Gespeicherter Filter"
+"No Label Created": "Kein Label erstellt"
+"Label with same name already exist.": "Label mit gleichem Namen existiert bereits."
+"Create New": "Erstelle neu"
+"Mail status": "Mail Status"
+"replied": "geantwortet"
+"added note": "Notiz hinzugefügt"
+"forwarded": "weitergeleitet"
+"TO": "ZU"
+"CC": "CC"
+"BCC": "BCC"
+"Locked": "Verschlossen"
+"Edit Thread": "Thread bearbeiten"
+"Delete Thread": "Thread löschen"
+"Unpin Thread": "Thread abheften"
+"Pin Thread": "Pin Thread"
+"Unlock Thread": "Thread freischalten"
+"Lock Thread": "Thread sperren"
+"Translate Thread": "Thread übersetzen"
+"Language": "Sprache"
+"English": "Englisch"
+"French": "Französisch"
+"Italian": "Italienisch"
+"Arabic": "Arabisch"
+"German": "Deutsche"
+"Spanish": "Spanisch"
+"Turkish": "Türkisch"
+"Danish": "Dänisch"
+"System": "System"
+"Open in Files": "In Dateien öffnen"
+"Email address is invalid": "E-mail Adresse ist nicht korrekt"
+"Tag with same name already exist": "Tag mit gleichem Namen existiert bereits"
+"Text length should be less than 20 charactors": "Die Textlänge sollte weniger als 20 Zeichen betragen."
+"Label with same name already exist": "Label mit gleichem Namen existiert bereits"
+"Agent Name": "Agentenname"
+"Agent Email": "Agenten-E-Mail"
+"open": "öffnen"
+"Currently active agents on ticket": "Derzeit aktive Agenten im Ticket"
+"Edit Customer Information": "Kundeninformationen bearbeiten"
+"Restore": "Wiederherstellen"
+"Delete Forever": "Unwiederuflich löschen"
+"Add Team": "Team hinzufügen"
+"delete": "löschen"
+"You didnt have any folder for current filter(s).": "Msgstr Sie hatten keinen Ordner für aktuelle Filter."
+"Add Folder": "Ordner hinzufügen"
+"This field must have valid characters only": "Dieses Feld darf nur gültige Zeichen enthalten"
+"Can edit task": "Kann Aufgabe bearbeiten"
+"Can create task": "Kann Aufgabe erstellen"
+"Can delete task": "Kann Aufgabe löschen"
+"Can add member to task": "Kann Mitglied zur Aufgabe hinzufügen"
+"Can remove member from task": "Kann Mitglied von Aufgabe entfernen"
+"Agent Privileges": "Agentenrechte"
+"Agent Privilege represents overall permissions in System.": "Die Agentenberechtigung repräsentiert die allgemeinen Berechtigungen im System."
+"Ticket View": "Ticketansicht"
+"User can view tickets based on selected scope.": "Der Benutzer kann Tickets basierend auf dem ausgewählten Bereich anzeigen."
+"If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on": "Wenn der Benutzer über einen individuellen Zugriff verfügt, können nur zugewiesene Tickets angezeigt werden. Wenn der Teamzugriff verfügt, kann der Benutzer alle Tickets in Teams anzeigen, denen er angehört, usw."
+"Global Access": "Globaler Zugriff"
+"Group Access": "Gruppenzugriff"
+"Team Access": "Teamzugang"
+"Individual Access": "Individueller Zugang"
+"This field must have characters only": "Dieses Feld darf nur Zeichen enthalten"
+"Maximum character length is 40": "Maximale Zeichenlänge beträgt 40"
+"This is not a valid email address": "Dies ist keine gültige e-mail Adresse"
+"Password must contains 8 Characters": "Passwort muss 8 Zeichen enthalten"
+"The passwords does not match": "Die Passwörter stimmen nicht überein"
+"Enabled": "Aktiviert"
+"Create Configuration": "Konfiguration erstellen"
+"Swift Mailer Settings": "Swift Mailer-Einstellungen"
+"Username": "Nutzername"
+"Please select a swiftmailer id": "Bitte wählen Sie eine swiftmailer ID"
+"Please enter a valid e-mail id": "Bitte geben Sie eine gültige E-Mail-ID ein"
+"Please enter a mailer id": "Bitte geben Sie eine Mailer-ID ein"
+"Email Id": "E-Mail-ID"
+"Are you sure? You want to perform this action.": "Bist du sicher? Sie möchten diese Aktion ausführen. "
+"Reorder": "Nachbestellen"
+"New Workflow": "Neuer Workflow"
+"OR": "ODER"
+"AND": "UND"
+"Please enter a valid name.": "Bitte geben Sie einen gültigen Namen ein."
+"Please select a value.": "Bitte wählen Sie einen Wert aus."
+"Please add a value.": "Bitte addieren Sie einen Wert."
+"This field is required": "Dieses Feld wird benötigt"
+"or": "oder"
+"and": "und"
+"Select a Condition": "Wählen Sie eine Bedingung aus"
+"Loading...": "Wird geladen..."
+"Select Option": "Wähle eine Option"
+"Inactive": "Inaktiv"
+"New Type": "Neuer Typ"
+"Placeholders": "Platzhalter"
+"Ticket Link": "Ticket Link"
+"Id": "Ich würde"
+"Preview": "Vorschau"
+"Sort Order": "Sortierung"
+"This field must be a number": "Dieses Feld muss eine Zahl sein"
+"User": "Benutzer"
+"Edit Group": "Gruppe bearbeiten"
+"Group Status": "Gruppenstatus"
+"Group is Active": "Gruppe ist aktiv"
+"Add Group": "Gruppe hinzufügen"
+"Contact number is invalid": "Kontaktnummer ist ungültig"
+"Edit Agent": "Agent bearbeiten"
+"No Privilege added, Please add Privilege(s) first !": "Keine Berechtigungen hinzugefügt, bitte zuerst Berechtigungen hinzufügen!"
+"Edit Email Template": "E-Mail-Vorlage bearbeiten"
+"Edit Workflow": "Workflow bearbeiten"
+"Save Workflow": "Workflow speichern"
+"Edit Ticket Type": "Ticket-Typ bearbeiten"
+"Add Ticket Type": "Tickettyp hinzufügen"
+"Date Released": "Freigabedatum"
+"Free": "Kostenlos"
+"Premium": "Prämie"
+"Installed": "Eingerichtet"
+"Installed Applications": "Installierte Anwendungen"
+"Apps Dashboard": "Apps-Dashboard"
+"Nothing Interesting here": "Nichts Interessantes hier"
+"No Categories Added": "Keine Kategorien hinzugefügt"
+"ticket": "Fahrkarte"
+"Add Email Template": "E-Mail-Vorlage hinzufügen"
+"This field contain 100 characters only": "Dieses Feld enthält nur 100 Zeichen"
+"This field contain characters only": "Dieses Feld enthält nur Zeichen"
+"Name length must not be greater than 200 !!": "Die Länge des Namens darf 200 nicht überschreiten !!"
+"Warning! Correct all field values first!": "Warnung! Korrigieren Sie zuerst alle Feldwerte! "
+"Warning ! This is not a valid request": "Warnung ! Dies ist keine gültige Anfrage. "
+"Success ! Tag removed successfully.": "Erfolg! Tag erfolgreich entfernt. "
+"Success ! Tags Saved successfully.": "Erfolg! Tags wurden erfolgreich gespeichert. "
+"Success ! Revision restored successfully.": "Erfolg! Revision erfolgreich wiederhergestellt. "
+"Success ! Categories updated successfully.": "Erfolg! Kategorien wurden erfolgreich aktualisiert. "
+"Success ! Article Related removed successfully.": "Erfolg! Artikelverwandte erfolgreich entfernt. "
+"Success ! Article Related is already added.": "Erfolg! Artikel ist bereits hinzugefügt. "
+"Success ! Cannot add self as relative article.": "Erfolg! Ich kann mich nicht als relativen Artikel hinzufügen. "
+"Success ! Article Related updated successfully.": "Erfolg! Artikelverwandt erfolgreich aktualisiert. "
+"Success ! Articles removed successfully.": "Erfolg! Artikel erfolgreich entfernt. "
+"Success ! Article status updated successfully.": "Erfolg! Artikelstatus erfolgreich aktualisiert. "
+"Success ! Article star updated successfully.": "Erfolg! Artikelstern erfolgreich aktualisiert. "
+"Success! Article updated successfully": "Erfolg! Artikel erfolgreich aktualisiert"
+"Success ! Category sort  order updated successfully.": "Erfolg! Sortierreihenfolge der Kategorie erfolgreich aktualisiert. "
+"Success ! Category status updated successfully.": "Erfolg! Kategoriestatus erfolgreich aktualisiert. "
+"Success ! Folders updated successfully.": "Erfolg! Ordner wurden erfolgreich aktualisiert. "
+"Success ! Categories removed successfully.": "Erfolg! Kategorien wurden erfolgreich entfernt. "
+"Success ! Category updated successfully.": "Erfolg! Kategorie erfolgreich aktualisiert. "
+"Error ! Category is not exist.": "Error ! Kategorie ist nicht vorhanden. "
+"Warning ! Customer Login disabled by admin.": "Warnung ! Kunden-Login von Administrator deaktiviert. "
+"This Email is not registered with us.": "Diese E-Mail ist bei uns nicht registriert."
+"Your password has been updated successfully.": "Ihr Passwort wurde erfolgreich aktuallisiert."
+"Password dont match.": "Passwort stimmt nicht überein."
+"Error ! Profile image is not valid, please upload a valid format": "Error ! Profilbild ist ungültig. Bitte laden Sie ein gültiges Format hoch. "
+"Success! Folder has been added successfully.": "Erfolg! Ordner wurde erfolgreich hinzugefügt. "
+"Folder updated successfully.": "Ordner erfolgreich aktualisiert."
+"Success ! Folder status updated successfully.": "Erfolg! Ordnerstatus erfolgreich aktualisiert. "
+"Error ! Folder is not exist.": "Error ! Ordner ist nicht vorhanden. "
+"Success ! Folder updated successfully.": "Erfolg! Ordner erfolgreich aktualisiert. "
+"Error ! Folder does not exist.": "Error ! Ordner existiert nicht. "
+"Success ! Folder deleted successfully.": "Erfolg! Ordner erfolgreich gelöscht. "
+"Warning ! Folder doesnt exists!": "Warnung! Ordner existiert nicht!"
+"Warning ! Cannot create ticket, given email is blocked by admin.": "Warnung ! Ticket kann nicht erstellt werden, da die angegebene E-Mail-Adresse vom Administrator blockiert wird. "
+"Success ! Ticket has been created successfully.": "Erfolg! Ticket wurde erfolgreich erstellt. "
+"Warning ! Can not create ticket, invalid details.": "Warnung ! Ticket kann nicht erstellt werden, ungültige Angaben. "
+"Warning ! Post size can not exceed 25MB": "Warnung! Die Postgröße darf 25 MB nicht überschreiten."
+"Create Ticket Request": "Ticketanfrage erstellen"
+"Success ! Reply added successfully.": "Erfolgreich! Antwort erfolgreich hinzugefügt."
+"Warning ! Reply field can not be blank.": "Warnung! Das Antwortfeld darf nicht leer sein."
+"Success ! Rating has been successfully added.": "Erfolg! Die Bewertung wurde erfolgreich hinzugefügt. "
+"Warning ! Invalid rating.": "Warnung ! Ungültige Bewertung. "
+"Error ! Can not add customer as a collaborator.": "Error ! Kunde kann nicht als Mitbearbeiter hinzugefügt werden. "
+"Success ! Collaborator added successfully.": "Erfolg! Mitbearbeiter erfolgreich hinzugefügt. "
+"Error ! Collaborator is already added.": "Error ! Der Mitbearbeiter wurde bereits hinzugefügt. "
+"Success ! Collaborator removed successfully.": "Erfolg! Mitbearbeiter erfolgreich entfernt. "
+"Error ! Invalid Collaborator.": "Error ! Ungültiger Mitbearbeiter. "
+"An unexpected error occurred. Please try again later.": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal. "
+"Feedback saved successfully.": "Feedback erfolgreich gespeichert."
+"Feedback updated successfully.": "Feedback erfolgreich aktualisiert."
+"Invalid feedback provided.": "Ungültiges Feedback angegeben."
+"Article not found.": "Artikel nicht gefunden."
+"You need to login to your account before can perform this action.": "Sie müssen sich bei Ihrem Konto anmelden, bevor Sie diese Aktion ausführen können."
+"Warning! Please add valid Actions!": "Warnung! Bitte gültige Aktionen hinzufügen! "
+"Warning! In Free Plan you can not change Events!": "Warnung! In Free Plan können Sie keine Events ändern! "
+"Success! Prepared Response has been updated successfully.": "Erfolg! Die vorbereitete Antwort wurde erfolgreich aktualisiert. "
+"Success! Prepared Response has been added successfully.": "Erfolg! Die vorbereitete Antwort wurde erfolgreich hinzugefügt. "
+"Warning  This is not a valid request": "Warnung Dies ist keine gültige Anfrage"
+"Use Default Colors": "Standardfarben verwenden"
+"Masonry": "Mauerwerk"
+"Popular Article": "Populärer Artikel"
+"Manage Ticket Custom Fields": "Benutzerdefinierte Ticketfelder verwalten"
+"You dont have premission to edit this Prepared response": "Sie haben keine Berechtigung, diese vorbereitete Antwort zu bearbeiten."
+"Save Prepared Response": "Vorbereitete Antwort speichern"
+"Success ! Prepared response removed successfully.": "Erfolg! Vorbereitete Antwort erfolgreich entfernt. "
+"Warning! You are not allowed to perform this action.": "Warnung! Sie dürfen diese Aktion nicht ausführen. "
+"Success! Workflow has been updated successfully.": "Erfolg! Der Workflow wurde erfolgreich aktualisiert. "
+"Success! Workflow has been added successfully.": "Erfolg! Workflow wurde erfolgreich hinzugefügt. "
+"Success! Order has been updated successfully.": "Erfolg! Bestellung wurde erfolgreich aktualisiert. "
+"Success! Workflow has been removed successfully.": "Erfolg! Workflow wurde erfolgreich entfernt. "
+"Mailbox successfully created.": "Postfach erfolgreich erstellt."
+"Mailbox successfully updated.": "Postfach erfolgreich aktualisiert."
+"Warning ! Bad request !": "Warnung ! Ungültige Anforderung !"
+"Error! Given current password is incorrect.": "Error! Das angegebene aktuelle Passwort ist falsch. "
+"Success ! Profile update successfully.": "Erfolg! Profil erfolgreich aktualisiert. "
+"Error ! User with same email is already exist.": "Error ! Benutzer mit derselben E-Mail-Adresse ist bereits vorhanden. "
+"Success ! Agent updated successfully.": "Erfolg! Agent erfolgreich aktualisiert. "
+"Success ! Agent removed successfully.": "Erfolg! Agent erfolgreich entfernt. "
+"Warning ! You are allowed to remove account owners account.": "Warnung! Sie dürfen das Konto des Kontoinhabers entfernen."
+"Error ! Invalid user id.": "Fehler! Ungültige Benutzer-ID."
+"Success ! Filter has been saved successfully.": "Erfolgreich! Filter wurde erfolgreich gespeichert."
+"Success ! Filter has been updated successfully.": "Erfolgreich! Filter wurde erfolgreich aktualisiert."
+"Success ! Filter has been removed successfully.": "Erfolgreich! Filter wurde erfolgreich entfernt."
+"Please check your mail for password update.": "Bitte überprüfen Sie Ihre E - Mails auf Passwortaktualisierung."
+"This Email address is not registered with us.": "Diese E-Mail-Adresse ist bei uns nicht registriert."
+"Success ! Customer saved successfully.": "Erfolgreich! Kunde erfolgreich gespeichert."
+"Error ! User with same email already exist.": "Fehler! Benutzer mit derselben E-Mail existiert bereits."
+"Success ! Customer information updated successfully.": "Erfolgreich! Kundeninformationen wurden erfolgreich aktualisiert."
+"Success ! Customer updated successfully.": "Erfolgreich! Kunde erfolgreich aktualisiert."
+"Error ! Customer with same email already exist.": "Fehler! Kunde mit derselben E-Mail existiert bereits."
+"unstarred Action Completed successfully": "nicht markierte Aktion erfolgreich abgeschlossen"
+"starred Action Completed successfully": "markierte Aktion erfolgreich abgeschlossen"
+"Success ! Customer removed successfully.": "Erfolgreich! Kunde erfolgreich entfernt."
+"Error ! Invalid customer id.": "Fehler! Ungültige Kunden-ID."
+"Success! Template has been updated successfully.": "Erfolg! Vorlage wurde erfolgreich aktualisiert."
+"Success! Template has been added successfully.": "Erfolg! Vorlage wurde erfolgreich hinzugefügt."
+"Success! Template has been deleted successfully.": "Erfolg! Vorlage wurde erfolgreich gelöscht."
+"Warning! resource not found.": "Warnung! Ressource nicht gefunden."
+"Warning! You can not remove predefined email template which is being used in workflow(s).": "Warnung! Sie können vordefinierte E-Mail-Vorlagen, die in Workflows verwendet werden, nicht entfernen."
+"Success ! Email settings are updated successfully.": "Erfolgreich! E-Mail-Einstellungen wurden erfolgreich aktualisiert."
+"Success ! Group information updated successfully.": "Erfolgreich! Gruppeninformationen wurden erfolgreich aktualisiert."
+"Success ! Group information saved successfully.": "Erfolgreich! Gruppeninformationen erfolgreich gespeichert."
+"Support Group removed successfully.": "Support Group erfolgreich entfernt."
+"Success ! Privilege information saved successfully.": "Erfolgreich! Berechtigungsinformationen erfolgreich gespeichert."
+"Privilege updated successfully.": "Privileg erfolgreich aktualisiert."
+"Support Privilege removed successfully.": "Msgstr Support - Berechtigung erfolgreich entfernt."
+"Success! Reply has been updated successfully.": "Erfolgreich! Die Antwort wurde erfolgreich aktualisiert."
+"Success! Reply has been added successfully.": "Erfolgreich! Antwort wurde erfolgreich hinzugefügt."
+"Success! Saved Reply has been deleted successfully": "Erfolgreich! Gespeicherte Antwort wurde erfolgreich gelöscht"
+"SwiftMailer configuration updated successfully.": "Die SwiftMailer-Konfiguration wurde erfolgreich aktualisiert."
+"Swiftmailer configuration removed successfully.": "Msgstr Swiftmailer - Konfiguration erfolgreich entfernt."
+"Success ! Team information saved successfully.": "Erfolg! Teaminformationen erfolgreich gespeichert."
+"Success ! Team information updated successfully.": "Erfolgreich! Die Teaminformationen wurden erfolgreich aktualisiert."
+"Support Team removed successfully.": "Msgstr Support - Team erfolgreich entfernt."
+"Success! Reply has been added successfully": "Erfolgreich! Antwort wurde erfolgreich hinzugefügt"
+"Success ! Thread updated successfully.": "Erfolgreich! Thread erfolgreich aktualisiert."
+"Error ! Reply field can not be blank.": "Fehler! Das Antwortfeld darf nicht leer sein."
+"Success ! Thread removed successfully.": "Erfolgreich! Thread erfolgreich entfernt."
+"Success ! Thread locked successfully": "Erfolg! Thread erfolgreich gesperrt"
+"Success ! Thread unlocked successfully": "Erfolg! Thread erfolgreich entsperrt"
+"Success ! Thread pinned successfully": "Erfolg! Thread erfolgreich gepinnt"
+"Error ! Invalid thread.": "Fehler! Ungültiger Thread."
+"Could not create ticket, invalid details.": "Ticket konnte nicht erstellt werden, ungültige Angaben."
+"Success ! Tag updated successfully.": "Erfolgreich! Tag erfolgreich aktualisiert."
+"Error ! Customer can not be added as collaborator.": "Fehler! Kunde kann nicht als Mitbearbeiter hinzugefügt werden."
+"Success ! Tag unassigned successfully.": "Erfolgreich! Tag nicht erfolgreich zugewiesen."
+"Success ! Tag added successfully.": "Erfolgreich! Tag erfolgreich hinzugefügt."
+"Please enter tag name.": "Bitte geben Sie den Tag-Namen ein."
+"Error ! Invalid tag.": "Fehler! Ungültiges Tag."
+"Success ! Type removed successfully.": "Erfolgreich! Typ erfolgreich entfernt."
+"Success ! Ticket to label removed successfully.": "Erfolg! Ticket zum Etikett erfolgreich entfernt."
+"Unable to retrieve support team details": "Support-Team-Details können nicht abgerufen werden"
+"Ticket support group updated successfully": "Ticket Support Group erfolgreich aktualisiert"
+"Unable to retrieve status details": "Statusdetails können nicht abgerufen werden"
+"Insufficient details provided.": "Msgstr Unzureichende Angaben gemacht."
+"Error! Subject field is mandatory": "Fehler! Betreff ist Pflichtfeld"
+"Error! Reply field is mandatory": "Fehler! Antwortfeld ist obligatorisch"
+"Success ! Ticket has been updated successfully.": "Erfolg! Ticket wurde erfolgreich aktualisiert."
+"Success ! Label updated successfully.": "Erfolgreich! Label erfolgreich aktualisiert."
+"Error ! Invalid label id.": "Fehler! Ungültige Label-ID."
+"Success ! Label removed successfully.": "Erfolg! Label erfolgreich entfernt."
+"Success ! Label created successfully.": "Erfolg! Label erfolgreich erstellt."
+"Error ! Label name can not be blank.": "Fehler! Der Labelname darf nicht leer sein."
+"Success ! Ticket moved to trash successfully.": "Erfolg! Ticket wurde erfolgreich in den Papierkorb verschoben."
+"Success! Ticket type saved successfully.": "Erfolgreich! Tickettyp erfolgreich gespeichert."
+"Success! Ticket type updated successfully.": "Erfolgreich! Tickettyp erfolgreich aktualisiert."
+"Error! Ticket type with same name already exist": "Fehler! Ticket-Typ mit gleichem Namen existiert bereits"
+"SAVE": "SPAREN"
+"# Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": "Titel-Tags und Meta-Beschreibungen sind Teile des HTML-Codes im Header einer Webseite. Sie helfen Suchmaschinen, den Inhalt einer Seite zu verstehen. Das Titel-Tag und die Meta-Beschreibung einer Seite werden normalerweise angezeigt, wenn diese Seite in Suchmaschinenergebnissen angezeigt wird"
 #customer page
-Howdy!: Hallo!
-New Ticket Request: Neue Ticketanfrage
-Ticket Requests: Ticket-Anfragen
-Cookie Usage Policy: Cookie-Nutzungsrichtlinie
-cookie: Plätzchen
-cookies: Kekse
-HELP: HILFE
-Home: Zuhause
-Cookie Policy: Cookie-Richtlinie
-Prev: Zurück
-Ticket query message: Ticketabfragenachricht
-Select type: Art auswählen
-Search KnowledgeBase: Wissensdatenbank durchsuchen
-You cant merge an account with itself.: Sie können ein Konto nicht mit sich selbst zusammenführen.
-Edit Profile: Profil bearbeiten
-Customer Login: Kundenlogin
-Contact Us: Kontaktiere uns
-If you have ever contacted our support previously, your account would have already been created.:  Wenn Sie schon einmal Kontakt mit unserem Support aufgenommen haben, wurde Ihr Konto bereits erstellt.           
-support: Unterstützung
-HelpDesk: Beratungsstelle
-Enter search keyword: Suchbegriff eingeben
-Browse via Folders: Über Ordner browsen
-Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions: Suchen Sie etwas, das allgemein abgefragt wird? Wählen Sie einen relevanten Ordner aus, um nach möglichen Lösungen zu suchen
-Unable to find an answer?: Können Sie keine Antwort finden?
-Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.: Suchen Sie nach einem bestimmten Artikel, der sich in allgemeinen Fragen befindet? Durchsuchen Sie einfach die verschiedenen relevanten Ordner und Kategorien und finden Sie den gewünschten Artikel.
-Popular Articles : populäre Artikel
-Here are some of the most popular articles, which helped number of users to get their queries and questions resolved. : Im Folgenden finden Sie einige der beliebtesten Artikel, mit deren Hilfe die Anzahl der Benutzer ihre Fragen und Probleme gelöst hat.
-Browse via Categories: Durchsuchen Sie die Kategorien
-Looking for something specific? Choose a relevant category from below to explore possible solutions: Auf der Suche nach etwas Bestimmtem? Wählen Sie eine relevante Kategorie aus, um nach möglichen Lösungen zu suchen
-No Categories Found!: Keine Kategorien gefunden
-Powered by: Unterstützt von
+"Howdy!": "Hallo!"
+"New Ticket Request": "Neue Ticketanfrage"
+"Ticket Requests": "Ticket-Anfragen"
+"Cookie Usage Policy": "Cookie-Nutzungsrichtlinie"
+"cookie": "Plätzchen"
+"cookies": "Kekse"
+"HELP": "HILFE"
+"Home": "Zuhause"
+"Cookie Policy": "Cookie-Richtlinie"
+"Prev": "Zurück"
+"Ticket query message": "Ticketabfragenachricht"
+"Select type": "Art auswählen"
+"Search KnowledgeBase": "Wissensdatenbank durchsuchen"
+"You cant merge an account with itself.": "Sie können ein Konto nicht mit sich selbst zusammenführen."
+"Edit Profile": "Profil bearbeiten"
+"Customer Login": "Kundenlogin"
+"Contact Us": "Kontaktiere uns"
+"If you have ever contacted our support previously, your account would have already been created.": " Wenn Sie schon einmal Kontakt mit unserem Support aufgenommen haben, wurde Ihr Konto bereits erstellt.           "
+"support": "Unterstützung"
+"HelpDesk": "Beratungsstelle"
+"Enter search keyword": "Suchbegriff eingeben"
+"Browse via Folders": "Über Ordner browsen"
+"Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Suchen Sie etwas, das allgemein abgefragt wird? Wählen Sie einen relevanten Ordner aus, um nach möglichen Lösungen zu suchen"
+"Unable to find an answer?": "Können Sie keine Antwort finden?"
+"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Suchen Sie nach einem bestimmten Artikel, der sich in allgemeinen Fragen befindet? Durchsuchen Sie einfach die verschiedenen relevanten Ordner und Kategorien und finden Sie den gewünschten Artikel."
+"Popular Articles ": "populäre Artikel"
+"Here are some of the most popular articles, which helped number of users to get their queries and questions resolved. ": "Im Folgenden finden Sie einige der beliebtesten Artikel, mit deren Hilfe die Anzahl der Benutzer ihre Fragen und Probleme gelöst hat."
+"Browse via Categories": "Durchsuchen Sie die Kategorien"
+"Looking for something specific? Choose a relevant category from below to explore possible solutions": "Auf der Suche nach etwas Bestimmtem? Wählen Sie eine relevante Kategorie aus, um nach möglichen Lösungen zu suchen"
+"No Categories Found!": "Keine Kategorien gefunden"
+"Powered by": "Unterstützt von"
 
 #forgotpassword
-Forgot Password: Passwort vergessen
-Enter your email address and we will send you an email with instructions to update your login credentials.: Ingrese su dirección de correo electrónico y le enviaremos un correo electrónico con instructcciones para actualizar sus credenciales de inicio de sesión.
-Send Mail: Mail senden
+"Forgot Password": "Passwort vergessen"
+"Enter your email address and we will send you an email with instructions to update your login credentials.": "Ingrese su dirección de correo electrónico y le enviaremos un correo electrónico con instructcciones para actualizar sus credenciales de inicio de sesión."
+"Send Mail": "Mail senden"
 "Status:": "Status:"
-Sign In to %websitename%: Anmelden bei %websitename%
-Enter your name: Gib deinen Namen ein
-Enter your email: Geben sie ihre E-Mail Adresse ein
-Learn more about %deliveryStatus%.: Lerne mehr über %deliveryStatus%.
-To know more about how our privacy policy works, please %websiteLink%.: Weitere Informationen zur Funktionsweise unserer Datenschutzbestimmungen erhalten Sie auf% websiteLink%.
-Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.: Einige unserer Seiten verwenden %cookies% und andere Tracking-Technologien. Ein %cookie% ist eine kleine Textdatei, die beispielsweise zum Sammeln von Informationen über Site-Aktivitäten verwendet werden kann. Einige Cookies und andere Technologien können dazu dienen, persönliche Informationen abzurufen, die zuvor von einem Website-Benutzer angegeben wurden. Sie können Cookies blockieren oder vorhandene Cookies löschen, indem Sie die entsprechende Einstellung in Ihrem Browser vornehmen. Bitte konsultieren Sie das %help% -Menü Ihres Browsers, um zu erfahren, wie Sie dies tun können. Wenn Sie %cookies% blockieren oder löschen, kann die Nützlichkeit unserer Website beeinträchtigt werden.
-This field contain maximum 40 charectures.: Dieses Feld enthält maximal 40 Zeichen.
-This field contain maximum 50 charectures.: Dieses Feld enthält maximal 50 Zeichen.
-Time: Eingeloggt als
-Links: Dein Profil
-Broadcast Message: Ticket erstellen
-Wide Logo: Agent erstellen
-Upload an Image (200px x 48px) in</br> PNG or JPG Format: Kunden erstellen
-It will be shown as Logo on Knowledgebase and Helpdesk: Ausloggen
-Website Status: Apps
-Enable front end website and knowledgebase for customer(s): Integrieren Sie Apps nach Ihren Wünschen, um die Dinge schneller als je zuvor zu erledigen.
-Brand Color: Apps erkunden
-Page Background Color: Form Builder
-Header Background Color: Wissensbasis
-Banner Background Color: Knowledgebase ist eine Quelle starrer und komplexer Informationen, die den Kunden hilft, sich selbst zu helfen.
-Page Link Color: Artikel
-Page Link Hover Color: Kategorien
-Article Text Color: Ordner
-Tag Line: ORDNER
-Hi! how can we help?: Produktivität
-Layout: Automatisieren Sie Ihre Prozesse, indem Sie eine Reihe von Regeln und Vorgaben erstellen, um schneller auf die Tickets zu reagieren.
-Ticket Create Option: Vorbereitete Antworten
-Login Required To Create Tickets: Gespeicherte Antworten
-Remove Customer Login/Signin Button: Tickettypen
-Disable Customer Login: Arbeitsabläufe
-Meta Description (Recommended): die Einstellungen
-Meta Keywords (Recommended): Verwalten Sie Ihre Markenidentität, Unternehmensinformationen und andere Details auf einen Blick
-Header Link: Branding
-URL (with http:// or https://): Benutzerdefinierte Felder
-Footer Link: Email Einstellungen
-Custom CSS (Optional): E-Mail-Vorlagen
-It will be add to the frontend knowledgebase only: Briefkasten
-Custom Javascript (Optional): Spam-Einstellungen
-Broadcast message content to show on helpdesk: Swift Mailer
-From: Stichworte
-Time duration between which message will be displayed(if applicable): Benutzer
-Broadcasting Status: Kontrollieren Sie Ihre Gruppen, Teams, Agenten und Kunden
-Broadcasting is Active: Agenten
-Choose a default company timezone: Kunden
-Date Time Format: Gruppen
-Choose a format to convert date to specified date time format: Privilegien
-An empty file is not allowed.: Mannschaften
-File size must not be greater than 200KB !!: Anwendungen
-Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!: ECommerce Order Syncronization
-comma "," separated: Komma getrennt
-Provide a valid url(with protocol): Importieren Sie E-Commerce-Bestelldetails von verschiedenen verfügbaren Plattformen in Ihre Support-Tickets.
+"Sign In to %websitename%": "Anmelden bei %websitename%"
+"Enter your name": "Gib deinen Namen ein"
+"Enter your email": "Geben sie ihre E-Mail Adresse ein"
+"Learn more about %deliveryStatus%.": "Lerne mehr über %deliveryStatus%."
+"To know more about how our privacy policy works, please %websiteLink%.": "Weitere Informationen zur Funktionsweise unserer Datenschutzbestimmungen erhalten Sie auf% websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Einige unserer Seiten verwenden %cookies% und andere Tracking-Technologien. Ein %cookie% ist eine kleine Textdatei, die beispielsweise zum Sammeln von Informationen über Site-Aktivitäten verwendet werden kann. Einige Cookies und andere Technologien können dazu dienen, persönliche Informationen abzurufen, die zuvor von einem Website-Benutzer angegeben wurden. Sie können Cookies blockieren oder vorhandene Cookies löschen, indem Sie die entsprechende Einstellung in Ihrem Browser vornehmen. Bitte konsultieren Sie das %help% -Menü Ihres Browsers, um zu erfahren, wie Sie dies tun können. Wenn Sie %cookies% blockieren oder löschen, kann die Nützlichkeit unserer Website beeinträchtigt werden."
+"This field contain maximum 40 charectures.": "Dieses Feld enthält maximal 40 Zeichen."
+"This field contain maximum 50 charectures.": "Dieses Feld enthält maximal 50 Zeichen."
+"Time": "Eingeloggt als"
+"Links": "Dein Profil"
+"Broadcast Message": "Ticket erstellen"
+"Wide Logo": "Agent erstellen"
+"Upload an Image (200px x 48px) in</br> PNG or JPG Format": "Kunden erstellen"
+"It will be shown as Logo on Knowledgebase and Helpdesk": "Ausloggen"
+"Website Status": "Apps"
+"Enable front end website and knowledgebase for customer(s)": "Integrieren Sie Apps nach Ihren Wünschen, um die Dinge schneller als je zuvor zu erledigen."
+"Brand Color": "Apps erkunden"
+"Page Background Color": "Form Builder"
+"Header Background Color": "Wissensbasis"
+"Banner Background Color": "Knowledgebase ist eine Quelle starrer und komplexer Informationen, die den Kunden hilft, sich selbst zu helfen."
+"Page Link Color": "Artikel"
+"Page Link Hover Color": "Kategorien"
+"Article Text Color": "Ordner"
+"Tag Line": "ORDNER"
+"Hi! how can we help?": "Produktivität"
+"Layout": "Automatisieren Sie Ihre Prozesse, indem Sie eine Reihe von Regeln und Vorgaben erstellen, um schneller auf die Tickets zu reagieren."
+"Ticket Create Option": "Vorbereitete Antworten"
+"Login Required To Create Tickets": "Gespeicherte Antworten"
+"Remove Customer Login/Signin Button": "Tickettypen"
+"Disable Customer Login": "Arbeitsabläufe"
+"Meta Description (Recommended)": "die Einstellungen"
+"Meta Keywords (Recommended)": "Verwalten Sie Ihre Markenidentität, Unternehmensinformationen und andere Details auf einen Blick"
+"Header Link": "Branding"
+"URL (with http:// or https://)": "Benutzerdefinierte Felder"
+"Footer Link": "Email Einstellungen"
+"Custom CSS (Optional)": "E-Mail-Vorlagen"
+"It will be add to the frontend knowledgebase only": "Briefkasten"
+"Custom Javascript (Optional)": "Spam-Einstellungen"
+"Broadcast message content to show on helpdesk": "Swift Mailer"
+"From": "Stichworte"
+"Time duration between which message will be displayed(if applicable)": "Benutzer"
+"Broadcasting Status": "Kontrollieren Sie Ihre Gruppen, Teams, Agenten und Kunden"
+"Broadcasting is Active": "Agenten"
+"Choose a default company timezone": "Kunden"
+"Date Time Format": "Gruppen"
+"Choose a format to convert date to specified date time format": "Privilegien"
+"An empty file is not allowed.": "Mannschaften"
+"File size must not be greater than 200KB !!": "Anwendungen"
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "ECommerce Order Syncronization"
+'comma "," separated': 'Komma getrennt'
+"Provide a valid url(with protocol)": "Importieren Sie E-Commerce-Bestelldetails von verschiedenen verfügbaren Plattformen in Ihre Support-Tickets."
 
                     
 
