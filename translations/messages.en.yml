@@ -44,7 +44,7 @@
 "Search": "Search"
 "Sort By": "Sort By"
 "Sort By:" : "Sort By:"
-"Status": "Status"
+"Status" : "Status"
 "Created At": "Created At"
 "Name": "Name"
 "All": "All"
@@ -810,8 +810,8 @@
 "View": "View"
 "Make as Starred": "Make as Starred"
 "Yes": "Yes"
-"No":"No"
-"Stared":"Stared"
+"No" : "No"
+"Stared" : "Stared"
 "Revisions": "Revisions"
 "Related Articles" : "Related Articles"
 "Delete Article":	"Delete Article"
@@ -1088,14 +1088,13 @@
 "Installed": "Installed"
 "Installed Applications": "Installed Applications"
 "Apps Dashboard": "Apps Dashboard"
-"Nothing Interesting here": "Nothing Interesting here"
-"No Categories Added": "No Categories Added"
-"Status": "Status:"
-"Error : Something went wrong, please try again later": "Error : Something went wrong, please try again later"
+"Nothing Interesting here" : "Nothing Interesting here"
+"No Categories Added" : "No Categories Added"
+"Error : Something went wrong, please try again later" : "Error : Something went wrong, please try again later"
 "ticket": "ticket"
 "Add Email Template": "Add Email Template"
 "This field contain 100 characters only": "This field contain 100 characters only"
-"This field contain characters only ": "	This field contain characters only"
+"This field contain characters only" : "This field contain characters only"
 "Name length must not be greater than 200 !!": "Name length must not be greater than 200 !!"
 "Warning! Correct all field values first!": "Warning! Correct all field values first!"
 "Warning ! This is not a valid request": "Warning ! This is not a valid request"
@@ -1122,7 +1121,7 @@
 "Your password has been updated successfully.": "Your password has been updated successfully."
 "Password dont match.": "Password dont match."
 "Error ! Profile image is not valid, please upload a valid format": "Error ! Profile image is not valid, please upload a valid format"
-"Warning! Provide valid image file. (Recommened": "PNG, JPG or GIF Format).": "Warning! Provide valid image file. (Recommened": "PNG, JPG or GIF Format)."
+'Warning! Provide valid image file. (Recommened": "PNG, JPG or GIF Format).': 'Warning! Provide valid image file. (Recommened": "PNG, JPG or GIF Format).'
 "Success! Folder has been added successfully.": "Success! Folder has been added successfully."
 "Folder updated successfully.": "Folder updated successfully."
 "Success ! Folder status updated successfully.": "Success ! Folder status updated successfully."
@@ -1318,7 +1317,7 @@
 "Meta Description (Recommended)": "Meta Description (Recommended)"
 "Meta Keywords (Recommended)": "Meta Keywords (Recommended)"
 "Header Link": "Header Link"
-'URL (with http":/"/ or https":/"/)': "URL (with http":/"/ or https":/"/)"
+'URL (with http":/"/ or https":/"/)': 'URL (with http":/"/ or https":/"/)'
 "Footer Link": "Footer Link"
 "Custom CSS (Optional)": "Custom CSS (Optional)"
 "It will be add to the frontend knowledgebase only": "It will be add to the frontend knowledgebase only"
@@ -1364,7 +1363,6 @@
 # Meta Description (Recommended)
 # Meta Keywords (Recommended)
 # Header Link
-"# URL (with http":/"/ or https":/"/)"
 # Footer Link
 # Custom CSS (Optional)
 # It will be add to the frontend knowledgebase only

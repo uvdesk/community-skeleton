@@ -5,24 +5,24 @@
 "Create Customer": "Crea cliente"
 "Sign Out": "Disconnessione"
 "Apps": "Apps"
-"Integrate apps as per your needs to get things done faster than ever": "Integra le app secondo le tue esigenze per fare le "cose più velocemente che mai
+"Integrate apps as per your needs to get things done faster than ever": "Integra le app secondo le tue esigenze per fare le cose più velocemente che mai"
 "Explore Apps": "Esplora le app"
 "Form Builder": "Form Builder"
 "Knowledgebase": "Base di conoscenza"
-"Knowledgebase is a source of rigid and complex information which helps Customers to help themselves": "La knowledge base è "una fonte di informazioni rigide e complesse che aiutano i clienti ad aiutare se stessi
+"Knowledgebase is a source of rigid and complex information which helps Customers to help themselves": "La knowledge base è una fonte di informazioni rigide e complesse che aiutano i clienti ad aiutare se stessi"
 "Articles": "articoli"
 "Categories": "categorie"
 "Folders": "Cartelle"
 "FOLDERS": "CARTELLE"
 "Productivity": "Produttività"
-"Automate your processes by creating set of rules and presets to respond faster to the tickets": "Automatizza i tuoi "processi creando un set di regole e preset per rispondere più rapidamente ai ticket
+"Automate your processes by creating set of rules and presets to respond faster to the tickets": "Automatizza i tuoi processi creando un set di regole e preset per rispondere più rapidamente ai ticket"
 "Prepared Responses": "Risposte preparate"
 "Saved Replies": "Risposte salvate"
 "Edit Saved Reply": "Modifica risposta salvata"
 "Ticket Types": "Tipi di biglietto"
 "Workflows": "Flussi di lavoro"
 "Settings": "impostazioni"
-"Manage your Brand Identity, Company Information and other details at a glance": "Gestisci la tua identità di marchio, le "informazioni sulla società e altri dettagli a colpo docchio
+"Manage your Brand Identity, Company Information and other details at a glance": "Gestisci la tua identità di marchio, le informazioni sulla società e altri dettagli a colpo docchio"
 "Branding": "Branding"
 "Custom Fields": "Campi personalizzati"
 "Email Settings": "Impostazioni dell email"
@@ -40,7 +40,7 @@
 "Teams": "squadre"
 "Applications": "applicazioni"
 "ECommerce Order Syncronization": "Sincronizzazione degli ordini e-commerce"
-"Import ecommerce order details to your support tickets from different available platforms": "Importa i dettagli dellordine "e-commerce nei ticket di supporto da diverse piattaforme disponibili
+"Import ecommerce order details to your support tickets from different available platforms": "Importa i dettagli dellordine e-commerce nei ticket di supporto da diverse piattaforme disponibili"
 "Search": "Ricerca"
 "Sort By": "Ordina per"
 "Sort By:" : "Ordina per:"
@@ -52,7 +52,7 @@
 "Draft": "Bozza"
 "New Folder": "Nuova cartella"
 "Create Knowledgebase Folder": "Crea cartella della knowledge base"
-"You did not add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.": "Non hai ancora aggiunto alcuna cartella alla tua knowledge base, crea la tua prima "cartella e inizia ad aggiungere categorie / articoli per aiutare i tuoi clienti.
+"You did not add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.": "Non hai ancora aggiunto alcuna cartella alla tua knowledge base, crea la tua prima cartella e inizia ad aggiungere categorie / articoli per aiutare i tuoi clienti."
 "Clear Filters": "Elimina filtri"
 "Back": "Indietro"
 "Open": "Aperto"
@@ -102,7 +102,7 @@
 "Clear All": "Cancella tutto"
 "Account": "account"
 "Profile": "Profilo"
-"Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format": "Carica unimmagine del profilo (100px x 100px) <br> in "formato PNG o JPG
+"Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format": "Carica unimmagine del profilo (100px x 100px) <br> in formato PNG o JPG"
 "First Name": "Nome di battesimo"
 "Last Name": "Cognome"
 "Email": "E-mail"
@@ -536,9 +536,9 @@
 "Time Format": "Formato orario"
 "Choose your default timezone": "Scegli il fuso orario predefinito"
 "Signature": "Firma"
-"User signature will be append at the bottom of ticket reply box": "La firma dellutente verrà aggiunta nella parte "inferiore della casella di risposta del ticket
+"User signature will be append at the bottom of ticket reply box": "La firma dellutente verrà aggiunta nella parte inferiore della casella di risposta del ticket"
 "Password": "Parola dordine"
-"Password will remain same if you are not entering something in this field": "La password rimarrà la stessa se non si "inserisce qualcosa in questo campo
+"Password will remain same if you are not entering something in this field": "La password rimarrà la stessa se non si inserisce qualcosa in questo campo"
 "Confirm Password": "Conferma password"
 "Save Changes": "Salvare le modifiche"
 "SAVE CHANGES": "SALVARE LE MODIFICHE"
@@ -556,14 +556,14 @@
 "General": "Generale"
 "Designation": "Designazione"
 "Contant Number": "Numero concorrente"
-"User signature will be append in the bottom of ticket reply box": "La firma dellutente verrà aggiunta nella parte "inferiore della casella di risposta del ticket
+"User signature will be append in the bottom of ticket reply box": "La firma dellutente verrà aggiunta nella parte inferiore della casella di risposta del ticket"
 "Account Status": "Stato dell account"
 "Account is Active": "Laccount è attivo"
-"Assigning group(s) to user to view tickets regardless assignment.": "Assegnazione di gruppo / i allutente per visualizzare "i biglietti indipendentemente dallassegnazione.
+"Assigning group(s) to user to view tickets regardless assignment.": "Assegnazione di gruppo / i allutente per visualizzare i biglietti indipendentemente dallassegnazione."
 "Default": "Predefinito"
 "Select All": "Seleziona tutto"
 "Remove All": "Rimuovi tutto"
-"Assigning team(s) to user to view tickets regardless assignment.": "Assegnazione di una o più squadre allutente per "visualizzare i biglietti indipendentemente dallassegnazione.
+"Assigning team(s) to user to view tickets regardless assignment.": "Assegnazione di una o più squadre allutente per visualizzare i biglietti indipendentemente dallassegnazione."
 "No Team added !": "Nessuna squadra aggiunta!"
 "Permission": "Autorizzazione"
 "Role": "Ruolo"
@@ -584,7 +584,7 @@
 "New Team": "Nuova squadra"
 "No Record Found": "Nessun record trovato"
 "Order Synchronization": "Sincronizzazione ordini"
-"Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.": "Integra facilmente diverse piattaforme di e-commerce con il tuo "helpdesk che può essere successivamente utilizzato per integrare rapidamente i dettagli dellordine e-commerce con i tuoi ticket di supporto.
+"Easily integrate different ecommerce platforms with your helpdesk which can then be later used to swiftly integrate ecommerce order details with your support tickets.": "Integra facilmente diverse piattaforme di e-commerce con il tuo helpdesk che può essere successivamente utilizzato per integrare rapidamente i dettagli dellordine e-commerce con i tuoi ticket di supporto."
 "BigCommerce": "BigCommerce"
 "No channels have been added.": "Nessun canale aggiunto."
 "Add BigCommerce Store": "Aggiungi negozio BigCommerce"
@@ -613,7 +613,7 @@
 "Your Shopify Store Name": "Il nome del tuo negozio Shopify"
 "Your Shopify Api Key": "La tua chiave Api di Shopify"
 "Your Shopify Api Password": "La tua password Api di Shopify"
-"Easily embed custom form to help generate helpdesk tickets.": "Incorpora facilmente un modulo personalizzato per aiutare a "generare ticket di helpdesk.
+"Easily embed custom form to help generate helpdesk tickets.": "Incorpora facilmente un modulo personalizzato per aiutare a generare ticket di helpdesk."
 "Form-Builder": "Form-Builder"
 "Add Formbuilder": "Aggiungi formbuilder"
 "ADD FORMBUILDER": "AGGIUNGI FORMBUILDER"
@@ -622,7 +622,7 @@
 "Form Name": "Nome modulo"
 "It will be shown in the list of created forms": "Verrà visualizzato nellelenco dei moduli creati"
 "MANDATORY FIELDS": "CAMPI OBBLIGATORI"
-"These fields will be visible in form and cant be edited": "Questi campi saranno visibili nel modulo e non possono essere "modificati
+"These fields will be visible in form and cant be edited": "Questi campi saranno visibili nel modulo e non possono essere modificati"
 "Reply": "rispondere"
 "OPTIONAL FIELDS": "CAMPI OPZIONALI"
 "Select These Fields to Add in your Form": "Seleziona questi campi da aggiungere nel modulo"
@@ -667,7 +667,7 @@
 "Delivery Address": "Indirizzo di consegna"
 "Block Spam": "Blocca spam"
 "Black list": "Lista nera"
-"Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)": "Virgola (,) valori separati (es. "Support@example.com, @ esempio.com, 68.98.31.226)
+"Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)": "Virgola (,) valori separati (es. Support@example.com, @ esempio.com, 68.98.31.226)"
 "White list": "Lista bianca"
 "Mailbox Settings": "Impostazioni cassetta postale"
 "No mailbox configurations found": "Nessuna configurazione di cassetta postale trovata"
@@ -679,7 +679,7 @@
 "Mailbox Name": "Nome casella postale"
 "Enable Mailbox": "Abilita cassetta postale"
 "Incoming Mail (IMAP) Server": "Server posta in arrivo (IMAP)"
-"Configure your imap settings which will be used to fetch emails from your mailbox.": "Configura le impostazioni di imap "che verranno utilizzate per recuperare le e-mail dalla tua casella di posta.
+"Configure your imap settings which will be used to fetch emails from your mailbox.": "Configura le impostazioni di imap che verranno utilizzate per recuperare le e-mail dalla tua casella di posta."
 "Transport": "Trasporto"
 "IMAP": "IMAP"
 "Gmail": "Gmail"
@@ -689,7 +689,7 @@
 "Email address": "Indirizzo email"
 "Associated Password": "Password associata"
 "Outgoing Mail (SMTP) Server": "Server posta in uscita (SMTP)"
-"Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.": "Seleziona una "configurazione Swift Mailer valida che verrà utilizzata per inviare e-mail tramite la tua casella di posta.
+"Select a valid Swift Mailer configuration which will be used to send emails through your mailbox.": "Seleziona una configurazione Swift Mailer valida che verrà utilizzata per inviare e-mail tramite la tua casella di posta."
 "Swift Mailer ID": "Swift Mailer ID"
 "None Selected": "Nessuno selezionato"
 "Create Mailbox": "Crea cassetta postale"
@@ -709,7 +709,7 @@
 "Email template subject": "Oggetto modello email"
 "Template For": "Modello per"
 "Nothing Selected": "Niente di selezionato"
-"email template will be used for work related with selected option": "modello di email verrà utilizzato per lavori relativi "allopzione selezionata
+"email template will be used for work related with selected option": "modello di email verrà utilizzato per lavori relativi allopzione selezionata"
 "Email template body": "Corpo modello email"
 "Body": "Corpo"
 "placeholders": "segnaposto"
@@ -749,14 +749,14 @@
 "Workflow Status": "Stato del flusso di lavoro"
 "Workflow is Active": "Il flusso di lavoro è attivo"
 "Events": "eventi"
-"An event automatically triggers to check conditions and perform a respective pre-defined set of actions": "Un evento si "attiva automaticamente per verificare le condizioni ed eseguire un rispettivo set di azioni predefinito
+"An event automatically triggers to check conditions and perform a respective pre-defined set of actions": "Un evento si attiva automaticamente per verificare le condizioni ed eseguire un rispettivo set di azioni predefinito"
 "Select an Event": "Seleziona un evento"
 "Add More": "Aggiungere altro"
 "Conditions": "condizioni"
-"Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions": "Le condizioni "sono un insieme di regole che verificano scenari specifici e sono attivate in occasioni specifiche
+"Conditions are set of rules which checks for specific scenarios and are triggered on specific occasions": "Le condizioni sono un insieme di regole che verificano scenari specifici e sono attivate in occasioni specifiche"
 "Subject or Description": "Oggetto o descrizione"
 "Actions": "Azioni"
-"An action not only reduces the workload but also makes it quite easier for ticket automation": "Unazione non solo riduce "il carico di lavoro, ma lo rende anche più semplice per lautomazione dei ticket
+"An action not only reduces the workload but also makes it quite easier for ticket automation": "Unazione non solo riduce il carico di lavoro, ma lo rende anche più semplice per lautomazione dei ticket"
 "Select an Action": "Seleziona unazione"
 "Add Note": "Aggiungi nota"
 "Mail to Agent": "Mail to Agent"
@@ -791,20 +791,20 @@
 "ADD PREPARED RESPONSE": "AGGIUNGI RISPOSTA PREPARATA"
 "Add Prepared Response": "Aggiungi risposta preparata"
 "Folder Name is shown upfront at Knowledge Base": "Il nome della cartella viene mostrato in anticipo nella Knowledge Base"
-"A small text about the folder helps user to navigate more easily": "Un piccolo testo sulla cartella aiuta lutente a "navigare più facilmente
+"A small text about the folder helps user to navigate more easily": "Un piccolo testo sulla cartella aiuta lutente a navigare più facilmente"
 "Publish": "Pubblicare"
 "Choose appropriate status": "Scegli lo stato appropriato"
 "Folder Image": "Immagine cartella"
-"An image is worth a thousands words and makes folder more accessible": "Unimmagine vale più di mille parole e rende la "cartella più accessibile
+"An image is worth a thousands words and makes folder more accessible": "Unimmagine vale più di mille parole e rende la cartella più accessibile"
 "Add Category": "Aggiungi categoria"
 "Category Name is shown upfront at Knowledge Base": "Il nome della categoria è mostrato in anticipo nella Knowledge Base"
-"A small text about the category helps user to navigate more easily": "Un piccolo testo sulla categoria aiuta lutente a "navigare più facilmente
-"Using Category Order, you can decide which category should display first": "Utilizzando lordine delle categorie, puoi "decidere quale categoria visualizzare per prima
+"A small text about the category helps user to navigate more easily": "Un piccolo testo sulla categoria aiuta lutente a navigare più facilmente"
+"Using Category Order, you can decide which category should display first": "Utilizzando lordine delle categorie, puoi decidere quale categoria visualizzare per prima"
 "Sorting": "Ordinamento"
 "Ascending Order (A-Z)": "Ordine crescente (A-Z)"
 "Descending Order (Z-A)": "Ordine decrescente (Z-A)"
 "Based on Popularity": "Basato sulla popolarità"
-"Article of this category will display according to selected option": "Larticolo di questa categoria verrà visualizzato in "base allopzione selezionata
+"Article of this category will display according to selected option": "Larticolo di questa categoria verrà visualizzato in base allopzione selezionata"
 "Article": "Articolo"
 "Title": "Titolo"
 "View": "Visualizza"
@@ -819,7 +819,7 @@
 "Slug": "lumaca"
 "Slug is the url identity of this article.": "La lumaca è lidentità dellURL di questo articolo."
 "Meta Title": "Meta Title"
-"# Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": "I tag del titolo e le meta descrizioni sono frammenti di codice HTML nellintestazione di una pagina web. "Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina vengono generalmente visualizzati ogni volta che tale pagina appare nei risultati del motore di ricerca 
+"# Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": "I tag del titolo e le meta descrizioni sono frammenti di codice HTML nellintestazione di una pagina web. Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina vengono generalmente visualizzati ogni volta che tale pagina appare nei risultati del motore di ricerca"
 "Meta Keywords": "Meta parole chiave"
 "Meta Description": "Meta Description"
 "Description": "Descrizione"
@@ -859,7 +859,7 @@
 "Can manage knowledgebase": "Può gestire la knowledge base"
 "Can manage Groups Saved Reply": "Può gestire la risposta salvata del gruppo"
 "Add Privilege": "Aggiungi privilegio"
-"Choose set of privileges which will be available to the agent.": "Scegli un set di privilegi che saranno disponibili per "lagente.
+"Choose set of privileges which will be available to the agent.": "Scegli un set di privilegi che saranno disponibili per lagente."
 "Advanced": "Avanzate"
 "Privilege Name must have characters only": "Il nome privilegio deve contenere solo caratteri"
 "Maximum character length is 50": "La lunghezza massima dei caratteri è 50"
@@ -870,7 +870,7 @@
 "Please specify a valid email address": "Specifica un indirizzo email valido"
 "Please enter the password associated with your email address": "Inserisci la password associata al tuo indirizzo email"
 "Please enter your server host address": "Inserisci lindirizzo del tuo server"
-"Please specify a port number to connect with your mail server": "Specificare un numero di porta per connettersi con il "proprio server di posta
+"Please specify a port number to connect with your mail server": "Specificare un numero di porta per connettersi con il proprio server di posta"
 "Success ! Branding details saved successfully.": "Successo! Dettagli di branding salvati correttamente. "
 "Success ! Time details saved successfully.": "Successo! Dettagli temporali salvati correttamente. "
 "Spam setting saved successfully.": "Impostazioni spam salvate correttamente."
@@ -925,7 +925,7 @@
 "Order Id": "ID ordine"
 "Fetch Order": "Recupera ordine"
 "No orders have been integrated to this ticket yet.": "Nessun ordine è stato ancora integrato in questo ticket."
-"Enter your credentials below to gain access to your helpdesk account.": "Inserisci le tue credenziali di seguito per "accedere al tuo account di helpdesk.
+"Enter your credentials below to gain access to your helpdesk account.": "Inserisci le tue credenziali di seguito per accedere al tuo account di helpdesk."
 "Keep me logged in": "Resta collegato"
 "Forgot Password?": "Ha dimenticato la password?"
 "Log in to your": "Accedi al tuo"
@@ -947,7 +947,7 @@
 "Add Label": "Aggiungi etichetta"
 "To": "Per"
 "Ticket": "Biglietto"
-"Your browser does not support JavaScript or You disabled JavaScript, Please enable those !": "Il tuo browser non supporta "JavaScript o hai disabilitato JavaScript, abilitalo!
+"Your browser does not support JavaScript or You disabled JavaScript, Please enable those !": "Il tuo browser non supporta JavaScript o hai disabilitato JavaScript, abilitalo!"
 "Confirm Action": "Conferma azione"
 "Confirm": "Confermare"
 "No result found": "Nessun risultato trovato"
@@ -1026,10 +1026,10 @@
 "Can add member to task": "Può aggiungere un membro allattività"
 "Can remove member from task": "Può rimuovere un membro dallattività"
 "Agent Privileges": "Privilegi agente"
-"Agent Privilege represents overall permissions in System.": "Privilegio agente rappresenta le autorizzazioni generali nel "sistema.
+"Agent Privilege represents overall permissions in System.": "Privilegio agente rappresenta le autorizzazioni generali nel sistema."
 "Ticket View": "Ticket View"
 "User can view tickets based on selected scope.": "Lutente può visualizzare i biglietti in base allambito selezionato."
-"If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on": "Se laccesso individuale quindi lutente può visualizzare solo i ticket assegnati, se laccesso "alla squadra quindi lutente può visualizzare tutti i ticket della squadra a cui appartiene e così via
+"If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on": "Se laccesso individuale quindi lutente può visualizzare solo i ticket assegnati, se laccesso alla squadra quindi lutente può visualizzare tutti i ticket della squadra a cui appartiene e così via"
 "Global Access": "Accesso globale"
 "Group Access": "Accesso al gruppo"
 "Team Access": "Accesso alla squadra"
@@ -1119,7 +1119,7 @@
 "This Email is not registered with us.": "Questa email non è registrata con noi."
 "Your password has been updated successfully.": "La tua password è stata aggiornata correttamente."
 "Password dont match.": "La password non corrisponde."
-"Error ! Profile image is not valid, please upload a valid format": "Errore! Limmagine del profilo non è valida, carica un "formato valido 
+"Error ! Profile image is not valid, please upload a valid format": "Errore! Limmagine del profilo non è valida, carica un formato valido"
 "Success! Folder has been added successfully.": "Successo! La cartella è stata aggiunta correttamente. "
 "Folder updated successfully.": "Cartella aggiornata correttamente."
 "Success ! Folder status updated successfully.": "Successo! Stato della cartella aggiornato correttamente. "
@@ -1128,7 +1128,7 @@
 "Error ! Folder does not exist.": "Errore! La cartella non esiste. "
 "Success ! Folder deleted successfully.": "Successo! Cartella eliminata correttamente. "
 "Warning ! Folder doesnt exists!": "Attenzione! La cartella non esiste!"
-"Warning ! Cannot create ticket, given email is blocked by admin.": "Avvertimento ! Impossibile creare il ticket, dato che "le-mail è bloccata dallamministratore. 
+"Warning ! Cannot create ticket, given email is blocked by admin.": "Avvertimento ! Impossibile creare il ticket, dato che le-mail è bloccata dallamministratore." 
 "Success ! Ticket has been created successfully.": "Successo! Il ticket è stato creato correttamente. "
 "Warning ! Can not create ticket, invalid details.": "Avvertimento ! Impossibile creare il ticket, dettagli non validi."
 "Warning ! Post size can not exceed 25MB": "Attenzione! Le dimensioni del post non possono superare i 25 MB"
@@ -1142,15 +1142,15 @@
 "Error ! Collaborator is already added.": "Errore! Il collaboratore è già stato aggiunto. "
 "Success ! Collaborator removed successfully.": "Successo! Collaboratore rimosso con successo."
 "Error ! Invalid Collaborator.": "Errore! Collaboratore non valido. "
-"An unexpected error occurred. Please try again later.": "Si è verificato un errore imprevisto. Per favore riprova più "tardi.
+"An unexpected error occurred. Please try again later.": "Si è verificato un errore imprevisto. Per favore riprova più tardi."
 "Feedback saved successfully.": "Feedback salvato correttamente."
 "Feedback updated successfully.": "Feedback aggiornato correttamente."
 "Invalid feedback provided.": "Feedback non valido fornito."
 "Article not found.": "Articolo non trovato."
-"You need to login to your account before can perform this action.": "Devi accedere al tuo account prima di poter eseguire "questa azione.
+"You need to login to your account before can perform this action.": "Devi accedere al tuo account prima di poter eseguire questa azione."
 "Warning! Please add valid Actions!": "Avvertimento! Aggiungi azioni valide! "
 "Warning! In Free Plan you can not change Events!": "Avvertimento! In Free Plan non puoi cambiare Eventi! "
-"Success! Prepared Response has been updated successfully.": "Successo! La risposta preparata è stata aggiornata "correttamente. 
+"Success! Prepared Response has been updated successfully.": "Successo! La risposta preparata è stata aggiornata correttamente."
 "Success! Prepared Response has been added successfully.": "Successo! La risposta preparata è stata aggiunta correttamente. "
 "Warning  This is not a valid request": "Avviso Questa non è una richiesta valida"
 "Use Default Colors": "Usa colori predefiniti"
@@ -1173,7 +1173,7 @@
 "Error ! User with same email is already exist.": "Errore! Lutente con la stessa email è già esistente. "
 "Success ! Agent updated successfully.": "Successo! Agente aggiornato correttamente. "
 "Success ! Agent removed successfully.": "Successo! Agente rimosso correttamente. "
-"Warning ! You are allowed to remove account owners account.": "Avviso! Puoi rimuovere laccount del proprietario "dellaccount.
+"Warning ! You are allowed to remove account owners account.": "Avviso! Puoi rimuovere laccount del proprietario dellaccount."
 "Error ! Invalid user id.": "Errore! ID utente non valido."
 "Success ! Filter has been saved successfully.": "Successo! Il filtro è stato salvato con successo."
 "Success ! Filter has been updated successfully.": "Successo! Il filtro è stato aggiornato con successo."
@@ -1193,8 +1193,8 @@
 "Success! Template has been added successfully.": "Successo! Il modello è stato aggiunto correttamente."
 "Success! Template has been deleted successfully.": "Successo! Il modello è stato cancellato con successo."
 "Warning! resource not found.": "Attenzione! Risorsa non trovata."
-"Warning! You can not remove predefined email template which is being used in workflow(s).": "Attenzione! Non è possibile "rimuovere il modello di posta elettronica predefinito utilizzato nei flussi di lavoro.
-"Success ! Email settings are updated successfully.": "Operazione riuscita. Le impostazioni e-mail sono state aggiornate "correttamente.
+"Warning! You can not remove predefined email template which is being used in workflow(s).": "Attenzione! Non è possibile rimuovere il modello di posta elettronica predefinito utilizzato nei flussi di lavoro."
+"Success ! Email settings are updated successfully.": "Operazione riuscita. Le impostazioni e-mail sono state aggiornate correttamente."
 "Success ! Group information updated successfully.": "Successo! Informazioni sul gruppo aggiornate con successo."
 "Success ! Group information saved successfully.": "Successo! Informazioni di gruppo salvate correttamente."
 "Support Group removed successfully.": "Gruppo di supporto rimosso correttamente."
@@ -1244,7 +1244,7 @@
 "Error! Ticket type with same name already exist": "Errore! Il tipo di biglietto con lo stesso nome esiste già"
 "SAVE": "SALVA"
 "# Save": "Salva"
-"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": "I tag del titolo e le meta descrizioni sono frammenti di codice HTML nellintestazione di una pagina Web. "Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina sono generalmente mostrati ogni volta che quella pagina appare nei risultati del motore di ricerca
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A pages title tag and meta description are usually shown whenever that page appears in search engine results": "I tag del titolo e le meta descrizioni sono frammenti di codice HTML nellintestazione di una pagina Web. Aiutano i motori di ricerca a comprendere il contenuto di una pagina. Il tag del titolo e la meta descrizione di una pagina sono generalmente mostrati ogni volta che quella pagina appare nei risultati del motore di ricerca"
 #customer page
 "Howdy!": "Salve!"
 "New Ticket Request": "Nuova richiesta di biglietto"
@@ -1263,31 +1263,31 @@
 "Edit Profile": "Modifica Profilo"
 "Customer Login": "accesso cliente"
 "Contact Us": "Contattaci"
-"If you have ever contacted our support previously, your account would have already been created.": "Se hai mai contattato "il nostro supporto in precedenza, il tuo account sarebbe già stato creato.
+"If you have ever contacted our support previously, your account would have already been created.": "Se hai mai contattato il nostro supporto in precedenza, il tuo account sarebbe già stato creato."
 "HelpDesk": "HelpDesk"
 "Enter search keyword": "Inserisci la parola chiave di ricerca"
 "Browse via Folders": "Sfoglia tramite cartelle"
-"Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Alla "ricerca di qualcosa che viene interrogato in generale? Scegli una cartella pertinente dal basso per esplorare le possibili soluzioni
+"Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions": "Alla ricerca di qualcosa che viene interrogato in generale? Scegli una cartella pertinente dal basso per esplorare le possibili soluzioni"
 "Unable to find an answer?": "Impossibile trovare una risposta?"
-"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Cerchi qualcosa di specifico che risieda nelle domande generali? "Sfoglia le varie cartelle e categorie pertinenti e troverai larticolo desiderato.
+"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.": "Cerchi qualcosa di specifico che risieda nelle domande generali? Sfoglia le varie cartelle e categorie pertinenti e troverai larticolo desiderato."
 "Popular Articles ": "Articoli popolari"
 "Here are some of the most popular articles, which helped number of users to get their queries and questions resolved. ": "Ecco alcuni degli articoli più popolari, che hanno aiutato il numero di utenti a risolvere le loro domande e domande."
 "Browse via Categories": "Sfoglia le categorie"
-"Looking for something specific? Choose a relevant category from below to explore possible solutions": "Alla ricerca di "qualcosa di specifico? Scegli una categoria pertinente dal basso per esplorare le possibili soluzioni
+"Looking for something specific? Choose a relevant category from below to explore possible solutions": "Alla ricerca di qualcosa di specifico? Scegli una categoria pertinente dal basso per esplorare le possibili soluzioni"
 "No Categories Found!": "Nessuna categoria trovata"
 "Powered by": "Offerto da"
 
 #forgotpassword
 "Forgot Password": "Ha dimenticato la password"
-"Enter your email address and we will send you an email with instructions to update your login credentials.": "Inserisci il "tuo indirizzo email e ti invieremo unemail con le istruzioni per aggiornare le tue credenziali di accesso.
+"Enter your email address and we will send you an email with instructions to update your login credentials.": "Inserisci il tuo indirizzo email e ti invieremo unemail con le istruzioni per aggiornare le tue credenziali di accesso."
 "Send Mail": "Invia una email"
 "Status:": "Stato:"
 "Sign In to %websitename%": "Accedere a %websitename%"
 "Enter your name": "Inserisci il tuo nome"
 "Enter your email": "Inserisci il tuo indirizzo email"
 "Learn more about %deliveryStatus%.": "Impara di più riguardo %deliveryStatus%."
-"To know more about how our privacy policy works, please %websiteLink%.": "Per saperne di più su come funziona la nostra "politica sulla privacy, per favore %websiteLink%.
-"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Alcune delle nostre pagine del sito "utilizzano %cookies% e altre tecnologie di tracciamento. Un %cookie% è un piccolo file di testo che può essere utilizzato, ad esempio, per raccogliere informazioni sullattività del sito. Alcuni cookie e altre tecnologie potrebbero servire a richiamare informazioni personali precedentemente indicate da un utente del sito. È possibile bloccare i cookie o eliminare i cookie esistenti, modificando limpostazione appropriata sul proprio browser. Consulta il menu %help% del tuo browser per sapere come fare. Se blocchi o elimini %cookie%, potresti scoprire che lutilità del nostro sito è compromessa.
+"To know more about how our privacy policy works, please %websiteLink%.": "Per saperne di più su come funziona la nostra politica sulla privacy, per favore %websiteLink%."
+"Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.": "Alcune delle nostre pagine del sito utilizzano %cookies% e altre tecnologie di tracciamento. Un %cookie% è un piccolo file di testo che può essere utilizzato, ad esempio, per raccogliere informazioni sullattività del sito. Alcuni cookie e altre tecnologie potrebbero servire a richiamare informazioni personali precedentemente indicate da un utente del sito. È possibile bloccare i cookie o eliminare i cookie esistenti, modificando limpostazione appropriata sul proprio browser. Consulta il menu %help% del tuo browser per sapere come fare. Se blocchi o elimini %cookie%, potresti scoprire che lutilità del nostro sito è compromessa."
 "This field contain maximum 40 charectures.": "Questo campo contiene un massimo di 40 lezioni."
 "This field contain maximum 50 charectures.": "Questo campo contiene un massimo di 50 lezioni."
 "Time": "Tempo"
@@ -1322,14 +1322,14 @@
 "Custom Javascript (Optional)": "Javascript personalizzato (opzionale)"
 "Broadcast message content to show on helpdesk": "Trasmetti il ​​contenuto del messaggio da mostrare sullhelpdesk"
 "From": "A partire dal"
-"Time duration between which message will be displayed(if applicable)": "Durata tra cui verrà visualizzato il messaggio (se "applicabile)
+"Time duration between which message will be displayed(if applicable)": "Durata tra cui verrà visualizzato il messaggio (se applicabile)"
 "Broadcasting Status": "Stato di trasmissione"
 "Broadcasting is Active": "La trasmissione è attiva"
 "Choose a default company timezone": "Scegli il fuso orario di unazienda predefinita"
 "Date Time Format": "Formato data e ora"
-"Choose a format to convert date to specified date time format": "Scegli un formato per convertire la data nel formato di "data e ora specificato
+"Choose a format to convert date to specified date time format": "Scegli un formato per convertire la data nel formato di data e ora specificato"
 "An empty file is not allowed.": "Un file vuoto non è consentito."
 "File size must not be greater than 200KB !!": "La dimensione del file non deve essere superiore a 200 KB !!"
 'comma "," separated': 'separato da virgola'
-"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Carica un file di immagine valido (sono consentiti solo "JPEG, JPG, PNG) !!
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Carica un file di immagine valido (sono consentiti solo JPEG, JPG, PNG) !!"
 "Provide a valid url(with protocol)": "Fornisci un URL valido (con protocollo)"
