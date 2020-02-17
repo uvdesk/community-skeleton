@@ -43,7 +43,7 @@ ECommerce Order Syncronization: ECommerce Order Syncronization
 Import ecommerce order details to your support tickets from different available platforms: Importieren Sie E-Commerce-Bestelldetails von verschiedenen verfügbaren Plattformen in Ihre Support-Tickets.
 Search: Suche
 Sort By: Sortieren nach
-Sort By:: Sortieren nach:
+"Sort By:": "Sortieren nach:"
 Status: Status
 Created At: Hergestellt in
 Name: Name
@@ -1281,7 +1281,7 @@ Powered by: Unterstützt von
 Forgot Password: Passwort vergessen
 Enter your email address and we will send you an email with instructions to update your login credentials.: Ingrese su dirección de correo electrónico y le enviaremos un correo electrónico con instructcciones para actualizar sus credenciales de inicio de sesión.
 Send Mail: Mail senden
-Status:: Status:
+"Status:": "Status:"
 Sign In to %websitename%: Anmelden bei %websitename%
 Enter your name: Gib deinen Namen ein
 Enter your email: Geben sie ihre E-Mail Adresse ein

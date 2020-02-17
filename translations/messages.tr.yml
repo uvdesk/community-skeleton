@@ -43,7 +43,7 @@ ECommerce Order Syncronization: E-Ticaret Sipariş Senkronizasyonu
 Import ecommerce order details to your support tickets from different available platforms: Farklı ticari platformlardan e-ticaret siparişi detaylarını destek biletinize aktarın
 Search: Ara
 Sort By: Göre sırala
-Sort By:: Göre sırala:
+"Sort By:" : "Göre sırala:"
 Status: Durum
 Created At: Oluşturuldu
 Name: isim
@@ -1281,7 +1281,7 @@ Powered by: Tarafından desteklenmektedir
 Forgot Password: Parolanızı mı unuttunuz
 Enter your email address and we will send you an email with instructions to update your login credentials.: E-posta adresinizi girin, giriş bilgilerinizi güncellemeniz için talimatları içeren bir e-posta göndereceğiz.
 Send Mail: Eposta gönder
-Status:: Durum:
+"Status:" : "Durum:"
 Sign In to %websitename%: Giriş yap %websitename%
 Enter your name: Adınızı giriniz
 Enter your email: E-postanızı giriniz
