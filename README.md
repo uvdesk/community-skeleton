@@ -96,8 +96,8 @@ Requirements
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
 * **Composer**: 1.6.5 or higher.
-* **IMAP**: [PHP IMAP][6]
-* **MailParse**: [PHP Mailparse][7]
+* **IMAP**: [PHP IMAP][6]  && **MailParse**: [PHP Mailparse][7] for Ubuntu.
+* **IMAP**: [PHP IMAP][23]  && **MailParse**: [PHP Mailparse][23] for Windows.
 
 Installation
 --------------
@@ -200,8 +200,8 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [3]: https://github.com/uvdesk/extension-framework
 [4]: https://github.com/uvdesk/automation-bundle
 [5]: https://github.com/uvdesk/support-center-bundle
-[6]: http://php.net/manual/en/book.imap.php
-[7]: http://php.net/manual/en/book.mailparse.php
+[6]: https://support.uvdesk.com/en/blog/prerequisites-ubuntu
+[7]: https://support.uvdesk.com/en/blog/prerequisites-ubuntu
 [8]: https://getcomposer.org/
 [9]: https://webkul.com/
 [10]: https://www.uvdesk.com/en/team/
@@ -217,3 +217,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [20]: https://gitter.im/uvdesk/community
 [21]: https://join.slack.com/t/uvdeskopensource/shared_invite/enQtOTUwODEzNTQ1NjY5LTU1M2EyOGQ2ZjNiOGMxZTgwOGZjNTAyZGRkMGE3NWUxOWU5OGQxNjliNmZjNTA4MDRhZTFhNWMyOWE2M2M5NGM
 [22]: https://github.com/uvdesk/community-skeleton/wiki/dockerize-helpdesk-project
+[23]: https://support.uvdesk.com/en/blog/prerequisites-windows
