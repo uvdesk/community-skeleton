@@ -96,7 +96,7 @@ Requirements
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
 * **Composer**: 1.6.5 or higher.
-* **PHP IMAP** **&** **PHP Mailparse** for [Ubuntu][7] and [Window][23].
+* **PHP IMAP** **&** **PHP Mailparse** for [Ubuntu][7] and [Windows][23].
 
 Installation
 --------------
