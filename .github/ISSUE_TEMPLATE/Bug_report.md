@@ -1,3 +1,8 @@
+---
+name: "🐛 Bug Report"
+about: 'Report a general library issue.'
+---
+
 # Bug report
 
 ### Title
