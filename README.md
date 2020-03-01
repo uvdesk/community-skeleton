@@ -15,7 +15,7 @@
 
 Visit our official demo website to [see it in action!][15]
 
-Check out UVdesk on Symfony Official Website – [Symfony][24]
+Check out UVdesk on **Symfony Official Website** – [Symfony][24]
 
 Getting Started
 --------------
