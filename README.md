@@ -15,6 +15,8 @@
 
 Visit our official demo website to [see it in action!][15]
 
+Check out UVdesk on Symfony Official Website – [Symfony][24]
+
 Getting Started
 --------------
 
@@ -217,3 +219,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [21]: https://join.slack.com/t/uvdeskopensource/shared_invite/enQtOTUwODEzNTQ1NjY5LTU1M2EyOGQ2ZjNiOGMxZTgwOGZjNTAyZGRkMGE3NWUxOWU5OGQxNjliNmZjNTA4MDRhZTFhNWMyOWE2M2M5NGM
 [22]: https://github.com/uvdesk/community-skeleton/wiki/dockerize-helpdesk-project
 [23]: https://support.uvdesk.com/en/blog/prerequisites-windows
+[24]: https://symfony.com/projects/uvdesk
