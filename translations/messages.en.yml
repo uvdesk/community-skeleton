@@ -1250,6 +1250,27 @@
 "Howdy!": "Howdy!"
 "New Ticket Request": "New Ticket Request"
 "Ticket Requests": "Ticket Requests"
+"Tickets have been updated successfully": "Tickets have been updated successfully"
+"Please check your mail for password update": "Please check your mail for password update"
+"This email address is not registered with us": "This email address is not registered with us"
+"You have already update password using this link if you wish to change password again click on forget password link here from login page": "You have already update password using this link if you wish to change password again click on forget password link here from login page"
+"Your password has been successfully updated. Login using updated password": "Your password has been successfully updated. Login using updated password"
+"Please try again, The passwords do not match": "Please try again, The passwords do not match"
+"Support Privilege removed successfully": "Support Privilege removed successfully"
+"Success! Saved Reply has been deleted successfully.": "Success! Saved Reply has been deleted successfully."
+"SwiftMailer configuration created successfully.": "SwiftMailer configuration created successfully."
+"No swiftmailer configurations found for mailer id:": "No swiftmailer configurations found for mailer id:"
+"Reply content cannot be left blank.": "Reply content cannot be left blank."
+"Reply added to the ticket and forwarded successfully.": "Reply added to the ticket and forwarded successfully."
+"Success ! Thread pinned successfully.": "Success ! Thread pinned successfully."
+"Success ! unpinned removed successfully.": "Success ! unpinned removed successfully."
+"Unable to retrieve priority details": "Unable to retrieve priority details"
+"Ticket support team updated successfully": "Ticket support team updated successfully"
+"Ticket assigned to support group ": "Ticket assigned to support group "
+"Mailbox configuration removed successfully.": "Mailbox configuration removed successfully."
+"visit our website": "visit our website"
+
+
 "Cookie Usage Policy": "Cookie Usage Policy"
 "cookie": "cookie"
 "cookies": "cookies"
@@ -1334,52 +1355,6 @@
 "File size must not be greater than 200KB !!": "File size must not be greater than 200KB !!"
 "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!"
 "Provide a valid url(with protocol)": "Provide a valid url(with protocol)"
-
-
-
-
-# Time
-# Links
-# Broadcast Message
-# Wide Logo
-# Upload an Image (200px x 48px) in</br> PNG or JPG Format
-# It will be shown as Logo on Knowledgebase and Helpdesk
-# Website Status
-# Enable front end website and knowledgebase for customer(s)
-# Brand Color
-# Page Background Color
-# Header Background Color
-# Banner Background Color
-# Page Link Color
-# Page Link Hover Color
-# Article Text Color
-# Tag Line
-# Hi! how can we help?
-# Layout
-# Ticket Create Option
-# Login Required To Create Tickets
-# Remove Customer Login/Signin Button
-# Disable Customer Login
-# Meta Description (Recommended)
-# Meta Keywords (Recommended)
-# Header Link
-# Footer Link
-# Custom CSS (Optional)
-# It will be add to the frontend knowledgebase only
-# Custom Javascript (Optional)
-# Broadcast message content to show on helpdesk
-# From
-# Time duration between which message will be displayed(if applicable)
-# Broadcasting Status
-# Broadcasting is Active
-# Choose a default companys timezone
-# Date Time Format
-# Choose a format to convert date to specified date time format
-# An empty file is not allowed.
-# File size must not be greater than 200KB !!
-# Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!
-# Provide a valid url(with protocol)
-
 "ticket.message.placeHolders.info": "ticket.message.placeHolders.info"
 "ticket.attachments.placeHolders.info": "	ticket.attachments.placeHolders.info"
 "ticket.threadMessage.placeHolders.info": "ticket.threadMessage.placeHolders.info"
