@@ -6181,16 +6181,16 @@
         },
         {
             "name": "uvdesk/automation-bundle",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/automation-bundle.git",
-                "reference": "940af664aecae187d325c49d98fadb7cccd0f04d"
+                "reference": "afe39881f6a1998bdede4ea3f457fde781feb885"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/940af664aecae187d325c49d98fadb7cccd0f04d",
-                "reference": "940af664aecae187d325c49d98fadb7cccd0f04d",
+                "url": "https://api.github.com/repos/uvdesk/automation-bundle/zipball/afe39881f6a1998bdede4ea3f457fde781feb885",
+                "reference": "afe39881f6a1998bdede4ea3f457fde781feb885",
                 "shasum": ""
             },
             "require": {
@@ -6218,7 +6218,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Automations Bundle",
-            "time": "2020-02-12T10:01:26+00:00"
+            "time": "2020-03-17T07:52:43+00:00"
         },
         {
             "name": "uvdesk/composer-plugin",
@@ -6265,16 +6265,16 @@
         },
         {
             "name": "uvdesk/core-framework",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "2d6f6604ac64a470861c11c55b76922ef664ec7c"
+                "reference": "249a9ee246d6a5d5d93bec17f88aa582620d357d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/2d6f6604ac64a470861c11c55b76922ef664ec7c",
-                "reference": "2d6f6604ac64a470861c11c55b76922ef664ec7c",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/249a9ee246d6a5d5d93bec17f88aa582620d357d",
+                "reference": "249a9ee246d6a5d5d93bec17f88aa582620d357d",
                 "shasum": ""
             },
             "require": {
@@ -6310,20 +6310,20 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2020-02-12T07:45:00+00:00"
+            "time": "2020-03-17T06:49:03+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/extension-framework.git",
-                "reference": "bd37112abaeeadc87fba0f62cff77d5d54b07463"
+                "reference": "703bc2e60fa7da732ab2f322f41bdd5a8de78f57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/bd37112abaeeadc87fba0f62cff77d5d54b07463",
-                "reference": "bd37112abaeeadc87fba0f62cff77d5d54b07463",
+                "url": "https://api.github.com/repos/uvdesk/extension-framework/zipball/703bc2e60fa7da732ab2f322f41bdd5a8de78f57",
+                "reference": "703bc2e60fa7da732ab2f322f41bdd5a8de78f57",
                 "shasum": ""
             },
             "require": {
@@ -6351,20 +6351,20 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Extension Framework Bundle",
-            "time": "2019-11-15T06:40:17+00:00"
+            "time": "2020-03-17T07:22:14+00:00"
         },
         {
             "name": "uvdesk/mailbox-component",
-            "version": "v1.0.5",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/mailbox-component.git",
-                "reference": "0a5219f47671d6380e2830a899b8a1ac8e0c79ab"
+                "reference": "1ad09a7e4cc237791f8692e936a9b95fdf1bea5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/0a5219f47671d6380e2830a899b8a1ac8e0c79ab",
-                "reference": "0a5219f47671d6380e2830a899b8a1ac8e0c79ab",
+                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/1ad09a7e4cc237791f8692e936a9b95fdf1bea5e",
+                "reference": "1ad09a7e4cc237791f8692e936a9b95fdf1bea5e",
                 "shasum": ""
             },
             "require": {
@@ -6394,20 +6394,20 @@
                 }
             ],
             "description": "The Mailbox component provides tools that allows your helpdesk to process tickets from multiple email sources.",
-            "time": "2020-02-12T11:13:11+00:00"
+            "time": "2020-03-17T09:26:30+00:00"
         },
         {
             "name": "uvdesk/support-center-bundle",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "b3743ca61f1a03a7bb3990cf8118301dee8c78ca"
+                "reference": "506826cea0c8564f4233e5847b8f860ed7a6b6b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/b3743ca61f1a03a7bb3990cf8118301dee8c78ca",
-                "reference": "b3743ca61f1a03a7bb3990cf8118301dee8c78ca",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/506826cea0c8564f4233e5847b8f860ed7a6b6b9",
+                "reference": "506826cea0c8564f4233e5847b8f860ed7a6b6b9",
                 "shasum": ""
             },
             "require": {
@@ -6435,7 +6435,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2020-02-12T10:31:08+00:00"
+            "time": "2020-03-17T08:17:11+00:00"
         },
         {
             "name": "webmozart/assert",
