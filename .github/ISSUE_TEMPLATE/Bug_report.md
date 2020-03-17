@@ -1,17 +1,36 @@
 ---
-name: 🐛 Bug Report
-about: Report errors and problems
-
+name: "🐛 Bug Report"
+about: 'Report a general library issue.'
 ---
 
-**Description**  
-<!-- A clear and concise description of the problem. -->
+# Bug report
 
-**How to reproduce**  
-<!-- Code and/or config needed to reproduce the problem. -->
+### Title
+**Just a quick sentence to brief your trouble with UVDesk or something associated with it.**
+**Please be calm, short and emphasize on points.**
 
-**Possible Solution**  
-<!--- Optional: only if you have suggestions on a fix/reason for the bug -->
+### Issue Description
+**Description helps the developers to understand the bug. It describes the problem encountered or some after effect of some kind.**
 
-**Additional context**  
-<!-- Optional: any other context about the problem: log messages, screenshots, etc. -->
+### Preconditions
+**Please provide as detailed information about your environment as possible.**
+
+    1. framework Version.
+    2. Commit id.
+
+### Steps to reproduce
+**It is important to provide a set of clear steps to reproduce this bug.If relevant please include code samples.**
+
+    1. step1
+    2. step2
+
+### Expected result
+**Tell us what should happen.**
+
+*   [Screenshots, logs or description]
+
+### Actual result
+
+>    **Tell us what happens instead.**
+
+* [points....]

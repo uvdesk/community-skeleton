@@ -3,6 +3,15 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.9 (2020-03-17)
+    * **Misc. Updates:**
+        * Added Missing translation for different languages.
+        
+    * **Bug Fixes:**
+        * **Issue #252:**  Locale code from uvdesk.yaml file gets removed when update email settings.
+        * **Issue #253:**  Translation while search any keywords in dashboard.
+        * **Issue #254:**  Deleted Tickets Reappearing after uvdesk:referesh.
+
 * 1.0.8 (2020-02-12)
     * **Features**
         * **Translation Support (Multilingual).**
