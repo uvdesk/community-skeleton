@@ -77,7 +77,7 @@ Features
 * Powerful Knowledgebase/Faq (article, category & folder)
 * Ticket types, Multiple Tags
 * Email Templates
-* [API][16]
+* [API][16]([DOC][25])
 * Edit/delete/pinned ticket and thread
 * Add a collaborator and much more.
 
@@ -220,3 +220,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [22]: https://github.com/uvdesk/community-skeleton/wiki/dockerize-helpdesk-project
 [23]: https://support.uvdesk.com/en/blog/prerequisites-windows
 [24]: https://symfony.com/projects/uvdesk
+[25]: https://github.com/uvdesk/api-bundle/wiki/Ticket-Related-APIs
