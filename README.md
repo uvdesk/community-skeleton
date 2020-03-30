@@ -77,7 +77,7 @@ Features
 * Powerful Knowledgebase/Faq (article, category & folder)
 * Ticket types, Multiple Tags
 * Email Templates
-* [API][16]([DOC][25])
+* [API][16] ([DOC][25])
 * Edit/delete/pinned ticket and thread
 * Add a collaborator and much more.
 
