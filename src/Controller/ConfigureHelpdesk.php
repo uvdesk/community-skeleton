@@ -192,7 +192,7 @@ class ConfigureHelpdesk extends Controller
             $returnCode = $application->run(new ArrayInput([
                 'command' => 'uvdesk_wizard:env:update', 
                 'name' => 'DATABASE_URL', 
-                'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, $database_pass, $database_host . ($database_port ? ':' . $database_port : ''), $database_name)
+                'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, urlencode($database_pass), $database_host . ($database_port ? ':' . $database_port : ''), $database_name)
             ]), new NullOutput());
     
             if (0 === $returnCode) {
