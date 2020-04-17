@@ -3,7 +3,7 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
-* 2.0.0 (2020-04-17)
+* 1.0.10 (2020-04-17)
     * **Misc. Updates:**
         * Added missing translation words for french.
         * Change processing function and removed unnecessary code for speed up.
