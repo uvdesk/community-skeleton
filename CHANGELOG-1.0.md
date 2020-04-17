@@ -3,6 +3,19 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 2.0.0 (2020-04-17)
+    * **Misc. Updates:**
+        * Added missing translation words for french.
+        * Change processing function and removed unnecessary code for speed up.
+        * Dependedent bundles updates for speed up project.
+
+        
+    * **Bug Fixes:**
+        * **Issue #255:**  Unable to install the App (Database Url malformed).
+        * **Issue #256:**  Failed to exec 'php bin/console uvdesk:configure-helpdesk' on Ubuntu PHP 7.4.
+        * **Resolved speed issue with previous version.**
+        
+
 * 1.0.9 (2020-03-17)
     * **Misc. Updates:**
         * Added Missing translation for different languages.
