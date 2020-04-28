@@ -45,7 +45,8 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "4.3.*"
+        "symfony/web-server-bundle": "4.3.*",
+        "uvdesk/api-bundle": "^1.0@dev"
     },
     "config": {
         "preferred-install": {
@@ -81,6 +82,11 @@
     },
     "conflict": {
         "symfony/symfony": "*"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     },
     "minimum-stability": "dev"
 }
