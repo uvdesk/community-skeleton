@@ -80,6 +80,7 @@ Features
 * [API][16] ([Doc][25])
 * Edit/delete/pinned ticket and thread
 * Add a collaborator and much more.
+* Check Apps [here.][26]
 
 Documentation
 --------------
@@ -221,3 +222,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [23]: https://support.uvdesk.com/en/blog/prerequisites-windows
 [24]: https://symfony.com/projects/uvdesk
 [25]: https://github.com/uvdesk/api-bundle/wiki/Ticket-Related-APIs
+[26]: https://store.webkul.com/UVdesk/UVdesk-Open-Source.html
