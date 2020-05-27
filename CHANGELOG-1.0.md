@@ -3,6 +3,19 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.11 (2020-05-27)
+    * **Misc. Updates:**
+        * Dependedent bundles updates and issue fixes.
+        * Ticket duplicate issue in conversation removed.
+          
+    * **Bug Fixes:**
+        * **Issue #257:**  Installation never finish.
+        * **Issue #259:**  /wizard/xhr/load/super-user error 500.
+        * **Issue #261:**  Cannot create API Access Token.
+        * **Issue #262:**  first new rule in workflow and email sending stopped working.
+        * **Issue #263:**  composer update caused uvdesk broken.
+        * **Issue #265:**  When the setup wizard mode on... 
+       
 * 1.0.10 (2020-04-17)
     * **Misc. Updates:**
         * Added missing translation words for french.
