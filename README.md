@@ -29,7 +29,7 @@ Getting Started
 * [Docker Runtime](#docker-runtime)
 * [License](#license)
 * [Security Vulnerabilities](#security-vulnerabilities)
-* [Feedback](#feedback)
+* [Feedback](#contributions)
 * [Contributions](#contributions)
 
 About
