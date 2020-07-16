@@ -929,7 +929,7 @@
 "Keep me logged in": "Resta collegato"
 "Forgot Password?": "Ha dimenticato la password?"
 "Log in to your": "Accedi al tuo"
-"Sign In": "Registrati"
+"Sign In": "Accedi"
 "Edit Customer": "Modifica cliente"
 "Update": "Aggiornare"
 "Discard": "Scartare"
@@ -1282,7 +1282,7 @@
 "Edit Profile": "Modifica Profilo"
 "Customer Login": "accesso cliente"
 "Contact Us": "Contattaci"
-"If you have ever contacted our support previously, your account would have already been created.": "Se hai mai contattato il nostro supporto in precedenza, il tuo account sarebbe già stato creato."
+"If you have ever contacted our support previously, your account would have already been created.": "Se ci hai già contattati in precedenza l'account è già stato creato, puoi recuperarlo tramite la funzione di recupero password."
 "HelpDesk": "HelpDesk"
 "Enter search keyword": "Inserisci la parola chiave di ricerca"
 "Browse via Folders": "Sfoglia tramite cartelle"
@@ -1352,3 +1352,5 @@
 'comma "," separated': 'separato da virgola'
 "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Carica un file di immagine valido (sono consentiti solo JPEG, JPG, PNG) !!"
 "Provide a valid url(with protocol)": "Fornisci un URL valido (con protocollo)"
+"View all articles": "Visualizza tutti gli articoli"
+"View all categories": "Visualizza tutte le categorie"
