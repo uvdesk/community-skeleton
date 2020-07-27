@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1caf90efc824986f64d912443306f42f",
+    "content-hash": "ab9f60feb625de3b1de51dd95b736071",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -6265,16 +6265,16 @@
         },
         {
             "name": "uvdesk/core-framework",
-            "version": "v1.0.11",
+            "version": "v1.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/core-framework.git",
-                "reference": "d37c14b9826aea2cb3746635c976eaf11edcb470"
+                "reference": "dd028f146e7320f683c3a7d5bab1cdeeba9929de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/d37c14b9826aea2cb3746635c976eaf11edcb470",
-                "reference": "d37c14b9826aea2cb3746635c976eaf11edcb470",
+                "url": "https://api.github.com/repos/uvdesk/core-framework/zipball/dd028f146e7320f683c3a7d5bab1cdeeba9929de",
+                "reference": "dd028f146e7320f683c3a7d5bab1cdeeba9929de",
                 "shasum": ""
             },
             "require": {
@@ -6292,7 +6292,10 @@
             },
             "type": "symfony-bundle",
             "extra": {
-                "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer"
+                "uvdesk-package-extension": "Webkul\\UVDesk\\CoreFrameworkBundle\\Package\\Composer",
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
             },
             "autoload": {
                 "psr-4": {
@@ -6310,7 +6313,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Core Framework Bundle",
-            "time": "2020-05-22T14:12:20+00:00"
+            "time": "2020-07-20T12:22:51+00:00"
         },
         {
             "name": "uvdesk/extension-framework",
@@ -6355,16 +6358,16 @@
         },
         {
             "name": "uvdesk/mailbox-component",
-            "version": "v1.0.8",
+            "version": "v1.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/mailbox-component.git",
-                "reference": "6e8d29f6203356cf00e7bf63ae74eed4ab794c64"
+                "reference": "1228cb9d5bd84f6b91ba1770220f29aea456ab58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/6e8d29f6203356cf00e7bf63ae74eed4ab794c64",
-                "reference": "6e8d29f6203356cf00e7bf63ae74eed4ab794c64",
+                "url": "https://api.github.com/repos/uvdesk/mailbox-component/zipball/1228cb9d5bd84f6b91ba1770220f29aea456ab58",
+                "reference": "1228cb9d5bd84f6b91ba1770220f29aea456ab58",
                 "shasum": ""
             },
             "require": {
@@ -6394,20 +6397,20 @@
                 }
             ],
             "description": "The Mailbox component provides tools that allows your helpdesk to process tickets from multiple email sources.",
-            "time": "2020-05-26T10:57:04+00:00"
+            "time": "2020-07-22T12:47:32+00:00"
         },
         {
             "name": "uvdesk/support-center-bundle",
-            "version": "v1.0.7",
+            "version": "v1.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/uvdesk/support-center-bundle.git",
-                "reference": "b9a05a17b92bdf74188d0d8c352f1cf67930263e"
+                "reference": "56ae23fa7bdb8d69ec1adbf989bd57cdf0841628"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/b9a05a17b92bdf74188d0d8c352f1cf67930263e",
-                "reference": "b9a05a17b92bdf74188d0d8c352f1cf67930263e",
+                "url": "https://api.github.com/repos/uvdesk/support-center-bundle/zipball/56ae23fa7bdb8d69ec1adbf989bd57cdf0841628",
+                "reference": "56ae23fa7bdb8d69ec1adbf989bd57cdf0841628",
                 "shasum": ""
             },
             "require": {
@@ -6435,7 +6438,7 @@
                 }
             ],
             "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
-            "time": "2020-05-26T09:43:33+00:00"
+            "time": "2020-07-21T13:55:01+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -7283,11 +7286,54 @@
             "description": "Symfony WebServerBundle",
             "homepage": "https://symfony.com",
             "time": "2019-08-20T14:27:59+00:00"
+        },
+        {
+            "name": "uvdesk/api-bundle",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uvdesk/api-bundle.git",
+                "reference": "72b0856cedbbdf029a2f546ef72a5ca30eb8aeb5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uvdesk/api-bundle/zipball/72b0856cedbbdf029a2f546ef72a5ca30eb8aeb5",
+                "reference": "72b0856cedbbdf029a2f546ef72a5ca30eb8aeb5",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0",
+                "uvdesk/composer-plugin": "^1.0",
+                "uvdesk/core-framework": "^1.0.4"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "uvdesk-package-extension": "Webkul\\UVDesk\\ApiBundle\\Package\\PackageConfiguration"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Webkul\\UVDesk\\ApiBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Akshay Kumar",
+                    "email": "akshay.kumar758@webkul.com"
+                }
+            ],
+            "description": "Easily integrate with your community helpdesk system using the uvdesk api bundle.",
+            "time": "2020-03-30T05:23:38+00:00"
         }
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "uvdesk/api-bundle": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
