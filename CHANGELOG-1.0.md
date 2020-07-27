@@ -3,6 +3,24 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+
+* 1.0.12 (2020-07-27)
+    * **Misc. Updates:**
+        * Added Mailbox filtering in ticket list. Now tickets can be filter according with different Mailboxes. 
+        * Ticket type sorted alphabatically for ticket creation form and other places.
+        * Translation file updates for different languages.
+        * Updates in all dependent bundles.
+        
+    * **Bug Fixes:**
+        * **Issue #292:**  Error during install: Table 'helpdesk.uv_support_role' doesn't exist.
+        * **Issue #290:**  The cogs keep spinning!.
+        * **Issue #284:**  Issues with Italian translations.
+        * **Issue #275:**  need to add ar translation for the admin login page.  
+        * **Issue #273:**  duplicate key on ../translation/messages.ar.yml file.
+        * **Issue #269:**  Failed to connect to DB if DB port other then 3306.
+        * **Issue #269:**  Dockerfile obsolete.  
+        * **Issue #267:**  Variable "user_service" does not exist.
+        
 * 1.0.11 (2020-05-27)
     * **Misc. Updates:**
         * Dependedent bundles updates and issue fixes.

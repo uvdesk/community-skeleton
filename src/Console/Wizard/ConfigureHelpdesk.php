@@ -235,7 +235,7 @@ class ConfigureHelpdesk extends Command
         // Check 3: Check if super admin account exists
         $output->writeln("  [-] Checking if an active super admin account exists");
 
-        $database = new \PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_password);
+        $database = new \PDO("mysql:host=$db_host:$db_port;dbname=$db_name", $db_user, $db_password);
 
         $supportRoleQuery = $database->query("SELECT * FROM uv_support_role WHERE code = 'ROLE_SUPER_ADMIN'");
         $supportRole = $supportRoleQuery->fetch(\PDO::FETCH_ASSOC);

@@ -172,15 +172,16 @@ Security Vulnerabilities
 
 Please don't disclose any security vulnerabilities publicly. If you find any security vulnerability in our platform then please write us at [support@uvdesk.com](mailto:support@uvdesk.com).
 
-Contributions
---------------
-
+Feedback
+---------
 #### Feedback (Support Community project by raising feedback)
 
 * [Trustpilot][17]
 * [Capterra][18]
 * [Software suggest][19]
 
+Contributions
+--------------
 This project is hosted on [Open Collective][13] and exists thanks to our contributors:
 
 <a href="https://github.com/uvdesk/community-skeleton/graphs/contributors"><img src="https://opencollective.com/uvdesk/contributors.svg?width=890&button=false"/></a>
