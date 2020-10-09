@@ -759,8 +759,8 @@
 "An action not only reduces the workload but also makes it quite easier for ticket automation": "Una acción no solo reduce la carga de trabajo, sino que también facilita la automatización de tickets"
 "Select an Action": "Seleccionar una acción"
 "Add Note": "Añadir la nota"
-"Mail to Agent": "Enviar al agente"
-"Mail to Customer": "Enviar al cliente"
+"Mail to agent": "Enviar al agente"
+"Mail to customer": "Enviar al cliente"
 "Mail to group": "Enviar al grupo"
 "Mail to last collaborator": "Enviar al último colaborador"
 "Mail to team": "Enviar al equipo"
@@ -770,7 +770,7 @@
 "Set Priority As": "Establecer prioridad como"
 "Set Status As": "Establecer estado como"
 "Set Tag As": "Establecer etiqueta como"
-"Assign to Team": "Asignar al equipo"
+"Assign to team": "Asignar al equipo"
 "Set Type As": "Establecer tipo como"
 "Add Workflow": "Agregar flujo de trabajo"
 "ADD WORKFLOW": "AGREGAR FLUJO DE TRABAJO"
@@ -1351,7 +1351,10 @@
 "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Sincronización de pedidos de comercio electrónico"
 'comma "," separated': 'Coma "," separado'
 "Provide a valid url(with protocol)": "Importar detalles de pedidos de comercio electrónico a sus tickets de soporte desde diferentes plataformas disponibles"
-
+"Low": "Bajo"
+"Medium": "Medio"
+"High": "Alto"
+"Urgent": "Urgente"
 
 
 
