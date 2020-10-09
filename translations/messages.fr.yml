@@ -770,7 +770,7 @@
 "Set Priority As": "Définir priorité comme"
 "Set Status As": "Définir le statut comme"
 "Set Tag As": "Définir létiquette comme"
-"Assign to Team": "Attribuer à léquipe"
+"Assign to team": "Attribuer à léquipe"
 "Set Type As": "Définir le type comme"
 "Add Workflow": "Ajouter un flux de travail"
 "ADD WORKFLOW": "AJOUTER UN FLUX DE TRAVAIL"
@@ -1353,3 +1353,7 @@
 'comma "," separated': 'séparées par des virgules'
 "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Merci de télécharger un fichier image valide (JPEG, JPG, PNG uniquement) !!"
 "Provide a valid url(with protocol)": "Fournir une URL valide (avec protocole)"
+"Low": "Faible"
+"Medium": "Moyen"
+"High": "Haut"
+"Urgent": "Urgent"
