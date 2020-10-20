@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:18.04
 LABEL maintainer="akshay.kumar758@webkul.com"
 
 ENV GOSU_VERSION 1.11
