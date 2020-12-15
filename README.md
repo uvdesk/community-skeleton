@@ -150,6 +150,11 @@ $ php bin/console uvdesk:configure-helpdesk
 
 After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
 
+#### Member login
+
+Once you've completed the wizard you will be need to login using the member login at https://your-domain.com/en/member/login and (not the customer login)
+
+
 Docker Runtime
 --------------
 
