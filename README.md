@@ -18,7 +18,7 @@ Visit our official demo website to [see it in action!][15]
 Check out UVdesk on **Symfony Official Website** – [Symfony][24]
 
 Getting Started
---------------
+-----------------
 
 * [About](#about)
 * [Features](#features)
@@ -33,7 +33,7 @@ Getting Started
 * [Contributions](#contributions)
 
 About
---------------
+-----------------
 
 Build on top of [symfony](https://symfony.com/) and [backbone.js](https://backbonejs.org/), uvdesk community is a service oriented, event driven extensible opensource helpdesk system that can be used by your organization to provide efficient support to your clients effortlessly whichever way you imagine.
 
@@ -54,7 +54,7 @@ Reach out to us at our official [gitter chat][20] or by joining [forum][21] for 
 The development of the uvdesk community edition is led by the [uvdesk][10] team and backed by [Webkul][9]. Visit our [website][1] to learn more about the UVDesk Helpdesk System.
 
 Features
---------------
+----------------
 
 * Translation Support (Multilingual)
 * Unlimited Agents, Group, Team, Customers, Tickets etc
@@ -149,6 +149,20 @@ $ php bin/console uvdesk:configure-helpdesk
 #### Using Web Installer Wizard
 
 After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
+
+
+**How to log in as admin/agent:**
+
+*Below url is the default url for admin/agent login if you have not made any changes for /member prefix.*
+
+> *http(s)://example.com/en/member/login* 
+
+**How to log in as customer:**
+
+*Below url is the default url for admin/agent login if you have not made any changes for /customer prefix.*
+
+> *http(s)://example.com/en/customer/login*
+
 
 Docker Runtime
 --------------
