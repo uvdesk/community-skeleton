@@ -153,13 +153,13 @@ After opening your project in the web browser, you will be greeted by the web in
 
 **How to log in as admin/agent:**
 
-*Below url is the default url for admin/agent login if you have not made any changes for /member prefix*
+*Below url is the default url for admin/agent login if you have not made any changes for /member prefix.*
 
 > *http(s)://example.com/en/member/login* 
 
 **How to log in as customer:**
 
-*Below url is the default url for admin/agent login if you have not made any changes for /customer prefix*
+*Below url is the default url for admin/agent login if you have not made any changes for /customer prefix.*
 
 > *http(s)://example.com/en/customer/login*
 
