@@ -99,7 +99,7 @@ Requirements
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
 * **Composer**: 1.6.5 or higher.
-* **PHP IMAP** **&** **PHP Mailparse** for [Ubuntu][7] and [Windows][23].
+* **PHP IMAP** **&** **PHP Mailparse** for [Ubuntu][7], [Windows][23], [Centos][28], [Mac][27].
 
 Installation
 --------------
@@ -159,7 +159,7 @@ After opening your project in the web browser, you will be greeted by the web in
 
 **How to log in as customer:**
 
-*Below url is the default url for admin/agent login if you have not made any changes for /customer prefix.*
+*Below url is the default url for customer login if you have not made any changes for /customer prefix.*
 
 > *http(s)://example.com/en/customer/login*
 
@@ -238,3 +238,5 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [24]: https://symfony.com/projects/uvdesk
 [25]: https://github.com/uvdesk/api-bundle/wiki/Ticket-Related-APIs
 [26]: https://store.webkul.com/UVdesk/UVdesk-Open-Source.html
+[27]: https://support.uvdesk.com/en/blog/prerequisites-mac
+[28]: https://support.uvdesk.com/en/blog/prerequisites-centos7
