@@ -148,6 +148,24 @@ $ php bin/console uvdesk:configure-helpdesk
 
 #### Using Web Installer Wizard
 
+##### Extract the contents of zip and execute the project in your browser in case of project zip download:
+
+~~~
+http(s)://localhost/community-skeleton/public
+~~~
+
+##### In case of created project using command, execute the project in your browser:
+
+~~~
+http(s)://localhost/helpdesk-project/public
+~~~
+
+or
+
+~~~
+http(s)://example.com/public
+~~~
+
 After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
 
 
