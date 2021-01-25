@@ -10,7 +10,7 @@
     <a href="#sponsors"><img src="https://opencollective.com/uvdesk/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
     <a href="https://gitter.im/uvdesk/community"><img src="https://badges.gitter.im/uvdesk/community-skeleton.svg" alt="connect on gitter"></a>
     <a href="https://forums.uvdesk.com"><img src="https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg" alt="discuss on uvdesk forum"></a>
-    <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://badges.frapsoft.com/os/v3/open-source.png?v=103" alt="Checkout on packagist"></a>
+    <a href="https://github.com/collections/made-in-india"><img src="https://badges.frapsoft.com/os/v3/open-source.png?v=103" alt="Checkout us on open source projects from India"></a>
 </p>
 
 [Uvdesk community helpdesk][1] project skeleton packaged along with the bare essential utilities and tools to build and customize your own helpdesk solutions.
