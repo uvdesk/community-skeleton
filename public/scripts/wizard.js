@@ -269,6 +269,7 @@
                 let errorFlag = false;
                 let nameRegex = /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/;
                 let emailRegex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                let passwordRegix = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
                 let user = {
                     name: this.$el.find('input[name="name"]').val(),
@@ -303,8 +304,10 @@
                 }
 
                 if (user.password.length > 0 && user.password.length < 8) {
-                    errorFlag = true;
-                    this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>The password is too short: it must at least 8 characters.</span>")
+                    if(passwordRegix.test(user.password)) {
+                        errorFlag = true;
+                        this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>Password must contain at least eight characters contains minimum one letter, one number and one special character.</span>")
+                    }
                 }
 
                 if (user.confirmPassword.length > 0 && user.confirmPassword != user.password) {
@@ -623,10 +626,10 @@
                         } else {
                             var currentExtensionIconStatus = this.wizard_icons_notice_template();
                             if (currentExtensionName == 'imap'){
-                                var currentExtensionTextStatus = "<span class='extension_name'> PHP " + currentExtensionName + " extension </span><p>Need to resolve this issue can be done by reading this blog link:<a style='text-decoration:none;' href='https://www.php.net/manual/en/imap.setup.php' target='_blank'> How to resolve PHP imap extension</a></p>";
+                                var currentExtensionTextStatus = "<span class='extension_name'> PHP " + currentExtensionName + " extension </span><p>Need to resolve this issue can be done by reading this blog link:<a href='https://www.php.net/manual/en/imap.setup.php' target='_blank'>How to resolve PHP imap extension</a></p>";
                             }
                             else if(currentExtensionName == 'mailparse'){
-                                var currentExtensionTextStatus = "<span class='extension_name'> PHP " + currentExtensionName + " extension </span><p>Need to resolve this issue can be done by reading this blog link:<a style='text-decoration:none;' href='https://www.php.net/manual/en/book.mailparse.php' target='_blank'> How to resolve PHP mailparse extension</a></p>";
+                                var currentExtensionTextStatus = "<span class='extension_name'> PHP " + currentExtensionName + " extension </span><p>Need to resolve this issue can be done by reading this blog link:<a href='https://www.php.net/manual/en/book.mailparse.php' target='_blank'>How to resolve PHP mailparse extension</a></p>";
                             }
                             else{
                                 var currentExtensionTextStatus = "<span class='extension_name'>" + currentExtensionName + "extension is currently inactive</span>";
