@@ -59,7 +59,7 @@ RUN \
         exit 1; \
 	fi; \
     # Install composer
-    php /usr/local/bin/composer.php --quiet --filename=/usr/local/bin/composer \
+    php /usr/local/bin/composer.php --1 --quiet --filename=/usr/local/bin/composer \
     && chmod +x /usr/local/bin/composer; \
     # Assign user uvdesk the ownership of source directory
     chown -R uvdesk:uvdesk /var/www; \
