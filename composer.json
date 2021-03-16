@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^1.11",
         "doctrine/doctrine-fixtures-bundle": "^3.2",
         "doctrine/doctrine-migrations-bundle": "^2.0",
+        "google/recaptcha": "^1.2",
         "knplabs/knp-paginator-bundle": "^4.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.3.*",
