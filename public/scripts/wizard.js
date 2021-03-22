@@ -269,7 +269,7 @@
                 let errorFlag = false;
                 let nameRegex = /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/;
                 let emailRegex = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-                let passwordRegix = /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{8}$/;
+                let passwordRegix = /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{8,}$/;
 
                 let user = {
                     name: this.$el.find('input[name="name"]').val(),
@@ -305,7 +305,7 @@
 
                 if (user.password.length > 0 && (!passwordRegix.test(user.password))) {
                         errorFlag = true;
-                        this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>Passwords must contain 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed.)</span>")
+                        this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed).</span>")
                 }
 
                 if (user.confirmPassword.length > 0 && user.confirmPassword != user.password) {
