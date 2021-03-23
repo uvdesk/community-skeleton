@@ -543,6 +543,7 @@
 "Password": "Password"
 "Password will remain same if you are not entering something in this field": "Password will remain same if you are not entering something in this field"
 "Confirm Password": "Confirm Password"
+"Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed).": "Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed)."
 "Save Changes": "Save Changes"
 "SAVE CHANGES": "SAVE CHANGES"
 "CREATE TICKET": "CREATE TICKET"
