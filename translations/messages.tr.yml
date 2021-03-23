@@ -542,6 +542,7 @@
 "User signature will be append at the bottom of ticket reply box": "Kullanıcı imzası, kayıt cevap kutusunun altına eklenecek"
 "Password": "Parola"
 "Password will remain same if you are not entering something in this field": "Bu alana bir şey girmiyorsanız şifre aynı kalacaktır"
+"Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed).": "Parola minimum 8 karakter uzunluğunda, en az iki harf (büyük / küçük harfe duyarlı değil), bir rakam, bir özel karakter (boşluğa izin verilmez) içermelidir."
 "Confirm Password": "Şifreyi Onayla"
 "Save Changes": "Değişiklikleri Kaydet"
 "SAVE CHANGES": "DEĞİŞİKLİKLERİ KAYDET"

@@ -542,6 +542,7 @@
 "User signature will be append at the bottom of ticket reply box": "La signature de lutilisateur sera ajoutée au bas de la boîte de réponse du ticket"
 "Password": "Mot de passe"
 "Password will remain same if you are not entering something in this field": "Le mot de passe restera le même si vous nentrez rien dans ce champ"
+"Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed).": "Le mot de passe doit contenir au moins 8 caractères, au moins deux lettres (non sensibles à la casse), un chiffre, un caractère spécial (l'espace n'est pas autorisé)."
 "Confirm Password": "Confirmez le mot de passe"
 "Save Changes": "Sauvegarder les modifications"
 "SAVE CHANGES": "SAUVEGARDER LES MODIFICATIONS"
