@@ -3,6 +3,53 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.13 (2021-04-02)
+    * **Misc. Updates:**
+        * **Last reply option added on ticket list to check when last time reply added on ticket.**
+        * **reCAPTCHA setting option added on admin panel with profile section now admin can set recaptcha credentails on admin panel and can enable it.**
+        * **Disabled old dates for datapicker in broadcast section.**
+        * **Strong password added (for security purpose) for all places from where user create and update password.**
+        * **Current version updated in dashboard in footer so that user have idea which version he is using currently.**
+        * **Added some more option on admin/agent side when reply to a ticket i.e hyperlink, Spellcheck, adding a image by a external link, source code and differnt style formats option added into editor.**
+        * **Iframe support in editor for adding Youtube link etc In article section(knowledgebase).**
+        * **Fancy style added for Blockquote https://prnt.sc/xle8c4**
+        * **New auto fixtures added for workflow so user don't need to add workflow for the same.**
+        * **Added CC option for initial thread on ticket https://prnt.sc/1118g8e.**
+        * **Added option for automatically label assign to ticket from workflow.**
+        * **All latest version links updated for jquery, backbone and underscore js.**
+        * **Time format added for customer panel on profile section.**
+        * **Customer redirection after ticket create from customer panel - If customer is log in then will redirect to ticket listing if not then will redirect to knowledgebase.**
+        * **Time format and time zone will automatically assign to customer and agent now which is set in admin side branding page.**
+        * **Added New polish translation file(pl).**
+        
+    * **Bug Fixes:**
+        * All controller code updates as according to symfony version(4.3) and maximum deprication messages removed from project.
+        * Docker Fixes (FROM ubuntu:latest to FROM ubuntu:18.04 in Dockerfile)
+        * Docker composer version updated.
+        * Mail to customer in case of ticket status update mailing issue fixed.
+        * Email regix updated for swiftmailer as from front end it is only allowing .com/.in etc not any other custom emails like .support
+        * tr and it Translation files updates.
+        * Branding custom css and js as duplicate issue resolved.
+        * Issue with Locale in mail if ticket created using email was not correct and has been fixed now.
+        * Groups and Teams Remove issue fixed for saved replies.
+        * Collaborator ticket view issue on customer panel (not able to see tickets) resolved.
+        * My tickets tab issue for agents as agent only see the ticket assigned to admin only not their own ticket assigned to him Resolved.
+        * Email Receiving issue when assign a ticket to agent resolved.
+        * Updated addPart for plain text in mail send function as in some cases email send was not working.
+        * Translation update for reset password page.
+        * Method change to getOneOrNullResult for mail to agent action.
+        * Mail to CC and BCC users without ticket link as they are not really the customer and can not login into customer panel.
+        * Forwording and Auto forwording emails conversion issue resolved.
+        * Pagination issue on ticket listing on customer panel also for tag on admin panel         resolved.
+        * Mailbox ticket create issue if Email send on capitalize email Id.
+        * Email trailing issue on ticket reply if agent and customer both reply on ticket using email id resolved.
+        * Seachbar component on dashoard based on permission issue fixed now.
+        * Deleting the trash ticket issue has been fixed.
+        * Issue with prod mode when clearing the cache resovled.
+        * Saved reply disapper issue for agent if agent update anything Issue has been fixed now.
+        * Article and Category createdAt filter issue has been fixed now.
+        * Disabled user account and when user try to login then correct message for account disablity.
+        * Panel sidebar active status issue fixed.
 
 * 1.0.12 (2020-07-27)
     * **Misc. Updates:**

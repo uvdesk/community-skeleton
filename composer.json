@@ -10,6 +10,7 @@
         "doctrine/doctrine-bundle": "^1.11",
         "doctrine/doctrine-fixtures-bundle": "^3.2",
         "doctrine/doctrine-migrations-bundle": "^2.0",
+        "google/recaptcha": "^1.2",
         "knplabs/knp-paginator-bundle": "^4.0",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "4.3.*",
@@ -45,8 +46,7 @@
         "symfony/maker-bundle": "^1.0",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "4.3.*",
-        "uvdesk/api-bundle": "^1.0@dev"
+        "symfony/web-server-bundle": "4.3.*"
     },
     "config": {
         "preferred-install": {
@@ -82,6 +82,12 @@
     },
     "conflict": {
         "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "4.3.*"
+        }
     },
     "prefer-stable": true,
     "minimum-stability": "stable"
