@@ -456,6 +456,12 @@
                 'php-extensions': {
                     extensions: [],
                 },
+                'php-maximum-execution': {
+                    status: undefined,
+                },
+                'php-file-permission': {
+                    status: undefined,
+                }
             },
             initialize: function (attributes) {
                 this.view = attributes.view;
@@ -465,6 +471,8 @@
 
                 this.checkPHP();
                 this.evaluatePHPExtensions();
+                this.maximumExecution();
+                this.checkPHPFilePermission();
             },
             isProcedureCompleted: function (callback) {
                 if (this.get('verified')) {
@@ -509,8 +517,49 @@
                     this.evaluateOverallRequirements();
                 });
             },
+            maximumExecution: function() {
+                let postData = {
+                    specification: 'php-maximum-execution',
+                };
+
+                $.post('./wizard/xhr/check-requirements', postData, response => {
+                    this.set('php-maximum-execution', response);
+                }).fail((jqXHR, textStatus, errorThrown) => {
+                    this.set('php-maximum-execution', {
+                        status: false,
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the Maximum execution time verification process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Maximum Execution Time  </span><p>Need to resolve this issue can be done by reading this blog link:<a href="https: //www.simplified.guide/php/increase-max-execution-time" target="_blank">How to resolve PHP mailparse extension</a></p>',
+                    });
+                }).always(() => {
+                    this.view.renderPHPmaximumexecution();
+                    this.evaluateOverallRequirements();
+                });
+            },
+            checkPHPFilePermission: function() {
+                let postData = {
+                    specification: 'php-file-permission',
+                };
+
+                $.post('./wizard/xhr/check-requirements', postData, response => {
+                    this.set('php-file-permission', response);
+                }).fail((jqXHR, textStatus, errorThrown) => {
+
+                    this.set('php-file-permission', {
+                        status: false,
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the PHP version verification process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
+                    });
+                }).always(() => {
+                    this.view.renderPHPFilePermission();
+                    this.evaluateOverallRequirements();
+                });
+            },
             evaluateOverallRequirements: function() {
                 if (false == this.get('php-version').status) {
+                    this.set('verified', false);
+                }  else if (false == this.get('php-maximum-execution').status) {
+                    this.set('verified', false);
+                } else if (false == this.get('php-file-permission').status) {
                     this.set('verified', false);
                 } else if (this.get('php-extensions').hasOwnProperty('extensions')) {
                     let extensions = this.get('php-extensions').extensions;
@@ -544,7 +593,7 @@
             model: undefined,
             wizard: undefined,
             events: {
-                "click .PHPExtensions-toggle-details, .PHPVersion-toggle-details": function (e) {
+                "click .PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPPermissionTime-toggle-details, .PHPExeTime-toggle-details": function (e) {
                     // show and hide extension details
                     const currentElement = Backbone.$(e.currentTarget)
                     currentElement.parents('[class*="info-container"]').siblings('.systemCriteria-Details').toggle();
@@ -566,6 +615,8 @@
             wizard_system_requirements_template: _.template($("#installationWizard-SystemRequirementsTemplate").html()),
             wizard_system_requirements_php_ver_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPVersion").html()),
             wizard_system_requirements_php_ext_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPExtensions").html()),
+            wizard_system_requirements_php_exe_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPExecution").html()),
+            wizard_system_requirements_php_per_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPPermission").html()),
             initialize: function(params) {
                 this.wizard = params.wizard;
                 this.model = new UVDeskCommunitySystemRequirementsModel({ view: this });
@@ -576,9 +627,15 @@
                 // Set reference nodes
                 this.reference_nodes.version = this.$el.find('#systemCriteria-PHPVersion');
                 this.reference_nodes.extension = this.$el.find('#systemCriteria-PHPExtensions');
+
+                this.reference_nodes.execution = this.$el.find('#systemCriteria-PHPExecution');
+                this.reference_nodes.permission = this.$el.find('#systemCriteria-PHPPermission');
                 
                 this.renderPHPVersion('verifying');
                 this.renderPHPExtensionsCriteria('verifying');
+
+                this.renderPHPmaximumexecution('verifying');
+                this.renderPHPFilePermission('verifying');
 
                 this.model.fetch();
             },
@@ -653,6 +710,50 @@
                     this.reference_nodes.extension.find('.extension-criteria-label').html(this.model.get('php-extensions').message);
                     this.reference_nodes.extension.find('#systemCriteria-PHPExtensions-Details').html(this.model.get('php-extensions').description);
                     this.reference_nodes.extension.find('#systemCriteria-PHPExtensions-Details').addClass('systemCriteria-Info-Message');
+                }
+            },
+            renderPHPmaximumexecution: function(status) {
+                debugger
+                this.reference_nodes.execution.html(this.wizard_system_requirements_php_exe_template(this.model.get('php-maximum-execution')));
+                this.reference_nodes.execution.find('.PHPExeTime-toggle-details').hide();
+                if (false == this.model.get('fetch')) {
+                    this.reference_nodes.execution.find('.wizard-svg-icon-execution-criteria-checklist').html(this.wizard_icons_loader_template());
+                    this.reference_nodes.execution.find('label').html('Checking maximum execution time');
+                } else {
+                    if (true === this.model.get('php-maximum-execution').status) {
+                        this.reference_nodes.execution.find('.wizard-svg-icon-execution-criteria-checklist').html(this.wizard_icons_success_template());
+                        this.reference_nodes.execution.find('label').html(this.model.get('php-maximum-execution').message);
+                    } else {
+                        this.reference_nodes.execution.find('.wizard-svg-icon-execution-criteria-checklist').html(this.wizard_icons_notice_template());
+                        this.reference_nodes.execution.find('label').html(this.model.get('php-maximum-execution').message);
+                        if (this.model.get('php-maximum-execution').hasOwnProperty('description')) {
+                            this.reference_nodes.execution.find('.PHPExeTime-toggle-details').show();
+                        }
+                        this.reference_nodes.execution.find('.systemCriteria-Details').addClass('systemCriteria-Info-Message');
+                        this.reference_nodes.execution.find('#systemCriteria-PHPExecution-Details').html(this.model.get('php-maximum-execution').description);
+                    }
+                }
+            },
+            renderPHPFilePermission: function(status) {
+                this.reference_nodes.permission.html(this.wizard_system_requirements_php_per_template(this.model.get('php-file-permission')));
+                this.reference_nodes.permission.find('.PHPPermissionTime-toggle-details').hide();
+
+                if (false == this.model.get('fetch')) {
+                    this.reference_nodes.permission.find('.wizard-svg-icon-permission-criteria-checklist').html(this.wizard_icons_loader_template());
+                    this.reference_nodes.permission.find('label').html('Checking currently enabled PHP version');
+                } else {
+                    if (true === this.model.get('php-file-permission').status) {
+                        this.reference_nodes.permission.find('.wizard-svg-icon-permission-criteria-checklist').html(this.wizard_icons_success_template());
+                        this.reference_nodes.permission.find('label').html(this.model.get('php-file-permission').message);
+                    } else {
+                        this.reference_nodes.permission.find('.wizard-svg-icon-permission-criteria-checklist').html(this.wizard_icons_notice_template());
+                        this.reference_nodes.permission.find('label').html(this.model.get('php-file-permission').message);
+                        if (this.model.get('php-file-permission').hasOwnProperty('description')) {
+                            this.reference_nodes.permission.find('.PHPPermissionTime-toggle-details').show();
+                        }
+                        this.reference_nodes.permission.find('.systemCriteria-Details').addClass('systemCriteria-Info-Message');
+                        this.reference_nodes.permission.find('#systemCriteria-PHPPermission-Details').html(this.model.get('php-file-permission').description);
+                    }
                 }
             }
         });
