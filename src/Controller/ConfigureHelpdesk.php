@@ -45,6 +45,7 @@ class ConfigureHelpdesk extends Controller
 
     public function evaluateSystemRequirements(Request $request)
     {
+        $max_execution_time = ini_get('max_execution_time');
         // Evaluate system specification requirements
         switch (strtolower($request->request->get('specification'))) {
             case 'php-version':
@@ -69,6 +70,26 @@ class ConfigureHelpdesk extends Controller
                 $response = [
                     'extensions' => $extensions_status,
                 ];
+                break;
+            case 'php-maximum-execution':
+                $response['status' ] = $max_execution_time >= 30 ? true : false;
+
+                if ($response['status']) {
+                    $response['message'] = sprintf('Maximum execution time %s', ini_get('max_execution_time') );
+                } else {
+                    $response['message'] = sprintf('Please increase your max execution time.' );
+                    $response['description'] = '</span>Issue can be resolved by simply<p>:<a href="https://www.simplified.guide/php/increase-max-execution-time" target="_blank"> increasing the maximum execution time</a> make it 60 or more and restart your server after making changes, refresh thr browser and try again.</p>';
+                }
+                break;
+            case 'php-file-permission':
+                $filename =  $this->get('kernel')->getProjectDir().'/.env';
+                $response['status' ] = is_writable($filename) ? true : false;
+
+                if ($response['status']) {
+                    $response['message'] = sprintf('Read/Write permission enabled for .env file.');
+                } else {
+                    $response['message'] = sprintf('Please enable read/write permission for .env file of your project.');
+                }
                 break;
             default:
                 $code = 404;
