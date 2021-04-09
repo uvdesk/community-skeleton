@@ -36,6 +36,18 @@ class ConfigureHelpdesk extends Controller
         ],
     ];
 
+    private static $requiredConfigfiles = [
+        [
+            'name' => 'uvdesk',
+        ],
+        [
+            'name' => 'swiftmailer',
+        ],
+        [
+            'name' => 'uvdesk_mailbox',
+        ],
+    ];
+
     public function load()
     {
         return $this->render('installation-wizard/index.html.twig', [
@@ -81,15 +93,28 @@ class ConfigureHelpdesk extends Controller
                     $response['description'] = '</span>Issue can be resolved by simply<p>:<a href="https://www.simplified.guide/php/increase-max-execution-time" target="_blank"> increasing the maximum execution time</a> make it 60 or more and restart your server after making changes, refresh thr browser and try again.</p>';
                 }
                 break;
-            case 'php-file-permission':
-                $filename =  $this->get('kernel')->getProjectDir().'/.env';
-                $response['status' ] = is_writable($filename) ? true : false;
-
-                if ($response['status']) {
-                    $response['message'] = sprintf('Read/Write permission enabled for .env file.');
-                } else {
-                    $response['message'] = sprintf('Please enable read/write permission for .env file of your project.');
-                }
+            case 'php-envfile-permission':
+                    $filename =  $this->get('kernel')->getProjectDir().'/.env';
+                    $response['status'] = is_writable($filename) ? true : false;
+   
+                    if ($response['status']) {
+                        $response['message'] = sprintf('Read/Write permission enabled for .env file.');
+                    } else {
+                        $response['message'] = sprintf('Please enable read/write permission for .env file of your project.');
+                        $response['description'] = '</span> Issue can be resolved by simply  : <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"> <p> Please enable your .env file permission </a> and restart your server after making changes, refresh the browser and try again.</p>';
+                    }
+                break;
+            case 'php-configfiles-permission':
+                    $configfiles_status = array_map(function ($configfile) {
+                        return [
+                            $configfile['name'] => is_writable($this->get('kernel')->getProjectDir().'/config/packages/'.$configfile['name'].'.yaml') ,
+                        ];
+                    }, self::$requiredConfigfiles);
+   
+                    $response = [
+                        'configfiles' => $configfiles_status,
+                        'description' => '</span> <br><p> Issue can be resolved by simply  : <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank">  Please enable your config/packages files permission </a></p>',
+                    ];
                 break;
             default:
                 $code = 404;
