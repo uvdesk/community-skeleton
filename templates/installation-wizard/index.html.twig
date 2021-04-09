@@ -137,8 +137,8 @@
         
         <script id="installationWizard-SystemRequirementsTemplate-PHPPermission" type="text/template">
             <div class="permission-info-container">
-                <span class="wizard-svg-icon-permission-criteria-checklist"></span><label class="permission-criteria-label"></label>
-                <span class="PHPPermissionTime-toggle-details">Show details</span>
+                 <span class="wizard-svg-icon-permissionEnvfile-criteria-checklist"></span><label class="permission-criteria-label"></label>
+              <span class="PHPPermissionEnvfile-toggle-details">Show Details</span>
             </div>
             <div class="systemCriteria-Details">
                 <span id="systemCriteria-PHPPermission-Details">
@@ -155,6 +155,33 @@
                     <span style="color: #6F6F6F !important;">Required</span>
                     <li id="systemCriteria-PHPVersion" class="fetching-details"></li>
                     <li id="systemCriteria-PHPExtensions" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPPermissionConfigfiles" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPPermission" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPExecution" class="fetching-details"></li>
+                </ul>
+            </div>
+        </script>
+
+        <script id="installationWizard-SystemRequirementsTemplate-PHPPermissionConfigfiles" type="text/template">
+            <div class="permissionConfigfiles-info-container">
+                <span class="wizard-svg-icon-permissionConfigfiles-criteria-checklist"></span><label class="permissionConfigfiles-criteria-label"></label>
+                <span class="PHPPermissionConfigfiles-error-message"></span>
+                <span class="PHPPermissionConfigfiles-toggle-details">Show details</span>
+            </div>
+            <div class="systemCriteria-Details">
+                <ul id="systemCriteria-PHPPermissionConfigfiles-Details">
+                    <li id="uvdesk-info" class="fetching-details">
+                        <span class="wizard-svg-icon-criteria-checklist"></span>
+                        <label id="uvdesk-label"></label>
+                    </li>
+                    <li id="swiftmailer-info" class="fetching-details">
+                        <span class="wizard-svg-icon-criteria-checklist"></span>
+                        <label id="swiftmailer-label"></label>
+                    </li>
+                    <li id="uvdesk_mailbox-info" class="fetching-details">
+                        <span class="wizard-svg-icon-criteria-checklist"></span>
+                        <label id="uvdesk_mailbox-label"></label>
+                    </li>
                 </ul>
             </div>
         </script>

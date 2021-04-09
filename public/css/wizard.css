@@ -275,7 +275,13 @@ ul.button-groups > li:last-child {
     margin-left: 30px;
 }
 
-.PHPExtensions-toggle-details, .PHPVersion-toggle-details {
+#systemCriteria-PHPExtensions-Details,
+#systemCriteria-PHPPermissionConfigfiles-Details {
+    margin-left: 30px;
+}
+
+.PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPExeTime-toggle-details,
+.PHPPermissionEnvfile-toggle-details, .PHPPermissionConfigfiles-toggle-details {
     cursor: pointer;
     color: #9272F8;
     text-decoration: underline;
@@ -295,7 +301,9 @@ ul.button-groups > li:last-child {
     color: #9272F8
 }
 
-.extension-info-container, .version-info-container {
+
+.extension-info-container, .version-info-container, .execution-info-container,
+.permission-info-container, .permissionConfigfiles-info-container {
     margin-bottom: 10px;
 }
 
