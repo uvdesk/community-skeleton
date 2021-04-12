@@ -87,10 +87,10 @@ class ConfigureHelpdesk extends Controller
                 $response['status' ] = $max_execution_time >= 30 ? true : false;
 
                 if ($response['status']) {
-                    $response['message'] = sprintf('Maximum execution time %s', ini_get('max_execution_time') );
+                    $response['message'] = sprintf('Maximum execution time is %s', ini_get('max_execution_time').' sec');
                 } else {
                     $response['message'] = sprintf('Please increase your max execution time.' );
-                    $response['description'] = '</span>Issue can be resolved by simply<p>:<a href="https://www.simplified.guide/php/increase-max-execution-time" target="_blank"> increasing the maximum execution time</a> make it 60 or more and restart your server after making changes, refresh thr browser and try again.</p>';
+                    $response['description'] = '</span>Issue can be resolved by simply<p><a href="https://www.simplified.guide/php/increase-max-execution-time" target="_blank"> increasing your maximum execution time</a> make it 60 or more and restart your server after making this change, refresh the browser and try again.</p>';
                 }
                 break;
             case 'php-envfile-permission':
@@ -100,8 +100,8 @@ class ConfigureHelpdesk extends Controller
                     if ($response['status']) {
                         $response['message'] = sprintf('Read/Write permission enabled for .env file.');
                     } else {
-                        $response['message'] = sprintf('Please enable read/write permission for .env file of your project.');
-                        $response['description'] = '</span> Issue can be resolved by simply  : <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"> <p> Please enable your .env file permission </a> and restart your server after making changes, refresh the browser and try again.</p>';
+                        $response['message'] = sprintf('Please enable read/write permission for <b>.env</b> file of your project.');
+                        $response['description'] = '</span> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"><p> enabling your <b>.env</b> file read/write permission</a> refresh the browser and try again.</p>';
                     }
                 break;
             case 'php-configfiles-permission':
@@ -113,7 +113,7 @@ class ConfigureHelpdesk extends Controller
    
                     $response = [
                         'configfiles' => $configfiles_status,
-                        'description' => '</span> <br><p> Issue can be resolved by simply  : <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank">  Please enable your config/packages files permission </a></p>',
+                        'description' => '</span> <br><p> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"> enabling read/write permissions for your files under config/packages folder of your project.</a></p>',
                     ];
                 break;
             default:
