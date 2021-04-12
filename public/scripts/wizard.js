@@ -554,7 +554,7 @@
                         description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
                     });
                 }).always(() => {
-                    this.view.renderPHPFilePermission();
+                    this.view.renderEnvFilePermission();
                     this.evaluateOverallRequirements();
                 });
             },
@@ -573,7 +573,7 @@
                         description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
                     });
                 }).always(() => {
-                    this.view.renderPHPFilePermissionConfigfiles();
+                    this.view.renderConfigFilesPermission();
                     this.evaluateOverallRequirements();
                 });
             },
