@@ -15,6 +15,7 @@
         var UVDeskCommunityInstallSetupView = Backbone.View.extend({
             el: '#wizardContent',
             wizard: undefined,
+            wizard_icons_notice_template: _.template($("#wizardIcons-NoticeTemplate").html()),
             installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
             installation_process_template: _.template($("#installationWizard-InstallSetupTemplate-ProcessingItem").html()),
             installation_successfull_template: _.template($('#installationWizard-InstallationCompleteTemplate').html()),
@@ -36,7 +37,8 @@
                     this.$el.find('#wizard-finalizeInstall .installation-progress-loader').html(this.wizard.wizard_icons_loader_template());
                     await $.post('./wizard/xhr/load/configurations').fail(response => {
                         if (response.status == 500) {
-                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                            this.$el.find('.wizard-svg-icon-failed-criteria-checklist').html(this.wizard_icons_notice_template());
+                            this.$el.find('#error-message-bar').html('</span> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"><p> enabling your <b>.env</b> file read/write permission</a> refresh the browser and try again.</p>');
                         }
                     });
                     
@@ -45,7 +47,8 @@
                     this.next(1);
                     await $.post('./wizard/xhr/load/migrations').fail(response => {
                         if (response.status == 500) {
-                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                            this.$el.find('.wizard-svg-icon-failed-criteria-checklist').html(this.wizard_icons_notice_template());
+                            this.$el.find('#error-message-bar').html('Something went wrong ! Please try again');
                         }
                     });
     
@@ -54,7 +57,8 @@
                     this.next(2);
                     await $.post('./wizard/xhr/load/entities').fail(response => {
                         if (response.status == 500) {
-                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                            this.$el.find('.wizard-svg-icon-failed-criteria-checklist').html(this.wizard_icons_notice_template());
+                            this.$el.find('#error-message-bar').html('Something went wrong ! Please try again');
                         }
                     });
                     
@@ -63,7 +67,8 @@
                     this.next(3);
                     await $.post('./wizard/xhr/load/super-user').fail(response => {
                         if (response.status == 500) {
-                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                            this.$el.find('.wizard-svg-icon-failed-criteria-checklist').html(this.wizard_icons_notice_template());
+                            this.$el.find('#error-message-bar').html('Something went wrong ! Please try again');
                         }
                     });
 
@@ -72,7 +77,8 @@
                     this.next(4);
                     let websiteRoutes = await $.post('./wizard/xhr/load/website-configure').fail(response => {
                         if (response.status == 500) {
-                            this.$el.find('#error-message-bar').html(JSON.parse(response.responseText).errorMessage); 
+                            this.$el.find('.wizard-svg-icon-failed-criteria-checklist').html(this.wizard_icons_notice_template());
+                            this.$el.find('#error-message-bar').html('Something went wrong ! Please try again');
                         }
                     });
                     this.wizard.prefix.member = websiteRoutes.memberLogin;
