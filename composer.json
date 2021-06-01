@@ -11,6 +11,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.4.0",
         "doctrine/doctrine-migrations-bundle": "^2.2.2",
         "google/recaptcha": "^1.2.4",
+        "ocramius/proxy-manager": "2.11.1",
         "knplabs/knp-paginator-bundle": "^4.1.1",
         "sensio/framework-extra-bundle": "^5.5.3",
         "symfony/asset": "4.3.*",
