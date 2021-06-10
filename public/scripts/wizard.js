@@ -776,7 +776,6 @@
                 }
             },
             renderPHPmaximumexecution: function(status) {
-                debugger
                 this.reference_nodes.execution.html(this.wizard_system_requirements_php_exe_template(this.model.get('php-maximum-execution')));
                 this.reference_nodes.execution.find('.PHPExeTime-toggle-details').hide();
                 if (false == this.model.get('fetch')) {
