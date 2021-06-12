@@ -245,7 +245,8 @@ class ConfigureHelpdesk extends Controller
                 return new JsonResponse(['success' => true]);
             }
         } catch (\Exception $e) {
-            // Do nothing ...
+            // Dump Exception ...
+            dump($e->getMessage()); die;
         }
 
         return new JsonResponse(['success' => false], 500);
