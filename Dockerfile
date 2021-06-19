@@ -73,13 +73,6 @@ RUN \
         /var/www/html \
         /var/www/uvdesk/.docker;
 
-WORKDIR /var/www/uvdesk
-RUN composer update
-RUN composer install && \
-  chmod 777 /var/www/uvdesk/config/packages/uvdesk.yaml && \
-  chmod 777 /var/www/uvdesk/config/packages/swiftmailer.yaml && \
-  chmod 777 /var/www/uvdesk/config/packages/uvdesk_mailbox.yaml
-
 # Change working directory to uvdesk source
 WORKDIR /var/www
 
