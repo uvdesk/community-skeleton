@@ -36,6 +36,18 @@ class ConfigureHelpdesk extends Controller
         ],
     ];
 
+    private static $requiredConfigfiles = [
+        [
+            'name' => 'uvdesk',
+        ],
+        [
+            'name' => 'swiftmailer',
+        ],
+        [
+            'name' => 'uvdesk_mailbox',
+        ],
+    ];
+
     public function load()
     {
         return $this->render('installation-wizard/index.html.twig', [
@@ -45,6 +57,7 @@ class ConfigureHelpdesk extends Controller
 
     public function evaluateSystemRequirements(Request $request)
     {
+        $max_execution_time = ini_get('max_execution_time');
         // Evaluate system specification requirements
         switch (strtolower($request->request->get('specification'))) {
             case 'php-version':
@@ -69,6 +82,39 @@ class ConfigureHelpdesk extends Controller
                 $response = [
                     'extensions' => $extensions_status,
                 ];
+                break;
+            case 'php-maximum-execution':
+                $response['status' ] = $max_execution_time >= 30 ? true : false;
+
+                if ($response['status']) {
+                    $response['message'] = sprintf('Maximum execution time is %s', ini_get('max_execution_time').' sec');
+                } else {
+                    $response['message'] = sprintf('Please increase your max execution time.' );
+                    $response['description'] = '</span>Issue can be resolved by simply<p><a href="https://www.simplified.guide/php/increase-max-execution-time" target="_blank"> increasing your maximum execution time</a> make it 60 or more and restart your server after making this change, refresh the browser and try again.</p>';
+                }
+                break;
+            case 'php-envfile-permission':
+                    $filename =  $this->get('kernel')->getProjectDir().'/.env';
+                    $response['status'] = is_writable($filename) ? true : false;
+   
+                    if ($response['status']) {
+                        $response['message'] = sprintf('Read/Write permission enabled for .env file.');
+                    } else {
+                        $response['message'] = sprintf('Please enable read/write permission for <b>.env</b> file of your project.');
+                        $response['description'] = '</span> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"><p> enabling your <b>.env</b> file read/write permission</a> refresh the browser and try again.</p>';
+                    }
+                break;
+            case 'php-configfiles-permission':
+                    $configfiles_status = array_map(function ($configfile) {
+                        return [
+                            $configfile['name'] => is_writable($this->get('kernel')->getProjectDir().'/config/packages/'.$configfile['name'].'.yaml') ,
+                        ];
+                    }, self::$requiredConfigfiles);
+   
+                    $response = [
+                        'configfiles' => $configfiles_status,
+                        'description' => '</span> <br><p> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"> enabling read/write permissions for your files under config/packages folder of your project.</a></p>',
+                    ];
                 break;
             default:
                 $code = 404;
@@ -199,7 +245,8 @@ class ConfigureHelpdesk extends Controller
                 return new JsonResponse(['success' => true]);
             }
         } catch (\Exception $e) {
-            // Do nothing ...
+            // Dump Exception ...
+            dump($e->getMessage()); die;
         }
 
         return new JsonResponse(['success' => false], 500);

@@ -124,6 +124,28 @@
             </div>
         </script>
 
+        <script id="installationWizard-SystemRequirementsTemplate-PHPExecution" type="text/template">
+            <div class="execution-info-container">
+                <span class="wizard-svg-icon-execution-criteria-checklist"></span><label class="execution-criteria-label"></label>
+                <span class="PHPExeTime-toggle-details">Show details</span>
+            </div>
+            <div class="systemCriteria-Details">
+                <span id="systemCriteria-PHPExecution-Details">
+                </span>
+            </div>
+        </script>
+        
+        <script id="installationWizard-SystemRequirementsTemplate-PHPPermission" type="text/template">
+            <div class="permission-info-container">
+                 <span class="wizard-svg-icon-permissionEnvfile-criteria-checklist"></span><label class="permission-criteria-label"></label>
+              <span class="PHPPermissionEnvfile-toggle-details">Show Details</span>
+            </div>
+            <div class="systemCriteria-Details">
+                <span id="systemCriteria-PHPPermission-Details">
+                </span>
+            </div>
+        </script>
+
         <script id="installationWizard-SystemRequirementsTemplate" type="text/template">
             <div id="wizard-systemRequirements">
                 <h2> System Requirements</h2>
@@ -133,6 +155,33 @@
                     <span style="color: #6F6F6F !important;">Required</span>
                     <li id="systemCriteria-PHPVersion" class="fetching-details"></li>
                     <li id="systemCriteria-PHPExtensions" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPPermissionConfigfiles" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPPermission" class="fetching-details"></li>
+                    <li id="systemCriteria-PHPExecution" class="fetching-details"></li>
+                </ul>
+            </div>
+        </script>
+
+        <script id="installationWizard-SystemRequirementsTemplate-PHPPermissionConfigfiles" type="text/template">
+            <div class="permissionConfigfiles-info-container">
+                <span class="wizard-svg-icon-permissionConfigfiles-criteria-checklist"></span><label class="permissionConfigfiles-criteria-label"></label>
+                <span class="PHPPermissionConfigfiles-error-message"></span>
+                <span class="PHPPermissionConfigfiles-toggle-details">Show details</span>
+            </div>
+            <div class="systemCriteria-Details">
+                <ul id="systemCriteria-PHPPermissionConfigfiles-Details">
+                    <li id="uvdesk-info" class="fetching-details">
+                        <span class="wizard-svg-icon-criteria-checklist"></span>
+                        <label id="uvdesk-label"></label>
+                    </li>
+                    <li id="swiftmailer-info" class="fetching-details">
+                        <span class="wizard-svg-icon-criteria-checklist"></span>
+                        <label id="swiftmailer-label"></label>
+                    </li>
+                    <li id="uvdesk_mailbox-info" class="fetching-details">
+                        <span class="wizard-svg-icon-criteria-checklist"></span>
+                        <label id="uvdesk_mailbox-label"></label>
+                    </li>
                 </ul>
             </div>
         </script>
@@ -288,8 +337,19 @@
                         <path fill="#7c74f1" fill-rule="evenodd" d="M29.456,44.342a15.078,15.078,0,0,1,4.773-11A15.223,15.223,0,0,1,45.4,28.886,15.647,15.647,0,0,1,60.887,44.712a15.08,15.08,0,0,1-4.773,11,15.221,15.221,0,0,1-11.173,4.457A15.119,15.119,0,0,1,33.9,55.45,14.977,14.977,0,0,1,29.456,44.342ZM78.7,44.922a33.958,33.958,0,0,0-.145-4.382l9.537-7.188q1.479-1.024.462-2.915L79.77,14.9a2.043,2.043,0,0,0-2.712-.866l-11.17,4.249a34.492,34.492,0,0,0-7.479-4.468l-1.5-11.7a2.039,2.039,0,0,0-2.068-1.9L36.817,0a2.05,2.05,0,0,0-2.123,1.852L32.845,13.512A38.1,38.1,0,0,0,25.237,17.8L14.2,13.292a2.051,2.051,0,0,0-2.736.8L2.222,29.421q-1.079,1.865.376,2.925l9.321,7.41a33.43,33.43,0,0,0-.274,4.377,33.305,33.305,0,0,0,.145,4.382L2.253,55.7q-1.484,1.029-.462,2.915l8.782,15.539a2.039,2.039,0,0,0,2.712.866l11.17-4.249a34.072,34.072,0,0,0,7.479,4.468l1.5,11.7a2.035,2.035,0,0,0,2.068,1.9l18.02,0.212A2.054,2.054,0,0,0,55.649,87.2L57.5,75.543a38.1,38.1,0,0,0,7.608-4.291l11.041,4.51a2.049,2.049,0,0,0,2.736-.8l9.238-15.326q1.074-1.865-.376-2.925L78.423,49.3A33.885,33.885,0,0,0,78.7,44.922Z"></path>
                         </svg>
             </div>
-           
-            <span id="error-message-bar" style="color:#FF0000"></span>
+            <div class="progress">
+                <ul>
+                    <li class="current">1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="error-messagebar">
+                 <span class="wizard-svg-icon-failed-criteria-checklist"></span>
+                 <span id="error-message-bar" style="color:#FF0000"></span>
+            </div>
         </script>
 
         <script id="installationWizard-InstallSetupTemplate" type="text/template">

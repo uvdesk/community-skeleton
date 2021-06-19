@@ -16,6 +16,184 @@ body {
     }
 }
 
+/* Progress Bar */
+.center {
+    color: #d6d6d6;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.buttons {
+    display: block;
+    width: 100%;
+    margin-top: 65px;
+    text-align: center;
+}
+
+.buttons a {
+    text-decoration: none;
+    background-color: gray;
+    padding: 8px 25px;
+    color: #ffffff;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.buttons a:hover {
+    background-color: #cfcfcf;
+}
+
+a.next {
+    margin-left: 25px;
+}
+
+a.prev {
+    margin-right: 25px;
+}
+
+/* PROGRESS BAR STYLES */
+
+.progress {
+    width: 100%;
+    max-width: 800px;
+    margin: 70px auto 0;
+    display: table;
+    position: relative;
+    text-align: center;
+    left: 4%;
+    margin-left: 15px;
+}
+
+.progress ul {
+    display: table-row;
+}
+
+.progress ul li {
+    background-color: #d6d6d6;
+    /* Default Bar Color */
+    display: table-cell;
+    position: relative;
+    line-height: 20px;
+    z-index: -3;
+    color: #FFF;
+    text-align: left;
+    transition: background-color 0.75s, color 0.5s;
+}
+
+.progress ul li::before {
+    content: '';
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    line-height: 30px;
+    text-align: center;
+    left: -15px;
+    background-color: #d6d6d6;
+    /* Default Circle Color */
+    border: solid 5px #d6d6d6;
+    /* Default Circle Color */
+    index: -9;
+    position: absolute;
+    display: block;
+    top: -10px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: -1;
+    transition: background-color 0.75s, color 0.5s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+
+/* CURRENT STEP */
+
+.progress ul li.current {
+    display: inline-block;
+    width: 100%;
+    z-index: -3;
+    color: #9272F8;
+    position: relative;
+    transition: background-color 0.75s, color 0.5s;
+}
+
+.progress ul li.current::before {
+    border: solid 5px #9272F8;
+    /* Current Step Circle Color */
+    background-color: #FFF;
+    transition: background-color 0.75s, color 0.5s;
+    -webkit-animation: pulse 3s ease-out;
+    -moz-animation: pulse 3s ease-out;
+    animation: pulse 3s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+
+/* COMPLETED STEPS */
+
+.progress ul li.complete {
+    background-color: #9272F8;
+    /* Completed Step Bar Color */
+    transition: background-color 0.75s, color 0.5s;
+}
+
+.progress ul li.complete::before {
+    background-color: #9272F8;
+    /* Completed Step Circle Color */
+    border: 5px solid transparent;
+    transition: background-color 0.75s, color 0.5s;
+}
+
+
+/* REMOVE FIRST STEP COLOR BAR LINE */
+
+.progress ul li:last-of-type {
+    background-color: transparent;
+}
+
+.progress ul li.current:last-of-type,
+.progress ul li.complete:last-of-type {
+    background-color: transparent;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-transform: scale(1, 1);
+    }
+    50% {
+        -webkit-transform: scale(1.1, 1.1);
+    }
+    100% {
+        -webkit-transform: scale(1, 1);
+    }
+}
+
+@-keyframes pulse {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.1, 1.1);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+.error-messagebar {
+    margin: 50px auto 0;
+    /* display: table; */
+    position: relative;
+    margin-left: 30px;
+    /* text-align: center; */
+}
+
 /* Wizard Header */
 .wizard-box-lt {
     display: table;
@@ -275,7 +453,13 @@ ul.button-groups > li:last-child {
     margin-left: 30px;
 }
 
-.PHPExtensions-toggle-details, .PHPVersion-toggle-details {
+#systemCriteria-PHPExtensions-Details,
+#systemCriteria-PHPPermissionConfigfiles-Details {
+    margin-left: 30px;
+}
+
+.PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPExeTime-toggle-details,
+.PHPPermissionEnvfile-toggle-details, .PHPPermissionConfigfiles-toggle-details {
     cursor: pointer;
     color: #9272F8;
     text-decoration: underline;
@@ -295,7 +479,9 @@ ul.button-groups > li:last-child {
     color: #9272F8
 }
 
-.extension-info-container, .version-info-container {
+
+.extension-info-container, .version-info-container, .execution-info-container,
+.permission-info-container, .permissionConfigfiles-info-container {
     margin-bottom: 10px;
 }
 
