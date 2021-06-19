@@ -3,6 +3,30 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.14 (2021-06-19)
+    * **Misc. Updates:**
+        * Web installer updates for making installtion process easier and smooth also added progess bar.
+            - Extra checks for file permission https://prnt.sc/11ypcoo , https://prnt.sc/11ypvna
+            - Progess Bar with web installer: https://prnt.sc/11ypg5c , https://prnt.sc/11yp43d
+        * compatibility with composer 2.
+        * Agent Activity section added under report section. 
+          https://prnt.sc/124brkr, https://prnt.sc/124bttl, https://prnt.sc/124bx1y
+        * Announcement section added for uvdesk opensource.
+          https://tinyurl.com/yf8zx2xy, https://prnt.sc/1239xpy
+        * ZH_CN (Chinese) Translation file added into project.
+        * Site_url will automatically update when saving the email setting.
+
+    * **Bug Fixes:**
+        * **Issue #404:**  UVdesk getting frequently logged out when clicking on links.
+        * **Issue #405:**  Redirect users to login page after email validation
+        * **Issue #406:**  Is there a way I could hid the menu links and dashboard links.
+        * **Issue #407:**  Ticket forwarding option forward the entire thread. 
+        * **Issue #408:**  duplicate key on ../translation/messages.ar.yml file.
+        * **Issue #409:**  Emails not retrieving.
+        * **Issue #411:**  error when updating composer inside latest version.
+        * **Issue #412:**  i have installed uvdesk open source and i have configured mailbox, email settings and swift mailer but the customer is not able to receive a mail when replied to a ticket ? 
+        * **Issue #415:**  remove debugger from the installation wizard.
+
 * 1.0.13 (2021-04-02)
     * **Misc. Updates:**
         * **Last reply option added on ticket list to check when last time reply added on ticket.**

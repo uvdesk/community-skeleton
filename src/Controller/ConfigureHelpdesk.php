@@ -17,7 +17,7 @@ use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
 
 class ConfigureHelpdesk extends Controller
 {
-    const HELPDESK_VERSION = '1.0.13';
+    const HELPDESK_VERSION = '1.0.14';
     const DB_ENV_PATH_TEMPLATE = "DATABASE_URL=DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME\n";
     const DB_ENV_PATH_PARAM_TEMPLATE = "env(DATABASE_URL): 'DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME'\n";
     const DEFAULT_JSON_HEADERS = [
