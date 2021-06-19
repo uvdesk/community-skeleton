@@ -84,7 +84,7 @@ class ConfigureHelpdesk extends Controller
                 ];
                 break;
             case 'php-maximum-execution':
-                $response['status' ] = $max_execution_time >= 60 ? true : false;
+                $response['status' ] = $max_execution_time >= 30 ? true : false;
 
                 if ($response['status']) {
                     $response['message'] = sprintf('Maximum execution time is %s', ini_get('max_execution_time').' sec');
