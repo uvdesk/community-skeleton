@@ -31,6 +31,7 @@ RUN apt-get update && apt-get -y upgrade \
 COPY ./.docker/config/apache2/env /etc/apache2/envvars
 COPY ./.docker/config/apache2/httpd.conf /etc/apache2/apache2.conf
 COPY ./.docker/config/apache2/vhost.conf /etc/apache2/sites-available/000-default.conf
+COPY ./.docker/config/php/php.ini /etc/php/7.2/apache2/php.ini
 COPY ./.docker/bash/uvdesk-entrypoint.sh /usr/local/bin/
 COPY . /var/www/uvdesk/
 
