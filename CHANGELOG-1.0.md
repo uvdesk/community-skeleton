@@ -37,8 +37,6 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
         * **Issue #350:** Users avatar not delted from the server
         * **Issue #276:** Issues wth swiftmailer password if contains specials characters. Also save password not encrypted seems not good for security.
 
-
-
 * 1.0.14 (2021-06-19)
     * **Misc. Updates:**
         * Web installer updates for making installtion process easier and smooth also added progess bar.
