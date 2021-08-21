@@ -2,6 +2,42 @@ CHANGELOG for 1.0.x
 ===================
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
+* 1.0.15 (2021-08-21)
+    * **Misc. Updates:**
+        * Kudos feature added for UVdesk opensource.
+          https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
+        * Added a new option for mailbox setting that Email should be deleted from inbox after fetch and converted into ticket if user select that checkbox.
+        * Added password encryption for Swift mailer and  Mailbox.
+        * Corrected and added timestamp setting for agent and customer both.
+        * Collaborator replies adding to the ticket thread.
+        * Flash Message with a warning if swift mailer is not setup or working with ticket create process.
+        * Profile picture remove option added for customer and agent both.
+        * Reply to CC and BCC users from customer panel if added.
+        * Fixed multiple security issues with opensource.
+        * Added multiple missing translation in files.
+            
+    * **Bug Fixes:**
+        * **Issue #423:**  Status of the ticket not transalted in customer ticket list.
+        * **Issue #428:**  Attachment and Logo Issue - Web Installer Public Folder Issue.
+        * **Issue #435:**  Newer TLDs are considered invalid.
+        * **Issue #437:**  can’t upload logo after updating to 1.0.14.
+        * **Issue #438:**  Unable to finish installation - Error during load/superuser.
+        * **Issue #439:**  Update jQuery and Underscore.js
+        * **Issue #433:**  Email should be deleted from mailbox after fetch.
+        * **Issue #429:**  Invalid type for path "uvdesk_mailbox.mailboxes.Support.imap_server.password". Expected scalar, but got object.
+        * **Issue #417:**  Potential Security vulnerability.
+        * **Issue #401:** Need to implement a workflow that alert if any issue with sending email occurs.
+        * **Issue #382:** Improve new user experience: install and setup.
+        * **Issue #410:** Unable to create super user during installation.
+        * **Issue #375:** [Feature request] support extensions.
+        * **Issue #372:** Option to remove emails from mailbox after they are fetched.
+        * **Issue #340:** Option for operator and for the customer to remove the profile picture.
+        * **Issue #326:** Issue with translations on visitor and operator side.
+        * **Issue #279:** Add possibility to delete emails when is added to the ticket.
+        * **Issue #350:** Users avatar not delted from the server
+        * **Issue #276:** Issues wth swiftmailer password if contains specials characters. Also save password not encrypted seems not good for security.
+
+
 
 * 1.0.14 (2021-06-19)
     * **Misc. Updates:**
