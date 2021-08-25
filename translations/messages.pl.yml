@@ -1421,3 +1421,4 @@
 "This field should contains maximum 300 characters.": "To pole powinno zaiwerać maksymalnie 300 znaków."
 "Cram-MD5": "Cram-MD5"
 "user": "Użytkownik"
+"Invalid credentials.": "Nieprawidłowe dane uwierzytelniające"
