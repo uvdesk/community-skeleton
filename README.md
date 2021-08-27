@@ -65,6 +65,10 @@ Features
 * Saved Replies for common queries
 * Filter based on ticket status, Id, agent, customer, etc
 * Block Spam
+* [Agent Activity][29]
+* [Marketing Announcement][30]
+* [Kudos][31]
+* reCAPTCHA option
 * Standard automated workflows
 * Notes for agents
 * Custom branding
@@ -260,3 +264,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [26]: https://store.webkul.com/UVdesk/UVdesk-Open-Source.html
 [27]: https://support.uvdesk.com/en/blog/prerequisites-mac
 [28]: https://support.uvdesk.com/en/blog/prerequisites-centos7
+[29]: https://www.uvdesk.com/en/blog/uvdesk-agent-activity/
+[30]: https://www.uvdesk.com/en/blog/uvdesk-marketing-announcement/
+[31]: https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
