@@ -58,7 +58,7 @@ The development of the uvdesk community edition is led by the [uvdesk][10] team 
 Features
 ----------------
 
-* Translation Support (Multilingual)
+* [Translation Support (Multilingual)](https://www.uvdesk.com/en/blog/language-translation-in-uvdesk-open-source-helpdesk/)
 * Unlimited Agents, Group, Team, Customers, Tickets etc
 * Agent Privileges
 * No limit on the number of Mailbox/Email integration
@@ -150,6 +150,18 @@ After you've downloaded and installed all the project dependencies, you can conf
 
 ```bash
 $ php bin/console uvdesk:configure-helpdesk
+```
+
+
+##### Run project
+```bash
+php bin/console server:run
+```
+
+**How to clear cache:**
+
+```bash
+php bin/console c:c
 ```
 
 #### Using Web Installer Wizard
