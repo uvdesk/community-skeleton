@@ -75,7 +75,13 @@ RUN \
         /var/www/uvdesk/.docker;
 
 # Change working directory to uvdesk source
-WORKDIR /var/www
+WORKDIR /var/www/uvdesk
+
+#Install Composer Packages
+RUN composer install && chown -R uvdesk:uvdesk /var/www;
+
+# Open Port 80
+EXPOSE 80
 
 ENTRYPOINT ["uvdesk-entrypoint.sh"]
 CMD ["/bin/bash"]
