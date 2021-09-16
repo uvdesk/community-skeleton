@@ -58,7 +58,7 @@ The development of the uvdesk community edition is led by the [uvdesk][10] team 
 Features
 ----------------
 
-* Translation Support (Multilingual)
+* [Translation Support (Multilingual)][32]
 * Unlimited Agents, Group, Team, Customers, Tickets etc
 * Agent Privileges
 * No limit on the number of Mailbox/Email integration
@@ -175,6 +175,17 @@ http(s)://example.com/public
 After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
 
 
+##### Run project on localhost (dev mode)
+```bash
+php bin/console server:run
+```
+
+**How to clear cache:**
+
+```bash
+php bin/console c:c
+```
+
 **How to log in as admin/agent:**
 
 *Below url is the default url for admin/agent login if you have not made any changes for /member prefix.*
@@ -267,3 +278,5 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [29]: https://www.uvdesk.com/en/blog/uvdesk-agent-activity/
 [30]: https://www.uvdesk.com/en/blog/uvdesk-marketing-announcement/
 [31]: https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
+[32]: https://www.uvdesk.com/en/blog/language-translation-in-uvdesk-open-source-helpdesk/
+
