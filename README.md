@@ -83,7 +83,7 @@ Features
 * Powerful Knowledgebase/Faq (article, category & folder)
 * Ticket types, Multiple Tags
 * Email Templates
-* [API][16] ([Doc][25])
+* [API][16]-[Doc][25]
 * Edit/delete/pinned ticket and thread
 * Add a collaborator and much more.
 * Check Apps [here.][26]
@@ -207,7 +207,7 @@ Docker Runtime
 Modules
 --------------
 
-[Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
+[Available Modules/Apps](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
 
 Need something else ? email us at support@uvdesk.com
 
