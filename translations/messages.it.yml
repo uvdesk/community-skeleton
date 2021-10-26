@@ -1405,3 +1405,7 @@
 "Star(s)": "Stelle"
 "Warning ! Swiftmailer not working" : "Attenzione! Si è verificato un errore durante l'invio delle e-mail | Warning ! An error has occurred while sending emails!"
 "Invalid credentials." : "Credenziali non valide."
+"Success ! Project cache cleared successfully.": "Successo ! La cache del progetto è stata cancellata correttamente."
+"clear cache": "svuota la cache"
+"Last Updated": "Ultimo aggiornamento"
+"Error! Something went wrong.": "Errore! Qualcosa è andato storto."
