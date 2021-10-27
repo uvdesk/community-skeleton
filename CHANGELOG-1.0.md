@@ -3,6 +3,47 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.17 (2021-10-27)
+
+    * **Misc. Updates:**
+        * Compatibility with PHP 8.
+        * Updated error pages design and added links.
+        * Saved reply search option added with default focus on search bar to save clicks.
+        * Added yellow background for note on ticket reply box.
+        * Layout updates on ticket view for scroller and search dropdown.
+        * Cache clear button added on dashboard so that user can clear cache of project without 
+        running command using CMD.
+        * Ticket conversion issue during mailbox refresh command so now user will able to see 
+        error on CMD if any error.
+        * Added route for dubugging ticket creation issue using email.
+        * All Attachment remove from it's physical path as well if we delete any ticket or profile etc.
+        * Ticket Transfer functionality added if removing a agent all tickets will assigned to another agent using workflow.
+        * Added some default workflow and email templates for collaborators.
+        * Updated "last update" filter on customer ticket listing.
+
+    * **Bug Fixes:**
+        * **Issue #492:**  agent password creation redirects to customer login page.
+        * **Issue #488:**  Better managment of email fetching in case of errors.
+        * **Issue #485:**  Crontab.
+        * **Issue #484:**  No puedo enviar ni recibir correos
+        * **Issue #483:**  Get laravel 8 Uvdesk
+        * **Issue #480:**  Improve 404 page enhancement.
+        * **Issue #476:**  Fix the default email template to customer when ticket is created.
+        * **Issue #475:**  Error when downloading attachment from customer side
+        * **Issue #474:**  Add an option to not rename attachments.
+        * **Issue #472:**  Login Button backend shows no reaktion.
+        * **Issue #465:**  Sort ticket by latest updated.
+        * **Issue #466:**  Loading issue of Tickets which have more Text messages.
+        * **Issue #464:**  Line breaks are not or not nicely displayed.
+        * **Issue #462:**  Error Create Ticket.
+        * **Issue #461:**  swiftmailer.yaml
+        * **Issue #459:**  Disable cloudflare CDN for static contents.
+        * **Issue #457:**  swift error.
+        * **Issue #455:**  Move the HelpDesk string to the custom field.
+        * **Issue #454:**  Can not install UVdesk after install of Composer 2.x.
+        * **Issue #452:**  error deleting ticket permanently.
+        * **Issue #452:**  User login error message not translated.
+        
 * 1.0.16 (2021-08-23)
     * **Misc. Updates:**
         * Kudos feature added for UVdesk opensource.

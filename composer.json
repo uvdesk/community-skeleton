@@ -4,37 +4,44 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": "^7.2",
+        "php": "^7.3 || ^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "doctrine/doctrine-bundle": "^1.12.13",
+        "doctrine/doctrine-bundle": "^2.4",
+        "composer/package-versions-deprecated": "1.11.99.3",
+        "doctrine/annotations": "^1.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4.0",
         "doctrine/doctrine-migrations-bundle": "^2.2.2",
+        "doctrine/orm": "^2.9",
         "google/recaptcha": "^1.2.4",
         "ocramius/proxy-manager": "2.2.3",
-        "knplabs/knp-paginator-bundle": "^4.1.1",
+        "knplabs/knp-paginator-bundle": "^5.4.0",
+        "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.5.3",
-        "symfony/asset": "4.3.*",
-        "symfony/console": "4.3.*",
-        "symfony/dotenv": "4.3.*",
-        "symfony/expression-language": "4.3.*",
+        "symfony/asset": "4.4.*",
+        "symfony/console": "4.4.*",
+        "symfony/dotenv": "4.4.*",
+        "symfony/expression-language": "4.4.*",
         "symfony/flex": "^1.12.2",
-        "symfony/form": "4.3.*",
-        "symfony/framework-bundle": "4.3.*",
-        "symfony/http-client": "4.3.*",
-        "symfony/intl": "4.3.*",
+        "symfony/form": "^4.4.25",
+        "symfony/framework-bundle": "4.4.*",
+        "symfony/http-client": "4.4.*",
+        "symfony/intl": "4.4.*",
+        "symfony/mime": "4.4.*",
         "symfony/monolog-bundle": "^3.6.0",
-        "symfony/orm-pack": "*",
-        "symfony/process": "4.3.*",
-        "symfony/security-bundle": "4.3.*",
-        "symfony/serializer-pack": "*",
+        "symfony/process": "4.4.*",
+        "symfony/property-access": "^4.4",
+        "symfony/property-info": "^4.4",
+        "symfony/proxy-manager-bridge": "^4.4",
+        "symfony/security-bundle": "4.4.*",
+        "symfony/serializer": "^4.4",
         "symfony/swiftmailer-bundle": "^3.4.0",
-        "symfony/translation": "4.3.*",
-        "symfony/twig-bundle": "4.3.*",
-        "symfony/validator": "4.3.*",
-        "symfony/var-dumper": "4.3.*",
-        "symfony/web-link": "4.3.*",
-        "symfony/yaml": "4.3.*",
+        "symfony/translation": "4.4.*",
+        "symfony/twig-bundle": "4.4.*",
+        "symfony/validator": "4.4.*",
+        "symfony/var-dumper": "4.4.*",
+        "symfony/web-link": "4.4.*",
+        "symfony/yaml": "4.4.*",
         "uvdesk/composer-plugin": "^1.0",
         "uvdesk/core-framework": "^1.0",
         "uvdesk/extension-framework": "^1.0",
@@ -43,11 +50,15 @@
         "uvdesk/mailbox-component": "^1.0"
     },
     "require-dev": {
-        "symfony/debug-pack": "*",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "^4.4",
+        "symfony/css-selector": "^4.4",
+        "symfony/debug-bundle": "^4.4",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*",
-        "symfony/web-server-bundle": "4.3.*"
+        "symfony/phpunit-bridge": "^5.3",
+        "symfony/stopwatch": "^4.4",
+        "symfony/web-profiler-bundle": "4.4.*",
+        "symfony/web-server-bundle": "4.4.*"
     },
     "config": {
         "preferred-install": {
@@ -79,7 +90,11 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        }
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -87,7 +102,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.3.*"
+            "require": "4.4.*"
         }
     },
     "prefer-stable": true,

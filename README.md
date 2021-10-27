@@ -58,13 +58,17 @@ The development of the uvdesk community edition is led by the [uvdesk][10] team 
 Features
 ----------------
 
-* Translation Support (Multilingual)
+* [Translation Support (Multilingual)][32]
 * Unlimited Agents, Group, Team, Customers, Tickets etc
 * Agent Privileges
 * No limit on the number of Mailbox/Email integration
 * Saved Replies for common queries
 * Filter based on ticket status, Id, agent, customer, etc
 * Block Spam
+* [Agent Activity][29]
+* [Marketing Announcement][30]
+* [Kudos][31]
+* reCAPTCHA option
 * Standard automated workflows
 * Notes for agents
 * Custom branding
@@ -79,7 +83,7 @@ Features
 * Powerful Knowledgebase/Faq (article, category & folder)
 * Ticket types, Multiple Tags
 * Email Templates
-* [API][16] ([Doc][25])
+* [API][16]-[Doc][25]
 * Edit/delete/pinned ticket and thread
 * Add a collaborator and much more.
 * Check Apps [here.][26]
@@ -97,7 +101,7 @@ Requirements
 * **OS**: Ubuntu 16.04 LTS or higher / Windows 7 or Higher (WAMP / XAMPP).
 * **SERVER**: Apache 2 or NGINX.
 * **RAM**: 3 GB or higher.
-* **PHP**: 7.2 or higher and less than 8.
+* **PHP**: 7.3 or higher.
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
 * **Composer**: 1.6.5 or higher and less than 2.
@@ -171,6 +175,17 @@ http(s)://example.com/public
 After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
 
 
+##### Run project on localhost (dev mode)
+```bash
+php bin/console server:run
+```
+
+**How to clear cache:**
+
+```bash
+php bin/console c:c
+```
+
 **How to log in as admin/agent:**
 
 *Below url is the default url for admin/agent login if you have not made any changes for /member prefix.*
@@ -192,7 +207,7 @@ Docker Runtime
 Modules
 --------------
 
-[Available modules](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
+[Available Modules/Apps](https://store.webkul.com/UVdesk/UVdesk-Open-Source.html)
 
 Need something else ? email us at support@uvdesk.com
 
@@ -260,3 +275,8 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [26]: https://store.webkul.com/UVdesk/UVdesk-Open-Source.html
 [27]: https://support.uvdesk.com/en/blog/prerequisites-mac
 [28]: https://support.uvdesk.com/en/blog/prerequisites-centos7
+[29]: https://www.uvdesk.com/en/blog/uvdesk-agent-activity/
+[30]: https://www.uvdesk.com/en/blog/uvdesk-marketing-announcement/
+[31]: https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
+[32]: https://www.uvdesk.com/en/blog/language-translation-in-uvdesk-open-source-helpdesk/
+

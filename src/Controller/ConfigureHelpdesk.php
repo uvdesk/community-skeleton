@@ -17,7 +17,7 @@ use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
 
 class ConfigureHelpdesk extends Controller
 {
-    const HELPDESK_VERSION = '1.0.16';
+    const HELPDESK_VERSION = '1.0.17';
     const DB_ENV_PATH_TEMPLATE = "DATABASE_URL=DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME\n";
     const DB_ENV_PATH_PARAM_TEMPLATE = "env(DATABASE_URL): 'DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME'\n";
     const DEFAULT_JSON_HEADERS = [
@@ -283,7 +283,8 @@ class ConfigureHelpdesk extends Controller
             session_start();
         }
 
-        $entityManager = $this->getDoctrine()->getEntityManager();
+        // $entityManager = $this->getDoctrine()->getEntityManager();
+        $entityManager = $this->getDoctrine()->getManager();
 
         $role = $entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
         $userInstance = $entityManager->getRepository('UVDeskCoreFrameworkBundle:UserInstance')->findOneBy([
