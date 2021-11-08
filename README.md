@@ -101,10 +101,10 @@ Requirements
 * **OS**: Ubuntu 16.04 LTS or higher / Windows 7 or Higher (WAMP / XAMPP).
 * **SERVER**: Apache 2 or NGINX.
 * **RAM**: 3 GB or higher.
-* **PHP**: 7.2 or higher and less than 8.
+* **PHP**: 7.3 or higher.
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
-* **Composer**: 1.6.5 or higher and less than 2.
+* **Composer**: 1.6.5 or higher.
 * **PHP IMAP** **&** **PHP Mailparse** for [Ubuntu][7], [Windows][23], [Centos][28], [Mac][27].
 
 Installation
