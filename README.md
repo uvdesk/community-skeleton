@@ -104,7 +104,7 @@ Requirements
 * **PHP**: 7.3 or higher.
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
-* **Composer**: 1.6.5 or higher.
+* **Composer**: 2 or higher.
 * **PHP IMAP** **&** **PHP Mailparse** for [Ubuntu][7], [Windows][23], [Centos][28], [Mac][27].
 
 Installation
