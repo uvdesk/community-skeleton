@@ -20,6 +20,7 @@ RUN apt-get update && apt-get -y upgrade \
         php-xml \
         php7.2-imap \
         php7.2-mysql \
+	php7.2-curl \
         php-mailparse \
         ca-certificates; \
     if ! command -v gpg; then \
