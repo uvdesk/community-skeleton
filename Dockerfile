@@ -7,7 +7,7 @@ RUN adduser uvdesk -q --disabled-password --gecos ""
 
 # Install base supplimentary packages
 RUN apt-get update && apt-get -y upgrade \
-    && apt-get update && apt-get install -y software-properties-common \
+    && apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:ondrej/php \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
         curl \
         wget \
@@ -15,12 +15,13 @@ RUN apt-get update && apt-get -y upgrade \
         unzip \
         apache2 \
         mysql-server \
-        php7.2 \
-        libapache2-mod-php7.2 \
-        php-xml \
-        php7.2-imap \
-        php7.2-mysql \
-        php-mailparse \
+        php7.4 \
+        libapache2-mod-php7.4 \
+        php7.4-common \
+        php7.4-xml \
+        php7.4-imap \
+        php7.4-mysql \
+        php7.4-mailparse \
         ca-certificates; \
     if ! command -v gpg; then \
 		apt-get install -y --no-install-recommends gnupg2 dirmngr; \
@@ -36,7 +37,7 @@ COPY . /var/www/uvdesk/
 
 RUN \
     # Update apache configurations
-    a2enmod php7.2 rewrite; \
+    a2enmod php7.4 rewrite; \
     chmod +x /usr/local/bin/uvdesk-entrypoint.sh; \
     # Install gosu for stepping-down from root to a non-privileged user during container startup
     dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
