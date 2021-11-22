@@ -27,7 +27,7 @@
     <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danish" width="24" height="24">
     <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/pl.svg" alt="Polish" width="24" height="24">
     <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/tr.svg" alt="Turkish" width="24" height="24">
-    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/zh.svg" alt="Chinese" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Chinese" width="24" height="24">
 </p>
 
 [Uvdesk community helpdesk][1] project skeleton packaged along with the bare essential utilities and tools to build and customize your own helpdesk solutions.
