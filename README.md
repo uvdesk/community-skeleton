@@ -13,6 +13,23 @@
     <a href="https://github.com/collections/made-in-india"><img src="https://badges.frapsoft.com/os/v3/open-source.png?v=103" alt="Checkout us on open source projects from India"></a>
 </p>
 
+<p align="center">
+    ➡️ <a href="https://www.uvdesk.com/en/opensource/">Website</a> | <a href="https://docs.uvdesk.com/">Documentation</a> | <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/">Installation Guide</a> | <a href="https://forums.uvdesk.com/">Forums</a> | <a href="https://www.facebook.com/uvdesk/">Community</a> ⬅️
+</p>
+
+<p align="center" style="display: inline;">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/ar.svg" alt="Arabic" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/de.svg" alt="German" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/us.svg" alt="English" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/es.svg" alt="Spanish" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/fr.svg" alt="French" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/it.svg" alt="Italian" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/dk.svg" alt="Danish" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/pl.svg" alt="Polish" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/tr.svg" alt="Turkish" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Chinese" width="24" height="24">
+</p>
+
 [Uvdesk community helpdesk][1] project skeleton packaged along with the bare essential utilities and tools to build and customize your own helpdesk solutions.
 
 Visit our official demo website to [see it in action!][15]
