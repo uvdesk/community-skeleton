@@ -1392,7 +1392,7 @@
 "Happy": "Szczęśliwy"
 "Very Happy": "Bardzo szczęśliwy"
 "Star(s)": "Gwiazdki"
-#missing
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "Ostrzeżenie ! Swiftmailer nie działa. Wystąpił błąd podczas wysyłania e-maili!"
 "Low": "Niski"
 "Medium": "Średni"
 "High": "Wysoki"

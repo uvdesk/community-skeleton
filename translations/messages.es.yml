@@ -1400,6 +1400,7 @@
 "Happy": "Contenta"
 "Very Happy": "Muy feliz"
 "Star(s)": "Estrellas"
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "Advertencia ! Swiftmailer no funciona. ¡Se produjo un error al enviar correos electrónicos!"
 "Invalid credentials.": "Credenciales no válidas"
 "Success ! Project cache cleared successfully.": "Éxito ! La caché del proyecto se borró correctamente."
 "clear cache": "limpiar cache"
