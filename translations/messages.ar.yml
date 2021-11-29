@@ -1374,6 +1374,7 @@
 "Happy": "سعيدة"
 "Very Happy": "سعيد جدا"
 "Star(s)": "النجوم"
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "تحذير ! Swiftmailer لا يعمل. حدث خطأ أثناء إرسال رسائل البريد الإلكتروني!"
 "Invalid credentials.": "بيانات الاعتماد غير صالحة"
 "Success ! Project cache cleared successfully.": "النجاح ! تم مسح ذاكرة التخزين المؤقت للمشروع بنجاح."
 "clear cache": "مسح ذاكرة التخزين المؤقت"

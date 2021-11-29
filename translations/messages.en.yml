@@ -1430,6 +1430,7 @@
 "Happy": "Happy"
 "Very Happy": "Very Happy"
 "Star(s)": "Star(s)"
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "Warning ! Swiftmailer not working. An error has occurred while sending emails!"
 "Invalid credentials.": "Invalid credentials"
 "Success ! Project cache cleared successfully.": "Success! Project cache cleared successfully."
 "clear cache": "clear cache"

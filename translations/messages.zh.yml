@@ -1426,6 +1426,7 @@
 "Happy": "快乐的"
 "Very Happy": "很高兴"
 "Star(s)": "星星"
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "警告 ！ Swiftmailer 不工作。發送電子郵件時發生錯誤！"
 "Invalid credentials.": "无效证件"
 "Success ! Project cache cleared successfully.": "成功 ！项目缓存已成功清除。"
 "clear cache": "清除缓存"

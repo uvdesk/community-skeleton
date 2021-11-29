@@ -1401,6 +1401,7 @@
 "Happy": "Lykkelig"
 "Very Happy": "Meget glad"
 "Star(s)": "Stjerner"
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "Advarsel! Swiftmailer virker ikke. Der opstod en fejl under afsendelse af e-mails!"
 "Invalid credentials.": "Ugyldige legitimationsoplysninger"
 "Success ! Project cache cleared successfully.": "Succes! Projektcachen blev ryddet."
 "clear cache": "ryd cache"

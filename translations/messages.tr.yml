@@ -1399,6 +1399,7 @@
 "Happy": "Mutlu"
 "Very Happy": "Çok mutlu"
 "Star(s)": "Yıldızlar"
+"Warning ! Swiftmailer not working. An error has occurred while sending emails!" : "Uyarı ! Swiftmailer çalışmıyor. E-posta gönderirken bir hata oluştu!"
 "Invalid credentials.": "Geçersiz kimlik bilgileri"
 "Success ! Project cache cleared successfully.": "Başarı ! Proje önbelleği başarıyla temizlendi."
 "clear cache": "önbelleği temizle"
