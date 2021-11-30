@@ -704,6 +704,7 @@
 "Mailbox ID - Leave blank to automatically create id": "ID - pozostaw puste, aby automatycznie utworzyć ID"
 "Mailbox Name": "Nazwa skrzynki pocztowej"
 "Enable Mailbox": "Włącz skrzynkę pocztową"
+"Permanently delete from Inbox": "Usuń trwale ze skrzynki odbiorczej"
 "Incoming Mail (IMAP) Server": "Serwer poczty przychodzącej (IMAP)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Skonfiguruj ustawienia IMAP, które będą używane do pobierania wiadomości e-mail z Twojej skrzynki pocztowej."
 "Transport": "Transport"
