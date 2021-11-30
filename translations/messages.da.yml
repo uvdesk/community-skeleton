@@ -706,6 +706,7 @@
 "Mailbox ID - Leave blank to automatically create id": "Postkasse-id - lad det være tomt for automatisk at oprette id"
 "Mailbox Name": "Postkassenavn"
 "Enable Mailbox": "Aktivér postkasse"
+"Permanently delete from Inbox": "Slet permanent fra indbakken"
 "Incoming Mail (IMAP) Server": "IMAP-server (indgående post)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Konfigurer dine imap-indstillinger, som vil blive brugt til at hente e-mails fra din postkasse."
 "Transport": "Transportere"

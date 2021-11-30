@@ -706,6 +706,7 @@
 "Mailbox ID - Leave blank to automatically create id": "ID de buzón: déjelo en blanco para crear automáticamente la identificación"
 "Mailbox Name": "Nombre del buzón"
 "Enable Mailbox": "Habilitar buzón"
+"Permanently delete from Inbox": "Eliminar permanentemente de la bandeja de entrada"
 "Incoming Mail (IMAP) Server": "Servidor de correo entrante (IMAP)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Configure los ajustes de imap que se usarán para recuperar correos electrónicos de su buzón"
 "Transport": "Transporte"
