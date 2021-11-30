@@ -707,6 +707,7 @@
 "Mailbox ID - Leave blank to automatically create id": "邮箱ID-保留空白以自动创建ID"
 "Mailbox Name": "邮箱名称"
 "Enable Mailbox": "启用邮箱"
+"Permanently delete from Inbox": "從收件箱中永久刪除"
 "Incoming Mail (IMAP) Server": "传入邮件（IMAP）服务器"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "配置您的imap设置，该设置将用于从您的邮箱中获取电子邮件。"
 "Transport": "传输"

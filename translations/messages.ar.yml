@@ -705,6 +705,7 @@
 "Mailbox ID - Leave blank to automatically create id": "معرف صندوق البريد - اتركه فارغًا لإنشاء معرف تلقائيًا"
 "Mailbox Name": "اسم صندوق البريد"
 "Enable Mailbox": "تمكين صندوق البريد"
+"Permanently delete from Inbox": "حذف نهائي من علبة الوارد"
 "Incoming Mail (IMAP) Server": "خادم البريد الوارد (IMAP)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "تكوين إعدادات imap الخاصة بك والتي سيتم استخدامها لجلب رسائل البريد الإلكتروني من صندوق البريد الخاص بك."
 "Transport": "المواصلات"

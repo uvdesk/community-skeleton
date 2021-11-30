@@ -706,6 +706,7 @@
 "Mailbox ID - Leave blank to automatically create id": "ID de boîte aux lettres - Laissez vide pour créer automatiquement un identifiant"
 "Mailbox Name": "Nom de la boîte aux lettres"
 "Enable Mailbox": "Activer la boîte aux lettres"
+"Permanently delete from Inbox": "Supprimer définitivement de la boîte de réception"
 "Incoming Mail (IMAP) Server": "Serveur de courrier entrant (IMAP)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Configurez vos paramètres dimap qui seront utilisés pour récupérer les courriels de votre boîte aux lettres."
 "Transport": "Transport"
