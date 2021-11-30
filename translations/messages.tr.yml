@@ -706,6 +706,7 @@
 "Mailbox ID - Leave blank to automatically create id": "Posta Kutusu Kimliği - Otomatik olarak kimlik oluşturmak için boş bırakın"
 "Mailbox Name": "Posta Kutusu Adı"
 "Enable Mailbox": "Posta Kutusunu Etkinleştir"
+"Permanently delete from Inbox": "Gelen Kutusundan kalıcı olarak sil"
 "Incoming Mail (IMAP) Server": "Gelen Posta (IMAP) Sunucusu"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Posta kutunuzdan e-postaları almak için kullanılacak imap ayarlarınızı yapılandırın."
 "Transport": "taşıma"
