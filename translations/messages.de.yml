@@ -706,6 +706,7 @@
 "Mailbox ID - Leave blank to automatically create id": "Mailbox ID - Leer lassen, um automatisch eine ID zu erstellen"
 "Mailbox Name": "Postfachname"
 "Enable Mailbox": "Mailbox aktivieren"
+"Permanently delete from Inbox": "Endgültig aus Posteingang löschen"
 "Incoming Mail (IMAP) Server": "Posteingangsserver (IMAP)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Konfigurieren Sie Ihre IMAP-Einstellungen, die zum Abrufen von E-Mails aus Ihrer Mailbox verwendet werden."
 "Transport": "Transport"
