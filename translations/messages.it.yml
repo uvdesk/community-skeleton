@@ -706,6 +706,7 @@
 "Mailbox ID - Leave blank to automatically create id": "ID casella - Lascia vuoto per creare automaticamente lid"
 "Mailbox Name": "Nome casella"
 "Enable Mailbox": "Abilita casella"
+"Permanently delete from Inbox": "Elimina definitivamente dalla Posta in arrivo"
 "Incoming Mail (IMAP) Server": "Server posta in arrivo (IMAP)"
 "Configure your imap settings which will be used to fetch emails from your mailbox.": "Configura le impostazioni di imap che verranno utilizzate per recuperare le e-mail dalla tua casella di posta."
 "Transport": "Trasporto"
