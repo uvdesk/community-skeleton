@@ -58,7 +58,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
 				$event->setResponse(new Response($template, 403));
 			}
 		} else {
-			if ($exception instanceof NotFoundHttpException) {
+			if ($exception instanceof NotFoundHttpException || $exception->getCode() == 404) {
 				$template = $this->twig->render('errors/error.html.twig', [
 					'code' => 404,
 					'message' => 'Page not Found',
