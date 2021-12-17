@@ -48,7 +48,7 @@ class ExceptionSubscriber implements EventSubscriberInterface
 			// 		a) If user session is set, display forbidden page
 			// 		b) If user session is not set, redirect to login page
 
-			if (!empty($this->container->get('security.token_storage')->getToken()->getUser())) {
+			if (!empty($this->container->get('security.token_storage')->getToken()->getUser()) && $this->container->get('security.token_storage')->getToken()->getUser() != "anon.") {
 				$template = $this->twig->render('errors/error.html.twig', [
 					'code' => 403,
 					'message' => 'Access Forbidden',
