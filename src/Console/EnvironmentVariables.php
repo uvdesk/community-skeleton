@@ -30,11 +30,12 @@ class EnvironmentVariables extends Command
         $this
             ->setName('uvdesk_wizard:env:update')
             ->setDescription('Makes changes to .env located in project root to update environment variables.')
-            ->setHidden(true);
+        ;
 
         $this
             ->addArgument('name', InputArgument::REQUIRED, "Name of the environment variable")
-            ->addArgument('value', InputArgument::REQUIRED, "Value to set for the evironment variable");
+            ->addArgument('value', InputArgument::REQUIRED, "Value to set for the evironment variable")
+        ;
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
