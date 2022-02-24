@@ -8,10 +8,11 @@ use Symfony\Component\Console\Question\Question;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
 
 class DefaultUser extends Command
 {
@@ -21,10 +22,11 @@ class DefaultUser extends Command
     private $entityManager;
     private $questionHelper;
 
-    public function __construct(ContainerInterface $container, EntityManagerInterface $entityManager)
+    public function __construct(ContainerInterface $container, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $encoder)
     {
         $this->container = $container;
         $this->entityManager = $entityManager;
+        $this->encoder = $encoder;
 
         parent::__construct();
     }
@@ -97,7 +99,7 @@ class DefaultUser extends Command
                 $confirmPassword = $this->promptUserPasswordInteractively($input, $output, true);
             } while ($password != $confirmPassword);
 
-            $encodedPassword = $this->container->get('security.password_encoder')->encodePassword($this->user, $password);
+            $encodedPassword = $this->encoder->encodePassword($this->user, $password);
             $this->user->setPassword($encodedPassword);
         }
 
@@ -131,7 +133,7 @@ class DefaultUser extends Command
                 $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: $this->user->setEmail($email);
 
                 $username = explode(' ', $name, 2);
-                $encodedPassword = $this->container->get('security.password_encoder')->encodePassword($this->user, $password);
+                $encodedPassword = $this->encoder->encodePassword($this->user, $password);
 
                 $this->user
                     ->setFirstName($username[0])
@@ -185,6 +187,8 @@ class DefaultUser extends Command
         } else {
             return 1;
         }
+
+        return Command::SUCCESS;
     }
 
     private function promptUserEmailInteractively(InputInterface $input, OutputInterface $output)

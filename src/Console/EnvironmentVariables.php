@@ -74,5 +74,7 @@ class EnvironmentVariables extends Command
         if (trim($stream) != trim($this->conf)) {
             file_put_contents($this->path, $stream);
         }
+
+        return Command::SUCCESS;
     }
 }

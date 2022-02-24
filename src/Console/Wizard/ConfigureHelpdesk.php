@@ -314,6 +314,8 @@ class ConfigureHelpdesk extends Command
         }
 
         $output->writeln("  Exiting evaluation process.\n");
+
+        return Command::SUCCESS;
     }
 
     /**

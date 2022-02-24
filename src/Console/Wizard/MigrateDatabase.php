@@ -70,6 +70,8 @@ class MigrateDatabase extends Command
         } catch (NoChangesDetected $e) {
             // Do nothing ...
         }
+
+        return Command::SUCCESS;
     }
 
     private function versionMigrations(OutputInterface $consoleOutput)
