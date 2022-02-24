@@ -36,14 +36,15 @@ class DefaultUser extends Command
         $this
             ->setName('uvdesk_wizard:defaults:create-user')
             ->setDescription('Creates a new user instance')
-            ->setHidden(true);
+            ->setHidden(true)
+        ;
         
-        // Arguments
         $this
             ->addArgument('role', InputArgument::REQUIRED, "Access level of the user restricting access to parts of helpdesk system")
             ->addArgument('name', InputArgument::OPTIONAL, "Name of the user")
             ->addArgument('email', InputArgument::OPTIONAL, "Email address of the user")
-            ->addArgument('password', InputArgument::OPTIONAL, "Password of the user account");
+            ->addArgument('password', InputArgument::OPTIONAL, "Password of the user account")
+        ;
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
