@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,9 +13,9 @@ use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
+use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
 
 class ConfigureHelpdesk extends AbstractController
 {
@@ -55,7 +57,7 @@ class ConfigureHelpdesk extends AbstractController
         ]);
     }
 
-    public function evaluateSystemRequirements(Request $request)
+    public function evaluateSystemRequirements(Request $request, KernelInterface $kernel)
     {
         $max_execution_time = ini_get('max_execution_time');
         // Evaluate system specification requirements
@@ -94,7 +96,7 @@ class ConfigureHelpdesk extends AbstractController
                 }
                 break;
             case 'php-envfile-permission':
-                    $filename =  $this->get('kernel')->getProjectDir().'/.env';
+                    $filename =  $kernel->getProjectDir().'/.env';
                     $response['status'] = is_writable($filename) ? true : false;
    
                     if ($response['status']) {
@@ -105,9 +107,9 @@ class ConfigureHelpdesk extends AbstractController
                     }
                 break;
             case 'php-configfiles-permission':
-                    $configfiles_status = array_map(function ($configfile) {
+                    $configfiles_status = array_map(function ($configfile) use ($kernel) {
                         return [
-                            $configfile['name'] => is_writable($this->get('kernel')->getProjectDir().'/config/packages/'.$configfile['name'].'.yaml') ,
+                            $configfile['name'] => is_writable($kernel->getProjectDir().'/config/packages/'.$configfile['name'].'.yaml') ,
                         ];
                     }, self::$requiredConfigfiles);
    
@@ -277,7 +279,7 @@ class ConfigureHelpdesk extends AbstractController
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function createDefaultSuperUserXHR(Request $request)
+    public function createDefaultSuperUserXHR(Request $request, UserPasswordEncoderInterface $encoder)
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -313,7 +315,7 @@ class ConfigureHelpdesk extends AbstractController
                 }
             } else {
                 $username = explode(' ', $name, 2);
-                $encodedPassword = $this->get('security.password_encoder')->encodePassword($user, $password);
+                $encodedPassword = $encoder->encodePassword($user, $password);
 
                 $user
                     ->setFirstName($username[0])
@@ -341,11 +343,11 @@ class ConfigureHelpdesk extends AbstractController
         return new Response(json_encode([]), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function websiteConfigurationXHR(Request $request)
+    public function websiteConfigurationXHR(Request $request, UVDeskService $uvdesk)
     {
         switch ($request->getMethod()) {
             case "GET":
-                $currentWebsitePrefixCollection = $this->get('uvdesk.service')->getCurrentWebsitePrefixes();
+                $currentWebsitePrefixCollection = $uvdesk->getCurrentWebsitePrefixes();
                 
                 if ($currentWebsitePrefixCollection) {
                     $result = $currentWebsitePrefixCollection;
@@ -373,13 +375,13 @@ class ConfigureHelpdesk extends AbstractController
         return new Response(json_encode($result ?? []), 200, self::DEFAULT_JSON_HEADERS);
     }
 
-    public function updateWebsiteConfigurationXHR(Request $request)
+    public function updateWebsiteConfigurationXHR(Request $request, UVDeskService $uvdesk)
     {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
 
-        $collectionURL= $this->get('uvdesk.service')->updateWebsitePrefixes(
+        $collectionURL= $uvdesk->updateWebsitePrefixes(
             $_SESSION['PREFIXES_DETAILS']['member'],
             $_SESSION['PREFIXES_DETAILS']['customer']
         );
