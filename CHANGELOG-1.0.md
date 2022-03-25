@@ -3,6 +3,187 @@ CHANGELOG for 1.0.x
 
 This changelog references any relevant changes introduced in 1.0 minor versions.
 
+* 1.0.17 (2021-10-27)
+    * **Misc. Updates:**
+        * Compatibility with PHP 8.
+        * Updated error pages design and added links.
+        * Saved reply search option added with default focus on search bar to save clicks.
+        * Added yellow background for note on ticket reply box.
+        * Layout updates on ticket view for scroller and search dropdown.
+        * Cache clear button added on dashboard so that user can clear cache of project without 
+        running command using CMD.
+        * Ticket conversion issue during mailbox refresh command so now user will able to see 
+        error on CMD if any error.
+        * Added route for dubugging ticket creation issue using email.
+        * All Attachment remove from it's physical path as well if we delete any ticket or profile etc.
+        * Ticket Transfer functionality added if removing a agent all tickets will assigned to another agent using workflow.
+        * Added some default workflow and email templates for collaborators.
+        * Updated "last update" filter on customer ticket listing.
+
+    * **Bug Fixes:**
+        * **Issue #492:**  agent password creation redirects to customer login page.
+        * **Issue #488:**  Better managment of email fetching in case of errors.
+        * **Issue #485:**  Crontab.
+        * **Issue #484:**  No puedo enviar ni recibir correos
+        * **Issue #483:**  Get laravel 8 Uvdesk
+        * **Issue #480:**  Improve 404 page enhancement.
+        * **Issue #476:**  Fix the default email template to customer when ticket is created.
+        * **Issue #475:**  Error when downloading attachment from customer side
+        * **Issue #474:**  Add an option to not rename attachments.
+        * **Issue #472:**  Login Button backend shows no reaktion.
+        * **Issue #465:**  Sort ticket by latest updated.
+        * **Issue #466:**  Loading issue of Tickets which have more Text messages.
+        * **Issue #464:**  Line breaks are not or not nicely displayed.
+        * **Issue #462:**  Error Create Ticket.
+        * **Issue #461:**  swiftmailer.yaml
+        * **Issue #459:**  Disable cloudflare CDN for static contents.
+        * **Issue #457:**  swift error.
+        * **Issue #455:**  Move the HelpDesk string to the custom field.
+        * **Issue #454:**  Can not install UVdesk after install of Composer 2.x.
+        * **Issue #452:**  error deleting ticket permanently.
+        * **Issue #452:**  User login error message not translated.
+        
+* 1.0.16 (2021-08-23)
+    * **Misc. Updates:**
+        * Kudos feature added for UVdesk opensource.
+          https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
+        * Added a new option for mailbox setting that Email should be deleted from inbox after fetch and converted into ticket if user select that checkbox.
+        * Added password encryption for Swift mailer and  Mailbox.
+        * Corrected and added timestamp setting for agent and customer both.
+        * Collaborator replies adding to the ticket thread.
+        * Flash Message with a warning if swift mailer is not setup or working with ticket create process.
+        * Profile picture remove option added for customer and agent both.
+        * Reply to CC and BCC users from customer panel if added.
+        * Fixed multiple security issues with opensource.
+        * Added multiple missing translation in files.
+            
+    * **Bug Fixes:**
+        * **Issue #423:**  Status of the ticket not transalted in customer ticket list.
+        * **Issue #428:**  Attachment and Logo Issue - Web Installer Public Folder Issue.
+        * **Issue #435:**  Newer TLDs are considered invalid.
+        * **Issue #437:**  can’t upload logo after updating to 1.0.14.
+        * **Issue #438:**  Unable to finish installation - Error during load/superuser.
+        * **Issue #439:**  Update jQuery and Underscore.js
+        * **Issue #433:**  Email should be deleted from mailbox after fetch.
+        * **Issue #429:**  Invalid type for path "uvdesk_mailbox.mailboxes.Support.imap_server.password". Expected scalar, but got object.
+        * **Issue #417:**  Potential Security vulnerability.
+        * **Issue #401:** Need to implement a workflow that alert if any issue with sending email occurs.
+        * **Issue #382:** Improve new user experience: install and setup.
+        * **Issue #410:** Unable to create super user during installation.
+        * **Issue #375:** [Feature request] support extensions.
+        * **Issue #372:** Option to remove emails from mailbox after they are fetched.
+        * **Issue #340:** Option for operator and for the customer to remove the profile picture.
+        * **Issue #326:** Issue with translations on visitor and operator side.
+        * **Issue #279:** Add possibility to delete emails when is added to the ticket.
+        * **Issue #350:** Users avatar not delted from the server
+        * **Issue #276:** Issues wth swiftmailer password if contains specials characters. Also save password not encrypted seems not good for security.
+
+* 1.0.15 (2021-08-21)
+    * **Misc. Updates:**
+        * Kudos feature added for UVdesk opensource.
+          https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
+        * Added a new option for mailbox setting that Email should be deleted from inbox after fetch and converted into ticket if user select that checkbox.
+        * Added password encryption for Swift mailer and  Mailbox.
+        * Corrected and added timestamp setting for agent and customer both.
+        * Collaborator replies adding to the ticket thread.
+        * Flash Message with a warning if swift mailer is not setup or working with ticket create process.
+        * Profile picture remove option added for customer and agent both.
+        * Reply to CC and BCC users from customer panel if added.
+        * Fixed multiple security issues with opensource.
+        * Added multiple missing translation in files.
+            
+    * **Bug Fixes:**
+        * **Issue #423:**  Status of the ticket not transalted in customer ticket list.
+        * **Issue #428:**  Attachment and Logo Issue - Web Installer Public Folder Issue.
+        * **Issue #435:**  Newer TLDs are considered invalid.
+        * **Issue #437:**  can’t upload logo after updating to 1.0.14.
+        * **Issue #438:**  Unable to finish installation - Error during load/superuser.
+        * **Issue #439:**  Update jQuery and Underscore.js
+        * **Issue #433:**  Email should be deleted from mailbox after fetch.
+        * **Issue #429:**  Invalid type for path "uvdesk_mailbox.mailboxes.Support.imap_server.password". Expected scalar, but got object.
+        * **Issue #417:**  Potential Security vulnerability.
+        * **Issue #401:** Need to implement a workflow that alert if any issue with sending email occurs.
+        * **Issue #382:** Improve new user experience: install and setup.
+        * **Issue #410:** Unable to create super user during installation.
+        * **Issue #375:** [Feature request] support extensions.
+        * **Issue #372:** Option to remove emails from mailbox after they are fetched.
+        * **Issue #340:** Option for operator and for the customer to remove the profile picture.
+        * **Issue #326:** Issue with translations on visitor and operator side.
+        * **Issue #279:** Add possibility to delete emails when is added to the ticket.
+        * **Issue #350:** Users avatar not delted from the server
+        * **Issue #276:** Issues wth swiftmailer password if contains specials characters. Also save password not encrypted seems not good for security.
+
+* 1.0.14 (2021-06-19)
+    * **Misc. Updates:**
+        * Web installer updates for making installtion process easier and smooth also added progess bar.
+            - Extra checks for file permission https://prnt.sc/11ypcoo , https://prnt.sc/11ypvna
+            - Progess Bar with web installer: https://prnt.sc/11ypg5c , https://prnt.sc/11yp43d
+        * compatibility with composer 2.
+        * Agent Activity section added under report section. 
+          https://prnt.sc/124brkr, https://prnt.sc/124bttl, https://prnt.sc/124bx1y
+        * Announcement section added for uvdesk opensource.
+          https://tinyurl.com/yf8zx2xy, https://prnt.sc/1239xpy
+        * ZH_CN (Chinese) Translation file added into project.
+        * Site_url will automatically update when saving the email setting.
+
+    * **Bug Fixes:**
+        * **Issue #404:**  UVdesk getting frequently logged out when clicking on links.
+        * **Issue #405:**  Redirect users to login page after email validation
+        * **Issue #406:**  Is there a way I could hid the menu links and dashboard links.
+        * **Issue #407:**  Ticket forwarding option forward the entire thread. 
+        * **Issue #408:**  duplicate key on ../translation/messages.ar.yml file.
+        * **Issue #409:**  Emails not retrieving.
+        * **Issue #411:**  error when updating composer inside latest version.
+        * **Issue #412:**  i have installed uvdesk open source and i have configured mailbox, email settings and swift mailer but the customer is not able to receive a mail when replied to a ticket ? 
+        * **Issue #415:**  remove debugger from the installation wizard.
+
+* 1.0.13 (2021-04-02)
+    * **Misc. Updates:**
+        * **Last reply option added on ticket list to check when last time reply added on ticket.**
+        * **reCAPTCHA setting option added on admin panel with profile section now admin can set recaptcha credentails on admin panel and can enable it.**
+        * **Disabled old dates for datapicker in broadcast section.**
+        * **Strong password added (for security purpose) for all places from where user create and update password.**
+        * **Current version updated in dashboard in footer so that user have idea which version he is using currently.**
+        * **Added some more option on admin/agent side when reply to a ticket i.e hyperlink, Spellcheck, adding a image by a external link, source code and differnt style formats option added into editor.**
+        * **Iframe support in editor for adding Youtube link etc In article section(knowledgebase).**
+        * **Fancy style added for Blockquote https://prnt.sc/xle8c4**
+        * **New auto fixtures added for workflow so user don't need to add workflow for the same.**
+        * **Added CC option for initial thread on ticket https://prnt.sc/1118g8e.**
+        * **Added option for automatically label assign to ticket from workflow.**
+        * **All latest version links updated for jquery, backbone and underscore js.**
+        * **Time format added for customer panel on profile section.**
+        * **Customer redirection after ticket create from customer panel - If customer is log in then will redirect to ticket listing if not then will redirect to knowledgebase.**
+        * **Time format and time zone will automatically assign to customer and agent now which is set in admin side branding page.**
+        * **Added New polish translation file(pl).**
+        
+    * **Bug Fixes:**
+        * All controller code updates as according to symfony version(4.3) and maximum deprication messages removed from project.
+        * Docker Fixes (FROM ubuntu:latest to FROM ubuntu:18.04 in Dockerfile)
+        * Docker composer version updated.
+        * Mail to customer in case of ticket status update mailing issue fixed.
+        * Email regix updated for swiftmailer as from front end it is only allowing .com/.in etc not any other custom emails like .support
+        * tr and it Translation files updates.
+        * Branding custom css and js as duplicate issue resolved.
+        * Issue with Locale in mail if ticket created using email was not correct and has been fixed now.
+        * Groups and Teams Remove issue fixed for saved replies.
+        * Collaborator ticket view issue on customer panel (not able to see tickets) resolved.
+        * My tickets tab issue for agents as agent only see the ticket assigned to admin only not their own ticket assigned to him Resolved.
+        * Email Receiving issue when assign a ticket to agent resolved.
+        * Updated addPart for plain text in mail send function as in some cases email send was not working.
+        * Translation update for reset password page.
+        * Method change to getOneOrNullResult for mail to agent action.
+        * Mail to CC and BCC users without ticket link as they are not really the customer and can not login into customer panel.
+        * Forwording and Auto forwording emails conversion issue resolved.
+        * Pagination issue on ticket listing on customer panel also for tag on admin panel         resolved.
+        * Mailbox ticket create issue if Email send on capitalize email Id.
+        * Email trailing issue on ticket reply if agent and customer both reply on ticket using email id resolved.
+        * Seachbar component on dashoard based on permission issue fixed now.
+        * Deleting the trash ticket issue has been fixed.
+        * Issue with prod mode when clearing the cache resovled.
+        * Saved reply disapper issue for agent if agent update anything Issue has been fixed now.
+        * Article and Category createdAt filter issue has been fixed now.
+        * Disabled user account and when user try to login then correct message for account disablity.
+        * Panel sidebar active status issue fixed.
 
 * 1.0.12 (2020-07-27)
     * **Misc. Updates:**
@@ -50,7 +231,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
 * 1.0.9 (2020-03-17)
     * **Misc. Updates:**
         * Added Missing translation for different languages.
-        
+        * Installer miner changes.
     * **Bug Fixes:**
         * **Issue #252:**  Locale code from uvdesk.yaml file gets removed when update email settings.
         * **Issue #253:**  Translation while search any keywords in dashboard.
@@ -58,7 +239,7 @@ This changelog references any relevant changes introduced in 1.0 minor versions.
 
 * 1.0.8 (2020-02-12)
     * **Features**
-        * **Translation Support(Multilingual).**
+        * **Translation Support (Multilingual).**
     * **Misc. Changes:**
         * .htaccess mode rewrite condition changes(For API Bundle).
     * **Issue #247:**  Translator
