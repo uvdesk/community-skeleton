@@ -59,7 +59,7 @@
 	<div class="uv-box-server-error">
 		<div class="uv-box-server-error-lt">
 			{% if websiteDetails %}
-				<a class="uv-logo" href="{{ path('helpdesk_member_handle_login') }}">
+				<a class="uv-logo" href="{{  'public/en/member' in currentPath  ? (websiteDetails ? path('helpdesk_member_dashboard') : app.request.scheme ~'://' ~ app.request.httpHost ) : path('helpdesk_customer_login')}}">
 					{% if websiteDetails.logo %}
 						<img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}{{ websiteDetails.logo }}" title="{{ websiteDetails.name }}">
 					{% else %}
