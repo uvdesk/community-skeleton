@@ -4,7 +4,7 @@ CHANGELOG for 1.1.x
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
 * 1.1.x 
-    * PR #554: Updated redirection for customer and agent when click on logo on error page (papnoisanjeev)
+    * PR : Updated redirection for customer and agent when click on logo on error page (papnoisanjeev)
     * PR #556: Updated wrong redirection on links with error page (vipin-shrivastava)
 
 * 1.1.0 (2022-03-25)
