@@ -14,7 +14,9 @@ use Symfony\Component\Console\Output\NullOutput;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
 use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
 
 class ConfigureHelpdesk extends AbstractController
@@ -288,8 +290,8 @@ class ConfigureHelpdesk extends AbstractController
         // $entityManager = $this->getDoctrine()->getEntityManager();
         $entityManager = $this->getDoctrine()->getManager();
 
-        $role = $entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode('ROLE_SUPER_ADMIN');
-        $userInstance = $entityManager->getRepository('UVDeskCoreFrameworkBundle:UserInstance')->findOneBy([
+        $role = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_SUPER_ADMIN');
+        $userInstance = $entityManager->getRepository(UserInstance::class)->findOneBy([
             'isActive' => true,
             'supportRole' => $role,
         ]);
@@ -298,7 +300,7 @@ class ConfigureHelpdesk extends AbstractController
             list($name, $email, $password) = array_values($_SESSION['USER_DETAILS']);
             // Retrieve existing user or generate new empty user
             $accountExistsFlag = false;
-            $user = $entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: (new CoreEntities\User())->setEmail($email);
+            $user = $entityManager->getRepository(User::class)->findOneByEmail($email) ?: (new User())->setEmail($email);
 
             if ($user->getId() != null) {
                 $userInstance = $user->getAgentInstance();
@@ -328,7 +330,7 @@ class ConfigureHelpdesk extends AbstractController
             }
             
             if (false == $accountExistsFlag) {
-                $userInstance = new CoreEntities\UserInstance();
+                $userInstance = new UserInstance();
                 $userInstance->setSource('website');
                 $userInstance->setIsActive(true);
                 $userInstance->setIsVerified(true);

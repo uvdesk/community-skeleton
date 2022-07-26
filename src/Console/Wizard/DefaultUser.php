@@ -12,7 +12,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Question\ConfirmationQuestion;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Webkul\UVDesk\CoreFrameworkBundle\Entity as CoreEntities;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
+use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
 
 class DefaultUser extends Command
 {
@@ -49,14 +51,14 @@ class DefaultUser extends Command
 
     protected function initialize(InputInterface $input, OutputInterface $output)
     {
-        $this->user = new CoreEntities\User();
+        $this->user = new User();
         $this->questionHelper = $this->getHelper('question');
     }
 
     protected function interact(InputInterface $input, OutputInterface $output)
     {
         // Check if the provided role is valid. Skip otherwise.
-        $this->role = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode($input->getArgument('role'));
+        $this->role = $this->entityManager->getRepository(SupportRole::class)->findOneByCode($input->getArgument('role'));
         
         if (empty($this->role)) {
             return;
@@ -68,7 +70,7 @@ class DefaultUser extends Command
         $email = $this->promptUserEmailInteractively($input, $output);
         
         // Retrieve existing user or generate new empty user
-        $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: $this->user->setEmail($email);
+        $this->user = $this->entityManager->getRepository(User::class)->findOneByEmail($email) ?: $this->user->setEmail($email);
 
         // Prompt user name
         $username = trim($this->user->getFirstName() . ' ' . $this->user->getLastName());
@@ -120,7 +122,7 @@ class DefaultUser extends Command
             $password = $input->getArgument('password');
             
             // Check if the provided role is valid. Skip otherwise.
-            $this->role = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:SupportRole')->findOneByCode($input->getArgument('role'));
+            $this->role = $this->entityManager->getRepository(SupportRole::class)->findOneByCode($input->getArgument('role'));
             
             if (empty($name) || empty($email) | empty($password)) {
                 $output->writeln("\n      <fg=red;>[Error]</> Insufficient arguments provided.");
@@ -131,7 +133,7 @@ class DefaultUser extends Command
 
                 return 2;
             } else {
-                $this->user = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:User')->findOneByEmail($email) ?: $this->user->setEmail($email);
+                $this->user = $this->entityManager->getRepository(User::class)->findOneByEmail($email) ?: $this->user->setEmail($email);
 
                 $username = explode(' ', $name, 2);
                 $encodedPassword = $this->encoder->encodePassword($this->user, $password);
@@ -152,7 +154,7 @@ class DefaultUser extends Command
         if ($this->user->getId() != null) {
             // If user id is set, that means the entity has been persisted to database before. Check for any existing accounts
             $targetRole = $this->role->getId();
-            $userInstanceCollection = $this->entityManager->getRepository('UVDeskCoreFrameworkBundle:UserInstance')->findByUser($this->user);
+            $userInstanceCollection = $this->entityManager->getRepository(UserInstance::class)->findByUser($this->user);
 
             foreach ($userInstanceCollection as $userInstance) {
                 $userRole = $userInstance->getSupportRole()->getId();
@@ -176,7 +178,7 @@ class DefaultUser extends Command
             $this->entityManager->persist($this->user);
             $this->entityManager->flush();
 
-            $userInstance = new CoreEntities\UserInstance();
+            $userInstance = new UserInstance();
             $userInstance->setSource('website');
             $userInstance->setIsActive(true);
             $userInstance->setIsVerified(true);
