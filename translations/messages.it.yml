@@ -981,6 +981,8 @@
 "Collaborators": "Collaboratori"
 "Labels": "Etichette"
 "Group": "Gruppo"
+"group": "gruppo"
+"Contact Team": "Contatta il team"
 "Stay on ticket": "Resta sul ticket"
 "Redirect to list": "Reindirizza all'elenco"
 "Nothing interesting here...": "Niente di interessante qui"
@@ -1168,6 +1170,7 @@
 "Installed": "Installata"
 "Installed Applications": "Applicazioni installate"
 "Apps Dashboard": "Dashboard delle app"
+"Dashboard": "Pannello di controllo"
 "Nothing Interesting here": "Niente di interessante qui"
 "No Categories Added": "Nessuna categoria aggiunta"
 "ticket": "ticket"
@@ -1448,6 +1451,7 @@
 "I am Happy": "Sono felice"
 "I am Very Happy": "Sono molto felice"
 "Kudos": "Grado di soddisfazione Kudos"
+"kudos": "complimenti"
 "Very Sad": "Molto triste"
 "Sad": "Triste"
 "Neutral": "Neutrale"
@@ -1468,4 +1472,5 @@
 "Unknown Error": "Errore sconosciuto"
 "We are quite confused about how did you land here:/": "Siamo piuttosto confusi su come sei atterrato qui :/"
 "Few of the links which may help you to get back on the track -": "Alcuni dei link che possono aiutarti a rimetterti in carreggiata -"
+
 

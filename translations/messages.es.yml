@@ -980,6 +980,8 @@
 "Collaborators": "Colaboradores"
 "Labels": "Etiquetas"
 "Group": "Grupo"
+"group": "grupo"
+"Contact Team": "Equipo de contacto"
 "Stay on ticket": "Permanecer en boleto"
 "Redirect to list": "Redirigir a la lista"
 "Nothing interesting here...": "Nada interesante aquí"
@@ -1165,6 +1167,7 @@
 "Installed": "Instalado"
 "Installed Applications": "Aplicaciones instaladas"
 "Apps Dashboard": "Panel de aplicaciones"
+"Dashboard": "Tablero"
 "Nothing Interesting here": "Nada interesante aquí"
 "No Categories Added": "No se agregaron categorías"
 "ticket": "boleto"
@@ -1445,6 +1448,7 @@
 "I am Happy": "Yo estoy feliz"
 "I am Very Happy": "Estoy muy feliz"
 "Kudos": "Prestigio"
+"kudos": "Prestigio"
 "Very Sad": "Muy triste"
 "Sad": "Triste"
 "Neutral": "Neutral"
@@ -1466,11 +1470,3 @@
 "Unknown Error": "Error desconocido"
 "We are quite confused about how did you land here:/": "Estamos bastante confundidas sobre cómo aterrizaste aquí :/"
 "Few of the links which may help you to get back on the track -": "Algunos de los enlaces que pueden ayudarlo a volver a la pista:"
-
-
-
-
-
-
-
-
