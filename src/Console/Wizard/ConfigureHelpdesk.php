@@ -35,8 +35,10 @@ class ConfigureHelpdesk extends Command
 
     protected function configure()
     {
-        $this->setName('uvdesk:configure-helpdesk');
-        $this->setDescription('Scans through your helpdesk setup to check for any mis-configurations.');
+        $this
+            ->setName('uvdesk:configure-helpdesk')
+            ->setDescription('Scans through your helpdesk setup to check for any mis-configurations.')
+        ;
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output)
@@ -126,7 +128,7 @@ class ConfigureHelpdesk extends Command
                     $output->writeln("\n  [-] Switching to database <info>$db_name</info>");
 
                     try {
-                        $process = new Process("bin/console uvdesk_wizard:env:update DATABASE_URL $databaseUrl");
+                        $process = new Process(["php", "bin/console", "uvdesk_wizard:env:update", "DATABASE_URL", $databaseUrl]);
                         $process->setWorkingDirectory($this->projectDirectory);
                         $process->mustRun();
 
@@ -162,16 +164,16 @@ class ConfigureHelpdesk extends Command
             $currentMigrationVersion = $this->getLatestMigrationVersion(new BufferedOutput());
 
             // Version migrations
-            $process = new Process('bin/console doctrine:migrations:version --add --all --no-interaction');
+            $process = new Process(["php", "bin/console", "doctrine:migrations:version", "--add", "--all", "--no-interaction"]);
             $process->setWorkingDirectory($this->projectDirectory);
             $process->run();
 
             // Compare the current database migration version against database and create a new migration version accordingly.
-            $process = new Process('bin/console doctrine:migrations:diff --quiet');
+            $process = new Process(["php", "bin/console", "doctrine:migrations:diff", "--quiet"]);
             $process->setWorkingDirectory($this->projectDirectory);
             $process->mustRun();
 
-            $process = new Process('bin/console doctrine:migrations:status --quiet');
+            $process = new Process(["php", "bin/console", "doctrine:migrations:status", "--quiet"]);
             $process->setWorkingDirectory($this->projectDirectory);
             $process->run();
 
@@ -191,13 +193,13 @@ class ConfigureHelpdesk extends Command
 
                     try {
                         // Migrate database to latest schematic version
-                        $process = new Process('bin/console doctrine:migrations:migrate --no-interaction --quiet');
+                        $process = new Process(["php", "bin/console", "doctrine:migrations:migrate", "--no-interaction", "--quiet"]);
                         $process->setTimeout(900);
                         $process->setWorkingDirectory($this->projectDirectory);
                         $process->mustRun();
     
                         // Load database fixtures to populate initial dataset
-                        $process = new Process('bin/console doctrine:fixtures:load --append');
+                        $process = new Process(["php", "bin/console", "doctrine:fixtures:load", "--append"]);
                         $process->setTimeout(120);
                         $process->setWorkingDirectory($this->projectDirectory);
                         $process->mustRun();
@@ -288,10 +290,7 @@ class ConfigureHelpdesk extends Command
                 $output->write([self::MCA, self::CLL, self::MCA, self::CLL, self::MCA, self::CLL]);
 
                 try {
-                    $process = new Process(sprintf("bin/console %s %s '%s' %s %s --no-interaction", 
-                        'uvdesk_wizard:defaults:create-user', 
-                        'ROLE_SUPER_ADMIN', trim($u_name), $u_email, $u_password
-                    ));
+                    $process = new Process(["php", "bin/console", "uvdesk_wizard:defaults:create-user", "ROLE_SUPER_ADMIN",  trim($u_name), $u_email, $u_password, '--no-interaction']);
         
                     $process->setWorkingDirectory($this->projectDirectory);
                     $process->mustRun();
@@ -314,6 +313,8 @@ class ConfigureHelpdesk extends Command
         }
 
         $output->writeln("  Exiting evaluation process.\n");
+
+        return Command::SUCCESS;
     }
 
     /**
@@ -433,7 +434,7 @@ class ConfigureHelpdesk extends Command
     private function getLatestMigrationVersion(OutputInterface $bufferedOutput)
     {
         try {
-            $process = new Process('bin/console doctrine:migrations:latest');
+            $process = new Process(["php", "bin/console", "doctrine:migrations:latest"]);
             $process->setWorkingDirectory($this->projectDirectory);
             $process->mustRun();
 

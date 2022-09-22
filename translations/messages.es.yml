@@ -24,6 +24,24 @@
 "Choose a group": "Elige un grupo"
 "Can manage Group's Saved Reply": "Puede administrar la respuesta guardada del grupo"
 "Can manage agent activity": "Puede administrar la actividad del agente"
+"Slug is the url identity of this article. We will help you to create valid slug at time of typing.": "Slug es la identidad URL de este artículo. Lo ayudaremos a crear un slug válido al momento de escribir."
+"The URL for this article": "La URL de este artículo"
+"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results": "Las etiquetas de título y las metadescripciones son fragmentos de código HTML en el encabezado de una página web. Ayudan a los motores de búsqueda a comprender el contenido de una página. La etiqueta de título y la meta descripción de una página generalmente se muestran cada vez que esa página aparece en los resultados del motor de búsqueda."
+"comma separated (,)": "separado por comas (,)"
+"Article Title": "Título del artículo"
+"Start typing few charactors and add set of relevant article from the list": "Comience a escribir algunos caracteres y agregue un conjunto de artículos relevantes de la lista"
+"Success! Announcement data saved successfully.": "¡Éxito! Los datos del anuncio se guardaron correctamente."
+"Success ! Agent added successfully.": "Éxito ! Agente añadido con éxito."
+"Success! Privilege information saved successfully.": "¡Éxito! La información de privilegios se guardó correctamente."
+"Edit Prepared Response": "Editar respuesta preparada"
+"Success! Type removed successfully.": "¡Éxito! Tipo eliminado con éxito."
+"No results available": "No hay resultados disponibles"
+"Success ! Prepared Response applied successfully.": "Éxito ! Respuesta preparada aplicada con éxito."
+"Note added to ticket successfully.": "Nota añadida al ticket con éxito."
+"Ticket status update to Spam": "Actualización del estado del ticket a Spam"
+"Ticket status update to Closed": "Actualización del estado del ticket a Cerrado"
+"Success! Label updated successfully.": "¡Éxito! Etiqueta actualizada con éxito."
+"Success ! Helpdesk details saved successfully": "Éxito ! Detalles del servicio de asistencia guardados con éxito"
 "Can manage marketing announcement": "Puede gestionar anuncios de marketing"
 "User Forgot Password": "Usuario Olvidó Contraseña"
 "Agent Deleted": "Agente eliminada"
@@ -980,6 +998,8 @@
 "Collaborators": "Colaboradores"
 "Labels": "Etiquetas"
 "Group": "Grupo"
+"group": "grupo"
+"Contact Team": "Equipo de contacto"
 "Stay on ticket": "Permanecer en boleto"
 "Redirect to list": "Redirigir a la lista"
 "Nothing interesting here...": "Nada interesante aquí"
@@ -1165,6 +1185,7 @@
 "Installed": "Instalado"
 "Installed Applications": "Aplicaciones instaladas"
 "Apps Dashboard": "Panel de aplicaciones"
+"Dashboard": "Tablero"
 "Nothing Interesting here": "Nada interesante aquí"
 "No Categories Added": "No se agregaron categorías"
 "ticket": "boleto"
@@ -1445,6 +1466,7 @@
 "I am Happy": "Yo estoy feliz"
 "I am Very Happy": "Estoy muy feliz"
 "Kudos": "Prestigio"
+"kudos": "Prestigio"
 "Very Sad": "Muy triste"
 "Sad": "Triste"
 "Neutral": "Neutral"
@@ -1466,11 +1488,3 @@
 "Unknown Error": "Error desconocido"
 "We are quite confused about how did you land here:/": "Estamos bastante confundidas sobre cómo aterrizaste aquí :/"
 "Few of the links which may help you to get back on the track -": "Algunos de los enlaces que pueden ayudarlo a volver a la pista:"
-
-
-
-
-
-
-
-

@@ -35,7 +35,8 @@ class MigrateDatabase extends Command
         $this
             ->setName('uvdesk_wizard:database:migrate')
             ->setDescription('Migrate your database to the latest schema version.')
-            ->setHidden(true);
+            ->setHidden(true)
+        ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -70,6 +71,8 @@ class MigrateDatabase extends Command
         } catch (NoChangesDetected $e) {
             // Do nothing ...
         }
+
+        return Command::SUCCESS;
     }
 
     private function versionMigrations(OutputInterface $consoleOutput)

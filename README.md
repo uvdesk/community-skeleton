@@ -14,6 +14,11 @@
 </p>
 
 <p align="center">
+    <a href="https://twitter.com/intent/follow?screen_name=uvdesk"><img src="https://img.shields.io/twitter/follow/uvdesk?style=social"></a>
+    <a href="https://www.youtube.com/channel/UCKKt4IOC7ynLwhJMP35uFeQ"><img src="https://img.shields.io/youtube/channel/subscribers/UCKKt4IOC7ynLwhJMP35uFeQ?style=social"></a>
+</p>
+
+<p align="center">
     ➡️ <a href="https://www.uvdesk.com/en/opensource/">Website</a> | <a href="https://docs.uvdesk.com/">Documentation</a> | <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/">Installation Guide</a> | <a href="https://forums.uvdesk.com/">Forums</a> | <a href="https://www.facebook.com/uvdesk/">Community</a> ⬅️
 </p>
 
