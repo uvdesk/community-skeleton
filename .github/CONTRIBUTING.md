@@ -20,6 +20,6 @@ Make your code changes, commit the changes and make a [Pull Request](https://hel
 
 ### **Did you create a new feature or enhancement?**
 1. To provide a code contribution for a new feature or enhancement a [feature request](https://github.com/uvdesk/community-skeleton/issues/new?assignees=&labels=&template=2_Feature_request.md) report should be created in case it doesn't exist.
-2. To contribute a feature to Bagisto, you must create a forked repository and set up your git and development environment.
+2. To contribute a feature to UVdesk, you must create a forked repository and set up your git and development environment.
 3. Make sure your commit messages are relevant and descriptive.
 4. Please follow the pull request [template](https://github.com/uvdesk/community-skeleton/blob/master/.github/PULL_REQUEST_TEMPLATE.md) as much as possible.
