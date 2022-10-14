@@ -104,7 +104,12 @@
         ]
     },
     "conflict": {
-        "symfony/symfony": "*"
+        "symfony/symfony": "*",
+        "uvdesk/core-framework": "*",
+        "uvdesk/extension-framework": "*",
+        "uvdesk/support-center-bundle": "*",
+        "uvdesk/mailbox-component": "*",
+        "uvdesk/automation-bundle": "*"
     },
     "extra": {
         "branch-alias": {
