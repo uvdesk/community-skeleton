@@ -1,0 +1,127 @@
+<svg id="icons" xmlns="http://www.w3.org/2000/svg" width="231" height="80" viewBox="0 0 231 80">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-1, .cls-10, .cls-13, .cls-4, .cls-7 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #f96e4d;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #e04a2a;
+      }
+
+      .cls-5 {
+        fill: #fcd745;
+      }
+
+      .cls-6, .cls-7 {
+        fill: #c3a52d;
+      }
+
+      .cls-8 {
+        fill: #20cf24;
+      }
+
+      .cls-10, .cls-9 {
+        fill: #18ab1c;
+      }
+
+      .cls-11 {
+        fill: #cfcfcf;
+      }
+
+      .cls-12, .cls-13 {
+        fill: #7e7e7e;
+      }
+    </style>
+  </defs>
+  <path id="Icon-star" class="cls-1" d="M220.458,21.6l-1.183-5.113,3.921-3.442-5.172-.443L216,7.8,213.968,12.6l-5.172.443,3.921,3.442L211.534,21.6,216,18.874Z"/>
+  <path id="icon-close" class="cls-1" d="M219.993,51.99L216,48l-3.993,3.993-2-2L214,46l-3.994-3.993,2-2L216,44l3.993-3.993,2,2L218,46l3.993,3.993Z"/>
+  <g id="Icon">
+    <circle id="Base" class="cls-2" cx="20" cy="60" r="20"/>
+    <g id="Eyes">
+      <circle class="cls-3" cx="13.5" cy="54.5" r="2.5"/>
+      <circle id="Ellipse_2_copy" data-name="Ellipse 2 copy" class="cls-3" cx="26.5" cy="54.5" r="2.5"/>
+    </g>
+    <path id="Mouth" class="cls-4" d="M20.042,61c-8.03,0-7.959,8-7.959,8H28S28.072,61,20.042,61Z"/>
+  </g>
+  <g id="Icon-2" data-name="Icon">
+    <circle id="Base-2" data-name="Base" class="cls-2" cx="60" cy="60" r="20"/>
+    <g id="Eyes-2" data-name="Eyes">
+      <circle class="cls-3" cx="53.5" cy="54.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-2" data-name="Ellipse 2 copy" class="cls-3" cx="66.5" cy="54.5" r="2.5"/>
+    </g>
+    <path id="Mouth-2" data-name="Mouth" class="cls-4" d="M59.995,62c-8.068,0-10.005,6-10.005,6l1.978,1a10.729,10.729,0,0,1,8.012-4,10.729,10.729,0,0,1,8.012,4L70,68S68.063,62,59.995,62Z"/>
+  </g>
+  <g id="Icon-3" data-name="Icon">
+    <circle id="Base-3" data-name="Base" class="cls-5" cx="100" cy="60" r="20"/>
+    <g id="Eyes-3" data-name="Eyes">
+      <circle class="cls-6" cx="93.5" cy="54.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-3" data-name="Ellipse 2 copy" class="cls-6" cx="106.5" cy="54.5" r="2.5"/>
+    </g>
+    <path class="cls-7" d="M91.884,66.122l15.455-4.141,0.777,2.9L92.661,69.02Z"/>
+  </g>
+  <g id="Icon-4" data-name="Icon">
+    <circle id="Base-4" data-name="Base" class="cls-8" cx="140" cy="60" r="20"/>
+    <g id="Eyes-4" data-name="Eyes">
+      <circle class="cls-9" cx="133.5" cy="54.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-4" data-name="Ellipse 2 copy" class="cls-9" cx="146.5" cy="54.5" r="2.5"/>
+    </g>
+    <path id="Mouth-3" data-name="Mouth" class="cls-10" d="M140.041,71c-8.03,0-9.958-6-9.958-6l1.969-1A9.948,9.948,0,0,0,148,64l2,1S148.072,71,140.041,71Z"/>
+  </g>
+  <g id="Icon-5" data-name="Icon">
+    <circle id="Base-5" data-name="Base" class="cls-8" cx="180" cy="60" r="20"/>
+    <g id="Eyes-5" data-name="Eyes">
+      <circle class="cls-9" cx="173.5" cy="54.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-5" data-name="Ellipse 2 copy" class="cls-9" cx="186.5" cy="54.5" r="2.5"/>
+    </g>
+    <path id="Mouth-4" data-name="Mouth" class="cls-10" d="M180.041,71c-8.03,0-7.958-8-7.958-8H188S188.072,71,180.041,71Z"/>
+  </g>
+  <g id="Icon-6" data-name="Icon">
+    <circle id="Base-6" data-name="Base" class="cls-11" cx="20" cy="20" r="20"/>
+    <g id="Eyes-6" data-name="Eyes">
+      <circle class="cls-12" cx="13.5" cy="14.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-6" data-name="Ellipse 2 copy" class="cls-12" cx="26.5" cy="14.5" r="2.5"/>
+    </g>
+    <path id="Mouth-5" data-name="Mouth" class="cls-13" d="M20.042,21c-8.03,0-7.959,8-7.959,8H28S28.072,21,20.042,21Z"/>
+  </g>
+  <g id="Icon-7" data-name="Icon">
+    <circle id="Base-7" data-name="Base" class="cls-11" cx="60" cy="20" r="20"/>
+    <g id="Eyes-7" data-name="Eyes">
+      <circle class="cls-12" cx="53.5" cy="14.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-7" data-name="Ellipse 2 copy" class="cls-12" cx="66.5" cy="14.5" r="2.5"/>
+    </g>
+    <path id="Mouth-6" data-name="Mouth" class="cls-13" d="M59.995,22c-8.068,0-10.005,6-10.005,6l1.978,1a10.729,10.729,0,0,1,8.012-4,10.729,10.729,0,0,1,8.012,4L70,28S68.063,22,59.995,22Z"/>
+  </g>
+  <g id="Icon-8" data-name="Icon">
+    <circle id="Base-8" data-name="Base" class="cls-11" cx="100" cy="20" r="20"/>
+    <g id="Eyes-8" data-name="Eyes">
+      <circle class="cls-12" cx="93.5" cy="14.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-8" data-name="Ellipse 2 copy" class="cls-12" cx="106.5" cy="14.5" r="2.5"/>
+    </g>
+    <path class="cls-13" d="M91.884,26.122l15.455-4.141,0.777,2.9L92.661,29.02Z"/>
+  </g>
+  <g id="Icon-9" data-name="Icon">
+    <circle id="Base-9" data-name="Base" class="cls-11" cx="140" cy="20" r="20"/>
+    <g id="Eyes-9" data-name="Eyes">
+      <circle class="cls-12" cx="133.5" cy="14.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-9" data-name="Ellipse 2 copy" class="cls-12" cx="146.5" cy="14.5" r="2.5"/>
+    </g>
+    <path id="Mouth-7" data-name="Mouth" class="cls-13" d="M140.041,31c-8.03,0-9.958-6-9.958-6l1.969-1A9.948,9.948,0,0,0,148,24l2,1S148.072,31,140.041,31Z"/>
+  </g>
+  <g id="Icon-10" data-name="Icon">
+    <circle id="Base-10" data-name="Base" class="cls-11" cx="180" cy="20" r="20"/>
+    <g id="Eyes-10" data-name="Eyes">
+      <circle class="cls-12" cx="173.5" cy="14.5" r="2.5"/>
+      <circle id="Ellipse_2_copy-10" data-name="Ellipse 2 copy" class="cls-12" cx="186.5" cy="14.5" r="2.5"/>
+    </g>
+    <path id="Mouth-8" data-name="Mouth" class="cls-13" d="M180.041,31c-8.03,0-7.958-8-7.958-8H188S188.072,31,180.041,31Z"/>
+  </g>
+</svg>

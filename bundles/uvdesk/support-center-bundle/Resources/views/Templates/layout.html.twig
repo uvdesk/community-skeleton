@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="{{app.request.getLocale()}}">
+    <head>
+        <link rel="stylesheet" href="{{ asset('bundles/uvdesksupportcenter/css/knowledgebase.css') }}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.validation/0.11.5/backbone-validation-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.paginator/2.0.8/backbone.paginator.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>	
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+
+        
+        <script src="{{ asset('bundles/uvdesksupportcenter/js/_common.js') }}"></script>
+        <script src = "{{ asset('bundles/uvdesksupportcenter/js/uikit.front.js') }}"></script>
+        <script src = "{{ asset('bundles/uvdeskcoreframework/js/dropdown.js') }}"></script>
+
+        {% set websiteDetails = user_service.getWebsiteDetails('knowledgebase') %}
+        {% set websiteConfiguration = user_service.getWebsiteConfiguration('knowledgebase') %}
+        {% set themeTemplate = user_service.getWebsiteView() %}
+
+        {% set canonical = app.request.server.get('REQUEST_SCHEME')~'://'~app.request.server.get('HTTP_HOST')~app.request.server.get('PATH_INFO') %}
+        <link rel="canonical" href="{% block canonical %}{{canonical}}{% endblock %}">
+
+        {% if websiteDetails and (websiteDetails.favicon) %}
+            <link rel="icon" sizes="16x16" href="{{websiteDetails.favicon ? websiteDetails.favicon : null}}" />
+        {% else %}
+            <link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+        {% endif %}
+
+        {% if websiteDetails %}
+            <title>{% block title %}{{ websiteDetails.name ? websiteDetails.name : 'Knowledge Base'|trans }} {% endblock %}</title>
+            {% if websiteConfiguration.metaDescription %}
+                <meta name="description" content="{% block metaDescription %}{{ websiteConfiguration.metaDescription }}{% endblock %}"/>
+            {% endif %}
+            {% if websiteConfiguration.metaKeywords %}
+                <meta name="keywords" content="{% block metaKeywords %}{{ websiteConfiguration.metaKeywords }}{% endblock %}"/>
+            {% endif %}
+
+            <meta http-equiv="Content-Type" content="text/html;" charset="{{ _charset }}"/>
+            <meta name="robots" content="INDEX,FOLLOW" />
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+            <meta property="og:locale" content="{{app.request.getLocale()}}" />
+            <meta property="og:type" content="article" />
+            <meta property="og:title" content="{% block ogtitle %}{% trans %}HelpDesk{% endtrans %} {{ websiteDetails.name ? websiteDetails.name : 'Knowledge Base'|trans }}{% endblock %}" />
+            <meta property="og:url" content="{% block ogcanonical %}{{canonical}}{% endblock %}" />
+            <meta property="og:site_name" content="{{ websiteDetails.name ? websiteDetails.name : 'Knowledge Base'|trans }}" />
+            {% if websiteDetails.logo %}
+                <meta property="og:image" content="{{ websiteDetails.logo }}" />
+            {% endif %}
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:title" content="{% block twtitle %}{% trans %}HelpDesk{% endtrans %} {{ websiteDetails.name ? websiteDetails.name : 'Knowledge Base'|trans }}{% endblock %}" />
+
+            <link rel='dns-prefetch' href='//www.google.com' />
+            <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+            <link rel='dns-prefetch' href='//fonts.gstatic.com' />
+            <link rel='dns-prefetch' href='//cdn.uvdesk.com' />
+        {% endif %}
+
+        {% if websiteConfiguration %}
+            {% block head %}
+                {% include "@UVDeskSupportCenter/Knowledgebase/websiteSettings.html.twig" %}
+            {% endblock %}
+        {% endif %}
+
+        {% if websiteConfiguration %}
+            {% if uvdesk_service.isDarkSkin(websiteConfiguration.brandColor) %}
+                {% include '@UVDeskSupportCenter/Knowledgebase/darkSkin.html.twig' %}
+            {% else %}
+                {% include '@UVDeskSupportCenter/Knowledgebase/lightSkin.html.twig' %}
+            {% endif %}
+        {% endif %}
+
+        {% block templateCSS %}{% endblock %}
+    </head>
+
+    {% set bodyClass = '' %}
+    {% set bodySkinClass = '' %}
+   
+    <body class="{{ bodySkinClass ~ ' ' ~ bodyClass }}">
+        {% set broadcastMessage = uvdesk_service.getValidBroadcastMessage(websiteConfiguration.broadcastMessage is defined ? websiteConfiguration.broadcastMessage : '') %}
+        {% if broadcastMessage %}
+            <div class="uv-kb-info" id="uv-kb-info-broadcast">
+                <p>{{ broadcastMessage.message is defined ? broadcastMessage.message : '' }}</p>
+                <span class="uv-kb-info-remove" onclick="document.getElementById('uv-kb-info-broadcast').remove()"></span>
+            </div>
+        {% endif %}
+
+        <div class="uv-notifications-wrapper">
+            {% if uvdesk_service.requestHeadersSent() == false %}
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <div class="uv-notification page-load uv-success">
+                        <span class="uv-notification-close"></span>
+                        <p>{{ flashMessage|raw }}</p>
+                    </div>
+                {% endfor %}
+                {% for flashMessage in app.session.flashbag.get('warning') %}
+                    <div class="uv-notification page-load uv-error">
+                        <span class="uv-notification-close"></span>
+                        <p>{{ flashMessage|raw }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            
+            <noscript>
+                <div class="uv-notification uv-error">
+                    <p>{% trans %}Your browser does not support JavaScript or You disabled JavaScript, Please enable those !{% endtrans %}</p>
+                </div>
+                <style>.uv-loader-view {display: none;}</style>
+            </noscript>
+        </div>
+
+
+        {% block header %}
+         
+            {% include "@UVDeskSupportCenter/Templates/header.html.twig" %}
+        {% endblock %}
+
+        {% include "@UVDeskSupportCenter/Templates/breadcrumbs.html.twig" %}
+
+        {% block tabHeader %}
+        {% endblock %}
+        {% block wrapper %}
+            <div class="uv-body">
+                <div class="uv-container">
+                    {% block body %}
+                        {% if websiteConfiguration is defined and websiteConfiguration.ticketCreateOption %}
+                            {% if not websiteConfiguration.loginRequiredToCreate or app.user %}
+                                <div class="uv-cta-wrapper">
+                                    <div class="uv-cta-lt">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="60px" height="60px">
+                                        <path fill-rule="evenodd"  fill="rgb(124, 116, 241)"
+                                        d="M57.000,12.000 L51.000,12.000 L50.984,38.993 L12.000,39.000 L12.000,45.000 C12.000,46.649 13.351,48.000 15.000,48.000 L48.000,48.000 L60.000,60.000 L60.000,15.000 C60.000,13.351 58.649,12.000 57.000,12.000 ZM45.000,30.000 L45.000,3.000 C45.000,1.351 43.649,0.000 42.000,0.000 L3.000,0.000 C1.351,0.000 -0.000,1.351 -0.000,3.000 L-0.000,45.000 L12.000,33.000 L42.000,33.000 C43.649,33.000 45.000,31.649 45.000,30.000 Z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="uv-cta-rt">
+                                        <h2>{{"Unable to find an answer?"|trans}}</h2>
+                                        <p>{{"Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article."|trans}}</p>
+                                        <a href="{{ path('helpdesk_customer_create_ticket') }}" class="uv-btn uv-margin-top-15">{{'Contact Us'|trans}}</a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %} 
+                    {% endblock %}
+                </div>   
+            </div>
+        {% endblock %}
+
+        {% block footer %}
+            {% include "@UVDeskSupportCenter/Templates/footer.html.twig" %}
+
+            {% include "@UVDeskSupportCenter/Templates/pagination.html.twig" %}
+
+            <!-- Loader Template-->
+            <script type="text/template" id="loader-tmp">
+                <div class="uv-loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </script>
+            <!-- Loader Template-->
+
+            <!-- Full View Loader Template-->
+            <script type="text/template" id="full-view-loader">
+                <div class="uv-loader-view">
+                    <div class="uv-loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </script>
+            <!-- //Full View Loader Template-->
+
+            <!-- Notification Template -->
+            <script type="text/template" id="notification-template">
+                <div class="uv-notification <% if(alertClass == 'danger') { %>uv-error<% } else { %> <%= 'uv-' + alertClass %> <% } %>">
+                    <span class="uv-notification-close"></span>
+                    <p><%= alertMessage %> </p>
+                </div>
+            </script>
+            <script type="text/javascript">
+                var warningResponse = {
+                    'alertClass' : 'danger',
+                    'alertMessage' : '{{ "Error : Something went wrong, please try again later"|trans }}',
+                };
+            </script>
+
+            {% include('@UVDeskSupportCenter/Themes/cookiePolicy.html.twig') %}
+        {% endblock %}
+    </body>
+</html>

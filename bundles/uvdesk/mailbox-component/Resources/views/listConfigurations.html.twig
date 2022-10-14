@@ -1,0 +1,304 @@
+{% extends "@UVDeskCoreFramework/Templates/layout.html.twig" %}
+
+{% block title %}Mailbox Settings{% endblock %}
+
+{% block templateCSS %}
+    <style>
+		.uv-action-bar {
+			border-bottom: 1px solid #d3d3d3;
+			padding-bottom: 10px;
+		}
+
+		.mailer-id {
+			font-weight: 600;
+			border: 1px solid #333;
+			background: #cecece;
+			padding: 2px 4px 2px;
+			border-radius: 2px;
+		}
+
+		.uv-app-list-brick {
+			width: 310px;
+			max-width: 100%;
+			font-size: 0;
+			margin: 15px 20px 0px 0px;
+			display: inline-block;
+			border-radius: 3px;
+			border: solid 1px #7C70F4;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-lt {
+			display: inline-block;
+			vertical-align: middle;
+			width: 35%;
+			height: 100%;
+			text-align: center;
+			background-color: #7C70F4;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-lt span {
+			font-size: 24px;
+			color: #FFFFFF;
+			padding: 24px 0px;
+			display: inline-block;
+			line-height: 40px;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-rt {
+			width: 65%;
+			padding: 10px 15px 9px 15px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-rt p {
+			width: 100%;
+			margin: 0px;
+			margin-bottom: 3px;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-rt span.uv-app-list-flag-active {
+			font-size: 15px;
+			color: #FFFFFF;
+			background-color: #2ED04C;
+			display: inline-block;
+			padding: 0px 7px 1px 7px;
+			margin-bottom: 2px;
+			border-radius: 3px;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-rt span.uv-app-list-flag-inactive {
+			font-size: 15px;
+			color: #FFFFFF;
+			background-color: #FF5656;
+			display: inline-block;
+			padding: 0px 7px 1px 7px;
+			margin-bottom: 2px;
+			border-radius: 3px;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-rt a:link,
+		.uv-app-list-brick .uv-app-list-brick-rt a:focus,
+		.uv-app-list-brick .uv-app-list-brick-rt a:hover,
+		.uv-app-list-brick .uv-app-list-brick-rt a:active,
+		.uv-app-list-brick .uv-app-list-brick-rt a:visited {
+			font-size: 15px;
+			color: #2750C4;
+			margin-right: 10px;
+			display: inline-block;
+		}
+
+		.uv-app-list-brick .uv-app-list-brick-rt a.uv-delete {
+			color: #FF5656;
+		}
+
+		{# .uv-app-list-brick-template {
+			width: 100%;
+			padding: 10px 15px 9px 15px;
+			display: inline-block;
+			vertical-align: middle;
+		} #}
+
+		.mailbox-del-button {
+		    padding: 8px 10px;
+    		border-radius: 3px;
+			cursor: pointer;
+			/* vertical-align: middle; */
+			font-size: 15px;
+			display: inline-block;
+			margin: 5px 0px;
+			color: #e00d0d;
+		}
+	</style>
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Settings' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt" style="vertical-align: middle;">
+					<h1>{{ 'Mailbox Settings'|trans }}</h1>
+                </div>
+
+				<div class="uv-action-bar-col-rt" style="vertical-align: middle;">
+					<a href="{{ path('helpdesk_member_mailbox_create_configuration') }}" type="button" class="uv-btn-action" style="margin: unset;">{{ 'New Mailbox'|trans }}</a>
+				</div>
+            </div>
+
+            <div id="mailbox-collection" class="mailbox-collection uv-app-list-channels">
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+	
+	<script type="text/template" id="no_mailers_template">
+        <div class="uv-app-screen">
+            <div class="uv-app-splash" style="text-align: center;">
+                <img class="uv-app-splash-image" src="{{ asset('bundles/uvdeskcoreframework/images/splash/mailbox.png') }}" alt="Tasks">
+                <h2 class="uv-margin-top-10">{{ 'No mailbox configurations found'|trans }}</h2>
+            </div>
+        </div>	
+	</script>
+
+	<script id="swiftmailer_configuration_item_template" type="text/template">
+		<div class="uv-app-list-brick-rt" title="<%- id %>" style="width: 100%;">
+			<p style="line-height: 1.4em; margin: unset; margin-bottom: 4px;">
+				<span style="font-weight: 700; text-transform: uppercase;"><%- id %></span>
+			</p>
+			
+			<p style="line-height: 1.4em; margin-bottom: 10px;">
+				<%- name %> 
+			</p>
+			
+			<p style="line-height: 1.4em; margin-bottom: 10px;">
+				<% if (isEnabled) { %>
+					<span class="uv-app-list-flag-active">Enabled</span>
+				<% } else { %>
+					<span class="uv-app-list-flag-inactive">Disabled</span>
+				<% } %>
+			</p>
+
+			<div class="uv-app-list-actions">
+				<a href="{{ path('helpdesk_member_mailbox_update_configuration', {'id': '' }) }}/<%- id %>"  class="edit-mailbox">
+					{{ "Edit"|trans }}
+				</a>
+				<div class="mailbox-del-button delete-type">
+					{{ "Delete"|trans }}
+				</div>
+			</div>
+		</div>
+    </script>
+
+	<script type="text/javascript">
+		var path = "{{ path('helpdesk_member_mailbox_update_configuration', {'id': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var ConfigurationModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var ConfigurationCollection = AppCollection.extend({
+				model: ConfigurationModel,
+				url: "{{ path('helpdesk_member_mailbox_load_configurations_xhr') }}",
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.types;
+				},
+				initialize: function() {
+					this.syncData();
+				},
+				syncData: function() {
+					app.appView.showLoader();
+
+					this.fetch({
+						data: this.getValidParameters(),
+						reset: true,
+						success: function(model,response) {
+							app.appView.hideLoader();
+							var configurationListView = new ConfigurationList(response);
+
+							if (globalMessageResponse) {
+								app.appView.renderResponseAlert(globalMessageResponse);
+							}
+
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var ConfigurationView = Backbone.View.extend({
+				tagName: "div",
+				className: "uv-app-list-brick",
+				template: _.template($("#swiftmailer_configuration_item_template").html()),
+				events: {
+					'click .delete-type' : "confirmRemove"
+				},
+				render: function() {
+					this.$el.html(this.template(this.model));
+					return this;
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem: function (e) {
+					app.appView.showLoader();
+					self = this;
+				
+					$.ajax({
+						url: "{{ path('helpdesk_member_mailbox_remove_configuration_xhr') }}/" + this.model.id,
+							success: function (response) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							configurationCollection.syncData();
+						}, 
+						error: function (model, xhr, options) {
+							if (url = xhr.getResponseHeader('Location')) {
+								window.location = url;
+							}
+
+							var response = warningResponse;
+							
+							if (xhr.responseJSON) {
+								response = xhr.responseJSON;
+							}
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var ConfigurationList = Backbone.View.extend({
+				el: $(".mailbox-collection"),
+				template: _.template($("#no_mailers_template").html()),
+				initialize : function(listItems) {
+					this.render(listItems);
+				},
+				render : function (items) {
+					this.$el.find("div").remove();
+					
+					if (items.length > 0) {
+						_.each(items, function (item) {
+							this.renderType(item);
+						}, this);
+					} else {
+						this.$el.html(this.template());
+					}
+				},
+				renderType : function (item) {
+					var configuration = new ConfigurationView({
+						model: item
+					});
+
+					this.$el.append(configuration.render().el);
+				}
+			});
+
+			var configurationCollection = new ConfigurationCollection();
+		});
+	</script>
+{% endblock %}

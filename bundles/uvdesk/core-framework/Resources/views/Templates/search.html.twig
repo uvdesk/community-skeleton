@@ -1,0 +1,19 @@
+<div class="uv-search-wrapper uv-no-error-success-icon">
+	<input placeholder="{{ 'Search'|trans }}" class="uv-search-bar" type="text" name="">
+	<div class="uv-search-result-wrapper" id="beauty-scroll">
+		<h6>Results</h6>
+
+		{% for item in collection %}
+			<a href="{{ path(item.routeName) }}">
+				<div class="uv-search-result-row">
+					<div class="uv-brick-icon">{{ item.icon | raw }}</div>
+					<p>{{ item.title |trans }}</p>
+				</div>
+			</a>
+		{% endfor %}
+
+		<div class="uv-search-result-row uv-no-results" style="display: none">
+			<p>{{ 'No result found'|trans }}</p>
+		</div>
+	</div>
+</div>

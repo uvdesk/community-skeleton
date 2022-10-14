@@ -1,0 +1,45 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+    
+    # Aliases
+    uvdesk.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService
+    
+    user.provider:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Providers\UserProvider
+
+    user.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\UserService
+    
+    email.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\EmailService
+    
+    ticket.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\TicketService
+    
+    recaptcha.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\ReCaptchaService
+
+    report.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\ReportService
+
+    validation.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\ValidationService
+
+    custom.field.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Services\CustomFieldsService
+
+    uvdesk.core.file_system.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\FileSystem\FileSystem
+    
+    swiftmailer.service:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\SwiftMailer\SwiftMailer
+    
+    uvdesk.core.event_dispatcher:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Framework\EventDispatcher
+    
+    uvdesk.extensibles:
+        alias: Webkul\UVDesk\CoreFrameworkBundle\Framework\ExtendableComponentManager

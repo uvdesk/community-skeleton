@@ -1,0 +1,23 @@
+{% if user_service.isAccessAuthorized('ROLE_AGENT_APPLY_WORKFLOW') %}
+    <div class="uv-dropdown">
+        <div class="uv-dropdown-btn">{{ 'Prepared Responses'|trans }}</div>
+        <div class="uv-dropdown-list uv-top-left">
+            <div class="uv-dropdown-container prepared-responses">
+                <label>{{ 'Prepared Responses'|trans }}</label>
+                <ul>
+                    <li>
+                        <a class="create-new" href="{{path('prepare_response_action')}}" target="_blank" style="color: #2750C4">{{ 'Create New'|trans }}</a>
+                    </li>
+                    
+                    {% for preparedResponse in ticket_service.getManualWorkflow() %}
+                        <li>
+                            <a href="{{ path('helpdesk_member_ticket_prepared_response_xhr') }}/{{ ticketId }}/{{ preparedResponse.id }}">
+                                {{ preparedResponse.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endif %}

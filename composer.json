@@ -48,12 +48,7 @@
         "symfony/web-link": "*",
         "symfony/yaml": "*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0",
-        "uvdesk/automation-bundle": "^1.1",
-        "uvdesk/core-framework": "^1.1",
-        "uvdesk/extension-framework": "^1.1",
-        "uvdesk/mailbox-component": "^1.1",
-        "uvdesk/support-center-bundle": "^1.1"
+        "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
     },
@@ -78,7 +73,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "App\\": "src/",
+            "Webkul\\UVDesk\\CoreFrameworkBundle\\": "bundles/uvdesk/core-framework",
+            "Webkul\\UVDesk\\UVDeskSupportCenterBundle\\": "bundles/uvdesk/support-center-bundle",
+            "Webkul\\UVDesk\\UVDeskMailboxBundle\\": "bundles/uvdesk/mailbox-component",
+            "Webkul\\UVDesk\\UVDeskAutomationBundle\\": "bundles/uvdesk/automation-bundle",
+            "Webkul\\UVDesk\\UVDeskExtensionFrameworkBundle\\": "bundles/uvdesk/extension-framework"
         }
     },
     "autoload-dev": {

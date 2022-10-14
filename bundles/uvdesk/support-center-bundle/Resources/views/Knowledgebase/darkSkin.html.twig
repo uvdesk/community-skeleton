@@ -1,0 +1,133 @@
+{% set brandColor = websiteConfiguration.brandColor ?: '#7C70F4' %}
+{% if brandColor != '#7C70F4' and brandColor != '#7c70f4' %}
+<style>
+    .uv-btn-small,
+    .uv-btn,
+    .uv-btn-large,
+    .uv-btn-action,
+    .uv-btn-label {
+        background: {{ brandColor }};
+    }
+    .uv-btn-small:hover,
+    .uv-btn:hover,
+    .uv-btn-large:hover,
+    .uv-btn-action:hover,
+    .btn:hover,
+    .uv-btn-label:hover {
+        background: {{ brandColor }};
+        opacity: .85;
+    }
+    .uv-btn-small:active,
+    .uv-btn:active,
+    .uv-btn-large:active,
+    .uv-btn-action:active,
+    .btn:active,
+    .uv-btn-label:active {
+        background: {{ brandColor }};
+        opacity: .65;
+    }
+    .uv-btn-stroke:active {
+        border-color: {{ brandColor }};
+    }
+    .uv-dropdown .uv-dropdown-btn-active {
+        border: solid 1px {{ brandColor }};
+    }
+    .uv-cta-wrapper .uv-cta-lt svg path {
+        fill: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-btn-small,
+    .uv-skin-dark .uv-btn,
+    .uv-skin-dark .uv-btn-large,
+    .uv-skin-dark .uv-btn-action,
+    .uv-skin-dark .uv-btn-label {
+        background: {{ brandColor }};
+        color: #333333 !important;
+    }
+    .uv-skin-dark .uv-btn-small:hover,
+    .uv-skin-dark .uv-btn:hover,
+    .uv-skin-dark .uv-btn-large:hover,
+    .uv-skin-dark .uv-btn-action:hover,
+    .uv-skin-dark .btn:hover,
+    .uv-skin-dark .uv-btn-label:hover {
+        background: {{ brandColor }};
+        opacity: .85;
+    }
+    .uv-skin-dark .uv-btn-small:active,
+    .uv-skin-dark .uv-btn:active,
+    .uv-skin-dark .uv-btn-large:active,
+    .uv-skin-dark .uv-btn-action:active,
+    .uv-skin-dark .btn:active,
+    .uv-skin-dark .uv-btn-label:active {
+        background: {{ brandColor }};
+        opacity: .65;
+    }
+    .uv-skin-dark .uv-btn-stroke:active {
+        border-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-dropdown .uv-dropdown-btn-active {
+        border: solid 1px {{ brandColor }};
+    }
+    .uv-skin-dark .uv-select:focus,
+    .uv-skin-dark .uv-field:focus,
+    .uv-skin-dark .uv-search-inline:focus {
+        border-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-loader span:before,
+    .uv-skin-dark .uv-loader span:after {
+        background: {{ brandColor }};
+    }
+    .uv-skin-dark .bootstrap-datetimepicker-widget table td.active,
+    .uv-skin-dark .bootstrap-datetimepicker-widget table td.active:hover {
+        background-color: {{ brandColor }};
+    }
+    .uv-skin-dark .btn-primary,
+    .uv-skin-dark .btn-primary:hover,
+    .uv-skin-dark .btn-primary:active {
+        background-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-hero {
+        background-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-cta-wrapper .uv-cta-lt svg path {
+        fill: {{ brandColor }};
+        opacity: .85;
+    }
+    .uv-kb-layout-folder .uv-kb-folder {
+        border-color: {{ brandColor }};
+    }
+    .uv-kb-layout-grid .uv-kb-folder{
+        border-color: {{ brandColor }};
+    }
+    .uv-kb-layout-folder .uv-kb-folder .uv-kb-folder-lt {
+        background-position: -180px 0px;
+        background-color: {{ brandColor }};
+        opacity: .85;
+    }
+    .uv-skin-dark .uv-paper-article .uv-paper-section .uv-folder-title:after {
+        background-color: {{ brandColor }};
+        color: #333333;
+    }
+    .uv-skin-dark .uv-kb-layout-category .uv-kb-folder {
+        border-bottom-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-brand {
+        color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-pagination a:hover {
+        background-color: {{ brandColor }};
+        border-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-nav-tab ul.uv-nav-tab-label li .uv-nav-tab-active,
+    .uv-skin-dark .uv-nav-tab ul.uv-nav-tab-label li a:hover {
+        border-bottom-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-icon-down-light {
+            background-image: url("{{ asset('bundles/uvdeskcoreframework/images/arrow-down-dark.svg')}}");
+    }
+    .uv-skin-dark .uv-ticket-view .uv-ticket-accordion .uv-ticket-count-stat,
+    .uv-skin-dark .uv-ticket-view .uv-ticket-accordion .uv-ticket-count-stat:hover {
+        background: {{ brandColor }};
+        color: #333333;
+    }
+</style>
+{% endif %}

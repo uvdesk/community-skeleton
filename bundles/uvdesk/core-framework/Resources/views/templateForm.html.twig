@@ -1,0 +1,226 @@
+{% extends "@UVDeskCoreFramework/Templates/layout.html.twig" %}
+
+{% block title %}
+    {% if template.id %}
+		{{ 'Edit Email Template'|trans }}
+	{% else %}
+		{{ 'Add Email Template'|trans }}
+	{% endif %}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Settings' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{% if template.id %}
+                    {{ 'Edit Email Template'|trans }}
+                {% else %}
+                    {{ 'Add Email Template'|trans }}
+                {% endif %}
+			</h1>
+
+			<!--Form-->
+			<form method="post" action="" id="template-form">
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Name'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="name" class="uv-field" value="{{ template.name }}" />
+					</div>
+					<span class="uv-field-info">{{ "Email template name"|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Subject'|trans }}</label>
+					<div class="uv-field-block">
+						<div class="uv-group uv-no-error-success-icon">
+							<input type="text" id="subject-field" name="subject" class="uv-field uv-group-field" value="{{ template.subject }}" />
+							<select id="subject-placeholders" class="uv-group-select" title="placeholders" data-toggle="tooltip" data-placement="top">
+								<option value="" selected>placeholders</option>
+								{% for basekey, placeholders in email_service.getEmailPlaceHolders('template') %}
+									{% if placeholders is iterable %}
+										{% for fieldKey, fieldPlaceholder in placeholders %}
+											<option value='{{ "{%" ~ basekey ~ "." ~ fieldKey ~ "%}"}}' data-group='{{ basekey }}' class="mce-pitem mce-{{ basekey }}" {% if basekey != 'global' and template.templateType and (basekey != template.templateType) %} style="display: none;"{% endif %}>{{ fieldPlaceholder.title|raw }}</option>
+										{% endfor %}
+									{% endif %}
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+					<span class="uv-field-info">{{ 'Email template subject'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Template For'|trans }}</label>
+					<div class="uv-field-block">
+						<select name="templateFor" class="uv-select" id="relatedTo">
+							<option value="">{{ 'Nothing Selected'|trans }}</option>
+							<option value="ticket" {% if 'ticket' == template.templateType %}selected{% endif %}>{{ 'Ticket'|trans }}</option>
+							<option value="user" {% if 'user' == template.templateType %}selected{% endif %}>{{ 'User'|trans }}</option>
+						</select>
+					</div>
+					<span class="uv-field-info">{{ "email template will be used for work related with selected option"|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-margin-right-15">
+					<label class="uv-field-label" style="margin-bottom: 5px">{{ 'Body'|trans }}</label>
+					<div class="uv-field-block">
+                        <textarea id="message" name="message" class="uv-field">
+							{{ template.message }}
+						</textarea>
+					</div>
+					<span class="uv-field-info">{{ 'Email template body'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!--CTA-->
+				<input class="uv-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+				<!--//CTA-->
+			</form>
+			<!--//Form-->
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ parent() }}
+	{{ include('@UVDeskCoreFramework/Templates/tinyMCE.html.twig') }}
+	
+	<script type="text/javascript">
+		var toolbarOptions = sfTinyMce.options.toolbar;
+
+        sfTinyMce.init({
+			toolbar: toolbarOptions + ' | placeholders | code',
+			setup: function (editor) {
+				editor.addButton('placeholders', {
+					type: 'listbox',
+					text: '{{ "Placeholders"|trans }}',
+					onselect: function (e) {
+						editor.insertContent(this.value());
+						this.text('{{ "Placeholders"|trans }}');
+					},
+					values: [
+					{% for basekey, placeholders in email_service.getEmailPlaceHolders('template') %}
+							{% if placeholders is iterable %}
+								{% for fieldKey, fieldPlaceholder in placeholders %}
+									{ text: "{{ fieldPlaceholder.title|raw }}", value: '{{ "{%" ~ basekey ~ "." ~ fieldKey ~ "%}"}}', group: '{{ basekey }}'
+									{% if 'global' != basekey  %}
+										, classes: 'pitem {{ basekey }}' {% if template.templateType and (basekey != template.templateType) %}, hidden: true{% endif %}
+									{% endif %} },
+								{% endfor %}
+							{% endif %}
+						{% endfor %}
+					],
+				});
+			},
+        });
+
+		$('#relatedTo').on('change', function(e) {
+			val = $(e.target).val();
+			switch(val) {
+				case 'task':
+					$('.mce-pitem').hide();
+					$('.mce-task').show();
+					break;
+				case 'user':
+					$('.mce-pitem').hide();
+					$('.mce-user').show();
+					break;
+				case 'ticket':
+					$('.mce-pitem').hide();
+					$('.mce-ticket').show();
+					break;
+				default:
+					$('.mce-pitem').show();
+			}
+		});
+		var oldContent, selection, cursorPosition;
+		$('body').on('focusout', '#subject-field', function() {
+			selection = this;
+			oldContent = selection.value;
+			cursorPosition = $(this).prop("selectionStart");
+			forEditor = false;
+			forSubject = true;
+		});
+		$('#subject-placeholders').on('change', function(e) {
+			toInsert = $(e.target).val();
+			$('#subject-placeholders option[selected]').removeAttr('selected');
+			if(toInsert && cursorPosition >=0 && forSubject){
+				var newContent = oldContent.substring(0, cursorPosition) + toInsert + oldContent.substring(cursorPosition);
+				selection.value = newContent;
+				cursorPosition = cursorPosition + toInsert.length;
+				oldContent = newContent;
+			} else if(toInsert) {
+				$('#subject-field').val($('#subject-field').val() + toInsert);
+			}
+		});
+
+		$(function () {
+			var TemplateModel = Backbone.Model.extend({
+				validation: {
+					'name': [{
+						required: true,
+						msg: '{{ "This field is mandatory" | trans}}'
+					},
+					{
+						maxLength: 100,
+						msg: '{{ "This field contain 100 characters only" | trans}}'
+					},{
+						pattern:"^[ a-zA-Z_0-9 ']*$",
+						msg:'{{ "This field contain characters only" | trans}}'
+					}],
+					'subject': [{
+						required: true,
+						msg: '{{ "This field is mandatory" | trans}}'
+					},{
+						maxLength:100,
+						msg: '{{ "This field contain 100 characters only" | trans}}'
+					}]
+				}
+			});
+
+			var TemplateForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn' : "saveTemplate",
+					'blur input': 'formChanegd'
+				},
+				initialize : function() {
+					Backbone.Validation.bind(this);
+					var jsonContext = {};
+					
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+				},
+				formChanegd: function(e) {
+			    	this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    	this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+			    },
+				saveTemplate : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+			        if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+			            this.$el.submit();
+			        }
+				}
+			});
+
+			templateForm = new TemplateForm({
+				el : $("#template-form"),
+				model : new TemplateModel()
+			});
+		});
+	</script>
+{% endblock %}

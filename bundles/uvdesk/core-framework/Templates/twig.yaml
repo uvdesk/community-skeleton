@@ -1,0 +1,16 @@
+twig:
+    globals:
+        default_agent_image_path: '%assets_default_agent_profile_image_path%'
+        default_customer_image_path: '%assets_default_customer_profile_image_path%'
+        default_helpdesk_image_path: '%assets_default_helpdesk_profile_image_path%'
+        max_post_size: '%max_post_size%'
+        max_file_uploads: '%max_file_uploads%'
+        upload_max_filesize: '%upload_max_filesize%'
+        user_service: "@user.service"
+        uvdesk_service: "@uvdesk.service"
+        recaptcha_service: "@recaptcha.service"
+        ticket_service: "@ticket.service"
+        csrf_token_generator: "@security.csrf.token_manager"
+        email_service: "@email.service"
+        uvdesk_extensibles: '@uvdesk.extensibles'
+        uvdesk_core_file_system: '@uvdesk.core.file_system.service'

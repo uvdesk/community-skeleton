@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="icon-folder" class="cls-1" d="M19.216,5.023H4.812A4.708,4.708,0,0,0,.035,9.647L0.011,37.394a4.729,4.729,0,0,0,4.8,4.625H43.223a4.729,4.729,0,0,0,4.8-4.625L48,15a5.234,5.234,0,0,0-5-5H24Z"/>
+</svg>

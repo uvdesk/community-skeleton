@@ -1,0 +1,40 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    
+    Webkul\UVDesk\AutomationBundle\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,Entity,Package,Templates,Migrations,Tests}'
+    
+    Webkul\UVDesk\AutomationBundle\Controller\:
+        resource: '../../Controller/*'
+        tags: ['controller.service_arguments']
+    
+    Webkul\UVDesk\AutomationBundle\Fixtures\:
+        resource: '../../Fixtures/*'
+        tags: ['doctrine.fixture.orm']
+    
+    Webkul\UVDesk\AutomationBundle\EventListener\WorkflowListener:
+        arguments: ['@service_container', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: kernel.event_listener, event: uvdesk.automation.workflow.execute, method: executeWorkflow }
+    
+    Webkul\UVDesk\AutomationBundle\EventListener\PreparedResponseListener:
+        arguments: ['@service_container', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: kernel.event_listener, event: uvdesk.automation.prepared_response.execute, method: executePreparedResponse }
+    
+    # Public aliases
+    uvdesk.automations:
+        public: true
+        class: Webkul\UVDesk\AutomationBundle\Services\AutomationService
+    
+    uvdesk.automations.workflows:
+        alias: Webkul\UVDesk\AutomationBundle\EventListener\WorkflowListener
+        public: true
+    
+    uvdesk.automations.prepared_responses:
+        alias: Webkul\UVDesk\AutomationBundle\EventListener\PreparedResponseListener
+        public: true

@@ -1,0 +1,535 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Categories'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<style>
+		@media only screen and (max-width: 900px) {
+			.uv-table.uv-list-view table tbody td.uv-last-170{
+				width: 100%;
+			}
+		}
+	</style>
+	<div class="uv-inner-section">
+        <div class="uv-aside" {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}style="display: none;"{% endif %}>
+            <div class="uv-aside-head">
+                <div class="uv-aside-title">
+                    <h6>{{ 'FOLDERS'|trans }}</h6>
+                </div>
+                <div class="uv-aside-back">
+                    <span onclick="window.location = '{{path('helpdesk_member_knowledgebase_folders_collection')}}'"> {{ 'Back'|trans }}</span>
+                </div>
+            </div>
+
+            <div class="uv-aside-nav">
+                <ul>
+					{% if solutions|length %}				
+						{% for solution in solutions %}
+							<li>
+								<a class="" href="{{path('helpdesk_member_knowledgebase_folder_categories_collection', {'solution': solution.id} )}}"><span class="uv-icon-folder"></span> {{ solution.name }} <span class="uv-flag-gray">{{solution.categoriesCount}}</span></a>
+							</li>
+						{% endfor %}
+					{% else %}
+						<li>
+							<a class="uv-aside-nav-active" href="{{ path('helpdesk_member_knowledgebase_create_folder') }}">{{ 'New Folder'|trans }}</a>
+						</li>
+					{% endif %}						
+                </ul>
+            </div>
+        </div>
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Categories'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <!-- Select all checkbox -->
+                <div class="uv-action-select-wrapper">
+                    <label class="uv-vertical-align uv-margin-left-27">
+                        <div class="uv-checkbox">
+                            <input type="checkbox" class="select-all-checkbox">
+                            <span class="uv-checkbox-view"></span>
+                        </div>
+                    </label>
+                </div>
+                <!-- //Select all checkbox -->
+
+                <div class="uv-action-col-wrapper">
+					<div class="uv-action-bar-col-lt">
+						<!--Sort by-->
+						<div class="uv-dropdown sort">
+							<div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+								{{ 'Sort By:'|trans }} {{ 'Created At'|trans }}
+							</div>
+							<div class="uv-dropdown-list uv-bottom-left">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Sort By'|trans }}</label>
+									<ul>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--Sort by-->
+
+						<!--Filter By Status-->
+						<div class="uv-dropdown filter-by-status">
+							<div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+								{{ 'Status:'|trans }} {{ 'All'|trans }}
+							</div>
+							<div class="uv-dropdown-list uv-bottom-left">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Status'|trans }}</label>
+									<ul>
+										<li class="uv-drop-list-active"><a href="#">{{ 'All'|trans }}</a></li>
+										<li><a href="#" data-id="1">{{ 'Publish'|trans }}</a></li>
+										<li><a href="#" data-id="0">{{ 'Draft'|trans }}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!--//Filter By Status-->
+					</div>
+
+					<div class="uv-action-bar-col-lt" style="display: none">
+						<!-- Mass action -->
+						<div class="mass-action">
+							<div class="property-block">
+								<!-- //Mass status update -->
+								<div class="uv-dropdown">
+									<div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">{{ 'Status'|trans }}</div>
+									<div class="uv-dropdown-list uv-bottom-left">
+										<div class="uv-dropdown-container">
+											<label>{{ 'Status'|trans }}</label>
+											<ul class="status" data-action="status">
+												<li data-index="1"><a href="#">{{ 'Publish'|trans }}</a></li>
+												<li data-index="0"><a href="#">{{ 'Draft'|trans }}</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- //Mass status update -->
+
+								<!-- Mass trashed -->
+								<a class="uv-btn-stroke uv-margin-right-5" id="mass-delete" data-action="delete" style="margin-left: 5px;">
+									{{ 'Delete'|trans }}
+								</a>
+								<!-- //Mass trashed -->
+							</div>
+
+						</div>
+						<!-- //Mass action -->
+					</div>
+
+					<div class="uv-action-bar-col-rt">
+						<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+						<!-- Add Button -->
+						{# {% set resources = user_service.getCompanyLeftResources() %}						 #}
+						<a href="{{ path('helpdesk_member_knowledgebase_create_category') }}" type="button" class="uv-btn-action" id="uv-add-category">
+							<span class="uv-icon-add"></span>
+							{{ "New Category"|trans }}
+						</a>
+						<!--// Add Button -->
+					</div>
+				</div>
+            </div>
+            <!--//Action Bar-->
+			{# {% if resources %}
+				<div class="uv-message-wrapper" id="upgrade-plan-message"  {% if not(resources and resources.categories.showAlert) %} style="display: none;"{% endif %}>
+					<p>	{{ resources.categories.alertMessage |  raw }}</p>
+					<a href="{{path('webkul_admin_subscription_plan')}}" class="uv-btn-small">{{ 'Upgrade Plan'|trans }}</a>
+				</div>
+			{% endif %} #}
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 1px;"></th>
+                            <th>{{ "Id"|trans }}</th>
+                            <th>{{ "Folder"|trans }}</th>
+                            <th>{{ "Category"|trans }}</th>
+                            <th>{{ "Articles"|trans }}</th>
+                            <th>{{ "Created"|trans }}</th>
+                            <th>{{ "Status"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<!-- Sorting Template -->
+	<script id="category_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'a.dateAdded') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/a.dateAdded/<% if(sort == 'a.dateAdded') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.dateAdded">
+				{% trans %}Created At{% endtrans %}
+				<% if(sort == 'a.dateAdded') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'a.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/a.name/<% if(sort == 'a.name') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.name">
+				{% trans %}Name{% endtrans %}
+				<% if(sort == 'a.name') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'a.sortOrder') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/a.sortOrder/<% if(sort == 'a.sortOrder') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.sortOrder">
+				{% trans %}Sort Order{% endtrans %}
+				<% if(sort == 'a.sortOrder') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Category list item template -->
+	<script id="category_list_item_tmp" type="text/template">
+		<td>
+            <label class="uv-vertical-align uv-margin-left-17">
+                <div class="uv-checkbox">
+                    <input type="checkbox" class="mass-action-checkbox" value="<%- id %>"/>
+                    <span class="uv-checkbox-view"></span>
+                </div>
+            </label>
+        </td>
+		<td data-value="{{ 'Id'|trans }}">
+			<%- id %>
+		</td>
+		<td data-value="{{ 'Folder'|trans }}">
+			<% if(solutions) { %>
+				<% _.each(solutions, function(solution, key){ %>
+					<% if(key > 0){ %>
+						/
+					<% } %>
+          			<%- solution.name %>
+				<% }) %>
+        	<% } %>
+		</td>
+		<td data-value="{{ 'Category'|trans }}">
+			<%- name %>
+		</td>
+		<td data-value="{{ 'Articles'|trans }}"><%- articleCount %></td>
+		<td data-value="{{ 'Created'|trans }}"><%- dateAdded %></td>
+		<td data-value="{{ 'Status'|trans }}">
+			<% if(status) { %>
+            	<span class="uv-text-success">{{ 'Published'|trans }}</span>
+            <% } else { %>
+            	<span class="uv-text-danger">{{ 'Draft'|trans }}</span>
+        	<% } %>
+		</td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last-170">
+			<a href="<%- path.replace('replaceId', id) %>" class="uv-btn-stroke edit-category">
+				{{ "Edit"|trans }}
+			</a>
+			<a class="uv-btn-stroke preview-category" href="<%- pathPreview.replace('replaceId', id) %>" target="_blank" <%- status ? '' : 'disabled="disabled"' %>>
+				{{ "Preview"|trans }}
+			</a>
+		</td>
+    </script>
+	<!-- //Category list item template -->
+
+	<script type="text/javascript">
+		var path = "{{ path('helpdesk_member_knowledgebase_update_category', {'id': 'replaceId' }) }}";
+		var pathPreview = "{{ path('helpdesk_knowledgebase_category', {'category': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var CategoryModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var CategoryCollection = AppCollection.extend({
+				model : CategoryModel,
+				url : "{{ path('helpdesk_member_knowledgebase_category_collection_xhr') }}",
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.results;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					$('.select-all-checkbox').prop('checked', false);
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var categoryListView = new CategoryList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(categoryCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				} ,
+                batchOperation : function(data) {
+					if(!data.ids.length) return;
+                    var self = this;
+                    app.appView.showLoader();
+                    $.ajax({
+                        url : "{{ path('helpdesk_member_knowledgebase_update_category_xhr') }}",
+                        type : 'POST',
+                        data : {data : data},
+                        dataType : 'json',
+                        success : function(response) {
+							if(typeof(response.allowedToAdd) != 'undefined' && response.allowedToAdd) {
+								$('#upgrade-plan-message').hide();
+								$('#uv-add-article').show();
+							}
+                            app.appView.hideLoader();
+                            globalMessageResponse = response;
+                            self.syncData();
+                        },
+                        error: function (xhr) {
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                            var response = warningResponse;
+                            if(xhr.responseJSON)
+                                response = xhr.responseJSON;
+
+                            app.appView.hideLoader();
+                            app.appView.renderResponseAlert(response);
+                            $('.mass-action-checkbox').prop('checked', false);
+                        }
+                    });
+                }
+			});
+
+			var CategoryItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#category_list_item_tmp").html()),
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						categoryCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				}
+			});
+
+			var CategoryList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				events: {
+                    'change .mass-action-checkbox' : 'showBulkOptions'
+				},
+				initialize : function() {
+					this.render();
+				},
+                showBulkOptions : function() {
+                    var count = 0;
+                    this.$el.find('.mass-action-checkbox').each(function() {
+                        if($(this).is(':checked'))
+                            count++;
+                    });
+
+                    if(count == $('.mass-action-checkbox').length)
+                        $('.select-all-checkbox').prop('checked', true);
+                    else
+                        $('.select-all-checkbox').prop('checked', false);
+
+                    if(count) {
+                        $('.uv-action-bar-col-lt').eq(0).hide();
+                        $('.uv-action-bar-col-lt').eq(1).show();
+                        $('.uv-action-bar-col-rt').hide()
+                    } else {
+                        $('.uv-action-bar-col-lt').eq(1).hide();
+                        $('.uv-action-bar-col-lt').eq(0).show();
+                        $('.uv-action-bar-col-rt').show()
+                    }
+                },
+				render : function () {
+					this.$el.find("tr").remove();
+					if(categoryCollection.length) {
+						_.each(categoryCollection.models, function (item) {
+							this.renderCategory(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='8'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderCategory : function (item) {
+					var categoryItem = new CategoryItem({
+						model: item
+					});
+					this.$el.append(categoryItem.render().el);
+				}
+			});
+
+            var BulkActionView = Backbone.View.extend({
+                el : $(".mass-action"),
+                currentEvent : null,
+                events : {
+                    'click ul li' : 'massAction',
+                    'click #mass-delete' : 'confirmRemove'
+                },
+                massAction: function(e) {
+                    e.preventDefault();
+                    //if(!parseInt(Backbone.$(e.currentTarget).attr('data-index'))) return;
+                    var data = {};
+                    data['actionType'] = Backbone.$(e.currentTarget).parents('ul').attr('data-action') ? Backbone.$(e.currentTarget).parents('ul').attr('data-action') : Backbone.$(e.currentTarget).attr('data-action');
+                    data['targetId'] = Backbone.$(e.currentTarget).attr('data-index');
+                    data['ids'] = this.getCheckedIds();
+                    categoryCollection.batchOperation(data);
+                    this.hideBulkOptions();
+                },
+                removeItem: function(e) {
+                    var data = {};
+
+                    if(Backbone.$(this.currentEvent.currentTarget).is("#mass-delete"))
+                        data['actionType'] = "delete";
+
+                    data['ids'] = this.getCheckedIds();
+                    categoryCollection.batchOperation(data);
+                    this.hideBulkOptions();
+                },
+                getCheckedIds() {
+                    var ids = new Array();
+                    $('.mass-action-checkbox').each(function() {
+                        if($(this).is(':checked')) {
+                            ids.push($(this).val());
+                        }
+                    });
+
+                    return ids;
+                },
+                confirmRemove: function(e) {
+                    e.preventDefault();
+                    this.currentEvent = e;
+
+                    app.appView.openConfirmModal(this)
+                },
+                hideBulkOptions : function() {
+					$('.uv-action-bar-col-lt').eq(1).hide();
+					$('.uv-action-bar-col-lt').eq(0).show();
+					$('.uv-action-bar-col-rt').show()
+                }
+            });
+
+            var PageView = Backbone.View.extend({
+                el: '.uv-paper',
+                events : {
+                    'change .select-all-checkbox' : 'selectAll',
+                },
+                selectAll : function(e) {
+                    if(Backbone.$(e.currentTarget).is(':checked')) {
+						if($('.mass-action-checkbox').length){
+							$('.mass-action-checkbox').prop('checked', true);
+
+							$('.uv-action-bar-col-lt').eq(0).hide();
+							$('.uv-action-bar-col-lt').eq(1).show();
+							$('.uv-action-bar-col-rt').hide()
+						}else
+							Backbone.$(e.currentTarget).prop('checked', false)
+                    } else {
+                        var count = 0;
+                        $('.mass-action-checkbox').each(function() {
+                            if($(this).is(':checked'))
+                                count++;
+                        });
+                        if(count == $('.mass-action-checkbox').length) {
+                            $('.mass-action-checkbox').prop('checked', false);
+
+							$('.uv-action-bar-col-lt').eq(1).hide();
+							$('.uv-action-bar-col-lt').eq(0).show();
+							$('.uv-action-bar-col-rt').show()
+                        }
+                    }
+                },
+            });
+
+			var pageView = new PageView();
+            var bulkAction = new BulkActionView();
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'a.dateAdded',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Created At{% endtrans %}",
+				template : _.template($("#category_list_sorting_tmp").html())
+			})
+
+			var categoryCollection = new CategoryCollection();
+
+			var filter = new Filter({
+				collection : categoryCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'isActive/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterCategoryByStatus',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('', '');
+					categoryCollection.state.currentPage = null;
+					filter.sortCollection();
+					categoryCollection.syncData();
+				},
+				paginate : function(number,sortField,order) {
+					this.resetParams('', '');
+					categoryCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					categoryCollection.syncData();
+				},
+				filterCategoryByStatus: function(status,query,number,sortField,order) {
+					this.resetParams(status,query);
+					categoryCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					categoryCollection.syncData();
+				},
+				filterByQuery : function(query,number,sortField,order) {
+					this.resetParams('',query);
+					categoryCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					categoryCollection.syncData();
+				},
+				resetParams : function(status, query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					categoryCollection.filterParameters.isActive = status;
+					var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
+					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+					categoryCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

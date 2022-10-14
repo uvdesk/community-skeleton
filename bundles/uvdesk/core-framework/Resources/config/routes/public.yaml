@@ -1,0 +1,12 @@
+# Add public routing resources here ...
+helpdesk_forgot_account_password:
+    path:     /{_locale}/forgot-password
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Authentication::forgotPassword
+    requirements: { _locale: '%app_locales%' }
+    defaults: { _locale: '%locale%' }
+
+helpdesk_update_account_credentials:
+    path:     /{_locale}/update-credentials/{email}/{verificationCode}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Authentication::updateCredentials
+    requirements: { _locale: '%app_locales%' }
+    defaults: { _locale: '%locale%', email: '', verificationCode: '' }

@@ -1,0 +1,55 @@
+<script id="pagination_tmp" type="text/template">
+    <% if(pageCount > 1) { %>
+        <div class="uv-pagination">
+            <% if(previous) { %>
+                <a data-page="<%= previous %>" href="<%= url.replace('replacePage', previous) %>" id="previous" class="uv-pagination-previous">
+                </a>
+            <% } else { %>
+                <a class="uv-pagination-previous">
+                </a>
+            <% } %>
+
+            <% if(startPage > 1) { %>
+                <a data-page="1" href="<%= url.replace('replacePage', 1) %>">1</a>
+                <% if(startPage == 3) { %>
+                    <a data-page="2" href="<%= url.replace('replacePage', 2) %>">2</a>
+                <% } else if(startPage != 2) { %>
+                    <a class="uv-page-active" style="text-decoration: none">&hellip;</a>
+                <% } %>
+            <% } %>
+
+            <% _.each(pagesInRange, function(page) { %>
+                <% if(page != current) { %>
+                    <a data-page="<%= page %>" href="<%= url.replace('replacePage', page) %>">
+                        <%= page %>
+                    </a>
+                <% } else { %>
+                    <a class="uv-page-active"><%= page %></a>
+                <% } %>
+            <% }) %>
+
+            <% if(pageCount > endPage) { %>
+                <% if(pageCount > (endPage + 1) ) { %>
+                    <% if(pageCount > (endPage + 2) ) { %>
+                        <a class="uv-page-active" style="text-decoration: none">&hellip;</a>
+                    <% } else { %>
+                        <a data-page="<%= pageCount - 1 %>" href="<%= url.replace('replacePage', pageCount - 1) %>">
+                            <%= pageCount - 1 %>
+                        </a>
+                    <% } %>
+                <% } %>
+                <a data-page="<%= pageCount %>" href="<%= url.replace('replacePage', pageCount) %>">
+                    <%= pageCount %>
+                </a>
+            <% } %>
+
+            <% if(next) { %>
+                <a href="<%= url.replace('replacePage',next) %>" data-page="<%= next %>" id="next" class="uv-pagination-next">
+                </a>
+            <% } else { %>
+                <a class="uv-pagination-next">
+                </a>
+            <% } %>
+        </div>
+    <% } %>
+</script>

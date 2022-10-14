@@ -1,0 +1,212 @@
+{% extends "@UVDeskCoreFramework/Templates/layout.html.twig" %}
+
+{% block title %}Swift Mailer{% endblock %}
+
+{% block templateCSS %}
+    <style>
+		.uv-action-bar {
+			border-bottom: 1px solid #d3d3d3;
+			padding-bottom: 10px;
+		}
+
+		.mailer-id {
+			font-weight: 600;
+			border: 1px solid #333;
+			background: #cecece;
+			padding: 2px 4px 2px;
+			border-radius: 2px;
+		}
+	</style>
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Settings' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+					<h1>{{ 'SwiftMailer Configurations'|trans }}</h1>
+                </div>
+
+				<div class="uv-action-bar-col-rt">
+					<a href="{{ path('helpdesk_member_swiftmailer_create_mailer_configuration') }}" type="button" class="uv-btn-action">{{ 'Create Configuration'|trans }}</a>
+				</div>
+            </div>
+
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ 'ID'|trans }}</th>
+                            <th>{{ 'Email'|trans }}</th>
+                            <th>{{ 'Type'|trans }}</th>
+							<th>{{ 'Status'|trans }}</th>
+                            <th class="uv-last">{{ 'Action'|trans }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+	
+	<script type="text/template" id="no_mailers_template">
+        <div class="uv-app-screen">
+            <div class="uv-app-splash" style="text-align: center;">
+                <img class="uv-app-splash-image" src="{{ asset('bundles/uvdeskcoreframework/images/splash/mailbox.png') }}" alt="Tasks">
+                <h2 class="uv-margin-top-10">{{ 'No swiftmailer configurations found'|trans }}</h2>
+            </div>
+        </div>	
+	</script>
+
+	<script id="swiftmailer_configuration_item_template" type="text/template">
+		<td><span class="mailer-id"><%- id %></span></td>
+		<td><%- email %></td>
+		<td><%- transport %></td>
+
+		<% if (isActive) { %>
+			<td><span class="uv-text-success">{{ 'Enabled'|trans }}</span></td>
+		<% } else { %>
+			<td><span class="uv-text-danger">{{ 'Disabled'|trans }}</span></td>
+		<% } %>
+
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('replaceId', id) %>" class="uv-btn-stroke edit-type">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-type">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+
+	<script type="text/javascript">
+		var path = "{{ path('helpdesk_member_swiftmailer_update_mailer_configuration', {'id': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var ConfigurationModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var ConfigurationCollection = AppCollection.extend({
+				model: ConfigurationModel,
+				url: "{{ path('helpdesk_member_swiftmailer_load_configurations_xhr') }}",
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.types;
+				},
+				initialize: function() {
+					this.syncData();
+				},
+				syncData: function() {
+					app.appView.showLoader();
+
+					this.fetch({
+						data: this.getValidParameters(),
+						reset: true,
+						success: function(model,response) {
+							app.appView.hideLoader();
+							var configurationListView = new ConfigurationList(response);
+
+							if (globalMessageResponse) {
+								app.appView.renderResponseAlert(globalMessageResponse);
+							}
+
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var ConfigurationView = Backbone.View.extend({
+				tagName: "tr",
+				template: _.template($("#swiftmailer_configuration_item_template").html()),
+				events: {
+					'click .delete-type' : "confirmRemove"
+				},
+				render: function() {
+					this.$el.html(this.template(this.model));
+					return this;
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem: function (e) {
+					app.appView.showLoader();
+					self = this;
+					
+					$.ajax({
+						url: "{{ path('helpdesk_member_swiftmailer_remove_mailer_configuration_xhr') }}?id="+this.model.id,
+						success: function (response) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							configurationCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if (url = xhr.getResponseHeader('Location')) {
+								window.location = url;
+							}
+
+							var response = warningResponse;
+							
+							if (xhr.responseJSON) {
+								response = xhr.responseJSON;
+							}
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var ConfigurationList = Backbone.View.extend({
+				el: $(".uv-list-view table tbody"),
+				template: _.template($("#no_mailers_template").html()),
+				initialize : function(listItems) {
+					this.render(listItems);
+				},
+				render : function (items) {
+					this.$el.find("tr").remove();
+					
+					if (items.length > 0) {
+						_.each(items, function (item) {
+							this.renderType(item);
+						}, this);
+					} else {
+						$('.uv-table.uv-list-view').html(this.template());
+					}
+				},
+				renderType : function (item) {
+					var configuration = new ConfigurationView({
+						model: item
+					});
+
+					this.$el.append(configuration.render().el);
+				}
+			});
+
+			var configurationCollection = new ConfigurationCollection();
+		});
+	</script>
+{% endblock %}

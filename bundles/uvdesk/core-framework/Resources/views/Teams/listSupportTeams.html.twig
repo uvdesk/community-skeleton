@@ -1,0 +1,308 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Teams'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Users' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Teams'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+                    <!--Sort by-->
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Sort By:'|trans }} {{ 'Created At'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Sort By'|trans }}</label>
+								<ul>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--Sort by-->
+
+                    <!--Filter By Status-->
+                    <div class="uv-dropdown filter-by-status">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Status:'|trans }} {{ 'All'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Status'|trans }}</label>
+								<ul>
+									<li class="uv-drop-list-active"><a href="#">{{ 'All'|trans }}</a></li>
+									<li><a href="#" data-id="1">{{ 'Active'|trans }}</a></li>
+									<li><a href="#" data-id="0">{{ 'Disabled'|trans }}</a></li>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--//Filter By Status-->
+                </div>
+				<div class="uv-action-bar-col-rt">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+					<!-- Add Button -->
+					<a href="{{path('helpdesk_member_create_support_team')}}" type="button" class="uv-btn-action">
+						<span class="uv-icon-add"></span>
+						{{ "New Team"|trans }}
+					</a>
+					<!--// Add Button -->
+				</div>
+            </div>
+            <!--//Action Bar-->
+
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ "Name"|trans }}</th>
+                            <th>{{ "Description"|trans }}</th>
+                            <th>{{ "Status"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<!-- Sorting Template -->
+	<script id="team_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'a.createdAt') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/a.createdAt/<% if(sort == 'a.createdAt') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.createdAt">
+				{% trans %}Created At{% endtrans %}
+				<% if(sort == 'a.createdAt') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'a.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/a.name/<% if(sort == 'a.name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.name">
+				{% trans %}Name{% endtrans %}
+				<% if(sort == 'a.name') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Team list item template -->
+	<script id="team_list_item_tmp" type="text/template">
+		<td data-value="{{ 'Name'|trans }}">
+			<%- name %>
+		</td>
+		<td data-value="{{ 'Description'|trans }}"><%- description %></td>
+		<td data-value="{{ 'Status'|trans }}">
+			<% if(isActive) { %>
+            	<span class="uv-text-success">{{ 'Active'|trans }}</span>
+            <% } else { %>
+            	<span class="uv-text-danger">{{ 'Disabled'|trans }}</span>
+        	<% } %>
+		</td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('replaceId', id) %>" class="uv-btn-stroke edit-team">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-team">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+	<!-- //Team list item template -->
+
+	<script type="text/javascript">
+		var path = "{{ path('helpdesk_member_update_support_team', {'supportTeamId': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var TeamModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+ 
+			var TeamCollection = AppCollection.extend({
+				model : TeamModel,
+				url : "{{ path('helpdesk_member_support_team_collection_xhr') }}",
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.groups;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var teamListView = new TeamList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(teamCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var TeamItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#team_list_item_tmp").html()),
+				events : {
+					'click .delete-team' : "confirmRemove"
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						teamCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('helpdesk_member_remove_support_team_xhr') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							teamCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var TeamList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("tr").remove();
+					if(teamCollection.length) {
+						_.each(teamCollection.models, function (item) {
+							this.renderTeam(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='5'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderTeam : function (item) {
+					var teamItem = new TeamItem({
+						model: item
+					});
+					this.$el.append(teamItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'a.createdAt',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Created At{% endtrans %}",
+				template : _.template($("#team_list_sorting_tmp").html())
+			})
+
+			var teamCollection = new TeamCollection();
+
+			var filter = new Filter({
+				collection : teamCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'isActive/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterTeamByStatus',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('', '');
+					teamCollection.state.currentPage = null;
+					filter.sortCollection();
+					teamCollection.syncData();
+				},
+				paginate : function(number,sortField,order) {
+					this.resetParams('', '');
+					teamCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					teamCollection.syncData();
+				},
+				filterTeamByStatus: function(status,query,number,sortField,order) {
+					this.resetParams(status,query);
+					teamCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					teamCollection.syncData();
+				},
+				filterByQuery : function(query,number,sortField,order) {
+					this.resetParams('',query);
+					teamCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					teamCollection.syncData();
+				},
+				resetParams : function(status, query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					teamCollection.filterParameters.isActive = status;
+					var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
+					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+					teamCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

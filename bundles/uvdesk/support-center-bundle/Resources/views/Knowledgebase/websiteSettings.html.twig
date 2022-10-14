@@ -1,0 +1,53 @@
+{% if websiteDetails.favicon %}
+    <link rel="icon" sizes="16x16" href="{{ websiteDetails.favicon }}" />
+{% else %}
+	<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}" />
+{% endif %}
+
+<style>
+	{% if websiteConfiguration.pageBackgroundColor %}
+		body {
+			background: {{websiteConfiguration.pageBackgroundColor}};
+		}
+	{% endif %}
+	{% if websiteConfiguration.headerBackgroundColor %}
+		.uv-header {
+			background-color: {{websiteConfiguration.headerBackgroundColor}};
+		}
+	{% endif %}
+	{% if websiteConfiguration.bannerBackgroundColor %}
+		.uv-hero {
+			background-color: {{websiteConfiguration.bannerBackgroundColor}};
+		}
+	{% endif %}
+	{% if websiteConfiguration.linkColor %}
+		a:not(.uv-btn):not(.uv-btn-small):not(.uv-table td a) {
+			color: {{websiteConfiguration.linkColor}} !important;
+		}
+	{% endif %}
+	{% if websiteConfiguration.linkHoverColor %}
+		a:hover:not(.uv-btn):not(.uv-btn-small):not(.uv-table td a) {
+			color: {{websiteConfiguration.linkHoverColor}} !important;
+		}
+	{% endif %}
+	{% if websiteConfiguration.articleTextColor %}
+		.uv-editor p {
+			color: {{websiteConfiguration.articleTextColor}};
+		}
+	{% endif %}
+</style>
+{% if websiteConfiguration.customCSS %}
+	<style>
+		{{ websiteConfiguration.customCSS|raw }}
+	</style>
+{% endif %}
+
+{% if websiteConfiguration.script %}
+	{% if '<script' in websiteConfiguration.script and '</script>' in websiteConfiguration.script %}
+		{{ websiteConfiguration.script|raw }}
+	{% else %}
+		<script type="text/javascript">
+			{{ websiteConfiguration.script|raw }}
+		</script>
+	{% endif %}			
+{% endif %}

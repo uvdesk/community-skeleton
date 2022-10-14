@@ -1,0 +1,17 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+
+{% block body %}
+	<style>
+		.uv-kb-info {
+			word-break: break-all;
+		}
+	</style>
+	
+	{% set themeTemplate = themeTemplate ? themeTemplate : 'masonryView' %}
+	{% include "@UVDeskSupportCenter/Themes/" ~ themeTemplate ~ ".html.twig" %}
+	{{parent()}}
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+{% endblock %}

@@ -1,0 +1,24 @@
+{
+    "name": "uvdesk/automation-bundle",
+    "description": "UVDesk Community Helpdesk Automations Bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "akshay kumar",
+            "email": "akshay.kumar758@webkul.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5 || ^8.0",
+        "uvdesk/composer-plugin": "^1.1",
+        "uvdesk/core-framework": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Webkul\\UVDesk\\AutomationBundle\\": "" }
+    },
+    "extra": {
+        "uvdesk-package-extension": "Webkul\\UVDesk\\AutomationBundle\\Package\\Composer"
+    },
+    "minimum-stability": "stable"
+}

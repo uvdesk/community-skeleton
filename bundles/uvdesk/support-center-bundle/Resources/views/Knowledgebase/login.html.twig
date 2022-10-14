@@ -1,0 +1,121 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+
+{% block title %}{{ 'Customer Login'|trans }}{% endblock %}
+{% block ogtitle %}{{ 'Customer Login'|trans }}{% endblock %}
+{% block twtitle %}{{ 'Customer Login'|trans }}{% endblock %}
+{% block metaDescription %}{% trans %}customer.login.metaDescription{% endtrans %}{% endblock %}
+{% block metaKeywords %}{% trans %}customer.login.metaKeywords{% endtrans %}{% endblock %}
+
+{% set recaptchaDetail = recaptcha_service.getRecaptchaDetails() %}
+
+{% block body %}
+    <div class="uv-paper-article uv-paper-form">
+        <div class="uv-paper-section">
+            <form action="{{ path('helpdesk_customer_login') }}" method="post" id="loginForm">
+                <section>
+                    <h1>{{ 'Sign In to %websitename%'|trans({ '%websitename%': '<span class="uv-brand">' ~ websiteDetails.name|e ~ '</span>' })|raw }}</h1>
+                    <div class="uv-element-block">
+                        <p>{{ 'If you have ever contacted our support previously, your account would have already been created.'|trans }}</p>
+                    </div>
+
+                    <div class="uv-form">
+                        <div class="uv-element-block">
+                            <label class="uv-field-label">{{ 'Email'|trans }}</label>
+                            <div class="uv-field-block">
+                                <input class="uv-field" type="email" name="_username">
+                            </div>
+                        </div>
+
+                        <div class="uv-element-block">
+                            <label class="uv-field-label">{{ 'Password'|trans }}</label>
+                            <div class="uv-field-block uv-relative">
+                                <a class="uv-forgot-pwd" href="{{ path('helpdesk_forgot_account_password') }}" tabIndex="-1">{{ 'Forgot Password?'|trans }}</a>
+                                <input class="uv-field" type="password" name="_password">
+                            </div>
+                        </div>
+                        {% if recaptchaDetail and recaptchaDetail.isActive == true %}
+							<div class="clearfix"></div>
+							<div class="g-recaptcha" data-sitekey="{{ recaptchaDetail.siteKey }}"></div>
+							<div class="clearfix"></div>
+                        {% else %}
+                            <!-- Recaptcha will not support -->
+                        {% endif %}
+                        <button class="uv-btn">{{ 'Sign In'|trans }}</button>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+    {% if recaptchaDetail and recaptchaDetail.isActive == true %}
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    {% endif %}
+
+    <script type="text/javascript">
+        $(function () {
+            var LoginModel = Backbone.Model.extend({
+                validation: {
+                    '_username': [{
+                        required: true,
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },{
+                        pattern: 'email',
+                        msg: '{{ "This is not a valid email address"|trans }}'
+                    }],
+                    '_password': [{
+                        required: true,
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },{
+                        minLength: 8,
+                        msg: '{{ "Password must contains 8 Characters"|trans }}'
+                    }],
+                    {% if recaptchaDetail and recaptchaDetail.isActive == true %}
+                        'g-recaptcha-response' : {
+                            fn: function(value) {
+                                if(grecaptcha.getResponse().length > 0)
+                                    return false;
+                                else
+                                    return true;
+                            },
+                            msg : '{{ "Please select CAPTCHA"|trans }}'
+                        }
+				    {% endif %}
+                }
+            });
+
+            var LoginForm = Backbone.View.extend({
+                events: {
+                    'click .uv-btn': 'submit',
+                    'blur input': 'formChanegd'
+                },
+                initialize: function () {
+                    Backbone.Validation.bind(this);
+                    {% if error.messageKey is defined %}
+                        app.appView.renderResponseAlert({'alertClass': 'danger', 'alertMessage': '{{ error.messageKey|trans}}'})
+                    {% endif %}
+                },
+                formChanegd: function(e) {
+			    	this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    	this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+			    },
+                submit: function (e) {
+                    e.preventDefault();
+
+                    var data = this.$el.serializeObject();
+                    this.model.set(data);
+                    if(this.model.isValid(true)){
+                        this.$el.submit();
+                    }
+                }
+            });
+
+            var Login = new LoginForm({
+		        el: $('#loginForm'),
+		        model: new LoginModel()
+		    });
+        });
+    </script>
+{% endblock %}

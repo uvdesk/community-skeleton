@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    
+    Webkul\UVDesk\SupportCenterBundle\:
+        resource: '../../*'
+        exclude: '../../{DependencyInjection,Entity,Package,Templates,Migrations,Tests}'
+    
+    Webkul\UVDesk\SupportCenterBundle\Controller\:
+        resource: '../../Controller/*'
+        tags: ['controller.service_arguments']
+    
+    Webkul\UVDesk\SupportCenterBundle\Fixtures\:    
+        resource: '../../Fixtures/*'
+        tags: ['doctrine.fixture.orm']

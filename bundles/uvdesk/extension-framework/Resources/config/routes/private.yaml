@@ -1,0 +1,23 @@
+uvdesk_extensions_applications_dashboard:
+    path:     /apps
+    controller: Webkul\UVDesk\ExtensionFrameworkBundle\Controller\Dashboard::applications
+    defaults: { panelId: 'apps' }
+
+uvdesk_extensions_applications_dashboard_xhr:
+    path:     /apps/collection
+    controller: Webkul\UVDesk\ExtensionFrameworkBundle\Controller\Dashboard::applicationsXHR
+    methods: [GET, POST]
+
+uvdesk_extensions_standalone_application_dashboard:
+    path:     /apps/{vendor}/{package}/{qualifiedName}
+    controller: Webkul\UVDesk\ExtensionFrameworkBundle\Controller\Application::dashboard
+
+uvdesk_extensions_standalone_application_api_endpoint:
+    path:     /apps/{vendor}/{package}/{qualifiedName}/api
+    controller: Webkul\UVDesk\ExtensionFrameworkBundle\Controller\Application::apiEndpointXHR
+    methods: [GET, POST, PUT, DELETE]
+
+uvdesk_extensions_standalone_application_callback_endpoint:
+    path:     /apps/{vendor}/{package}/{qualifiedName}/callback
+    controller: Webkul\UVDesk\ExtensionFrameworkBundle\Controller\Application::callbackEndpointXHR
+    methods: [GET, POST]

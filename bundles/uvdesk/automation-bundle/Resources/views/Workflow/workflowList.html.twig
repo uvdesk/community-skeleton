@@ -1,0 +1,235 @@
+{% extends "@UVDeskCoreFramework/Templates/layout.html.twig" %}
+
+{% block title %} 
+	{{ 'Workflows'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<style>
+	 	.uv-icon-drag {
+			margin: 0 10px 0 5px;
+			cursor: move;
+	 	}
+	 </style>
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Productivity' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+					<h1>
+						{{ 'Workflows'|trans }}
+					</h1>
+                </div>
+				<div class="uv-action-bar-col-rt">
+					
+						<!-- Add Button -->
+						<a href="{{ path('workflows_addaction') }}" type="button" class="uv-btn-action">
+							<span class="uv-icon-add"></span>
+							{{ "New Workflow"|trans }}
+						</a>
+						<!--// Add Button -->
+				</div>
+            </div>
+            <!--//Action Bar-->
+
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ "Name"|trans }}</th>
+                            <th>{{ "Status"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+	<!-- Workflow list item template -->
+	<script id="workflow_list_item_tmp" type="text/template">
+		<td data-value="{{ 'Name'|trans }}">
+			<span class="uv-icon-drag" title="Reorder"></span>
+			<%- name %>
+		</td>
+        <td data-value="{{ 'Status'|trans }}">
+			<% if(status) { %>
+            	<span class="uv-text-success">{{ 'Active'|trans }}</span>
+            <% } else { %>
+            	<span class="uv-text-danger">{{ 'Disabled'|trans }}</span>
+        	<% } %>
+		</td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('replaceId', id) %>" class="uv-btn-stroke edit-workflow" data-value="<%= id %>">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-workflow">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+	<!-- //Workflow list item template -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script type="text/javascript">
+        var path = "{{ path('workflows_editaction', {'id': 'replaceId' }) }}";
+		
+		$(function () {
+			$('.uv-table.uv-list-view tbody').sortable();
+			$('.uv-table.uv-list-view tbody').on("sortupdate", function(event, ui){
+				var data = {'orders': {}};
+				$('.uv-table.uv-list-view tbody tr').each(function(key, value){
+					var modelKey = $(value).find('.edit-workflow').attr('data-value');
+					if(modelKey){
+						data.orders[modelKey] = key+1;
+					}
+				});
+				workflowListView.updateSortOrder(data)
+			});
+
+			var globalMessageResponse = "";
+
+			var WorkflowModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var WorkflowCollection = AppCollection.extend({
+				model : WorkflowModel,
+				url : "{{ path('workflowslist_xhr') }}",
+				parseRecords: function (resp, options) {
+					return resp.workflows;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						reset: true,               
+						success: function(model, response) {
+							app.appView.hideLoader();
+							workflowListView.render();
+
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				} 
+			});
+
+			var WorkflowItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#workflow_list_item_tmp").html()),
+				events : {
+					'click .delete-workflow' : "confirmRemove"
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						workflowCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('workflows_xhraction') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							workflowCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+							
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var WorkflowList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				render : function () {
+					this.$el.find("tr").remove();
+					if(workflowCollection.length) {
+						_.each(workflowCollection.models, function (item) {
+							this.renderWorkflow(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='3'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderWorkflow : function (item) {
+					var workflowItem = new WorkflowItem({
+						model: item
+					});
+					this.$el.append(workflowItem.render().el);
+				},
+				updateSortOrder: function(data) {
+					app.appView.showLoader();
+					$.ajax({
+						url: "{{path('workflows_xhraction')}}",
+						method: 'POST',
+						dataType: 'json',
+						data: data,
+						success: function(response){
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						},
+						error: function(xhr) {
+							app.appView.hideLoader();
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+							
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var workflowListView = new WorkflowList();
+			var workflowCollection = new WorkflowCollection();
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					workflowCollection.syncData();
+				}
+			});     
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		}); 	
+	</script>
+{% endblock %}

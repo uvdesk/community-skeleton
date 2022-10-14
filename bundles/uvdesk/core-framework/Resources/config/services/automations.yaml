@@ -1,0 +1,19 @@
+services:
+    Webkul\UVDesk\CoreFrameworkBundle\Workflow\Events\:
+        resource: '../../../Workflow/Events/*'
+        arguments: ['@service_container', '@request_stack', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: uvdesk.automations.workflow.events }
+    
+    Webkul\UVDesk\CoreFrameworkBundle\Workflow\Actions\:
+        resource: '../../../Workflow/Actions/*'
+        arguments: ['@service_container', '@request_stack', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: uvdesk.automations.workflow.actions }
+    
+    Webkul\UVDesk\CoreFrameworkBundle\PreparedResponse\Actions\:
+        resource: '../../../PreparedResponse/Actions/*'
+        arguments: ['@service_container', '@request_stack', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: uvdesk.automations.prepared_response.actions }
+        

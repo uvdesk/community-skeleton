@@ -1,0 +1,161 @@
+# Members knowledgebase folder routing resources
+ajax_file_upload:
+    path:     /file-upload
+    controller: Webkul\UVDesk\DefaultBundle\Controller\Default::ajaxFileUpload
+
+ajax_url_file:
+    path:     /url-upload
+    controller: Webkul\UVDesk\DefaultBundle\Controller\Default::ajaxUrlFileUpload
+
+ajax_file_remove:
+    path:     /file-remove
+    controller: Webkul\UVDesk\DefaultBundle\Controller\Default::ajaxFileRemove
+
+ajax_service_call:
+    path:     /service-call
+    controller: Webkul\UVDesk\DefaultBundle\Controller\Default::ajaxServiceCall
+
+helpdesk_member_knowledgebase_folders_collection:
+    path:     /knowledgebase/folders
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Folder::listFolders
+
+helpdesk_member_knowledgebase_folders_collection_xhr:
+    path:     /knowledgebase/folders/xhr
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\KnowledgebaseXHR::listFoldersXHR
+
+helpdesk_member_knowledgebase_create_folder:
+    path:     /knowledgebase/folders/new
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Folder::createFolder
+
+helpdesk_member_knowledgebase_update_folder:
+    path:     /knowledgebase/folders/update/{folderId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Folder::updateFolder
+    defaults: { folderId: 0 }
+
+helpdesk_member_knowledgebase_update_folder_xhr:
+    path:     /knowledgebase/folders/update/xhr/{folderId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\KnowledgebaseXHR::updateFolderXHR
+    defaults: { folderId: 0 }
+
+helpdesk_member_knowledgebase_update_locales:
+    path:     /branding/locales/ajax
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Branding::LocalesUpdateXhr
+
+# Members knowledgebase categories routing resources
+helpdesk_member_knowledgebase_category_collection:
+    path:     /categories
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::CategoryList
+
+helpdesk_member_knowledgebase_folder_categories_collection:
+    path:     /{solution}/categories
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::CategoryListBySolution
+    defaults: { solution: 0 }
+
+helpdesk_member_knowledgebase_category_collection_xhr:
+    path:     /categories/ajax
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::CategoryListXhr
+
+helpdesk_member_knowledgebase_folder_categories_collection_xhr:
+    path:     /{solution}/categories/ajax
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::CategoryListXhr
+    defaults: { solution: 0 }
+
+helpdesk_member_knowledgebase_create_category:
+    path:     /category/add
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::Category
+
+helpdesk_member_knowledgebase_update_category:
+    path:     /category/edit/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::Category
+    defaults: { id: 0 }
+
+helpdesk_member_knowledgebase_update_category_xhr:
+    path:     /category/ajax/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Category::CategoryXhr
+    defaults: { id: 0 }
+
+# Members knowledgebase articles routing resources
+helpdesk_member_knowledgebase_article_collection:
+    path:     /articles
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::ArticleList
+
+helpdesk_member_knowledgebase_category_articles_collection:
+    path:     /{category}/articles
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::ArticleListByCategory
+    defaults: { category: 0 }
+
+helpdesk_member_knowledgebase_folder_articles_collection:
+    path:     /solution/{solution}/articles
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::ArticleListBySolution
+    defaults: { solution: 0 }
+
+helpdesk_member_knowledgebase_article_collection_xhr:
+    path:     /articles/ajax
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::ArticleListXhr
+
+helpdesk_member_knowledgebase_folder_articles_collection_xhr:
+    path:     /solution/{solution}/articles/ajax
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::ArticleListXhr
+    defaults: { solution: 0 }
+
+helpdesk_member_knowledgebase_create_article:
+    path:     /article/add
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::Article
+
+helpdesk_member_knowledgebase_update_article:
+    path:     /article/edit/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::Article
+    defaults: { id: 0 }
+
+helpdesk_member_knowledgebase_update_article_xhr:
+    path:     /article/ajax/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::ArticleXhr
+    defaults: { id: 0 }
+
+helpdesk_member_knowledgebase_revision_article:
+    path:     /articleHistory/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::articleHistoryXhr
+    defaults: { id: 0 }
+
+helpdesk_member_knowledgebase_related_article_xhr:
+    path:     /articleRelated/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Article::articleRelatedXhr
+    defaults: { id: 0 }
+
+# Members knowledgebase setting routing resources
+helpdesk_member_knowledgebase_theme:
+    path:     /branding/theme/{type}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Branding::theme
+    defaults: { type: '' }
+
+helpdesk_member_knowledgebase_spam:
+    path:     /block/spam
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Branding::spam
+    defaults: { type: '' }
+
+helpdesk_member_knowledgebase_update_theme_xhr:
+    path:     /branding/ajax
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Branding::BrandingXhr
+
+# Marketing Announcement section resources
+helpdesk_member_knowledgebase_marketing_announcement:
+    path:     /announcement/list
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Announcement::listAnnouncement
+
+helpdesk_member_knowledgebase_marketing_announcement_xhr:
+    path:     /announcement/xhr
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Announcement::listAnnouncementXHR
+
+helpdesk_member_knowledgebase_create_marketing_announcement:
+    path:     /knowledgebase/announcement/new
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Announcement::updateAnnouncement
+
+helpdesk_member_knowledgebase_update_marketing_announcement:
+    path:     /knowledgebase/announcement/update/{announcementId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Announcement::updateAnnouncement
+    defaults: { announcementId: 0 }
+
+helpdesk_member_knowledgebase_remove_marketing_announcement_xhr:
+    path:     /knowledgebase/announcement/remove/{announcementId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Announcement::removeAnnouncementXHR
+    defaults: { announcementId: 0 }

@@ -1,0 +1,14 @@
+{% set popArticles = ""%}
+{% if popArticles %}
+    <div class="uv-paper-aside">
+        <aside>
+            <h3>{{'Popular Articles'|trans}}</h3>
+            <ul>
+                {% for popArticle in popArticles %}
+                    <li><a href="{{path('helpdesk_knowledgebase_read_slug_article', {'slug': popArticle.slug})}}"> {% if popArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{ popArticle.name }}</a></li>
+                    {#<li><a href="{{path('helpdesk_knowledgebase_read_article', {'article': popArticle.id})}}"> {% if popArticle.stared %}<span class="uv-icon-star uv-pre"></span>{% endif %} {{popArticle.name}}</a></li>#}
+                {% endfor %}
+            </ul>
+        </aside>
+    </div>
+{% endif %}

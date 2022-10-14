@@ -1,0 +1,36 @@
+security:
+    role_hierarchy:
+        ROLE_AGENT: ROLE_AGENT
+        ROLE_ADMIN: [ROLE_AGENT, ROLE_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
+        ROLE_CUSTOMER: ROLE_CUSTOMER
+    
+    providers:
+        user_provider:
+            id: user.provider
+    
+    encoders:
+        Webkul\UVDesk\CoreFrameworkBundle\Entity\User: auto
+    
+    firewalls:
+        back_support:
+            pattern: /%uvdesk_site_path.member_prefix%
+            provider: user_provider
+            anonymous: ~
+            form_login:
+                use_referer: true
+                login_path: helpdesk_member_handle_login
+                check_path: helpdesk_member_handle_login
+                default_target_path: helpdesk_member_dashboard
+                always_use_default_target_path: true
+            logout:
+                path:   helpdesk_member_handle_logout
+                target: helpdesk_member_handle_login
+        
+    access_control:
+        - { path: /%uvdesk_site_path.member_prefix%/login, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/create-account, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/forgot-password, roles: [IS_AUTHENTICATED_REMEMBERED,IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/update-credentials, roles: [IS_AUTHENTICATED_REMEMBERED,IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/mailbox/listener, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/, roles: ROLE_AGENT }

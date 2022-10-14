@@ -1,0 +1,83 @@
+# Customer account routing resources
+helpdesk_customer_login:
+    path:     /login
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Customer::login
+
+helpdesk_customer_logout:
+    path:     /logout
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Customer::logout
+
+helpdesk_customer_account:
+    path:     /account
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Customer::Account
+
+# Customer ticket routing resources
+helpdesk_customer_ticket_collection:
+    path:     /tickets
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::Tickets
+
+helpdesk_customer_ticket_collection_xhr:
+    path:     /tickets/xhr
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::ticketListXhr
+
+helpdesk_customer_ticket:
+    path:     /ticket/view/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::ticketView
+    defaults: { id: 0 }
+
+helpdesk_customer_thread_collection_xhr:
+    path:     /threads/ajax/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::threadListXhr
+    defaults: { id: 0 }
+
+helpdesk_customer_add_ticket_thread:
+    path:     /thread/save/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::saveReply
+    defaults: { id: 0 }
+
+helpdesk_customer_upload_thread_encoded_image:
+    path:     /thread/encoded-images/save/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Thread::base64ImageUpload
+
+helpdesk_customer_rate_ticket:
+    path:     /ticket/rate/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::rateTicket
+    defaults: { id: 0 }
+
+helpdesk_customer_save_ticket_draft:
+    path:     /ticket/draft-save/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::saveDraft
+    defaults: { id: 0 }
+
+helpdesk_customer_update_ticket_collaborators_xhr:
+    path:     /ticket/collaborator/{id}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::ticketCollaboratorXhr
+    defaults: { id: 0 }
+
+helpdesk_customer_create_ticket:
+    path:     /create-ticket/
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::ticketAdd
+    
+helpdesk_customer_create_ticket_success:
+    path:     /ticket/success/{email}/{flag}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::ticketSuccess
+    defaults: { email: '', flag: 0 }
+
+helpdesk_customer_download_ticket_attachment:
+    path:     /ticket/download/{attachmendId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::downloadAttachment
+    defaults: { attachmendId: 0 }
+
+helpdesk_customer_download_ticket_attachment_zip:
+    path:     /ticket/download-ticket-zip/{threadId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Ticket::downloadAttachmentZip
+    defaults: { threadId: 0 }
+
+helpdesk_customer_view_ticket_attachment:
+    path: /attachment/{id}/view
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\AttachmentViewer::attachmentView
+
+helpdesk_customer_front_article_search:
+    path: /search/article/{s}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Customer::searchArticle
+    defaults: { s: 0 }

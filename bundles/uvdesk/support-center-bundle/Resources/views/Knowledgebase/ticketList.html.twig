@@ -1,0 +1,396 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+
+{# WebkulUVDeskSupportCenterBundle/Resources/views/Front/ticketList.html.twig #}
+{% block title %}{% trans %}Tickets{% endtrans %}{% endblock %}
+{% block ogtitle %}{% trans %}Tickets{% endtrans %}{% endblock %}
+{% block twtitle %}{% trans %}Tickets{% endtrans %}{% endblock %}
+{% block metaDescription %}{% trans %}ticketlist.metaDescription{% endtrans %}{% endblock %}
+{% block metaKeywords %}{% trans %}ticketlist.metaKeywords{% endtrans %}{% endblock %}
+
+{% block tabHeader %}
+	<div class="uv-nav-bar uv-nav-tab">
+		<div class="uv-container">
+			<div class="uv-nav-bar-lt">
+				<ul class="uv-nav-tab-label">
+					<li><a class="uv-nav-tab-active" href="{{ path('helpdesk_customer_ticket_collection') }}">{{ 'Ticket Requests'|trans }}</a></li>
+					{% if websiteConfiguration.ticketCreateOption is defined and websiteConfiguration.ticketCreateOption %}
+						<li><a href="{{ path('helpdesk_customer_create_ticket') }}">{{ 'New Ticket Request'|trans }}</a></li>
+					{% endif %}
+				</ul>
+			</div>
+			<div class="uv-nav-bar-rt">
+				<form method="get" action="{{path('helpdesk_customer_front_article_search')}}">
+					<input name="s" class="uv-nav-search" type="text" placeholder="{{ 'Search'|trans }}">
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block body %}
+	<style>
+		.uv-table td a {
+			color: #333;
+		}
+		.announcement {
+			background-color:green;
+			margin-bottom:10px; 
+			border-radius:3px;
+			height: 48px; 
+			padding: 10px;
+		}
+		.announcement_para {
+			color: #fff;
+			float: left;
+			font-style: normal;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 17px;
+		}
+		.announcement_remove {
+			border-radius:50%; 
+			float:right; 
+			cursor:pointer;
+			border: 2px solid #fff; 
+			width: 26px; 
+			padding-left: 7px; 
+			padding-bottom: 3px;
+		}
+		.announcement_btn_rgt {
+			float: right;
+			font-weight:bold;
+			background: #FFFFFF;
+			cursor: pointer;
+			color: #2B6BE3;
+			padding: 4px;
+			border-radius: 3px; 
+			margin-right: 36px;
+		}
+		.announcement_btn_left {
+			float: left;
+			background: #EFC556;
+			font-weight:bold;
+			cursor: pointer;
+			font: Source Sans Pro;
+			padding: 4px;
+			border-radius: 4px;
+			margin-right: 10px;
+		}
+	</style>
+	
+	<div class="uv-nav-tab-view">
+		<h1>{{ 'Ticket Requests'|trans }}</h1>
+		<div class="uv-action-view">
+			<div class="uv-action-view-lt">
+
+				<!--Sort by-->
+				<div class="uv-dropdown sort">
+					<div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+						{{ 'Sort By:'|trans }} {{ 'Ticket Id'|trans }}
+					</div>
+					<div class="uv-dropdown-list uv-bottom-left">
+						<div class="uv-dropdown-container">
+							<label>{{ 'Sort By'|trans }}</label>
+							<ul>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--Sort by-->
+
+				<!--Filter By Status-->
+				<div class="uv-dropdown filter-by-status">
+					<div class="uv-dropdown-btn">
+						{{ 'Status:'|trans }} {{ 'All'|trans }}
+					</div>
+					<div class="uv-dropdown-list uv-bottom-left">
+						<div class="uv-dropdown-container">
+							<label>{{ 'Status'|trans }}</label>
+							<ul>
+								<li class="uv-drop-list-active"><a href="#" data-id="">{{ 'All'|trans }}</a></li>
+								{% for status in ticket_service.getStatus() %}
+									<li><a href="#" data-id="{{status.id}}">{{ status.description|trans }}</a></li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!--//Filter By Status-->
+			</div>
+			<div class="uv-action-view-rt">
+				<input type="text" class="uv-search-inline uv-search-inline-full" placeholder="{{ 'Search Tickets'|trans }}">
+			</div>
+		</div>
+	</div>
+	<!--//Action Bar-->
+
+	<!-- Announcement Section-->
+	{% for announcement in groupAnnouncement %}
+		<div class="announcement" id= "uv-kb-info-announcement_{{ announcement.id }}">
+			<a class="announcement_btn_left" style="background:{{ announcement.tagColor }} !important; color:#333333 !important" href="#">{{ announcement.title }}</a>
+			<p class="announcement_para">{{ announcement.promoText }}</p>
+			<a class ="announcement_remove" style="color: #fff !important;" onclick="document.getElementById('uv-kb-info-announcement_{{ announcement.id }}').remove()">x</a>
+			<a class="announcement_btn_rgt" target="_blank" href="{{ announcement.linkUrl }}">{{ announcement.linkText }}</a>
+		</div>
+    {% endfor %}
+	<div class="uv-hl-ring"></div>
+	<!-- Announcement Section-->
+
+	<div class="uv-table uv-list-view">
+		<table>
+			<thead>
+				<tr>
+					<th>{{ "Ticket Id"|trans }}</th>
+					<th>{{ "Subject"|trans }}</th>
+					<th>{{ "Status"|trans }}</th>
+					<th>{{ "Timestamp"|trans }}</th>
+					<th class="uv-last">{{ "Agent"|trans }}</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div class="navigation"></div>
+	</div>
+{% endblock %}
+
+
+{% block footer %}
+	{{ parent() }}
+	<!-- Sorting Template -->
+	<script id="ticket_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 't.id') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/t.id/<% if(sort == 't.id') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="t.id">
+                {{ 'Ticket Id'|trans }}
+            </a>
+            <% if(sort == 't.id') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+
+            <% } %>
+        </li>
+        <li class="<% if(sort == 'name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/name/<% if(sort == 'name') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="name">
+                {{ 'Agent Name'|trans }}
+            </a>
+            <% if(sort == 'name') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+
+            <% } %>
+        </li>
+		<li class="<% if(sort == 't.updatedAt') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/t.updatedAt/<% if(sort == 't.updatedAt') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/asc<% } %><% } else { %>direction/desc<% } %>" data-field="t.updatedAt">
+                {{ 'Last Updated'|trans }}
+            </a>
+            <% if(sort == 't.updatedAt') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+
+            <% } %>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<script id="ticket_list_item_tmp" type="text/template">
+		<td data-value="{{ 'Ticket Id'|trans }}">
+	       <a class="not-shiny" href="<%- path %>">
+	    		#<%- id %>
+	    	</a>
+        </td>
+        <td data-value="{{ 'Subject'|trans }}">
+	       <a class="not-shiny" href="<%- path %>">
+	    		<%- subject %>
+	    	</a>
+        </td>
+        <td data-value="{{ 'Status'|trans }}">
+	       	<a class="not-shiny" href="<%- path %>">
+	       		<% if (status.description == 'Open') { %>
+				   		{{ 'Open'|trans }}
+				<% } else if (status.description == 'Closed') { %>
+						{{ 'Closed'|trans }}
+				<% } else if (status.description == 'Pending') { %>
+						{{ 'Pending'|trans }}
+				<% } else if (status.description == 'Answered') { %>
+						{{ 'Answered'|trans }}
+				<% } else if(status.description == 'Resolved') { %>
+						{{ 'Resolved'|trans }}
+				<% } else if(status.description == 'UnAnswered') { %>
+						{{ 'UnAnswered'|trans }}
+				<% } else if(status.description == 'UnAssigned') { %>
+						{{ 'UnAssigned'|trans }}
+				<% } %>
+	    	</a>
+        </td>
+        <td data-value="{{ 'Timestamp'|trans }}">
+	       	<a class="not-shiny" href="<%- path %>">
+	       		<%= formatedCreatedAt %>
+	    	</a>
+        </td>
+        <td data-value="{{ 'Agent'|trans }}">
+        	<a class="not-shiny" href="<%- path %>">
+				<%  if(agent) { %>
+                    <% if(agent.smallThumbnail != null) { %>
+                        <img class="uv-table-agent" src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}<%- agent.smallThumbnail %>" alt=""/>
+                    <% } else { %>
+                        <img class="uv-table-agent" src="{{ asset(default_agent_image_path) }}" alt=""/>
+                    <% } %>
+                    <%- agent.firstName + ' ' + (agent.lastName == null ? '' : agent.lastName) %>
+                <% } else { %>
+                    {{ 'Unassigned'|trans }}
+                <% } %>
+        	</a>
+        </td>
+    </script>
+
+    <script type="text/javascript">
+		$(function() {
+			var ticketPath = "{{ path('helpdesk_customer_ticket', {'id': 'replaceId' }) }}";
+			var TicketModel = Backbone.Model.extend({
+				idAttribute : "id",
+				defaults : {
+					path : "",
+				}
+			});
+
+			var TicketCollection = AppCollection.extend({
+				model : TicketModel,
+				url : "{{ path('helpdesk_customer_ticket_collection_xhr') }}",
+				filterParameters : {
+					"status" : "",
+					"search" : "",
+				},
+				parseRecords: function (resp, options) {
+					return resp.tickets;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var ticketListView = new TicketList();
+
+                            app.pager.paginationData = response.pagination;
+							app.pager.url = response.pagination.url;
+							if(ticketCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var TicketItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#ticket_list_item_tmp").html()),
+				render : function () {
+					this.model.set({path:ticketPath.replace('replaceId', this.model.attributes.id)})
+					this.$el.html(this.template(this.model.toJSON()));
+
+					if(this.model.attributes.isCustomerView != true)
+						this.$el.addClass('unread')
+
+					return this;
+				}
+			});
+
+			var TicketList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.html('');
+					if(ticketCollection.length) {
+						_.each(ticketCollection.models, function (item) {
+							this.renderTicket(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;float: none;'><td colspan='5'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderTicket : function (item) {
+					var ticketItem = new TicketItem({
+						model: item
+					});
+					this.$el.append(ticketItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 't.id',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Ticket Id{% endtrans %}",
+				template : _.template($("#ticket_list_sorting_tmp").html()),
+				filterByStatus : function(e) {
+					e.preventDefault()
+					this.collection.reset();
+					this.collection.state.currentPage = null;
+					this.collection.setSorting(null, null, {full: false});
+					this.collection.filterParameters.status = Backbone.$(e.currentTarget).find('a').attr('data-id');
+					var queryString = app.appView.buildQuery($.param(this.collection.getValidParameters()));
+					router.navigate(queryString, {trigger: true});
+				},
+			})
+
+			var ticketCollection = new TicketCollection();
+
+			var filter = new Filter({
+				el: $('.uv-action-view'),
+				collection : ticketCollection
+			});
+
+			Router = Backbone.Router.extend({
+		    	routes: {
+                	'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+                	'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+                	'status/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByStatus',
+                	'' : 'initializeList',
+                	'_=_' : 'initializeList',
+                },
+                initializeList : function() {
+                	this.resetParams('','');
+                	this.fetch(null, null, null);
+                },
+                paginate : function(number, sortField, order) {
+                	this.resetParams('', '');
+                	this.fetch(number, sortField, order);
+                },
+                filterByQuery : function(query, number, sortField, order) {
+                	if(query != null)
+                		query = query.replace(/\+/g,' ');
+
+                	this.resetParams(query, '');
+                	this.fetch(number, sortField, order);
+                },
+                filterByStatus : function(status, query, number, sortField, order) {
+                	if(query != null)
+                		query = query.replace(/\+/g,' ');
+
+                	this.resetParams(query, status);
+
+                	this.fetch(number, sortField, order);
+                },
+                fetch : function(number, sortField, order) {
+                	ticketCollection.state.currentPage = number;
+                	filter.sortCollection(sortField, order);
+                	ticketCollection.syncData();
+                },
+                resetParams : function(query, status) {
+                	ticketCollection.filterParameters.search = query;
+                	$(".uv-search-inline ").val(query);
+                	ticketCollection.filterParameters.status = status;
+                    var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
+					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+                }
+            });
+
+			router = new Router();
+            Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

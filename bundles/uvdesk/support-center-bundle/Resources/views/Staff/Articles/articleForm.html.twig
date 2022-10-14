@@ -1,0 +1,1160 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Article'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<style>
+	.uv-tab-error {
+		border-bottom: 3px solid #FF5656 !important;
+	}
+	.mce-menu-item.mce-disabled .mce-text {
+		color: #333;
+	}
+	.uv-field-block .uv-dropdown-list.uv-top-left, .uv-field-block .uv-dropdown-list.uv-top-right{
+    	/*top: -90px;
+		bottom: auto;*/
+	}
+	.uv-vtop {
+		vertical-align: top;
+	}
+	div + .uv-no-translated-revision {
+		display: none;
+	}
+	@media screen and (min-width: 1100px) {
+		.uv-inner-section .uv-view .uv-ticket-action-bar .uv-ticket-action-bar-lt {
+			width: auto;
+		}
+		.uv-inner-section .uv-view .uv-ticket-action-bar .uv-ticket-action-bar-rt {
+			width: auto;
+			float: right;
+		}
+		.uv-rtl .uv-inner-section .uv-view .uv-ticket-action-bar .uv-ticket-action-bar-rt {
+			float: left;
+		}
+	}
+	</style>
+
+	<div class="uv-inner-section uv-article">
+        <div class="uv-aside uv-category" style="overflow-x: hidden;{% if app.request.cookies and app.request.cookies.get('uv-asideView') %}display: none;{% endif %}">
+		    <div class="uv-main-info-block">
+				<div class="uv-aside-head">
+					<div class="uv-aside-title">
+						<h6>{{ 'Article'|trans }}</h6>
+					</div>
+					<div class="uv-aside-back">
+						<span onclick="window.location = '{{ app.request.headers.get('referer') ? app.request.headers.get('referer') : path('helpdesk_member_knowledgebase_article_collection')}}'"> {{ 'Back'|trans }}</span>
+					</div>
+				</div>
+			</div>
+
+			<!--Aside Brick-->
+			<div class="uv-aside-brick">
+				<!--Ticket Actions-->
+				<div class="uv-aside-ticket-actions">
+
+					<!-- Field -->
+					<div class="uv-element-block">
+						<label class="uv-field-label">{{ 'Categories'|trans }}</label>
+						<div class="uv-field-block" id="categoryUpdate">
+							<input class="uv-field uv-dropdown-other preloaded" type="text" id="category-filter-input">
+							<div class="uv-dropdown-list uv-bottom-left uv-width-100">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Filter With'|trans }}</label>
+								</div>
+								<ul class="uv-agents-list">
+									{% for category in categories %}
+										<li data-id="{{category.id}}">
+											{{category.name}}
+										</li>
+									{% endfor %}
+									<li class="uv-no-results" style="display: none;">
+										{{ 'No result found'|trans }}
+									</li>
+								</ul>
+							</div>
+							<div class="uv-filtered-tags">
+								{% if articleCategory %}
+									{% for category in articleCategory %}
+										<a class="uv-btn-small default" href="#" data-id="{{ category.id }}">
+											{{ category.name }}
+											<span class="uv-icon-remove"></span>
+										</a>
+									{% endfor %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!--Aside Brick-->
+			<div class="uv-aside-brick">
+				<!--Ticket Actions-->
+				<div class="uv-aside-ticket-actions">
+					<div class="uv-aside-select">
+						<label class="uv-aside-select-label">{{ 'Status'|trans }}</label>
+						<div>
+							<span class="uv-aside-select-value uv-dropdown-other uv-aside-drop-icon" data-id="{{ article.status }}">
+								{{ article.status == 1 ? 'Published'|trans : 'Draft'|trans  }}
+							</span>
+							<div class="uv-dropdown-list uv-bottom-left">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Status'|trans }}</label>
+									<ul class="status" data-action="status">
+										<li data-index="1"><a href="#">{{ 'Published'|trans }}</a></li>
+										<li data-index="0"><a href="#">{{ 'Draft'|trans }}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="uv-aside-select">
+						<label class="uv-aside-select-label">{{ 'Make as Starred'|trans }}</label>
+						<div>
+							<span class="uv-aside-select-value uv-dropdown-other uv-aside-drop-icon" data-id="{{ article.stared }}">
+								{{ article.stared == 1 ? 'Yes'|trans : 'No'|trans  }}
+							</span>
+							<div class="uv-dropdown-list uv-bottom-left">
+								<div class="uv-dropdown-container">
+									<label>{{ 'Stared'|trans }}</label>
+									<ul class="stared" data-action="stared">
+										<li data-index="1"><a href="#">{{ 'Yes'|trans }}</a></li>
+										<li data-index="0"><a href="#">{{ 'No'|trans }}</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--Aside Brick-->
+			<div class="uv-aside-brick">
+				<!--Ticket Actions-->
+				<div class="uv-aside-ticket-actions">
+					<div class="uv-element-block">
+                        <label class="uv-field-label">{{ 'Tag'|trans }}</label>
+                        <div class="uv-field-block" id="tagUpdate">
+                            <input class="uv-field uv-dropdown-other" type="text" data-filter-type="tag" id="tag-filter-input">
+                            <div class="uv-dropdown-list uv-bottom-left uv-width-100">
+                                <div class="uv-dropdown-container">
+                                    <label>{{ 'Filter With'|trans }}</label>
+                                    <ul class="">
+                                        <li class="uv-filter-info">
+                                            {{ 'Type atleast 2 letters'|trans }}
+                                        </li>
+                                        <li class="uv-no-results" style="display: none;">
+                                            {{ 'No result found'|trans }}
+                                        </li>
+										<li class="press-enter-to-add" style="display: none;">
+											{{ 'Press Enter to add'|trans }}
+										</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+						<div class="uv-filtered-tags tag">
+							{% if articleTags %}
+								{% for tag in articleTags %}
+									<a class="uv-btn-tag" href="#" data-id="{{ tag.id }}">
+										<span class="uv-tag"><span class="uv-icon-remove-dark-before"></span>{{ tag.name }}</span>
+									</a>
+								{% endfor %}
+							{% endif %}
+						</div>
+                    </div>
+
+				</div>
+			</div>
+
+			<div class="uv-aside-brick">
+				<span class="uv-text-danger uv-cursor delete-article">{{ "Delete Article"|trans }}
+			</div>
+
+        </div>
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<div class="uv-ticket-scroll-region uv-margin-0 {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view-tv{% endif %}">
+				<div class="uv-ticket-action-bar">
+					<div class="uv-ticket-action-bar-lt">
+						<!--Tabs-->
+						<div class="uv-tabs" id="article-section-tab">
+							<ul>
+								<li for="article-edit" class="uv-tab-active">{{ 'Article'|trans }}</li>
+								<li for="article-seo" style="display:inline-block;">{{ 'SEO'|trans }}</li>
+								<li for="article-history" style="display:inline-block;">{{ 'Revisions'|trans }}</li>
+								<li for="article-related" class="article-other-info" style="display:inline-block;">{{ 'Related Articles'|trans }}</li>
+							</ul>
+						</div>
+						<!--Tabs-->
+					</div>
+
+					<div class="uv-ticket-action-bar-rt">
+
+						<span class="uv-action-buttons">
+							<a href="{{path('helpdesk_knowledgebase_read_slug_article', {'slug': article.slug })}}" target="_blank" type="button" class="uv-btn-action uv-margin-right-5 uv-button-preview" {{ article.status ? '' : 'disabled="disabled"'}} id="preview-link">
+								<span class="uv-icon-eye-light"></span> {{'View'|trans}}
+							</a>
+
+							<a href="#" type="button" class="uv-btn-action uv-margin-right-5" id="preview-article">
+								<span class="uv-icon-eye-light"></span> {{'Preview'|trans}}
+							</a>
+
+							<a href="#" type="button" class="uv-btn-action update-btn">
+								<span class="uv-icon-publish-light"></span> {{'Update'|trans}}
+							</a>
+						</span>
+					</div>
+				</div>
+
+				<!-- Form -->
+				<form method="post" action="" id="article-form" style="width: 97%;">
+					<div id="original-article" class="article-instances">
+						<div class="uv-tab-view uv-tab-view-active" id="article-edit">
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Title'|trans }}</label>
+								<div class="uv-field-block">
+									<input name="name" class="uv-field" type="text" value="{{ article.name }}">
+								</div>
+							</div>
+							<!-- //Field -->
+
+							<!-- Field -->
+							<div class="uv-element-block uv-element-block-textarea">
+								<label class="uv-field-label">{{ 'Content'|trans }}</label>
+								<div class="uv-field-block uv-margin-top-5">
+									<textarea name="content" class="uv-field">{{article.content}}</textarea>
+								</div>
+							</div>
+							<!-- //Field -->
+						</div>
+
+						<div class="uv-tab-view" id="article-seo">
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Slug'|trans }}</label>
+								<div class="uv-field-block">
+									<input name="slug" class="uv-field" type="text" value="{{ article.slug }}">
+								</div>
+								<span class="uv-field-info">{{'Slug is the url identity of this article. We will help you to create valid slug at time of typing.'|trans}}</span>
+							</div>
+							<!-- //Field -->
+
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Meta Title'|trans }}</label>
+								<div class="uv-field-block">
+									<input name="metaTitle" class="uv-field" type="text" value="{{ article.metaTitle }}">
+								</div>
+								<span class="uv-field-info">{{"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results"|trans}}</span>
+							</div>
+							<!-- //Field -->
+
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Meta Keywords'|trans }}</label>
+								<div class="uv-field-block">
+									<input name="keywords" class="uv-field" type="text" value="{{ article.keywords }}">
+								</div>
+								<span class="uv-field-info">{{'comma "," separated'|trans}}</span>
+							</div>
+							<!-- //Field -->
+
+							<!-- Field -->
+							<div class="uv-element-block">
+								<label class="uv-field-label">{{ 'Meta Description'|trans }}</label>
+								<div class="uv-field-block">
+									<textarea name="metaDescription" class="uv-field">{{article.metaDescription}}</textarea>
+								</div>
+							</div>
+							<!-- //Field -->
+						</div>
+
+						<div class="uv-tab-view" id="article-history">
+							<div class="uv-table uv-list-view"></div>
+						</div>
+
+						<div class="uv-tab-view" id="article-related">
+							<div class="uv-element-block ">
+								<label class="uv-field-label">{{ 'Article Title'|trans }}</label>
+								<div class="uv-field-block related">
+									<input class="uv-field uv-dropdown-other" type="text" data-filter-type="related" id="related-filter-input">
+									<div class="uv-dropdown-list uv-bottom-left uv-width-100">
+										<div class="uv-dropdown-container">
+											<label>{{ 'Filter With'|trans }}</label>
+											<ul class="">
+												<li class="uv-filter-info">
+													{{ 'Type atleast 2 letters'|trans }}
+												</li>
+												<li class="uv-no-results" style="display: none;">
+													{{ 'No result found'|trans }}
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+
+								<span class="uv-field-info">{{'Start typing few charactors and add set of relevant article from the list'|trans}}</span>
+							</div>
+							<div class="uv-table uv-list-view"></div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.uv-revision-parent{
+			margin-bottom: 20px;
+			width: 100%;
+			overflow: hidden;
+		}
+		.uv-revision-left{
+			display: inline-block;
+			width: 40px;
+			height: 100%;
+			position: absolute;
+		}
+		.uv-revision-right{
+			display: inline-block;
+			width: 100%;
+			margin-left: 40px;
+			border-bottom: solid 1px #D3D3D3;
+			padding-bottom: 20px;
+		}
+		.uv-revision-right div{
+			margin-bottom: 3px;
+		}
+		.uv-revision-right div:nth-child(1){
+			color: #737373;
+		}
+		.uv-inner-section.uv-article .uv-view .uv-ticket-action-bar{
+			margin-top: 20px;
+			margin-bottom: 25px;
+		}
+		.uv-related {
+			width: 100%;
+			border-top: solid 1px #D3D3D3;
+			padding: 10px 0px;
+		}
+		#article-related a.uv-btn-stroke.remove {
+			padding: 2px 4px;
+    		margin-right: 4px;
+		}
+		.uv-pop-up-box{
+			overflow: hidden;
+		}
+	</style>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<script id="article_related_list_item_tmp" type="text/template">
+		<div class="uv-related">
+			<a class="uv-btn-tag remove-event-select remove" data-id="<%= id %>" data-article-id="<%= articleId %>" href="#">
+				<span class="uv-icon-remove-dark-box"></span>
+			</a>
+			<%- name %>
+		</div>
+    </script>
+
+	<script id="article_history_list_item_tmp" type="text/template">
+		<div class="uv-revision-parent">
+			<div class="uv-revision-left">
+				<% if(isCurrent){ %>
+					<span class="uv-icon-history uv-icon-history-active"></span>
+				<% }else{ %>
+					<span class="uv-icon-history"></span>
+				<% } %>
+			</div>
+			<div class="uv-revision-right">
+				<div>{{ "Revision"|trans }} #<%= id %>
+					<% if(isCurrent){ %>
+						<span>({{"Published"|trans}})</span>
+					<% } %>
+				</div>
+				<div><%- name %> {{ "updated the article"|trans }} <span class="timeago" data-timestamp="<%= dateAdded.timestamp %>"> {{ "on"|trans }} <%= dateAdded.format %></span></div>
+				<div class="uv-action-buttons">
+					<a href="#" type="button" class="uv-btn-small history-preview" data-id="<%= id %>">
+						{{"Preview"|trans}}
+					</a>
+					<a href="#" type="button" class="uv-btn-small <% if(hasContent && !isCurrent){ %>history-restore<% } %>"  <% if(isCurrent || !hasContent){ %>disabled="disabled" <% } %>>
+						<% if(isCurrent){ %>
+							{{"Restored"|trans}}
+						<% }else{ %>
+							{{"Restore"|trans}}
+						<% } %>
+					</a>
+				</div>
+			</div>
+		</div>
+    </script>
+
+	<script id="article_preview_html" type="text/template">
+		<div class="uv-pop-up-overlay" id="preview-modal" style="display:block;">
+			<div class="uv-pop-up-box uv-pop-up-wide">
+				<span class="uv-pop-up-close"></span>
+				<div class="uv-html-preview" style="margin-bottom: 30px;">
+				</div>
+				<div class="uv-pop-up-actions">
+					<a href="#" class="uv-btn cancel">{{ 'Close'|trans }}</a>
+				</div>
+			</div>
+		</div>
+    </script>
+
+	<script id="article_history_view_html" type="text/template">
+		<div class="uv-pop-up-overlay" id="preview-modal" style="display:block;">
+			<div class="uv-pop-up-box uv-pop-up-wide">
+				<span class="uv-pop-up-close"></span>
+				<div class="uv-html-preview">
+				</div>
+				<div class="uv-pop-up-actions">
+					<a href="#" class="uv-btn uv-btn-error restore">{{ 'Restore'|trans }}</a>
+					<a href="#" class="uv-btn cancel">{{ 'Cancel'|trans }}</a>
+				</div>
+			</div>
+		</div>
+    </script>
+
+	<script type="text/javascript">
+		var path_history = "{{ path('helpdesk_member_knowledgebase_revision_article', {'id': article.id }) }}"
+		var path_related = "{{ path('helpdesk_member_knowledgebase_related_article_xhr', {'id': article.id }) }}"
+
+		$.fn.serializeFormObject = function () {
+			var o = {};
+			var outputCopy = o;
+			var a = this.serializeArray();
+			var regex = /(\w+)+/g;
+			$.each(a, function (index, item) {
+				var keys = item.name.match(regex);
+				keys.forEach(function (key, localIndex) {
+					if (!outputCopy.hasOwnProperty(key)) {
+						outputCopy[key] = {};
+					}
+					if(localIndex == keys.length - 1) {
+						outputCopy[key] = isNaN(item.value)|| item.value == '' || item.value == null  ? item.value : +item.value;
+					}
+					outputCopy = outputCopy[key];
+				});
+				outputCopy = o;
+			});
+			return o;
+		};
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var ArticleForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn-action.update-btn' : "saveArticle",
+					'blur input': 'formChanged',
+
+                    'click .uv-dropdown-list li': 'addEntity',
+                    'click .uv-filtered-tags .uv-btn-small': 'removeEntity',
+                    'click .uv-filtered-tags .uv-btn-tag': 'removeEntity',
+					'click .delete-article' : 'confirmRemove'
+				},
+				initialize : function() {
+					this.articleId = "{{app.request.attributes.get('id')}}";
+					Backbone.Validation.bind(this);
+				},
+                addEntity: function(e) {
+                    let currentElement = Backbone.$(e.currentTarget);
+                    if(id = currentElement.attr("data-id")) {
+                    	var coreParent = Backbone.$(e.currentTarget).parents('.uv-element-block');
+                    	var parent = coreParent.find(".uv-field-block");
+                        parent.find("li:not(.uv-no-results)").show();
+
+                        if(parent.hasClass('related')) {
+							let parentTab = parent.parents('#article-related');
+
+							if(!parentTab.find(".uv-list-view a[data-article-id='" + id + "']").length) {
+								var data = {};
+								data['ids'] = [this.articleId];
+								data['actionType'] = 'relatedUpdate'
+								data['entityId'] = id;
+								data['action'] = 'add';
+								this.articleEntityUpdate(data);
+							}
+						}else{
+							var inputElement = Backbone.$('#tag-filter-input');
+							inputElement.removeClass('uv-field-error');
+							inputElement.parents('.uv-element-block').find('.uv-field-message').remove();
+
+							inputElement.val('');
+
+							if(!coreParent.find(".uv-filtered-tags a[data-id='" + id + "']").length) {
+								let html = '';
+								if(parent[0].id == 'tagUpdate'){
+									html = `
+										<a class="uv-btn-tag" href="#" data-id="${id}">
+											<span class="uv-tag"><span class="uv-icon-remove-dark-before"></span>${currentElement.text()}</span>
+										</a>
+									`;
+								}else{
+									html = "<a class='uv-btn-small default' href='#' data-id='" + id + "'>"+currentElement.text()+"<span class='uv-icon-remove'></span></a>";
+								}
+
+								coreParent.find('.uv-filtered-tags').append(html)
+								var data = {};
+								data['ids'] = [this.articleId];
+								data['actionType'] = parent[0].id;
+								data['entityId'] = id;
+								data['action'] = 'add';
+								this.articleEntityUpdate(data);
+							}else {
+								inputElement.addClass('uv-field-error');
+								inputElement.parents('.uv-element-block').append("<span class='uv-field-message'>{{ 'Tag with same name already exist'|trans }}</span>");
+							}
+						}
+                    }
+                },
+                removeEntity: function(e) {
+                    var parent = Backbone.$(e.currentTarget).parents('.uv-element-block').find(".uv-field-block")
+                    Backbone.$(e.currentTarget).remove();
+
+					var data = {};
+					data['ids'] = [this.articleId];
+					data['actionType'] = parent[0].id;
+					data['entityId'] = $(e.currentTarget).attr("data-id");
+					data['action'] = 'remove';
+					this.articleEntityUpdate(data);
+                },
+				articleEntityUpdate : function(data) {
+                    var self = this;
+                    app.appView.showLoader();
+                    $.ajax({
+                        url : "{{ path('helpdesk_member_knowledgebase_update_article_xhr') }}",
+                        type : 'POST',
+                        data : {data : data},
+                        dataType : 'json',
+                        success : function(response) {
+                            app.appView.hideLoader();
+
+							if (data['actionType'] == 'relatedUpdate') {
+								articleRelatedCollection.syncData();
+							}
+
+							if(response.alertClass == "success") {
+								app.appView.renderResponseAlert(response);
+							} else{
+								app.appView.renderResponseAlert(response);
+								self.addErrors(response.errors);
+							}
+                        },
+                        error: function (xhr) {
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                            var response = warningResponse;
+                            if(xhr.responseJSON)
+                                response = xhr.responseJSON;
+
+                            app.appView.hideLoader();
+                            app.appView.renderResponseAlert(response);
+                        }
+                    });
+                },
+				formChanged: function(e) {
+			    	this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    	this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+			    },
+				saveArticle: function (e) {
+					e.preventDefault();
+					$(".uv-tabs li").removeClass('uv-tab-error')
+                    currentElement = Backbone.$(e.currentTarget);
+                    this.model.clear();
+					let formData = this.$el.find('form#article-form').serializeObject();
+			        this.model.set(formData);
+                    self = this;
+					var contentNotHasError = this.validateForm(e);
+			        if(this.model.isValid(true) && contentNotHasError) {
+						formData['ids'] = [this.articleId];
+						formData['actionType'] = 'articleUpdate';
+						formData['content'] = tinyMCE.get('content').getContent();
+						{% for localeCode, localeName in uvdesk_service.getLocales() %}
+							var localeType = '{{ localeCode }}';
+						{% endfor %}
+						this.articleEntityUpdate(formData);
+			        } else {
+                        $('.uv-field-message').each(function(e) {
+                            $(".uv-tabs li[for='" + $(this).parents('.uv-tab-view').attr('id') + "']:not(.uv-tab-active)").addClass('uv-tab-error')
+                        });
+                    }
+				},
+                validateForm : function(e) {
+                    var element = Backbone.$(e.currentTarget);
+                    formType = 'content';
+                    form = $('#article-form');
+                    form.find('.uv-field-message').remove()
+                    var html = $('.uv-field').text();
+                    if(app.appView.htmlText(html).trim().length != 0) {
+						return true;
+                    } else {
+                        form.find('.uv-element-block-textarea').append("<span class='uv-field-message'>{{ 'This field is mandatory'|trans }}</span>");
+                    }
+                },
+                addErrors: function(jsonContext) {
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+                },
+                confirmRemove: function(e) {
+                    e.preventDefault();
+                    this.currentEvent = e;
+
+                    app.appView.openConfirmModal(this)
+                },
+                removeItem: function(e) {
+                    var data = {};
+
+                    data['actionType'] = "delete";
+
+                    data['ids'] = ["{{article.id}}"];
+					this.articleEntityUpdate(data);
+
+					setTimeout(function(){
+                    	window.location = '{{ app.request.headers.get('referer') ? app.request.headers.get('referer') : path('helpdesk_member_knowledgebase_article_collection')}}';
+					}, 1000);
+                },
+			});
+
+			var ArticleFullView = Backbone.View.extend({
+				el: $('body'),
+				previewTemplate : _.template($("#article_preview_html").html()),
+				events: {
+					'click #preview-link': 'previewArticle',
+					'click #preview-article': 'renderArticlePreview',
+					'click #article-locale li': 'closeDropdown',
+				},
+				previewArticle: function(e) {
+					var target = $(e.target).closest('.uv-button-preview');
+					var isDisabled = target.attr('disabled') ? true : false;
+					var lang = $('#article-locale').attr('data-value');
+					if(lang && !isDisabled) {
+						e.preventDefault();
+						var langSpecificUrl = target.attr('href').replace('{{ app.request.locale }}', lang);
+						window.open(langSpecificUrl);
+					}
+				},
+				renderArticlePreview: function(e){
+					e.preventDefault();
+					var article_content = tinyMCE.get('content').getContent();
+ 					article_content = article_content.replace("<ol>", "<ul>");
+					article_content = article_content.replace("</ol>", "</ul>");
+					
+					$('body').append(this.previewTemplate());
+					$('body').find('#preview-modal .uv-html-preview').html('<h1 style="margin-bottom: 30px;">' + articlemodel.attributes.name + '</h1>' + article_content);
+					
+					//$('body').find('#preview-modal .uv-html-preview').html('<h1 style="margin-bottom: 30px;">' + articlemodel.attributes.name + '</h1>' + tinyMCE.activeEditor.getContent());
+				},
+			});
+
+            var ArticleModel = Backbone.Model.extend({
+				validation: {
+					'name': [{
+						required: true,
+						msg: '{{ "This field is mandatory"|trans }}'
+					},{
+						maxLength:200,
+						msg: '{{ "This field contain maximum 200 charecters only"|trans }}'
+					}, {
+						pattern: '^((?![$%<]).)*$',
+						msg: '{{ "This field must have valid characters only"|trans }}'
+					}],
+					'metaTitle':[{
+						maxLength:200,
+						msg: '{{ "This field contain mata title maximum 200 charecters only"|trans }}'
+					}],
+					'keywords':[{
+						maxLength:200,
+						msg: '{{ "This field contain keywords maximum 200 charecters only"|trans }}'
+					}],
+					'slug': function(val, attr, computed) {
+						var elSlug = $("[name=" + attr + "]");
+						var elSlugValue = '';
+						elSlug.val(elSlugValue = app.appView.convertToSlug(val))
+					
+						if(elSlugValue.trim() == ''){
+							return '{{ "This field is mandatory"|trans }}';
+						}
+						
+						if(elSlugValue.length > 100) {
+							return '{{ "This field slug contains maximum 100 charecters only."|trans }}';
+						}
+					}
+				},
+                urlRoot : "{{ path('helpdesk_member_knowledgebase_update_article_xhr') }}"
+			});
+
+			var articlemodel = new ArticleModel({
+                id : "{{ article.id }}",
+                name : "{{ article.name|replace({"\n":' ', "\r":' '}) }}",
+                slug : "{{ article.slug }}",
+				status: "{{ article.status }}",
+				stared: "{{ article.stared }}",
+			})
+
+			articleForm = new ArticleForm({
+                el: '.uv-paper',
+				//el : $(".uv-aside.uv-category"),
+				model : articlemodel
+			});
+
+			var articleFullView = new ArticleFullView();
+
+            var ArticleHistoryModel = Backbone.Model.extend({
+                urlRoot : path_history
+			});
+
+			var ArticleHistoryCollection = AppCollection.extend({
+				model : ArticleHistoryModel,
+				url : path_history,
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				initialize : function() {
+					this.syncData();
+				},
+				parseRecords: function (resp, options) {
+					return resp;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var articleHistoryListView = new ArticleHistoryList();
+
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var ArticleHistoryItem = Backbone.View.extend({
+				tagName : "div",
+				template : _.template($("#article_history_list_item_tmp").html()),
+				previewTemplate : _.template($("#article_history_view_html").html()),
+				events: {
+					'click .history-preview' : "preview",
+					'click .history-restore' : "restore",
+				},
+				render : function() {
+					var tinymceContent = `{{ article.content|raw }}`;
+					this.$el.html(this.template($.extend(this.model.toJSON(), {
+						isCurrent: (this.model.attributes.content.trim() == tinymceContent ? true : false),
+						hasContent: (this.model.attributes.content.trim().length ? true : false)
+					}) ));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						articleHistoryCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				preview: function(e){
+					e.preventDefault();
+					$('body').append(this.previewTemplate());
+
+					if(this.model.attributes.content.trim().length){
+						$('body').find('#preview-modal .uv-html-preview').html(this.model.attributes.content);
+					}else{
+						$('body').find('#preview-modal .uv-html-preview').html(
+							`
+								<h2>{{'Oops'|trans}}</h2>
+								<p>{{'Sorry, there are nothing to display.'|trans}}</p>
+							`
+						);
+						$('body').find('#preview-modal .restore').attr('disabled', 'disabled');
+						$('body').find('#preview-modal .uv-btn.uv-btn-error').removeClass('restore');
+					}
+				},
+				restore: function(e){
+					e.preventDefault();
+					formData = {};
+					formData['ids'] = ['{{article.id}}'];
+					formData['actionType'] = 'contentUpdate';
+					formData['content'] = this.model.attributes.content;
+					tinyMCE.get('content').setContent(this.model.attributes.content)
+					articleForm.articleEntityUpdate(formData);
+					articleHistoryCollection.syncData();
+				}
+			});
+
+			var ArticleHistoryList = Backbone.View.extend({
+				el : $("#article-history .uv-list-view"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("div").remove();
+					if(articleHistoryCollection.length) {
+						_.each(articleHistoryCollection.models, function (item) {
+							this.renderArticle(item);
+						}, this);
+						app.appView.relativeTime()
+					} else {
+						this.$el.append("<div class='uv-text-center'>{% trans %}No Record Found{% endtrans %}</div>")
+					}
+				},
+				renderArticle : function (item) {
+					var articleHistoryItem = new ArticleHistoryItem({
+						model: item
+					});
+					this.$el.append(articleHistoryItem.render().el);
+				}
+			});
+
+			articleHistoryCollection = new ArticleHistoryCollection();
+
+            var ArticleRelatedModel = Backbone.Model.extend({
+                urlRoot : path_related
+			});
+
+			var ArticleRelatedCollection = AppCollection.extend({
+				model : ArticleRelatedModel,
+				url : path_related,
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				initialize : function() {
+					this.syncData();
+				},
+				parseRecords: function (resp, options) {
+					return resp;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var articleRelatedListView = new ArticleRelatedList();
+
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var ArticleRelatedItem = Backbone.View.extend({
+				tagName : "div",
+				template : _.template($("#article_related_list_item_tmp").html()),
+				events: {
+					'click .remove' : "remove",
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				remove: function(e){
+					e.preventDefault();
+					let formData = {};
+					formData['ids'] = ["{{article.id}}"];
+					formData['actionType'] = 'relatedUpdate';
+					formData['action'] = 'remove';
+					formData['entityId'] = this.model.id;
+					articleForm.articleEntityUpdate(formData);
+
+					$(e.target).parent().parent().remove();
+				}
+			});
+
+			var ArticleRelatedList = Backbone.View.extend({
+				el : $("#article-related .uv-list-view"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("div").remove();
+					if(articleRelatedCollection.length) {
+						_.each(articleRelatedCollection.models, function (item) {
+							this.renderArticle(item);
+						}, this);
+						app.appView.relativeTime()
+					} else {
+						this.$el.append("<div>{% trans %}No Record Found{% endtrans %}</div>")
+					}
+				},
+				renderArticle : function (item) {
+					var articleRelatedItem = new ArticleRelatedItem({
+						model: item
+					});
+					this.$el.append(articleRelatedItem.render().el);
+				}
+			});
+
+			articleRelatedCollection = new ArticleRelatedCollection();
+
+			var TagList = Backbone.View.extend({
+                el : $("#tagUpdate"),
+                events : {
+                    'keypress .uv-field' : 'addTag',
+                },
+                addTag : function(e) {
+					var inputElement = Backbone.$(e.currentTarget);
+					inputElement.removeClass('uv-field-error');
+					inputElement.parents('.uv-element-block').find('.uv-field-message').remove()
+					var text = inputElement.val().trim();
+
+					if (e.which === 13 && text) {
+						if ((text.match(/^((?![!@#$%^&*()<_+]).)*$/))) {
+								if(text.length <= 35) {
+								let existed = false;
+								$('.uv-filtered-tags .uv-tag').each(function(key, el){
+									if($(el).text().toLowerCase() == text.toLowerCase())
+										existed = true;
+								})
+								
+								if(!existed) {
+									let data = {};
+									app.appView.showLoader();
+
+									data['ids'] = ["{{article.id}}"];
+									data['actionType'] = 'tagUpdate';
+									data['entityId'] = $(e.currentTarget).attr("data-id");
+									data['action'] = 'create';
+									data['name'] = text;
+
+									$.ajax({
+										url : "{{ path('helpdesk_member_knowledgebase_update_article_xhr') }}",
+										type : 'POST',
+										data : {data : data},
+										dataType : 'json',
+										success: function (response) {
+											if(response.alertClass == "success") {
+												let html = `
+													<a class="uv-btn-tag" href="#" data-id="${response.tagId}">
+														<span class="uv-tag"><span class="uv-icon-remove-dark-before"></span>${response.tagName}</span>
+													</a>
+												`;
+												$('.uv-filtered-tags.tag').append(html);
+											}
+											inputElement.val('');
+											app.appView.hideLoader();
+											app.appView.renderResponseAlert(response);
+										},
+										error: function (model, xhr, options) {
+											if(url = xhr.getResponseHeader('Location'))
+												window.location = url;
+											var response = warningResponse;
+											if(xhr.responseJSON)
+												response = xhr.responseJSON;
+
+											app.appView.hideLoader();
+											app.appView.renderResponseAlert(response);
+										}
+									});
+								} else {
+									inputElement.addClass('uv-field-error');
+									inputElement.parents('.uv-element-block').append("<span class='uv-field-message'>{{ 'Tag with same name already exist'|trans }}</span>");
+								}
+							} else {
+								inputElement.addClass('uv-field-error');
+								inputElement.parents('.uv-element-block').append("<span class='uv-field-message'>{{ 'Text length should be less than 35 charactors'|trans }}</span>");
+							}
+						} else {
+							inputElement.addClass('uv-field-error');
+							inputElement.parents('.uv-element-block').append("<span class='uv-field-message'>{{ 'Only character are allowed' }}</span>");
+						}
+					}
+                },
+            });
+
+			new TagList({});
+
+            var BodyView = Backbone.View.extend({
+                el: 'body',
+                events : {
+					'click #preview-modal .uv-pop-up-close' : "removeModal",
+					'click #preview-modal .uv-btn.cancel' : "removeModal",
+					'click #preview-modal .uv-btn.restore' : "restore",
+				},
+				removeModal: function(e){
+					e.preventDefault();
+					setTimeout(function() {
+						$(e.target).parents('#preview-modal').remove();
+					}, 500);
+				},
+				restore: function(e){
+					e.preventDefault();
+
+					this.removeModal(e);
+
+					formData = {};
+					formData['ids'] = ['{{article.id}}'];
+					formData['actionType'] = 'contentUpdate';
+					formData['content'] = $('#preview-modal .uv-html-preview').html();
+					tinyMCE.get('content').setContent(formData['content'])
+					articleForm.articleEntityUpdate(formData);
+					articleHistoryCollection.syncData();
+				},
+				addRelatedArticle: function(){
+					articleRelatedCollection.syncData();
+				}
+			});
+			var bodyView = new BodyView({});
+
+            var PageView = Backbone.View.extend({
+                el: '.uv-paper',
+                events : {
+                    'click .uv-aside-ticket-actions .uv-aside-select .uv-dropdown-list:not(.uv-no-patch) li': 'editArticleProperty',
+					'input .uv-field-block input' : 'searchFilterOption',
+                },
+                editArticleProperty: function(e) {
+                    var currentElement = Backbone.$(e.currentTarget);
+                    var uvSelect = currentElement.parents('.uv-aside-select');
+                    var field = currentElement.parent().attr('data-action');
+                    var value = currentElement.attr('data-index');
+					if(field == 'status'){
+						if(value == '1'){
+							$('.uv-btn-action.uv-button-preview').removeAttr('disabled');
+						}else{
+							$('.uv-btn-action.uv-button-preview').attr('disabled', 'disabled');
+						}
+					}
+                    if(uvSelect.find('.uv-aside-select-value').attr('data-id') != value) {
+                        var name = currentElement.text().trim();
+                        app.appView.showLoader();
+						self = this;
+                        this.model.save({ editType: field, value: value, id: self.model.id }, {
+                            patch: true,
+                            success: function (model, response, options) {
+                                uvSelect.find('.uv-aside-select-value').attr('data-id', value).text(name)
+                                app.appView.hideLoader();
+                                app.appView.renderResponseAlert(response);
+                            },
+                            error: function (model, xhr, options) {
+                                if(url = xhr.getResponseHeader('Location'))
+                                    window.location = url;
+                                var response = warningResponse;
+                                if(xhr.responseJSON)
+                                    response = xhr.responseJSON;
+
+                                app.appView.hideLoader();
+                                app.appView.renderResponseAlert(response);
+                            }
+                        });
+                    }
+                },
+                searchFilterOption: function(e) {
+                    self = this;
+                    currentElement = Backbone.$(e.currentTarget);
+                    dropdown = currentElement.siblings('.uv-dropdown-list');
+                    var filterType =  currentElement.attr('data-filter-type');
+                    if(jQuery.inArray(filterType, ['tag', 'related']) !== -1) {
+                        self.searchFilterXhr(currentElement);
+                    }
+                },
+				loaderTemplate : _.template($("#loader-tmp").html()),
+                searchFilterXhr: _.debounce(function(currentElement) {
+                    var parent = currentElement.parent();
+                    if($('.uv-dropdown-other.uv-dropdown-btn-active').parent().attr('id') != parent.attr('id'))
+                        return;
+
+                    parent.find("li:not(.uv-no-results, .uv-filter-info, .press-enter-to-add)").remove();
+                    parent.find(".uv-filter-info").show()
+                    if(currentElement.val().length > 1) {
+                        parent.append(this.loaderTemplate())
+                        parent.find('.uv-filter-info').text("{% trans %}Searching{% endtrans %} ...")
+                        if(self.xhrReq)
+                            self.xhrReq.abort();
+
+						let filterType = currentElement.attr('data-filter-type');
+						let path = (filterType == 'tag' ? "{{ path('search_ticket_filter_options_xhr') }}" : "{{ path('helpdesk_member_knowledgebase_article_collection_xhr') }}");
+                        self.xhrReq = $.ajax({
+                            url : path,
+                            type : 'GET',
+                            data: {"type" : currentElement.attr('data-filter-type'), "query" : currentElement.val()},
+                            dataType : 'json',
+                            success : function(response) {
+                                self.xhrReq = 0;
+                                parent.find('.uv-loader').remove()
+								if(parent.find('.uv-dropdown-list').length) {
+									parent.find('.uv-dropdown-list').show();
+								}
+                                parent.find('.uv-filter-info').text("{{ 'Type atleast 2 letters'|trans }}").hide();
+
+								if(filterType == 'tag'){
+									if(response.length == 0) {
+										parent.find('.press-enter-to-add').show()
+									}else{
+										parent.find('.press-enter-to-add').hide()
+										parent.find('.uv-no-results').hide();
+										_.each(response, function(item) {
+											parent.find('.uv-dropdown-list ul').append("<li data-id='" + item.id + "'>" + item.name + "</li>")
+										});
+									}
+								}else{
+									if(response.results.length == 0) {
+										parent.find('.press-enter-to-add').hide()
+										parent.find('.uv-no-results').show()
+									}
+									_.each(response.results, function(item) {
+										parent.find('.press-enter-to-add').hide()
+										parent.find('.uv-no-results').hide();
+										if(item.id != {{article.id}})
+											parent.find('.uv-dropdown-list ul').append("<li data-id='" + item.id + "'>" + item.name + "</li>")
+									});
+								}
+                            },
+                            error: function (xhr) {
+                                self.xhrReq = 0;
+                                parent.find('.uv-loader').remove()
+                                parent.find('.uv-no-results').hide();
+                                parent.find('.uv-filter-info').text("{{ 'Type atleast 2 letters'|trans }}").show();
+                                if(url = xhr.getResponseHeader('Location'))
+                                    window.location = url;
+                            }
+                        });
+                    } else {
+						parent.find('.uv-no-results').hide();
+					}
+                },1000),
+            });
+
+			var pageView = new PageView({
+				model : articlemodel
+			});
+		});
+	</script>
+
+	{{ include("@UVDeskSupportCenter/Templates/tinyMCE.html.twig") }}
+
+    <script>
+		var toolbarOptions = sfTinyMce.options.toolbar;
+        sfTinyMce.init({
+			selector: 'textarea[name*="content"]',
+			toolbar: toolbarOptions + ' | insert | styleselect | alignleft aligncenter alignright alignjustify | outdent indent | code | translate',
+			setup: function (editor) {
+                addTranslateButton(editor);
+			},
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,32 @@
+<div class="uv-kb-section">
+	<div class="uv-kb-section-head">
+		<h1 class="uv-text-center">{{ "Browse via Categories"|trans}}</h1>
+		<p class="uv-text-center uv-fixed-width">{{ "Looking for something specific? Choose a relevant category from below to explore possible solutions"|trans}}</p>
+	</div>
+	<div class="uv-kb-section-layout uv-kb-layout-category">
+		{% if solutions.categories is defined and solutions.categories is not empty %}
+			{% for category in solutions.categories %}
+				{% if category.articles is defined and category.articles is not empty %}
+					<div class="uv-kb-folder uv-kb-category">
+						<p class="uv-category-heading">{{ category.name }}</p>
+						<p class="uv-folder-description">{{ category.description }}</p>
+
+						<ul>
+							{% for article in category.articles %}
+								<li><a href="{{ path('helpdesk_knowledgebase_read_slug_article', {'slug': article.slug}) }}">{{ article.name }}</a></li>
+							{% endfor %}
+						</ul>
+
+						<a href="{{ path('helpdesk_knowledgebase_category', {'category': category.id}) }}" class="uv-btn-small">{{ "View all articles"|trans }}</a>
+					</div>
+				{% endif %}
+			{% endfor %}
+
+			<div style="text-align: center; margin-top: 30px;">
+				<a href="{{ path('helpdesk_knowledgebase_category_collection') }}" class="uv-btn">{{ "View all categories"|trans }}</a>
+			</div>
+		{% else %}
+			<p>{{ "No Categories Found!"|trans }}</p>
+		{% endif %}
+	</div>
+</div>

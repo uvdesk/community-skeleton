@@ -1,0 +1,59 @@
+# Workflow routing resources
+helpdesk_member_workflow_collection:
+    path:     /workflows
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\Workflow::listWorkflowCollection
+    
+workflowslist_xhr:
+    path:     /workflows/xhr
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\WorkflowXHR::workflowsListXhr
+
+workflows_addaction:
+    path:     /workflow/add
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\Workflow::createWorkflow
+
+workflows_editaction:
+    path:     /workflow/edit/{id}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\Workflow::editWorkflow
+
+workflows_xhraction:
+    path:     /workflow-ajax/{id}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\WorkflowXHR::WorkflowsxhrAction
+    defaults: { id: 0 }
+
+helpdesk_member_workflow_condition_options_xhr:
+    path:     /workflow/xhr/condition/options/{entity}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\WorkflowXHR::getWorkflowConditionOptionsXHR
+    defaults:   { entity: default }
+
+helpdesk_member_workflow_action_options_xhr:
+    path:     /workflow/xhr/action/options/{entity}/{event}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\WorkflowXHR::getWorkflowActionOptionsXHR
+    defaults:   { entity: default , event: null }
+
+# Prepared response routing resources
+prepare_response_action:
+    path:     /prepared-responses
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\PreparedResponse::prepareResponseList
+
+prepare_response_delete:
+    path:     /prepared-responses/delete/{id}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\PreparedResponseXHR::prepareResponseDeleteXhr
+    defaults: { id: 0}
+
+prepare_response_list_xhr:
+    path:     /prepared-responses/ajax
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\PreparedResponseXHR::prepareResponseListXhr
+
+prepare_response_addaction:
+    path:     /prepared-responses/add
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\PreparedResponse::createPrepareResponse
+
+prepare_response_editaction:
+    path:     /prepared-responses/edit/{id}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\PreparedResponse::editPrepareResponse
+    defaults: { id: 0 }
+
+helpdesk_member_prepared_response_action_options_xhr:
+    path:     /prepared-responses/xhr/action/options/{entity}/{event}
+    controller: Webkul\UVDesk\AutomationBundle\Controller\Automations\PreparedResponseXHR::getPreparedResponseActionOptionsXHR
+    defaults:   { entity: default, event: null }

@@ -1,0 +1,968 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+
+{% block title %}#{{ ticket.id }} {{ ticket.subject }}{% endblock %}
+{% block ogtitle %}#{{ ticket.id }} {{ ticket.subject }}{% endblock %}
+{% block twtitle %}#{{ ticket.id }} {{ ticket.subject }}{% endblock %}
+
+{% block tabHeader %}
+	<div class="uv-nav-bar uv-nav-tab">
+		<div class="uv-container">
+			<div class="uv-nav-bar-lt">
+				<ul class="uv-nav-tab-label">
+					<li><a href="{{ path('helpdesk_customer_ticket_collection') }}">{{ 'Ticket Requests'|trans }}</a></li>
+					{% if websiteConfiguration.ticketCreateOption %}
+                        <li><a href="{{ path('helpdesk_customer_create_ticket') }}">{{ 'New Ticket Request'|trans }}</a></li>
+                    {% endif %}
+				</ul>
+			</div>
+			<div class="uv-nav-bar-rt">
+				<form method="get" action="{{path('helpdesk_customer_front_article_search')}}">
+					<input name="s" class="uv-nav-search" type="text" placeholder="{{ 'Search'|trans }}">
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block body %}
+    <style>
+        .uv-btn-tag {
+            margin-right: 5px;
+        }
+        .uv-group-field {
+            width: 80%;
+        }
+        .uv-element-block .mce-tinymce {
+            margin-top: 10px;
+        }
+        .uv-ticket-view .uv-ticket-accordion .uv-ticket-wrapper {
+            display: block;
+        }
+        .message {
+            font-size: 15px;
+        }
+        .message img {
+            max-width: 100%;
+        }
+        .uv-dropdown.reply .uv-dropdown-btn-active {
+            border: none;
+        }
+        .uv-dropdown.reply .uv-dropdown-list {
+            width: 220px;
+            bottom: 47px;
+        }
+
+		.uv-rtl .uv-top-left {
+			left: unset;
+		}
+
+		.uv-rtl .uv-dropdown-list {
+			text-align: right;
+		}
+
+        .uv-action-buttons {
+            margin: 10px 0px;
+        }
+
+        .uv-action-buttons .uv-btn:first-child {
+            margin-left: 0px;
+        }
+
+		.uv-rtl .uv-action-buttons .uv-btn:first-child {
+			margin-left: 5px;
+			margin-right: 0px;
+		}
+
+        .uv-action-buttons .uv-btn {
+            margin: 5px;
+        }
+
+        form #customFieldCollection .uv-field-error-icon, form #customFieldCollection .uv-field-success-icon {
+            display: none;
+        }
+
+        .custom-field-field-display .uv-field-block {
+            width: 100%;
+            color: #333333;
+            word-wrap: break-word;
+        }
+
+        .custom-field-field-display .uv-field-block span {
+            display: inline;
+        }
+        .uv-submit-left-side {
+            margin: 0!important;
+            padding-right: 5px;
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
+		.uv-rtl .uv-submit-left-side {
+			padding-right: 10px;
+            border-bottom-right-radius: 3px;
+            border-top-right-radius: 3px;
+			padding-left: 5px;
+			border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+		}
+        .uv-submit-right-side {
+            margin: 0!important;
+        }
+        .no-left-padding {
+            padding-left: 0;
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+		.uv-rtl .no-left-padding {
+			padding-left: 10px;
+            border-bottom-left-radius: 3px;
+            border-top-left-radius: 3px;
+			padding-right: 0;
+			border-bottom-right-radius: 0;
+			border-top-right-radius: 0;
+		}
+        .uv-btn-error {
+            background-color: #FF5656!important;
+        }
+        .uv-pull-rightside {
+            float: right;
+            font-size: 15px;
+            cursor: pointer;
+        }
+		.uv-rtl .uv-pull-rightside {
+            float: left;
+        }
+        .uv-print-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url("{{ asset('bundles/uvdeskcoreframework/images/uvdesk-kb-sprite.svg') }}");
+            background-position: -176px -91px;
+            vertical-align: middle;
+        }
+        @media print {
+            .uv-navbar,.uv-ticket-action-bar, .uv-kudo, .uv-aside-back, .uv-footer, .uv-ticket-main.uv-ticket-reply, .uv-nav-bar,input, .uv-dropdown-list>.uv-dropdown-container,.uv-notifications-wrapper,.uv-pop-up-overlay,.uv-loader-view, .uv-loader,.uv-header,.uv-upload-actions,.uv-pull-rightside {
+                display: none !important;
+            }
+        }
+        blockquote {
+            background: #f9f9f9;
+            border-left: 4px solid #ccc;
+            margin: 1.5em 10px;
+            padding: 0.5em 10px;
+            quotes: "\201C""\201D""\2018""\2019";
+        }
+        blockquote:before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 3em;
+            line-height: 0.1em;
+            margin-right: 0.05em;
+            vertical-align: -0.4em;
+        }
+        blockquote p {
+            display: inline;
+        }
+    </style>
+
+    {% set ticketAgent = ticket.agent ? user_service.getAgentDetailById(ticket.agent.id) : null %}
+    {% set totalThreads = ticket_service.getTicketTotalThreads(ticket.id) %}
+    {% set customer = user_service.getCustomerPartialDetailById(ticket.customer.id)  %}
+    {% set createThread = ticket_service.getCreateReply(ticket.id, 'customer') %}
+    {% set currentUser = user_service.getCustomerPartialDetailById(app.user.id)  %}
+
+    <div class="uv-thread">
+        <div class="uv-thread-lt">
+            <aside>
+                <h6>{{ 'Ticket Information'|trans }}</h6>
+                <div class="uv-aside-brick">
+                    <h6>{{ 'Total Replies'|trans }}</h6>
+                    <span class="uv-icon-replies"></span>
+                    <span>{{ totalThreads }}</span>
+                </div>
+                <div class="uv-aside-brick">
+                    <h6>{{ 'Timestamp'|trans }}</h6>
+                    <span class="uv-icon-timestamp"></span>
+                    <span>{{ localizedCreateAtTime }}</span>
+                </div>
+
+                <div class="uv-hr"></div>
+                {% if ticket.customer != app.user %}
+                    <div class="uv-aside-brick">
+                        <h6>{{ 'Customer'|trans }}</h6>
+                        <span>{{ customer.name }}</span>
+                    </div>
+                {% endif %}
+                {% if ticketAgent %}
+                    <div class="uv-aside-brick">
+                        <h6>{{ 'Agent'|trans }}</h6>
+                        <span>{{ ticketAgent.name }}</span>
+                    </div>
+                {% endif %}
+                <div class="uv-aside-brick">
+                    <h6>{{ 'Status'|trans }}</h6>
+                    <span>{{ ticket.status.description|trans }}</span>
+                </div>
+                {% if ticket.type %}
+                    <div class="uv-aside-brick">
+                        <h6>{{ 'Type'|trans }}</h6>
+                        <span>{{ ticket.type.code }}</span>
+                    </div>
+                {% endif %}
+
+                {% if ticket.customer == app.user %}
+                    <div class="uv-hr"></div>
+                    <div class="uv-aside-brick collaborator-list-block">
+                        <div class="uv-element-block">
+                            <label class="uv-field-label">{{ 'Collaborators'|trans }}</label>
+                            <div class="uv-field-block">
+                                <input class="uv-field" type="text" name="email" type="text" value="" placeholder="{{ 'Type email to add'|trans }}">
+                            </div>
+                        </div>
+                        <div class="collaborator-list" style="margin-top: 10px">
+                        </div>
+                    </div>
+                {% endif %}
+            </aside>
+            {% if user_service.isfileExists('apps/uvdesk/form-component') %}
+                {{ user_service.getCustomFieldTemplateCustomer() | raw }}
+            {% endif %}
+        </div>
+        <div class="uv-thread-rt">
+            <section>
+                <div class="uv-ticket-view">
+                    <div class="uv-ticket-head">
+                        <h1>
+                            {{ ticket.subject }}
+                            <span class="uv-pull-rightside uv-print-icon" onclick="window.print()"></span>
+                        </h1>
+                        <div class="uv-ticket-strip">
+                            <span>
+                                <span class="uv-ticket-strip-label">{{ 'Created'|trans }} -</span>
+                                <span class="timeago" data-timestamp="{{ localizedCreateAtTime }}" title="{{ localizedCreateAtTime }}">
+                                    {{ localizedCreateAtTime }} 
+                                </span>
+                            </span>
+                            <span>
+                                <span class="uv-ticket-strip-label">{{ 'By'|trans }} -</span>
+                                {{ createThread.user.name }}
+                            </span>
+                            {% if ticketAgent %}
+                                <span>
+                                    <span class="uv-ticket-strip-label">{{ 'Agent'|trans }} -</span>
+                                    {{ ticketAgent.name }}
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="uv-tab-view">
+                        <div class="uv-ticket-section">
+                            <div class="uv-ticket-main create">
+                                <div class="uv-ticket-strip">
+                                    <span>
+                                        <span class="timeago uv-margin-0" data-timestamp="ticket.createdAt" title="{{ localizedCreateAtTime }}">
+                                            {{ localizedCreateAtTime }}
+                                        </span>
+                                        - {{ createThread.user.name }}
+                                        <span class="uv-ticket-strip-label">
+                                        {{ 'created Ticket'|trans }}
+                                        {# {% if ticket.ipAddress %}
+                                            ({{ 'IP'|trans }} -{{ ticket.ipAddress }})
+                                        {% endif %} #}
+                                    </span>
+                                </span>
+                                </div>
+                                <div class="uv-ticket-main-lt">
+                                   <img src="{{ initialThread.user.thumbnail ? app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') ~ (initialThread.user.thumbnail) : initialThread.createdBy == 'customer' ? asset(default_customer_image_path) : asset(default_agent_image_path) }}">
+                                </div>
+                                <div class="uv-ticket-main-rt">
+                                    <span class="uv-ticket-member-name">
+                                        {{ createThread.user.name }}
+                                    </span>
+
+                                    <!-- Message Block -->
+                                    <div class="message">
+                                        <p>
+                                            {% if createThread.reply|striptags == createThread.reply %}
+                                                {{ createThread.reply|nl2br }}
+                                            {% else %}
+                                                {{ createThread.reply|raw }}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    <!-- //Message Block -->
+
+                                    <!-- Attachment Block -->
+                                    {% if createThread.attachments|length %}
+                                        <div class="uv-ticket-uploads">
+                                            <h4>{{ 'Uploaded Files'|trans }}</h4>
+                                            <div class="uv-ticket-uploads-strip uv-viewer-images">
+                                                {% for attachment in createThread.attachments %}
+                                                    <a href="{{ attachment.downloadURL }}" target = "_blank" class="uv-ticket-uploads-brick uv-no-pointer-events" data-toggle="tooltip" title="{{ attachment.name }}">
+                                                        <img src="{{ attachment.iconURL }}"  class="uv-auto-pointer-events"/>
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                            {% if createThread.attachments|length > 1 %}
+                                                <div class="uv-upload-actions">
+                                                    <!-- <a href="#"><span class="uv-icon-open-in-files"></span>Open in Files</a> -->
+                                                    <a href="{{ path('helpdesk_customer_download_ticket_attachment_zip') }}/{{createThread.id}}" target="_blank"><span class="uv-icon-attachment"></span> {{ 'Download (as .zip)'|trans }}</a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                    <!-- //Attachment Block -->
+                                </div>
+                            </div>
+
+                            <!-- uv-ticket-accordion-expanded uv-ticket-accordion-no-count-->
+                            <div class="uv-ticket-accordion">
+                                <div class="uv-ticket-count-wrapper">
+                                    <span class="uv-ticket-count-stat">{{ totalThreads }}</span>
+                                </div>
+                                <div class="uv-ticket-wrapper thread-list">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reply Form Block -->
+                    <div class="uv-ticket-main uv-ticket-reply uv-no-error-success-icon">
+                        <div class="uv-ticket-main-lt">
+                            <span class="uv-icon-ellipsis"></span>
+                            {% if currentUser.smallThumbnail %}
+                                <img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}{{ currentUser.smallThumbnail }}" />
+                            {% else %}
+                                <img src="{{ asset(default_customer_image_path) }}" />
+                            {% endif %}
+                        </div>
+                        <div class="uv-ticket-main-rt">
+                            <span class="uv-ticket-member-name">{{ currentUser.name }}</span>
+
+                            <!-- Reply Tab View -->
+                            <div class="uv-tab-view uv-tab-view-active" id="reply">
+                                <form enctype="multipart/form-data" method="post" action="{{ path('helpdesk_customer_add_ticket_thread', {'id': ticket.id }) }}" id="ticket-form">
+                                    <input name="threadType" value="reply" type="hidden">
+                                    <input class="reply-status" name="status" value="" type="hidden">
+                                    <div class="uv-element-block collaborators" style="display: none">
+                                        <label class="uv-field-label">{{ 'Collaborators'|trans }}</label>
+                                        <div class="uv-field-block">
+                                        </div>
+                                    </div>
+
+                                    <div class="uv-element-block cc-bcc">
+                                    {% if isCollaborator != true %}
+                                        <label>
+                                            <div class="uv-checkbox">
+                                                <input type="checkbox" class="cc-bcc-toggle">
+                                                <span class="uv-checkbox-view"></span>
+                                            </div>
+                                            <span class="uv-checkbox-label">{{ 'CC/BCC'|trans }}</span>
+                                        </label>
+                                    {% endif %}
+                                        <div class="uv-field-block" style="display: none">
+                                            <div class="uv-group">
+                                                <input class="uv-group-field" type="text">
+                                                <select class="uv-group-select cc-bcc-select">
+                                                    <option value="bcc">{{ 'BCC'|trans }}</option>
+                                                    <option value="cc">{{ 'CC'|trans }}</option>
+                                                </select>
+                                            </div>
+                                            <div class="cc-bcc-list">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="uv-element-block uv-element-block-textarea">
+                                        <label class="uv-field-label">{{ 'Write a reply'|trans }}</label>
+                                        <div class="uv-field-block">
+                                            <textarea class="uv-field" name="message" id="reply-area">{# {{ ticket_service.getCustomerDraft(ticket.id, 'reply') }} #}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Field -->
+                                    <div class="uv-element-block attachment-block">
+                                        <label>
+                                            <span class="uv-file-label">{{ 'Add Attachment'|trans }}</span>
+                                        </label>
+                                    </div>
+                                    <!-- //Field -->
+
+                                    <div class="uv-action-buttons">
+                                        <div id="reply-btn" class="uv-btn uv-submit-left-side">{{ 'Reply'|trans }}</div>
+                                        <div class="uv-dropdown reply uv-submit-right-side">
+                                            <div class="uv-btn uv-dropdown-other no-left-padding">
+                                                <span class="uv-icon-down-light"></span>
+                                            </div>
+                                            <div class="uv-dropdown-list uv-top-left">
+                                                <div class="uv-dropdown-container">
+                                                    <label>{{ 'Reply'|trans }}</label>
+                                                    <ul>
+                                                        <li data-id="">{{ 'Submit'|trans }}</li>
+                                                        <li class="confirm-close-ticket" data-id="closed">{{ 'Submit And Closed'|trans }}</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- //Reply Tab View -->
+                        </div>
+                    </div>
+                    <!-- Reply Form Block -->
+                </div>
+            </section>
+        </div>
+        </div>
+    </div>
+
+        <div class="uv-kudo">
+        <div class="uv-kudo-button">
+            <!--uv-kudo-button-active-->
+            <div class="uv-kudo-icon"></div>
+            <span>{{ 'Rate Support'|trans }}</span>
+        </div>
+
+        <div class="uv-kudo-plank">
+            {% set count = 0 %}
+            {% for rating in ticket.ratings %}
+                {% if rating.getCustomer.id == app.user.id %}
+                    {% set count = rating.getStars %}
+                {% endif %}
+            {% endfor %}
+            <div class="uv-kudo-response-wrapper">
+                <span class="uv-kudo-response uv-kudo-very-sad {% if count == 1 %}uv-kudo-done{% endif %}" data-id="1"></span>
+                <span class="uv-kudo-response uv-kudo-sad {% if count == 2 %}uv-kudo-done{% endif %}" data-id="2"></span>
+                <span class="uv-kudo-response uv-kudo-neutral {% if count == 3 %}uv-kudo-done{% endif %}" data-id="3"></span>
+                <span class="uv-kudo-response uv-kudo-happy {% if count == 4 %}uv-kudo-done{% endif %}" data-id="4"></span>
+                <span class="uv-kudo-response uv-kudo-very-happy  {% if count == 5 %}uv-kudo-done{% endif %}" data-id="5"></span>
+            </div>
+
+            <span class="uv-kudo-message">
+                {% if count == 1 %}
+                    {{ 'I am very Sad'|trans }}
+                {% elseif count == 2 %}
+                    {{ 'I am Sad'|trans }}
+                {% elseif count == 3 %}
+                    {{ 'I am Neutral'|trans }}
+                {% elseif count == 4 %}
+                    {{ 'I am Happy'|trans }}
+                {% elseif count == 5 %}
+                    {{ 'I am Very Happy'|trans }}
+                {% endif %}
+            </span>
+        </div>
+    </div>
+
+    <div class="uv-pop-up-overlay" id="confirm-ticket-close-modal" style="display: none;">
+        <div class="uv-pop-up-box uv-pop-up-slim">
+            <span class="uv-pop-up-close"></span>
+            <h2>{{ 'Confirm Close Ticket'|trans }}</h2>
+            <p>{{ 'Are you sure? You want to reply and close ticket.'|trans }}</p>
+
+            <div class="uv-pop-up-actions">
+                <a href="#" class="uv-btn uv-btn-error" id="confirmed-close-ticket" data-id="closed">{{ 'Confirm'|trans }}</a>
+                <a href="#" class="uv-btn cancel">{{ 'Cancel'|trans }}</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+    {{ include('@UVDeskCoreFramework/Templates/attachment.html.twig') }}
+
+    <script id="thread_list_item_tmp" type="text/template">
+        <div class="uv-ticket-strip">
+            <span>
+                <span class="timeago uv-margin-0" data-timestamp="<%= timestamp %>" title="<%= formatedCreatedAt %>">
+                    <%= formatedCreatedAt %>
+                </span>
+                - <%- fullname %>
+                <span class="uv-ticket-strip-label">
+                    {{ 'replied'|trans }}
+                </span>
+            </span>
+            <% if(cc || bcc) { %>
+                <div class="uv-ticket-strip">
+                    <% if(cc) { %>
+                        <span><span class="uv-ticket-strip-label">{{ 'CC'|trans }} -</span> <%- cc %></span>
+                    <% } if(bcc) { %>
+                        <span><span class="uv-ticket-strip-label">{{ 'BCC'|trans }} -</span> <%- bcc %></span>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+        <div class="uv-ticket-main-lt">
+            <% if(user && smallThumbnail != null) { %>
+                <img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}<%= smallThumbnail.slice(1) %>" />
+            <% } else { %>
+                <img src="<% if(userType == 'agent') { %> {{ asset(default_agent_image_path) }} <% } else { %> {{ asset(default_customer_image_path) }} <% } %>" />
+            <% } %>
+        </div>
+        <div class="uv-ticket-main-rt">
+            <span class="uv-ticket-member-name">
+                <%- fullname %>
+            </span>
+            <!-- Message Block -->
+            <div class="message">
+                <%= reply %>
+            </div>
+            <!-- //Message Block -->
+
+            <!-- Attachment Block -->
+            <% if(attachments.length) { %>
+                <div class="uv-ticket-uploads">
+                    <h4>{{ 'Uploaded Files'|trans }}</h4>
+                    <div class="uv-ticket-uploads-strip uv-viewer-images">
+                        <% _.each(attachments, function(file) { %>
+                            <a href="<%-file.downloadURL.replace("member","customer") %>" target ="_blank" class="uv-ticket-uploads-brick uv-no-pointer-events" data-toggle="tooltip" title="<%- file.name %>">
+                                <img src="<%-file.iconURL %>" class="uv-auto-pointer-events">
+                            </a>
+                        <% }) %>
+                    </div>
+
+                    <% if (attachments.length > 1) { %>
+                        <div class="thread-attachments-zip pull-left">
+                            <div class="uv-upload-actions">
+                                {#<a href="#"><span class="uv-icon-open-in-files"></span>Open in Files</a>#}
+                                <a href="{{ path('helpdesk_customer_download_ticket_attachment_zip') }}/<%= id %>" target="_blank"><span class="uv-icon-attachment"></span> {{ 'Download (as .zip)'|trans }}</a>
+                            </div>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+            <!-- //Attachment Block -->
+        </div>
+    </script>
+
+    <script type="text/javascript">
+
+        var ticketApp = {};
+        $(function () {
+            
+            var TicketModel = Backbone.Model.extend({
+                idAttribute : "id",
+                validation: {
+                    'email': [{
+                        required: true,
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },{
+                        pattern: 'email',
+                        msg: '{{ "Please enter a valid email"|trans }}'
+                    }],
+                },
+            });
+
+            var TicketView = Backbone.View.extend({
+                el: $('.uv-body'),
+                stopDraftSaveFlag: 0,
+                events: {
+                    'click .uv-kudo-response-wrapper .uv-kudo-response': 'rateTicket',
+                    'click .collaborator-list .uv-btn-tag': 'removeCcCollaborator',
+                    'change .uv-element-block.cc-bcc .cc-bcc-toggle': 'showCcBccBlock',
+                    'keypress .uv-element-block.cc-bcc .uv-group-field': 'addCcBccInput',
+                    'click .cc-bcc-list .uv-btn-tag, .to-list .uv-btn-tag': 'removeEmail',
+                    'click .uv-dropdown.reply .uv-dropdown-list li:not(.confirm-close-ticket)': 'validateForm',
+                    'click #reply-btn': 'validateForm',
+                    'click #confirmed-close-ticket': 'confirmedAction',
+                    'click .confirm-close-ticket': 'confirmClose',
+                },
+                confirmClose: function(e) {
+                    $('#confirm-ticket-close-modal').show();
+                },
+                confirmedAction: function(e) {
+                    $('#confirm-ticket-close-modal').hide();
+                    this.validateForm(e);
+                },
+                ratingText: {
+                    '1' : "{{ 'I am very Sad'|trans }}",
+                    '2' : "{{ 'I am Sad'|trans }}",
+                    '3' : "{{ 'I am Neutral'|trans }}",
+                    '4' : "{{ 'I am Happy'|trans }}",
+                    '5' : "{{ 'I am Very Happy'|trans }}",
+                },
+                loaderTemplate : _.template($("#loader-tmp").html()),
+                rateTicket : function(e) {
+                    var element = Backbone.$(e.currentTarget);
+                    var count = element.attr('data-id');
+                    this.model.set('rating', count);
+
+                    var self = this;
+                    app.appView.showLoader()
+                    this.model.save({}, {
+                        url : "{{ path('helpdesk_customer_rate_ticket', {'id': ticket.id}) }}",
+                        success: function (model, response, options) {
+                            app.appView.hideLoader()
+                            if(response.alertClass == 'success') {
+                                $('.uv-kudo-response').removeClass('uv-kudo-done');
+                                element.addClass('uv-kudo-done');
+                                $('.uv-kudo-message').text(self.ratingText[count])
+                                $('.uv-kudo-button').trigger('click')
+                            } else {
+                                app.appView.renderResponseAlert(response);
+                            }
+                        },
+                        error: function (model, xhr, options) {
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                        }
+                    });
+                },
+                addCCCollaborators: function() {
+                    if(collaboratorCollection.length) {
+                        var collaboratorContainer = $('.uv-element-block.collaborators');
+                        collaboratorContainer.find('.uv-field-block').html('');
+                        collaboratorContainer.show()
+                        _.each(collaboratorCollection.models, function (item) {
+                            var json = item.attributes;
+                            collaboratorContainer.find('.uv-field-block').append("<span><input type='hidden' name='cccol[]' value='" + json.email + "'/><a class='uv-btn-tag' href='#'><span class='uv-icon-remove-dark-before'></span>" + json.name + "</a></span>")
+                        }, this);
+                    }
+                },
+                removeCcCollaborator: function(e) {
+                    e.preventDefault()
+                    if (Backbone.$(e.currentTarget).parent()[0]) {
+                        Backbone.$(e.currentTarget).parent()[0].removeChild(e.currentTarget);
+                        var collaboratorContainer = $('.uv-element-block.collaborators');
+                    }
+
+                    if(!collaboratorContainer.find('.uv-btn-tag').length)
+                        collaboratorContainer.hide()
+                },
+                showCcBccBlock: function(e) {
+                    var currentElement = Backbone.$(e.currentTarget);
+                    var currentTab = currentElement.parents('.uv-tab-view');
+                    if(currentElement.is(':checked')) {
+                        currentTab.find('.uv-element-block.cc-bcc').find('.uv-field-block').show()
+                    } else {
+                        currentTab.find('.uv-element-block.cc-bcc').find('.uv-field-block').hide()
+                        currentTab.find('.uv-element-block .cc-bcc-list').html('')
+                    }
+                },
+                addCcBccInput: function(e) {
+                    var inputElement = Backbone.$(e.currentTarget);
+                    var currentTab = inputElement.parents('.uv-tab-view');
+                    var email = inputElement.val().trim();
+                    if (e.which === 13 && email) {
+                        e.preventDefault()
+                        type = currentTab.find('.cc-bcc-select option:selected').text()
+                        if(!this.model.preValidate({name: 'email', email: email})) {
+                            inputName = $('.cc-bcc-select').val()
+                            inputElement.val('').trigger('input')
+                            inputElement.removeClass('uv-dropdown-btn-active')
+                            inputElement.siblings('.uv-dropdown-list').hide()
+                            if(!currentTab.find(".cc-bcc-list input[value='" + email + "']." + inputName).length) {
+                                currentTab.find('.cc-bcc-list').append("<span><input type='hidden' name='" + inputName + "[]' value='" + email + "' class='" + inputName + "'/><a class=uv-btn-tag uv-lowercase' href='#'><span class='uv-icon-remove-dark-before'></span>" + email + " : <span class='uv-uppercase'>" + type + "</span></a></span>")
+                            }
+                        }
+                    }
+                },
+                removeEmail: function(e) {
+                    e.preventDefault()
+                    Backbone.$(e.currentTarget).parent().remove();
+                },
+                validateForm : function(e) {
+                    e.preventDefault();
+                    var element = Backbone.$(e.currentTarget);
+                    form = $('#ticket-form');
+                    form.find('.reply-status').val(element.attr('data-id'));
+                    form.find('.uv-field-message').remove()
+
+                    var html = tinyMCE.get("reply-area").getContent();
+                    if(app.appView.htmlText(html) != '' || -1 != html.indexOf('<img')) {
+                        this.stopDraftSaveFlag = 1;
+
+						app.appView.showLoader();
+                        tinyMCE.activeEditor.uploadImages(function(response) {
+                            app.appView.hideLoader();
+
+							form.submit();
+	                        $('.uv-dropdown.reply').find('.uv-btn').attr('disabled', 'disabled');
+	                        $('#reply-btn,#confirmed-close-ticket').attr('disabled', 'disabled');
+                        });
+                    } else {
+                        form.find('.uv-element-block-textarea').append("<span class='uv-field-message'>{{ 'This field is mandatory'|trans }}</span>");
+                    }
+                }
+            });
+
+            var ThreadModel = Backbone.Model.extend({
+                idAttribute : "id",
+                defaults : {
+                    hasTask : 0,
+                    task: null
+                }
+            });
+
+            var ThreadCollection = AppCollection.extend({
+                model : ThreadModel,
+                mode: "infinite",
+                url : "{{ path('helpdesk_customer_thread_collection_xhr', {'id': ticket.id}) }}",
+                parseRecords: function (resp, options) {
+                    return resp.threads;
+                },
+                syncData : function() {
+                    app.appView.showLoader()
+                    this.fetch({
+                        remove: false,
+                        success: function(model, response) {
+                            app.appView.hideLoader()
+                            pagination.renderPagination(response.pagination);
+                            threadCollection.state.currentPage = parseInt(response.pagination.current) + 1;
+                        },
+                        error: function (model, xhr, options) {
+                            app.appView.hideLoader()
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                        }
+                    });
+                }
+            });
+
+            var ThreadItem = Backbone.View.extend({
+                tagName : "div",
+                className : "uv-ticket-main",
+                template : _.template($("#thread_list_item_tmp").html()),
+                render : function () {
+                    this.$el.html(this.template(this.model.toJSON()));
+                    this.$el.addClass("thread-" + this.model.id)
+
+                    return this;
+                }
+            });
+
+            var ThreadList = Backbone.View.extend({
+                el : $(".thread-list"),
+                initialize : function() {
+                    this.listenTo(threadCollection.fullCollection, "add", this.renderThread);
+                },
+                renderThread : function (item) {
+                    var threadItem = new ThreadItem({
+                        model: item
+                    });
+                    if(item.id < threadCollection.fullCollection.at(0).id)
+                        this.$el.prepend(threadItem.render().el);
+                    else
+                        this.$el.append(threadItem.render().el);
+                    threadItem.$el.find('.helpdesk_blockquote').eq(0).before("<span class='uv-icon-ellipsis uv-ellipsis-mirror'></span>").hide();
+                    //emojifyRun();
+                    this.$el.find('img').removeAttr('crossorigin');
+                    //viewerImages();
+                    //convertForImages(this.$el);
+                    this.$el.find('div.message a').attr('target', '_blank');
+                    app.appView.relativeTime()
+                }
+            });
+
+            var Pagination = Backbone.View.extend({
+                el: $('.uv-ticket-accordion'),
+                events: {
+                    'click .uv-ticket-count-stat': 'loadMore',
+                },
+                renderPagination: function(pagination) {
+                    if(pagination.totalCount - pagination.lastItemNumber > 0 && pagination.lastItemNumber > 0) {
+                        var remain = pagination.totalCount - pagination.lastItemNumber;
+                        $('.uv-ticket-count-stat').text(remain)
+                        $('.uv-ticket-accordion').removeClass('uv-ticket-accordion-expanded').removeClass('uv-ticket-accordion-no-count')
+                    } else {
+                        $('.uv-ticket-accordion').addClass('uv-ticket-accordion-expanded').addClass('uv-ticket-accordion-no-count')
+                    }
+                },
+                loadMore: function() {
+                    threadCollection.syncData();
+                }
+            });
+
+            //Collaborator Code starts here
+            _.extend(Backbone.Model.prototype, Backbone.Validation.mixin);
+            var CollaboratorModel = Backbone.Model.extend({
+                idAttribute : "id",
+                validation: {
+                    'email': [{
+                        required: true,
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },{
+                        pattern: 'email',
+                        msg: '{{ "Please enter a valid email"|trans }}'
+                    }]
+                },
+                defaults : {
+                    ticketId : {{ ticket.id }},
+                    email: ''
+                },
+                parse: function (resp, options) {
+                    return resp.collaborator;
+                },
+                urlRoot : "{{ path('helpdesk_customer_update_ticket_collaborators_xhr') }}"
+            });
+
+            var CollaboratorCollection = Backbone.PageableCollection.extend({
+                model : CollaboratorModel
+            });
+
+            var CollaboratorItem = Backbone.View.extend({
+                tagName : "a",
+                className: 'uv-btn-tag',
+                template : _.template("<span class='uv-tag'><span class='uv-icon-remove-dark-before'></span><%- name %></span>"),
+                events : {
+                    'click .uv-tag' : 'removeItem'
+                },
+                render : function () {
+                    this.$el.html(this.template(this.model.toJSON()));
+                    return this;
+                },
+                unrender : function(response) {
+                    if(response.alertMessage != undefined) {
+                        collaboratorListView.render();
+                        app.appView.renderResponseAlert(response);
+                    }
+                },
+                removeItem: function() {
+                    self = this;
+                    app.appView.showLoader();
+                    this.model.destroy({
+                        data : { 'ticketId' : this.model.attributes.ticketId },
+                        success : function (model, response, options) {
+                            app.appView.hideLoader();
+                            self.$el.remove();
+                            self.unrender(response);
+                        },
+                        error: function (model, xhr, options) {
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                            var response = warningResponse;
+                            if(xhr.responseJSON)
+                                response = xhr.responseJSON;
+
+                            app.appView.hideLoader();
+                            app.appView.renderResponseAlert(response);
+                        }
+                    });
+                }
+            });
+
+            var CollaboratorList = Backbone.View.extend({
+                el : $(".collaborator-list-block"),
+                events : {
+                    'keypress .uv-field' : 'addCollaborator',
+                    'focusout .uv-field' : 'removeErrorClass',
+                },
+                initialize : function() {
+                    //Backbone.Validation.bind(this);
+                },
+                render : function() {
+                    this.$el.find(".collaborator-list").html('');
+                    var self = this;
+                    collaboratorOptionHtml = '';
+                    if(collaboratorCollection.length) {
+                        _.each(collaboratorCollection.models, function (item) {
+                            this.renderCollaborator(item);
+                        }, this);
+                    }
+                    ticketView.addCCCollaborators()
+                },
+                renderCollaborator : function (item) {
+                    var collaborator = new CollaboratorItem({
+                        model: item
+                    });
+                    this.$el.find('.collaborator-list').append(collaborator.render().el);
+                },
+                removeErrorClass: function(e) {
+                    var inputElement = Backbone.$(e.currentTarget);
+                    inputElement.removeClass('uv-field-error');
+                    inputElement.parents('.uv-element-block').find('.uv-field-message').remove()
+                },
+                addCollaborator : function(e) {
+                    var inputElement = Backbone.$(e.currentTarget);
+                    inputElement.removeClass('uv-field-error');
+                    inputElement.parents('.uv-element-block').find('.uv-field-message').remove()
+                    var text = inputElement.val().trim();
+
+                    if (e.which === 13 && text) {
+                        this.model = new CollaboratorModel();
+                        self = this;
+                        this.model.set({email: text})
+
+                        if(this.model.isValid(true)) {
+                            app.appView.showLoader();
+                            this.model.save({},{
+                                success : function (model, response, options) {
+                                    inputElement.val('');
+                                    if(response.alertClass == "success") {
+                                        collaboratorCollection.add(model);
+                                    }
+                                    self.render();
+                                    app.appView.hideLoader();
+                                    app.appView.renderResponseAlert(response);
+                                },
+                                error: function (model, xhr, options) {
+                                    if(url = xhr.getResponseHeader('Location'))
+                                        window.location = url;
+                                    var response = warningResponse;
+                                    if(xhr.responseJSON)
+                                        response = xhr.responseJSON;
+
+                                    app.appView.hideLoader();
+                                    app.appView.renderResponseAlert(response);
+                                }
+                            });
+                        } else {
+                            inputElement.addClass('uv-field-error');
+                            if(text)
+                                inputElement.parents('.uv-element-block').append("<span class='uv-field-message'>{{ 'Email address is invalid'|trans }}</span>");
+                        }
+                    }
+                }
+            });
+            //Collaborator Code ends here
+
+            ticketModel = new TicketModel({
+                id : "{{ ticket.id }}",
+            });
+
+            ticketApp.ticketView = ticketView = new TicketView({
+                model: ticketModel
+            });
+
+            var threadCollection = new ThreadCollection();
+		    var threadList = new ThreadList();
+            var pagination = new Pagination();
+            threadCollection.syncData();
+
+            {% if ticket.customer == app.user %}
+                var collaboratorCollection = new CollaboratorCollection($.parseJSON('{{ ticket_service.getTicketCollaborators(ticket.id)|json_encode|raw }}'));
+                var collaboratorListView = new CollaboratorList();
+                collaboratorListView.render();
+            {% endif %}
+        });
+    </script>
+
+    {{ include("@UVDeskCoreFramework/Templates/tinyMCE.html.twig") }}
+
+	<script>
+		sfTinyMce.init({
+            height: '250px',
+			selector : '.uv-ticket-reply textarea',
+			images_upload_url: "",
+            setup: function(editor) {
+            }
+		});
+	</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            var uvKudoButton = document.querySelector(".uv-kudo-button");
+            var uvKudoIcon = document.querySelector(".uv-kudo-icon");
+            var uvKudoPlank = document.querySelector(".uv-kudo-plank");
+            var uvKudoMessage = document.querySelector(".uv-kudo-message");
+            var uvKudoResponse = document.querySelector(".uv-kudo-response");
+
+            uvKudoButton.addEventListener("click", function(){
+                uvKudoButton.classList.toggle("uv-kudo-button-active");
+                uvKudoPlank.classList.toggle("uv-kudo-plank-active");
+            });
+        });
+    </script>
+{% endblock %}

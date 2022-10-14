@@ -1,0 +1,403 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}{{ 'Agent Activity'|trans }}{% endblock %}
+
+{% block pageContent %}
+	<style>
+		.grid .tick {
+			stroke: #9F9F9F;
+			opacity: .5 !important;
+		}
+		.tick text {
+			font-size: 15px;
+		}
+		.uv-report-chart-col-rt .uv-pannel {
+			min-height: 600px;
+		}
+		.uv-report-chart-col-rt .uv-pannel-body {
+			padding: 0 0 0 20px;
+		}
+		.top-agent-list {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.top-agent-list li {
+			border-bottom: 1px solid #d3d3d3;
+			padding: 14px 0;
+		}
+		.top-agent-list li:last-child {
+			border-bottom: none;
+		}
+		.uv-agent-lt {
+			float: left;
+			margin-right: 10px;
+		}
+		.uv-agent-lt img {
+			width: 40px;
+			border-radius: 3px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.uv-agent-rt {
+			overflow: hidden;
+		}
+		span.uv-info span {
+			width: 100%;
+			float: left;
+		}
+		.uv-rtl .agent-graph svg {
+			direction: ltr;
+		}
+		.uv-paper .uv-element-block {
+			margin: 10px 50px 10px 0px;
+		}
+		.uv-element-block {
+			float: right;
+			width: unset;
+		}
+        .uv-action-bar .uv-field-block.date {
+            display: inline-block;
+            margin-right: 8px;
+        }
+        .uv-action-bar label {
+            font-size: 16px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .uv-inner-section .uv-action-bar label{
+            font-size: 15px;
+        }
+        @media screen and (min-width: 1100px) and (max-width: 1260px) {
+            .uv-inner-section .uv-action-bar .uv-action-bar-col-lt, .uv-inner-section .uv-action-bar .uv-action-bar-col-rt {
+                width: 55% !important;
+            } 
+        }
+	</style>
+	<div class="uv-inner-section">
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Reports' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+        <div id="agent-activities" class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+                {% set filterContext = {} %}
+
+                <h1>{{ 'Agent Activity'|trans }} <span id="activity-count"></span></h1>
+
+                {# Filters - Agents #}
+                <div class="uv-element-block">
+                    <div class="uv-field-block" id="agent-filter">
+                        <input class="uv-search-inline uv-field uv-dropdown-other preloaded" type="text" data-filter-type="agent" id="agent-filter-input" placeholder="Search Agent">
+                        <div class="uv-dropdown-list uv-bottom-left">
+                            <div class="uv-dropdown-container">
+                                <label>{{ 'Filter With'|trans }}</label>
+                            </div>
+
+                            <ul class="uv-agents-list">
+                                {% set options = [] %}
+                                {% for agent in agents %}
+                                    {% set options = options|merge([{'id': agent.id, 'name': agent.name}]) %}
+                                    <li data-id="{{agent.id}}" class="agentId">
+                                        {% if agent.smallThumbnail != null %}
+                                            <img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}{{ agent.smallThumbnail }}"/>
+                                        {% else %}
+                                            <img src="{{ asset(default_agent_image_path) }}"/> 
+                                        {% endif %}
+                                        {{agent.name}}
+                                    </li>
+                                {% endfor %}
+                                <li class="uv-no-results" style="display: none;">
+                                    {{ 'No result found'|trans }}
+                                </li>
+                                {# {% set filterContext = filterContext|merge({'agent':options}) %} #}
+                            </ul>
+                        </div>
+
+                        <div class="uv-filtered-tags"></div>
+                    </div>
+                </div>
+
+                {# Filters - Timestamp #}
+                <div class="uv-action-bar">
+                    <div class="uv-action-bar-col-lt">
+                        <label>{{ 'Report From'|trans }}</label>
+                        <div class="uv-field-block date">
+                            <input type="text" class="uv-field uv-date-picker date date-from" id="from" value="">
+                        </div>
+                        <label>{{ 'To'|trans }}</label>
+                        <div class="uv-field-block date">
+                            <input type="text" class="uv-field uv-date-picker date date-to"  id="to" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ticket list -->
+                <div id="agent-activity-listings" class="uv-table uv-list-view">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="uv-width-140"></th>
+                                <th>{{ "ID"|trans }}</th>
+                                <th class="uv-min-width-300">{{ "Subject"|trans }}</th>
+                                <th data-index="customer-name">{{ "Customer Name"|trans }}</th>
+                                <th data-index="total-reply">{{ "Total Replies"|trans }}</th>
+                                <th data-index="last-reply">{{ "Agent Last Reply"|trans }}</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="list-items" id="list-items"></tbody>
+                    </table>
+
+                    <div class="navigation"></div>
+                </div>
+                <!-- //Ticket list -->
+
+                <script type="text/javascript">
+                    var filterContext = {{filterContext|json_encode|raw}}
+                </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+
+    <script id="agent-listing-template" type="text/template">
+        <% if (collection.length <= 0) { %>
+            <tr>
+                <td colspan="7" style="text-align: center;">No results available</td>
+            </tr>
+        <% } else { %>
+            <% collection.forEach(function(item) { %>
+                <tr>
+                    <td data-value="">
+                        <%= '<span class="uv-list-ticket-priority" style="background:' + item.color + '"></span>' %>
+                    </td>
+                    <td data-value="{{ 'Id'|trans }}"><a href="<%- item.ticketURL %>">#<%- item.ticketId %></a></td>
+                    <td data-value="{{ 'Subject'|trans }}"><%- item.subject %></td>
+                    <td data-value="{{ 'Customer Name'|trans }}"><%- item.customerName %></td>
+                    <td data-value="{{ 'Total Reply'|trans }}"><%- item.totalReply %></td>
+                    <td data-value="{{ 'Last Reply'|trans }}"><%- item.lastReply %></td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var startGlobalDate = "";
+            var endGlobalDate = "";
+            var date = new Date();
+            var currentMonth = date.getMonth();
+            var currentDate = date.getDate();
+            var currentYear = date.getFullYear();
+
+            $('.uv-action-bar .date').datetimepicker({
+                maxDate: new Date(currentYear, currentMonth, currentDate),
+                format: 'YYYY-MM-DD',
+            }).on('dp.change', function(e) {
+                $('.date').removeClass('uv-field-error');
+                var element = $(e.currentTarget);
+                var date = element.find('input').val();
+            });
+
+            var AgentActivityModel = Backbone.Model.extend({
+                idAttribute : "id"
+            });
+
+            var AgentActivityCollection = AppCollection.extend({
+                model: AgentActivityModel,
+                url: "{{ path('helpdesk_member_agent_activity_xhr') }}",
+                filterParameters : {
+                    "agent" : '',
+                    "after": "",
+                    "before": "",
+                },
+                parse: function (resp, options) {
+                    return resp.data;
+                },
+                initialize: function (params) {
+                    this.activityView = new ActivityView({
+                        collection: this
+                    });
+                },
+                syncData : function() {
+                  app.appView.showLoader();
+                  var self = this;
+
+                  this.fetch({
+                      data: this.getValidParameters(),
+                      reset: true,
+                      success: function(collection, response, options) {
+                          self.reset([]);
+
+                          response.data.forEach(function (item) {
+                              self.add(new AgentActivityModel(item));
+                          })
+
+                          app.appView.hideLoader();
+                          app.pager.paginationData = response.pagination_data;
+
+						  let activityCount = $('#activity-count');
+                          activityCount.html(`(${app.pager.paginationData.totalCount})`);
+
+                          if (self.length == 0 && app.pager.paginationData.current != "0") {
+                              let url = app.pager.paginationData.url;
+                              router.navigate(
+                                  url.replace('replacePage', app.pager.paginationData.last),
+                                  { trigger: true }
+                              );
+                          } else {
+                              // Render records & pagination
+                              app.pager.render();
+                              self.activityView.renderRecords();
+                          }
+                      },
+                      error: function (collection, xhr, options) {
+                        console.log('sync failed:', collection, response, options);
+                        if (url = xhr.getResponseHeader('Location')) {
+                          window.location = url;
+                        }
+                      }
+                  });
+                },
+                syncView: function () {
+                    let queryParams = this.getValidParameters();
+
+                    {% for agent in agents %}
+                        if ("{{agent.id}}" == queryParams.agent) {
+                            $('#agent-filter-input').val("{{agent.name}}")
+                        }
+                    {% endfor %}
+
+                    $('#from').val(queryParams.after);
+                    $('#to').val(queryParams.before);
+                }
+            });
+
+            var ActivityView = Backbone.View.extend({
+                el: $("#agent-activities"),
+                listing_template: _.template($("#agent-listing-template").html()),
+                events: {
+                    'click .uv-dropdown-list li' : 'applyFilter',
+                    'keyup #agent-filter-input' : 'initializeback',
+                    'dp.change input#from': 'initializeback',
+                    'dp.change input#to': 'initializeback'
+                },
+                initializeback: function(e) {
+                     if (e.keyCode == 8 && $('#agent-filter-input').val() == '' || e.type == "dp") { 
+                        agentActivityCollection.filterParameters.after = $('#from').val();
+                        agentActivityCollection.filterParameters.before = $('#to').val();
+
+                        if (e.keyCode == 8) {
+                            agentActivityCollection.filterParameters.agent = null;
+                        }
+                        
+                        agentActivityCollection.syncData();
+                        agentActivityCollection.syncView();
+
+                        agentActivityCollection.reset();
+                        agentActivityCollection.state.currentPage = null;
+
+                        let params = this.collection.getValidParameters();
+                        var query = app.appView.buildQuery($.param(params));
+                        router.navigate(query, { trigger: true });
+                    }
+                },
+                initialize: function(params) {
+                    this.renderRecords();
+                },
+                renderRecords: function() {
+                    $("#agent-activity-listings tbody").html(this.listing_template({
+                        collection: this.collection.toJSON()
+                    }));
+                },
+                applyFilter: function(e) {
+                    currentElement = Backbone.$(e.currentTarget);
+
+                    if (currentElement.attr("data-id")) {
+                        parent = currentElement.parents(".uv-field-block");
+                        filterType = parent.find('input').attr('data-filter-type');
+
+                        if ((typeof(this.flag) == "undefined") && filterType == "agent") {
+                            this.collection.filterParameters.agent = currentElement.attr('data-id');
+
+                            $('#agent-filter-input').val(currentElement.text().replace(/^\s+|\s+$/g,''));
+                        }
+                    }
+
+                    this.collection.filterParameters.after = $('#from').val();
+                    this.collection.filterParameters.before = $('#to').val();
+
+                    let params = this.collection.getValidParameters();
+                    var query = app.appView.buildQuery($.param(params));
+
+                    this.collection.reset();
+                    this.collection.state.currentPage = null;
+                    router.navigate(query, { trigger: true });
+                },
+            });
+
+            var agentActivityCollection = new AgentActivityCollection();
+
+            Router = Backbone.Router.extend({
+                routes: {
+                    'agent/:agent(/after/:after)(/before/:before)(/page/:number)': 'paginate',
+                    'after/:after(/before/:before)(/page/:number)': 'paginateData',
+                    '': 'initial',     
+                },
+                initial: function() {
+                    agentActivityCollection.filterParameters.after = $('#from').val();
+                    agentActivityCollection.filterParameters.before = $('#to').val();
+                    agentActivityCollection.filterParameters.agent  = null;
+
+                    agentActivityCollection.syncData();
+                    agentActivityCollection.syncView();
+
+                    agentActivityCollection.reset();
+                    agentActivityCollection.state.currentPage = null;
+                },
+                resetParams: function(agent, after, before) {
+                    pageJustLoaded = false;
+                    agentActivityCollection.state.currentPage = null;
+
+                    agentActivityCollection.filterParameters.agent = agent;
+                    agentActivityCollection.filterParameters.after = after;
+                    agentActivityCollection.filterParameters.before = before;
+                },
+                resetData: function(after, before) {
+                    pageJustLoaded = false;
+                    agentActivityCollection.state.currentPage = null;
+
+                    agentActivityCollection.filterParameters.agent = null;
+                    agentActivityCollection.filterParameters.after = after;
+                    agentActivityCollection.filterParameters.before = before;
+                },
+                paginate: function(agent, after, before, number) {
+                    this.resetParams(agent, after, before);
+                    agentActivityCollection.state.currentPage = number;
+                    agentActivityCollection.syncData();
+                    agentActivityCollection.syncView();
+
+                    agentActivityCollection.filterParameters.agent = agent;
+                },
+                paginateData: function(after, before, number) {
+                    this.resetData(after, before);
+                    agentActivityCollection.state.currentPage = number;
+                    agentActivityCollection.syncData();
+                    agentActivityCollection.syncView();
+
+                   agentActivityCollection.filterParameters.agent = null;
+                },
+            });
+
+            var router = new Router({
+                collection: agentActivityCollection
+            });
+
+            Backbone.history.start({ push_state: true });
+        });
+    </script>
+{% endblock %}

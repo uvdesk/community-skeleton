@@ -1,0 +1,30 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+{% block title %}{{folder.name}}{% endblock %}
+{% block ogtitle %}{{folder.name}}{% endblock %}
+{% block twtitle %}{{folder.name}}{% endblock %}
+{% block metaDescription %}{{folder.description}}{% endblock %}
+{% block metaKeywords %}{{ uvdesk_service.createConentToKeywords(folder.description)}}{% endblock %}
+
+{% block body %} 
+	<div class="uv-paper-article">
+		<div class="uv-paper-section">
+			<section>
+				<h1 class="uv-folder-title" data-count="{{categoryCount}} {{"Categories"|trans}}">{{folder.name}}</h1>
+				<p>{{folder.description}}</p>
+			</section>
+			<section class="uv-margin-top-30">
+				<h4>{{'CATEGORIES'|trans}}</h4>
+				{% if categories %}
+					<ul>
+						{% for category in categories %}
+							<li><a href="{{path('helpdesk_knowledgebase_category', {'category': category.id})}}">{{category.name}}</a></li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p>{{"No Category Found!"|trans}}</p>
+				{% endif %}
+			</section>
+		</div>
+	</div>
+	{{ parent() }}
+{% endblock %}

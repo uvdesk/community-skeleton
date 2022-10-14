@@ -1,0 +1,131 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}{{ 'Edit Folder'|trans }}{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>{{ 'Edit Folder'|trans }}</h1>
+			
+			<form method="post" action="" id="entity-form" enctype="multipart/form-data">
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Name'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="name" class="uv-field" value="{{ folder.name }}" />
+					</div>
+					<span class="uv-field-info">{{ 'Folder Name is shown upfront at Knowledge Base'|trans }}</span>
+				</div>
+
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Description'|trans }}</label>
+					<div class="uv-field-block">
+						<textarea name="description" class="uv-field">{{ folder.description }}</textarea>
+					</div>
+					<span class="uv-field-info">{{ 'A small text about the folder helps user to navigate more easily'|trans }}</span>
+				</div>
+
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Status'|trans }}</label>
+					<div class="uv-field-block">
+						<select class="uv-select" name="visibility">
+							<option value="public" {{ (folder.visibility and folder.visibility == 'public') ? 'selected' : '' }}>{{ 'Publish'|trans }}</option>
+							<option value="private" {{ (folder.visibility and folder.visibility == 'private') ? 'selected' : '' }}>{{ 'Draft'|trans }}</option>
+						</select>
+					</div>
+					<span class="uv-field-info">{{ 'Choose appropriate status'|trans }}</span>
+				</div>
+
+				<div class="uv-element-block uv-no-error-success-icon">
+					<label class="uv-field-label">{{ 'Folder Image'|trans }}</label>
+					<!-- Profile image -->
+					<div class="uv-image-upload-wrapper" style="padding: 10px 0px 10px 0px; border:none;">
+						{% set isHaveImage =  folder  and folder.solutionImage ? 1 : 0 %}
+						<div class="uv-image-upload-brick {% if isHaveImage %}uv-on-drop-shadow{% endif %}" {% if isHaveImage %}style="border-color: transparent;"{% endif %}>
+							<input type="file" name="solutionImage" id="uv-upload-profile" accept="image/*">
+							<div class="uv-image-upload-placeholder">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48px" height="32px">
+								<path fill-rule="evenodd" d="M28.026,26.003 L19.964,26.003 L19.964,17.962 L13.964,17.962 L23.995,8.050 L34.025,17.962 L28.026,17.962 L28.026,26.003 ZM33.557,3.421 C30.806,1.146 27.619,0.008 23.995,0.008 C21.182,0.008 18.588,0.756 16.214,2.252 C13.838,3.749 11.996,5.712 10.683,8.143 C7.683,8.456 5.152,9.749 3.090,12.024 C1.027,14.300 -0.004,16.965 -0.004,20.019 C-0.004,23.324 1.168,26.144 3.512,28.481 C5.855,30.819 8.682,31.988 11.996,31.988 L37.963,31.988 C40.712,31.988 43.072,31.006 45.040,29.042 C47.009,27.079 47.993,24.726 47.993,21.983 C47.993,19.364 47.087,17.106 45.275,15.203 C43.461,13.302 41.275,12.258 38.713,12.071 C38.024,8.580 36.306,5.698 33.557,3.421 Z"></path>
+								</svg>	
+							</div>
+							<img id="dynamic-image-upload" {% if isHaveImage %}src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}{{ folder.solutionImage }}"{% endif %}>
+						</div>
+					</div>
+					<span class="uv-field-info">{{ 'An image is worth a thousands words and makes folder more accessible'|trans }}</span>
+				</div> 
+
+				<input class="uv-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+	
+	<script type="text/javascript">
+		$(function () {
+			var EntityModel = Backbone.Model.extend({
+				validation: {
+					'name': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					}, {
+						pattern: '^((?![$%<]).)*$',
+						msg: "{{ 'This field must have valid characters only'|trans }}"
+					},
+					{
+						maxLength:18,
+						msg: "{{ 'This field contain maximum 18 characters.'|trans }}"
+					}],
+					'description': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},
+					{
+						maxLength:250,
+						msg: '{{ "This field contain maximum 250 charecters only"|trans }}'
+					}]
+				}
+			});
+
+			var EntityForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn': "saveEntity",
+					'blur input, textarea': 'formChanegd',
+				},
+				initialize : function() {
+					Backbone.Validation.bind(this);
+					var jsonContext = JSON.parse('{{ errors|raw }}');
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+				},
+				formChanegd: function(e) {
+					if(e.target.name != 'solutionImage'){
+			    		this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    		this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+					}
+			    },
+				saveEntity : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+			        if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+			            this.$el.submit();
+			        }
+				},
+			});
+
+			groupForm = new EntityForm({
+				el : $("#entity-form"),
+				model : new EntityModel()
+			});	
+		});
+	</script>
+{% endblock %}

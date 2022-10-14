@@ -1,0 +1,136 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+
+
+{% block canonical %} {% if article.slug %} {{ url('helpdesk_knowledgebase_read_slug_article', {'slug':article.slug }) }} {% endif %} {% endblock %}
+{% block ogcanonical %} {% if article.slug %} {{ url('helpdesk_knowledgebase_read_slug_article', {'slug':article.slug }) }} {% endif %} {% endblock %}
+
+
+{% block title %}{{ article.metaTitle ? article.metaTitle : article.name }}{% endblock %}
+{% block ogtitle %}{{ article.metaTitle ? article.metaTitle : article.name }}{% endblock %}
+{% block twtitle %}{{ article.metaTitle ? article.metaTitle : article.name }}{% endblock %}
+{% block metaDescription %}{{ article.metaDescription ? article.metaDescription : uvdesk_service.createConentToKeywords(article.content, 255, true)|join(' ') }}{% endblock %}
+{% block metaKeywords %}{{ article.keywords ? : uvdesk_service.createConentToKeywords(article.content) }}{% endblock %}
+
+{% block body %}
+	<div class="uv-paper-article">
+		<div class="uv-paper-section">
+			<section>
+				<h1 {% if article.stared %}class="uv-starred"{% endif %}>{{ article.name }}</h1>
+				<p>{{ article.content |raw }}</p>
+				<div class="uv-author">
+					{% if articleAuthor is defined and articleAuthor is not empty %}
+						<div class="uv-author-avatar">
+							{% if articleAuthor.user.profileImage is defined and articleAuthor.user.profileImage %}
+								<img src="{{articleAuthor.user.profileImage}}">
+							{% else %}
+								<img src="{{ asset(default_customer_image_path) }}">
+							{% endif %}
+						</div>
+						<div class="uv-author-info">
+							<p>{{ articleAuthor.firstName | capitalize }} {{ articleAuthor.lastName | capitalize }}</p>
+							<p><span>{{"Published on"|trans}} -</span> {{dateAdded}}</p>
+						</div>
+					{% endif %}
+
+
+				</div>
+			</section>
+
+
+			{% if feedbacks is defined and feedbacks.enabled == true %}
+				<section id="feedbacks" class="article-feedbacks">
+					{% if feedbacks.submitted == true %}
+						<p>Thank you for your feedback!</p>
+					{% endif %}
+				</section>
+			{% endif %}
+
+			{# {% set companyDisqus = application_service.getCompanyDisqus() %}
+			{% if companyDisqus is defined and companyDisqus is not empty %}
+				{% if companyDisqus.ticketConversion is defined and companyDisqus.ticketConversion == true %}
+					<section class="disqus-thread">
+						{{ knp_disqus_render(companyDisqus.website, {'id': "article-{{ article.id }}", 'limit': 10, 'newCommentCallbackFunctionName': 'disqusCommentCallback'}) }}
+					</section>
+
+					<script type="text/javascript">
+						function disqusCommentCallback() {
+							// Set delay for disqus to update comments
+							setTimeout(function() {
+								$.get("{{ url('app_webhook_callback', {'applicationRouteName': 'disqus-engage'}) }}");
+							}, 2000);
+						}
+					</script>
+				{% else %}
+					<section class="disqus-thread">
+						{{ knp_disqus_render(companyDisqus.website, {'id': "article-{{ article.id }}", 'limit': 10}) }}
+					</section>
+				{% endif %}
+			{% endif %} #}
+		</div>
+
+		{% include "@UVDeskSupportCenter/Templates/sidepanel.html.twig" %}
+	</div>
+	{{ parent() }}
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	{# Article Feedbacks #}
+	{% if feedbacks is defined and feedbacks.enabled == true and feedbacks.submitted == false %}
+		<script id="article_feedback_template" type="text/template">
+			<p>Was this article helpful?</p>
+			<ul>
+				<li class="uv-btn-small article-badge-pta" data-feedback="positive">Yes</li>
+				<li class="uv-btn-small article-badge-pta" data-feedback="negative">No</li>
+			</ul>
+		</script>
+
+		<script type="text/javascript">
+			$(function() {
+				var ArticleFeedback = Backbone.View.extend({
+					el: $("#feedbacks"),
+					feedbacks: {positive: 0, negative: 0, collection: []},
+					template: _.template($("#article_feedback_template").html()),
+					events: {
+						'click .article-badge-pta': 'ratingsPTA',
+					},
+					initialize: function() {
+						{% if feedbacks is defined and feedbacks.article is not empty %}
+							this.feedbacks = {{ feedbacks.article|json_encode|raw }};
+						{% endif %}
+
+						this.render();
+					},
+					render: function() {
+						this.$el.html(this.template());
+					},
+					ratingsPTA: function(e) {
+						var self = this;
+						var feedbackType = $(e.currentTarget).data('feedback');
+
+						$.ajax({
+							url: "{{ url('helpdesk_knowledgebase_rate_article', {'articleId': article.id}) }}",
+							method: 'POST',
+							data: {
+								feedback: feedbackType,
+							},
+							success: function(response) {
+								this.$el.html('');
+								app.appView.renderResponseAlert(response);
+							},
+							error: function(response) {
+								response = $.parseJSON(response.responseText);
+
+								// app.appView.hideLoader();
+								app.appView.renderResponseAlert(response);
+							}
+						});
+					},
+				});
+
+				var articleFeedback = new ArticleFeedback();
+			});
+		</script>
+	{% endif %}
+{% endblock %}

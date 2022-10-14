@@ -1,0 +1,118 @@
+Webkul\UVDesk\SupportCenterBundle\Entity\Solutions:
+    properties:
+        name:
+            - NotBlank: { message: "solution.name.not_blank" }
+            - Length:
+                max: 50
+                maxMessage: "solution.name.length"
+            - Regex:
+                pattern: '/[$%<]/'
+                match:   false
+                message: This field must have characters only
+        description:
+            - Length:
+                max: 500
+                maxMessage: "solution.description.length"
+
+Webkul\UVDesk\SupportCenterBundle\Entity\SolutionCategory:
+    properties:
+        name:
+            - NotBlank: { message: "category.name.not_blank" }
+            - Length:
+                max: 50
+                maxMessage: "category.name.length"
+            - Regex:
+                pattern: '/[$%<]/'
+                match:   false
+                message: This field must have characters only
+        description:   
+            - Length:
+                max: 500
+                maxMessage: "category.description.length"
+
+Webkul\UVDesk\SupportCenterBundle\Entity\Article:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            fields: [slug]
+            message: "Warning! This Slug is not available !!"
+    properties:
+        name:
+            - NotBlank: { message: "Name should not be blank !!" }
+            - Length:
+                max: 200
+                maxMessage: "Name length must not be greater than 200 !!"
+        slug:
+            - NotBlank: { message: "Slug should not be blank !!" }
+            - Length:
+                max: 200
+                maxMessage: "Slug length must not be greater than 200 !!" 
+            - Regex:
+                pattern: '/[a-zA-Z-]/'
+                match:   true
+                message: "Slug must not have special characters !!"
+        # content:   
+        #     - Length:
+        #         max: 10000
+        #         maxMessage: "Content must not be greater than 10000 !!"
+        contentFile:
+            - File:
+                maxSize: 2M
+                maxSizeMessage: "File size must not be greater than 2Mb !!"
+                mimeTypes: ['text/html', 'text/plain']
+                mimeTypesMessage: "Please upload HTML file !!"
+
+Webkul\UVDesk\SupportCenterBundle\Entity\Website:
+    group_sequence:
+        - General
+        - GeneralPro
+        - KnowledgebasePro
+        - Website
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity: 
+            groups: [General]
+            fields: [domain]
+            message: "This Domain is not available"
+        - Webkul\UVDesk\SupportCenterBundle\Validator\Constraints\UniqueDomain: { groups:[ General] }
+    properties:
+        name:
+            - NotBlank: { message: "This field is mandatory", groups: [General] }
+            - Length:
+                groups: [General]
+                max: 50
+                maxMessage: "Name length must not be greater than 50 !!" 
+        domain:
+            - NotBlank: { message: "Domain should not be blank or with invalid characters !!", groups: [General] }
+            - Length:
+                groups: [General]
+                max: 50
+                maxMessage: "This field length must not be greater than 50"   
+        cName:
+            - Url: 
+                message: This is not a valid url.
+                groups: [General, GeneralPro]
+        brandColor:
+            - Regex:
+                pattern: '/^[0-9A-F]+$/'
+                match:   false
+                message: This field is not a valid HEX
+                groups: [General]
+        logo:
+            - File:
+                groups: [General]
+                maxSize: 200K
+                maxSizeMessage: "File size must not be greater than 200KB !!"
+                mimeTypes: ['image/jpg', 'image/jpeg', 'image/png']
+                mimeTypesMessage: "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!"
+        favicon:
+            - Image:
+                groups: [General]
+                maxSize: 200K
+                maxSizeMessage: "File size must not be greater than 200KB !!"
+                mimeTypes: ['image/*']
+                mimeTypesMessage: "Please upload valid Image file (Only JPEG, JPG, PNG, ICON allowed)!!"
+        
+        siteDescritption:   
+            - Length:
+                groups: [KnowledgebasePro]
+                max: 500
+                maxMessage: "This field must not be greater than 500 characters"

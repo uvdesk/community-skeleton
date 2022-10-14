@@ -1,0 +1,58 @@
+helpdesk_knowledgebase:
+    path:     /
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::home
+
+helpdesk_knowledgebase_exception:
+    path:     /exception
+    defaults: { _controller: WebkulDefaultBundle:Default:exceptionDefault }
+
+helpdesk_knowledgebase_folder:
+    path:     /folder/{solution}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::viewFolder
+    defaults: { solution: 0 }
+
+helpdesk_knowledgebase_folder_article_collection:
+    path:     /folder/{solution}/articles
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::viewFolderArticle
+    defaults: { solution: 0 }
+
+helpdesk_knowledgebase_category_collection:
+    path:     /categories
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::listCategories
+
+helpdesk_knowledgebase_category:
+    path:     /category/{category}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::viewCategory
+    defaults: { category: 0 }
+
+helpdesk_knowledgebase_read_article:
+    path:     /article/{article}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::viewArticle
+    defaults: { article: 0 }
+
+helpdesk_knowledgebase_read_slug_article:
+    path:     /blog/{slug}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::viewArticle
+    defaults: { slug: '' }
+
+helpdesk_knowledgebase_rate_article:
+    path:     /rating/{articleId}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::rateArticle
+
+helpdesk_knowledgebase_search:
+    path:     /search/{s}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::searchKnowledgebase
+    defaults: { s: '' }
+
+helpdesk_knowledgebase_tag:
+    path:     /tag/{tag}/{name}
+    controller: Webkul\UVDesk\SupportCenterBundle\Controller\Website::viewTaggedResources
+    defaults: { tag: '', name: '' }
+
+# webkul_support_center_front_solution_article:
+#     path:     /folder/{solution}/article/{article}
+#     defaults: { _controller: UVDeskSupportCenterBundle:Front:Article, solution: 0, category: 0, article: 0 }
+
+# webkul_support_center_front_solution_article_history:
+#     path:     /folder/{solution}/article/{article}/{history}
+#     defaults: { _controller: UVDeskSupportCenterBundle:Front:Article, solution: 0, category: 0, article: 0, history: 0 }

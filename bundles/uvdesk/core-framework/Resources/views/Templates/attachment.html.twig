@@ -1,0 +1,93 @@
+<style>
+    input.attachment {
+        display: none;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        var FileView = Backbone.View.extend({
+            fileCounter: 0,
+            max_post_size: {{ max_post_size }},
+            max_file_uploads: {{ max_file_uploads }},
+            upload_max_filesize: {{ upload_max_filesize }},
+            el: '.attachment-block',
+            events : {
+                'click .uv-file-label': 'createFileType',
+                'change .attachment': 'selectFile',
+                'click .uv-added-attachment span': 'removeFile',
+                'click .uv-field-message': 'removeError',
+            },
+            createFileType: function(e) {
+                this.removeError(e)
+                var currentElement = Backbone.$(e.currentTarget),
+                    attachmentBlock = currentElement.parents('.attachment-block')
+                if (attachmentBlock.children('.uv-added-attachment').length + 1 > this.max_file_uploads) {
+                    attachmentBlock.append(this.getDefaultErrorMessage())
+                    return;
+                }
+                this.fileCounter += 1;
+                attachmentBlock.append('<div class="uv-added-attachment" style="display: none" id="file-' + this.fileCounter + '"><div class="uv-attachment"><input type="file" name="attachments[]" class="attachment" multiple="multiple"></div><span></span></div>')
+                $('#file-' + this.fileCounter).find('.attachment').trigger('click')
+            },
+            labelTemplate: _.template('<label class="file-name"><%- fileName %></label><br>'),
+            selectFile: function(e) {
+                var currentElement = Backbone.$(e.currentTarget);
+                var attachmentBlock = currentElement.parents(".uv-added-attachment");
+                var isError = false;
+                
+                if (currentElement.length) {
+                    files = currentElement[0].files; 
+
+                    if (files.length) {
+                        for (var i = 0; i < files.length; i++) {
+                            var fileName = files[i].name;
+                            
+                            if (files[i].size > this.upload_max_filesize) {
+                                isError = true;
+                                break;
+                            }
+
+                            // Validating Form Size
+                            var formSize = 0
+                            var formData = new FormData(currentElement.parents('form')[0])
+                            
+                            for (var pair of formData.entries()) {
+                                if (pair[1] instanceof Blob) {
+                                    formSize += pair[1].size
+                                } else {
+                                    formSize += pair[1].length
+                                }
+                            }
+
+                            if (formSize > this.max_post_size) {
+                                isError = true
+                            }
+
+                            attachmentBlock.append(this.labelTemplate({'fileName': fileName}));
+                        }
+                    }
+                }
+                
+                if (isError) {
+                    attachmentBlock.parents('.attachment-block').append(this.getDefaultErrorMessage())
+                    attachmentBlock.remove()
+                    return
+                }
+
+                attachmentBlock.show()
+            },
+            removeFile: function(e) {
+                this.removeError(e)
+                Backbone.$(e.currentTarget).parents('.uv-added-attachment').remove()
+            },
+            getDefaultErrorMessage: function() {
+                return '<span class="uv-field-message">You can send up to ' + Math.floor(this.upload_max_filesize/(1024*1024)) + ' MB in attachments. If you have more than one attachment, they can\'t add up to more than ' + Math.floor(this.max_post_size/(1024*1024))  + ' MB and ' + this.max_file_uploads + ' attachments in total.</span>'
+            },
+            removeError: function(e) {
+                Backbone.$(e.currentTarget).parents('.attachment-block').find('.uv-field-message').remove()
+            }   
+        });
+        
+        var fileView = new FileView();
+    });
+</script>

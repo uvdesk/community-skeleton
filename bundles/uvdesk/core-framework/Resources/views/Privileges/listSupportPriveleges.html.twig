@@ -1,0 +1,280 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Privileges'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Users' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Privileges'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+                    <!--Sort by-->
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Sort By:'|trans }} {{ 'Created At'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Sort By'|trans }}</label>
+								<ul>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--Sort by-->
+                </div>
+				<div class="uv-action-bar-col-rt">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+					<!-- Add Button -->
+					<a href="{{path('helpdesk_member_create_privilege')}}" type="button" class="uv-btn-action">
+						<span class="uv-icon-add"></span>
+						{{ "New Privilege"|trans }}
+					</a>
+					<!--// Add Button -->
+				</div>
+            </div>
+            <!--//Action Bar-->
+
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ "Name"|trans }}</th>
+                            <th>{{ "Description"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<!-- Sorting Template -->
+	<script id="privilege_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'ap.createdAt') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/ap.createdAt/<% if(sort == 'ap.createdAt') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="ap.createdAt">
+				{% trans %}Created At{% endtrans %}
+				<% if(sort == 'ap.createdAt') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'ap.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/ap.name/<% if(sort == 'ap.name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="ap.name">
+				{% trans %}Name{% endtrans %}
+				<% if(sort == 'ap.name') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Type list item template -->
+	<script id="privilege_list_item_tmp" type="text/template">
+		<td data-value="{{ 'Name'|trans }}">
+			<%- name %>
+		</td>
+		<td data-value="{{ 'Description'|trans }}">
+			<%- description %>
+		</td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('replaceId', id) %>" class="uv-btn-stroke edit-privilege">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-privilege">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+	<!-- //Type list item template -->
+
+	<script type="text/javascript">
+		var path = "{{ path('helpdesk_member_update_privilege', {'supportPrivilegeId': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var PrivilegeModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var PrivilegeCollection = AppCollection.extend({
+				model : PrivilegeModel,
+				url : "{{ path('helpdesk_member_privilege_collection_xhr') }}",
+				filterParameters : {
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.privileges;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var privilegeListView = new PrivilegeList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(privilegeCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			}); 
+
+			var PrivilegeItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#privilege_list_item_tmp").html()),
+				events : {
+					'click .delete-privilege' : "confirmRemove"
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						privilegeCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('helpdesk_member_remove_privilege_xhr') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							privilegeCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					}); 
+				}
+			});
+
+			var PrivilegeList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("tr").remove();
+					if(privilegeCollection.length) {
+						_.each(privilegeCollection.models, function (item) {
+							this.renderPrivilege(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='5'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderPrivilege : function (item) {
+					var privilegeItem = new PrivilegeItem({
+						model: item
+					});
+					this.$el.append(privilegeItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'ap.createdAt',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Created At{% endtrans %}",
+				template : _.template($("#privilege_list_sorting_tmp").html())
+			})
+
+			var privilegeCollection = new PrivilegeCollection();
+
+			var filter = new Filter({
+				collection : privilegeCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'isActive/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterPrivilegeByStatus',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('', '');
+					privilegeCollection.state.currentPage = null;
+					filter.sortCollection();
+					privilegeCollection.syncData();
+				},
+				paginate : function(number,sortField,order) {
+					this.resetParams('', '');
+					privilegeCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					privilegeCollection.syncData();
+				},
+				filterPrivilegeByStatus: function(status,query,number,sortField,order) {
+					this.resetParams(status,query);
+					privilegeCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					privilegeCollection.syncData();
+				},
+				filterByQuery : function(query,number,sortField,order) {
+					this.resetParams('',query);
+					privilegeCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					privilegeCollection.syncData();
+				},
+				resetParams : function(status, query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					privilegeCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

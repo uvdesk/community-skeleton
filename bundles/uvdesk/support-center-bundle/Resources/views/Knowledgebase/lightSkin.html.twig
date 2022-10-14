@@ -1,0 +1,108 @@
+{% set brandColor = websiteConfiguration.brandColor ?: '#7C70F4' %}
+{% if brandColor != '#7C70F4' and brandColor != '#7c70f4' %}
+<style>
+    .uv-btn-small,
+    .uv-btn,
+    .uv-btn-large,
+    .uv-btn-action,
+    .uv-btn-label {
+        background: {{ brandColor }};
+    }
+
+    .uv-btn-small:hover,
+    .uv-btn:hover,
+    .uv-btn-large:hover,
+    .uv-btn-action:hover,
+    .btn:hover,
+    .uv-btn-label:hover {
+        background: {{ brandColor }};
+        opacity: .85;
+    }
+
+    .uv-btn-small:active,
+    .uv-btn:active,
+    .uv-btn-large:active,
+    .uv-btn-action:active,
+    .btn:active,
+    .uv-btn-label:active {
+        background: {{ brandColor }};
+        opacity: .65;
+    }
+
+    .uv-btn-stroke:active {
+        border-color: {{ brandColor }};
+    }
+
+    .uv-dropdown .uv-dropdown-btn-active {
+        border: solid 1px {{ brandColor }};
+    }
+
+    .uv-select:focus,
+    .uv-field:focus,
+    .uv-search-inline:focus {
+        border-color: {{ brandColor }};
+    }
+
+    .uv-loader span:before,
+    .uv-loader span:after {
+        background: {{ brandColor }};
+    }
+
+    .bootstrap-datetimepicker-widget table td.active,
+    .bootstrap-datetimepicker-widget table td.active:hover {
+        background-color: {{ brandColor }};
+    }
+
+    .btn-primary,
+    .btn-primary:hover,
+    .btn-primary:active {
+        background-color: {{ brandColor }};
+    }
+
+    .uv-hero {
+        background-color: {{ brandColor }};
+    }
+    
+    .uv-cta-wrapper .uv-cta-lt svg path {
+        fill: {{ brandColor }};
+    }
+    .uv-kb-layout-folder .uv-kb-folder {
+        border-color: {{ brandColor }};
+    }
+
+    .uv-kb-layout-grid .uv-kb-folder{
+        border-color: {{ brandColor }};
+    }
+
+    .uv-kb-layout-folder .uv-kb-folder .uv-kb-folder-lt {
+        background-position: -90px 0px;
+        background-color: {{ brandColor }};
+    }
+    
+    .uv-paper-article .uv-paper-section .uv-folder-title:after {
+        background-color: {{ brandColor }};
+    }
+
+    .uv-kb-layout-category .uv-kb-folder {
+        border-bottom-color: {{ brandColor }};
+    }
+
+    .uv-brand {
+        color: {{ brandColor }};
+    }
+
+    .uv-pagination a:hover {
+        background-color: {{ brandColor }};
+        border-color: rgba(0,0,0,.1);
+    }
+
+    .uv-nav-tab ul.uv-nav-tab-label li .uv-nav-tab-active,
+    .uv-nav-tab ul.uv-nav-tab-label li a:hover {
+        border-bottom-color: {{ brandColor }};
+    }
+    .uv-skin-dark .uv-ticket-view .uv-ticket-accordion .uv-ticket-count-stat,
+    .uv-skin-dark .uv-ticket-view .uv-ticket-accordion .uv-ticket-count-stat:hover {
+        background: {{ brandColor }};
+    }
+</style>
+{% endif %}

@@ -1,0 +1,284 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Article'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<style>
+	.uv-tab-error {
+		border-bottom: 3px solid #FF5656 !important;
+	}
+	.mce-menu-item.mce-disabled .mce-text {
+		color: #333;
+	}
+	</style>
+	<div class="uv-inner-section uv-article">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<div class="uv-ticket-scroll-region uv-margin-0 {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view-tv{% endif %}">
+				<div class="uv-ticket-action-bar">
+					<div class="uv-ticket-action-bar-lt">
+						<!--Tabs-->
+						<div class="uv-tabs">
+							<ul>
+								<li for="article-edit" class="uv-tab-active">{{ 'Article'|trans }}</li>
+								<li for="article-seo" style="display:inline-block;">{{ 'SEO'|trans }}</li>
+							</ul>
+						</div>
+						<!--Tabs-->
+					</div>
+
+					<div class="uv-ticket-action-bar-rt">
+						<div class="uv-action-buttons">
+							<a href="#" type="button" class="uv-btn-action update-btn">
+								{{'Save'|trans}}
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- Form -->
+				<form method="post" action="" id="article-form" style="width: 97%;">
+					<div class="uv-tab-view uv-tab-view-active" id="article-edit">
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Title'|trans }}</label>
+							<div class="uv-field-block">
+								<input name="name" class="uv-field" type="text" value="{{ article.name }}">
+							</div>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block uv-element-block-textarea">
+							<label class="uv-field-label">{{ 'Content'|trans }}</label>
+							<div class="uv-field-block uv-margin-top-5">
+								<textarea name="content" class="uv-field">{{article.content}}</textarea>
+							</div>
+						</div>
+						<!-- //Field -->
+					</div>
+
+					<div class="uv-tab-view" id="article-seo">
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Slug'|trans }}</label>
+							<div class="uv-field-block">
+								<input name="slug" class="uv-field" type="text" value="{{ article.slug }}">
+							</div>
+							<span class="uv-field-info">{{'Slug is the url identity of this article.'|trans}}</span>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Meta Title'|trans }}</label>
+							<div class="uv-field-block">
+								<input name="metaTitle" class="uv-field" type="text" value="{{ article.metaTitle }}">
+							</div>
+							<span class="uv-field-info">{{"Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page's title tag and meta description are usually shown whenever that page appears in search engine results"|trans}}</span>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Meta Keywords'|trans }}</label>
+							<div class="uv-field-block">
+								<input name="keywords" class="uv-field" type="text" value="{{ article.keywords }}">
+							</div>
+							<span class="uv-field-info">{{'comma "," separated'|trans}}</span>
+						</div>
+						<!-- //Field -->
+
+						<!-- Field -->
+						<div class="uv-element-block">
+							<label class="uv-field-label">{{ 'Meta Description'|trans }}</label>
+							<div class="uv-field-block">
+								<textarea name="metaDescription" class="uv-field">{{article.metaDescription}}</textarea>
+							</div>
+						</div>
+						<!-- //Field -->
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.uv-inner-section.uv-article .uv-view .uv-ticket-action-bar{
+			margin-top: 20px;
+			margin-bottom: 25px;
+		}
+	</style>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<script type="text/javascript">
+		$(function () {
+			var globalMessageResponse = "";
+
+			var ArticleForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn-action.update-btn' : "saveArticle",
+					'blur input': 'formChanged',
+
+				},
+				initialize : function() {
+					this.articleId = "{{app.request.attributes.get('id')}}";
+					Backbone.Validation.bind(this);
+				},
+				formChanged: function(e) {
+			    	this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    	this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+			    },
+				saveArticle: function (e) {
+					e.preventDefault();
+                    $(".uv-tabs li").removeClass('uv-tab-error')
+                    currentElement = Backbone.$(e.currentTarget);
+                    //this.model.clear();
+					let formData = this.$el.find('form#article-form').serializeObject();
+			        this.model.set(formData);
+                    self = this;
+
+					var contentNotHasError = this.validateForm(e);
+                 
+			        if(this.model.isValid(true) && contentNotHasError) {
+						formData['ids'] = [this.articleId];
+						formData['actionType'] = 'articleSave';
+						formData['content'] = tinyMCE.get('content').getContent();
+                   
+						this.articleEntityUpdate(formData);
+			        } else {
+						console.log("fail");
+
+                        $('.uv-field-message').each(function(e) {
+                            $(".uv-tabs li[for='" + $(this).parents('.uv-tab-view').attr('id') + "']:not(.uv-tab-active)").addClass('uv-tab-error')
+                        });
+                    }
+				},
+                validateForm : function(e) {
+                    var element = Backbone.$(e.currentTarget);
+                    formType = 'content';
+                    form = $('#article-form');
+                    form.find('.uv-field-message').remove()
+
+                    var html = tinyMCE.get(formType).getContent();
+                    //var html = $('#content').val();
+
+					console.log("message value : ",html);
+
+                    if(app.appView.htmlText(html).trim().length != 0) {
+						return true;
+                    } else {
+                        form.find('.uv-element-block-textarea').append("<span class='uv-field-message'>{{ 'This field is mandatory'|trans }}</span>");
+                    }
+                },
+                addErrors: function(jsonContext) {
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+                },
+				articleEntityUpdate : function(data) {
+                    var self = this;
+                    app.appView.showLoader();
+                    $.ajax({
+                        url : "{{ path('helpdesk_member_knowledgebase_update_article_xhr') }}",
+                        type : 'POST',
+                        data : {data : data},
+                        dataType : 'json',
+                        success : function(response) {
+                            app.appView.hideLoader();
+
+							if(response.alertClass == "success") {
+								app.appView.renderResponseAlert(response);
+								if(response.redirect)
+									window.location = response.redirect;
+							} else{
+								app.appView.renderResponseAlert(response);
+								self.addErrors(response.errors);
+							}
+                        },
+                        error: function (xhr) {
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                            var response = warningResponse;
+                            if(xhr.responseJSON)
+                                response = xhr.responseJSON;
+
+                            app.appView.hideLoader();
+                            app.appView.renderResponseAlert(response);
+                        }
+                    });
+                },
+			});
+
+            var ArticleModel = Backbone.Model.extend({
+				validation: {
+					'name': [{
+						required: true,
+						msg: '{{ "This field is mandatory"|trans }}'
+					},{
+						maxLength:200,
+						msg: '{{ "This field contain maximum 200 charecters only"|trans }}'
+					}, {
+						pattern: '^((?![$%<]).)*$',
+						msg: '{{ "This field must have valid characters only"|trans }}'
+					}],
+					'metaTitle':[{
+						maxLength:200,
+						msg: '{{ "This field contain mata title maximum 200 charecters only"|trans }}'
+					}],
+					'keywords':[{
+						maxLength:200,
+						msg: '{{ "This field contain keywords maximum 200 charecters only"|trans }}'
+					}],
+					'slug': function(val, attr, computed) {
+						var elSlug = $("[name=" + attr + "]");
+						var elSlugValue = '';
+						elSlug.val(elSlugValue = app.appView.convertToSlug(val))
+					 
+						if(elSlugValue.trim() == ''){
+							return '{{ "This field is mandatory"|trans }}';
+						}
+						
+						if(elSlugValue.length > 100) {
+							return '{{ "This field slug contains maximum 100 charecters only."|trans }}';
+						}
+					}
+				},
+                urlRoot : "{{ path('helpdesk_member_knowledgebase_update_article_xhr') }}"
+			});
+
+			var articlemodel = new ArticleModel({
+                id : "",
+                name : "",
+			})
+
+			articleForm = new ArticleForm({
+                el: '.uv-paper',
+				model : articlemodel
+			});
+		});
+	</script>
+
+	{{ include('@UVDeskSupportCenter/Templates/tinyMCE.html.twig') }}
+	
+    <script>
+		var toolbarOptions = sfTinyMce.options.toolbar;
+        sfTinyMce.init({
+			selector: 'textarea[name*="content"]',
+			toolbar: toolbarOptions + ' | insert | styleselect | alignleft aligncenter alignright alignjustify | outdent indent | code | translate',
+			setup: function (editor) {
+                addTranslateButton(editor);
+			},
+        });
+    </script>
+{% endblock %}

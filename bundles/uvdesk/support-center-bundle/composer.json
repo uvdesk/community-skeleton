@@ -1,0 +1,24 @@
+{
+    "name": "uvdesk/support-center-bundle",
+    "description": "UVDesk Community Helpdesk Customer Support Center Bundle",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Akshay Kumar",
+            "email": "akshay.kumar758@webkul.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2.5 || ^8.0",
+        "uvdesk/composer-plugin": "^1.1",
+        "uvdesk/core-framework": "^1.1"
+    },
+    "autoload": {
+        "psr-4": { "Webkul\\UVDesk\\SupportCenterBundle\\": "" }
+    },
+    "extra": {
+        "uvdesk-package-extension": "Webkul\\UVDesk\\SupportCenterBundle\\Package\\Composer"
+    },
+    "minimum-stability": "stable"
+}

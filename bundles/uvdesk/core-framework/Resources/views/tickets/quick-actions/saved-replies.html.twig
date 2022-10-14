@@ -1,0 +1,19 @@
+<div class="uv-dropdown saved-reply">
+    <div class="uv-dropdown-btn">{{ 'Saved Replies'|trans }}</div>
+    <div class="uv-dropdown-list uv-top-left" style="width:360px !important;">
+        <div class="uv-dropdown-container">
+            <label>{{ 'Saved Replies'|trans }}</label>
+            <ul id="listSavedReplies">
+                <input id="filterSavedreplies" type="text" class="uv-search-inline" autofocus="autofocus"  style="width:98%">
+                <li data-id="">
+                    <a href="{{ path('helpdesk_member_saved_replies') }}" target="_blank" style="color: #2750C4">{{ 'create new'|trans }}</a>
+                </li>
+                {% for savedReply in ticket_service.getSavedReplies() %}
+                    <li class="savedReplyData" data-id="{{ savedReply.id }}">
+                        {{ savedReply.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

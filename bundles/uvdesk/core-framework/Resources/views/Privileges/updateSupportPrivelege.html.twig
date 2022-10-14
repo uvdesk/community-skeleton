@@ -1,0 +1,181 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}Edit Privilege{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Users' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>Edit Privilege</h1>
+			
+            {# Edit Support Privilege Form #}
+			<form method="post" action="" id="privilege-form">
+                {# Basic Details #}
+				<div class="uv-element-block">
+					<label class="uv-field-label">Name</label>
+					<div class="uv-field-block">
+						<input type="text" name="privilege_form[name]" class="uv-field" value="{{ supportPrivilege.name }}" />
+					</div>
+				</div>
+
+				<div class="uv-element-block">
+					<label class="uv-field-label">Description</label>
+					<div class="uv-field-block">
+						<textarea name="privilege_form[description]" class="uv-field">{{ supportPrivilege.description }}</textarea>
+					</div>
+				</div>
+
+                {# Agent Resources #}
+				<div class="uv-scroll-plank">
+					<div class="uv-element-block">
+						<label class="uv-field-label">Agent Privileges</label>
+						<span class="uv-field-info uv-margin-top-5">Choose set of privileges which will be available to the agent.</span>
+					</div>
+					
+					<div class="uv-element-block">
+						<label>
+							<span class="uv-checkbox-label uv-bold">Tickets</span>
+						</label>
+					</div>
+
+					<div>
+						<div class="uv-scroll-block" id="beauty-scroll">
+                            {% for privelegeCode, privelegeDescription in supportPrivilegeResources.ticket %}
+								<div class="uv-element-block">
+									<label>
+										<div class="uv-checkbox">
+											<input name="privilege_form[privileges][]" type="checkbox" value="{{ privelegeCode }}" {% if supportPrivilege and privelegeCode in supportPrivilege.privileges %}checked{% endif %}>
+											<span class="uv-checkbox-view"></span>
+										</div>
+										<span class="uv-checkbox-label">{{ privelegeDescription }}</span>
+									</label>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="uv-element-block">
+						<a href="#" class="select">Select All</a>
+						<a href="#" class="deselect">Remove All</a>
+					</div>
+				</div>
+                {# Advanced Resources #}
+				<div class="uv-scroll-plank">
+					<div class="uv-element-block">
+						<label>
+							<span class="uv-checkbox-label uv-bold">Advanced</span>
+						</label>
+					</div>
+
+					<div>
+						<div class="uv-scroll-block" id="beauty-scroll">
+							{% for privelegeCode, privelegeDescription in supportPrivilegeResources.advanced %}
+								<div class="uv-element-block">
+									<label>
+										<div class="uv-checkbox">
+											<input name="privilege_form[privileges][]" type="checkbox" value="{{ privelegeCode }}" {% if supportPrivilege and privelegeCode in supportPrivilege.privileges %}checked{% endif %}>
+											<span class="uv-checkbox-view"></span>
+										</div>
+										<span class="uv-checkbox-label">{{ privelegeDescription }}</span>
+									</label>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+
+					<div class="uv-element-block">
+						<a href="#" class="select">Select All</a>
+						<a href="#" class="deselect">Remove All</a>
+					</div>
+				</div>
+
+				<!-- CSRF token Field -->
+                {# <input type="hidden" name="privilege_form[_token]" value="{{ default_service.generateCsrfToken('privilege_form') }}"/> #}
+                <!-- //CSRF token Field -->
+
+				<input class="uv-btn" href="#" value="Save Changes" type="submit">
+			</form>
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ parent() }}
+	<script type="text/javascript">
+		$(function () {
+			var SupportPrivilegeModel = Backbone.Model.extend({
+				validation: {
+					'privilege_form[name]': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					}, {
+						pattern: '^((?![!@#$%^&*()<>]).)*$',
+						msg: "{{ 'Privilege Name must have characters only' }}"
+					},{
+						maxLength:50,
+                        msg: "{{ 'Maximum character length is 50'|trans }}"
+					}],
+					'privilege_form[description]': {
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},
+					'privilege_form[privileges][]': {
+                        fn: function() {
+                            return !$("input[name='privilege_form[privileges][]']:checked").length ? true : false;
+                        },
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },
+				}
+			});
+
+			var UpdateSupportPrivilegeForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn' : "savePrivilege",
+					'blur input, textarea': 'formChanegd',
+					'click a.select': 'selectAll',
+		            'click a.deselect': 'deselectAll',
+				},
+				initialize : function() {
+					Backbone.Validation.bind(this);
+					var jsonContext = JSON.parse('{{ errors|raw }}');
+		    		for (var field in jsonContext) {
+						if(field == 'privileges') {
+							Backbone.Validation.callbacks.invalid(this, "privilege_form[privileges][]", jsonContext[field], 'input');
+						} else {
+							Backbone.Validation.callbacks.invalid(this, "privilege_form[" + field + "]", jsonContext[field], 'input');
+						}
+					}
+				},
+				formChanegd: function(e) {
+			    	this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    	this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+			    },
+				savePrivilege : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+			        if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+			            this.$el.submit();
+			        }
+				},
+                selectAll: function (e) {
+                    e.preventDefault();
+                    this.$(e.currentTarget).parents('.uv-scroll-plank').find('input').prop('checked', true)
+                },
+                deselectAll: function (e) {
+                    e.preventDefault();
+                    this.$(e.currentTarget).parents('.uv-scroll-plank').find('input').prop('checked', false);
+		        },
+			});
+
+			var privilegeForm = new UpdateSupportPrivilegeForm({
+				el: $("#privilege-form"),
+				model: new SupportPrivilegeModel()
+			});	
+		});
+	</script>
+{% endblock %}

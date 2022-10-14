@@ -1,0 +1,422 @@
+# Authentication Resources
+helpdesk_member_handle_login:
+    path:     /login
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Authentication::login
+
+helpdesk_member_handle_logout:
+    path:     /logout
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Authentication::logout
+
+# Agent Panel Resources
+helpdesk_member_dashboard:
+    path:     /dashboard
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Account::loadDashboard
+
+helpdesk_member_profile:
+    path:     /profile
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Account::loadProfile
+
+helpdesk_member_account_xhr:
+    path:     /agent/xhr/{agentId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\AccountXHR::deleteAgent
+    defaults: { agentId: 0 }
+
+helpdesk_member_account:
+    path:     /agent/{agentId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Account::editAgent
+    defaults: { agentId: 0 }
+
+helpdesk_member_account_collection:
+    path:     /agents
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Account::listAgents
+
+helpdesk_member_account_collection_xhr:
+    path:     /agents/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\AccountXHR::listAgentsXHR
+
+helpdesk_member_create_account:
+    path:     /create/agent
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Account::createAgent
+
+# Support Group Resources
+helpdesk_member_support_group_collection:
+    path:     /groups
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Group::listGroups
+
+helpdesk_member_support_group_collection_xhr:
+    path:     /groups/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\GroupXHR::listGroupsXHR
+
+helpdesk_member_create_support_group:
+    path:     /create/group
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Group::createGroup
+
+helpdesk_member_update_support_group:
+    path:     /group/{supportGroupId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Group::editGroup
+
+helpdesk_member_remove_support_group_xhr:
+    path:      /group/delete/xhr/{supportGroupId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\GroupXHR::deleteGroupXHR
+    defaults:  { supportGroupId: 0 }
+
+# Support Team Resources
+helpdesk_member_support_team_collection:
+    path:     /teams
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Team::listTeams
+
+helpdesk_member_support_team_collection_xhr:
+    path:     /teams/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TeamXHR::listTeamsXHR
+
+helpdesk_member_create_support_team:
+    path:     /create/team
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Team::createTeam
+
+helpdesk_member_update_support_team:
+    path:     /team/{supportTeamId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Team::editTeam
+
+helpdesk_member_remove_support_team_xhr:
+    path:     /team/delete/xhr/{supportTeamId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TeamXHR::deleteTeamXHR
+    defaults: { supportTeamId: 0 }
+
+# Support Privilege Resources
+helpdesk_member_privilege_collection:
+    path:     /privileges
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Privilege::listPrivilege
+
+helpdesk_member_privilege_collection_xhr:
+    path:     /privileges/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\PrivilegeXHR::listPrivilegeXHR
+
+helpdesk_member_create_privilege:
+    path:     /create/privilege
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Privilege::createPrivilege
+
+helpdesk_member_update_privilege:
+    path:     /privilege/{supportPrivilegeId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Privilege::editPrivilege
+
+helpdesk_member_remove_privilege_xhr:
+    path:     /privilege/delete/xhr/{supportPrivilegeId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\PrivilegeXHR::deletePrivilegeXHR
+    defaults: { supportPrivilegeId: 0 }
+
+# User Profile
+edit_profile:
+    path:     /profile
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\UserActivityController::editProfile
+    defaults: { panelId: 'usersprofile' }
+
+access_token_xhr:
+    path:     member/access-token
+    defaults: { _controller: CoreFrameworkBundle:Api:accessTokenXhr }
+    methods: [ GET, POST ]
+
+helpdesk_member_saved_filters_xhr:
+    path:     /saved-filter-xhr/{filterId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\AccountXHR::savedFiltersXHR
+    defaults: { filterId: 0 }
+
+# Theme
+helpdesk_member_helpdesk_theme:
+    path:     /theme/helpdesk
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Theme::updateHelpdeskTheme
+    defaults: { id: 0 }
+
+# Swiftmailer
+helpdesk_member_swiftmailer_settings:
+    path:     /settings/swiftmailer
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SwiftMailer::loadMailers
+
+helpdesk_member_swiftmailer_load_configurations_xhr:
+    path:     /settings/swiftmailer/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SwiftMailerXHR::loadMailersXHR
+
+helpdesk_member_swiftmailer_create_mailer_configuration:
+    path:     /settings/swiftmailer/create
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SwiftMailer::createMailerConfiguration
+
+helpdesk_member_swiftmailer_update_mailer_configuration:
+    path:     /settings/swiftmailer/update/{id}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SwiftMailer::updateMailerConfiguration
+
+helpdesk_member_swiftmailer_remove_mailer_configuration_xhr:
+    path:     /settings/swiftmailer/xhr/remove-configurations
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SwiftMailerXHR::removeMailerConfiguration
+
+# Email Settigs
+helpdesk_member_emails_settings:
+    path:     /settings/email/settings
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\EmailSettings::loadSettings
+
+helpdesk_member_update_emails_settings_xhr:
+    path:     /email/xhr/settings_update
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\EmailSettingsXHR::updateSettingsXHR
+
+# Ticket List Resources
+helpdesk_member_ticket_collection:
+    path:     /tickets
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::listTicketCollection
+
+helpdesk_member_ticket_collection_xhr:
+    path:     /tickets/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::listTicketCollectionXHR
+
+helpdesk_member_ticket_collection_mass_action_xhr:
+    path:     /tickets/mass-xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::updateTicketCollectionXHR
+
+helpdesk_member_ticket_collection_load_filter_options_xhr:
+    path:     /tickets/filter-options
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::loadTicketFilterOptionsXHR
+
+helpdesk_member_ticket_collection_search_filter_options_xhr:
+    path:     /tickets/search-filter-options
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::loadTicketCollectionSearchFilterOptionsXHR
+
+# Ticket Resources
+helpdesk_member_ticket:
+    path:     /ticket/view/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::loadTicket
+    defaults: { ticketId: 0 }
+
+helpdesk_member_ticket_xhr:
+    path:     /ticket/xhr/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::loadTicketXHR
+    defaults: { ticketId: 0 }
+
+helpdesk_member_create_ticket:
+    path:     /ticket/save
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::saveTicket
+    methods: [POST, PUT]
+
+search_ticket_filter_options_xhr:
+    path: /ticket/search-filter-options
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::getSearchFilterOptionsXhr
+
+helpdesk_member_trash_ticket:
+    path:     /ticket/trash/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::trashTicket
+
+helpdesk_member_delete_ticket:
+    path:     /ticket/delete/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::deleteTicket
+
+helpdesk_member_ticket_saved_reply_xhr:
+    path:     /ticket/saved-reply-apply/{id}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::loadTicketSavedReplies
+    defaults: { id: 0 }
+
+helpdesk_member_ticket_add_label_xhr:
+    path:     /ticket/labels/save
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::saveTicketLabel
+
+helpdesk_member_ticket_label_xhr:
+    path:     /ticket/labels/update/{ticketLabelId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::ticketLabelXHR
+    defaults: { ticketLabelId: 0 }
+
+helpdesk_member_bookmark_ticket_xhr:
+    path:     /ticket/bookmark/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::bookmarkTicketXHR
+
+helpdesk_member_update_ticket_details_xhr:
+    path:     /ticket/update/details/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::updateTicketDetails
+
+helpdesk_member_update_ticket_attributes_xhr:
+    path:     /ticket/update/attributes/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::updateTicketAttributes
+    defaults: { ticketId: 0 }
+
+helpdesk_member_ticket_download_attachment:
+    path:     /ticket/download/{attachmendId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::downloadAttachment
+    defaults: { attachmendId: 0}
+
+helpdesk_member_ticket_download_attachment_zip:
+    path:     /ticket/download-zip/{threadId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::downloadZipAttachment
+    defaults: { threadId: 0}
+
+helpdesk_member_ticket_manage_collaborators_xhr:
+    path:     /ticket/collaborator/{id}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::updateCollaboratorXHR
+    defaults: { id: 0 }
+
+helpdesk_member_ticket_search_filter_options:
+    path:     /ticket/search-filter-options
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::loadTicketSearchFilterOptions
+
+# Ticket Thread Resources
+helpdesk_member_thread_collection_xhr:
+    path:     /threads/ajax/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\ThreadXHR::listTicketThreadCollectionXHR
+    defaults: { ticketId: 0 }
+
+helpdesk_member_thread_encoded_image_uploader:
+    path:     /thread/encoded-images/save/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Thread::base64ImageUpload
+
+helpdesk_member_add_ticket_thread:
+    path:     /thread/add/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Thread::saveThread
+    defaults: { ticketId: 0 }
+
+helpdesk_member_thread_xhr:
+    path:     /threads/ajax/action/{threadId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Thread::threadXHR
+    defaults: { threadId: 0 }
+
+helpdesk_member_thread_update_xhr:
+    path:     /threads/update/{threadId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Thread::updateThreadXHR
+    defaults: { threadId: 0 }
+
+# Email Templates Resources
+email_templates_action:
+    path:     /templates
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Email::templates
+
+email_templates_xhraction:
+    path:     /template-ajax/{template}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Email::templatesxhr
+    defaults: { template: 0 }
+
+email_templates_addaction:
+    path:     /template/add
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Email::templateForm
+
+email_templates_editaction:
+    path:     /template/edit/{template}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Email::templateForm
+    defaults: { template: 0 }
+
+# Ticket Tag Resources
+helpdesk_member_ticket_tag_collection:
+    path:     /support-tags
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::listTagCollection
+
+helpdesk_member_ticket_tag_collection_xhr:
+    path:     /support-tags/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::listTagCollectionXHR
+
+helpdesk_member_ticket_create_tag_xhr:
+    path:     /support-tags/create/{id}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::createTicketTagXHR
+    defaults: { id: 0 }
+
+helpdesk_member_update_ticket_tag_xhr:
+    path:     /support-tags/update/{tagId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::updateTicketTagXHR
+    defaults: { tagId: 0 }
+
+helpdesk_member_remove_ticket_tag_xhr:
+    path:     /support-tags/remove/{tagId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::removeTicketTagXHR
+    defaults: { tagId: 0 }
+
+# Ticket Type Resources
+helpdesk_member_ticket_type_collection:
+    path:     /ticket-types
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::listTicketTypeCollection
+
+helpdesk_member_ticket_type_collection_xhr:
+    path:     /ticket-types/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::listTicketTypeCollectionXHR
+
+helpdesk_member_create_ticket_type:
+    path:     /ticket-types/create
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::ticketType
+
+helpdesk_member_remove_ticket_type:
+    path:     /ticket-types/remove/{typeId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::removeTicketTypeXHR
+    defaults: { typeId: 0 }
+
+helpdesk_member_update_ticket_type:
+    path:     /ticket-types/update/{ticketTypeId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Ticket::ticketType
+
+helpdesk_member_ticket_quick_view_xhr:
+    path:     /ticket/quick-view/{ticketId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::getTicketQuickViewDetailsXhr
+    defaults: { ticketId: 0 }
+
+# Saved Replies
+helpdesk_member_saved_replies:
+    path:     /saved-replies
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SavedReplies::loadSavedReplies
+
+helpdesk_member_saved_replies_xhr:
+    path:     /saved-replies/xhr/{template}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SavedReplies::savedRepliesXHR
+    defaults: {template: 0}
+
+helpdesk_member_update_saved_replies:
+    path:     /saved-reply/edit/{template}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SavedReplies::updateSavedReplies
+    defaults: { template: 0}
+
+helpdesk_member_create_saved_replies:
+    path:     /saved-reply/add/{template}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\SavedReplies::updateSavedReplies
+    defaults: { template: 0}
+
+# Apply Prepared Response 
+helpdesk_member_ticket_prepared_response_xhr:
+    path:     /ticket/prepared-response/xhr/{ticketId}/{id}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\TicketXHR::applyTicketPreparedResponseXHR
+    defaults: { ticketId: 0, id: 0 }
+
+# Support Customer Resources
+helpdesk_member_manage_customer_account_collection:
+    path:     /customers
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Customer::listCustomers
+
+helpdesk_member_manage_customer_account_collection_xhr:
+    path:     /customers/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\CustomerXHR::listCustomersXHR
+
+helpdesk_member_bookmark_customer_xhr:
+    path:     /customer/update-star
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Customer::bookmarkCustomer
+
+helpdesk_member_manage_customer_account:
+    path:     /customer/{customerId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Customer::editCustomer
+    defaults: { customerId: 0 }
+
+helpdesk_member_remove_customer_account_xhr:
+    path:     /customer/xhr/{customerId}
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\CustomerXHR::removeCustomerXHR
+    defaults: { customerId: 0 }
+
+helpdesk_member_create_customer_account:
+    path:     /create/customer
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Customer::createCustomer
+
+# Report section Resources
+helpdesk_member_agent_activity:
+    path:     /agent/activity/list
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Report::listAgentActivity
+
+helpdesk_member_agent_activity_xhr:
+    path:     /agent/activity/xhr
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Report::agentActivityXHR
+
+helpdesk_report_achievements_insight_action:
+    path:     /reports/achievements
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Report::achievementInsightsAction
+
+helpdesk_report_achievements_data_xhr:
+    path:     /reports/achievements-data
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Report::getAchievementsXhr
+
+#project cache clear
+helpdesk_member_cache_clear:
+    path:     /cache-clear
+    controller: Webkul\UVDesk\CoreFrameworkBundle\Controller\Authentication::clearProjectCache

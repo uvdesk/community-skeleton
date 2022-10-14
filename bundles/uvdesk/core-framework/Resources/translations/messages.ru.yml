@@ -1,0 +1,360 @@
+General: Общее
+Groups: Группы
+Permission: Разрешения
+'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format': 'Загрузить изображение профиля (100px x 100px)<br> в формате PNG или JPG'
+'First Name': Имя
+'Last Name': Фамилия
+Email: Email
+Designation: Описание
+'Contact Number': 'Контактный номер'
+Timezone: 'Часовой пояс'
+'Choose a user''s default timezone': 'Выберите часовой пояс пользователя по умолчанию'
+Signature: Подпись
+'User signature will be append in the bottom of ticket reply box': 'Подпись пользователя будет добавлена ​​в нижней части окна к ответу заявки'
+Password: Пароль
+'Confirm Password': 'Подтвердите Пароль'
+'Account Status': 'Статус аккаунта'
+'Account is Active': 'Аккаунт активен'
+'Assigning group(s) to user to view tickets regardless assignment.': 'Группа(ы) пользователя для просмотра заявок независимо от назначения.'
+'No Group added, Please add Group(s) first !': 'Группа не добавлена, пожалуйста, сначала добавьте группу!'
+'Select All': 'Выбрать все'
+'Remove All': 'Удалить все'
+Teams: Команды
+'Assigning team(s) to user to view tickets regardless assignment.': 'Команда(ы) ползователя для просмотра заявок независимо от назначения.'
+'No Team added !': 'Команда не добавлена!'
+Role: Роль
+Administrator: Администратор
+Agent: Агент
+'Select agent role': 'Выберите роль агента'
+'Agent Privileges': 'Агентские привилегии'
+'Agent Privilege represents overall permissions in System.': 'Привилегия агента представляет общие разрешения в Системе.'
+'No Privilege added, Please add Privilege(s) first !': 'Привилегии не добавлены, сначала добавьте привилегии!'
+'Ticket View': 'Просмотр заявок'
+'User can view tickets based on selected scope.': 'Пользователь может просматривать заявки на основе выбранной области.'
+'If individual access then user can View assigned Ticket(s) only, If Team access then user can view all Ticket(s) in team(s) he belongs to and so on': 'Если индивидуальный доступ, то пользователь может просматривать только назначенные тикеты, если доступ к команде, то пользователь может просматривать все тикеты в командах, к которым он принадлежит, и т.д.'
+'Global Access': 'Глобальный доступ'
+'Group Access': 'Групповой доступ'
+'Team Access': 'Доступ к команде'
+'Individual Access': 'Индивидуальный доступ'
+'Save Changes': 'Сохранить изменения'
+'This field is mandatory': 'Это поле является обязательным'
+'This field must have characters only': 'Это поле должно содержать только символы'
+'This is not a valid email address': 'Это не правильный адрес электронной почты'
+'This field must be a number': 'Это поле должно быть числом'
+'Password must contains 8 Characters': 'Пароль должен содержать 8 символов'
+'The passwords does not match': 'Пароли не совпадают'
+'No Record Found''': 'Запись не найдена'
+'Sort By:': 'Сортировать по:'
+'Created At': Создано
+All: Все
+'Status:': 'Статус:'
+'Edit Agent': 'Редактировать Агента'
+'Add Agent': 'Добавить агента'
+'Add Customer': 'Добавить клиента'
+'Edit Customer': 'Изменить клиента'
+'Email address is invalid': 'Адрес электронной почты некорректен'
+'Contact number is invalid': 'Контактный номер некорректен'
+Customers: Клиенты
+'Sort By': 'Сортировать по'
+Status: Статус
+Active: Активный
+Disabled: Выключен
+Starred: Избранные
+Search: Поиск
+'New Customer': 'Новый клиента'
+Name: Название
+'Open Tickets': 'Открытых заявок'
+Source: Источник
+Stared: Избранный
+Action: Действие
+Edit: Редактировать
+Delete: Удалять
+'Email Settings': 'Настройки электронной почты'
+'Email Id': 'Email ID'
+'Swiftmailer id (Select from drop down)': 'Идентификатор Swiftmailer (выберите из выпадающего списка)'
+Proceed: Проследовать
+'Please enter a mailer id': 'Пожалуйста, введите идентификатор отправителя'
+'Please enter a valid e-mail id': 'Пожалуйста, введите действительный идентификатор электронной почты'
+'Please select a swiftmailer id': 'Пожалуйста, выберите идентификатор Swiftmailer'
+'Send Mail': 'Отправить письмо'
+'Add Group': 'Добавить группу'
+Description: Описание
+Users: Пользователи
+'Filter With': 'Фильтр с'
+'Filter View': 'Просмотр фильтра'
+'No result found': 'Результатов не найдено'
+'Group Status': 'Статус группы'
+'Group is Active': 'Группа активна'
+'New Group': 'Новая группа'
+'Edit Group': 'Редактировать группу'
+Privileges: Привилегии
+'New Privilege': 'Новая привилегия'
+Profile: Профиль
+'Choose your default timezone': 'Выберите часовой пояс по умолчанию'
+'Time Format': 'Формат времени'
+'User signature will be append at the bottom of ticket reply box': 'Подпись пользователя будет добавлена ​​внизу окна для ответа на заявку.'
+'Password will remain same if you are not entering something in this field': 'Пароль останется прежним, если вы не вводите что-либо в это поле'
+'Enter your current Password to continue': 'Введите свой текущий пароль, чтобы продолжить'
+Continue: Продолжить
+'Save Password': 'Сохранить пароль'
+'Saved Replies': 'Сохраненные ответы'
+Id: 'Я бы'
+'New Saved Reply': 'Новый сохраненный ответ'
+'Edit Saved Reply': 'Изменить сохраненный ответ'
+'Add Save Reply': 'Добавить Сохранить Ответить'
+'Saved reply name': 'Имя сохраненного ответа'
+'Share saved reply with user(s) in these group(s)': 'Поделиться сохраненным ответом с пользователями в этих группах'
+'Share saved reply with user(s) in these teams(s)': 'Поделиться сохраненным ответом с пользователями в этих командах'
+Body: Тело
+'Saved reply Body': 'Сохраненный ответ Body'
+Placeholders: Заполнители
+'Ticket Count': 'Счетчик заявок'
+'No swiftmailer configurations found': 'Конфигурации swiftmailer не найдены'
+'Swift Mailer Settings': 'Настройки Swift Mailer'
+'Please specify a valid email address': 'Пожалуйста, укажите действительный адрес электронной почты'
+'Add Team': 'Добавить команду'
+'Team Status': 'Статус команды'
+'Team is Active': 'Команда активна'
+'New Team': 'Новая команда'
+'Edit Team': 'Редактировать команду'
+'Edit Email Template': 'Изменить шаблон электронной почты'
+'Add Email Template': 'Добавить шаблон электронной почты'
+'Email template name': 'Имя шаблона электронной почты'
+Subject: Тема
+'Email template subject': 'Тема электронного письма'
+'Template For': 'Шаблон для'
+'Nothing Selected': 'Ничего не выбрано'
+Ticket: Заявки
+User: Пользователь
+'email template will be used for work related with selected option': 'Шаблон электронной почты будет использоваться для работы, связанной с выбранной опцией'
+'Email template body': 'Тело шаблона электронной почты'
+'Email Templates': 'Шаблоны электронной почты'
+'New Template': 'Новый шаблон'
+Back: Назад
+Agents: Агенты
+'Ticket Types': 'Типы Заявок'
+Tags: Теги
+Branding: Брендинг
+'Swift Mailer': 'Swift Mailer'
+'Learn more about %deliveryStatus%.': 'Узнайте больше о% deliveryStatus%.'
+'ticket delivery status': 'Статус доставки заявки'
+'Your browser does not support JavaScript or You disabled JavaScript, Please enable those !': 'Ваш браузер не поддерживает JavaScript или Вы отключили JavaScript, пожалуйста, включите их!'
+'Confirm Action': 'Подтвердите действие'
+'Are you sure? You want to perform this action.': 'Уверены ли вы? Вы хотите выполнить это действие.'
+Confirm: Подтвердить
+Cancel: Отменить
+'Error : Something went wrong, please try again later': 'Ошибка: что-то пошло не так, попробуйте позже'
+'Success ! Team information saved successfully.': 'Успех! Информация о команде успешно сохранена.'
+'Support Team removed successfully.': 'Команда поддержки успешно удалена.'
+'Theme Color': 'Цвет темы'
+Team: Команда
+'Not Assigned': 'Не назначен'
+'Mail status:': 'Почтовый статус:'
+replied: ответил
+'added note': 'добавленная заметка'
+forwarded: пересылаются
+TO: К
+CC: CC
+BCC: BCC
+Pinned: Закрепленные
+Locked: Запертый
+'Edit Thread': 'Редактировать тему'
+'Delete Thread': 'Удалить обсуждение'
+Forward: Переслать
+'Unpin Thread': 'Открепить тему'
+'Pin Thread': 'Булавка резьба'
+'Unlock Thread': 'Разблокировать тему'
+'Lock Thread': 'Блокировка темы'
+'Translate Thread': 'Перевести тему'
+Language: Язык
+System: Система
+'Uploaded Files': 'Загруженные файлы'
+'Open in Files': 'Открыть в файлах'
+'Download (as .zip)': 'Скачать (как .zip)'
+Update: Обновить
+'Previous Ticket': 'Предыдущая заявка'
+'Next Ticket': 'Следующая заявка'
+Searching: Поиск
+'Type atleast 2 letters': 'Введите по крайней мере 2 буквы'
+'Tag with same name already exist': 'Тег с таким именем уже существует'
+'Text length should be less than 20 charactors': 'Длина текста должна быть не менее 20 символов'
+'Label with same name already exist': 'Ярлык с таким именем уже существует'
+'Ticket Id': 'ID заявки'
+Priority: Приоритет
+Type: Тип
+Group: Группа
+'Customer Name': 'Имя клиента'
+'Customer Email': 'Электронная почта клиента'
+'Agent Name': 'Имя агента'
+'Agent Email': 'Электронная почта агента'
+'Edit Saved Filter': 'Изменить сохраненный фильтр'
+Customer: Клиент
+Tag: Тег
+Before: До
+After: После
+'Replies less than': 'Ответов меньше чем'
+'Replies more than': 'Ответов более чем'
+'Last Replied': 'Последний ответ'
+'Assign To': 'Назначить на'
+New: Новый
+UnAssigned: 'Не назначенный'
+UnAnswered: 'Без ответа'
+'My Tickets': 'Мои заявки'
+Tickets: Заявки
+Trashed: 'В корзине'
+'Edit Label': 'Изменить ярлык'
+'Add Label': 'Добавить ярлык'
+'Choose a Color': 'Выберите цвет'
+Create: Создать
+'Remove Label': 'Удалить ярлык'
+'New Saved Filter': 'Новый сохраненный фильтр'
+'Is Default': 'По умолчанию'
+'Remove Saved Filter': 'Удалить сохраненный фильтр'
+'Ticket Info': 'Информация о заявках'
+Timestamp: Дата
+By: От
+'Last Replied Agent': 'Последний отвеченный агент'
+'created Ticket': 'создал заявку'
+'made last reply': 'сделал последний ответ'
+ID: ID
+N/A: НД
+Replies: Ответы
+Unassigned: Неназначенный
+Label: Метка
+'Assigned to me': 'Назначено мне'
+Open: Открыто
+'Search Query': 'Поисковой Запрос'
+'Saved Filter': 'Сохраненный Фильтр'
+'No Label Created': 'Метка не создана'
+'Label with same name already exist.': 'Метка с таким именем уже существует.'
+'Create New': 'Создать Новый'
+'Edit Ticket Type': 'Изменить тип заявки'
+'Add Ticket Type': 'Добавить тип заявки'
+Code: Код
+'Ticket Type code': 'Код типа заявки'
+'Ticket Type description': 'Описание типа заявки'
+'Type Status': 'Тип Статус'
+'Type is Active': 'Тип активен'
+Channel/Source: Канал/Источник
+'Assets Visibility': Отображать
+'New Agent': 'Новый агент'
+'No Record Found': 'Запись не найдена'
+Pending: 'В ожидании'
+Answered: Отвечено
+Resolved: Решено
+Closed: Закрыто
+Spam: Спам
+Restore: Восстановить
+'Delete Forever': 'Удалить навсегда'
+'Save set of filters as a preset to stay more productive': 'Сохраните набор фильтров в качестве предустановки'
+'Saved Filters': 'Сохраненные фильтры'
+'No saved filter created': 'Сохраненный фильтр не создан'
+'Clear All': 'Очистить все'
+'Write a reply': 'Написать ответ'
+'Add Attachment': 'Добавить вложение'
+'Stay on ticket': 'Остаться в заявке'
+'After Reply': 'После ответа'
+'Redirect to list': 'Вернуться к списку'
+Reply: Ответ
+Submit: Отправить
+'Submit And Open': 'Отравить и открыть'
+'Submit And Pending': 'Отравить и пометить как в ожидание'
+'Submit And Answered': 'Отравить и пометить как отвеченное'
+'Submit And Resolved': 'Отправить и разрешить'
+'Submit And Closed': 'Отправить и закрыть'
+To: Кому
+'Add Note': 'Добавить примечание'
+'Edit Ticket': 'Добавить заявку'
+'Customer Information': 'Информация о клиенте'
+'Total Replies': 'Всего ответов'
+TimeStamp: Дата
+Channel: Канал
+Website: Веб-сайт
+Labels: Метки
+Collaborators: Соисполнитель
+'All Threads': Переписка
+Forwards: Пересылка
+Notes: Примечания
+'Print Ticket': 'Напечатать заявку'
+'Mark as Spam': 'Пометить как спам'
+'Mark as Closed': 'Пеметить как закрытую'
+'Delete Ticket': 'Удалить заявку'
+Note: Примечание
+Low: Низкий
+Medium: Нормальный
+High: Высокий
+Urgent: Срочный
+Created: Создано
+'%count% more ticket|%count% more tickets': '{0} нет больше заявок|{1} есть еще %count% заявка|[2,4] есть еще %count% заявки|[5,Inf] есть есть %count% заявок'
+'Nothing interesting here...': 'Здесь пока нет ничего интересного ...'
+'Type email to add': 'Введите email, чтобы добавить'
+'Success ! Collaborator added successfully.': 'Успех! Соисполнитель успешно добавлен.'
+'Success ! Collaborator removed successfully.': 'Успех! Соисполнитель успешно удален.'
+'Success ! Tag updated successfully.': 'Успех! Тег успешно обновлен.'
+'Success ! Tag removed successfully.': 'Успех! Тег успешно удален.'
+'Success ! Label created successfully.': 'Успех! Метка успешно создана'
+'Success ! Label updated successfully.': 'Успех! Метка успешно обновлена.'
+'Success ! Label removed successfully.': 'Успех! Метка успешно удалена.'
+'Success ! Ticket has been updated successfully.': 'Успех! Заявка успешно обновлена. '
+'Success ! Ticket to label removed successfully.': 'Успех! Метка успешно удалена у заявки.'
+'Success ! Type removed successfully.': 'Успех! Тип успешно удален.'
+'Success ! Prepared Response applied successfully.': 'Успех! Подготовленный ответ успешно применен.'
+'Success ! Tag added successfully.': 'Успех! Тег успешно добавлен.'
+'Success ! Tag unassigned successfully.': 'Успех! Тег успешно удален.'
+'Success ! Profile update successfully.': 'Успех! Профиль успешно обновлен.'
+'Success ! Agent added successfully.': 'Успех! Агент успешно добавлен.'
+'Success ! Agent removed successfully.': 'Успех! Агент успешно удален.'
+'Success ! Filter has been saved successfully.': 'Успех! Фильтр успешно сохранен.'
+'Success ! Filter has been updated successfully.': 'Удача! Фильтр успешно обновлен.'
+'Success ! Filter has been removed successfully.': 'Успех! Фильтр успешно удален.'
+'Success ! Privilege information saved successfully.': 'Успех! Информация о привилегиях успешно сохранена.'
+'Success ! Thread updated successfully.': 'Успех! Переписка успешно обновлена.'
+'Success ! Thread removed successfully.': 'Успех! Переписка успешно удалена.'
+'Success ! Thread locked successfully.': 'Успех! Переписка успешно заблокирована.'
+'Success ! Thread unlocked successfully.': 'Успех! Переписка успешно разблокирована.'
+'Success ! Thread pinned successfully.': 'Успех! Переписка успешно закреплена.'
+'Success ! unpinned removed successfully.': 'Успех! Переписка успешно откреплена.'
+'Success ! Customer saved successfully.': 'Успех! Клиент успешно сохранен.'
+'Success ! Group information updated successfully.': 'Успех! Информация о группе успешно обновлена.'
+'Success ! Customer information updated successfully.': 'Успех! Информация о клиенте успешно обновлена.'
+'Success ! Group information saved successfully.': 'Успех! Информация о группе успешно сохранена.'
+'Success ! Customer updated successfully.': 'Успех! Клиент успешно обновлен.'
+'Success ! Agent updated successfully.': 'Успех! Агент успешно обновлен.'
+'Success ! Ticket moved to trash successfully.': 'Удача! Заявка успешно перемещена в корзину.'
+'Error ! Label name can not be blank.': 'Ошибка! Метка не может быть пустой.'
+'Error ! Invalid Collaborator.': 'Ошибка! Некорретный соисполнитель.'
+'Error ! Collaborator is already added.': 'Ошибка! Соисполнитель уже добавлен.'
+'Error ! Invalid label id.': 'Ошибка! Некоррекнтый ID метки'
+'Error ! Invalid tag.': 'Ошибка! Некорректный тег.'
+'Error ! Customer can not be added as collaborator.': 'Ошибка! Клиент не может быть добавлен в качестве соисполнителя.'
+'Error! Subject field is mandatory': 'Ошибка! Поле "Тема" обязательно для заполнения'
+'Error! Reply field is mandatory': 'Ошибка! Поле "Ответ" обязательно для заполнения'
+'Error ! Reply field can not be blank.': 'Ошибка ! Поле "Ответ" не может быть пустым.'
+'Error ! Invalid thread.': 'Ошибка ! Неверная переписка. '
+'Error ! Customer with same email already exist.': 'Ошибка ! Клиент с таким же email уже существует.'
+'Error ! Profile image is not valid, please upload a valid format': 'Ошибка ! Некорректное изображение профиля, пожалуйста загрузите правильный формат'
+'Error! Given current password is incorrect.': 'Ошибка! Данный "текущий" пароль неверен.'
+'Error ! User with same email is already exist.': 'Ошибка ! Пользователь с таким email уже существует.'
+'Error ! User with same email already exist.': 'Ошибка ! Пользователь с таким же адресом электронной почты уже существует.'
+'Error ! Invalid user id.': 'Ошибка ! Неверный ID пользователя'
+'Error! Saved reply body can not be blank': 'Ошибка! Тело "Ответа" не может быть пустым'
+'Please enter tag name.': 'Пожалуйста введите имя тега.'
+'Ticket status already set to %status%': 'Статус заявки уже "%status%"'
+'Unable to retrieve status details': 'Невозможно получить информацию о статусе'
+'Ticket successfully assigned to %agent%': 'Заявка успешно присвоена "%agent%"'
+'Ticket already assigned to %agent%': 'Заявка уже присвоена "%agent%"'
+'Unable to retrieve agent details': 'Невозможно получить данные агента'
+'Unable to retrieve details for ticket #%ticketId%': 'Невозможно получить данные для заявок #%ticketId%'
+'Insufficient details provided.': 'Недостаточно подробной информации.'
+'Ticket status update to %status%': 'Статус заявки обновлен, "%status%"'
+'Ticket priority already set to %priority%': 'Приоритет заявки уже установлен как "%priority%"'
+'Ticket priority updated to %priority%': 'Приоритет заявки обновлен, "%priority%"'
+'Ticket support group updated successfully': 'Группа заявки успешно обновлена'
+'Unable to retrieve support group details': 'Невозможно получить данные о группе'
+'Ticket support team updated successfully': 'Команда заявки успешно обновлена'
+'Unable to retrieve support team details': 'Невозможно получить данные о команде'
+'Label %label% already added to ticket': 'Метка %label% уже добавлена в заявку'
+'Label %label% added to ticket successfully': 'Метка% label% успешно добавлена в тикет'
+'Warning ! You are allowed to remove account owner''s account.': 'Предупреждение! Вам разрешено удалить учетную запись владельца аккаунта.'
+'Warning! resource not found.': 'Предупреждение! Ресурс не найден.'
+'Warning! You can not remove predefined email template which is being used in workflow(s).': 'Предупреждение! Вы не можете удалить предопределенный email шаблон, который используется в рабочих процессах.'

@@ -1,0 +1,263 @@
+{% extends "@UVDeskCoreFramework/Templates/layout.html.twig" %}
+
+{% block title %}Email Templates{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Settings' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Email Templates'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+                    <!--Sort by-->
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Sort By:'|trans }} {{ 'Id'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Sort By'|trans }}</label>
+								<ul>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--Sort by-->
+                </div>
+				<div class="uv-action-bar-col-rt">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+					<!-- Add Button -->
+					{% if (user_service.isAccessAuthorized('email_templates_addaction')) %}
+						<a href="{{ path('email_templates_addaction') }}" type="button" class="uv-btn-action">
+							<span class="uv-icon-add"></span>
+							{{ "New Template"|trans }}
+						</a>
+					{% endif %}
+					<!--// Add Button -->
+				</div>
+            </div>
+            <!--//Action Bar-->
+
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ "Name"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<!-- Sorting Template -->
+	<script id="template_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'sr.id') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/sr.id/<% if(sort == 'sr.id') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="sr.id">
+                {{ 'Id'|trans }}
+            </a>
+            <% if(sort == 'sr.id') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+            <% } %>
+        </li>
+        <li class="<% if(sort == 'sr.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/sr.name/<% if(sort == 'sr.name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="sr.name">
+                {{ 'Name'|trans }}
+            </a>
+            <% if(sort == 'sr.name') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+            <% } %>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Email template list item template -->
+	<script id="template_list_item_tmp" type="text/template">
+		<td data-value="{{ 'Name'|trans }}"><%- name %></td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('replaceId', id) %>" class="uv-btn-stroke edit-template">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-template">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+	<!-- //Email template list item template -->
+
+	<script type="text/javascript">
+        var path = "{{ path('email_templates_editaction', {'template': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var TemplateModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var TemplateCollection = AppCollection.extend({
+				model : TemplateModel,
+				url : "{{ path('email_templates_xhraction') }}",
+				parseRecords: function (resp, options) {
+					return resp.templates;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var TemplateListView = new TemplateList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(templateCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var TemplateItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#template_list_item_tmp").html()),
+				events : {
+					'click .delete-template' : "confirmRemove"
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						templateCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('email_templates_xhraction') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							templateCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var TemplateList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("tr").remove();
+					if(templateCollection.length) {
+						_.each(templateCollection.models, function (item) {
+							this.renderTemplate(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='3'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderTemplate : function (item) {
+					var templateItem = new TemplateItem({
+						model: item
+					});
+					this.$el.append(templateItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'sr.id',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Id{% endtrans %}",
+				template : _.template($("#template_list_sorting_tmp").html())
+			})
+
+			var templateCollection = new TemplateCollection();
+
+			var filter = new Filter({
+				collection : templateCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('');
+					templateCollection.state.currentPage = null;
+					filter.sortCollection();
+					templateCollection.syncData();
+				},
+				paginate : function(number,sortField,order) {
+					this.resetParams('');
+					templateCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					templateCollection.syncData();
+				},
+				filterByQuery : function(query,number,sortField,order) {
+					this.resetParams(query);
+					templateCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					templateCollection.syncData();
+				},
+				resetParams : function(query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					templateCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

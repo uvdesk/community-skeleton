@@ -1,0 +1,137 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}Email Settings{% endblock %}
+
+{% block pageContent %}
+    <div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Settings' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+        <div class="uv-view">
+            <div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+                    <h1>
+                        {{ 'Email Settings'|trans }}
+                    </h1>
+                </div>
+            </div>
+            <div id="email-settings">
+			</div>
+		</div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+    <script id="email-settings-form-tempplate" type="text/template">
+        <form id="email-settings-form">			
+            <!-- .fade-out-white -->
+            <div style="width: 500px;max-width: 80%;">
+                <!-- .jelly-out -->
+                <div class="uv-element-block">
+                    <label class="uv-field-label">{{ 'Email Id'|trans }}</label>
+                    <div class="uv-field-block">
+                        <input class="uv-field" type="text" name="id" value='<%= (typeof(id) !== "undefined") ? id : "" %>'>
+                    </div>
+                </div>
+                <div class="uv-element-block">
+                    <label class="uv-field-label">{{ 'Name'|trans }}</label>
+                    <div class="uv-field-block">
+                        <input class="uv-field" type="text" name="name" value='<%= (typeof(name) !== "undefined") ? name : "" %>'>
+                    </div>
+                </div>
+                <div class="uv-element-block">
+                    <label class="uv-field-label">{{ 'Swiftmailer id (Select from drop down)'|trans }}</label>
+                    <div class="uv-field-block">
+                        <select name="mailer_id" class="uv-select" type="text" value='<%= (typeof(mailer_id) !== "undefined") ? mailer_id : "" %>'>
+                            <% if (typeof(mailer_id) == "undefined") { %>
+                                <option>Select swiftmailer</option>
+                            <% } %>
+
+                            {% for swiftmailer in swiftmailers %}
+                                <option <%= typeof(mailer_id) !== 'undefined' && mailer_id == "{{swiftmailer}}" ? selected="selected" : "" %>>{{ swiftmailer }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="uv-pop-up-actions">
+                    <button type="submit" class="uv-btn save-email-settings">{{ 'Proceed'|trans }}</button>
+                </div>
+            </div>
+        </form>
+    </script>
+
+    <script type="text/javascript">
+        var emailSettingsModel = Backbone.Model.extend({
+            defaults: {
+                'id': "{{ email_settings.id }}",
+                'name': "{{ email_settings.name }}",
+                'mailer_id': "{{ email_settings.mailer_id }}",
+            },
+            validation: {
+                'id': [
+                    {
+						required: true,
+						msg: '{{ "Please enter a mailer id"|trans }}'
+					},
+                    {
+						pattern: 'email',
+						msg: '{{ "Please enter a valid e-mail id"|trans }}'
+					},
+                ],
+                'name': [
+                    {
+                        required: true,
+						msg: '{{ "Please enter a mailer id"|trans }}'
+                    },
+                ],
+                "mailer_id": function (id) {
+					if (id == "Select swiftmailer")
+						return '{{ "Please select a swiftmailer id"|trans }}';
+				},
+            }
+        });
+
+        var emailSettingsForm = Backbone.View.extend({
+            el: '#email-settings',
+            model: new emailSettingsModel(),
+            email_settings_form_template: _.template($('#email-settings-form-tempplate').html()),
+		    events : {
+		    	'click .save-email-settings' : 'saveEmailSettings',
+		    },
+            initialize: function () {
+                this.render();
+            },
+            render: function () {
+                this.$el.html(this.email_settings_form_template(this.model.toJSON()));
+            },
+            saveEmailSettings: function (event) {
+                event.preventDefault();
+                Backbone.Validation.bind(this);
+                var data = this.$el.find('#email-settings-form').serializeObject();
+
+                this.model.set(data);
+                if (this.model.isValid(true)) {
+					app.appView.showLoader();
+                    this.model.save({}, {
+                        url: "{{ path('helpdesk_member_update_emails_settings_xhr') }}",
+                        success: function (model, response, options) {
+        					app.appView.hideLoader();
+                            this.model.attributes = response.email_settings;
+                            app.appView.renderResponseAlert(response);
+                        }.bind(this),
+                        error: function (model, response, options) {
+        					app.appView.hideLoader();
+                        }
+                    });
+                }
+            }
+        });
+
+        new emailSettingsForm();
+    </script>
+{% endblock %}

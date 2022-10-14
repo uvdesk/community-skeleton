@@ -1,0 +1,250 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}{{ 'Marketing Announcement'|trans }}{% endblock %}
+
+{% block pageContent %}
+	<style>
+		.uv-color-field {
+			color: #fff;
+			width: 100px;
+			text-transform: uppercase;
+		}
+	</style>
+	<div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{% if announcement.id %}
+					{{ 'Edit Announcement'|trans }}
+				{% else %}
+					{{ 'Add Announcement'|trans }}
+				{% endif %}
+			</h1>
+			
+			<!--Form-->
+			<form method="post" action="" id="announcement-form">
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Title'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="announcement_form[title]" class="uv-field" value="{{ announcement.title }}" />
+					</div>
+					<span class="uv-field-info"></span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Promo Text'|trans }}</label>
+					<div class="uv-field-block">
+						<textarea name="announcement_form[promotext]" class="uv-field">{{ announcement.promoText }}</textarea>
+					</div>
+					<span class="uv-field-info"></span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Promo Tag'|trans }}</label>
+					<div class="uv-field-block">
+						<select name="announcement_form[promotag]" class="uv-select">
+							<option value="new" {% if announcement.promotag == "new" %}selected{% endif %}>{{ 'New'|trans }}</option>
+							<option value="update" {% if announcement.promotag == "update" %}selected{% endif %}>{{ 'Update'|trans }}</option>
+							<option value="offer" {% if announcement.promotag == "offer" %}selected{% endif %}>{{ 'Offer'|trans }}</option>
+						</select>
+					</div>
+					<span class="uv-field-info">{{ 'Choose a promo tag'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Tag-Color'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="announcement_form[tagColor]" class="uv-field uv-color-field" value="{{ announcement.tagColor }}" />
+					</div>
+					<span class="uv-field-info">{{ 'Tag background color'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Link Text'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="announcement_form[linkText]" class="uv-field" value="{{ announcement.linkText }}" />
+					</div>
+					<span class="uv-field-info"></span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Link URL'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="announcement_form[linkURL]" class="uv-field" value="{{ announcement.linkURL }}" placeholder="https://example.com/" />
+					</div>
+					<span class="uv-field-info"></span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Status'|trans }}</label>
+					<div class="uv-field-block">
+						<select name="announcement_form[status]" class="uv-select">
+							<option value="1" {% if announcement.isActive == "1" %}selected{% endif %}>{{ 'Publish'|trans }}</option>
+							<option value="0" {% if announcement.isActive == "0" %}selected{% endif %}>{{ 'Draft'|trans }}</option>
+						</select>
+					</div>
+					<span class="uv-field-info">{{ 'Choose a status'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Groups'|trans }}</label>
+					<div class="uv-field-block">
+						<select name="announcement_form[group]" class="uv-select">
+							{% for group in user_service.getSupportGroups() %}
+								{% if announcement.id is not null %}
+									<option value="{{group.id}}" 
+									{% if (announcement.group.id == group.id) %}selected{% endif %}
+									>{{group.name}}</option>
+								{% else %}
+									<option value="{{group.id}}"
+									>{{group.name}}</option>
+								{% endif %}
+							{% endfor %}
+						</select>
+					</div>
+					<span class="uv-field-info">{{ 'Choose a group'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!--CTA-->
+				<input class="uv-btn" href="#" value="{{ 'Save Advertisement'|trans }}" type="submit">
+				<!--//CTA-->
+			</form>
+			<!--//Form-->
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/css/bootstrap-colorpicker.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-colorpicker/2.3.0/js/bootstrap-colorpicker.min.js"></script>
+
+	<script type="text/javascript">
+		$(function () {
+			$('.uv-color-field').colorpicker({format: "hex"}).on('changeColor', function(ev) {
+                $(this).css('background', $(this).val())
+                textColor = app.appView.getTextColorBasedBackground($(this).val());
+                $(this).css('color', textColor)
+            });
+			var AnnouncementModel = Backbone.Model.extend({
+				validation: {
+					'announcement_form[title]':[{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},{
+                        maxLength: 16,
+                        msg: '{{ "Maximum character length is 16" | trans}}'
+                    }],
+					'announcement_form[promotext]': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},{
+                        maxLength: 80,
+                        msg: '{{ "Maximum character length is 80" | trans}}'
+                    }],
+					'announcement_form[promotag]': {
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},
+					'announcement_form[linkText]': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},{
+                        maxLength: 16,
+                        msg: '{{ "Maximum character length is 16" | trans}}'
+                    }],
+					'announcement_form[linkURL]': {
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},
+					'announcement_form[status]': {
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					},
+					'announcement_form[group]': {
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					}
+				}
+			});
+			var AnnouncementForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn': "savePromotion"
+				},
+				initialize : function() {
+					$('.uv-color-field').each(function() {
+                        textColor = app.appView.getTextColorBasedBackground($(this).val());
+                        $(this).css('color', textColor)
+                    });
+					Backbone.Validation.bind(this);
+					var jsonContext = '';
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+				},
+				formChanegd: function(e) {
+			    	
+			    },
+				savePromotion : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+					if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+						this.$el.submit();
+			        }
+				},
+                setAddedIds: function(selector) {
+                    var ids = [];
+                    $(selector).find('.uv-filtered-tags .uv-btn-small').each(function() {
+                        ids.push($(this).attr('data-id'))
+                    });
+                    $(selector).find("input[type='hidden']").val(ids.join(','))
+					return ids;
+                },
+                addEntity: function(e) {
+                    currentElement = Backbone.$(e.currentTarget);
+                    if(id = currentElement.attr("data-id")) {
+                        parent = currentElement.parents(".uv-field-block");
+                        parent.find('input').val('')
+                        parent.find("li:not(.uv-no-results)").show()
+                        if(!parent.find(".uv-filtered-tags a[data-id='" + id + "']").length) {
+                            parent.find('.uv-filtered-tags').append("<a class='uv-btn-small default' href='#' data-id='" + id + "'>"+currentElement.text()+"<span class='uv-icon-remove'></span></a>")
+                            this.setAddedIds("#" + parent.attr('id'))
+                        }
+                    }
+                },
+                removeEntity: function(e) {
+                    var parent = Backbone.$(e.currentTarget).parents(".uv-field-block")
+                    Backbone.$(e.currentTarget).remove()
+                    this.setAddedIds("#" + parent.attr('id'))
+                }
+			});
+
+			announcementForm = new AnnouncementForm({
+				el : $("#announcement-form"),
+				model : new AnnouncementModel()
+			});	
+		});
+	</script>
+{% endblock %}

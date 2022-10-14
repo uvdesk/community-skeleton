@@ -1,0 +1,269 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}{{ 'Apps Dashboard'|trans }}{% endblock %}
+
+{% block templateCSS %}
+    <style>
+		.uv-mob-aside {
+			display: none;
+		}
+
+        .uv-app-banner {
+			width: 120px;
+			height: 120px;
+			padding: 30px;
+			border-radius: 50%;
+			margin: 0 auto 20px;
+			background-position: center;
+			background-size: cover;
+        }
+    </style>
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		<div class="uv-view" style="padding-left: 20px;">
+			<h1 id="app-current-title">{{ 'Installed Applications'|trans }}</h1>
+
+			<div class="uv-hr"></div>
+
+			{# App Listing #}
+			<div class="uv-view-plank" id="application-list"></div>
+
+			{# Navigate Listing #}
+			<div class="navigation"></div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<script id="application_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'a.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/a.name/<% if(sort == 'a.name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.name">
+                Name
+                <% if(sort == 'a.name') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+            </a>
+        </li>
+	</script>
+
+	<script id="application_list_item_tmp" type="text/template">
+		<% pathToApplication = "{{ path('uvdesk_extensions_standalone_application_dashboard', {'vendor': 'rep_v', 'package': 'rep_e', 'qualifiedName': 'rep_q'}) }}" %>
+		<% pathToApplication = pathToApplication.replace('rep_v', reference.vendor).replace('rep_e', reference.package).replace('rep_q', qname) %>
+
+		<a href="<%= pathToApplication %>">
+			<div class="uv-app-banner" style="background-image: url('<%= icon %>')"></div>
+			<h4 style="color: #464646; line-height: 1.4em; text-align: center; font-weight: normal;"><%= name %></h4>
+		</a>
+    </script>
+
+	<script type="text/template" id="no-result-temp">
+        <div class="uv-app-screen">
+            <div class="uv-app-splash" style="text-align: center;">
+                <h2 class="uv-margin-top-10">{{ 'Nothing Interesting here'|trans }}</h2>
+            </div>
+        </div>
+	</script>
+
+	<script type="text/javascript">
+		$(function () {
+			var globalMessageResponse = "";
+
+			var ApplicationModel = Backbone.Model.extend({
+				idAttribute : "id",
+			});
+
+			var ApplicationCollection = AppCollection.extend({
+				model : ApplicationModel,
+				url : "{{ path('uvdesk_extensions_applications_dashboard_xhr') }}",
+				filterParameters : {
+					"category" : "",
+					"type" : "",
+					"installed": "",
+				},
+				parseRecords: function (resp, options) {
+					return resp;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					self = this;
+					this.fetch({
+						data : self.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var appListView = new ApplicationList();
+
+							if (globalMessageResponse) {
+								app.appView.renderResponseAlert(globalMessageResponse);
+							}
+
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if (url = xhr.getResponseHeader('Location')) {
+								window.location = url;
+							}
+						}
+					});
+				}
+			});
+
+			var ApplicationItem = Backbone.View.extend({
+				tagName : "div",
+				className: 'uv-app-wrapper',
+				template : _.template($("#application_list_item_tmp").html()),
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				}
+			});
+
+			var ApplicationList = Backbone.View.extend({
+				el : $("#application-list"),
+				initialize : function() {
+					app.appView.hideLoader();
+					this.render();
+				},
+				render : function () {
+					this.$el.html('');
+					if(applicationCollection.length) {
+						_.each(applicationCollection.models, function (item) {
+							this.renderType(item);
+						}, this);
+					} else {
+						this.$el.append(_.template($('#no-result-temp').html()))
+					}
+				},
+				renderType : function (item) {
+					var applicationItem = new ApplicationItem({
+						model: item
+					});
+					this.$el.append(applicationItem.render().el);
+				},
+			});
+
+            var Filter = app.Filter.extend({
+				defaultSortIndex: 'createdAt',
+				sortText: "{{ 'Sort By:'|trans }} ",
+				defaultSortText: "{{ 'Sort By:'|trans }} {{ 'Date Released'|trans }}",
+				template : _.template($("#application_list_sorting_tmp").html()),
+                events : {
+                    'keyup .uv-search-inline' : 'search',
+                    'change .asset-visibility input[type="checkbox"]': 'filterAssetsVisibility'
+                },
+                search : _.debounce(function(e) {
+                    this.collection.reset();
+                    this.collection.state.currentPage = null;
+                    this.collection.filterParameters.search = Backbone.$(e.target).val();
+                    var queryString = this.buildQuery($.param(this.collection.getValidParameters()));
+                    router.navigate(queryString,{trigger: true});
+                }, 1000),
+				sortCollection : function(sortField,order) {
+					var context = {};
+					context['queryString'] = this.buildQuery($.param(this.collection.getValidParameters()));
+					if(typeof sortField != 'undefined' && sortField != null) {
+						context['page'] = this.collection.state.currentPage;
+						context['sort'] = sortField;
+
+						if(order == 'asc') {
+							context['direction'] = 'desc';
+							order = -1;
+						} else {
+							context['direction'] = 'asc';
+							order = 1;
+						}
+
+						$(".sort .uv-dropdown-list ul").html(this.template(context));
+						var selectedText = $(".sort a[data-field='"+sortField+"']").text();
+						$(".sort .uv-dropdown-btn").text(this.sortText + selectedText);
+						this.collection.setSorting(sortField, order, {full: true});
+					} else {
+						$(".sort .uv-dropdown-btn").text(this.defaultSortText);
+						context['page'] = this.collection.state.currentPage;
+						context['sort'] = this.defaultSortIndex;
+						context['direction'] = 'asc';
+						$(".sort .uv-dropdown-list ul").html(this.template(context));
+					}
+				},
+				buildQuery: function(query) {
+					query = query.replace(/&/g, '/');
+					query = query.replace(/=/g, '/');
+					if (query.indexOf("type/free") >= 0)
+						query = query.replace('type/free', 'free')
+					else if (query.indexOf("type/premium") >= 0)
+						query = query.replace('type/premium', 'premium')
+					else if (query.indexOf("installed/1") >= 0)
+						query = query.replace('installed/1', 'installed')
+					else if (query.indexOf("category/") >= 0)
+						query = query.replace('category/', '');
+					return query;
+				},
+			})
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)': 'paginate',
+                    'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'free(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)': 'filterFreeApps',
+					'premium(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)': 'filterPremiumApps',
+					'installed(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)': 'filterInstalledApps',
+					':category(/search/:query)(/:pricing)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByCategory',
+					'': 'initializeList',
+				},
+				paginate : function(number, sortField, order) {
+					this.resetParams('', '',  '', '', number, sortField, order, '{{ "All"|trans }}');
+				},
+				filterByQuery: function(query, number, sortField, order) {
+					this.resetParams(query, '', '', '', number, sortField, order, '{{ "All"|trans }}');
+				},
+				filterByCategory: function(category, query, pricing, number, sortField, order) {
+					if('free' != pricing && 'premium' != pricing) {
+						pricing = '';
+					}
+					this.resetParams(query, category, pricing, '', number, sortField, order, category);
+				},
+				filterFreeApps: function(query, number, sortField, order) {
+					this.resetParams(query, '', 'free', '', number, sortField, order, '{{ "Free"|trans }}');
+
+				},
+				filterPremiumApps: function(query, number, sortField, order) {
+					this.resetParams(query, '', 'premium', '', number, sortField, order, '{{ "Premium"|trans }}');
+				},
+				filterInstalledApps: function(query, number, sortField, order) {
+					this.resetParams(query, '', '', true, number, sortField, order, '{{ "Installed"|trans }}');
+				},
+				initializeList : function() {
+					this.resetParams('', '','', '', null, null, null, 'All');
+				},
+				resetParams : function(query, category, pricing, installedFlag, number, sortField, order, titleText) {
+					applicationCollection.filterParameters.category = category;
+					applicationCollection.filterParameters.type = pricing;
+					applicationCollection.filterParameters.installed = installedFlag ? 1 : null;
+					applicationCollection.state.currentPage = number;
+
+                    if(query != null) {
+                        query = query.replace(/\+/g,' ');
+					}
+                    applicationCollection.filterParameters.search = query;
+                    $(".uv-search-inline").val(query);
+
+					filter.sortCollection(sortField, order);
+					applicationCollection.syncData();
+				},
+			});
+
+			var applicationCollection = new ApplicationCollection();
+
+			var filter = new Filter({
+                collection : applicationCollection
+            });
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

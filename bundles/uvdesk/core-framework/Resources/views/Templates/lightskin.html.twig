@@ -1,0 +1,151 @@
+{% set brandColor = website.themeColor ?: '#7C70F4' %}
+
+<style>
+    .uv-btn-small,
+    .uv-btn,
+    .uv-btn-large,
+    .uv-btn-action,
+    .uv-btn-label {
+        background: {{ brandColor }};
+    }
+
+    .uv-btn-small:hover,
+    .uv-btn:hover,
+    .uv-btn-large:hover,
+    .uv-btn-action:hover,
+    .btn:hover,
+    .uv-btn-label:hover {
+        background: {{ brandColor }};
+        opacity: .85;
+    }
+
+    .uv-btn-small:active,
+    .uv-btn:active,
+    .uv-btn-large:active,
+    .uv-btn-action:active,
+    .btn:active,
+    .uv-btn-label:active {
+        background: {{ brandColor }};
+        opacity: .65;
+    }
+
+    .uv-btn-stroke:active{
+        border-color: {{ brandColor }}; 
+    }
+
+    .uv-dropdown .uv-dropdown-btn-active {
+        border: solid 1px {{ brandColor }};
+    }
+
+    .uv-select:focus,
+    .uv-field:focus, .uv-search-inline:focus {
+        border-color: {{ brandColor }};
+    }
+
+    .uv-sidebar .uv-soft-top .uv-logo svg path, 
+    .uv-inner-section .uv-view .uv-image-upload-wrapper .uv-image-upload-brick .uv-image-upload-placeholder svg path {
+        fill: {{ brandColor }};
+    }
+
+    .uv-inner-section .uv-view .uv-image-upload-wrapper .uv-image-upload-brick:hover .uv-image-upload-placeholder svg path {
+    fill: {{ brandColor }};
+    opacity: .85;
+    }
+
+    li.uv-active-sidebar {
+		color: {{ brandColor }};
+		border-left: solid 3px {{ brandColor }};
+    }
+
+    .uv-sidebar ul.uv-menubar li:not(.uv-active-sidebar) a:hover,
+    .uv-sidebar ul.uv-menubar li .uv-item-active {
+        color: {{ brandColor }};
+        border-left: solid 3px {{ brandColor }};
+    }
+
+    .uv-sidebar .uv-soft-top .uv-hamburger:hover svg path {
+        fill: {{ brandColor }};
+    }
+
+    .uv-sidebar ul.uv-menubar li a:hover .uv-icon svg path,
+    .uv-sidebar ul.uv-menubar li .uv-item-active .uv-icon svg path {
+    fill: {{ brandColor }};
+    }
+
+    .uv-paper .uv-navbar .uv-notification-icon-count {
+        background-color: {{ brandColor }};
+    }
+
+    .uv-paper .uv-container .uv-brick .uv-brick-section .uv-brick-icon:hover svg path {
+        fill: {{ brandColor }};
+    }
+
+    .uv-paper .uv-container .uv-brick .uv-brick-section .uv-brick-icon {
+        background-image: -webkit-linear-gradient(left, {{ brandColor }} 0%, {{ brandColor }} 100%);
+        background-image: -o-linear-gradient(left, {{ brandColor }} 0%, {{ brandColor }} 100%);
+        background-image: linear-gradient(to right, {{ brandColor }} 0%, {{ brandColor }} 100%);
+    }
+    .uv-paper .uv-container .uv-home-tabs ul li{
+        border-color: {{ brandColor }};
+    }
+    .uv-paper .uv-container .uv-home-tabs ul .home-tab-active{
+        background-color: {{ brandColor }};
+    }
+    .uv-inner-section .uv-view .uv-tabs ul .uv-tab-active{
+        border-bottom-color: {{ brandColor }};
+    }
+    .uv-inner-section .uv-view .uv-tabs ul li:hover{
+        border-bottom-color: {{ brandColor }};
+    }
+    .uv-loader span:before,.uv-loader span:after{
+        background: {{ brandColor }};
+    }
+
+    .bootstrap-datetimepicker-widget table td.active, .bootstrap-datetimepicker-widget table td.active:hover {
+        background-color: {{ brandColor }};
+    }
+
+    .btn-primary, .btn-primary:hover, .btn-primary:active {
+        background-color: {{ brandColor }};
+    }
+
+    .uv-app-screen .uv-app-list-channels .uv-app-list-brick .uv-app-list-brick-lt{
+        background-color: {{ brandColor }};
+        background-image: none !important;
+    }
+
+    .uv-app-screen .uv-app-list-channels .uv-app-list-brick{
+        border-color: {{ brandColor }};
+    }
+
+    .uv-inner-section .uv-view .uv-ticket-section .uv-ticket-accordion .uv-ticket-count-stat, .uv-inner-section .uv-view .uv-ticket-section .uv-ticket-accordion .uv-ticket-count-stat:hover{
+        background: {{ brandColor }};
+    }
+    .uv-pagination a:hover {
+        background-color: {{ brandColor }};
+        border-color: rgba(0,0,0,.1);
+    }
+    .uv-box-tab ul > li a:hover, .uv-box-tab ul > li .uv-box-tab-active {
+        background-color: #333333;
+        border-color: #333333;
+    }
+    .uv-box-tab ul > li a:hover, .uv-box-tab ul > li .uv-box-tab-active {
+        background-color: {{ brandColor }};
+        border-color: {{ brandColor }};
+    }
+    .uv-paper .uv-search-result-row .uv-brick-icon {
+        background-image: -webkit-linear-gradient(left, {{ brandColor }} 0%, {{ brandColor }} 100%) !important;
+        background-image: -o-linear-gradient(left, {{ brandColor }} 0%, {{ brandColor }} 100%) !important;
+        background-image: linear-gradient(to right, {{ brandColor }} 0%, {{ brandColor }} 100%) !important;
+    }
+    .uv-onboard-wrapper .uv-onboard-count:before{
+        border-right-color: {{ brandColor }};
+    }
+
+    .uv-onboard-wrapper .uv-onboard-container .uv-onboard-navigator-active{
+        background-color: {{ brandColor }};
+    }
+    .uv-icon-aside-menu,.uv-paper .uv-got-whats-new {
+        background-color: {{ brandColor }};   
+    }
+</style>

@@ -1,0 +1,39 @@
+<div class="uv-container">
+	<div class="uv-footer">
+		<div class="uv-footer-wrapper">
+			<div class="uv-footer-lt">
+				<ul>
+					<li><a href="{{ path('helpdesk_knowledgebase_folder') }}">{{ 'Home'|trans }}</a></li>
+					<li><a href="#" class="uv-open-popup" data-target="cookie-dialog-modal">{{ 'Cookie Policy'|trans }}</a></li>
+					{% for footerLink in websiteConfiguration.footerLinks %}
+						<li><a href="{{ footerLink.url }}" target="_blank">{{ footerLink.label }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="uv-footer-rt">
+				<!-- Google Translation  -->
+				<div id="google_translate_element"></div>
+					<script type="text/javascript">
+						function googleTranslateElementInit() {
+							new google.translate.TranslateElement({layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+							$(document).click(function(e) {
+								if($('.goog-te-menu-frame.skiptranslate').is(':visible') ) {
+									$('.skiptranslate.goog-te-gadget').addClass('uv-no-pointer-events');
+								} else {
+									$('.skiptranslate.goog-te-gadget').removeClass('uv-no-pointer-events');
+								}
+							});
+							$($('.goog-te-menu-frame.skiptranslate').contents()[0], window).find('body').bind("focusout", function(e) {
+									$('.skiptranslate.goog-te-gadget').removeClass('uv-no-pointer-events');
+							});
+						}
+					</script>
+					<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async="async"></script>
+       				<!-- Google Translation  -->
+				</div>
+			</div>
+    <div class="uv-footer-credit">
+      <span class="uv-credit-text">{{ 'Powered by'|trans }} <a href="https://www.uvdesk.com" target="_blank">UVdesk</a></span>
+    </div>
+	</div>
+</div>

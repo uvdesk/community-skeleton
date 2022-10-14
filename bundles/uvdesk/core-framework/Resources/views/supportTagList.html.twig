@@ -1,0 +1,346 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}Ticket Tags{% endblock %}
+
+{% block templateCSS %}
+    <style>
+	    .first {
+			width: 380px;
+		}
+		.first.edit {
+			padding: 5px 10px;
+		 }
+		.first .left-part, .first.edit input {
+			display: block;
+		}
+		.first input, .first.edit .left-part {
+			display: none;
+		}
+		.uv-action-bar {
+			border-bottom: 1px solid #d3d3d3;
+			padding-bottom: 10px;
+		}
+	</style>
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+        {# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Productivity' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+        
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>{{ 'Tags'|trans }}</h1>
+            
+			{# Ticket Tag Action Handler #}
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+					{# Sort Ticket Tag #}
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">{{ 'Sort By:'|trans }} Id</div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Sort By'|trans }}</label>
+								<ul></ul>
+							</div>
+                        </div>
+                    </div>
+                </div>
+
+				<div class="uv-action-bar-col-rt">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+				</div>
+            </div>
+
+            {# Ticket Tag Table #}
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ 'Code'|trans }}</th>
+                            <th>{{ 'Total Ticket(s)'|trans }}</th>
+							{% if articlesEnabled is defined and articlesEnabled == true %}
+								<th>{{ 'Total Article(s)'|trans }}</th>
+							{% endif %}
+                            <th class="uv-last">{{ 'Action'|trans }}</th>
+                        </tr>
+                    </thead>
+
+                    <tbody></tbody>
+                </table>
+
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+    {# Ticket Tag Sorting Template #}
+	<script id="tag_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'id') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/id/<% if(sort == 'id') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="id">
+                {{ 'Id'|trans }}
+            </a>
+            <% if(sort == 'sid') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+            <% } %>
+        </li>
+        <li class="<% if(sort == 'name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/name/<% if(sort == 'name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="name">
+                {{ 'Name'|trans }}
+            </a>
+            <% if(sort == 'name') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+            <% } %>
+        </li>
+        <li class="<% if(sort == 'totalTickets') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/totalTickets/<% if(sort == 'totalTickets') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="totalTickets">
+                {{ 'Ticket Count'|trans }}
+            </a>
+            <% if(sort == 'totalTickets') { %>
+                <span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+            <% } %>
+        </li>
+	</script>
+
+    {# Ticket Tag List Item #}
+	<script id="tag_list_item_tmp" type="text/template">
+		<td class="first" data-value="{{ 'Name'|trans }}">
+            <span class="left-part">
+				<%= _.escape(name) %>
+			</span>
+			<input type="text" name="name" class="uv-field" value="<%= _.escape(name) %>"/>
+        </td>
+        <td data-value="{{ 'Name'|trans }}">
+			<a href="{{ path('helpdesk_member_ticket_collection') }}#tag/<%= id %>">
+				<%= ticketCount %>
+			</a>
+		</td>
+		{% if articlesEnabled is defined and articlesEnabled == true %}
+			<td data-value="{{ 'Name'|trans }}">
+				<% if (typeof articleCount != 'undefined') { %>
+					<a href="{{ path('helpdesk_member_knowledgebase_article_collection') }}#search/tag:<%= name %>">
+						<%= articleCount %>
+					</a>
+				<% } else { %>
+					-
+				<% } %>
+			</td>
+		{% endif %}
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			{% if user_service.isAccessAuthorized('ROLE_AGENT_DELETE_TAG') %}
+				<div class="uv-btn-stroke delete-tag">
+			{% else %}
+				<div class="uv-btn-stroke" disabled="disabled">
+			{% endif %}
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+
+	<script type="text/javascript">
+		$(function () {
+			var globalMessageResponse = "";
+
+			var TagModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var TagCollection = AppCollection.extend({
+				model : TagModel,
+				url : "{{ path('helpdesk_member_ticket_tag_collection_xhr') }}",
+				parseRecords: function (resp, options) {
+					return resp.tags;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var tagListView = new TagList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(tagCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+            var targetCell = "";
+			var TagItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#tag_list_item_tmp").html()),
+				events : {
+					'click .delete-tag' : "confirmRemove",
+                    'click .first' : 'editCell'
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						tagCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('helpdesk_member_remove_ticket_tag_xhr') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							tagCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				},
+                editCell : function(e) {
+                    e.stopPropagation();
+                    if(targetCell != "")
+                        targetCell.updateTag();
+
+                    targetCell = this;
+                    Backbone.$(e.currentTarget).addClass('edit');
+                },
+                updateTag : function() {
+                    $('td.first').removeClass('edit');
+                    var element = targetCell.$el.find('td.first');
+                    var spamText = element.find('span').text().trim();
+                    var inputText = element.find('input').val().trim();
+
+                    if(inputText == "" || inputText.length > 20) {
+                        element.find('input').val(spamText)
+                    } else {
+                        if(inputText != spamText) {
+                            element.find('span').eq(0).text(inputText)
+                            targetCell.model.set('name',inputText);
+                            targetCell.model.save({}, {
+                                url : "{{ path('helpdesk_member_update_ticket_tag_xhr') }}/"+targetCell.model.id,
+                                success : function (model, response, options) {
+                                    $('td.first').removeClass('edit');
+                                },
+                                error: function (model, xhr, options) {
+                                    if(url = xhr.getResponseHeader('Location'))
+                                        window.location = url;
+                                    app.appView.renderResponseAlert(response);
+                                }
+                            });
+                        }
+                    }
+                    targetCell = "";
+                }
+			});
+
+			Backbone.$('body').on('click', function() {
+				if(targetCell != "") {
+					targetCell.updateTag();
+				}
+			});
+
+			var TagList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("tr").remove();
+					if(tagCollection.length) {
+						_.each(tagCollection.models, function (item) {
+							this.renderTag(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='4'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderTag : function (item) {
+					var tagItem = new TagItem({
+						model: item
+					});
+					this.$el.append(tagItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'sr.id',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Id{% endtrans %}",
+				template : _.template($("#tag_list_sorting_tmp").html())
+			})
+
+			var tagCollection = new TagCollection();
+
+			var filter = new Filter({
+				collection : tagCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('');
+					tagCollection.state.currentPage = null;
+					filter.sortCollection();
+					tagCollection.syncData();
+				},
+				paginate : function(number, sortField, order) {
+					this.resetParams('');
+					tagCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					tagCollection.syncData();
+				},
+				filterByQuery : function(query, number, sortField, order) {
+					this.resetParams(query);
+					tagCollection.state.currentPage = number;
+					filter.sortCollection(sortField, order);
+					tagCollection.syncData();
+				},
+				resetParams : function(query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					tagCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

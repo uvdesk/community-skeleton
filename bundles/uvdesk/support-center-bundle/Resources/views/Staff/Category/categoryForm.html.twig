@@ -1,0 +1,225 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+    {% if category.id %}
+		{{ 'Edit Category'|trans }}
+	{% else %}
+		{{ 'Add Category'|trans }}
+	{% endif %}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+		
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{% if category.id %}
+					{{ 'Edit Category'|trans }}
+				{% else %}
+					{{ 'Add Category'|trans }}
+				{% endif %}
+			</h1>
+
+			<!--Form-->
+			<form method="post" action="" id="entity-form" enctype="multipart/form-data">
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Name'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="name" class="uv-field" value="{{ category.name }}" />
+					</div>
+					<span class="uv-field-info">{{ 'Category Name is shown upfront at Knowledge Base'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Description'|trans }}</label>
+					<div class="uv-field-block">
+						<textarea name="description" class="uv-field">{{ category.description }}</textarea>
+					</div>
+					<span class="uv-field-info">{{ 'A small text about the category helps user to navigate more easily'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+                <!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Folders'|trans }}</label>
+					<div class="uv-field-block" id="folder-filter">
+						<input type="hidden" name="tempSolutions" class="uv-field" value="" />
+                        <input class="uv-field uv-dropdown-other preloaded" type="text" id="folder-filter-input">
+                        <div class="uv-dropdown-list uv-bottom-left uv-width-70">
+                            <div class="uv-dropdown-container">
+                                <label>{{ 'Filter With'|trans }}</label>
+                            </div>
+                            <ul class="uv-agents-list">
+                                {% for solution in solutions %}
+                                    <li data-id="{{solution.id}}">
+                                        {{solution.name}}
+                                    </li>
+                                {% endfor %}
+                                <li class="uv-no-results" style="display: none;">
+                                    {{ 'No result found'|trans }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="uv-filtered-tags">
+                            {% if categorySolutions %}
+                                {% for solution in categorySolutions %}
+                                    <a class="uv-btn-small default" href="#" data-id="{{ solution.id }}">
+                                        {{ solution.name }}
+                                        <span class="uv-icon-remove"></span>
+                                    </a>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+					</div>
+				</div>
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Sort Order'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="number" name="sortOrder" class="uv-field" value="{{ category.sortOrder }}" />
+					</div>
+					<span class="uv-field-info">{{ 'Using Category Order, you can decide which category should display first'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Sorting'|trans }}</label>
+					<div class="uv-field-block">
+						<select class="uv-select" name="sorting">
+							<option value="ascending" {{ (category.sorting and category.sorting == 'ascending') ? 'selected' : '' }}>{{ 'Ascending Order (A-Z)'|trans }}</option>
+							<option value="descending" {{ (category.sorting and category.sorting == 'descending') ? 'selected' : '' }}>{{ 'Descending Order (Z-A)'|trans }}</option>
+							<option value="popularity" {{ (category.sorting and category.sorting == 'popularity') ? 'selected' : '' }}>{{ 'Based on Popularity'|trans }}</option>
+						</select>
+					</div>
+					<span class="uv-field-info">{{ 'Article of this category will display according to selected option'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Status'|trans }}</label>
+					<div class="uv-field-block">
+						<select class="uv-select" name="status">
+							<option value="1"  {{ category.status ? 'selected' : '' }}>{{ 'Publish'|trans }}</option>
+							<option value="0"  {{ not category.status ? 'selected' : '' }}>{{ 'Draft'|trans }}</option>
+						</select>
+					</div>
+					<span class="uv-field-info">{{ 'Choose appropriate status'|trans }}</span>
+				</div>
+				<!-- //Field -->
+
+				<!--CTA-->
+				<input class="uv-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+				<!--//CTA-->
+			</form>
+			<!--//Form-->
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ parent() }}
+	<script type="text/javascript">
+		$(function () {
+			var EntityModel = Backbone.Model.extend({
+				validation: {
+					'name': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					}, {
+						pattern: '^((?![$%<]).)*$',
+						msg: "{{ 'This field must have valid characters only'|trans }}"
+					},{
+						maxLength:50,
+						msg: "{{ 'This field contain maximum 50 characters.'|trans }}"
+					}],
+					'description': [{
+						required: true,
+						msg: "{{ 'This field is mandatory'|trans }}"
+					}, {
+						pattern: '^((?![$%<]).)*$',
+						msg: "{{ 'This field must have valid characters only'|trans }}"
+					},{
+						maxLength:60,
+						msg: "{{ 'This field contain maximum 60 characters.'|trans }}"
+					}],
+                    'sortOrder': {
+                        pattern: '^[0-9]*$',
+                        msg: "{{ 'This field must be a number'|trans }}"
+                    },
+				}
+			});
+
+			var EntityForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn': "saveEntity",
+					'blur input, textarea': 'formChanegd',
+                    'click .uv-dropdown-list li': 'addEntity',
+                    'click .uv-filtered-tags .uv-btn-small': 'removeEntity'
+				},
+				initialize : function() {
+					this.setAddedIds('#folder-filter')
+
+					Backbone.Validation.bind(this);
+					var jsonContext = JSON.parse('{{ errors|raw }}');
+		    		for (var field in jsonContext) {
+		    			Backbone.Validation.callbacks.invalid(this, field, jsonContext[field], 'input');
+					}
+				},
+				formChanegd: function(e) {
+					if(e.target.name != 'solutionImage'){
+			    		this.model.set(Backbone.$(e.currentTarget).attr('name'), Backbone.$(e.currentTarget).val())
+			    		this.model.isValid([Backbone.$(e.currentTarget).attr('name')])
+					}
+			    },
+				saveEntity : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+			        if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+			            this.$el.submit();
+			        }
+				},
+                setAddedIds: function(selector) {
+                    var ids = [];
+                    $(selector).find('.uv-filtered-tags .uv-btn-small').each(function() {
+                        ids.push($(this).attr('data-id'))
+                    });
+
+                    $(selector).find("input[type='hidden']").val(ids.join(','))
+                },
+                addEntity: function(e) {
+                    currentElement = Backbone.$(e.currentTarget);
+                    if(id = currentElement.attr("data-id")) {
+                        parent = currentElement.parents(".uv-field-block");
+                        parent.find('input').val('')
+                        parent.find("li:not(.uv-no-results)").show()
+                        if(!parent.find(".uv-filtered-tags a[data-id='" + id + "']").length) {
+                            parent.find('.uv-filtered-tags').append("<a class='uv-btn-small default' href='#' data-id='" + id + "'>"+currentElement.text()+"<span class='uv-icon-remove'></span></a>")
+                            this.setAddedIds("#" + parent.attr('id'))
+                        }
+                    }
+                },
+                removeEntity: function(e) {
+                    var parent = Backbone.$(e.currentTarget).parents(".uv-field-block")
+                    Backbone.$(e.currentTarget).remove()
+                    this.setAddedIds("#" + parent.attr('id'))
+                }
+			});
+
+			groupForm = new EntityForm({
+				el : $("#entity-form"),
+				model : new EntityModel()
+			});
+		});
+	</script>
+{% endblock %}

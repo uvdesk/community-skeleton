@@ -1,0 +1,25 @@
+helpdesk_member_mailbox_settings:
+    path:     /settings/mailbox
+    controller: Webkul\UVDesk\MailboxBundle\Controller\MailboxChannel::loadMailboxes
+
+helpdesk_member_mailbox_load_configurations_xhr:
+    path:     /settings/mailbox/xhr
+    controller: Webkul\UVDesk\MailboxBundle\Controller\MailboxChannelXHR::loadMailboxesXHR
+
+helpdesk_member_mailbox_create_configuration:
+    path:     /settings/mailbox/create
+    controller: Webkul\UVDesk\MailboxBundle\Controller\MailboxChannel::createMailboxConfiguration
+
+helpdesk_member_mailbox_update_configuration:
+    path:     /settings/mailbox/update/{id}
+    controller: Webkul\UVDesk\MailboxBundle\Controller\MailboxChannel::updateMailboxConfiguration
+    defaults: { id: ''}
+
+helpdesk_member_mailbox_remove_configuration_xhr:
+    path:     /settings/mailbox/remove/{id}
+    controller: Webkul\UVDesk\MailboxBundle\Controller\MailboxChannelXHR::removeMailboxConfiguration
+    defaults: { id: ''}
+
+helpdesk_member_mailbox_direct_convert_mail:
+    path:     /processRawEmail
+    controller: Webkul\UVDesk\MailboxBundle\Controller\MailboxChannelXHR::processRawContentMail

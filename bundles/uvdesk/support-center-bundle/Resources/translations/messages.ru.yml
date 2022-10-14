@@ -1,0 +1,312 @@
+'Published on': 'Опубликован в'
+Articles: Статьи
+ARTICLES: СТАТЬИ
+'No Article Found!': 'Статья не найдена!'
+Categories: Категории
+'Browse articles by categories': 'Просмотр статей по категориям'
+CATEGORIES: КАТЕГОРИИ
+'No Categories Found!': 'Категории не найдены!'
+'Edit Profile': 'Редактировать профиль'
+Profile: Профиль
+Search: Поиск
+'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format': 'Загрузить изображение профиля (100px x 100px) в формате PNG или JPG'
+'First Name': Имя
+'Last Name': Фамилия
+Email: 'Эл. адрес'
+'Contact Number': 'Контактный номер'
+Password: Пароль
+'Confirm Password': 'Подтвердите Пароль'
+'Save Changes': 'Сохранить изменения'
+'You can''t merge an account with itself.': 'Вы не можете объединить аккаунт с самим собой.'
+'This field is mandatory': 'Это поле является обязательным'
+'Email address is invalid': 'Адрес электронной почты некорректен'
+'Contact number is invalid': 'Контактный номер некорректен'
+'Password must contains 8 Characters': 'Пароль должен содержать 8 символов'
+'The passwords does not match': 'Пароли не совпадают'
+'No Category Found!': 'Категория не найдена!'
+'Forgot Password': 'Забыли пароль'
+forgot.password.metaDescription: forgot.password.metaDescription
+forgot.password.metaKeywords: forgot.password.metaKeywords
+'Send Mail': 'Отправить письмо'
+'This is not a valid email address': 'Это не правильный адрес электронной почты'
+customer.login.metaDescription: customer.login.metaDescription
+customer.login.metaKeywords: customer.login.metaKeywords
+'Sign In to %websitename%': 'Войдите в %websitename%'
+'Popular Articles': 'Популярные статьи'
+'Account Validation': 'Проверка аккаунта'
+account.validation.metaDescription: account.validation.metaDescription
+account.validation.metaKeywords: account.validation.metaKeywords
+'Save Password': 'Сохранить пароль'
+'Helpdesk Search': 'Поиск службы поддержки'
+search.metaDescription: search.metaDescription
+search.metaKeywords: search.metaKeywords
+'Search results for %search%': 'Результаты поиска для %search%'
+'Create Ticket': 'Создать тикет'
+create.ticket.metaDescription: create.ticket.metaDescription
+create.ticket.metaKeywords: create.ticket.metaKeywords
+'Create Ticket Request': 'Создать заявку'
+Name: Название
+'Enter your name': 'Введите ваше имя'
+'Enter your email': 'Введите адрес электронной почты'
+Type: Тип
+'Select type': 'Выберите тип'
+'Choose ticket type': 'Выберите тип заявки'
+Subject: Тема
+'Ticket subject': 'Тема заявки'
+Message: Сообщение
+'Ticket query message': 'Основное сообщение заявки'
+'Add Attachment': 'Добавить вложение'
+Tickets: Заявки
+ticketlist.metaDescription: ticketlist.metaDescription
+ticketlist.metaKeywords: ticketlist.metaKeywords
+'Ticket Requests': 'Запросы заявок'
+'New Ticket Request': 'Новая заявка'
+'Sort By:': 'Сортировать по:'
+'Ticket Id': 'ID заявки'
+'Sort By': 'Сортировать по'
+'Status:': 'Статус:'
+All: Все
+Status: Статус
+Timestamp: Отметка
+Agent: Агент
+'Agent Name': 'Имя агента'
+Unassigned: Unassigned
+'No Record Found': 'Запись не найдена'
+'Ticket Information': 'Информация о заявке'
+'Total Replies': 'Всего ответов'
+Customer: Покупатель
+Collaborators: Соисполнитель
+'Type email to add': 'Введите адрес электронной почты, чтобы добавить'
+'Custom Field': 'Пользовательское поле'
+'Manage Ticket Custom Fields': 'Управление пользовательскими полями заявки'
+'Manage Custom Fields to provide additional details with the ticket.': 'Управление пользовательскими полями, чтобы предоставить дополнительную информацию с заявкой.'
+Created: Созданный
+By: От
+'created Ticket': 'создана заявка'
+'Uploaded Files': 'Загруженные файлы'
+'Download (as .zip)': 'Скачать (как .zip)'
+CC/BCC: 'CC / BCC'
+BCC: BCC
+CC: CC
+'Write a reply': 'Напишите ответ'
+Reply: Ответить
+Submit: Отправить
+'Submit And Closed': 'Отправить и закрыто'
+'Confirm Close Ticket': 'Подтвердить закрытие заявки'
+'Are you sure? You want to reply and close ticket.': 'Уверены ли вы? Вы хотите ответить и закрыть заявку.'
+Confirm: Подтвердить
+Cancel: Отменить
+replied: ответил
+'Please enter a valid email': 'Пожалуйста, введите действительный адрес электронной почты'
+Article: Статья
+SEO: SEO
+Save: Сохранить
+Title: Заголовок
+Content: Содержание
+Slug: Слизень
+'Slug is the url identity of this article.': 'Slug - это URL-адрес этой статьи.'
+'Meta Title': 'Мета Название'
+'Title tags and meta descriptions are bits of HTML code in the header of a web page. They help search engines understand the content on a page. A page''s title tag and meta description are usually shown whenever that page appears in search engine results': 'Теги заголовка и метаописания - это фрагменты HTML-кода в заголовке веб-страницы. Они помогают поисковым системам понять содержание страницы. Тег заголовка страницы и мета-описание обычно отображаются всякий раз, когда эта страница появляется в результатах поиска.'
+'Meta Keywords': 'Мета Ключевые слова'
+'comma "," separated': 'разделенные запятой'
+'Meta Description': 'Мета Описание'
+Back: Назад
+'Filter With': 'Фильтр с'
+'No result found': 'Результатов не найдено'
+Published: Опубликованный
+Draft: Проект
+'Make as Starred': 'Сделать как помеченный'
+'Yes': Да
+'No': Нет
+Stared: Уставился
+Tag: Тег
+'Type atleast 2 letters': 'Введите по крайней мере 2 буквы'
+'Press Enter to add': 'Нажмите Enter, чтобы добавить'
+'Delete Article': 'Удалить статью'
+Revisions: Ревизии
+'Related Articles': 'Статьи по Теме'
+view: Посмотреть
+preview: предпросмотр
+Update: Обновить
+'Slug is the url identity of this article. We will help you to create valid slug at time of typing.': 'Slug - это URL-адрес этой статьи. Мы поможем вам создать действительный слаг во время набора текста.'
+'Article Title': 'Название статьи'
+'Start typing few charactors and add set of relevant article from the list': 'Начните вводить несколько символов и добавьте набор соответствующих статей из списка'
+Revision: Пересмотр
+'updated the article': 'обновил статью'
+'on': на
+Preview: Предпросмотр
+Restored: Восстановлена
+Restore: Восстановить
+Close: Закрыть
+'Tag with same name already exist': 'Тег с таким именем уже существует'
+Oops: Ой
+'Sorry, there are nothing to display.': 'Извините, нечего отображать.'
+'Text length should be less than 35 charactors': 'Длина текста должна быть не менее 35 символов'
+Searching: Поиск
+FOLDERS: ПАПКИ
+'No Categories Added': 'Категории не добавлены'
+'New Folder': 'Новая папка'
+'All Articles': 'Все статьи'
+'Created At': 'Создан в'
+Active: Активно
+Disabled: Отключено
+Delete: Удалить
+'New Article': 'Новая статья'
+Id: 'Я бы'
+Category: Категория
+Viewed: Рассматриваемый
+Action: Действие
+Edit: Редактировать
+FOLDER: FOLDER
+'Edit Folder': 'Редактировать папку'
+Description: Описание
+popularity: популярность
+Branding: Брендирование
+General: Общее
+Knowledgebase: 'База знаний'
+Time: Время
+Links: Связи
+Advanced: Расширенный
+'Broadcast Message': 'Массовая рассылка сообщений'
+'Wide Logo': 'Широкий логотип'
+'Upload an Image (200px x 48px) in</br> PNG or JPG Format': 'Загрузить изображение (200px x 48px) в формате </ br> PNG или JPG'
+'It will be shown as Logo on Knowledgebase and Helpdesk': 'Он будет отображаться как логотип в базе знаний и службе поддержки'
+'Website Status': 'Статус сайта'
+'Enable front end website and knowledgebase for customer(s)': 'Включить интерфейсный веб-сайт и базу знаний для клиентов'
+'Brand Color': 'Марка Цвет'
+'Use Default Colors': 'Использовать цвета по умолчанию'
+'Page Background Color': 'Цвет фона страницы'
+'Header Background Color': 'Цвет фона заголовка'
+'Banner Background Color': 'Цвет фона баннера'
+'Page Link Color': 'Цвет ссылки на страницу'
+'Page Link Hover Color': 'Цвет ссылки на страницу'
+'Article Text Color': 'Цвет текста статьи'
+'Tag Line': 'Тег Лайн'
+'Hi! how can we help?': 'Привет! как мы можем помочь?'
+Layout: Шаблон
+Masonry: 'Кирпичная кладка'
+Folder: Папка
+'Popular Article': 'Популярная статья'
+'Ticket Create Option': 'Разрешить создание заявки'
+'Login Required To Create Tickets': 'Необходимо авторизоваться для создания заявки'
+'Remove Customer Login/Signin Button': 'Удалить кнопку входа/авторизации клиента'
+'Disable Customer Login': 'Разрешить отключить клиента'
+'Meta Description (Recommended)': 'Мета-описание (рекомендуется)'
+'Meta Keywords (Recommended)': 'Мета Ключевые слова (рекомендуется)'
+'Header Link': 'Ссылка на заголовок'
+Label: Метка
+Pending: 'В ожидании'
+'URL (with http:// or https://)': 'URL (с http: // или https: //)'
+'Add More': 'Добавить больше'
+'Footer Link': 'Нижний колонтитул'
+'Custom CSS (Optional)': 'Пользовательский CSS (необязательно)'
+'It will be add to the frontend knowledgebase only': 'Он будет добавлен только в базу знаний внешнего интерфейса'
+'Custom Javascript (Optional)': 'Пользовательский Javascript (необязательно)'
+'Broadcast message content to show on helpdesk': 'Трансляция содержимого сообщения для показа в службу поддержки'
+From: От
+To: К
+'Time duration between which message will be displayed(if applicable)': 'Время, в течение которого будет отображаться сообщение (если применимо)'
+'Broadcasting Status': 'Статус вещания'
+'Broadcasting is Active': 'Вещание активно'
+Timezone: 'Часовой пояс'
+'Choose a default company''s timezone': 'Выберите часовой пояс компании по умолчанию'
+'Date Time Format': 'Формат даты и времени'
+'Choose a format to convert date to specified date time format': 'Выберите формат для преобразования даты в указанный формат даты и времени'
+'An empty file is not allowed.': 'Пустой файл не допускается.'
+'File size must not be greater than 200KB !!': 'Размер файла не должен превышать 200 КБ!'
+'Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!': 'Пожалуйста, загрузите действительный файл изображения (допускается только JPEG, JPG, PNG) !!'
+'Provide a valid url(with protocol)': 'Укажите правильный URL (с протоколом)'
+'Edit Category': 'Изменить категорию'
+'Add Category': 'Добавить категорию'
+'Category Name is shown upfront at Knowledge Base': 'Название категории отображается заранее в базе знаний'
+'A small text about the category helps user to navigate more easily': 'Небольшой текст о категории помогает пользователю легче ориентироваться'
+Folders: Папки
+'Sort Order': 'Порядок сортировки'
+'Using Category Order, you can decide which category should display first': 'Используя Порядок категорий, вы можете решить, какая категория должна отображаться первой.'
+Sorting: Сортировка
+'Ascending Order (A-Z)': 'По возрастанию (A-Z)'
+'Descending Order (Z-A)': 'По убыванию (Z-A)'
+'Based on Popularity': 'По популярности'
+'Article of this category will display according to selected option': 'Статья этой категории будет отображаться в соответствии с выбранной опцией'
+Publish: Публиковать
+'Choose appropriate status': 'Выберите подходящий статус'
+'This field must have valid characters only': 'Это поле должно содержать только допустимые символы'
+'This field must be a number': 'Это поле должно быть числом'
+'New Category': 'Новая категория'
+'Add Folder': 'Добавить папку'
+'Folder Name is shown upfront at Knowledge Base': 'Имя папки отображается заранее в базе знаний'
+'A small text about the folder helps user to navigate more easily': 'Небольшой текст о папке помогает пользователю легче ориентироваться'
+'Folder Image': 'Изображение папки'
+'An image is worth a thousands words and makes folder more accessible': 'Изображение стоит тысячи слов и делает папку более доступной'
+delete: удалить
+'Create Knowledgebase Folder': 'Создать папку базы знаний'
+'You didn''t add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves.': 'Вы еще не добавили ни одной папки в свою базу знаний, создайте свою первую папку и начните добавлять категории / статьи, чтобы ваши клиенты помогали сами себе.'
+'You didn''t have any folder for current filter(s).': 'У вас не было папок для текущих фильтров.'
+'Clear Filters': 'Сбросить фильтры'
+'Block Spam': 'Блокировать спам'
+'Black list': 'Черный список'
+'Comma (,) separated values (Eg. support@example.com, @example.com, 68.98.31.226)': 'Значения, разделенные запятыми (,) (например, support@example.com, @ example.com, 68.98.31.226)'
+'White list': 'Белый список'
+Prev: Предыдущая
+'Search KnowledgeBase': 'Поиск в базе знаний'
+Howdy!: Привет!
+Account: 'Учетная запись'
+'Sign Out': Выход
+Home: Главная
+'Contact Us': 'Связаться с нами'
+'Sign In': 'Войти'
+'Enter search keyword': 'Введите поисковое ключевое слово'
+'Knowledge Base': 'База знаний'
+'Your browser does not support JavaScript or You disabled JavaScript, Please enable those !': 'Ваш браузер не поддерживает JavaScript или Вы отключили JavaScript, пожалуйста, включите их!'
+HelpDesk: HelpDesk
+'Unable to find an answer?': 'Не можете найти ответ?'
+'Looking for anything specific article which resides in general queries? Just browse the various relevant folders and categories and then you will find the desired article.': 'Ищете что-то конкретное, что находится в общих запросах? Просто просмотрите различные соответствующие папки и категории, и тогда вы найдете нужную статью.'
+'Error : Something went wrong, please try again later': 'Ошибка: что-то пошло не так, попробуйте позже'
+Tags: Теги
+'Warning! Select valid image file.': 'Предупреждение! Выберите правильный файл изображения.'
+'Here are some of the most popular articles, which helped number of users to get their queries and questions resolved.': 'Вот некоторые из самых популярных статей, которые помогли многим пользователям получить ответы на свои вопросы.'
+'Browse via Categories': 'Просмотр по категориям'
+'Looking for something specific? Choose a relevant category from below to explore possible solutions': 'Ищете что-то конкретное? Выберите соответствующую категорию из ниже, чтобы изучить возможные решения'
+'View all articles': 'Посмотреть все статьи'
+'Cookie Usage Policy': 'Политика использования файлов cookie'
+'Some of our site pages utilize %cookies% and other tracking technologies. A %cookie% is a small text file that may be used, for example, to collect information about site activity. Some cookies and other technologies may serve to recall personal information previously indicated by a site user. You may block cookies, or delete existing cookies, by adjusting the appropriate setting on your browser. Please consult the %help% menu of your browser to learn how to do this. If you block or delete %cookies% you may find the usefulness of our site to be impaired.': 'Некоторые страницы нашего сайта используют %cookies% и другие технологии отслеживания. %cookie% - это небольшой текстовый файл, который можно использовать, например, для сбора информации об активности сайта. Некоторые файлы cookie и другие технологии могут использоваться для хранения личной информации, ранее указанной пользователем на сайте. Вы можете заблокировать %cookie% или удалить существующие %cookie%, изменив соответствующие настройки в вашем браузере. Пожалуйста, обратитесь к меню %help% вашего браузера, чтобы узнать, как это сделать. Если вы заблокируете или удалите %cookies%, вы можете столкнуться с необходимостью снижения полезности нашего сайта.'
+cookie: Cookie
+cookies: Cookies
+HELP: ПОМОЩЬ
+'To know more about how our privacy policy works, please %websiteLink%.': 'Чтобы узнать больше о том, как работает наша политика конфиденциальности, пожалуйста, %websiteLink%.'
+'Browse via Folders': 'Просмотр через папки'
+'Looking for something that is queried generally? Choose a relevant folder from below to explore possible solutions': 'Ищете что-то, что запрашивается вообще? Выберите соответствующую папку снизу, чтобы изучить возможные решения'
+'Success! Category has been added successfully.': 'Успех! Категория была успешно добавлена.'
+'Success ! Category sort  order updated successfully.': 'Удача! Порядок сортировки категорий успешно обновлен.'
+'Success! Article updated successfully': 'Успех! Статья успешно обновлена'
+'Success ! Article updated successfully.': 'Удача! Статья успешно обновлена.'
+'Success ! Tag removed successfully.': 'Удача! Тег успешно удален.'
+'Success ! Tags Saved successfully.': 'Удача! Теги успешно сохранены.'
+'Success ! Revision restored successfully.': 'Удача! Ревизия успешно восстановлена.'
+'Success ! Categories updated successfully.': 'Удача! Категории успешно обновлены.'
+'Success ! Article Related removed successfully.': 'Удача! Связанные статьи успешно удалены.'
+'Success ! Cannot add self as relative article.': 'Удача! Невозможно добавить себя в качестве относительной статьи.'
+'Success ! Article Related updated successfully.': 'Удача! Статьи по теме успешно обновлены.'
+'Success ! Articles removed successfully.': 'Удача! Статьи успешно удалены.'
+'Success ! Article status updated successfully.': 'Удача! Статус статьи успешно обновлен.'
+'Success! Folder has been added successfully.': 'Успех! Папка была успешно добавлена.'
+'Success ! Branding details saved successfully.': 'Удача! Детали брендинга успешно сохранены.'
+'Success ! Time details saved successfully.': 'Удача! Детали времени успешно сохранены.'
+'Success ! Folder status updated successfully.': 'Удача! Статус папки успешно обновлен.'
+'Success ! Folder deleted successfully.': 'Удача! Папка успешно удалена.'
+'Success ! Category status updated successfully.': 'Удача! Статус категории успешно обновлен.'
+'Success ! Folders updated successfully.': 'Удача! Папки успешно обновлены.'
+'Success ! Categories removed successfully.': 'Удача! Категории успешно удалены.'
+'Success ! Profile updated successfully.': 'Удача! Профиль успешно обновлен.'
+'Success ! Ticket has been created successfully.': 'Удача! Заявка была успешно создана.'
+'Warning ! This is not a valid request': 'Предупреждение! Это неверный запрос'
+'Warning! Provide valid image file. (Recommened: PNG, JPG or GIF Format).': 'Предупреждение! Предоставьте действительный файл изображения. (Рекомендуется: формат PNG, JPG или GIF).'
+'Warning ! Customer Login disabled by admin.': 'Предупреждение! Вход для клиентов отключен администратором.'
+'Error ! Folder is not exist.': 'Ошибка ! Папка не существует.'
+'Error ! Folder does not exist.': 'Ошибка ! Папка не существует.'
+'Error ! Category is not exist.': 'Ошибка ! Категория не существует.'
+'Error ! Profile image is not valid, please upload a valid format': 'Ошибка ! Неверное изображение профиля, пожалуйста, загрузите правильный формат'
+'Error ! Category does not exist.': 'Ошибка ! Категория не существует.'
+'Error ! User with same email is already exist.': 'Ошибка ! Пользователь с таким же email уже существует.'
+'Support Center': 'Сервисный центр'
+Helpdesk: 'Служба поддержка'

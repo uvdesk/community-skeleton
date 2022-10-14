@@ -1,0 +1,36 @@
+{% extends "@UVDeskSupportCenter/Templates/layout.html.twig" %}
+{% block title %}Categories{% endblock %}
+{% block ogtitle %}Categories{% endblock %}
+{% block twtitle %}Categories{% endblock %}
+
+{% block body %}
+	<div class="uv-paper-article">
+		<div class="uv-paper-section">
+			<section>
+				<h1 class="uv-folder-title" data-count="{{ categoryCount }} {{"Categories"|trans}}">{{ 'Categories' }}</h1>
+				<p>{{ 'Browse articles by categories'|trans }}</p>
+			</section>
+			<section class="uv-margin-top-30">
+				<!-- <h4>{{ 'CATEGORIES'|trans }}</h4> -->
+
+				{% if categories is defined and categories is not empty %}
+					<ul>
+						{% for category in categories %}
+							<li>
+                                <a href="{{ path('helpdesk_knowledgebase_category', {'category': category.id}) }}">
+                                    {{ category.name }}
+                                </a>
+                            </li>
+						{% endfor %}
+					</ul>
+				{% else %}
+					<p>{{ "No Categories Found!"|trans }}</p>
+				{% endif %}
+			</section>
+		</div>
+
+		{# TODO: Implement popular articles }
+		{# {% include "WebkulDefaultBundle:Front:popularArticle.html.twig" %} #}
+	</div>
+	{{parent()}}
+{% endblock %}

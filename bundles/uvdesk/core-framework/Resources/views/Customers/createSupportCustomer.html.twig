@@ -1,0 +1,233 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}{{ 'Add Customer'|trans }}{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Users' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{% if user.id %}
+					{{ 'Edit Customer'|trans }}
+				{% else %}
+					{{ 'Add Customer'|trans }}
+				{% endif %}
+			</h1>
+			{% set customerDetails = user_service.getCustomerDetailsById(user.id) %}
+			<!--Form-->
+			<form method="post" action="" id="customer-form" enctype="multipart/form-data">
+				<!-- Profile image -->
+				<div class="uv-image-upload-wrapper" style="padding: 25px 0px 25px 0px;">
+					{% set isHaveImage =  customerDetails and customerDetails.profileImage ? 1 : 0 %}
+					<div class="uv-image-upload-brick {% if isHaveImage %}uv-on-drop-shadow{% endif %}" {% if isHaveImage %}style="border-color: transparent;"{% endif %}>
+						<input type="file" name="customer_form[profileImage]" id="uv-upload-profile">
+						<div class="uv-image-upload-placeholder">
+							<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48px" height="32px">
+							<path fill-rule="evenodd" d="M28.026,26.003 L19.964,26.003 L19.964,17.962 L13.964,17.962 L23.995,8.050 L34.025,17.962 L28.026,17.962 L28.026,26.003 ZM33.557,3.421 C30.806,1.146 27.619,0.008 23.995,0.008 C21.182,0.008 18.588,0.756 16.214,2.252 C13.838,3.749 11.996,5.712 10.683,8.143 C7.683,8.456 5.152,9.749 3.090,12.024 C1.027,14.300 -0.004,16.965 -0.004,20.019 C-0.004,23.324 1.168,26.144 3.512,28.481 C5.855,30.819 8.682,31.988 11.996,31.988 L37.963,31.988 C40.712,31.988 43.072,31.006 45.040,29.042 C47.009,27.079 47.993,24.726 47.993,21.983 C47.993,19.364 47.087,17.106 45.275,15.203 C43.461,13.302 41.275,12.258 38.713,12.071 C38.024,8.580 36.306,5.698 33.557,3.421 Z"></path>
+							</svg>
+						</div>
+						<img id="dynamic-image-upload" {% if isHaveImage %}src="{{ customerDetails.profileImage }}"{% endif %}>
+
+					</div>
+					<div class="uv-image-info-brick">
+						<span class="uv-field-info">{{ 'Upload a Profile Image (100px x 100px)<br> in PNG or JPG Format'|trans|raw }}</span>
+					</div>
+				</div>
+				<!-- //Profile image -->
+
+				<!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'First Name'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="customer_form[firstName]" class="uv-field" value="{{ customerDetails ? customerDetails.firstName : user.firstName }}" />
+					</div>
+				</div>
+				<!-- //Field -->
+
+                <!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Last Name'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="customer_form[lastName]" class="uv-field" value="{{ customerDetails ? customerDetails.lastName : user.lastName }}" />
+					</div>
+				</div>
+				<!-- //Field -->
+
+                <!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Email'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="customer_form[email]" class="uv-field" value="{{ user.email}}" />
+					</div>
+				</div>
+				<!-- //Field -->
+
+                <!-- Field -->
+				<div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Contact Number'|trans }}</label>
+					<div class="uv-field-block">
+						<input type="text" name="customer_form[contactNumber]" class="uv-field" value="" />
+					</div>
+				</div>
+				<!-- //Field -->
+
+                {% if customerDetails and customerDetails.isVerified %}
+                    <!-- Field -->
+                    <div class="uv-element-block">
+                        <label class="uv-field-label">{{ 'Password'|trans }}</label>
+                        <div class="uv-field-block">
+                            <input type="password" name="customer_form[password][first]" class="uv-field" value="" />
+                        </div>
+                    </div>
+                    <!-- //Field -->
+
+                    <!-- Field -->
+                    <div class="uv-element-block">
+                        <label class="uv-field-label">{{ 'Confirm Password'|trans }}</label>
+                        <div class="uv-field-block">
+                            <input type="password" name="customer_form[password][second]" class="uv-field" value="" />
+                        </div>
+                    </div>
+                    <!-- //Field -->
+                {% endif %}
+
+                <!-- Field -->
+                <div class="uv-element-block">
+					<label class="uv-field-label">{{ 'Account Status'|trans }}</label>
+					<div class="uv-element-block">
+						<label>
+							<div class="uv-checkbox">
+								<input type="checkbox" name="customer_form[isActive]" value="1">
+								<span class="uv-checkbox-view"></span>
+							</div>
+							<span class="uv-checkbox-label">{{ 'Account is Active'|trans }}</span>
+						</label>
+					</div>
+                </div>
+				<!-- //Field -->
+
+				<!-- CSRF token Field -->
+					{# <input type="hidden" name="customer_form[_token]" value="{{ default_service.generateCsrfToken('customer_form') }}"/> #}
+				<!-- //CSRF token Field -->
+
+				<!--CTA-->
+				<input class="uv-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+				<!--//CTA-->
+			</form>
+			<!--//Form-->
+		</div>
+	</div>
+{% endblock %}
+{% block footer %}
+	{{ parent() }}
+	<script type="text/javascript">
+		$(function () {
+			var CustomerModel = Backbone.Model.extend({
+				validation: {
+					'customer_form[firstName]': [{
+                        required: true,
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },{
+                        pattern: /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/,
+                        msg: '{{ "This field must have characters only"|trans }}'
+                    },{
+                        maxLength:40,
+                        msg: '{{ "Maximum character length is 40"|trans }}'
+                    }],
+					'customer_form[lastName]': function(value) {
+                        if(value != undefined && value !== '') {
+                            [{
+                                pattern: /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/,
+                                msg: '{{ "This field must have characters only"|trans }}'
+                            },{
+                                maxLength:40,
+                                msg: '{{ "Maximum character length is 40"|trans }}'
+                            }]
+                        }
+                    },
+                    'customer_form[email]': [{
+                        required: true,
+                        msg: '{{ "This field is mandatory"|trans }}'
+                    },{
+                        pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+                        msg: '{{ "Email address is invalid"|trans }}'
+                    }],
+                    'customer_form[contactNumber]': function(value) {
+                        if(value != undefined && value !== '') {
+                            if(!value.match('^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$'))
+                                return '{{ "Contact number is invalid"|trans }}';
+                        }
+                    },
+					'customer_form[password][first]' : function(value) {
+                        if(value != undefined && value !== '') {
+                            if(value.length < 8)
+                               return '{{ "Password must contains 8 Characters" | trans}}';
+                        }
+                    },
+                    'customer_form[password][second]': {
+                        equalTo: 'customer_form[password][first]',
+                        msg: '{{ "The passwords does not match"|trans }}'
+                    }
+				}
+			});
+
+			var CustomerForm = Backbone.View.extend({
+				events : {
+					'click .uv-btn' : "saveCustomer",
+					'blur input, textarea': 'formChanegd'
+				},
+				initialize : function() {
+					Backbone.Validation.bind(this);
+					var jsonContext = JSON.parse('{{ errors|raw }}');
+		    		for (var field in jsonContext) {
+		    			if(field == 'first') {
+                            Backbone.Validation.callbacks.invalid(this, "customer_form[password][" + field + "]", jsonContext[field], 'input');
+                        } else {
+		    			    Backbone.Validation.callbacks.invalid(this, "customer_form[" + field + "]", jsonContext[field], 'input');
+                        }
+					}
+				},
+				formChanegd: function(e) {
+			    	var fieldName = Backbone.$(e.currentTarget).attr('name');
+                    if(fieldName == 'customer_form[password][second]') {
+                        if($("input[name='customer_form[password][first]']").val().length) {
+                            this.model.set(fieldName, Backbone.$(e.currentTarget).val())
+                            this.model.isValid([fieldName])
+                        } else {
+                            if($("input[name='customer_form[password][second]']").val().length) {
+		    			        this.model.set(fieldName, Backbone.$(e.currentTarget).val())
+                                this.model.isValid([fieldName])
+                            } else {
+		    			        Backbone.Validation.callbacks.valid(this, fieldName, 'input');
+                            }
+                        }
+                    } else {
+                        this.model.set(fieldName, Backbone.$(e.currentTarget).val())
+                        this.model.isValid([fieldName])
+                        if(fieldName == 'customer_form[password][first]' && !$("input[name='customer_form[password][second]']").val().length) {
+		    			    Backbone.Validation.callbacks.valid(this, 'customer_form[password][second]', 'input');
+                        }
+                    }
+			    },
+				saveCustomer : function (e) {
+					e.preventDefault();
+			        this.model.set(this.$el.serializeObject());
+			        if(this.model.isValid(true)) {
+						this.$el.find('.uv-btn').attr('disabled', 'disabled');
+			            this.$el.submit();
+			        }
+				}
+			});
+
+			customerForm = new CustomerForm({
+				el : $("#customer-form"),
+				model : new CustomerModel()
+			});
+		});
+	</script>
+{% endblock %}

@@ -1,0 +1,334 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %} 
+	{{ 'Swift Mailer Settings'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Settings' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			{% if configuration is defined and configuration.id is not empty %}
+                <h1>{{ 'Update configuration'|trans }}</h1>
+            {% else %}
+                <h1>{{ 'Add configuration'|trans }}</h1>
+            {% endif %}
+
+            <div class="uv-hr"></div>
+			
+			<form method="post" action="" id="swiftmailer-settings-view">
+                <div class="swiftmailer-setting-type">
+                    {# Mailer Id #}
+                    <div class="uv-element-block">
+                        <label class="uv-field-label">{{ 'Mailer ID'|trans }}</label>
+
+                        <div class="uv-field-block">
+                            {% if configuration is defined and configuration.id is not empty %}
+                                <input type="text" name="id" class="uv-field" value="{{ configuration.id }}" placeholder="{{ 'Mailer ID - Leave blank to automatically create id'|trans }}" />
+                            {% else %}
+                                <input type="text" name="id" class="uv-field" value="" placeholder="{{ 'Mailer ID - Leave blank to automatically create id'|trans }}" />
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {# Transport Type #}
+                    <div class="uv-element-block">
+                        <label class="uv-field-label">{{ 'Transport Type'|trans }}</label>
+
+                        {% if configuration is defined and configuration is not empty %}
+                            <select name="transport" id="cta-swiftmailer-transport" class="uv-select">
+                                <option value="smtp" {% if configuration.transport == 'smtp' %}selected{% endif %}>{{ 'SMTP'|trans }}</option>
+                                <option value="gmail" {% if configuration.transport == 'gmail' %}selected{% endif %}>{{ 'Gmail'|trans }}</option>
+                                <option value="yahoo" {% if configuration.transport == 'yahoo' %}selected{% endif %}>{{ 'Yahoo'|trans }} </option>
+                            </select>
+                        {% else %}
+                            <select name="transport" id="cta-swiftmailer-transport" class="uv-select">
+                                <option value="smtp" selected>{{ 'SMTP'|trans }}</option>
+                                <option value="gmail">{{ 'Gmail'|trans }}</option>
+                                <option value="yahoo">{{ 'Yahoo'|trans }}</option>
+                            </select>
+                        {% endif %}
+                    </div>
+
+                    {# Delivery Status #}
+                    <div class="uv-element-block">
+                        <label>
+                            <div class="uv-checkbox">
+                                {% if configuration.deliveryStatus is defined and configuration.deliveryStatus == true %}
+                                    <input name="deliveryStatus" type="checkbox" checked="">
+                                {% else %}
+                                    <input name="deliveryStatus" type="checkbox">
+                                {% endif %}
+
+                                <span class="uv-checkbox-view"></span>
+                            </div>
+
+                            <span class="uv-checkbox-label">{{ 'Enable Delivery'|trans }}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="uv-hr"></div>
+
+                <div class="swiftmailer-transport-setting-references">
+
+                </div>
+
+				<input class="uv-btn" href="#" value="{{ 'Save Changes'|trans }}" type="submit">
+			</form>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+    <script id="swft_conf_template_gmail" type="text/template">
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Email'|trans }}</label>
+
+            <div class="uv-field-block">
+                <% if (typeof(username) != 'undefined' && username != '') { %>
+                    <input type="text" name="username" class="uv-field" value="<%- username %>" />
+                <% } else { %>
+                    <input type="text" name="username" class="uv-field" value="" />
+                <% } %>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Password'|trans }}</label>
+
+            <div class="uv-field-block">
+                <input type="password" name="password" class="uv-field" value="" />
+            </div>
+        </div>
+	</script>
+
+    <script id="swft_conf_template_yahoo" type="text/template">
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Email'|trans }}</label>
+
+            <div class="uv-field-block">
+                <% if (typeof(username) != 'undefined' && username != '') { %>
+                    <input type="text" name="username" class="uv-field" value="<%- username %>" />
+                <% } else { %>
+                    <input type="text" name="username" class="uv-field" value="" />
+                <% } %>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Password'|trans }}</label>
+
+            <div class="uv-field-block">
+                <input type="password" name="password" class="uv-field" value="" />
+            </div>
+        </div>
+	</script>
+
+    <script id="swft_conf_template_custom" type="text/template">
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Server'|trans }}</label>
+
+            <div class="uv-field-block">
+                <% if (typeof(host) != 'undefined' && host != '') { %>
+                    <input type="text" name="host" class="uv-field" value="<%- host %>" />
+                <% } else { %>
+                    <input type="text" name="host" class="uv-field" value="" />
+                <% } %>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Email'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <% if (typeof(username) != 'undefined' && username != '') { %>
+                    <input type="text" name="username" class="uv-field" value="<%- username %>" />
+                <% } else { %>
+                    <input type="text" name="username" class="uv-field" value="" />
+                <% } %>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Password'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <input type="password" name="password" class="uv-field" value="" />
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Port'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <% if (typeof(port) != 'undefined' && port != '') { %>
+                    <input type="text" name="port" class="uv-field" value="<%- port %>" />
+                <% } else { %>
+                    <input type="text" name="port" class="uv-field" value="465" />
+                <% } %>
+            </div>
+        </div>
+
+        {# Optional Fields #}
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Encryption Mode'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <select name="encryptionMode" class="uv-select">
+                    <option value="ssl" 
+                        <% if (typeof(encryption) == 'undefined' || encryption == 'ssl') { print('selected'); } %>
+                    >{{ 'ssl'|trans }}</option>
+                    <option value="tls" 
+                        <% if (typeof(encryption) != 'undefined' && encryption == 'tls') { print('selected'); } %>
+                    >{{ 'tls'|trans }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Authentication Mode'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <select name="authenticationMode" class="uv-select">
+                    <option value="login"
+                        <% if (typeof(authentication) == 'undefined' || authentication == 'login') { print('selected'); } %>
+                    >{{ 'login'|trans }}</option>
+                    <option value="plain"
+                        <% if (typeof(authentication) != 'undefined' && authentication == 'plain') { print('selected'); } %>
+                    >{{ 'Plain'|trans }}</option>
+                    <option value="cram-md5"
+                        <% if (typeof(authentication) != 'undefined' && authentication == 'cram-md5') { print('selected'); } %>
+                    >{{ 'Cram-MD5'|trans }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Sender Address'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <% if (typeof(senderAddress) != 'undefined' && senderAddress != '') { %>
+                    <input type="text" name="senderAddress" class="uv-field" value="<%- senderAddress %>" />
+                <% } else { %>
+                    <input type="text" name="senderAddress" class="uv-field" value="" />
+                <% } %>
+            </div>
+        </div>
+
+        <div class="uv-element-block">
+            <label class="uv-field-label">{{ 'Delivery Address'|trans }}</label>
+            
+            <div class="uv-field-block">
+                <% if (typeof(deliveryAddress) != 'undefined' && deliveryAddress != '') { %>
+                    <input type="text" name="deliveryAddress" class="uv-field" value="<%- deliveryAddress %>" />
+                <% } else { %>
+                    <input type="text" name="deliveryAddress" class="uv-field" value="" />
+                <% } %>
+            </div>
+        </div>
+	</script>
+
+	<script type="text/javascript">
+		$(function () {
+			var SwiftMailerSettingsModel = Backbone.Model.extend({
+                idAttribute: "id",
+                validation: {
+                    username: [
+                        {
+                            required: true,
+                            msg: '{{ "Please specify a valid email address"|trans }}'
+                        },
+                        {
+                            pattern: /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+                            msg: '{{ "Please specify a valid email address"|trans }}'
+                        }
+                    ],
+                    password: function(value) {
+                        if (value == undefined || value == '') {
+                            return "Please enter the password associated with your email address";
+                        }
+                    },
+                    host: function(value) {
+                        if ('smtp' == this.get('transport')) {
+                            if (value == undefined || value == '') {
+                                return "Please enter your server host address";
+                            }
+                        }
+                    },
+                    port: function(value) {
+                        if ('smtp' == this.get('transport')) {
+                            if (value == undefined || value == '') {
+                                return "Please specify a port number to connect with your mail server";
+                            }
+                        }
+                    }
+				}
+			});
+
+			var SwiftMailerSettingsView = Backbone.View.extend({
+                swft_conf_template_custom: _.template($("#swft_conf_template_custom").html()),
+                swft_conf_template_gmail: _.template($("#swft_conf_template_gmail").html()),
+                swft_conf_template_yahoo: _.template($("#swft_conf_template_yahoo").html()),
+				events: {
+                    'change #cta-swiftmailer-transport': 'ctaTransportType',
+					'click .uv-btn' : "validateSubmission",
+				},
+				initialize: function() {
+                    Backbone.Validation.bind(this);
+                    this.renderTransportConfigurations();
+				},
+                ctaTransportType: function(e) {
+                    if (true) {
+                        this.model.set('transport', $(e.target).val());
+                    }
+
+                    this.renderTransportConfigurations();
+                },
+                renderTransportConfigurations: function() {
+                    switch (this.model.get('transport')) {
+                        case 'smtp':
+                            $('.swiftmailer-transport-setting-references').html(this.swft_conf_template_custom(this.model.attributes));
+                            break;
+                        case 'gmail':
+                            $('.swiftmailer-transport-setting-references').html(this.swft_conf_template_gmail(this.model.attributes));
+                            break;
+                        case 'yahoo':
+                            $('.swiftmailer-transport-setting-references').html(this.swft_conf_template_yahoo(this.model.attributes));
+                            break;
+                        default:
+                            break;
+                    }
+                },
+                validateSubmission: function(e) {
+                    e.preventDefault();
+                    this.model.set(this.$el.serializeObject());
+
+			        if (this.model.isValid(true)) {
+			            this.$el.submit();
+			        }
+                }
+			});
+
+            {% if configuration is defined and configuration is not empty %}
+                new SwiftMailerSettingsView({
+                    el: $("#swiftmailer-settings-view"),
+                    model: new SwiftMailerSettingsModel($.parseJSON('{{ configuration|json_encode|raw }}'))
+                });	
+            {% else %}
+                new SwiftMailerSettingsView({
+                    el: $("#swiftmailer-settings-view"),
+                    model: new SwiftMailerSettingsModel({ transport: 'smtp' })
+                });	
+            {% endif %}
+		});
+	</script>
+{% endblock %}

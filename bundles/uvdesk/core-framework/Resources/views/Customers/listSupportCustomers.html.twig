@@ -1,0 +1,408 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Customers'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\CoreFrameworkBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Users' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Customers'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+                    <!--Sort by-->
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Sort By:'|trans }} {{ 'Created At'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Sort By'|trans }}</label>
+								<ul>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--Sort by-->
+
+                    <!--Filter By Status-->
+                    <div class="uv-dropdown filter-by-status">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Status:'|trans }} {{ 'All'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Status'|trans }}</label>
+								<ul>
+									<li class="uv-drop-list-active"><a href="#">{{ 'All'|trans }}</a></li>
+									<li><a href="#" data-id="1">{{ 'Active'|trans }}</a></li>
+									<li><a href="#" data-id="0">{{ 'Disabled'|trans }}</a></li>
+                                    <li><a href="#" data-id="starred">{{ 'Starred'|trans }}</a></li>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--//Filter By Status-->
+                </div>
+				<div class="uv-action-bar-col-rt">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+					<!-- Add Button -->
+					<a href="{{path('helpdesk_member_create_customer_account')}}" type="button" class="uv-btn-action">
+						<span class="uv-icon-add"></span>
+						{{ "New Customer"|trans }}
+					</a>
+					<!--// Add Button -->
+				</div>
+            </div>
+            <!--//Action Bar-->
+
+            <div class="uv-table uv-list-view">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ "Name"|trans }}</th>
+                            <th>{{ "Email"|trans }}</th>
+                            <th>{{ "Open Tickets"|trans }}</th>
+                            <th>{{ "Source"|trans }}</th>
+                            <th>{{ "Status"|trans }}</th>
+                            <th>{{ "Stared"|trans }}</th>
+                            <th class="uv-last">{{ "Action"|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<!-- Sorting Template -->
+	<script id="customer_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'userInstance.createdAt') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/userInstance.createdAt/<% if(sort == 'userInstance.createdAt') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="userInstance.createdAt">
+				{% trans %}Created At{% endtrans %}
+				<% if(sort == 'userInstance.createdAt') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/name/<% if(sort == 'name') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="name">
+				{% trans %}Name{% endtrans %}
+				<% if(sort == 'name') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'a.email') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%= queryString %>/<% } %><% if(page) { %>page/<%= page %><% } else { %>page/1<% } %>/sort/a.email/<% if(sort == 'a.email') { %><% if(direction) { %>direction/<%= direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.email">
+				{% trans %}Email{% endtrans %}
+				<% if(sort == 'a.email') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Customer list item template -->
+	<script id="customer_list_item_tmp" type="text/template">
+		 <td data-value="{{ 'Name'|trans }}">
+			<% if(smallThumbnail != null) { %>
+				<img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}<%= smallThumbnail.slice(1) %>" alt=""/>
+			<% } else { %>
+				<img src="{{ asset(default_customer_image_path) }}" alt=""/>
+			<% } %>
+            <a href="{{ path('helpdesk_member_ticket_collection') }}#customer/<%= id %>">
+			    <%- name %>
+            </a>
+		</td>
+		<td data-value="{{ 'Email'|trans }}"><%- email %></td>
+        <td data-value="{{ 'Open Tickets'|trans }}">
+            <%= count %> {% trans %}Open Tickets{% endtrans %}
+        </td>
+        <td data-value="{{ 'Source'|trans }}">
+            <% if(source == 'website') { %>
+				<span class="uv-channel uv-channel-web"></span>
+			<% } else if(source == 'email') {  %>
+				<span class="uv-channel uv-channel-email"></span>
+			<% } else if(source == 'facebook') {  %>
+				<span class="uv-channel uv-channel-facebook"></span>
+			<% } else if(source == 'twitter') {  %>
+				<span class="uv-channel uv-channel-twitter"></span>
+			<% } else if(source == 'ebay') {  %>
+				<span class="uv-channel uv-channel-ebay"></span>
+			<% } else if(source == 'disqus-engage') {  %>
+				<span class="uv-channel uv-channel-disqus-engage"></span>
+			<% } else if(source == 'Magento 1') {  %>
+				<span class="uv-channel uv-channel-magento"></span>
+			<% } else if(source == 'Magento 2') {  %>
+				<span class="uv-channel uv-channel-magento"></span>
+			<% } else if(source == 'Wordpress') {  %>
+				<span class="uv-channel uv-channel-wordpress"></span>
+			<% } else if(source == 'Opencart') {  %>
+				<span class="uv-channel uv-channel-opencart"></span>
+			<% } else {  %>
+				<span class="uv-channel uv-channel-web"></span>
+			<% } %>
+        </td>
+		<td data-value="{{ 'Status'|trans }}">
+			<% if(isActive) { %>
+            	<span class="uv-text-success">{{ 'Active'|trans }}</span>
+            <% } else { %>
+            	<span class="uv-text-danger">{{ 'Disabled'|trans }}</span>
+        	<% } %>
+		</td>
+        <td data-value="{{ 'Stared'|trans }}">
+            <span class="uv-star <% if(isStarred) { %>uv-star-active<% } %>"></span>
+        </td>
+		<td data-value="{{ 'Action'|trans }}" class="uv-last">
+			<a href="<%= path.replace('replaceId', id) %>" class="uv-btn-stroke edit-customer">
+				{{ "Edit"|trans }}
+			</a>
+			<div class="uv-btn-stroke delete-customer">
+				{{ "Delete"|trans }}
+			</div>
+		</td>
+    </script>
+	<!-- //Customer list item template -->
+
+	<script type="text/javascript">
+		 var path = "{{ path('helpdesk_member_manage_customer_account', {'customerId': 'replaceId' }) }}";
+
+		$(function () {
+			var globalMessageResponse = "";
+
+			var CustomerModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var CustomerCollection = AppCollection.extend({
+				model : CustomerModel,
+				url : "{{ path('helpdesk_member_manage_customer_account_collection_xhr') }}",
+				filterParameters : {
+                    "starred" : "",
+					"isActive" : "",
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.customers;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var customerListView = new CustomerList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(customerCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			}); 
+
+			var CustomerItem = Backbone.View.extend({
+				tagName : "tr",
+				template : _.template($("#customer_list_item_tmp").html()),
+				events : {
+					'click .delete-customer' : "confirmRemove",
+                    'click .uv-star' : "updateStar"
+				},
+				render : function() {
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						customerCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('helpdesk_member_remove_customer_account_xhr') }}/"+this.model.get('id'),
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							globalMessageResponse = response;
+							customerCollection.syncData();
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				},
+                updateStar : function(e) {
+                    if(Backbone.$(e.currentTarget).hasClass('uv-star-active'))
+                        Backbone.$(e.currentTarget).removeClass('uv-star-active');
+                    else
+                        Backbone.$(e.currentTarget).addClass('uv-star-active');
+
+                    this.model.save({id:this.model.id}, {
+                        patch: true,
+                       url : "{{ path('helpdesk_member_bookmark_customer_xhr') }}",
+                        success: function (model, response, options) {
+
+                        },
+                        error: function (model, xhr, options) {
+                            if(url = xhr.getResponseHeader('Location'))
+                                window.location = url;
+                        }
+                    });
+                }
+			});
+
+			var CustomerList = Backbone.View.extend({
+				el : $(".uv-list-view table tbody"),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.find("tr").remove();
+					if(customerCollection.length) {
+						_.each(customerCollection.models, function (item) {
+							this.renderCustomer(item);
+						}, this);
+					} else {
+						this.$el.append("<tr style='text-align: center;'><td colspan='7'>{% trans %}No Record Found{% endtrans %}</td></tr>")
+					}
+				},
+				renderCustomer : function (item) {
+					var customerItem = new CustomerItem({
+						model: item
+					});
+					this.$el.append(customerItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'userInstance.createdAt',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Created At{% endtrans %}",
+				template : _.template($("#customer_list_sorting_tmp").html()),
+				filterByStatus : function(e) {
+					e.preventDefault()
+					this.collection.reset();
+					this.collection.state.currentPage = null;
+					this.collection.setSorting(null, null, {full: false});
+					if(Backbone.$(e.currentTarget).find('a').attr('data-id') != 'starred') {
+						this.collection.filterParameters.starred = null;
+						this.collection.filterParameters.isActive = Backbone.$(e.currentTarget).find('a').attr('data-id');
+					} else {
+						this.collection.filterParameters.isActive = null;
+						this.collection.filterParameters.starred = 1;
+					}
+					var queryString = app.appView.buildQuery($.param(this.collection.getValidParameters()));
+					router.navigate(queryString, {trigger: true});
+				},
+			})
+
+			var customerCollection = new CustomerCollection();
+
+			var filter = new Filter({
+				collection : customerCollection
+			});
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'isActive/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterCustomerByStatus',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+                    'starred(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByStarred',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('', '');
+					customerCollection.state.currentPage = null;
+					filter.sortCollection();
+					customerCollection.syncData();
+				},
+				paginate : function(number, sortField, order) {
+					this.resetParams('', '');
+					customerCollection.state.currentPage = number;
+					filter.sortCollection(sortField, order);
+					customerCollection.syncData();
+				},
+				filterCustomerByStatus: function(status, query, number, sortField, order) {
+					this.resetParams(status,query);
+					customerCollection.state.currentPage = number;
+					filter.sortCollection(sortField, order);
+					customerCollection.syncData();
+				},
+				filterByQuery : function(query, number, sortField, order) {
+					this.resetParams('',query);
+					customerCollection.state.currentPage = number;
+					filter.sortCollection(sortField, order);
+					customerCollection.syncData();
+				},
+                filterByStarred : function(query, number, sortField, order) {
+                	this.resetParams('starred', query);
+					customerCollection.state.currentPage = number;
+					filter.sortCollection(sortField, order);
+					customerCollection.syncData();
+                },
+				resetParams : function(status, query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+                    if(status == "starred") {
+                        customerCollection.filterParameters.starred = 1;
+                        customerCollection.filterParameters.isActive = null;
+                        $(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} {% trans %}Starred{% endtrans %}");
+                    } else {
+                        customerCollection.filterParameters.starred = null;
+                        customerCollection.filterParameters.isActive = status;
+                        var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
+                        $(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+                    }
+					customerCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

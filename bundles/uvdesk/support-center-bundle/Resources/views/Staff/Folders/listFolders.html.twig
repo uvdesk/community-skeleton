@@ -1,0 +1,410 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}
+	{{ 'Folders'|trans }}
+{% endblock %}
+
+{% block pageContent %}
+	<style>
+		.uv-folders input[type='radio'] {
+			display: none;
+		}
+		.uv-inner-section .folder-list .uv-app-list-brick .uv-app-list-brick-lt{
+    		//background: none;
+		}
+		.uv-inner-section .folder-list .uv-app-list-brick .uv-app-list-brick-lt img{
+    		height: 90px;
+			width: 100%;
+		}
+		.uv-inner-section .folder-list .uv-app-list-brick .uv-app-list-brick-lt.uv-without-img{
+    		background-image: linear-gradient(to right, #7c70f4 0%, #ba81f1 100%);
+		}
+		.uv-folders .uv-aside-brick div {
+			margin-top: 15px;
+		}
+		.uv-folders p {
+			margin: 3px 0px 3px 0px;
+		}
+		.uv-app-list-brick-lt.uv-without-img div {
+			width: 90px;
+			height: 90px;
+			background-image: url(../../../bundles/webkuldefault/images/uvdesk-kb-sprite.svg);
+			background-position: 0px 0px;
+			display: inline-block;
+			vertical-align: middle;
+			overflow: hidden;
+		}
+		.uv-app-list-brick-lt.uv-without-img div{
+			background-position: -90px 0px;
+		}
+		div.uv-manage-gap{
+
+		}
+		.uv-app-list-brick-rt{
+    		word-break: break-word;
+		}
+	</style>
+
+	<div class="uv-inner-section">
+		{# Append Panel Aside #}
+		{% set asideTemplate = 'Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\AsideTemplate' %}
+		{% set asideSidebarReference = 'Webkul\\UVDesk\\SupportCenterBundle\\UIComponents\\Dashboard\\Panel\\Sidebars\\Knowledgebase' %}
+
+		{{ uvdesk_extensibles.getRegisteredComponent(asideTemplate).renderSidebar(asideSidebarReference) | raw }}
+
+		<div class="uv-view {% if app.request.cookies and app.request.cookies.get('uv-asideView') %}uv-aside-view{% endif %}">
+			<h1>
+				{{ 'Folders'|trans }}
+			</h1>
+			<div class="uv-action-bar">
+                <div class="uv-action-bar-col-lt">
+                    <!--Sort by-->
+                    <div class="uv-dropdown sort">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Sort By:'|trans }} {{ 'Created At'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Sort By'|trans }}</label>
+								<ul>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--Sort by-->
+
+                    <!--Filter By Status-->
+                    <div class="uv-dropdown filter-by-status">
+                        <div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5">
+                            {{ 'Status:'|trans }} {{ 'All'|trans }}
+                        </div>
+                        <div class="uv-dropdown-list uv-bottom-left">
+							<div class="uv-dropdown-container">
+								<label>{{ 'Status'|trans }}</label>
+								<ul>
+									<li class="uv-drop-list-active"><a href="#">{{ 'All'|trans }}</a></li>
+									<li><a href="#" data-id="1">{{ 'Published'|trans }}</a></li>
+									<li><a href="#" data-id="0">{{ 'Draft'|trans }}</a></li>
+								</ul>
+							</div>
+                        </div>
+                    </div>
+                    <!--//Filter By Status-->
+                </div>
+				<div class="uv-action-bar-col-rt">
+					<input type="text" class="uv-search-inline uv-vertical-align uv-margin-right-15" placeholder="{{ 'Search'|trans }}">
+					<!-- Add Button -->
+					
+					<a href="{{ path('helpdesk_member_knowledgebase_create_folder') }}" type="button" class="uv-btn-action" id="uv-add-folder">
+						<span class="uv-icon-add"></span>
+						{{ "New Folder"|trans }}
+					</a>
+					<!--// Add Button -->
+				</div>
+            </div>
+     
+            <div class="uv-table uv-list-view">
+				<div class="uv-app-screen">
+                    <div class="folder-list uv-app-list-channels">
+					</div>
+                </div>
+				<div class="navigation"></div>
+            </div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	{{ parent() }}
+
+	<!-- Sorting Template -->
+	<script id="entity_list_sorting_tmp" type="text/template">
+        <li class="<% if(sort == 'a.dateAdded') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/a.dateAdded/<% if(sort == 'a.dateAdded') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.dateAdded">
+				{% trans %}Created At{% endtrans %}
+				<% if(sort == 'a.dateAdded') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+
+	    <li class="<% if(sort == 'a.name') { %>uv-drop-list-active<% } %>">
+            <a href="#<% if(queryString != '') { %><%- queryString %>/<% } %><% if(page) { %>page/<%- page %><% } else { %>page/1<% } %>/sort/a.name/<% if(sort == 'a.name') { %><% if(direction) { %>direction/<%- direction %><% } else { %>direction/desc<% } %><% } else { %>direction/asc<% } %>" data-field="a.name">
+				{% trans %}Name{% endtrans %}
+				<% if(sort == 'a.name') { %>
+					<span class="uv-sorting <% if(direction == 'asc') { %> descend <% } else { %> ascend <% } %>"></span>
+				<% } %>
+			</a>
+        </li>
+	</script>
+	<!-- //Sorting Template -->
+
+	<!-- Folder list item template -->
+	<script id="entity_list_item_tmp" type="text/template">
+		<a href="<%- path.replace('replaceId', id) %>">
+			<% if(solutionImage) { %>
+				<div class="uv-app-list-brick-lt">
+					<img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}<%= solutionImage %>"/>					
+				</div>
+			<% }else{ %>
+				<div class="uv-app-list-brick-lt uv-without-img"><div></div></div>
+			<% } %>
+		</a>
+        <div class="uv-app-list-brick-rt">
+            <p><a href="<%- path.replace('replaceId', id) %>" data-target="uv-task-view" <% if(name.length > 20){ %> data-toggle="tooltip" data-placement="top" title="<%- app.appView.sanitize(name) %>" <% } %> ><%- name %></a></p>
+		    <p>
+			<% if(parseInt(categoriesCount)){ %><a href="<%- pathCategory.replace('replaceId', id) %>">
+			<%- categoriesCount %> {{ 'Categories'|trans }}</a> <% }else{ %> <a href="<%- pathCategory.replace('replaceId', id) %>">
+			<%- categoriesCount %> {{ 'Categories'|trans }}</a><% } %> </p>
+		    <p>
+				<% if(parseInt(articleCount)){ %><a href="<%- pathArticle.replace('replaceId', id) %>"><%- articleCount %> {{ 'Articles'|trans }}</a> <% }else{ %>
+				<span class="uv-text-danger uv-cursor delete-folder uv-pull-right" data-id="<%- id %>">{{ 'delete'|trans }}</span>
+				<a href="<%- pathArticle.replace('replaceId', id) %>"><%- articleCount %> {{ 'Articles'|trans }}</a><% } %>
+			</p>
+        </div>
+    </script>
+	<!-- //Folder list item template -->
+
+	<script id="no_result_tmp" type="text/template">
+        <div class="uv-app-screen">
+			<div class="uv-app-splash" style="text-align: center;">
+				<img class="uv-app-splash-image" src="{{ asset('bundles/uvdesksupportcenter/images/splash/knowledgebase-splash.png') }}" alt="Folders">
+				<% if(!window.location.hash) { %>
+					<h2 class="uv-margin-top-10">{{"Create Knowledgebase Folder"|trans}}</h2>
+					<p>{{"You did not add any folder to your Knowledgebase yet, Create your first Folder and start adding Categories/Articles to make your customers help themselves."|trans}}</p>
+				<% } else { %>
+					<p>
+						{{ "You did not have any folder for current filter(s)."|trans }}
+						<a href="#">{{ 'Clear Filters'|trans }}</a>
+					</p>
+				<% } %>
+			</div>
+		</div>
+    </script>
+
+	<script type="text/javascript">
+		var path = "{{ path('helpdesk_member_knowledgebase_update_folder', {'folderId': 'replaceId' }) }}";
+		var pathCategory = "{{ path('helpdesk_member_knowledgebase_folder_categories_collection', {'solution': 'replaceId' }) }}";
+		var pathArticle = "{{ path('helpdesk_member_knowledgebase_folder_articles_collection', {'solution': 'replaceId' }) }}";
+		var pathLayout = "{{ path('helpdesk_member_knowledgebase_update_theme_xhr') }}";
+		$(function () {
+			var globalMessageResponse = "";
+
+			var FolderModel = Backbone.Model.extend({
+				idAttribute : "id"
+			});
+
+			var FolderCollection = AppCollection.extend({
+				model : FolderModel,
+				url : "{{ path('helpdesk_member_knowledgebase_folders_collection_xhr') }}",
+				filterParameters : {
+					"isActive" : "",
+					"search" : ""
+				},
+				parseRecords: function (resp, options) {
+					return resp.results;
+				},
+				syncData : function() {
+					app.appView.showLoader();
+					this.fetch({
+						data : this.getValidParameters(),
+						reset: true,
+						success: function(model, response) {
+							app.appView.hideLoader();
+							var folderListView = new FolderList();
+							app.pager.paginationData = response.pagination_data;
+
+							var url = app.pager.paginationData.url;
+							if(folderCollection.length == 0 && app.pager.paginationData.current != "0")
+								router.navigate(url.replace('replacePage', app.pager.paginationData.last),{trigger: true});
+							else {
+								app.pager.render();
+							}
+							if(globalMessageResponse)
+								app.appView.renderResponseAlert(globalMessageResponse);
+							globalMessageResponse = null;
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+						}
+					});
+				}
+			});
+
+			var FolderItem = Backbone.View.extend({
+				tagName : "div",
+				className : "uv-app-list-brick",
+				template : _.template($("#entity_list_item_tmp").html()),
+				events : {
+					'click .delete-folder' : "confirmRemove",
+				},
+				render : function() {
+					console.log(this.model.toJSON());
+					this.$el.html(this.template(this.model.toJSON()));
+					return this;
+				},
+				unrender : function(response) {
+					if(response.alertMessage != undefined) {
+						folderCollection.syncData();
+						app.appView.renderResponseAlert(response)
+					}
+				},
+				confirmRemove: function(e) {
+					e.preventDefault();
+					app.appView.openConfirmModal(this)
+				},
+				removeItem : function (e) {
+					app.appView.showLoader();
+					self = this;
+					this.model.destroy({
+						url : "{{ path('helpdesk_member_knowledgebase_update_folder_xhr') }}/"+this.model.get('id'),
+						method:"delete",
+						success : function (model, response, options) {
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+							folderCollection.syncData();
+							if(typeof(response.allowedToAdd) != 'undefined' && response.allowedToAdd) {
+								$('#upgrade-plan-message').hide();
+								$('#uv-add-folder').show();
+							}
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						}
+					});
+				}
+			});
+
+			var FolderList = Backbone.View.extend({
+				el : $(".uv-list-view div.folder-list"),
+				noResultTemplate : _.template($("#no_result_tmp").html()),
+				initialize : function() {
+					this.render();
+				},
+				render : function () {
+					this.$el.html('');
+					this.$el.find(".uv-app-list-brick").remove();
+					var isEmptyFlag = 0;
+					if(folderCollection.length) {
+						isEmptyFlag++;
+						_.each(folderCollection.models, function (item) {
+							this.renderFolder(item);
+						}, this);
+					}
+
+                    if(!isEmptyFlag) {
+                        this.$el.append(this.noResultTemplate())
+                    }
+				},
+				renderFolder : function (item) {
+					var folderItem = new FolderItem({
+						model: item
+					});
+					this.$el.append(folderItem.render().el);
+				}
+			});
+
+			var Filter = app.Filter.extend({
+				defaultSortIndex: 'a.dateAdded',
+				sortText: "{% trans %}Sort By:{% endtrans %} ",
+				defaultSortText: "{% trans %}Sort By:{% endtrans %} {% trans %}Created At{% endtrans %}",
+				template : _.template($("#entity_list_sorting_tmp").html())
+			})
+
+			var folderCollection = new FolderCollection();
+
+			var filter = new Filter({
+				collection : folderCollection
+			});
+
+			var PageView = Backbone.View.extend({
+                el: '.uv-folders',
+                events : {
+					"change input[type='radio']": 'layoutChanged'
+                },
+                layoutChanged: function(e) {
+                    var currentElement = Backbone.$(e.currentTarget);
+                    $('.uv-layout-icon').removeClass('uv-layout-icon-active');
+
+                    $("label[for='" + currentElement.attr('id') + "']").addClass('uv-layout-icon-active');
+
+					app.appView.showLoader();
+
+					$.ajax({
+						url : pathLayout,
+						type : 'POST',
+						data: {"layout" : Backbone.$(e.currentTarget).val(), "actionType": 'layoutUpdate'},
+						dataType : 'json',
+						success: function (response) {
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+						},
+						error: function (model, xhr, options) {
+							if(url = xhr.getResponseHeader('Location'))
+								window.location = url;
+							var response = warningResponse;
+							if(xhr.responseJSON)
+								response = xhr.responseJSON;
+							app.appView.hideLoader();
+							app.appView.renderResponseAlert(response);
+                        }
+					});
+                },
+            });
+
+			var pageView = new PageView();
+
+			Router = Backbone.Router.extend({
+				routes: {
+					'page/:number(/sort/:sortField)(/direction/:order)' : 'paginate',
+					'isActive/:status(/search/:query)(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterFolderByStatus',
+					'search/:query(/page/:number)(/sort/:sortField)(/direction/:order)' : 'filterByQuery',
+					'' : 'initializeList'
+				},
+				initializeList : function() {
+					this.resetParams('', '');
+					folderCollection.state.currentPage = null;
+					filter.sortCollection();
+					folderCollection.syncData();
+				},
+				paginate : function(number,sortField,order) {
+					this.resetParams('', '');
+					folderCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					folderCollection.syncData();
+				},
+				filterFolderByStatus: function(status,query,number,sortField,order) {
+					this.resetParams(status,query);
+					folderCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					folderCollection.syncData();
+				},
+				filterByQuery : function(query,number,sortField,order) {
+					this.resetParams('',query);
+					folderCollection.state.currentPage = number;
+					filter.sortCollection(sortField,order);
+					folderCollection.syncData();
+				},
+				resetParams : function(status, query) {
+					if(query != null)
+						query = query.replace(/\+/g,' ');
+					folderCollection.filterParameters.isActive = status;
+					var statusText = status ? $(".filter-by-status a[data-id='" + status + "']").text() : "{% trans %}All{% endtrans %}";
+					$(".filter-by-status .uv-dropdown-btn").text("{% trans %}Status:{% endtrans %} " + statusText);
+					folderCollection.filterParameters.search = query;
+					$(".uv-search-inline").val(query);
+				}
+			});
+
+			router = new Router();
+			Backbone.history.start({push_state:true});
+		});
+	</script>
+{% endblock %}

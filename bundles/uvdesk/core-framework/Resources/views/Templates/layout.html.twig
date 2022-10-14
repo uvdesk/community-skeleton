@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}HelpDesk{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" sizes="16x16 32x32 48x48" href="{{ asset('favicon.ico') }}" />
+
+        <!-- Stylesheets -->
+        <link href="{{ asset('bundles/uvdeskcoreframework/css/_uikit.css') }}" type="text/css" rel="stylesheet" media="all" />
+        <link href="{{ asset('bundles/uvdeskcoreframework/css/_custom.css') }}" type="text/css" rel="stylesheet" media="all" />
+        <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" type="text/css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        {% set websiteConfiguration = user_service.getWebsiteConfiguration('knowledgebase') %}
+        {% set website = user_service.getWebsiteDetails('helpdesk') %}
+
+        {{ include('@UVDeskCoreFramework/Templates/lightskin.html.twig') }}
+
+        <!-- Custom Stylesheets -->
+        {% for stylesheet in uvdesk_extensibles.getRegisteredComponent('Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\Dashboard').getDashboardTemplate().getStylesheetResources() %}
+            <link href="{{ asset(stylesheet) }}" type="text/css" rel="stylesheet" media="all" />
+        {% endfor %}
+        
+        {% block templateCSS %}{% endblock %}
+
+        <!-- Scripts -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.1/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.validation/0.11.5/backbone-validation-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.paginator/2.0.8/backbone.paginator.min.js"></script>
+        <script src="{{ asset('bundles/uvdeskcoreframework/js/_dropdown.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.2.0/d3.min.js"></script>
+        <script src="{{ asset('bundles/uvdeskcoreframework/js/viewer.js') }}"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.0/moment.min.js"></script>	
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    </head>
+
+    <body>
+        <div class="uv-notifications-wrapper">
+            <noscript>
+                <div class="uv-notification page-load uv-error">
+                    <p>{% trans %}Your browser does not support JavaScript or You disabled JavaScript, Please enable those !{% endtrans %}</p>
+                </div>
+                <style>.uv-loader-view {display: none;}</style>
+            </noscript>
+
+            {% if uvdesk_service.requestHeadersSent() == false %}
+                {% for flashMessage in app.session.flashbag.get('success') %}
+                    <div class="uv-notification page-load uv-success">
+                        <span class="uv-notification-close"></span>
+                        <p>{{ flashMessage|raw }}</p>
+                    </div>
+                {% endfor %}
+                
+                {% for flashMessage in app.session.flashbag.get('warning') %}
+                    <div class="uv-notification page-load uv-error">
+                        <span class="uv-notification-close"></span>
+                        <p>{{ flashMessage|raw }}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <div class="uv-pop-up-overlay" id="confirm-modal">
+            <div class="uv-pop-up-box uv-pop-up-slim">
+                <span class="uv-pop-up-close"></span>
+                <h2>{{ 'Confirm Action'|trans }}</h2>
+                <p>{{ 'Are you sure? You want to perform this action.'|trans }}</p>
+
+                <div class="uv-pop-up-actions">
+                    <a href="#" class="uv-btn uv-btn-error confirm">{{ 'Confirm'|trans }}</a>
+                    <a href="#" class="uv-btn cancel">{{ 'Cancel'|trans }}</a>
+                </div>
+            </div>
+        </div>
+
+        {% set currentUser = user_service.getSessionUser() %}
+        {% if currentUser is not empty and currentUser.getAgentInstance() is not empty %}
+            {% set currentUserDetails = currentUser.getAgentInstance().getPartialDetails() %}
+        {% endif %}
+
+        {% block sidebar %}
+            {% if currentUser is defined and currentUser is not empty %}
+                {% include "@UVDeskCoreFramework/Templates/sidebar.html.twig" %}
+            {% endif %}
+        {% endblock %}
+
+        {% block pageWrapper %}
+            <div class="uv-paper">
+                {% block pageHeader %}
+                    {% include "@UVDeskCoreFramework/Templates/header.html.twig" %}
+                {% endblock %}
+
+                <div class="uv-wrapper">
+                    <div class="uv-container">
+                        {% block pageContent %}{% endblock %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        
+        {% block footer %}
+            <script src="{{ asset('bundles/uvdeskcoreframework/js/_common.js') }}"></script>
+            {% include "@UVDeskCoreFramework/Templates/pagination.html.twig" %}
+
+            {# Confirm Action Dialog #}
+            <div class="uv-pop-up-overlay" id="confirm-modal">
+                <div class="uv-pop-up-box uv-pop-up-slim">
+                    <span class="uv-pop-up-close"></span>
+                    <h2>{{ 'Confirm Action'|trans }}</h2>
+                    <p>{{ 'Are you sure? You want to perform this action.'|trans }}</p>
+
+                    <div class="uv-pop-up-actions">
+                        <a href="#" class="uv-btn uv-btn-error confirm">{{ 'Confirm'|trans }}</a>
+                        <a href="#" class="uv-btn cancel">{{ 'Cancel'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+
+            {# Loader Template #}
+            <script type="text/template" id="loader-tmp">
+                <div class="uv-loader">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </script>
+
+            {# Full View Loader Template #}
+            <script type="text/template" id="full-view-loader">
+                <div class="uv-loader-view">
+                    <div class="uv-loader">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </script>
+
+            {# Notification Template #}
+            <script type="text/template" id="notification-template">
+                <div class="uv-notification <% if(alertClass == 'danger') { %>uv-error<% } else { %> <%= 'uv-' + alertClass %> <% } %>">
+                    <span class="uv-notification-close"></span>
+                    <p><%= alertMessage %> </p>
+                </div>
+            </script>
+
+            <script type="text/javascript">
+                var warningResponse = {
+                    'alertClass' : 'danger',
+                    'alertMessage' : '{{ "Error : Something went wrong, please try again later"|trans }}',
+                };
+            </script>
+
+        {% endblock %}
+
+        {# Custom Javascript #}
+        {% for javascript in uvdesk_extensibles.getRegisteredComponent('Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\Dashboard').getDashboardTemplate().getJavascriptResources() %}
+            <script src="{{ asset(javascript) }}" type="text/javascript"></script>
+        {% endfor %}
+    </body>
+</html>

@@ -1,0 +1,241 @@
+<script type="text/template" id="action-add">
+	<select class="uv-select uv-select-grouped select-action wfAction" name="actions[<%- keyNo %>][type]" style="width: 200px;">
+		<option value="">{{ 'Select an Action'|trans }}</option>
+		<% for(var key in actions){ %>
+			<option value="<%- key %>" <%- typeof(type) != 'undefined' && type == key ? 'selected' : ''%>><%- actions[key] %></option>
+		<% } %>
+	</select>
+	<span class="apply-action" style="display: inline-block; vertical-align: middle;">
+		<a class="uv-btn-tag remove-action-tr" href="#"><span class="uv-icon-remove-dark-box"></a>
+	</span>
+	<p class="uv-field-message" style="display: none;"></p>
+</script>
+
+<script type="text/template" id="action-value-text">
+	<textarea name="actions[<%- keyNo %>][value]" id="textarea-note" class="uv-field wfActionValue textarea-fix-action" style="width: 200px;"><%- (typeof(value) != 'undefined' && typeof(value) != 'object') ? value : ''%></textarea>
+</script>
+
+<script type="text/template" id="action-value-select">
+	<select name="actions[<%- keyNo %>][value]" class="uv-select uv-select-grouped action-value wfAction" style="width: 200px;"><option>{{ 'Loading...'|trans }}</option></select>
+</script>
+
+<script type="text/template" id="action-value-multi-select">
+	<div class="uv-dropdown asset-visibility action-value-for wfActionMultiple" name="actions[<%- keyNo %>][value][for][]">
+		<div class="uv-dropdown-btn uv-vertical-align uv-margin-right-5" style="width: 200px;">{{ 'Select Option'|trans }}</div>
+		<div class="uv-dropdown-list uv-bottom-left">
+			<div class="uv-dropdown-container">
+				<ul></ul>
+			</div>
+		</div>
+	</div>
+	<select name="actions[<%- keyNo %>][value][value]" class="uv-select uv-select-grouped action-value wfAction" style="width: 200px;"><option>{{ 'Loading...'|trans }}</option></select>
+</script>
+
+<script type="text/template" id="action-value-select-multiple">
+	<select name="actions[<%- keyNo %>][value][]" class="uv-select uv-select-grouped action-value wfAction" multiple="true" style="width: 200px;"><option>{{ 'Loading...'|trans }}</option></select>
+</script>
+
+<script type="text/template" id="action-value-select-option">
+	<option value="<%= id %>" <%- (typeof(value) != 'undefined' && (typeof(value) === 'object' && value.indexOf(id.toString()) > -1)) ? 'selected' : (typeof(value) != 'undefined' && value == id ? 'selected' : '')%>>
+	<% if (name == "Low") { %>
+		{{ "Low"|trans }}
+	<% } else if (name == "Medium") { %>
+		{{ "Medium"|trans }}
+	<%} else if (name == "High") { %>
+		{{ "High"|trans }}
+	<% } else if (name == "Urgent") { %>
+		{{ "Urgent"|trans }}
+	<% } else if (name == "Open") { %>
+		{{ "Open"|trans}}
+	<% } else if (name == "Pending") { %>
+		{{"Pending"|trans}}
+	<%} else if (name == "Answered") { %>
+	 	{{ "Answered"|trans}}
+	<% } else if (name == "Closed") { %>
+		{{ "Closed"|trans}}
+	<%} else if (name == "Resolved") { %>
+		{{ "Resolved"|trans }}
+	<% } else { %>
+		<%= name %>
+	<% } %></option>
+</script>
+
+<script type="text/template" id="action-value-select-for-option">
+	<li class="uv-dropdown-checkbox">
+        <label>
+            <div class="uv-checkbox">
+                <input type="checkbox" id="actions[<%- keyNo %>][value][for][<%- id.toString() %>]" name="actions[<%- keyNo %>][value][for][]" value="<%= id %>" <%- (typeof(value) != 'undefined' && (typeof(value) === 'object' && value.indexOf(id.toString()) > -1)) ? 'checked' : (typeof(value) != 'undefined' && value == id ? 'checked' : '')%> >
+                <span class="uv-checkbox-view uv-checkbox-dwn"></span>
+            </div>
+        </label>
+        <label for="actions[<%- keyNo %>][value][for][<%- id.toString() %>]" style="display: inline;"><%= name %></label>
+    </li>
+</script>
+
+<script type="text/javascript">
+	$('body').on('focusout', '#textarea-note', function(){
+		selection = this;
+		oldContent = selection.value;
+		cursorPosition = $(this).prop("selectionStart");
+		forEditor = false;
+		forSubject = true;
+	});
+	var sB = sB || {};
+	sB.actionRow = 0;
+	sB.JsonActions = JSON.parse("{{ uvdesk_automations.getWorkflowActions(forcedActions is defined and forcedActions ? true : false) | json_encode | e('js') }}");
+	sB.ActionCollection = Backbone.Collection.extend({
+	    baseUrl: "{{ path('helpdesk_member_workflow_action_options_xhr') }}",
+		fetchResult: function(dataMatch, currentEvent) {
+			this.url = this.baseUrl+'/'+dataMatch + (currentEvent ? ('/' + currentEvent) : '');
+			this.reset();
+			return this.fetch();
+		},
+	});
+	sB.ActionSelectView = Backbone.View.extend({
+		tagName: 'div',
+		className: 'uv-field-block workflow-action',
+		actionTemplate: _.template($('#action-add').html()),
+		valueTextTemplate: _.template($('#action-value-text').html()),
+		valueSelectTemplate: _.template($('#action-value-select').html()),
+		valueMultiSelectTemplate: _.template($('#action-value-multi-select').html()),
+		valueSelectMultipleTemplate: _.template($('#action-value-select-multiple').html()),
+		valueSelectOptionTemplate: _.template($('#action-value-select-option').html()),
+		valueSelectForOptionTemplate: _.template($('#action-value-select-for-option').html()),
+		events: {
+			'change .select-action': 'selectOption',
+			'click .remove-action-tr': 'removeTr'
+		},
+		initialize: function() {
+			this.keyNo = sB.actionRow;
+			sB.actionRow++;	
+		},
+		render: function() {
+			this.$el.html(this.actionTemplate(_.extend(this.model, {'keyNo': this.keyNo, 'actions' : sB.JsonActions[(typeof(sB.PrevEvent) != 'undefined' && sB.PrevEvent) ? sB.PrevEvent : 'ticket']})));
+			return this;
+		},
+		removeTr: function(e) {
+	 		if ($('.uv-field-block.workflow-action').length > 1) {
+				this.remove();
+		 		sB.actionselectView.clearFirstTrSpan();
+			} else {
+				$(this.el).find('.uv-field-message').html("{{ 'This field is required'|trans }}").fadeIn(0);
+			}
+		},
+		selectOption: function(e) {
+			if (this.disable) {
+				return;
+			}
+			var value = this.value = e.target.value;
+			if (typeof(sB.actionselectView) != 'undefined') {
+				sB.actionselectView.removeduplicate(e);
+			}
+			this.selectOpt = this.$el.find('.wfAction');
+			this.siblingValue = this.$el.find('.apply-action');
+			// if(value == 'delete_ticket' || value == 'mark_spam')
+			this.siblingValue.find('select, textarea, div').remove();
+			if (value == 'uvdesk.agent.add_note' || value == 'reply') {
+				this.siblingValue.prepend(this.valueTextTemplate(_.extend(this.model, {'keyNo': this.keyNo})));
+			} else if (value != 'uvdesk.ticket.delete' && value != 'uvdesk.ticket.mark_spam' && value) {
+				this.selectOpt.prop('disabled', true);
+				this.disable = true;
+				if (value == 'cc' || value == 'bcc') {
+					this.siblingValue.prepend(this.valueSelectMultipleTemplate(_.extend(this.model, {'keyNo': this.keyNo})));
+				} else if(this.value == 'uvdesk.ticket.mail_group' || this.value == 'uvdesk.ticket.mail_team' || this.value == "uvdesk.ticket.mail_agent") {
+					this.siblingValue.prepend(this.valueMultiSelectTemplate(_.extend(this.model, {'keyNo': this.keyNo})));
+				} else {
+					this.siblingValue.prepend(this.valueSelectTemplate(_.extend(this.model, {'keyNo': this.keyNo})));
+				}
+				var self = this;
+				sB.actionCollection.fetchResult(value, this.getCurrentEvent())
+					.done(function() {
+						$(self.el).find('.action-value').find('option').remove();
+						self.addAll();
+		        	})
+		        	.fail(function(xhr) {
+		                if(url = xhr.getResponseHeader('Location'))
+		                    window.location = url;
+		            });
+			}
+		},
+		getCurrentEvent: function() {
+			return ($('.wfEvents').eq(0).val() ? $('.wfEvents').eq(0).val() : 'ticket');
+		},
+		addAll: function() {
+			if(this.value == 'uvdesk.ticket.mail_group' || this.value == 'uvdesk.ticket.mail_team' || this.value == "uvdesk.ticket.mail_agent")
+				_.each(sB.actionCollection.models, this.addOneMore, this);
+			else
+				_.each(sB.actionCollection.models, this.addOne, this);
+			this.disable = false;
+			this.selectOpt.prop('disabled', false);
+		},
+		addOne: function(newModel) {
+			if(typeof(this.model.value) == 'object')
+				this.model.value = undefined;
+			var sendThisModel = _.extend(this.model, newModel.attributes);
+			if(typeof(newModel.attributes.id) != 'undefined')
+				this.siblingValue.find('.action-value').append(this.valueSelectOptionTemplate(sendThisModel));
+		},
+		addOneMore: function(models) {
+			_.each(models.attributes.partResults, function(newModel){
+				this.siblingValue.find('.action-value-for').find('.uv-dropdown-container ul').append(this.valueSelectForOptionTemplate(_.extend({ 'value' : (typeof(this.model.value) != 'undefined' ? this.model.value.for : ''), 'keyNo': this.keyNo}, newModel)));
+			}, this);
+			_.each(models.attributes.templates, function(newModel){
+				this.siblingValue.find('.action-value').append(this.valueSelectOptionTemplate(_.extend({ 'value' : (typeof(this.model.value) != 'undefined' ? this.model.value.value : '')}, newModel)));
+			}, this);
+		}
+	});
+	sB.ActionSelectViews = Backbone.View.extend({
+		el: '.uv-view',
+		target: $('#actions .workflow-action-body'),
+		initialize: function() {
+			{% if formData and formData.actions %}
+				this.createActions($.parseJSON("{{ formData.actions | json_encode | e('js') }}"));
+			{% else %}
+				this.addSelect({});
+			{% endif %}
+	        this.listenTo(sB.actionCollection, 'add', this.addOne);
+			{% if forcedActions is defined and forcedActions %}
+				dIteration = 0;
+				disableFieldFun = function() {
+					setTimeout(function(e) {
+						$('#actions input,#actions select,#actions textarea').attr('disabled', 'disabled');
+						$('#actions .remove-action-tr').remove(); dIteration++;
+						if(dIteration<5)
+							disableFieldFun();
+					}, 500);
+				};
+				
+				disableFieldFun();
+			{% endif %}
+		},
+		events: {
+			'click #actions .btn-add': 'addSelect',
+		},
+		clearHtml: function() {
+	        this.target.html('');
+			this.addSelect({});
+		},
+		createActions: function(actionPreviouslyAdded) {
+			_.each(actionPreviouslyAdded, this.addSelect, this);
+		},
+		addSelect: function(newModel) {
+			var view = new sB.ActionSelectView({model: newModel});
+	        this.target.append(viewEl = view.render().el);
+	        this.$(viewEl).find('.wfAction').trigger('change');
+	 		this.clearFirstTrSpan();
+		},
+		removeduplicate: function(e) {
+			//remove already exits elements - select
+		    $('.select-action').each(function() {
+				if(this.value == e.target.value)
+					$(this).not(e.target).parents('tr').remove();
+		    });
+	 		this.clearFirstTrSpan();
+		},
+		clearFirstTrSpan: function() {
+	 		this.target.find('tr').eq(0).find('span.border-override').remove();
+		},
+	});
+	sB.actionCollection = new sB.ActionCollection();
+	sB.actionselectView = new sB.ActionSelectViews();
+</script>

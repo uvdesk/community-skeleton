@@ -1,0 +1,40 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+    
+    # Services
+    Webkul\UVDesk\CoreFrameworkBundle\:
+        resource: '../../../*'
+        exclude: '../../../{DependencyInjection,Entity,Package,Templates,Migrations,Tests,UIComponents/Dashboard/Aside}'
+    
+    Webkul\UVDesk\CoreFrameworkBundle\Controller\:
+        resource: '../../../Controller/*'
+        tags: ['controller.service_arguments']
+    
+    Webkul\UVDesk\CoreFrameworkBundle\Providers\UserProvider:
+        arguments: ['@security.firewall.map']
+    
+    Webkul\UVDesk\CoreFrameworkBundle\Fixtures\:
+        resource: '../../../Fixtures/*'
+        tags: ['doctrine.fixture.orm']
+    
+    Webkul\UVDesk\CoreFrameworkBundle\Security\TicketVoter:
+        tags:
+            - { name: security.voter }
+    
+    Webkul\UVDesk\CoreFrameworkBundle\FileSystem\UploadManagers\:
+        public: true
+        resource: '../../../FileSystem/UploadManagers/*'
+    
+    Webkul\UVDesk\CoreFrameworkBundle\EventListener\Doctrine\Lifecycle:
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
+            - { name: doctrine.event_listener, event: postLoad }
+    
+    Webkul\UVDesk\CoreFrameworkBundle\EventListener\Console\Console:
+        tags:
+            - { name: kernel.event_listener, event: console.command }
+            - { name: kernel.event_listener, event: console.terminate }

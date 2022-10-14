@@ -1,0 +1,249 @@
+{% extends "@UVDeskCoreFramework//Templates//layout.html.twig" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block templateCSS %}
+    <style>
+		.uv-activity-wrapper {
+			margin-top: 60px;
+		}
+		.uv-activity-wrapper .uv-activity-chart-col-lt {
+			width: 80%;
+			float: left;
+		}
+		ul.uv-activity-brick-wrapper {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+    		display: inline-block;
+		}
+		ul.uv-activity-brick-wrapper li {
+			width: 25%;
+			display: inline-block;
+			float: left;
+			padding-left: 10px;
+			padding-right: 10px;
+			color: #fff;
+		}
+		ul.uv-activity-brick-wrapper .uv-activity-brick {
+			border-radius: 3px;
+    		padding: 10px;
+			text-align: center;
+		}
+		ul.uv-activity-brick-wrapper li a {
+			color: #fff;
+			font-size: 45px;
+			width: 100%;
+    		display: inline-block;
+		}
+		ul.uv-activity-brick-wrapper li label {
+			font-size: 18px;
+			width: 100%;
+    		display: inline-block;
+		}
+		.uv-activity-chart-bottom-row .uv-pannel-body {
+			height: 450px;
+		}
+		.kudos-overview {
+			width: 40%;
+			float: left;
+			padding-right: 10px;
+		}
+		.recent-notification {
+			width: 30%;
+			float: left;
+			padding-left: 10px;
+		}
+		.completion-chart {
+			width: 300px;
+			margin: 0 auto;
+		}
+		.progress-meter .background {
+			fill: #EFEFEF;
+		}
+		.progress-meter text {
+			font-size: 30px;
+		}
+		.kudos-overview .uv-pannel-body {
+			text-align: center;
+			padding-top: 50px;
+		}
+		.kudos-overview .uv-pannel-body label {
+			margin-top: 10px;
+    		display: inline-block;
+		}
+		.recent-notification ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			overflow-y: auto;
+			max-height: 400px !important;
+		}
+		.recent-notification .uv-pannel-body {
+			padding: 0;
+		}
+		.recent-notification ul li {
+			color: #333333;
+			border-bottom: solid 1px #D3D3D3;
+			padding: 15px 20px;
+		}
+		.recent-notification ul li:first-child {
+			border-top: none;
+		}
+		.recent-notification ul li:last-child {
+			border-bottom: none;
+		}
+		.recent-notification ul li * {
+			display: inline-block !important;
+		}
+		.recent-notification ul li .timeago {
+			color: #9E9E9E;
+			margin-top: 5px;
+			font-size: 13px;
+		}
+		.recent-notification label {
+			text-align: center;
+			display: inline-block;
+			width: 100%;
+			padding-top: 15px;
+			border-top: 1px solid #d3d3d3;
+		}
+		.recent-notification span.uv-notification-message {
+			float: left;
+			width: 100%;
+		}
+		.kudos-count {
+			width: 30%;
+			float: left;
+			padding-right: 10px;
+			padding-left: 10px;
+		}
+		.kudos-count .uv-pannel-body {
+			padding-top: 50px;
+			overflow-y: auto;
+		}
+		.kudos-count ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		.kudos-count ul li {
+			width: 100%;
+			display: inline-block;
+			padding: 15px 0;
+		}
+		.kudos-count ul li .uv-icon-kudos  {
+			vertical-align: middle;
+			margin-right: 10px;
+		}
+		.uv-activity-wrapper .uv-activity-chart-col-rt {
+			width: 20%;
+			float: left;
+		}
+		.uv-activity-chart-col-rt ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		.uv-activity-chart-col-rt ul li {
+			margin-bottom: 10px
+		}
+		.uv-activity-chart-col-rt ul li span {
+			width: 100%;
+			display: inline-block;
+			color: #6f6f6f;
+		}
+		.uv-middle {
+			margin: 0 auto;
+			display: inline-block;
+			margin-top: 200px;
+			text-align: center;
+			width: 100%;
+		}
+		@media screen and (max-width: 1024px) {
+			.uv-activity-wrapper .uv-activity-chart-col-lt {
+				width: 100%;
+				padding: 0;
+			}
+			.uv-activity-wrapper .uv-activity-chart-col-rt {
+				width: 100%;
+			}
+			.kudos-overview {
+				width: 100%;
+				padding: 0;
+			}
+			.kudos-count {
+				width: 100%;
+				padding: 0;
+			}
+			.recent-notification {
+				width: 100%;
+				padding: 0;
+			}
+			ul.uv-activity-brick-wrapper li {
+				width: 50%;
+				margin: 10px 0;
+			}
+		}
+		@media screen and (max-width: 768px) {
+			ul.uv-activity-brick-wrapper li {
+				width: 100%;
+			}
+		}
+		@media screen and (max-width: 467px) {
+			.completion-chart {
+				width: 100%;
+			}
+		}
+		span.uv-notification-message a:link, span.uv-notification-message a:visited, label a:link, label a:visited {
+			color: #2750C4;
+			font-size: 15px;
+		}
+		.uv-mob-aside {
+			display: none;
+		}
+		#btndisclaimer {
+  			position: fixed;
+  			right: 25px;
+  			bottom: 10px;
+			background: url("");
+		}
+	</style>
+{% endblock %}
+
+{% block pageContent %}
+    <div class="uv-area">
+        {{ uvdesk_extensibles.getRegisteredComponent('Webkul\\UVDesk\\CoreFrameworkBundle\\Dashboard\\Dashboard').getHomepageTemplate().render()|raw }}
+
+		{# @TODO: Version number should be loaded dynamically #}
+        <div class="uv-copyright">
+            <span class="uv-credit-text">{{ 'Powered by'|trans }} <a href="https://www.uvdesk.com" target="_blank">UVdesk</a></span> | <span class="uv-credit-text">V -1.1.0</span>
+        </div>
+
+		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+    		<button type="submit" class="btn btn-primary btn-md" id="btndisclaimer" title={{'clear cache'|trans }}><img src="https://api.iconify.design/mdi:delete-restore.svg?height=24" aria-hidden="true"></button>
+  		</div>
+    </div>
+
+<script>
+	$('#btndisclaimer').click(function(e){
+
+    	$.ajax({
+        	url : "{{ path('helpdesk_member_cache_clear') }}",
+        	method: 'POST',
+        	data: "",
+        	success : function(response) {
+				app.appView.renderResponseAlert(response);
+        	},
+        	error: function (xhr) {
+            	app.appView.renderResponseAlert(xhr);
+        	}
+    	});
+    });
+</script>
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+{% endblock %}
