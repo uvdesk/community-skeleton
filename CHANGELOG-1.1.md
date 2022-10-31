@@ -3,6 +3,9 @@ CHANGELOG for 1.1.x
 
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
+* 1.1.x
+    * PR #614: Translation updates: Correctly render website name in ZH locale (Komal-sharma-2712)
+
 * 1.1.1 (2022-09-13)
     * PR #592: Translation updates (Komal-sharma-2712)
     * PR #582: Translation updates (Komal-sharma-2712)
