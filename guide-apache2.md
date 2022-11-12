@@ -19,17 +19,17 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 
 4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges: </b>
 
-        $ adduser uvdesk;                    (Create user: adduser <your-user-name>)
+        $ adduser uvdesk;                          (Create user: adduser <your-user-name>)
 
-        $ usermod -aG sudo uvdesk;           (Add user to sudo group: usermod -addGroup sudo <your-user-name>;)
+        $ usermod -aG sudo uvdesk;                 (Add user to sudo group: usermod -addGroup sudo <your-user-name>;)
 
-        $ groups uvdesk;                     (Verify that the user has been added to the sudo group)
+        $ groups uvdesk;                           (Verify that the user has been added to the sudo group)
 
 5. Exit your ssh session, and then <b> create a new ssh session by using the credentials of your-user (uvdesk) </b> you just created (you might need to setup ssh keys depending on your security configurations)
 
-    Or you can <b> switch directly <b> in the same terminal using the below command:
+    Or you can <b> switch directly </b> in the same terminal using the below command:
 
-        $ su - uvdesk                   (su - <your-user-name>)
+        $ su - uvdesk                              (su - <your-user-name>)
 
     Now, Enter your password when prompted. You can run commands as normal, just by typing them.
 
@@ -50,7 +50,7 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 
 7. Now you’re ready to <b> install PHP 7.4, 8.0 or 8.1 </b> as your wish using the following command:
 
-        $ sudo apt -y install php8.1         (sudo apt -y install php <your-php-version>)
+        $ sudo apt -y install php8.1               (sudo apt -y install php <your-php-version>)
 
 
     You will likely want to install some additional PHP modules. You can use this command to install additional modules, replacing <b> PACKAGE_NAME </b> with the package you wish to install:
@@ -59,7 +59,8 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 
     Install the remaining packages using <b> sudo </b> as listed below:
 
-        $ sudo apt-get install -y software-properties-common ;
+        $ sudo apt-get install -y software-properties-common;
+
         $ sudo apt-get -y install 
         curl \
         wget \
@@ -78,9 +79,9 @@ LABEL maintainer="akshay.kumar758@webkul.com"
     
         $ sudo a2enmod rewrite;
         
-        $ sudo service apache2 restart;			[For Restart again apache server]
+        $ sudo service apache2 restart;			 (For Restart again apache server)
     
-        $ sudo service apache2 status			[For checking apache status is running or not]
+        $ sudo service apache2 status			     (For checking apache status is running or not)
 
     > PHP configurations related to Apache are stored in <b> /etc/php/8.1/apache2/php.ini </b>. 
     You can list all loaded PHP modules with the following command:
@@ -102,11 +103,11 @@ With apache server installed & running, you should now be able to load web reour
 
     In your home directory (/home/uvdesk), create the following directories:
 
-        /home/uvdesk/workstation			(mkdir workstation)
+        /home/uvdesk/workstation			         (mkdir workstation)
 
-        /home/uvdesk/workstation/projects   (we will setup our helpdesk project in this directory)
+        /home/uvdesk/workstation/projects           (we will setup our helpdesk project in this directory)
 
-        /home/uvdesk/workstation/www        (we will setup this directory to act as apache's document root, so any content in this directory will be available to apache)
+        /home/uvdesk/workstation/www                (we will setup this directory to act as apache's document root, so any content in this directory will be available to apache)
 
     Now, Update your <b> apache's document root </b> using the below commands:
 
@@ -198,6 +199,10 @@ Alternatively, you can also download the <b> zip archive of the latest stable re
     $ wget "https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip" -P /var/www/
 
     $ unzip -q /var/www/uvdesk-community-current-stable.zip -d /var/www/ \
+
+Also, click and download from here:
+https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip
+
 
 
 After composer has successfully created your helpdesk project, let's configure it so that when you visit your website, the helpdesk project is served right away.
