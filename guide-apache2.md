@@ -6,9 +6,9 @@ Getting Started
 -----------------
 
 * [Upgrade Apache Packages](#upgrade-apache-packages)
-* [Create a non-root user (Optional)](#Create-a-non-root-user-with-a-sudo-group-(Optional))
+* [Create a non-root user (Optional)](#Create-a-non-root-user-with-a-sudo-group-Optional)
 * [PHP Installation](#php-installation)
-* [Update Apache's document root file (Optional)](#update-apache's-document-root-file-optional)
+* [Update Apache's document root file (Optional)](#Update-Apache-document-root-file-Optional)
 * [Testing the PHP Environment (Optional)](#Testing-the-PHP-Environment-Optional)
 * [Composer Installation](#Setting-Up-download-the-Composer)
 * [Uvdesk Installation](#Installation-of-Uvdesk-Helpdesk-using-composer-command-or-zip-file)
@@ -30,7 +30,7 @@ Upgrade Apache Packages
 
         $ sudo apt-get -y upgrade;
 
-Create a non-root user with a sudo group (Optional)
+Create a non root user with a sudo group (Optional)
 -----------------
 
 4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges:</b>   
@@ -121,7 +121,7 @@ PHP Installation
 With apache server installed & running, you should now be able to load web reources from your server. You can check this by accessing your server IP on your web browser.
 
 
-Update Apache's document root file (Optional)
+Update Apache document root file (Optional)
 -----------------
 
 8. Before we move further, lets take care of a few things first:
