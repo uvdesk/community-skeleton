@@ -1,28 +1,33 @@
-FROM Ubuntu 20.04.4 LTS
 
-LABEL maintainer="akshay.kumar758@webkul.com"
+Overview
+-----------------
+
+<p> We supposed that you have a already created your virtual machine. 
+
+Also, Access the terminal using your root user credentials.
+
+Now we will continue our ubuntu configuration, php installation, composer and Uvdesk installation
+
+</p>
 
 Getting Started
 -----------------
 
-* [Upgrade Apache Packages](#upgrade-apache-packages)
-* [Create a non-root user (Optional)](#Create-a-non-root-user-with-a-sudo-group-Optional)
-* [PHP Installation](#php-installation)
-* [Update Apache's document root file (Optional)](#Update-Apache-document-root-file-Optional)
-* [Testing the PHP Environment (Optional)](#Testing-the-PHP-Environment-Optional)
+* [Upgrade Ubuntu Packages](#Upgrade-the-latest-Ubuntu-Packages)
+* [Create a non-root user (optional)](#Create-a-non-root-user-with-a-sudo-group-optional)
+* [How to check the latest version of PHP in your packages repository (optional)](#Here-we-check-which-the-latest-PHP-version-available)
+* [PHP Installation](#PHP-Installation-with-install-remaining-packages)
+* [Update Apache's document root file (optional)](#Update-Apache-document-root-file-optional)
+* [Testing the PHP Environment (optional)](#Testing-the-PHP-Environment-optional)
 * [Composer Installation](#Setting-Up-download-the-Composer)
 * [Uvdesk Installation](#Installation-of-Uvdesk-Helpdesk-using-composer-command-or-zip-file)
 
 
-1. Create your virtual machine
 
-2. Access the terminal using your root credentials (since you'll be logging in with root, you won't need to use sudo for the next few steps)
-
-
-Upgrade Apache Packages
+Upgrade the latest Ubuntu Packages
 -----------------                       
 
-<!--- This is used for linking of above points clicking line ---------------- and also added same content of you want to link word  -->
+<!--- This is used for linking of above points clicking line ---------------- and also added same content of # together you want to link word  -->
 
 3. Run the following commands to <b> update your packages list </b> , and then <b> upgrade to the latest available packages </b> the below commands:
 
@@ -30,7 +35,7 @@ Upgrade Apache Packages
 
         $ sudo apt-get -y upgrade;
 
-Create a non root user with a sudo group (Optional)
+Create a non root user with a sudo group (optional)
 -----------------
 
 4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges:</b>   
@@ -49,6 +54,10 @@ Create a non root user with a sudo group (Optional)
 
     Now, Enter your password when prompted. You can run commands as normal, just by typing them.
 
+
+Here we check which the latest PHP version available
+-----------------
+
 6. Lookup the latest version of PHP available in your packages repository using the following command. If it's greater than 8, we'll be proceeding with that:
 
         $ apt-cache search php;
@@ -62,17 +71,12 @@ Create a non root user with a sudo group (Optional)
         $ sudo apt-get update;
 
 
-PHP Installation
+PHP Installation with install remaining packages
 -----------------
 
 7. Now you’re ready to <b> install PHP 7.4, 8.0 or 8.1 </b> as your wish using the following command:
 
         $ sudo apt -y install php8.1               (sudo apt -y install php <your-php-version>)
-
-
-    You will likely want to install some additional PHP modules. You can use this command to install additional modules, replacing <b> PACKAGE_NAME </b> with the package you wish to install:
-
-        $ sudo apt-get install php8.1-PACKAGE_NAME
 
     Install the remaining packages using <b> sudo </b> as listed below:
 
@@ -107,6 +111,10 @@ PHP Installation
 
         $ sudo /etc/init.d/apache2 restart;         # Alternatively
 
+    > Note: If you want to install some additional PHP modules. You can use this command to install additional modules, replacing <b> PACKAGE_NAME </b> with the package you wish to install:
+
+        $ sudo apt-get install php8.1-PACKAGE_NAME
+    
     > PHP configurations related to Apache are stored in <b> /etc/php/8.1/apache2/php.ini </b>. 
     You can list all loaded PHP modules with the following command:
 
@@ -121,7 +129,7 @@ PHP Installation
 With apache server installed & running, you should now be able to load web reources from your server. You can check this by accessing your server IP on your web browser.
 
 
-Update Apache document root file (Optional)
+Update Apache document root file (optional)
 -----------------
 
 8. Before we move further, lets take care of a few things first:
@@ -164,7 +172,7 @@ Update Apache document root file (Optional)
         $ sudo service apache2 restart
 
     
-Testing the PHP Environment (Optional)
+Testing the PHP Environment (optional)
 -----------------
 
 9. Now, <b> Create a test php file </b> on your new document root to test your changes:
@@ -243,6 +251,8 @@ https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stab
 
 After composer has successfully created your helpdesk project, let's configure it so that when you visit your website, the helpdesk project is served right away.
 
+After that you will setup of your project so you can continue from here: 
+https://github.com/uvdesk/community-skeleton#installation
 
 
 
