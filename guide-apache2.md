@@ -2,6 +2,16 @@ FROM Ubuntu 20.04.4 LTS
 
 LABEL maintainer="akshay.kumar758@webkul.com"
 
+Getting Started
+-----------------
+
+* [Upgrade Apache Packages](#upgrade)
+* [Create a non-root user (Optional)](#non-root)
+* [PHP Installation](#php-installation)
+* [Update Apache's document root file (Optional)](#apache-doc)
+* [Testing the PHP Environment (Optional)](#php-env)
+* [Composer Installation](#composer)
+* [Uvdesk Installation](#uvdesk)
 
 
 1. Create your virtual machine
@@ -9,7 +19,7 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 2. Access the terminal using your root credentials (since you'll be logging in with root, you won't need to use sudo for the next few steps)
 
 
-<h2> <<< Apache Configuration Steps with create a non-root user >>> </h2>
+<h2> Upgrade Apache Packages </h2>
 
 3. Run the following commands to <b> update your packages list </b> , and then <b> upgrade to the latest available packages </b> the below commands:
 
@@ -17,7 +27,9 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 
         $ sudo apt-get -y upgrade;
 
-4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges: </b>
+<h2> Create a non-root user with a sudo group (Optional)</h2>
+
+4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges: (Optional part)</b>   
 
         $ adduser uvdesk;                          (Create user: adduser <your-user-name>)
 
@@ -46,7 +58,7 @@ LABEL maintainer="akshay.kumar758@webkul.com"
         $ sudo apt-get update;
 
 
-<h2> <<< PHP Installation Steps >>> </h2>
+<h2> PHP Installation Steps </h2>
 
 7. Now you’re ready to <b> install PHP 7.4, 8.0 or 8.1 </b> as your wish using the following command:
 
@@ -83,6 +95,13 @@ LABEL maintainer="akshay.kumar758@webkul.com"
     
         $ sudo service apache2 status			     (For checking apache status is running or not)
 
+    > You can also used these alternatively commands for restart your apache:
+        
+
+        $ sudo systemctl restart apache2;           # Alternatively
+
+        $ sudo /etc/init.d/apache2 restart;         # Alternatively
+
     > PHP configurations related to Apache are stored in <b> /etc/php/8.1/apache2/php.ini </b>. 
     You can list all loaded PHP modules with the following command:
 
@@ -97,7 +116,7 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 With apache server installed & running, you should now be able to load web reources from your server. You can check this by accessing your server IP on your web browser.
 
 
-<h2> <<< Update Apache's document root file Steps >>> </h2>
+<h2> Update Apache's document root file (Optional)</h2>
 
 8. Before we move further, lets take care of a few things first:
 
@@ -125,13 +144,21 @@ With apache server installed & running, you should now be able to load web reour
         
         $ sudo service apache2 restart
 
-    Now, Add <b> user uvdesk </b> to the <b> www-data </b> user group, so that <b> www-data </b> can access the resources in our new document root directory:
+     > You can also used these alternatively commands for restart your apache:
+        
+
+        $ sudo systemctl restart apache2;           # Alternatively
+
+        $ sudo /etc/init.d/apache2 restart;         # Alternatively
+
+    <h3> Now, Add <b> user uvdesk </b> to the <b> www-data </b> user group, so that <b> www-data </b> can access the resources in our new document root directory: </h3>
         
         $ sudo usermod -aG uvdesk www-data
 
         $ sudo service apache2 restart
+
     
-<h2> <<< Testing the PHP Environment >>> </h2>
+<h2> Testing the PHP Environment (Optional)</h2>
 
 9. Now, <b> Create a test php file </b> on your new document root to test your changes:
 
@@ -162,7 +189,7 @@ Voila! You're halfway there.
 >Now we can go ahead with setting up <b> composer, helpdesk project, and configuring your SSL records </b>.
 
 
-<h2> <<< Setting Up download the Composer >>> </h2>
+<h2> Setting Up download the Composer </h2>
 
 13. In your terminal, navigate to <b> your workstation directory </b> and run the scripts provided on https://getcomposer.org/download/ to download composer.
 
@@ -179,7 +206,7 @@ Voila! You're halfway there.
         $ composer --version
 
 
-<h2> <<< Installation of Uvdesk Helpdesk using composer command or zip file >>> </h2>
+<h2> Installation of Uvdesk Helpdesk using composer command or zip file </h2>
 
 15. Now, you can install the Uvdesk Helpdesk project on your server:
 
