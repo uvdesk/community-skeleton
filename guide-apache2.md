@@ -5,13 +5,13 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 Getting Started
 -----------------
 
-* [Upgrade Apache Packages](#upgrade)
-* [Create a non-root user (Optional)](#non-root)
+* [Upgrade Apache Packages](#upgrade-apache-packages)
+* [Create a non-root user (Optional)](#Create-a-non-root-user-with-a-sudo-group-(Optional))
 * [PHP Installation](#php-installation)
-* [Update Apache's document root file (Optional)](#apache-doc)
-* [Testing the PHP Environment (Optional)](#php-env)
-* [Composer Installation](#composer)
-* [Uvdesk Installation](#uvdesk)
+* [Update Apache's document root file (Optional)](#update-apache's-document-root-file-optional)
+* [Testing the PHP Environment (Optional)](#Testing-the-PHP-Environment-Optional)
+* [Composer Installation](#Setting-Up-download-the-Composer)
+* [Uvdesk Installation](#Installation-of-Uvdesk-Helpdesk-using-composer-command-or-zip-file)
 
 
 1. Create your virtual machine
@@ -19,7 +19,10 @@ Getting Started
 2. Access the terminal using your root credentials (since you'll be logging in with root, you won't need to use sudo for the next few steps)
 
 
-<h2> Upgrade Apache Packages </h2>
+Upgrade Apache Packages
+-----------------                       
+
+<!--- This is used for linking of above points clicking line ---------------- and also added same content of you want to link word  -->
 
 3. Run the following commands to <b> update your packages list </b> , and then <b> upgrade to the latest available packages </b> the below commands:
 
@@ -27,9 +30,10 @@ Getting Started
 
         $ sudo apt-get -y upgrade;
 
-<h2> Create a non-root user with a sudo group (Optional)</h2>
+Create a non-root user with a sudo group (Optional)
+-----------------
 
-4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges: (Optional part)</b>   
+4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges:</b>   
 
         $ adduser uvdesk;                          (Create user: adduser <your-user-name>)
 
@@ -58,7 +62,8 @@ Getting Started
         $ sudo apt-get update;
 
 
-<h2> PHP Installation Steps </h2>
+PHP Installation
+-----------------
 
 7. Now you’re ready to <b> install PHP 7.4, 8.0 or 8.1 </b> as your wish using the following command:
 
@@ -116,7 +121,8 @@ Getting Started
 With apache server installed & running, you should now be able to load web reources from your server. You can check this by accessing your server IP on your web browser.
 
 
-<h2> Update Apache's document root file (Optional)</h2>
+Update Apache's document root file (Optional)
+-----------------
 
 8. Before we move further, lets take care of a few things first:
 
@@ -151,14 +157,15 @@ With apache server installed & running, you should now be able to load web reour
 
         $ sudo /etc/init.d/apache2 restart;         # Alternatively
 
-    <h3> Now, Add <b> user uvdesk </b> to the <b> www-data </b> user group, so that <b> www-data </b> can access the resources in our new document root directory: </h3>
+    Now, Add <b> user uvdesk </b> to the <b> www-data </b> user group, so that <b> www-data </b> can access the resources in our new document root directory:
         
         $ sudo usermod -aG uvdesk www-data
 
         $ sudo service apache2 restart
 
     
-<h2> Testing the PHP Environment (Optional)</h2>
+Testing the PHP Environment (Optional)
+-----------------
 
 9. Now, <b> Create a test php file </b> on your new document root to test your changes:
 
@@ -189,7 +196,8 @@ Voila! You're halfway there.
 >Now we can go ahead with setting up <b> composer, helpdesk project, and configuring your SSL records </b>.
 
 
-<h2> Setting Up download the Composer </h2>
+Setting Up download the Composer
+-----------------
 
 13. In your terminal, navigate to <b> your workstation directory </b> and run the scripts provided on https://getcomposer.org/download/ to download composer.
 
@@ -206,7 +214,8 @@ Voila! You're halfway there.
         $ composer --version
 
 
-<h2> Installation of Uvdesk Helpdesk using composer command or zip file </h2>
+Installation of Uvdesk Helpdesk using composer command or zip file
+-----------------
 
 15. Now, you can install the Uvdesk Helpdesk project on your server:
 
