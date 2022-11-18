@@ -15,7 +15,7 @@ Getting Started
 
 * [Upgrade Ubuntu Packages](#Upgrade-the-latest-Ubuntu-Packages)
 * [Create a non-root user (optional)](#Create-a-non-root-user-with-a-sudo-group-optional)
-* [How to check the latest version of PHP in your packages repository (optional)](#Here-we-check-which-the-latest-PHP-version-available)
+* [How to check the latest version of PHP in your packages repository (optional)](#Here-we-check-which-the-latest-PHP-version-available-optional)
 * [PHP Installation](#PHP-Installation-with-install-remaining-packages)
 * [Update Apache's document root file (optional)](#Update-Apache-document-root-file-optional)
 * [Testing the PHP Environment (optional)](#Testing-the-PHP-Environment-optional)
@@ -55,7 +55,7 @@ Create a non root user with a sudo group (optional)
     Now, Enter your password when prompted. You can run commands as normal, just by typing them.
 
 
-Here we check which the latest PHP version available
+Here we check which the latest PHP version available (optional)
 -----------------
 
 6. Lookup the latest version of PHP available in your packages repository using the following command. If it's greater than 8, we'll be proceeding with that:
