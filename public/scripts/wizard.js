@@ -839,8 +839,6 @@
                             var currentconfigfileIconStatus = this.wizard_icons_notice_template();
                             if (currentconfigfileName == 'uvdesk') {
                                 var currentconfigfileTextStatus = "<span class='configfiles_name'> " + currentconfigfileName + ".yaml  read/write file permission is disabled </span>";
-                            } else if (currentconfigfileName == 'swiftmailer') {
-                                var currentconfigfileTextStatus = "<span class='configfiles_name'> " + currentconfigfileName + ".yaml  read/write file permission is disabled </span>";
                             } else {
                                 var currentconfigfileTextStatus = "<span class='configfiles_name'>" + currentconfigfileName + ".yaml  read/write file permission is disabled </span>";
                             }

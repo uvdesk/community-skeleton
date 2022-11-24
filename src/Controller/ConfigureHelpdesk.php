@@ -45,9 +45,6 @@ class ConfigureHelpdesk extends AbstractController
             'name' => 'uvdesk',
         ],
         [
-            'name' => 'swiftmailer',
-        ],
-        [
             'name' => 'uvdesk_mailbox',
         ],
     ];
