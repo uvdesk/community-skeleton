@@ -21,7 +21,7 @@ use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
 
 class ConfigureHelpdesk extends AbstractController
 {
-    const HELPDESK_VERSION = '1.1.1';
+    const HELPDESK_VERSION = '1.2.0';
     const DB_ENV_PATH_TEMPLATE = "DATABASE_URL=DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME\n";
     const DB_ENV_PATH_PARAM_TEMPLATE = "env(DATABASE_URL): 'DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME'\n";
     const DEFAULT_JSON_HEADERS = [
