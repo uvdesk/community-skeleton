@@ -1,0 +1,2 @@
+uvdesk_extensions:
+    dir: '%kernel.project_dir%/apps'

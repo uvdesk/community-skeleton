@@ -1,0 +1,32 @@
+parameters:
+    app_locales: en|fr|it|de|da|ar|es|tr|zh|pl
+    
+    # Default Assets
+    assets_default_agent_profile_image_path: 'bundles/uvdeskcoreframework/images/uv-avatar-batman.png'
+    assets_default_customer_profile_image_path: 'bundles/uvdeskcoreframework/images/uv-avatar-ironman.png'
+    assets_default_helpdesk_profile_image_path: 'bundles/uvdeskcoreframework/images/uv-avatar-uvdesk.png'
+
+    uvdesk_site_path.member_prefix: member
+    uvdesk_site_path.knowledgebase_customer_prefix: customer
+
+    # File uploads constraints
+    # @TODO: Set these parameters via compilers
+    max_post_size: 8388608
+    max_file_uploads: 20
+    upload_max_filesize: 2097152
+
+uvdesk:
+    site_url: 'localhost:8000'
+    upload_manager:
+        id: Webkul\UVDesk\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost
+    
+    support_email: ~
+    
+    # Default resources
+    default:
+        ticket:
+            type: support
+            status: open
+            priority: low
+        templates:
+            email: mail.html.twig
