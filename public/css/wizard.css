@@ -524,8 +524,8 @@ input[type = 'checkbox'] {
    
     top: 50%;
     left: 50%;
-    margin-top: -4px;
-    margin-left: -4px;
+    margin-top: -5px;
+    margin-left: -5px;
    
 }
 
@@ -538,21 +538,20 @@ input[type = 'checkbox'] {
     
     top: 50%;
     left: 50%;
-    margin-top: -9px;
-    margin-left: -9px;
-   
+    margin-top: -10px;
+    margin-left: -10px;
 }
 
 .check .outer-circle{
     display: inline-block;
     transform: rotate(45deg);
-    height: 14px;
+    height: 13px;
     width: 6px;
     border-bottom: 3px solid #7B70F4;
     border-right: 3px solid #7B70F4;
     top: 50%;
     left: 50%;
-    margin-top: -12px;
+    margin-top: -9px;
     margin-left: -4px;
     position: absolute;
     z-index: 1;
@@ -562,24 +561,23 @@ input[type = 'checkbox'] {
 
 .outer-circle {
     position: absolute;
-    background: #D3D3D3;
+    background: #686868;
     border-radius: 50%;
     height: 20px;
     width: 20px;
-    
     top: 50%;
     left: 50%;
-    margin-top: -9px;
-    margin-left: -9px;
-   
+    margin-top: -10px;
+    margin-left: -10px;
 }
 
 .divider {
-     height: 55px;
-     width: 4px;
-     margin-left: 14px;
-     transition: all 800ms ease;
-     background: #FFFFFE;
+    height: 55px;
+    width: 4px;
+    margin-left: 13px;
+    margin-top: 8px;
+    transition: all 800ms ease;
+    background: #FFFFFE;
 }
  
 .progress-bar li p {
