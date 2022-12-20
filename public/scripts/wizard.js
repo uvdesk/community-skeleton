@@ -355,6 +355,7 @@
                 verified: false,
                 credentials: {
                     serverName: '127.0.0.1',
+                    serverVersion: null,
                     serverPort: '3306',
                     username: 'root',
                     password: null,
@@ -368,6 +369,7 @@
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
                     serverName: this.view.$el.find('input[name="serverName"]').val(),
+                    serverVersion: this.view.$el.find('input[name="serverVersion"]').val(),
                     serverPort: this.view.$el.find('input[name="serverPort"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
@@ -436,6 +438,7 @@
 
                 let credentials = {
                     hostname: this.$el.find('input[name="serverName"]').val(),
+                    serverVersion: this.$el.find('input[name="serverVersion"]').val(),
                     serverPort: this.$el.find('input[name="serverPort"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
