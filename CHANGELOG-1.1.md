@@ -4,6 +4,7 @@ CHANGELOG for 1.1.x
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
 * 1.1.x
+    * Update: Update installation wizard to specify database version during installation
     * PR #614: Translation updates: Correctly render website name in ZH locale (Komal-sharma-2712)
 
 * 1.1.1 (2022-09-13)
