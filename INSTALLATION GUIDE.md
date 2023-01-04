@@ -10,13 +10,13 @@ Overview
 
 We've broken this guide down into multiple sections from installing latest dependencies, to mantaining proper user permissions & file ownerships, and installing the helpdesk project using composer. You can jump right to the part most relevant to you:
 
-* [(Optional) Upgrade to latest available Ubuntu packages](#Upgrade-to-latest-available-Ubuntu-packages)
-* [(Optional) Create a non-root user with elevated privileges](#Create-a-non-root-user-with-elevated-privileges)
-* [(Optional) Checking for the latest PHP version available](#Checking-for-the-latest-PHP-version-available)
-* [Install PHP, Apache and all the necessary packages](#Install-PHP-Apache-and-all-the-necessary-packages)
-* [(Optional) Update Apache's Document Root](#Update-Apache's-Document-Root)
-* [Downloading and setting up Composer](#Downloading-and-setting-up-Composer)
-* [Installing and setting up Uvdesk Community Helpdesk](#Installing-and-setting-up-Uvdesk-Community-Helpdesk)
+* [(Optional) Upgrade to latest available Ubuntu packages](#optional-upgrade-to-latest-available-ubuntu-packages)
+* [(Optional) Create a non-root user with elevated privileges](#optional-create-a-non-root-user-with-elevated-privileges)
+* [(Optional) Checking for the latest PHP version available](#optional-checking-for-the-latest-php-version-available)
+* [Install PHP, Apache and all the necessary packages](#install-php-apache-and-all-the-necessary-packages)
+* [(Optional) Update Apache's Document Root](#optional-update-apaches-document-root)
+* [Downloading and setting up Composer](#downloading-and-setting-up-composer)
+* [Installing and setting up Uvdesk Community Helpdesk](#installing-and-setting-up-uvdesk-community-helpdesk)
 
 (Optional) Upgrade to latest available Ubuntu packages
 -----------------
