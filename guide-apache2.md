@@ -1,258 +1,227 @@
+Installation Guide
+-----------------
+
+This guide will walk you through all the steps necessary from setting up your server environment to installing the uvdesk community helpdesk project.
+
+> Note: This guide assumes that you already have your instance (docker instance, virtual machine, remote instance, etc...) prepared and have all the necessary credentials to perform operations requiring elevated privileges.
 
 Overview
 -----------------
 
-<p> We supposed that you have a already created your virtual machine. 
+We've broken this guide down into multiple sections from installing latest dependencies, to mantaining proper user permissions & file ownerships, and installing the helpdesk project using composer. You can jump right to the part most relevant to you:
 
-Also, Access the terminal using your root user credentials.
+* [(Optional) Upgrade to latest available Ubuntu packages](#Upgrade-to-latest-available-Ubuntu-packages)
+* [(Optional) Create a non-root user with elevated privileges](#Create-a-non-root-user-with-elevated-privileges)
+* [(Optional) Checking for the latest PHP version available](#Checking-for-the-latest-PHP-version-available)
+* [Install PHP, Apache and all the necessary packages](#Install-PHP-Apache-and-all-the-necessary-packages)
+* [(Optional) Update Apache's Document Root](#Update-Apache's-Document-Root)
+* [Downloading and setting up Composer](#Downloading-and-setting-up-Composer)
+* [Installing and setting up Uvdesk Community Helpdesk](#Installing-and-setting-up-Uvdesk-Community-Helpdesk)
 
-Now we will continue our ubuntu configuration, php installation, composer and Uvdesk installation
-
-</p>
-
-Getting Started
+(Optional) Upgrade to latest available Ubuntu packages
 -----------------
 
-* [Upgrade Ubuntu Packages](#Upgrade-the-latest-Ubuntu-Packages)
-* [Create a non-root user (optional)](#Create-a-non-root-user-with-a-sudo-group-optional)
-* [How to check the latest version of PHP in your packages repository (optional)](#Here-we-check-which-the-latest-PHP-version-available-optional)
-* [PHP Installation](#PHP-Installation-with-install-remaining-packages)
-* [Update Apache's document root file (optional)](#Update-Apache-document-root-file-optional)
-* [Testing the PHP Environment (optional)](#Testing-the-PHP-Environment-optional)
-* [Composer Installation](#Setting-Up-download-the-Composer)
-* [Uvdesk Installation](#Installation-of-Uvdesk-Helpdesk-using-composer-command-or-zip-file)
+Although optional, it's advisable to update to the latest available packages. To do so, use the following commands:
 
+```bash
+# Update the list of available packages so that the package manager is aware about the latest packages
+$ sudo apt-get update;
 
+# Update the packages to their latest available versions
+$ sudo apt-get -y upgrade;
+```
 
-Upgrade the latest Ubuntu Packages
------------------                       
-
-<!--- This is used for linking of above points clicking line ---------------- and also added same content of # together you want to link word  -->
-
-3. Run the following commands to <b> update your packages list </b> , and then <b> upgrade to the latest available packages </b> the below commands:
-
-        $ sudo apt-get update;
-
-        $ sudo apt-get -y upgrade;
-
-Create a non root user with a sudo group (optional)
+(Optional) Create a non-root user with elevated privileges
 -----------------
 
-4. Run the following commands to <b> create a not-root user (uvdesk) with sudo privileges:</b>   
+It's advisable to have a non-root user configured on your instance with elevated privileges other than a root account, so that your file ownerships are properly managed and you don't run into un-intended permission related issues. To add a non-root user with elevated privileges (say *uvdesk*), use the following commands:
 
-        $ adduser uvdesk;                          (Create user: adduser <your-user-name>)
+```bash
+# Create user
+$ adduser uvdesk;
 
-        $ usermod -aG sudo uvdesk;                 (Add user to sudo group: usermod -addGroup sudo <your-user-name>;)
+# Add user to the sudo group so they can perform operations requiring elevated privileges
+$ usermod -aG sudo uvdesk;
 
-        $ groups uvdesk;                           (Verify that the user has been added to the sudo group)
+# Verify that the user uvdesk has been added to the sudo group
+$ groups uvdesk;
 
-5. Exit your ssh session, and then <b> create a new ssh session by using the credentials of your-user (uvdesk) </b> you just created (you might need to setup ssh keys depending on your security configurations)
+# You can also additionaly use the passwd command if you want to set user password
+$ passwd uvdesk;
+```
 
-    Or you can <b> switch directly </b> in the same terminal using the below command:
+Once your non-root user with elevated privileges has been created, you can switch to the new user account in your current terminal session using the following command:
 
-        $ su - uvdesk                              (su - <your-user-name>)
+```bash
+# Use '-' if you want to be prompted for user password before switching session into the new user.
+$ su - uvdesk
+```
 
-    Now, Enter your password when prompted. You can run commands as normal, just by typing them.
+> Note: We will be using the user we just created to setup our helpdesk project, and then add this user to apache's www-data user group. This way, while the project ownership will belong to our user, apache will still have the necessary access to manage our project resources so we don't run into any permission related issues.
 
-
-Here we check which the latest PHP version available (optional)
+(Optional) Checking for the latest PHP version available
 -----------------
 
-6. Lookup the latest version of PHP available in your packages repository using the following command. If it's greater than 8, we'll be proceeding with that:
+If you want to check for the latest PHP version available, you can use the following command to list all the PHP packages available for installation:
 
-        $ apt-cache search php;
+```bash
+$ apt-cache search php;
+```
 
-    Otherwise, add the <b> ppa:ondrej/php </b> repository to be able to install the latest version of php:
+If you find a PHP version to your preference, you can proceed with that (it's recommended to use PHP 7.4 or greater). Otherwise, you can ppa:ondrej/php apt repository to install the latest version of PHP available:
 
-        $ sudo add-apt-repository -y ppa:ondrej/php;
+```bash
+$ sudo add-apt-repository -y ppa:ondrej/php;
 
-    Finally, you update <b> apt-get </b> again so your package manager can see the newly listed packages:
+# Make sure the package manager is aware about the newly listed packages
+$ sudo apt-get update;
+```
 
-        $ sudo apt-get update;
-
-
-PHP Installation with install remaining packages
+Install PHP, Apache and all the necessary packages
 -----------------
 
-7. Now you’re ready to <b> install PHP 7.4, 8.0 or 8.1 </b> as your wish using the following command:
+Note: We're proceeding with installing PHP 8.2 in this guide. If you want to use a different version of PHP, simply replace 8.2 with your preferred version.
 
-        $ sudo apt -y install php8.1               (sudo apt -y install php <your-php-version>)
+```bash
+$ sudo apt -y install php8.2;
 
-    Install the remaining packages using <b> sudo </b> as listed below:
+# Install the remaining packages
+$ sudo apt-get install -y software-properties-common;
+$ sudo apt-get -y install \
+    curl \
+    wget \
+    git \
+    unzip \
+    apache2 \
+    mysql-server \ 
+    php8.2 \
+    libapache2-mod-php8.2 \ 
+    php8.2-common \
+    php8.2-xml \
+    php8.2-imap \
+    php8.2-mysql \
+    php8.2-mailparse \
+    ca-certificates;
 
-        $ sudo apt-get install -y software-properties-common;
+# Enable apache rewrite module
+$ sudo a2enmod rewrite;
 
-        $ sudo apt-get -y install 
-        curl \
-        wget \
-        git \
-        unzip \
-        apache2 \
-        mysql-server \ 
-        php8.1 \
-        libapache2-mod-php8.1 \ 
-        php8.1-common \
-        php8.1-xml \
-        php8.1-imap \
-        php8.1-mysql \
-        php8.1-mailparse \
-        ca-certificates;
-    
-        $ sudo a2enmod rewrite;
-        
-        $ sudo service apache2 restart;			 (For Restart again apache server)
-    
-        $ sudo service apache2 status			     (For checking apache status is running or not)
+# Restart your apache server
+$ sudo service apache2 restart;
+# Or alternatively, use 'sudo systemctl restart apache2'
 
-    > You can also used these alternatively commands for restart your apache:
-        
+# Verify that your apache server is up & running
+$ sudo service apache2 status;
+```
 
-        $ sudo systemctl restart apache2;           # Alternatively
+> Note: You can list all available loaded PHP modules using the following command: $ php -m
 
-        $ sudo /etc/init.d/apache2 restart;         # Alternatively
+Now, Verify your Apache & PHP installations using the commands below (don't worry about the warnings):
 
-    > Note: If you want to install some additional PHP modules. You can use this command to install additional modules, replacing <b> PACKAGE_NAME </b> with the package you wish to install:
-
-        $ sudo apt-get install php8.1-PACKAGE_NAME
-    
-    > PHP configurations related to Apache are stored in <b> /etc/php/8.1/apache2/php.ini </b>. 
-    You can list all loaded PHP modules with the following command:
-
-        $ php -m
-
-    Now, Verify your <b> Apache & PHP installations </b> using the commands below (don't worry about the warnings):
-
-        $ apache2 --version
-
-        $ php --version
+```bash
+$ apache2 --version;
+$ php --version;
+```
 
 With apache server installed & running, you should now be able to load web reources from your server. You can check this by accessing your server IP on your web browser.
 
-
-Update Apache document root file (optional)
+(Optional) Update Apache's Document Root
 -----------------
 
-8. Before we move further, lets take care of a few things first:
+In your home directory (/home/uvdesk), create the following directories:
 
-    In your home directory (/home/uvdesk), create the following directories:
+```bash
+/home/uvdesk/workstation
 
-        /home/uvdesk/workstation			         (mkdir workstation)
+# We will setup our helpdesk project within this directory
+/home/uvdesk/workstation/projects
 
-        /home/uvdesk/workstation/projects           (we will setup our helpdesk project in this directory)
+# We will setup this directory to be used as the document root for apache, so any resources within this directory will be servable by apache through localhost
+/home/uvdesk/workstation/www
+````
 
-        /home/uvdesk/workstation/www                (we will setup this directory to act as apache's document root, so any content in this directory will be available to apache)
+At this moment, apache will currently be serving documents from the /var/www/ directory. In order to serve documents from /home/uvdesk/workstation/www directory instead, we need to modify a few apache configurations and restart the apache service for these changes to take affect.
 
-    Now, Update your <b> apache's document root </b> using the below commands:
+```bash
+# File: /etc/apache2/apache2.conf
+# Replace /var/www/ with the path of our new document root directory /home/uvdesk/workstation/www/ and set AllowOverride to All
+$ sudo nano /etc/apache2/apache2.conf
 
-        $ sudo nano /etc/apache2/apache2.conf
+# File: /etc/apache2/sites-available/000-default.conf
+# Replace /var/www/html with the path of our new document root directory /home/uvdesk/workstation/www
+$ sudo nano /etc/apache2/sites-available/000-default.conf
 
-        Replace  /var/www/   with the path of our new document root directory  /home/uvdesk/workstation/www/
-        
-        and set AllowOverride to All
+# Restart your apache server
+$ sudo service apache2 restart;
+# Or alternatively, use 'sudo systemctl restart apache2'
+```
 
-        $ sudo nano /etc/apache2/sites-available/000-default.conf
-        
-        Replace  /var/www/html  with the path of our new document root directory  /home/uvdesk/workstation/www
-        
-    After that you will restart your apache again using this command:
-        
-        $ sudo service apache2 restart
+Now, add user uvdesk to the www-data user group, so that www-data can access the resources in our new document root directory:
 
-     > You can also used these alternatively commands for restart your apache:
-        
+```bash
+$ sudo usermod -aG uvdesk www-data;
+$ sudo service apache2 restart;
+```
 
-        $ sudo systemctl restart apache2;           # Alternatively
+### Testing the PHP Environment (optional)
 
-        $ sudo /etc/init.d/apache2 restart;         # Alternatively
+Now, create a php script *index.php* within your new document root directory using the following commands:
 
-    Now, Add <b> user uvdesk </b> to the <b> www-data </b> user group, so that <b> www-data </b> can access the resources in our new document root directory:
-        
-        $ sudo usermod -aG uvdesk www-data
+```bash
+$ cd /home/uvdesk/workstation/www;
 
-        $ sudo service apache2 restart
+# Create and add the following code to index.php
+$ echo "<?php echo phpinfo(); ?>" > index.php
+```
 
-    
-Testing the PHP Environment (optional)
+Navigate to localhost/index.php to verify that localhost is able to serve your script.
+
+> Note: If you're setting up the project on a remote instance, you can use your server's IP address instead of localhost to verify the same. Depending on your server configurations, you might need to manage your firewall settings to allow HTTP/HTTPS requests.
+
+With all these changes done, your apache server should be able to serve web resources from your new document root. You can further go ahead and configure your DNS records to point your domains to your server's IP at this step.
+
+Downloading and setting up Composer
 -----------------
 
-9. Now, <b> Create a test php file </b> on your new document root to test your changes:
+Follow the instructions provided on the official [composer website](https://getcomposer.org/download/) to download and install composer package manager. Once installed, it's advisable to move the composer executable to the /usr/local/bin/ directory so that it can be easily accessed from anywhere in your terminal. To do so, use the following commands:
 
-        cd /home/uvdesk/workstation/www;
+```bash
+# Assuming you used the default download instructions, the composer executable will be named composer.phar.
+# We will rename and move the executable script to the /usr/local/bin/ directory.
 
-        $ touch index.php    
-        
-    Go to <b> index.php </b>  file using this command: 
-        
-        $ sudo nano /etc/apache2/index.php      
-        
-    After that <b> add this code </b> in your <b> index.php </b> file and save:
-        
-        <?php 
-        echo phpinfo(); 
-        ?>
+$ mv composer.phar composer
+$ sudo mv composer /usr/local/bin/
 
+# Use the following command to verify that composer executable is accessible to you from your current directory
+$ composer --version
+```
 
-
-10. With all these changes done, your apache server should be able to serve web resources from your new document root. You can check this by accessing your server IP on your web browser.
-
-11. Now that your server is up and running, you can go ahead and configure your DNS records to point your subdomain to your servers IP. As per your requirements, I've implemented the same setup where the main domain points to one server, and a subdomain points to a different server.
-
-12. After your DNS records update takes hold, your subdomain should now point to your newly configured server.
-
-Voila! You're halfway there. 
-
->Now we can go ahead with setting up <b> composer, helpdesk project, and configuring your SSL records </b>.
-
-
-Setting Up download the Composer
+Installing and setting up Uvdesk Community Helpdesk
 -----------------
 
-13. In your terminal, navigate to <b> your workstation directory </b> and run the scripts provided on https://getcomposer.org/download/ to download composer.
+To install the uvdesk community helpdesk project using composer (recommended), use the following commands:
 
-    This will download composer executable to the current directory you're in.
+> We will be installing the project within the /home/uvdesk/workstation/projects directory, and then symlink the public directory of our project to/within apache's document root so that the project is servable from localhost. This can be changed however according to your own preference.
 
-14. Rename <b> composer.phar </b> to composer, and then <b> move it to your local bin directory </b> so that it can be easily accessed from anywhere in your terminal so run the below commands:
+```bash
+$ cd /home/uvdesk/workstation/projects
+$ composer create-project uvdesk/community-skeleton
+```
 
-        $ mv composer.phar composer
+If you don't wish to use composer, you can just download the zip archive of the project and unpack it instead.
 
-        $ sudo mv composer /usr/local/bin/
+```bash
+$ cd /home/uvdesk/workstation/projects
+$ wget "https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip"
+$ unzip uvdesk-community-current-stable.zip
+```
 
-    To <b> check your composer version </b> using run this command:
+After your project has been installed, you can navigate to your helpdesk project and run the following command to configure your helpdesk from the command line itself:
 
-        $ composer --version
+```bash
+$ php bin/console uvdesk:configure-helpdesk
+```
 
+---
 
-Installation of Uvdesk Helpdesk using composer command or zip file
------------------
-
-15. Now, you can install the Uvdesk Helpdesk project on your server:
-
-Navigate to your projects directory:
-
-    cd /home/uvdesk/workstation/projects
-
-> Install <b> Uvdesk helpdesk community using the composer command </b>  so run the below command:
-
-    $ composer create-project uvdesk/community-skeleton
-
-
-> Direct Download in Zip File of Uvdesk latest stable release:
-
-Alternatively, you can also download the <b> zip archive of the latest stable release and extract </b> its content by running the following commands from your terminal:
-
-    $ wget "https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip" -P /var/www/
-
-    $ unzip -q /var/www/uvdesk-community-current-stable.zip -d /var/www/ \
-
-Also, click and download from here:
-https://cdn.uvdesk.com/uvdesk/downloads/opensource/uvdesk-community-current-stable.zip
-
-
-
-After composer has successfully created your helpdesk project, let's configure it so that when you visit your website, the helpdesk project is served right away.
-
-After that you will setup of your project so you can continue from here: 
-https://github.com/uvdesk/community-skeleton#installation
-
-
-
+Please feel free to further contribute to this resource.
