@@ -1430,6 +1430,34 @@
 "Outbound Emails": "Giden E-postalar"
 "Manage how you wish to send emails from your mailbox.": "Posta kutunuzdan nasıl e-posta göndermek istediğinizi yönetin."
 
+
+# Successfully Pop-up/Notification Messages:
+"Ticket is already assigned to agent" : "Bilet zaten acenteye atanmış"
+"Success ! Agent assigned successfully." : "Başarı ! Aracı başarıyla atandı."
+"Ticket status is already set" : "Bilet durumu zaten ayarlandı"
+"Success ! Tickets status updated successfully." : "Başarı ! Bilet durumu başarıyla güncellendi."
+"Ticket priority is already set" : "Bilet önceliği zaten ayarlandı"
+"Success ! Tickets priority updated successfully." : "Başarı ! Bilet önceliği başarıyla güncellendi."
+"Ticket group is updated successfully" : "Bilet grubu başarıyla güncellendi"
+"Ticket is already assigned to group" : "Bilet zaten gruba atanmış"
+"Success ! Tickets group updated successfully." : "Başarı ! Bilet grubu başarıyla güncellendi."
+"Ticket team is updated successfully" : "Bilet ekibi başarıyla güncellendi"
+"Ticket is already assigned to team" : "Bilet zaten takıma atanmış"
+"Success ! Tickets team updated successfully." : "Başarı ! Bilet ekibi başarıyla güncellendi."
+"Ticket type is already set" : "Bilet türü zaten ayarlandı"
+"Success ! Tickets type updated successfully." : "Başarı ! Bilet türü başarıyla güncellendi."
+"Success ! Tickets label updated successfully." : "Başarı ! Bilet etiketi başarıyla güncellendi."
+"Success ! Tickets added to label successfully." : "Başarı ! Biletler etikete başarıyla eklendi."
+"Success ! Tickets moved to trashed successfully." : "Başarı ! Biletler başarıyla çöp kutusuna taşındı."
+"Success ! Tickets removed successfully." : "Başarı ! Biletler başarıyla kaldırıldı."
+"Success ! Tickets restored successfully." : "Başarı ! Biletler başarıyla geri yüklendi."
+"Unable to retrieve group details" : "Grup ayrıntıları alınamıyor"
+"Unable to retrieve team details" : "Ekip ayrıntıları alınamadı"
+"Tickets details have been updated successfully": "Bilet ayrıntıları başarıyla güncellendi"
+"Label added to ticket successfully" : "Etiket bilete başarıyla eklendi"				
+"Label already added to ticket" : "Etiket zaten bilete eklendi"
+
+
 #customer page
 "New Ticket Request": "Yeni Kayıt"
 "Ticket Requests": "Kayıtlar"

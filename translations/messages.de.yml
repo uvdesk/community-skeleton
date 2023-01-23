@@ -1429,6 +1429,34 @@
 "Outbound Emails": "Ausgehende E-Mails"
 "Manage how you wish to send emails from your mailbox.": "Verwalten Sie, wie Sie E-Mails von Ihrem Postfach aus senden möchten."
 
+
+# Successfully Pop-up/Notification Messages:
+"Ticket is already assigned to agent" : "Das Ticket ist bereits dem Agenten zugewiesen"
+"Success ! Agent assigned successfully." : "Erfolg ! Agent erfolgreich zugewiesen."
+"Ticket status is already set" : "Der Ticketstatus ist bereits festgelegt"
+"Success ! Tickets status updated successfully." : "Erfolg ! Ticketstatus erfolgreich aktualisiert."
+"Ticket priority is already set" : "Die Ticketpriorität ist bereits festgelegt"
+"Success ! Tickets priority updated successfully." : "Erfolg ! Ticketpriorität erfolgreich aktualisiert."
+"Ticket group is updated successfully" : "Die Ticketgruppe wurde erfolgreich aktualisiert"
+"Ticket is already assigned to group" : "Ticket ist bereits der Gruppe zugewiesen"
+"Success ! Tickets group updated successfully." : "Erfolg ! Ticketgruppe erfolgreich aktualisiert."
+"Ticket team is updated successfully" : "Das Ticketteam wurde erfolgreich aktualisiert"
+"Ticket is already assigned to team" : "Ticket ist dem Team bereits zugewiesen"
+"Success ! Tickets team updated successfully." : "Erfolg ! Das Ticketteam wurde erfolgreich aktualisiert."
+"Ticket type is already set" : "Der Tickettyp ist bereits festgelegt"
+"Success ! Tickets type updated successfully." : "Erfolg ! Tickettyp erfolgreich aktualisiert."
+"Success ! Tickets label updated successfully." : "Erfolg ! Ticketetikett erfolgreich aktualisiert."
+"Success ! Tickets added to label successfully." : "Erfolg ! Tickets erfolgreich zum Label hinzugefügt."
+"Success ! Tickets moved to trashed successfully." : "Erfolg ! Tickets wurden erfolgreich in den Papierkorb verschoben."
+"Success ! Tickets removed successfully." : "Erfolg ! Tickets erfolgreich entfernt."
+"Success ! Tickets restored successfully." : "Erfolg ! Tickets erfolgreich wiederhergestellt."
+"Unable to retrieve group details" : "Gruppendetails können nicht abgerufen werden"
+"Unable to retrieve team details" : "Teamdetails können nicht abgerufen werden"
+"Tickets details have been updated successfully": "Ticketdetails wurden erfolgreich aktualisiert"
+"Label added to ticket successfully" : "Label erfolgreich zum Ticket hinzugefügt"				
+"Label already added to ticket" : "Label bereits zum Ticket hinzugefügt"
+
+
 #customer page
 "New Ticket Request": "Ticket erstellen"
 "Ticket Requests": "Tickets"

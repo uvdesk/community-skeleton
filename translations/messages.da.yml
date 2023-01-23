@@ -1429,6 +1429,34 @@
 "Outbound Emails": "Udgående e-mails"
 "Manage how you wish to send emails from your mailbox.": "Administrer, hvordan du ønsker at sende e-mails fra din postkasse."
 
+
+# Successfully Pop-up/Notification Messages:
+"Ticket is already assigned to agent" : "Billetten er allerede tildelt agenten"
+"Success ! Agent assigned successfully." : "Succes! Agent tildelt."
+"Ticket status is already set" : "Billetstatus er allerede indstillet"
+"Success ! Tickets status updated successfully." : "Succes! Billetstatus blev opdateret."
+"Ticket priority is already set" : "Billetprioritet er allerede indstillet"
+"Success ! Tickets priority updated successfully." : "Succes! Billetprioritet blev opdateret."
+"Ticket group is updated successfully" : "Billetgruppen er opdateret"
+"Ticket is already assigned to group" : "Billet er allerede tildelt gruppen"
+"Success ! Tickets group updated successfully." : "Succes! Billetgruppen blev opdateret."
+"Ticket team is updated successfully" : "Billetteamet er opdateret"
+"Ticket is already assigned to team" : "Billet er allerede tildelt holdet"
+"Success ! Tickets team updated successfully." : "Succes! Billetteamet blev opdateret."
+"Ticket type is already set" : "Billettype er allerede indstillet"
+"Success ! Tickets type updated successfully." : "Succes! Billettypen blev opdateret."
+"Success ! Tickets label updated successfully." : "Succes! Billetetiketten blev opdateret."
+"Success ! Tickets added to label successfully." : "Succes! Billetter blev tilføjet til etiketten."
+"Success ! Tickets moved to trashed successfully." : "Succes! Billetter blev flyttet til papirkurven."
+"Success ! Tickets removed successfully." : "Succes! Billetter blev fjernet."
+"Success ! Tickets restored successfully." : "Succes! Billetter blev gendannet."
+"Unable to retrieve group details" : "Gruppeoplysningerne kunne ikke hentes"
+"Unable to retrieve team details" : "Teamdetaljerne kunne ikke hentes"
+"Tickets details have been updated successfully": "Billetoplysninger er blevet opdateret"
+"Label added to ticket successfully" : "Etiket blev føjet til billetten"				
+"Label already added to ticket" : "Etiket er allerede føjet til billetten"
+
+
 #customer page
 "New Ticket Request": "Ny billetanmodning"
 "Ticket Requests": "Billetanmodninger"

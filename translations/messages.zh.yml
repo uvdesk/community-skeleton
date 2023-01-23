@@ -1431,6 +1431,34 @@
 "Outbound Emails": "出站电子邮件"
 "Manage how you wish to send emails from your mailbox.": "管理您希望如何从邮箱发送电子邮件."
 
+
+# Successfully Pop-up/Notification Messages:
+"Ticket is already assigned to agent" : "工单已分配给代理"
+"Success ! Agent assigned successfully." : "成功 ！代理分配成功."
+"Ticket status is already set" : "工单状态已设置"
+"Success ! Tickets status updated successfully." : "成功 ！工单状态更新成功."
+"Ticket priority is already set" : "工单优先级已设置"
+"Success ! Tickets priority updated successfully." : "成功 ！工单优先级更新成功."
+"Ticket group is updated successfully" : "票组更新成功"
+"Ticket is already assigned to group" : "票已分配给组"
+"Success ! Tickets group updated successfully." : "成功 ！门票组更新成功."
+"Ticket team is updated successfully" : "工单团队更新成功"
+"Ticket is already assigned to team" : "工单已分配给团队"
+"Success ! Tickets team updated successfully." : "成功 ！门票团队更新成功."
+"Ticket type is already set" : "门票类型已设置"
+"Success ! Tickets type updated successfully." : "成功 ！工单类型更新成功."
+"Success ! Tickets label updated successfully." : "成功 ！门票标签更新成功."
+"Success ! Tickets added to label successfully." : "成功 ！票证已成功添加到标签."
+"Success ! Tickets moved to trashed successfully." : "成功 ！工单已成功移至垃圾箱."
+"Success ! Tickets removed successfully." : "成功 ！已成功移除门票."
+"Success ! Tickets restored successfully." : "成功 ！门票成功恢复."
+"Unable to retrieve group details" : "无法检索组详细信息"
+"Unable to retrieve team details" : "无法检索团队详细信息"
+"Tickets details have been updated successfully": "门票详情已成功更新"
+"Label added to ticket successfully" : "标签添加到工单成功"				
+"Label already added to ticket" : "标签已添加到工单"
+
+
 #customer page:
 "customer page": "客户页面"
 "Howdy!": "你好！"

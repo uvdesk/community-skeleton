@@ -1431,6 +1431,34 @@
 "Outbound Emails": "Email in uscita"
 "Manage how you wish to send emails from your mailbox.": "Gestisci come desideri inviare e-mail dalla tua casella di posta."
 
+
+# Successfully Pop-up/Notification Messages:
+"Ticket is already assigned to agent" : "Il biglietto è già assegnato all'agente"
+"Success ! Agent assigned successfully." : "Successo ! Agente assegnato correttamente."
+"Ticket status is already set" : "Lo stato del ticket è già impostato"
+"Success ! Tickets status updated successfully." : "Successo ! Stato dei ticket aggiornato con successo."
+"Ticket priority is already set" : "La priorità del ticket è già impostata"
+"Success ! Tickets priority updated successfully." : "Successo ! Priorità ticket aggiornata con successo."
+"Ticket group is updated successfully" : "Il gruppo di ticket è stato aggiornato correttamente"
+"Ticket is already assigned to group" : "Il biglietto è già assegnato al gruppo"
+"Success ! Tickets group updated successfully." : "Successo ! Gruppo di ticket aggiornato con successo."
+"Ticket team is updated successfully" : "Il team ticket è stato aggiornato con successo"
+"Ticket is already assigned to team" : "Il biglietto è già assegnato alla squadra"
+"Success ! Tickets team updated successfully." : "Successo ! Il team dei ticket è stato aggiornato correttamente."
+"Ticket type is already set" : "Il tipo di biglietto è già impostato"
+"Success ! Tickets type updated successfully." : "Successo ! Tipo di ticket aggiornato con successo."
+"Success ! Tickets label updated successfully." : "Successo ! Etichetta dei biglietti aggiornata con successo."
+"Success ! Tickets added to label successfully." : "Successo ! Biglietti aggiunti all'etichetta con successo."
+"Success ! Tickets moved to trashed successfully." : "Successo ! I biglietti sono stati spostati nel cestino con successo."
+"Success ! Tickets removed successfully." : "Successo ! Ticket rimossi con successo."
+"Success ! Tickets restored successfully." : "Successo ! Ticket ripristinati con successo."
+"Unable to retrieve group details" : "Impossibile recuperare i dettagli del gruppo"
+"Unable to retrieve team details" : "Impossibile recuperare i dettagli del team"
+"Tickets details have been updated successfully": "I dettagli dei biglietti sono stati aggiornati con successo"
+"Label added to ticket successfully" : "Etichetta aggiunta al ticket con successo"				
+"Label already added to ticket" : "Etichetta già aggiunta al biglietto"
+
+
 #customer page
 "New Ticket Request": "Nuova richiesta"
 "Ticket Requests": "Richieste"
