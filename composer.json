@@ -1,68 +1,95 @@
 {
-    "name": "uvdesk/community-skeleton",
-    "description": "UVDesk Community Helpdesk Project Skeleton",
     "type": "project",
-    "license": "MIT",
+    "license": "proprietary",
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^7.2.5 || ^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "uvdesk/composer-plugin": "^1.1",
-        "symfony/flex": "^1.17|^2"
-    },
-    "flex-require": {
         "doctrine/annotations": "^1.0",
+        "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "doctrine/doctrine-migrations-bundle": "^2.2",
+        "doctrine/orm": "^2.15",
         "google/recaptcha": "^1.2",
         "knplabs/knp-paginator-bundle": "^5.8",
         "phpdocumentor/reflection-docblock": "^5.3",
         "phpstan/phpdoc-parser": "^1.2",
         "sensio/framework-extra-bundle": "^6.1",
-        "symfony/asset": "*",
-        "symfony/console": "*",
-        "symfony/dotenv": "*",
-        "symfony/expression-language": "*",
-        "symfony/form": "*",
-        "symfony/framework-bundle": "*",
-        "symfony/http-client": "*",
-        "symfony/intl": "*",
-        "symfony/mailer": "*",
-        "symfony/mime": "*",
+        "symfony/asset": "^5.4",
+        "symfony/console": "^5.4",
+        "symfony/dotenv": "^5.4",
+        "symfony/expression-language": "^5.4",
+        "symfony/flex": "^1.17|^2",
+        "symfony/form": "^5.4",
+        "symfony/framework-bundle": "^5.4",
+        "symfony/http-client": "^5.4",
+        "symfony/intl": "^5.4",
+        "symfony/mailer": "^5.4",
+        "symfony/mime": "^5.4",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/notifier": "*",
-        "symfony/orm-pack": "*",
-        "symfony/process": "*",
-        "symfony/property-access": "*",
-        "symfony/property-info": "*",
-        "symfony/proxy-manager-bridge": "*",
-        "symfony/runtime": "*",
-        "symfony/security-bundle": "*",
-        "symfony/serializer": "*",
-        "symfony/string": "*",
+        "symfony/notifier": "^5.4",
+        "symfony/process": "^5.4",
+        "symfony/property-access": "^5.4",
+        "symfony/property-info": "^5.4",
+        "symfony/proxy-manager-bridge": "^5.4",
+        "symfony/runtime": "^5.4",
+        "symfony/security-bundle": "^5.4",
+        "symfony/serializer": "^5.4",
+        "symfony/string": "^5.4",
         "symfony/swiftmailer-bundle": "^3.5",
-        "symfony/translation": "*",
-        "symfony/twig-bundle": "*",
-        "symfony/validator": "*",
-        "symfony/web-link": "*",
-        "symfony/yaml": "*",
+        "symfony/translation": "^5.4",
+        "symfony/twig-bundle": "^5.4",
+        "symfony/validator": "^5.4",
+        "symfony/web-link": "^5.4",
+        "symfony/yaml": "^5.4",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "uvdesk/automation-bundle": "^1.1",
-        "uvdesk/core-framework": "^1.1",
-        "uvdesk/extension-framework": "^1.1",
-        "uvdesk/mailbox-component": "^1.1",
-        "uvdesk/support-center-bundle": "^1.1"
+        "uvdesk/api-bundle": "@dev",
+        "uvdesk/automation-bundle": "@dev",
+        "uvdesk/composer-plugin": "^1.1",
+        "uvdesk/core-framework": "@dev",
+        "uvdesk/extension-framework": "@dev",
+        "uvdesk/mailbox-component": "@dev",
+        "uvdesk/support-center-bundle": "@dev"
     },
     "require-dev": {
-    },
-    "flex-require-dev": {
-        "symfony/debug-pack": "*",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "^5.4",
+        "symfony/css-selector": "^5.4",
+        "symfony/debug-bundle": "^5.4",
         "symfony/maker-bundle": "^1.0",
-        "symfony/profiler-pack": "*",
-        "symfony/test-pack": "*"
+        "symfony/phpunit-bridge": "^6.2",
+        "symfony/stopwatch": "^5.4",
+        "symfony/web-profiler-bundle": "^5.4"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/home/users/abhishek.gupta/workspace/projects/uvdesk-opensource/packages/support-center-bundle"
+        },
+        {
+            "type": "path",
+            "url": "/home/users/abhishek.gupta/workspace/projects/uvdesk-opensource/packages/core-framework"
+        },
+        {
+            "type": "path",
+            "url": "/home/users/abhishek.gupta/workspace/projects/uvdesk-opensource/packages/extension-framework"
+        },
+        {
+            "type": "path",
+            "url": "/home/users/abhishek.gupta/workspace/projects/uvdesk-opensource/packages/automation-bundle"
+        },
+        {
+            "type": "path",
+            "url": "/home/users/abhishek.gupta/workspace/projects/uvdesk-opensource/packages/api-bundle"
+        },
+        {
+            "type": "path",
+            "url": "/home/users/abhishek.gupta/workspace/projects/uvdesk-opensource/packages/mailbox-component"
+        }
+    ],
     "config": {
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
@@ -107,9 +134,6 @@
         "symfony/symfony": "*"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.1.x-dev"
-        },
         "symfony": {
             "allow-contrib": false,
             "require": "^5.4"
