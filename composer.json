@@ -9,7 +9,6 @@
         "php": "^7.2.5 || ^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
-        "uvdesk/composer-plugin": "^1.1",
         "symfony/flex": "^1.17|^2"
     },
     "flex-require": {
@@ -49,11 +48,12 @@
         "symfony/yaml": "*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "uvdesk/automation-bundle": "^1.1",
-        "uvdesk/core-framework": "^1.1",
+        "uvdesk/api-bundle": "^1.1",
+        "uvdesk/automation-bundle": "^1.1.2",
+        "uvdesk/core-framework": "^1.1.3",
         "uvdesk/extension-framework": "^1.1",
         "uvdesk/mailbox-component": "^1.1",
-        "uvdesk/support-center-bundle": "^1.1"
+        "uvdesk/support-center-bundle": "^1.1.3"
     },
     "require-dev": {
     },
@@ -67,8 +67,7 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
-            "symfony/runtime": true,
-            "uvdesk/composer-plugin": true
+            "symfony/runtime": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -107,11 +106,12 @@
         "symfony/symfony": "*"
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "1.1.x-dev"
-        },
         "symfony": {
             "allow-contrib": false,
+            "endpoint": [
+                "https://api.github.com/repos/uvdesk/recipes/contents/index.json",
+                "flex://defaults"
+            ],
             "require": "^5.4"
         }
     }
