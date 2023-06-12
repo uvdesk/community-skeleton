@@ -3,7 +3,7 @@ CHANGELOG for 1.1.x
 
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
-* 1.1.2
+* 1.1.2 (2023-06-12)
     * Update: Dropped dependency on uvdesk/composer-plugin in support of symfony/flex
     * PR #619: Changes for error page: Home and support option links (Komal-sharma-2712)
     * Update: Update installation wizard to specify database version during installation
