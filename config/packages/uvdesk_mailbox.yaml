@@ -1,0 +1,32 @@
+uvdesk_mailbox:
+    emails: ~
+        # Often Reply emails like from gmail contains extra and redundant previous mail data.
+        # This data can be removed by adding delimiter i.e. specific line before each reply. 
+        # delimiter: '<-- Please add content above this line -->'
+        # enable_delimiter: true
+
+    # Configure your mailboxes here
+    mailboxes: ~
+        # default:
+        #     name: 'Sample Mailbox'
+        #     enabled: true
+        #     disable_outbound_emails: false
+        #     use_strict_mode: false
+        
+        #     # Incoming email settings
+        #     # IMAP settings to use for fetching emails from mailbox
+        #     imap_server:
+        #         host: ~
+        #         username: ~
+        #         password: ~
+
+        #     # Outgoing email settings
+        #     # Mailer settings to use for sending emails from mailbox
+        #     smtp_server:
+        #         host: ~
+        #         port: ~
+        #         client: ~
+        #         type: ~
+        #         username: ~
+        #         password: ~
+        #         sender_address: ~
