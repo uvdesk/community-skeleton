@@ -13,7 +13,7 @@
     // Wait for all assets to load
     $(window).bind("load", function() {
         var UVDeskCommunityInstallSetupView = Backbone.View.extend({
-            el: '#wizardContent',
+            el: '#installation-wizard-steps-overview-details',
             wizard: undefined,
             wizard_icons_notice_template: _.template($("#wizardIcons-NoticeTemplate").html()),
             installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
@@ -91,7 +91,7 @@
                 })();
             },
             redirectToWelcomePage: function () {
-                this.$el.html(this.installation_successfull_template({prefixCollecton:this.wizard.prefix}));
+                this.$el.find('.installation-wizard-steps-overview-details-container').html(this.installation_successfull_template({prefixCollecton:this.wizard.prefix}));
             },
             next: function($i) {
                 for (let index = 0; index < $i; index++) {
@@ -1007,8 +1007,8 @@
             ],
             initialize: function(params) {
                 this.router = params.router;
-                this.reference_nodes.header = this.$el.find('#wizardHeader');
-                this.reference_nodes.content = this.$el.find('#wizardContent');
+                this.reference_nodes.header = this.$el.find('#installation-wizard-steps-overview');
+                this.reference_nodes.content = this.$el.find('.installation-wizard-steps-overview-details-container');
 
                 this.renderWizard();
             },

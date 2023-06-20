@@ -10,15 +10,23 @@ uvdesk_mailbox:
         # default:
         #     name: 'Sample Mailbox'
         #     enabled: true
+        #     disable_outbound_emails: false
+        #     use_strict_mode: false
         
-        #     # [SMTP] Outgoing mail server
-        #     # Swiftmailer smtp mailer to use for sending emails through on behalf of this mailbox
-        #     smtp_server:
-        #         mailer_id: ~
-        
-        #     # [IMAP] Incoming mail server
-        #     # IMAP configurations to use for fetching emails from mailbox
+        #     # Incoming email settings
+        #     # IMAP settings to use for fetching emails from mailbox
         #     imap_server:
         #         host: ~
         #         username: ~
         #         password: ~
+
+        #     # Outgoing email settings
+        #     # Mailer settings to use for sending emails from mailbox
+        #     smtp_server:
+        #         host: ~
+        #         port: ~
+        #         client: ~
+        #         type: ~
+        #         username: ~
+        #         password: ~
+        #         sender_address: ~

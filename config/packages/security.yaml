@@ -1,25 +1,36 @@
 security:
     role_hierarchy:
         ROLE_AGENT: ROLE_AGENT
-        ROLE_ADMIN:
-            - ROLE_AGENT
-            - ROLE_ADMIN
-        ROLE_SUPER_ADMIN:
-            - ROLE_ADMIN
-            - ROLE_SUPER_ADMIN
+        ROLE_ADMIN: [ROLE_AGENT, ROLE_ADMIN]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_SUPER_ADMIN]
         ROLE_CUSTOMER: ROLE_CUSTOMER
+    
+    encoders:
+        Webkul\UVDesk\CoreFrameworkBundle\Entity\User: auto
+    
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         user_provider:
             id: user.provider
-        uv_api_credentials:
+
+        api_user_provider:
             id: Webkul\UVDesk\ApiBundle\Providers\ApiCredentials
-    encoders:
-        Webkul\UVDesk\CoreFrameworkBundle\Entity\User: auto
+    
     firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+        
         back_support:
             pattern: /%uvdesk_site_path.member_prefix%
             provider: user_provider
-            anonymous: null
+            anonymous: ~
             form_login:
                 use_referer: true
                 login_path: helpdesk_member_handle_login
@@ -29,17 +40,19 @@ security:
             logout:
                 path: helpdesk_member_handle_logout
                 target: helpdesk_member_handle_login
+        
         uvdesk_api:
-            pattern: /api
+            pattern: ^/api
             anonymous: true
-            provider: uv_api_credentials
+            provider: api_user_provider
             guard:
                 authenticators:
                     Webkul\UVDesk\ApiBundle\Security\Guards\APIGuard: Webkul\UVDesk\ApiBundle\Security\Guards\APIGuard
+        
         customer:
             pattern: /
             provider: user_provider
-            anonymous: null
+            anonymous: ~
             form_login:
                 use_referer: true
                 login_path: helpdesk_customer_login
@@ -49,45 +62,16 @@ security:
             logout:
                 path: helpdesk_customer_logout
                 target: helpdesk_customer_login
+    
     access_control:
-        -
-            path: /%uvdesk_site_path.member_prefix%/login
-            roles:
-                - IS_AUTHENTICATED_REMEMBERED
-                - IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.member_prefix%/create-account
-            roles:
-                - IS_AUTHENTICATED_REMEMBERED
-                - IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.member_prefix%/forgot-password
-            roles:
-                - IS_AUTHENTICATED_REMEMBERED
-                - IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.member_prefix%/update-credentials
-            roles:
-                - IS_AUTHENTICATED_REMEMBERED
-                - IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.member_prefix%/mailbox/listener
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.member_prefix%/
-            roles: ROLE_AGENT
-        -
-            path: /%uvdesk_site_path.knowledgebase_customer_prefix%/login
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.knowledgebase_customer_prefix%/create-ticket
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.knowledgebase_customer_prefix%/forgot-password
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.knowledgebase_customer_prefix%/update-credentials
-            roles: IS_AUTHENTICATED_ANONYMOUSLY
-        -
-            path: /%uvdesk_site_path.knowledgebase_customer_prefix%/
-            roles: ROLE_CUSTOMER
+        - { path: /%uvdesk_site_path.member_prefix%/login, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/create-account, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/forgot-password, roles: [IS_AUTHENTICATED_REMEMBERED,IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/update-credentials, roles: [IS_AUTHENTICATED_REMEMBERED,IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/mailbox/listener, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.member_prefix%/, roles: ROLE_AGENT }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/login, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/create-ticket, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/forgot-password, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/update-credentials, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/, roles: ROLE_CUSTOMER }
