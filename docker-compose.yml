@@ -1,7 +1,24 @@
 version: '3'
 services:
+  nginx:
+    image: nginx:alpine
+    container_name: tekno-uvdesk-nginx
+    depends_on:
+      - uvdesk
+      - db
+    restart: unless-stopped
+    ports:
+      - 80:80
+      # - 443:443 #https
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/:/etc/nginx/conf.d/
+      # - ssl_cert:/etc/letsencrypt #ssl cert
+    environment:
+      - DISABLE_IPV6=true
+
   db:
-    image: mysql:5.7
+    image: mysql:latest
     volumes:
       - ./mysql:/var/lib/mysql
     restart: always
@@ -10,8 +27,15 @@ services:
       MYSQL_ROOT_PASSWORD: teknoniaga2023
       MYSQL_USER: uvdesk
       MYSQL_PASSWORD: teknoniaga2023
+
   uvdesk:
-    image: nuttcorp/uvdesk:latest
+    image: tekno/uvdesk-app:dev
+    build:
+      args:
+        user: sammy
+        uid: 1000
+      context: .
+      dockerfile: Dockerfile
     depends_on:
       - db
     tty: true
@@ -20,10 +44,8 @@ services:
         MYSQL_PASSWORD: teknoniaga2023
         MYSQL_ROOT_PASSWORD: teknoniaga2023
         MYSQL_DATABASE: uvdesk
-    ports:
-        - 6744:80
     volumes:
-        - uvdesk_data:/var/www/uvdesk
+        - ./:/var/www
 volumes:
   uvdesk_data:
 

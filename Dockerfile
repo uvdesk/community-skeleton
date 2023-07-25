@@ -1,81 +1,47 @@
-FROM ubuntu:latest
-LABEL maintainer="akshay.kumar758@webkul.com"
+FROM php:7.3-fpm
 
-ENV GOSU_VERSION 1.11
+# Arguments defined in docker-compose.yml
+ARG user
+ARG uid
 
-RUN adduser uvdesk -q --disabled-password --gecos ""
+# php env
+ENV PHP_MEMORY_LIMIT=1024M
 
-# Install base supplimentary packages
-RUN apt-get update && apt-get -y upgrade \
-    && apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:ondrej/php \
-    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
-        curl \
-        wget \
-        git \
-        unzip \
-        apache2 \
-        mysql-server \
-        php7.4 \
-        libapache2-mod-php7.4 \
-        php7.4-common \
-        php7.4-xml \
-        php7.4-imap \
-        php7.4-mysql \
-        php7.4-mailparse \
-        ca-certificates; \
-    if ! command -v gpg; then \
-		apt-get install -y --no-install-recommends gnupg2 dirmngr; \
-	elif gpg --version | grep -q '^gpg (GnuPG) 1\.'; then \
-		apt-get install -y --no-install-recommends gnupg-curl; \
-	fi;
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libzip-dev
 
-COPY ./.docker/config/apache2/env /etc/apache2/envvars
-COPY ./.docker/config/apache2/httpd.conf /etc/apache2/apache2.conf
-COPY ./.docker/config/apache2/vhost.conf /etc/apache2/sites-available/000-default.conf
-COPY ./.docker/bash/uvdesk-entrypoint.sh /usr/local/bin/
-COPY . /var/www/uvdesk/
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN \
-    # Update apache configurations
-    a2enmod php7.4 rewrite; \
-    chmod +x /usr/local/bin/uvdesk-entrypoint.sh; \
-    # Install gosu for stepping-down from root to a non-privileged user during container startup
-    dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
-    wget -O /usr/local/bin/gosu "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch" \
-    && wget -O /usr/local/bin/gosu.asc "https://github.com/tianon/gosu/releases/download/$GOSU_VERSION/gosu-$dpkgArch.asc"; \
-    # Verify gosu installation
-    export GNUPGHOME="$(mktemp -d)" \
-    && gpg --batch --keyserver hkps://keys.openpgp.org --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4 \
-	&& gpg --batch --verify /usr/local/bin/gosu.asc /usr/local/bin/gosu \
-    && gpgconf --kill all \
-    && chmod +x /usr/local/bin/gosu \
-    && gosu nobody true; \
-    \
-    # Download and verify composer installer signature
-    wget -O /usr/local/bin/composer.php "https://getcomposer.org/installer"; \
-    actualSig="$(wget -q -O - https://composer.github.io/installer.sig)"; \
-    currentSig="$(shasum -a 384 /usr/local/bin/composer.php | awk '{print $1}')"; \
-    if [ "$currentSig" != "$actualSig" ]; then \
-        echo "Warning: Failed to verify composer signature."; \
-        exit 1; \
-	fi; \
-    # Install composer
-    php /usr/local/bin/composer.php --quiet --filename=/usr/local/bin/composer \
-    && chmod +x /usr/local/bin/composer; \
-    # Assign user uvdesk the ownership of source directory
-    chown -R uvdesk:uvdesk /var/www; \
-    # Clean up files
-    rm -rf \
-        "$GNUPGHOME" \
-        /var/lib/apt/lists/* \
-        /usr/local/bin/gosu.asc \
-        /usr/local/bin/composer.php \
-        /var/www/bin \
-        /var/www/html \
-        /var/www/uvdesk/.docker;
+# Configure and install GD extension
+RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-install -j$(nproc) gd pdo_mysql mbstring exif pcntl bcmath zip
 
-# Change working directory to uvdesk source
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# # Install symfony CLI
+# RUN composer global require symfony/cli
+
+# Create system user to run Composer and Artisan Commands
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
+
+
+# Set working directory
 WORKDIR /var/www
 
-ENTRYPOINT ["uvdesk-entrypoint.sh"]
-CMD ["/bin/bash"]
+EXPOSE 9000
+
+USER $user
