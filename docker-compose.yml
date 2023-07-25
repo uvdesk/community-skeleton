@@ -3,7 +3,7 @@ services:
   db:
     image: mysql:5.7
     volumes:
-      - /volume1/docker/uvdeskdb:/var/lib/mysql
+      - ./mysql:/var/lib/mysql
     restart: always
     environment:
       MYSQL_DATABASE: uvdesk
