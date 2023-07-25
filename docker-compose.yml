@@ -7,9 +7,9 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: uvdesk
-      MYSQL_ROOT_PASSWORD: mariushosting
+      MYSQL_ROOT_PASSWORD: teknoniaga2023
       MYSQL_USER: uvdesk
-      MYSQL_PASSWORD: mariushosting
+      MYSQL_PASSWORD: teknoniaga2023
   uvdesk:
     image: nuttcorp/uvdesk:latest
     depends_on:
@@ -17,8 +17,8 @@ services:
     tty: true
     environment:
         MYSQL_USER: uvdesk
-        MYSQL_PASSWORD: mariushosting
-        MYSQL_ROOT_PASSWORD: mariushosting
+        MYSQL_PASSWORD: teknoniaga2023
+        MYSQL_ROOT_PASSWORD: teknoniaga2023
         MYSQL_DATABASE: uvdesk
     ports:
         - 6744:80
