@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - /volume1/docker/uvdeskdb:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: uvdesk
+      MYSQL_ROOT_PASSWORD: mariushosting
+      MYSQL_USER: uvdesk
+      MYSQL_PASSWORD: mariushosting
+  uvdesk:
+    image: nuttcorp/uvdesk:latest
+    depends_on:
+      - db
+    tty: true
+    environment:
+        MYSQL_USER: uvdesk
+        MYSQL_PASSWORD: mariushosting
+        MYSQL_ROOT_PASSWORD: mariushosting
+        MYSQL_DATABASE: uvdesk
+    ports:
+        - 6744:80
+    volumes:
+        - uvdesk_data:/var/www/uvdesk
+volumes:
+  uvdesk_data:
+
