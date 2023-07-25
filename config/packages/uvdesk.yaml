@@ -20,6 +20,8 @@ uvdesk:
     upload_manager:
         id: Webkul\UVDesk\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost
     
+    support_email: ~
+    
     # Default resources
     default:
         ticket:

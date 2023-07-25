@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:fpm
 
 # Arguments defined in docker-compose.yml
 ARG user
@@ -24,7 +24,9 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Configure and install GD extension
-RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+# RUN docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+
 RUN docker-php-ext-install -j$(nproc) gd pdo_mysql mbstring exif pcntl bcmath zip
 
 # Get latest Composer

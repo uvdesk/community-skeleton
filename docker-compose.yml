@@ -40,10 +40,7 @@ services:
       - db
     tty: true
     environment:
-        MYSQL_USER: uvdesk
-        MYSQL_PASSWORD: teknoniaga2023
-        MYSQL_ROOT_PASSWORD: teknoniaga2023
-        MYSQL_DATABASE: uvdesk
+        DATABASE_URL: mysql://uvdesk:teknoniaga2023@db/uvdesk
     volumes:
         - ./:/var/www
 volumes:

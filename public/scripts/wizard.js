@@ -13,7 +13,7 @@
     // Wait for all assets to load
     $(window).bind("load", function() {
         var UVDeskCommunityInstallSetupView = Backbone.View.extend({
-            el: '#wizardContent',
+            el: '#installation-wizard-steps-overview-details',
             wizard: undefined,
             wizard_icons_notice_template: _.template($("#wizardIcons-NoticeTemplate").html()),
             installation_setup_template: _.template($("#installationWizard-InstallSetupTemplate").html()),
@@ -91,7 +91,7 @@
                 })();
             },
             redirectToWelcomePage: function () {
-                this.$el.html(this.installation_successfull_template({prefixCollecton:this.wizard.prefix}));
+                this.$el.find('.installation-wizard-steps-overview-details-container').html(this.installation_successfull_template({prefixCollecton:this.wizard.prefix}));
             },
             next: function($i) {
                 for (let index = 0; index < $i; index++) {
@@ -355,6 +355,7 @@
                 verified: false,
                 credentials: {
                     serverName: '127.0.0.1',
+                    serverVersion: null,
                     serverPort: '3306',
                     username: 'root',
                     password: null,
@@ -368,6 +369,7 @@
             isProcedureCompleted: function (callback) {
                 this.set('credentials', {
                     serverName: this.view.$el.find('input[name="serverName"]').val(),
+                    serverVersion: this.view.$el.find('input[name="serverVersion"]').val(),
                     serverPort: this.view.$el.find('input[name="serverPort"]').val(),
                     username: this.view.$el.find('input[name="username"]').val(),
                     password: this.view.$el.find('input[name="password"]').val(),
@@ -436,6 +438,7 @@
 
                 let credentials = {
                     hostname: this.$el.find('input[name="serverName"]').val(),
+                    serverVersion: this.$el.find('input[name="serverVersion"]').val(),
                     serverPort: this.$el.find('input[name="serverPort"]').val(),
                     username: this.$el.find('input[name="username"]').val(),
                     password: this.$el.find('input[name="password"]').val(),
@@ -839,6 +842,8 @@
                             var currentconfigfileIconStatus = this.wizard_icons_notice_template();
                             if (currentconfigfileName == 'uvdesk') {
                                 var currentconfigfileTextStatus = "<span class='configfiles_name'> " + currentconfigfileName + ".yaml  read/write file permission is disabled </span>";
+                            } else if (currentconfigfileName == 'swiftmailer') {
+                                var currentconfigfileTextStatus = "<span class='configfiles_name'> " + currentconfigfileName + ".yaml  read/write file permission is disabled </span>";
                             } else {
                                 var currentconfigfileTextStatus = "<span class='configfiles_name'>" + currentconfigfileName + ".yaml  read/write file permission is disabled </span>";
                             }
@@ -1002,8 +1007,8 @@
             ],
             initialize: function(params) {
                 this.router = params.router;
-                this.reference_nodes.header = this.$el.find('#wizardHeader');
-                this.reference_nodes.content = this.$el.find('#wizardContent');
+                this.reference_nodes.header = this.$el.find('#installation-wizard-steps-overview');
+                this.reference_nodes.content = this.$el.find('.installation-wizard-steps-overview-details-container');
 
                 this.renderWizard();
             },

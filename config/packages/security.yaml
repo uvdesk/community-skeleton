@@ -12,6 +12,9 @@ security:
     providers:
         user_provider:
             id: user.provider
+
+        api_user_provider:
+            id: Webkul\UVDesk\ApiBundle\Providers\ApiCredentials
     
     firewalls:
         dev:
@@ -37,6 +40,14 @@ security:
             logout:
                 path: helpdesk_member_handle_logout
                 target: helpdesk_member_handle_login
+        
+        uvdesk_api:
+            pattern: ^/api
+            anonymous: true
+            provider: api_user_provider
+            guard:
+                authenticators:
+                    Webkul\UVDesk\ApiBundle\Security\Guards\APIGuard: Webkul\UVDesk\ApiBundle\Security\Guards\APIGuard
         
         customer:
             pattern: /

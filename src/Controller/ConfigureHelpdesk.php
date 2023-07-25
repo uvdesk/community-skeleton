@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -21,7 +22,7 @@ use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
 
 class ConfigureHelpdesk extends AbstractController
 {
-    const HELPDESK_VERSION = '1.2.0';
+    const DB_URL_TEMPLATE = "mysql://[user]:[password]@[host]:[port]";
     const DB_ENV_PATH_TEMPLATE = "DATABASE_URL=DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME\n";
     const DB_ENV_PATH_PARAM_TEMPLATE = "env(DATABASE_URL): 'DB_DRIVER://DB_USER:DB_PASSWORD@DB_HOST/DB_NAME'\n";
     const DEFAULT_JSON_HEADERS = [
@@ -45,15 +46,16 @@ class ConfigureHelpdesk extends AbstractController
             'name' => 'uvdesk',
         ],
         [
+            'name' => 'swiftmailer',
+        ],
+        [
             'name' => 'uvdesk_mailbox',
         ],
     ];
 
     public function load()
     {
-        return $this->render('installation-wizard/index.html.twig', [
-            'version' => self::HELPDESK_VERSION,
-        ]);
+        return $this->render('installation-wizard/index.html.twig');
     }
 
     public function evaluateSystemRequirements(Request $request, KernelInterface $kernel)
@@ -132,16 +134,23 @@ class ConfigureHelpdesk extends AbstractController
         }
         
         try {
-            $entityManager = EntityManager::create([
-                'driver' => 'pdo_mysql',
-                "host" => $request->request->get('serverName'),
-                "port" => $request->request->get('serverPort'),
-                'user' => $request->request->get('username'),
-                'password' => $request->request->get('password'),
-            ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
+            $connectionUrl = strtr(self::DB_URL_TEMPLATE, [
+                '[host]' => $request->request->get('serverName'), 
+                '[port]' => $request->request->get('serverPort'), 
+                '[user]' => $request->request->get('username'), 
+                '[password]' => $request->request->get('password'), 
+            ]);
 
-            $databaseConnection = $entityManager->getConnection();
+            if ($request->request->get('serverVersion') != null) {
+                $connectionUrl .= "?serverVersion=" . $request->request->get('serverVersion');
+            }
 
+            $databaseConnection = DriverManager::getConnection([
+                'url' => $connectionUrl,
+            ]);
+
+            $entityManager = EntityManager::create($databaseConnection, Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
+            
             // Establish a connection if not active
             if (false == $databaseConnection->isConnected()) {
                 $databaseConnection->connect();
@@ -160,7 +169,8 @@ class ConfigureHelpdesk extends AbstractController
             // Storing database configuration to session.
             $_SESSION['DB_CONFIG'] = [
                 'host' => $request->request->get('serverName'),
-                "port" => $request->request->get('serverPort'),
+                'port' => $request->request->get('serverPort'),
+                'version' => $request->request->get('serverVersion'),
                 'username' => $request->request->get('username'),
                 'password' => $request->request->get('password'),
                 'database' => $request->request->get('database'),
@@ -201,23 +211,32 @@ class ConfigureHelpdesk extends AbstractController
 
         $database_host = $_SESSION['DB_CONFIG']['host'];
         $database_port = $_SESSION['DB_CONFIG']['port'];
+        $database_version = $_SESSION['DB_CONFIG']['version'];
         $database_user = $_SESSION['DB_CONFIG']['username'];
         $database_pass = $_SESSION['DB_CONFIG']['password'];
         $database_name = $_SESSION['DB_CONFIG']['database'];
+
         $create_database = $_SESSION['DB_CONFIG']['createDatabase'];
 
         try {
-            $entityManager = EntityManager::create([
-                'driver' => 'pdo_mysql',
-                "host" => $database_host,
-                "port" => $database_port,
-                'user' => $database_user,
-                'password' => $database_pass,
-            ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
+            $connectionUrl = strtr(self::DB_URL_TEMPLATE, [
+                '[host]' => $database_host, 
+                '[port]' => $database_port, 
+                '[user]' => $database_user, 
+                '[password]' => $database_pass, 
+            ]);
+
+            if (!empty($database_version)) {
+                $connectionUrl .= "?serverVersion=$database_version";
+            }
+
+            $databaseConnection = DriverManager::getConnection([
+                'url' => $connectionUrl,
+            ]);
+
+            $entityManager = EntityManager::create($databaseConnection, Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
 
             // Establish an active connection with database server
-            $databaseConnection = $entityManager->getConnection();
-
             if (false == $databaseConnection->isConnected()) {
                 $databaseConnection->connect();
             }
@@ -232,6 +251,18 @@ class ConfigureHelpdesk extends AbstractController
                 $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($database_name));
             }
 
+            $connectionUrl = strtr(self::DB_URL_TEMPLATE . "/[database]", [
+                '[host]' => $database_host, 
+                '[port]' => $database_port, 
+                '[user]' => $database_user, 
+                '[password]' => $database_pass, 
+                '[database]' => $database_name, 
+            ]);
+
+            if (!empty($database_version)) {
+                $connectionUrl .= "?serverVersion=$database_version";
+            }
+
             // Update .env
             $application = new Application($kernel);
             $application->setAutoExit(false);
@@ -239,15 +270,17 @@ class ConfigureHelpdesk extends AbstractController
             $returnCode = $application->run(new ArrayInput([
                 'command' => 'uvdesk_wizard:env:update', 
                 'name' => 'DATABASE_URL', 
-                'value' => sprintf("mysql://%s:%s@%s/%s", $database_user, urlencode($database_pass), $database_host . ($database_port ? ':' . $database_port : ''), $database_name)
+                'value' => $connectionUrl
             ]), new NullOutput());
     
             if (0 === $returnCode) {
                 return new JsonResponse(['success' => true]);
             }
         } catch (\Exception $e) {
-            // Dump Exception ...
-            dump($e->getMessage()); die;
+            return new JsonResponse([
+                'status' => false,
+                'message' => "An unexpected error occurred: " . $e->getMessage(), 
+            ]);
         }
 
         return new JsonResponse(['success' => false], 500);
