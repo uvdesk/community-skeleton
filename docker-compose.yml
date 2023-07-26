@@ -40,7 +40,8 @@ services:
       - db
     tty: true
     environment:
-        DATABASE_URL: mysql://uvdesk:teknoniaga2023@db/uvdesk
+        DATABASE_URL: mysql://uvdesk:teknoniaga2023@db:3306/uvdesk
+        APP_ENV: prod
     volumes:
         - ./:/var/www
 volumes:
