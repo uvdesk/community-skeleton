@@ -51,6 +51,7 @@ Getting Started
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Docker Runtime](#docker-runtime)
+* [Docker Persistent Container](#docker-persistent-container)
 * [Vagrant Virtual Environment](#vagrant-virtual-environment)
 * [License](#license)
 * [Security Vulnerabilities](#security-vulnerabilities)
@@ -226,6 +227,11 @@ Docker Runtime
 
 [Dockerize your helpdesk project][22]
 
+Docker Persistent Container
+--------------
+
+[Get started with Uvdesk now by using docker persistent container][34]
+
 Vagrant Virtual Environment
 --------------
 
@@ -307,3 +313,4 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [31]: https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
 [32]: https://www.uvdesk.com/en/blog/language-translation-in-uvdesk-open-source-helpdesk/
 [33]: https://github.com/uvdesk/community-skeleton/wiki/Vagrant-Virtual-Machine-Environment
+[34]: https://github.com/uvdesk/community-skeleton/wiki/Docker-Persistent-Container
