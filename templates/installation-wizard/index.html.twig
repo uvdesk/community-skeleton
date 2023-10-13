@@ -160,6 +160,22 @@
             </div>
         </script>
 
+        <script id="installationWizard-SystemRequirementsTemplate-RedisEnable" type="text/template">
+            <div class="redis-info-container">
+                <span class="wizard-svg-icon-criteria-checklist wizard-svg-icon-redis-criteria-checklist"></span><label class="redis-criteria-label"></label>
+                <span class="PHPEnableRedis-toggle-details">Show details</span>
+            </div>
+
+            <div class="systemCriteria-Details">
+                <ul class="systemCriteria-PHPEnableRedis-Details">
+                    <li id="redis-info" class="fetching-details">
+                        <span class="wizard-svg-icon-redis-criteria-checklist"></span>
+                        <label id="redis-label"></label>
+                    </li>
+                </ul>
+            </div>
+        </script>
+
         <script id="installationWizard-SystemRequirementsTemplate-PHPExtensions" type="text/template">
             <div class="extension-info-container">
                 <span class="wizard-svg-icon-criteria-checklist wizard-svg-icon-extension-criteria-checklist"></span><label class="extension-criteria-label"></label>
@@ -219,6 +235,7 @@
                     <li id="systemCriteria-PHPPermissionConfigfiles" class="fetching-details"></li>
                     <li id="systemCriteria-PHPPermission" class="fetching-details"></li>
                     <li id="systemCriteria-PHPExecution" class="fetching-details"></li>
+                    <li id="systemCriteria-RedisStatus" class="fetching-details"></li>
                 </ul>
             </div>
         </script>

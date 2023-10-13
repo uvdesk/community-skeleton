@@ -485,6 +485,9 @@
                 },
                 'php-configfiles-permission': {
                     configfiles: [],
+                },
+                'redis-status': {
+                    redis: undefined,
                 }
             },
             initialize: function (attributes) {
@@ -498,6 +501,7 @@
                 this.maximumExecution();
                 this.checkEnvFilePermission();
                 this.checkConfigFilesPermission();
+                this.checkRedisStatus();
             },
             isProcedureCompleted: function (callback) {
                 if (this.get('verified')) {
@@ -598,8 +602,29 @@
                     this.evaluateOverallRequirements();
                 });
             },
+            checkRedisStatus: function() {
+                let postData = {
+                    specification: 'redis-status',
+                };
+                
+                $.post('./wizard/xhr/check-requirements', postData, response => {
+                    this.set('redis-status', response);
+                }).fail((jqXHR, textStatus, errorThrown) => {
+                    
+                    this.set('redis-status', {
+                        status: false,
+                        message: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].title : 'An unexpected error occurred during the Redis status verification process',
+                        description: ERRORS.hasOwnProperty('error' + jqXHR.status) ? ERRORS['error' + jqXHR.status].description : 'Not details Available',
+                    });
+                }).always(() => {
+                    this.view.renderRedisEnableCode();
+                    this.evaluateOverallRequirements();
+                });
+            },
             evaluateOverallRequirements: function() {
-                if (false == this.get('php-version').status) {
+                if (false == this.get('redis-status').status) {
+                    this.set('verified', false);
+                } else if (false == this.get('php-version').status) {
                     this.set('verified', false);
                 }  else if (false == this.get('php-maximum-execution').status) {
                     this.set('verified', false);
@@ -607,10 +632,11 @@
                     this.set('verified', false);
                 } else if (this.get('php-configfiles-permission').hasOwnProperty('configfiles')) {
                     let configfiles = this.get('php-configfiles-permission').configfiles;
-
+                    
                     let isconfigfilesError;
                     configfiles.forEach(configfiles => {
                         let currentconfigfileName = Object.keys(configfiles)[0];
+
                         if (!configfiles[currentconfigfileName]) {
                             isconfigfilesError = true;
                             this.set('verified', false);
@@ -652,7 +678,7 @@
             model: undefined,
             wizard: undefined,
             events: {
-                "click .PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPPermissionEnvfile-toggle-details, .PHPExeTime-toggle-details, .PHPPermissionConfigfiles-toggle-details": function (e) {
+                "click .PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPPermissionEnvfile-toggle-details, .PHPExeTime-toggle-details, .PHPPermissionConfigfiles-toggle-details, .PHPEnableRedis-toggle-details": function (e) {
                     // show and hide extension details
                     const currentElement = Backbone.$(e.currentTarget)
                     currentElement.parents('[class*="info-container"]').siblings('.systemCriteria-Details').toggle();
@@ -670,12 +696,14 @@
                 execution: undefined,
                 permission: undefined,
                 Configfiles: undefined,
+                RedisStatus: undefined,
             },
             wizard_icons_loader_template: _.template($("#wizardIcons-LoaderTemplate").html()),
             wizard_icons_success_template: _.template($("#wizardIcons-SuccessTemplate").html()),
             wizard_icons_notice_template: _.template($("#wizardIcons-NoticeTemplate").html()),
             wizard_system_requirements_template: _.template($("#installationWizard-SystemRequirementsTemplate").html()),
             wizard_system_requirements_php_ver_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPVersion").html()),
+            wizard_system_requirements_php_enable_redis_template: _.template($("#installationWizard-SystemRequirementsTemplate-RedisEnable").html()),
             wizard_system_requirements_php_ext_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPExtensions").html()),
             wizard_system_requirements_php_exe_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPExecution").html()),
             wizard_system_requirements_php_env_template: _.template($("#installationWizard-SystemRequirementsTemplate-PHPPermission").html()),
@@ -695,6 +723,7 @@
                 this.reference_nodes.permission = this.$el.find('#systemCriteria-PHPPermission');
                 
                 this.reference_nodes.Configfiles = this.$el.find('#systemCriteria-PHPPermissionConfigfiles');
+                this.reference_nodes.RedisStatus = this.$el.find('#systemCriteria-RedisStatus');
 
                 this.renderPHPVersion('verifying');
                 this.renderPHPExtensionsCriteria('verifying');
@@ -702,6 +731,7 @@
                 this.renderPHPmaximumexecution('verifying');
                 this.renderEnvFilePermission('verifying');
                 this.renderConfigFilesPermission('verifying');
+                this.renderRedisEnableCode('verifying');
 
                 this.model.fetch();
             },
@@ -727,6 +757,32 @@
                     }
                 }
             },
+            renderRedisEnableCode: function(status) {
+                this.reference_nodes.RedisStatus.html(this.wizard_system_requirements_php_enable_redis_template(this.model.get('redis-status')));
+                this.reference_nodes.RedisStatus.find('.PHPEnableRedis-toggle-details').hide();
+                var message = this.model.get('redis-status').message;
+                if(true === this.model.get('redis-status').status && typeof message !== 'string') {
+                    this.reference_nodes.RedisStatus.empty();
+                    $('#systemCriteria-RedisStatus').remove();
+                } else {
+                    if (true == this.model.get('redis-status').status) {
+                        this.reference_nodes.RedisStatus.find('.wizard-svg-icon-redis-criteria-checklist').html(this.wizard_icons_success_template()); 
+                        this.reference_nodes.RedisStatus.find('label').html(this.model.get('redis-status').message);
+                    } else {
+                        this.reference_nodes.RedisStatus.find('.wizard-svg-icon-redis-criteria-checklist').html(this.wizard_icons_notice_template());
+                        this.reference_nodes.RedisStatus.find('label').html(this.model.get('redis-status').message);
+                        
+                        if (this.model.get('redis-status').hasOwnProperty('description')) {
+                            this.reference_nodes.RedisStatus.find('.wizard-svg-icon-redis-criteria-checklist').html(this.wizard_icons_notice_template());
+                            this.reference_nodes.RedisStatus.find('.PHPEnableRedis-toggle-details').show();
+                        }
+                    }
+
+                    this.reference_nodes.RedisStatus.find('.systemCriteria-Details').addClass('systemCriteria-Info-Message');
+                    this.reference_nodes.RedisStatus.find('.systemCriteria-PHPEnableRedis-Details label').html(this.model.get('redis-status').description);
+                }
+                
+            },
             renderPHPExtensionsCriteria: function(status) {
                 this.reference_nodes.extension.html(this.wizard_system_requirements_php_ext_template(this.model.get('php-extensions')));
                 
@@ -740,6 +796,7 @@
                     this.model.get('php-extensions').extensions.forEach(extension => {
                         let currentExtensionName = Object.keys(extension)[0];
                         let currentExtensionTemplateInfo = this.reference_nodes.extension.find('#' + currentExtensionName + '-info');
+
                         if (extension[currentExtensionName]) {
                             activeExtensionCount++;
                             var currentExtensionIconStatus = this.wizard_icons_success_template();

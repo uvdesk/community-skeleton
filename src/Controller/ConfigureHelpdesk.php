@@ -19,6 +19,7 @@ use Webkul\UVDesk\CoreFrameworkBundle\Entity\SupportRole;
 use Webkul\UVDesk\CoreFrameworkBundle\Entity\User;
 use Webkul\UVDesk\CoreFrameworkBundle\Entity\UserInstance;
 use Webkul\UVDesk\CoreFrameworkBundle\Services\UVDeskService;
+use Predis\Client;
 
 class ConfigureHelpdesk extends AbstractController
 {
@@ -53,8 +54,8 @@ class ConfigureHelpdesk extends AbstractController
         ],
     ];
 
-    public function load()
-    {
+    public function load(KernelInterface $kernel)
+    {        
         return $this->render('installation-wizard/index.html.twig');
     }
 
@@ -118,6 +119,43 @@ class ConfigureHelpdesk extends AbstractController
                         'configfiles' => $configfiles_status,
                         'description' => '</span> <br><p> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"> enabling read/write permissions for your files under config/packages folder of your project.</a></p>',
                     ];
+                break;
+            case 'redis-status':
+                $loadRedis = extension_loaded('redis');
+                $isCacheEnabled = false;
+                if ($loadRedis) {
+                    try {
+                        $isCacheEnabled = true;
+                        $redis = new Client([
+                            'scheme' => 'tcp',
+                            'host' => 'localhost',
+                            'port' => 6379,
+                        ]);
+        
+                        $redis->connect();
+
+                        if ((bool) $redis->isConnected() == false) {
+                            return new JsonResponse([
+                                'status' => false,
+                                'message' => "Failed to establish a connection with redis server.",
+                                'description'=>'</span>Issue can be resolved by simply<p><a href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/" target="_blank"> redis installation process</a> For connecting the redis-sever follow the redis installation process by clicking on link, refresh the browser and try again.</p>'
+                            ]);
+                        }
+                    } catch (\Exception $e) {
+                        return new JsonResponse([
+                            'status' => false,
+                            'message' => "Failed to establish a connection with redis server.",
+                            'description' => '</span> Issue can be resolved by simply <p> <a href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/" target="_blank"> redis installation process </a> For connecting the redis-sever follow the redis installation process by clicking on link, refresh the browser and try again. </p>'
+                        ]);
+                    }
+                }
+                
+                if ($isCacheEnabled) {
+                    $response['status'] = true;
+                    $response['message'] = sprintf('The connection to the Redis server has been successfully established.');
+                } else {
+                    $response['status'] = true;
+                }
                 break;
             default:
                 $code = 404;
