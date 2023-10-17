@@ -123,16 +123,13 @@ class ConfigureHelpdesk extends AbstractController
             case 'redis-status':
                 $loadRedis = extension_loaded('redis');
                 $isCacheEnabled = false;
+
                 if ($loadRedis) {
                     try {
                         $isCacheEnabled = true;
-                        $redis = new Client([
-                            'scheme' => 'tcp',
-                            'host' => 'localhost',
-                            'port' => 6379,
-                        ]);
-        
-                        $redis->connect();
+                        $redis = new Client();
+
+                        $redis->connect('127.0.0.1', 6379);
 
                         if ((bool) $redis->isConnected() == false) {
                             return new JsonResponse([
@@ -148,6 +145,40 @@ class ConfigureHelpdesk extends AbstractController
                             'description' => '</span> Issue can be resolved by simply <p> <a href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/" target="_blank"> redis installation process </a> For connecting the redis-sever follow the redis installation process by clicking on link, refresh the browser and try again. </p>'
                         ]);
                     }
+                } else {
+                    $phpIniFile = php_ini_loaded_file();
+
+                    if ($phpIniFile !== false) {
+                        $extensionSettings = [];
+                        $enabledExtensions = [];
+                        $disabledExtensions = [];
+                       
+                        $lines = file($phpIniFile, FILE_IGNORE_NEW_LINES);
+                       
+                        if (! empty($lines)) {
+                            foreach ($lines as $line) {
+                                $line = trim($line);
+                               
+                                if (preg_match('/^;?extension\s*=\s*(\S+)/i', $line, $matches)) {
+                                    if (substr($line, 0, 1) === ';') {
+                                        $disabledExtensions[] = $matches[1];
+                                    } else {
+                                        $enabledExtensions[] = $matches[1];
+                                    }
+                                }
+                            }
+                           
+                            if (! empty($enabledExtensions)) {
+                                if (in_array("redis",$enabledExtensions)) {
+                                    return new JsonResponse([
+                                        'status' => false,
+                                        'message' => "Kindly disable Redis from the php.ini file.",
+                                        'description' => '</span>If you want to connect with redis then follow the instruction Issue can be resolved by simply <p> <a href="https://redis.io/docs/getting-started/installation/install-redis-on-linux/ " target="_blank"> redis installation process </a> For connecting the redis-sever follow the redis installation process by clicking on link, refresh the browser and try again. </p>'
+                                    ]);
+                                }
+                            }
+                        }
+                    } 
                 }
                 
                 if ($isCacheEnabled) {
