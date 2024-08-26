@@ -30,15 +30,20 @@ class ImageCacheController extends AbstractController
     public function getCachedImage(Request $request): Response
     {
         $response = $this->showImage(self::UVDESK_LOGO);
-        
+
+        // Get the file and its real path
         $file = $response->getFile();
         $filePath = $file->getRealPath();
 
+        // Get the relative path by removing the kernel.project_dir
         $relativePath = str_replace($this->getParameter('kernel.project_dir') . '/public', '', $filePath);
-        $imageUrl = $this->getParameter('uvdesk.site_url') . $relativePath;
 
-        // Construct the URL to access the cached image
-        $imageUrl = preg_match('/\/$/', $this->getParameter('uvdesk.site_url')) ? $this->getParameter('uvdesk.site_url') . ltrim($relativePath, '/') : $this->getParameter('uvdesk.site_url') . '/' . ltrim($relativePath, '/');
+        // Get the base URL, including the project name
+        $basePath = '/' . ltrim($request->getBasePath(), '/');
+        $siteUrl = rtrim($this->getParameter('uvdesk.site_url'), '/');
+
+        // Construct the image URL by combining the base URL and the relative path
+        $imageUrl = $siteUrl . $basePath . $relativePath;
 
         // Return the image URL as JSON
         return new Response(json_encode($imageUrl));

@@ -14,7 +14,7 @@ class UrlImageCacheService
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
-        $this->cacheDir = $this->container->getParameter('kernel.project_dir').'/public/cache/images';
+        $this->cacheDir = $this->container->getParameter('kernel.project_dir') . '/public/cache/images';
         $this->imageManager = new ImageManager($this->container);
     }
 
@@ -22,6 +22,11 @@ class UrlImageCacheService
     {
         $cacheKey = md5($url);
         $cachePath = $this->cacheDir . '/' . $cacheKey . '.png';
+
+        // Ensure the cache directory exists
+        if (!is_dir($this->cacheDir)) {
+            mkdir($this->cacheDir, 0775, true); 
+        }
 
         if ($this->isCacheExpired($cachePath)) {
             if (file_exists($cachePath)) {
