@@ -3,6 +3,9 @@ CHANGELOG for 1.1.x
 
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
+* 1.1.4 (2024-08-26)
+    * Feature: Add functionality for tracking the installation count and count of active users (ars128)
+
 * 1.1.3 (2023-06-13)
     * Update: Render project version number dynamically
 
