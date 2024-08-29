@@ -18,14 +18,14 @@ class UrlImageCacheService
         $this->imageManager = new ImageManager($this->container);
     }
 
-    public function getCachedImage(string $url): string
+    public function getCachedImage(string $url, string $domain): string
     {
         $cacheKey = md5($url);
         $cachePath = $this->cacheDir . '/' . $cacheKey . '.png';
 
         // Ensure the cache directory exists
-        if (!is_dir($this->cacheDir)) {
-            mkdir($this->cacheDir, 0775, true); 
+        if (! is_dir($this->cacheDir)) {
+            mkdir($this->cacheDir, 0775, true);
         }
 
         if ($this->isCacheExpired($cachePath)) {
@@ -33,7 +33,7 @@ class UrlImageCacheService
                 unlink($cachePath); // Delete the file
             }
 
-            $this->cacheImage($url, $cachePath);
+            $this->cacheImage($url, $cachePath, $domain);
         }
 
         return $cachePath;
@@ -50,9 +50,12 @@ class UrlImageCacheService
         return (time() - filemtime($cachePath)) > $cacheLifetime;
     }
 
-    private function cacheImage(string $url, string $cachePath): void
+    private function cacheImage(string $url, string $cachePath, string $domain): void
     {
-        $image = $this->imageManager->make($url);
+        $image = $this->imageManager->make([
+            'imageUrl' => $url,
+            'siteUrl'  => $domain
+        ]);
         $image->save($cachePath);
     }
 }

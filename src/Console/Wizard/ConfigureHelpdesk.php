@@ -364,11 +364,6 @@ class ConfigureHelpdesk extends Command
     public static function addUserDetailsInTracker($userDetails = [])
     {
         try {
-            // Call the ipinfo.io API to get location details
-            $ip = gethostbyname($userDetails['domain']);
-            $response = file_get_contents("http://ipinfo.io/{$ip}/json");
-            $details = json_decode($response);
-
             // Initialize cURL session
             $ch = curl_init(self::API_ENDPOINT);
 
@@ -383,7 +378,7 @@ class ConfigureHelpdesk extends Command
                 'domain'       => $userDetails['domain'],
                 'email'        => $userDetails['email'],
                 'name'         => $userDetails['name'],
-                'country_code' => $details->country,
+                'country_code' => null,
             ];
 
             // Convert data to JSON

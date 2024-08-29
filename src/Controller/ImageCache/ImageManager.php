@@ -19,42 +19,53 @@ class ImageManager extends BaseImageManager
     {
         $driver = $this->createDriver();
 
-        if (filter_var($data, FILTER_VALIDATE_URL)) {
-            return $this->initFromUrl($driver, $data);
+        $domain = $data['siteUrl'];
+        $imageUrl = $data['imageUrl'];
+
+        if (
+            filter_var($imageUrl, FILTER_VALIDATE_URL)
+            && filter_var($domain, FILTER_VALIDATE_URL)
+        ) {
+            return $this->initFromUrl($driver, $imageUrl, $domain);
         }
 
         return $driver->init($data);
     }
 
     /**
-     * This method hit the tracker image url and create a live instance 
-     * 
+     * This method hit the tracker image url and create a live instance
+     *
      * @param mixed $driver
-     * @param mixed $url
+     * @param mixed $imageUrl
+     * @param mixed $domain
      * @throws \Intervention\Image\Exception\NotReadableException
      * @return mixed
      */
-    public function initFromUrl($driver, $url)
+    public function initFromUrl($driver, $imageUrl, $domain)
     {
-        $domain = $this->container->getParameter('uvdesk.site_url');
+        try {
+            $options = [
+                'http' => [
+                    'method'           => 'GET',
+                    'protocol_version' => 1.1,
+                    'header'           => "Accept-language: en\r\n" .
+                        "Domain: $domain\r\n" .
+                        "User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36\r\n",
+                ],
+            ];
 
-        $options = [
-            'http' => [
-                'method'           => 'GET',
-                'protocol_version' => 1.1,
-                'header'           => "Accept-language: en\r\n".
-                                      "Domain: $domain\r\n".
-                                      "User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36\r\n",
-            ],
-        ];
-        $context = stream_context_create($options);
-        $data = @file_get_contents($url, false, $context);
+            $context = stream_context_create($options);
 
-        if ($data = @file_get_contents($url, false, $context)) {
-            return $driver->decoder->initFromBinary($data);
+            $data = @file_get_contents($imageUrl, false, $context);
+
+            if ($data) {
+                return $driver->decoder->initFromBinary($data);
+            }
+        } catch (\Exception $e) {
+            throw new NotReadableException('Error:  (' . $e . ').');
         }
 
-        throw new NotReadableException('Unable to init from given URL ('.$url.').');
+        throw new NotReadableException('Unable to init from given URL (' . $imageUrl . ').');
     }
 
     private function createDriver()
