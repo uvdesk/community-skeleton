@@ -17,6 +17,13 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class ConfigureHelpdesk extends Command
 {
+    /**
+     * Api endpoint
+     *
+     * @var string
+     */
+    protected const API_ENDPOINT = 'https://updates.uvdesk.com/api/updates';
+
     CONST CLS = "\033[H"; // Clear screen
     CONST CLL = "\033[K"; // Clear line
     CONST MCH = "\033[2J"; // Move cursor home
@@ -25,6 +32,10 @@ class ConfigureHelpdesk extends Command
     private $container;
     private $entityManager;
     private $questionHelper;
+
+    private $userName;
+    private $userEmail;
+    private $userInstance;
 
     public function __construct(ContainerInterface $container)
     {
@@ -244,7 +255,14 @@ class ConfigureHelpdesk extends Command
 
         $userInstanceQuery = $database->query("SELECT * FROM uv_user_instance WHERE supportRole_id = " . $supportRole['id']);
         $userInstance = $userInstanceQuery->fetch(\PDO::FETCH_ASSOC);
-        
+
+        // Get user based on the user instance
+        if ($userInstance) {
+            $userQuery = $database->query("SELECT * FROM uv_user WHERE id = " . $userInstance['user_id']);
+            $user = $userQuery->fetch(\PDO::FETCH_ASSOC);
+            $this->userInstance = $user;
+        }
+
         if (empty($userInstance)) {
             $output->writeln("  <comment>[!]</comment> No active user account found with super admin privileges.");
             $interactiveQuestion = new Question("\n      <comment>Create a new user account with super admin privileges? [Y/N]</comment> ", 'Y');
@@ -258,6 +276,7 @@ class ConfigureHelpdesk extends Command
                 do {
                     $u_email = $this->askInteractiveQuestion("<info>Email</info>: ", null, 6, false, false, "Please enter a valid email address");
                     $u_email = filter_var($u_email, FILTER_SANITIZE_EMAIL);
+                    $this->userEmail = $u_email;
 
                     if ($warningFlag) {
                         $output->write([self::MCA, self::CLL]);
@@ -272,6 +291,7 @@ class ConfigureHelpdesk extends Command
                 $u_name = $this->askInteractiveQuestion("<info>Name</info>: ", null, 6, false, false, "Please enter your name");
 
                 $warningFlag = false;
+                $this->userName = $u_name;
 
                 do {
                     $u_password = $this->askInteractiveQuestion("<info>Password</info>: ", null, 6, false, true, "Please enter your password");
@@ -314,7 +334,76 @@ class ConfigureHelpdesk extends Command
 
         $output->writeln("  Exiting evaluation process.\n");
 
+        if (
+            ! $this->userEmail
+            && ! $this->userName
+        ) {
+            $this->userEmail = $this->userInstance['email'];
+            $this->userName = $this->userInstance['first_name'] . ' ' . $this->userInstance['last_name'];
+        }
+
+        $userDetails =[
+            'name'   => $this->userName,
+            'email'  => $this->userEmail,
+            'domain' => $this->container->getParameter('uvdesk.site_url'),
+        ];
+
+        // uvdesk tracker
+        $this->addUserDetailsInTracker($userDetails);
+
         return Command::SUCCESS;
+    }
+
+    /**
+     * This method create a record in the uvdesk tracker during installation of the project via terminal or    widget installer 
+     * 
+     * @param array $userDetails
+     * @throws \Exception
+     * @return void
+     */
+    public static function addUserDetailsInTracker($userDetails = [])
+    {
+        try {
+            // Initialize cURL session
+            $ch = curl_init(self::API_ENDPOINT);
+
+            // Set the headers
+            $headers = [
+                'Accept: application/json',
+                'Content-Type: application/json',
+            ];
+
+            // Prepare the data to be sent in JSON format
+            $data = [
+                'domain'       => $userDetails['domain'],
+                'email'        => $userDetails['email'],
+                'name'         => $userDetails['name'],
+                'country_code' => null,
+            ];
+
+            // Convert data to JSON
+            $jsonData = json_encode($data);
+
+            // Set cURL options
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+            // Execute cURL request
+            $response = curl_exec($ch);
+
+            // Check if any error occurred
+            if ($response === false) {
+                $error = curl_error($ch);
+                $errorCode = curl_errno($ch);
+                throw new \Exception("cURL Error: $error (Code: $errorCode)");
+            }
+
+            // Close cURL session
+            curl_close($ch);
+        } catch (\Exception $e) {
+        }
     }
 
     /**

@@ -41,3 +41,9 @@ uvdesk_community_installation_wizard_update_website_configuration:
     path:     /wizard/xhr/load/website-configure
     controller: App\Controller\ConfigureHelpdesk::updateWebsiteConfigurationXHR
     methods: [POST]
+
+# Uvdesk tracker cache image route
+uvdesk_community_tracker_cache_image:
+    path:     /tracker/xhr/get/cacheImage
+    controller: App\Controller\ImageCache\ImageCacheController::getCachedImage
+    methods: [GET]

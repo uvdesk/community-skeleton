@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Console\Wizard\ConfigureHelpdesk as Helpdesk;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -384,6 +385,15 @@ class ConfigureHelpdesk extends AbstractController
             $_SESSION['PREFIXES_DETAILS']['member'],
             $_SESSION['PREFIXES_DETAILS']['customer']
         );
+        
+        // uvdesk tracker
+        $userDetails =[
+            'name'   => $_SESSION['USER_DETAILS']['name'],
+            'email'  => $_SESSION['USER_DETAILS']['email'],
+            'domain' => $this->getParameter('uvdesk.site_url'),
+        ];
+        
+        Helpdesk::addUserDetailsInTracker($userDetails);
 
         return new Response(json_encode($collectionURL), 200, self::DEFAULT_JSON_HEADERS);
     }
