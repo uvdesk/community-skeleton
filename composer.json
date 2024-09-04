@@ -51,7 +51,9 @@
         "uvdesk/core-framework": "dev-master",
         "uvdesk/extension-framework": "dev-master",
         "uvdesk/mailbox-component": "dev-master",
-        "uvdesk/support-center-bundle": "dev-master"
+        "uvdesk/support-center-bundle": "dev-master",
+        "intervention/image": "^2.4",
+        "intervention/imagecache": "^2.5.2"
     },
     "require-dev": {
     },
