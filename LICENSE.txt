@@ -13,7 +13,7 @@ Licensed under the Open Software License version 3.0
 
          3. to distribute or communicate copies of the Original Work and Derivative Works to the public, with the proviso that copies of Original Work or Derivative Works that You distribute or communicate shall be licensed under this Open Software License;
 
-         4. to perform the Original Work publicly; and
+         4. to perform the Original Work publicly;
 
          5. to display the Original Work publicly. 
 
