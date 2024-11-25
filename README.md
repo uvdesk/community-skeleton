@@ -5,7 +5,6 @@
 <p align="center">
     <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/v/stable.svg" alt="Latest Stable Version"></a>
     <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/d/total.svg" alt="Total Downloads"></a>
-    <a href="https://packagist.org/packages/uvdesk/community-skeleton"><img src="https://poser.pugx.org/uvdesk/community-skeleton/license.svg" alt="License"></a>
     <a href="#backers"><img src="https://opencollective.com/uvdesk/backers/badge.svg" alt="Backers on Open Collective"></a>
     <a href="#sponsors"><img src="https://opencollective.com/uvdesk/sponsors/badge.svg" alt="Sponsors on Open Collective"></a>
     <a href="https://gitter.im/uvdesk/community"><img src="https://badges.gitter.im/uvdesk/community-skeleton.svg" alt="connect on gitter"></a>
@@ -51,6 +50,8 @@ Getting Started
 * [Requirements](#requirements)
 * [Installation](#installation)
 * [Docker Runtime](#docker-runtime)
+* [Docker Persistent Container](#docker-persistent-container)
+* [Vagrant Virtual Environment](#vagrant-virtual-environment)
 * [License](#license)
 * [Security Vulnerabilities](#security-vulnerabilities)
 * [Feedback](#feedback)
@@ -220,11 +221,20 @@ php bin/console c:c
 
 > *http(s)://example.com/en/customer/login*
 
-
 Docker Runtime
 --------------
 
 [Dockerize your helpdesk project][22]
+
+Docker Persistent Container
+--------------
+
+[Get started with Uvdesk now by using docker persistent container][34]
+
+Vagrant Virtual Environment
+--------------
+
+[Get started with uvdesk now by using vagrant to setup virtual environment][33]
 
 Modules
 --------------
@@ -236,7 +246,7 @@ Need something else ? email us at support@uvdesk.com
 License
 --------------
 
-All libraries and bundles included in the UVDesk Community Edition are released under the [MIT][12] license.
+All libraries and bundles included in the UVDesk Community Edition are released under the [OSL-3.0 license][12] license.
 
 Security Vulnerabilities
 --------------
@@ -280,7 +290,7 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [9]: https://webkul.com/
 [10]: https://www.uvdesk.com/en/team/
 [11]: https://github.com/uvdesk/mailbox-component
-[12]: https://github.com/uvdesk/community-skeleton/blob/master/LICENSE
+[12]: https://github.com/uvdesk/community-skeleton/blob/master/LICENSE.txt
 [13]: https://opencollective.com/uvdesk
 [14]: https://docs.uvdesk.com/
 [15]: https://demo.uvdesk.com/
@@ -301,4 +311,5 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [30]: https://www.uvdesk.com/en/blog/uvdesk-marketing-announcement/
 [31]: https://support.uvdesk.com/es/blog/uvdesk-what-is-kudos
 [32]: https://www.uvdesk.com/en/blog/language-translation-in-uvdesk-open-source-helpdesk/
-
+[33]: https://github.com/uvdesk/community-skeleton/wiki/Vagrant-Virtual-Machine-Environment
+[34]: https://github.com/uvdesk/community-skeleton/wiki/Docker-Persistent-Container
