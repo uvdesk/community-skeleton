@@ -1406,7 +1406,8 @@
 "Browse via Categories": "Parcourir les catégories"
 "Looking for something specific? Choose a relevant category from below to explore possible solutions": "Vous cherchez quelque chose de spécifique ? Choisissez une catégorie pertinente ci-dessous pour explorer les solutions possibles"
 "No Categories Found!": "Aucune catégorie trouvée"
-"Powered by": ""
+"Powered by": "Alimenté par"
+"Powered by %uvdesk%, an open-source project by %webkul%.": "Propulsé par %uvdesk%, un projet open source de %webkul%."
 
 #forgotpassword
 "Forgot Password": "Mot de passe oublié"
