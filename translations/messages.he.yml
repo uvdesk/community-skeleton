@@ -1559,10 +1559,13 @@ Success! Saved Reply has been deleted successfully": "הצלחה! התגובה �
 "A few of the links that may help you get back on track -": "חלק מהקישורים שעשויים לעזור לך לחזור לנתיב -"
 
 #Microsoft apps:
-שם האפליקציה"
-"Tenant Id": "מזהה הדייר (Tenant Id)"
-"Client Id": "מזהה הלקוח (Client Id)"
-"Client Secret": "סוד הלקוח (Client Secret)"
+"Microsoft Apps": "אפליקציות של מיקרוסופט"
+"Add a Microsoft app": "הוסף אפליקציה של מיקרוסופט"
+"Enable": "אפשר"
+"App Name": "שם האפליקציה"
+"Tenant Id": "מזהה הדייר"
+"Client Id": "מזהה הלקוח"
+"Client Secret": "סוד הלקוח"
 "NEW APP:": "אפליקציה חדשה:"
 "UPDATE APP": "עדכן אפליקציה"
 "Guide on creating a new app in Azure Active Directory:": "מדריך ליצירת אפליקציה חדשה ב-Azure Active Directory:"
