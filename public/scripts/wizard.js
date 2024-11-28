@@ -287,7 +287,7 @@
                 let errorFlag = false;
                 let nameRegex = /^[A-Za-z][A-Za-z]*[\sA-Za-z]*$/;
                 let emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-                let passwordRegix = /^(?=(.*[a-zA-Z].*){2,})(?=.*\d.*)(?=.*\W.*)[a-zA-Z0-9\S]{8,}$/;
+                let passwordRegix = /^(?=(.*[a-zA-Z].*){2,})(?=.*\d)(?=.*[^\w\s]|.*_)[^\s]{8,}$/;
 
                 let user = {
                     name: this.$el.find('input[name="name"]').val(),
