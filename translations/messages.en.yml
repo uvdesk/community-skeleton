@@ -1493,7 +1493,7 @@
 "Choose a format to convert date to specified date time format": "Choose a format to convert date to specified date time format"
 "An empty file is not allowed.": "An empty file is not allowed."
 "File size must not be greater than 200KB !!": "File size must not be greater than 200KB!"
-"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Please upload a valid omage file (JPEG or PNG)!"
+"Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!": "Please upload valid Image file (Only JPEG, JPG, PNG allowed)!!"
 "Provide a valid url(with protocol)": "Provide a valid url (with protocol)"
 "ticket.message.placeHolders.info": "ticket.message.placeHolders.info"
 "ticket.attachments.placeHolders.info": "	ticket.attachments.placeHolders.info"
