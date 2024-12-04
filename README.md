@@ -123,8 +123,8 @@ Requirements
 
 * **OS**: Ubuntu 16.04 LTS or higher / Windows 7 or Higher (WAMP / XAMPP).
 * **SERVER**: Apache 2 or NGINX.
-* **RAM**: 3 GB or higher.
-* **PHP**: 7.3 or higher.
+* **RAM**: 4GB or higher.
+* **PHP**: 8.1
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.
 * **Composer**: 2 or higher.
