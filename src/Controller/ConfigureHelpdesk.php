@@ -125,7 +125,7 @@ class ConfigureHelpdesk extends AbstractController
                     return new JsonResponse([
                         'status'      => false,
                         'message'     => "Redis extension is installed on your server follow the details",               
-                        'description' =>'<span>Please check the  <a href="https://github.com/uvdesk/community-skeleton/issues/364#issuecomment-780486976" target="_blank">Redis host</a> specified in the setup.php file. If your Redis server host is different, you can either update the Redis host with your actual Redis host details  or follow the steps in the URL. After making the changes, reload the page and try again.</span>'
+                        'description' =>'<span>Please check the  <a href="https://github.com/uvdesk/community-skeleton/issues/364#issuecomment-780486976" target="_blank">Redis host</a> specified in the setup.php file. If your Redis server host is different, you can either update it with your Redis host or follow the steps in the <a href="https://github.com/uvdesk/community-skeleton/issues/364#issuecomment-780486976" target="_blank">URL</a>. After making the changes, reload the page and try again.</span>'
                         ]);
                 }
                 break;
