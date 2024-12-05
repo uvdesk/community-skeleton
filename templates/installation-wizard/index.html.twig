@@ -49,6 +49,12 @@
                 <path id="error-icon" class="cls-1" fill="#ff5656" fill-rule="evenodd" d="M764.5,352A10.5,10.5,0,1,1,754,362.5,10.5,10.5,0,0,1,764.5,352Zm-0.006,12.988a1.506,1.506,0,1,1-1.5,1.506A1.5,1.5,0,0,1,764.494,364.988ZM763,356h3v8h-3v-8Z" transform="translate(-754 -352)"/>
             </svg>
         </script>
+
+        <script id="wizardIcons-WarningTemplate" type="text/template">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 21 21">
+                <path id="error-icon" class="cls-1" fill="#FFCC00" fill-rule="evenodd" d="M764.5,352A10.5,10.5,0,1,1,754,362.5,10.5,10.5,0,0,1,764.5,352Zm-0.006,12.988a1.506,1.506,0,1,1-1.5,1.506A1.5,1.5,0,0,1,764.494,364.988ZM763,356h3v8h-3v-8Z" transform="translate(-754 -352)"/>
+            </svg>
+        </script>
         
         <script id="installationWizard-DefaultHeaderTemplate" type="text/template">
             <div class="installation-wizard-steps-overview-container">
@@ -219,6 +225,7 @@
                     <li id="systemCriteria-PHPPermissionConfigfiles" class="fetching-details"></li>
                     <li id="systemCriteria-PHPPermission" class="fetching-details"></li>
                     <li id="systemCriteria-PHPExecution" class="fetching-details"></li>
+                    <li id="systemCriteria-RedisStatus" class="fetching-details"></li>
                 </ul>
             </div>
         </script>
@@ -423,6 +430,21 @@
 
                 <ul class="button-groups" style="margin-top: 20px;">
                     <li><button id="wizardCTA-StartInstallation" class="wizard-button solid button-theme-uvdesk" style="margin: unset;">Install Now</button></li>
+                </ul>
+            </div>
+        </script>
+
+        <script id="installationWizard-SystemRequirementsTemplate-RedisEnable" type="text/template">
+            <div class="redis-info-container">
+                <span class="wizard-svg-icon-criteria-checklist wizard-svg-icon-redis-criteria-checklist"></span><label class="redis-criteria-label"></label>
+                <span class="PHPEnableRedis-toggle-details">Show details</span>
+            </div>
+            <div class="systemCriteria-Details">
+                <ul class="systemCriteria-PHPEnableRedis-Details">
+                    <li id="redis-info" class="fetching-details">
+                        <span class="wizard-svg-icon-redis-criteria-checklist"></span>
+                        <label id="redis-label"></label>
+                    </li>
                 </ul>
             </div>
         </script>

@@ -120,6 +120,15 @@ class ConfigureHelpdesk extends AbstractController
                         'description' => '</span> <br><p> Issue can be resolved by simply <a href="https://www.uvdesk.com/en/blog/open-source-helpdesk-installation-on-ubuntu-uvdesk/" target="_blank"> enabling read/write permissions for your files under config/packages folder of your project.</a></p>',
                     ];
                 break;
+            case 'redis-status':
+                if (extension_loaded('redis')) {
+                    return new JsonResponse([
+                        'status'      => false,
+                        'message'     => "Redis extension is installed on your server follow the details",               
+                        'description' =>'<span>Please check the  <a href="https://github.com/uvdesk/community-skeleton/issues/364#issuecomment-780486976" target="_blank">Redis host</a> specified in the setup.php file. If your Redis server host is different, you can either update the Redis host with your actual Redis host details  or follow the steps in the URL. After making the changes, reload the page and try again.</span>'
+                        ]);
+                }
+                break;
             default:
                 $code = 404;
                 break;

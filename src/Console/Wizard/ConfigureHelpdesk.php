@@ -64,11 +64,18 @@ class ConfigureHelpdesk extends Command
     {
         $output->write([self::MCH, self::CLS]);
         $output->writeln("\n<comment>  Examining helpdesk setup for any configuration issues:</comment>\n");
-
         list($db_host, $db_port, $db_name, $db_user, $db_password) = $this->getUpdatedDatabaseCredentials();
+        
 
         // Check 1: Verify database connection
         $output->writeln("  [-] Establishing a connection with database server");
+
+        if (extension_loaded('redis')) {
+            $output->writeln("\n<fg=red;>  [x] Redis extension is loaded");
+            $output->writeln("\n     Please check this <href=https://github.com/uvdesk/community-skeleton/issues/364#issuecomment-780486976>link</> for Redis configuration instructions, in case there is an issue <comment>(connection refused) </comment>while connecting to database.
+     You can add your Redis server host details in the Setup.php file instead of the default port as mentioned in the link.If there are no issues, you can simply 
+     ignore this message.</>\n\n");
+        }
 
         list($isServerAccessible, $isDatabaseAccessible) = $this->refreshDatabaseConnection($db_host, $db_port, $db_name, $db_user, $db_password);
 

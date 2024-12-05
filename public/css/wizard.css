@@ -551,7 +551,7 @@ ul.button-groups > li:last-child {
 }
 
 .PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPExeTime-toggle-details,
-.PHPPermissionEnvfile-toggle-details, .PHPPermissionConfigfiles-toggle-details {
+.PHPPermissionEnvfile-toggle-details, .PHPPermissionConfigfiles-toggle-details, .PHPEnableRedis-toggle-details {
     cursor: pointer;
     color: #9272F8;
     text-decoration: underline;
