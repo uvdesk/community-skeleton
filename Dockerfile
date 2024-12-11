@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-LABEL maintainer="akshay.kumar758@webkul.com"
+LABEL maintainer="support@uvdesk.com"
 
 ENV GOSU_VERSION 1.11
 
