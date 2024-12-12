@@ -87,7 +87,7 @@
 "Agent Last Reply": "Última respuesta del agente"
 "View analytics and insights to serve a better experience for your customers": "Vea análisis e información para brindar una mejor experiencia a sus clientes"
 "Marketing Announcement": "Anuncio de marketing"
-"Advertisment": "Anuncio"
+"Advertisement": "Publicidad"
 "Announcement": "Anuncio"
 "New Announcement": "Nuevo anuncio"
 "Add Announcement": "Agregar anuncio"
@@ -765,6 +765,7 @@
 "None": "Ninguna"
 "Authentication Mode": "Modo de autenticación"
 "login": "iniciar sesión"
+"API": "API"
 "Plain": "Llanura"
 "CRAM-MD5": "CRAM-MD5"
 "Sender Address": "Dirección del remitente"
@@ -842,6 +843,7 @@
 "Company Logo": "Logo de la compañía"
 "Company URL": "URL de la compañía"
 "Swiftmailer id (Select from drop down)": "Identificación de Swiftmailer (Seleccionar del menú desplegable)"
+"SwiftMailer": "Correo rápido"
 "PROCEED": "PROCEDER"
 "Proceed": "Proceder"
 "Theme Color": "Color del tema"
@@ -1108,6 +1110,7 @@
 "Danish": "Danés"
 "Chinese": "CHINO"
 "Polish": "POLACO"
+"Hebrew": "hebreo"
 "System": "Sistema"
 "Open in Files": "Abrir en archivos"
 "Email address is invalid": "Dirección de correo electrónico es inválida"
@@ -1587,7 +1590,6 @@
 "Add App": "Agregar aplicación"
 "New App": "NUEVA APLICACIÓN"
 
-
 #Mailbox option:
 "Disable email delivery": "Deshabilitar la entrega de correo electrónico"
 "Use as default mailbox for sending emails": "Usar como buzón de correo predeterminado para enviar correos electrónicos"
@@ -1595,3 +1597,8 @@
 "Manage how you wish to retrieve and process emails from your mailbox.": "Administre cómo desea recuperar y procesar los correos electrónicos de su buzón."
 "Outbound Emails": "Correos electrónicos salientes"
 "Manage how you wish to send emails from your mailbox.": "Administre cómo desea enviar correos electrónicos desde su buzón."
+
+"Marketing Modules" : "Módulos de marketing"
+"New Marketing Module": "Nuevo módulo de marketing"
+"Marketing Module": "Módulo de Mercadotecnia"
+"Status:": "Estado:"
