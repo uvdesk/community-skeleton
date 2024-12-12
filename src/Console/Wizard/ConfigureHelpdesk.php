@@ -58,6 +58,26 @@ class ConfigureHelpdesk extends Command
         $this->consoleOutput = $output;
         $this->questionHelper = $this->getHelper('question');
         $this->projectDirectory = $this->container->getParameter('kernel.project_dir');
+        
+        $env = $this->projectDirectory.'/.env';
+        $var = $this->projectDirectory.'/var';
+        $config = $this->projectDirectory.'/config';
+        $public = $this->projectDirectory.'/public';
+        $migrations = $this->projectDirectory.'/migrations';
+
+        $files = [
+            'env'        => $env,
+            'var'        => $var,
+            'config'     => $config,
+            'public'     => $public,
+            'migrations' => $migrations,
+        ];
+
+        foreach ($files as $file) {
+            if (file_exists($file)) {
+                chmod($file, 0775);
+            }
+        }
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
