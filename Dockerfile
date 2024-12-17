@@ -3,13 +3,12 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 
 ENV GOSU_VERSION 1.11
 
-RUN adduser uvdesk -q --disabled-password --gecos ""
-
 # Install base supplimentary packages
 RUN apt-get update && apt-get -y upgrade \
     && apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:ondrej/php \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
         curl \
+	adduser \
         wget \
         git \
         unzip \
@@ -28,6 +27,8 @@ RUN apt-get update && apt-get -y upgrade \
 	elif gpg --version | grep -q '^gpg (GnuPG) 1\.'; then \
 		apt-get install -y --no-install-recommends gnupg-curl; \
 	fi;
+
+RUN adduser uvdesk -q --disabled-password --gecos ""
 
 COPY ./.docker/config/apache2/env /etc/apache2/envvars
 COPY ./.docker/config/apache2/httpd.conf /etc/apache2/apache2.conf
