@@ -1,8 +1,9 @@
 FROM ubuntu:latest
 LABEL maintainer="akshay.kumar758@webkul.com"
 
-ENV GOSU_VERSION 1.11
+ENV GOSU_VERSION=1.11
 
+RUN apt-get update && apt-get install -y adduser
 RUN adduser uvdesk -q --disabled-password --gecos ""
 
 # Install base supplimentary packages
