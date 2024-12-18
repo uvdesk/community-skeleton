@@ -12,12 +12,6 @@ declare -r COLOR_LIGHT_YELLOW='\033[0;33m'
 declare -r COLOR_BLUE='\033[0;34m'
 declare -r COLOR_LIGHT_BLUE='\033[1;34m'
 
-service mysql stop;
-usermod -d /var/lib/mysql/ mysql;
-
-# Restart apache & mysql server
-service apache2 restart && service mysql restart;
-
 # @TODO: Debug. Returning access denied warning during container start up.
 # if [[ ! -z "$MYSQL_USER" && ! -z "$MYSQL_PASSWORD" && ! -z "$MYSQL_DATABASE" ]]; then
 #     if [ "$(mysqladmin ping)" == "mysqld is alive" ]; then
