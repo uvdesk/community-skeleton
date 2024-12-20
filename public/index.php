@@ -5,23 +5,35 @@ use App\Kernel;
 require_once dirname(__DIR__).'/vendor/autoload_runtime.php';
 
 return function (array $context) {
-    $env = dirname(__DIR__).'/.env';
-    $var = dirname(__DIR__).'/var';
-    $config = dirname(__DIR__).'/config';
-    $public = dirname(__DIR__).'/public';
-    $migrations = dirname(__DIR__).'/migrations';
+    // Function to check if we're running inside a Docker container
+    function isRunningInDocker(): bool {
+        return (
+            file_exists('/.dockerenv') || // Check for Docker environment file
+            (getenv('DOCKER_CONTAINER') !== false) || // Check for Docker environment variable
+            strpos(file_get_contents('/proc/1/cgroup'), 'docker') !== false // Check cgroup
+        );
+    }
 
-    $files = [
-        'env'        => $env,
-        'var'        => $var,
-        'config'     => $config,
-        'public'     => $public,
-        'migrations' => $migrations,
-    ];
+    // Only attempt to set permissions if we're NOT in Docker
+    if (!isRunningInDocker()) {
+        $basePath = dirname(__DIR__);
+        $files = [
+            'env'        => $basePath . '/.env',
+            'var'        => $basePath . '/var',
+            'config'     => $basePath . '/config',
+            'public'     => $basePath . '/public',
+            'migrations' => $basePath . '/migrations',
+        ];
 
-    foreach ($files as $file) {
-        if (file_exists($file)) {
-            chmod($file, 0775);
+        foreach ($files as $key => $file) {
+            if (file_exists($file)) {
+                try {
+                    chmod($file, 0775);
+                } catch (\Exception $e) {
+                    // Log the error if you have a logger configured
+                    error_log("Failed to set permissions for {$key}: " . $e->getMessage());
+                }
+            }
         }
     }
 
