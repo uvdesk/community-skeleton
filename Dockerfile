@@ -84,6 +84,9 @@ RUN \
     chown -R uvdesk:uvdesk /var/www; \
     chown -R uvdesk:uvdesk /var/www/uvdesk/.env
 
+# Install Composer dependencies
+RUN cd /var/www/uvdesk/ && composer install --no-dev --optimize-autoloader
+
 # Ensure correct ownership for www-data user
 
 # Change working directory to uvdesk source
