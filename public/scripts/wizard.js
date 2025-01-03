@@ -6,7 +6,7 @@
         },
         error500: {
             title: 'Something\'s bad happened with the server.',
-            description: ' Try again by clicking the back button or launch the wizard again by refershing the webpage or clicking the cancel button.'
+            description: ' Try again by clicking the back button or launch the wizard again by refreshing the web page or clicking the cancel button.'
         },
     };
 
@@ -112,10 +112,13 @@
                 this.view = attributes.view;
             },
             getDefaultAttributes: function () {
-                // function to fetch current saved prefixes and will update values of defaults
+                // Function to fetch current saved prefixes and will update values of defaults
                 return new Promise ((resolve, reject) => {
                     $.get('./wizard/xhr/website-configure', (response) => {
-                        if (typeof response.status != 'undefined' && true === response.status) {
+                        if (
+                            typeof response.status != 'undefined'
+                            && true === response.status
+                        ) {
                             this.defaults['member_panel_url'] = response.memberPrefix;
                             this.defaults['customer_panel_url'] = response.knowledgebasePrefix;
                             resolve();
@@ -130,7 +133,7 @@
             },
             isProcedureCompleted: function (callback) {
                 this.set('urlCollection', {
-                    'member-prefix': this.view.$el.find('input[name="memeberUrlPrefix"]').val(),
+                    'member-prefix': this.view.$el.find('input[name="memberUrlPrefix"]').val(),
                     'customer-prefix': this.view.$el.find('input[name="customerUrlPrefix"]').val(),
                 });
 
@@ -181,15 +184,21 @@
                 event.preventDefault();
                 this.$el.find('.form-content .wizard-form-notice').remove();
 
-                let memberPrefix = this.$el.find('input[name="memeberUrlPrefix"]').val();
+                let memberPrefix = this.$el.find('input[name="memberUrlPrefix"]').val();
                 let customerPrefix = this.$el.find('input[name="customerUrlPrefix"]').val();
 
-                if (memberPrefix == null || memberPrefix =="") {
+                if (
+                    memberPrefix == null 
+                    || memberPrefix == ""
+                ) {
                     errorFlag = true;
-                    this.$el.find('.form-content input[name="memeberUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
+                    this.$el.find('.form-content input[name="memberUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
 
-                if (customerPrefix == null || customerPrefix =="") {
+                if (
+                    customerPrefix == null
+                    || customerPrefix == ""
+                ) {
                     errorFlag = true;
                     this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>This field is mandatory</span>")
                 }
@@ -199,15 +208,15 @@
                     this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>Both prefixes can not be same.</span>")
                 }
                 
-                if (!errorFlag) {
+                if (! errorFlag) {
                     let prefixTestRegex = /^[a-z0-9A-Z]*$/;
 
-                    if (!prefixTestRegex.test(memberPrefix)) {
+                    if (! prefixTestRegex.test(memberPrefix)) {
                         errorFlag = true;
-                        this.$el.find('.form-content input[name="memeberUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
+                        this.$el.find('.form-content input[name="memberUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
                     }
 
-                    if (!prefixTestRegex.test(customerPrefix)) {
+                    if (! prefixTestRegex.test(customerPrefix)) {
                         errorFlag = true;
                         this.$el.find('.form-content input[name="customerUrlPrefix"]').after("<span class='wizard-form-notice'>Only letters and numbers are allowed</span>")
                     }
@@ -250,7 +259,10 @@
                 wizard.reference_nodes.content.find('#wizardCTA-IterateInstallation').prepend('<span class="processing-request">' + wizard.wizard_icons_loader_template() + '</span>');
                 
                 $.post('./wizard/xhr/intermediary/super-user', this.get('user'), function (response) {
-                    if (typeof response.status != 'undefined' && true === response.status) {
+                    if (
+                        typeof response.status != 'undefined' 
+                        && true === response.status
+                    ) {
                         callback(this.view);
                     } else {
                         wizard.disableNextStep();
@@ -301,41 +313,66 @@
 
                 enteredField = event.target.name;
                 enteredValue = event.target.value;
-                if (enteredValue == null || enteredValue == "") {
+                if (
+                    enteredValue == null 
+                    || enteredValue == ""
+                ) {
                     errorFlag = true;
                     selectedElement.find('.wizard-form-notice')
                     selectedElement.append("<span class='wizard-form-notice'>This field is mandatory</span>");
                 }
 
-                if (!errorFlag && user.name) {
-                    if (!nameRegex.test(user.name)) {
+                if (
+                    ! errorFlag 
+                    && user.name
+                ) {
+                    if (! nameRegex.test(user.name)) {
                         errorFlag = true;
                         this.$el.find('input[name="name"]').parent().append("<span class='wizard-form-notice'>Invalid Name</span>")
                     }
                 }
 
-                if (!errorFlag && user.email !== "") {
-                    if (!emailRegex.test(user.email)) {
+                if (
+                    ! errorFlag 
+                    && user.email !== ""
+                ) {
+                    if (! emailRegex.test(user.email)) {
                         errorFlag = true;
                         this.$el.find('input[name="email"]').parent().append("<span class='wizard-form-notice'>Invalid Email</span>")
                     }
                 }
 
-                if (user.password.length > 0 && (!passwordRegix.test(user.password))) {
-                        errorFlag = true;
-                        this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed).</span>")
+                if (
+                    user.password.length > 0 
+                    && (! passwordRegix.test(user.password))
+                ) {
+                    errorFlag = true;
+                    this.$el.find('input[name="password"]').parent().append("<span class='wizard-form-notice'>Password must contain minimum 8 character length, at least two letters (not case sensitive), one number, one special character(space is not allowed).</span>")
                 }
 
-                if (user.confirmPassword.length > 0 && user.confirmPassword != user.password) {
+                if (
+                    user.confirmPassword.length > 0
+                    && user.confirmPassword != user.password
+                ) {
                     errorFlag = true;
                     this.$el.find('input[name="confirm_password"]').parent().append("<span class='wizard-form-notice'>Password does not match.</span>")
                 }
 
-                if (!errorFlag && (user.name == null || user.name =="") || (user.email == null || user.email =="") || (user.password == null || user.password =="") ||  (user.confirmPassword == null || user.confirmPassword ==""))
+                if (
+                    ! errorFlag 
+                    && (user.name == null
+                    || user.name == "")
+                    || (user.email == null
+                    || user.email =="")
+                    || (user.password == null
+                    || user.password =="")
+                    ||  (user.confirmPassword == null
+                    || user.confirmPassword == "")
+                ) {
                     errorFlag = true;
-
-
-                if (!errorFlag) {
+                }
+                   
+                if (! errorFlag) {
                     this.wizard.enableNextStep();
 
                     if (event.keyCode == 13) {
@@ -345,7 +382,6 @@
                 } else {
                     this.wizard.disableNextStep();
                 }
-
             }, 400),
         });
     
@@ -631,16 +667,16 @@
                 } else if (this.get('php-configfiles-permission').hasOwnProperty('configfiles')) {
                     let configfiles = this.get('php-configfiles-permission').configfiles;
 
-                    let isconfigfilesError;
+                    let isConfigFilesError;
                     configfiles.forEach(configfiles => {
                         let currentconfigfileName = Object.keys(configfiles)[0];
                         if (!configfiles[currentconfigfileName]) {
-                            isconfigfilesError = true;
+                            isConfigFilesError = true;
                             this.set('verified', false);
                         }
                     });
 
-                    if (!isconfigfilesError) {
+                    if (! isConfigFilesError) {
                         this.set('verified', true);
                     }
                 } else if (this.get('php-extensions').hasOwnProperty('extensions')) {
@@ -655,7 +691,7 @@
                         }
                     });
 
-                    if (!isExtensionError) {
+                    if (! isExtensionError) {
                         this.set('verified', true);
                     }
                 } else {
@@ -1083,7 +1119,7 @@
 
                     this.renderWizard();
                 } else {
-                    if (!this.enabled) {
+                    if (! this.enabled) {
                         this.router.navigate('welcome', { trigger: true });
                     } else {
                         this.timeline.every(function (installationStep, index) {

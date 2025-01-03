@@ -447,15 +447,15 @@ class ConfigureHelpdesk extends Command
     private function refreshDatabaseConnection($host, $port, $name, $user, $password)
     {
         $response = [
-            'isServerAccessible' => true,
+            'isServerAccessible'   => true,
             'isDatabaseAccessible' => true,
         ];
 
         $entityManager = EntityManager::create([
-            'driver' => 'pdo_mysql',
-            "host" => $host,
-            "port" => $port,
-            'user' => $user,
+            'driver'   => 'pdo_mysql',
+            "host"     => $host,
+            "port"     => $port,
+            'user'     => $user,
             'password' => $password,
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
         
@@ -471,7 +471,7 @@ class ConfigureHelpdesk extends Command
             }
         }
 
-        if (!in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
+        if (! in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
             $response['isDatabaseAccessible'] = false;
         }
 
@@ -492,10 +492,10 @@ class ConfigureHelpdesk extends Command
     private function createDatabase($host, $port, $name, $user, $password)
     {
         $entityManager = EntityManager::create([
-            'driver' => 'pdo_mysql',
-            "host" => $host,
-            "port" => $port,
-            'user' => $user,
+            'driver'   => 'pdo_mysql',
+            "host"     => $host,
+            "port"     => $port,
+            'user'     => $user,
             'password' => $password,
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
         
@@ -509,7 +509,7 @@ class ConfigureHelpdesk extends Command
             }
         }
 
-        if (!in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
+        if (! in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
             try {
                 // Create database
                 $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($name));
@@ -592,7 +592,7 @@ class ConfigureHelpdesk extends Command
             $this->consoleOutput->write(false == $flag ? [self::MCA, self::CLL] : [self::MCA, self::CLL, self::MCA, self::CLL]);
 
             if (empty($input) && false == $nullable && empty($default)) {
-                if (!empty($default)) {
+                if (! empty($default)) {
                     $input = $default;
                 } else if (false == $nullable) {
                     $flag = true;

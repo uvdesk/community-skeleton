@@ -181,7 +181,7 @@ Navigate to localhost/index.php to verify that localhost is able to serve your s
 With all these changes done, your apache server should be able to serve web resources from your new document root. You can further go ahead and configure your DNS records to point your domains to your server's IP at this step.
 
 Downloading and setting up Composer
------------------
+------------------------------------
 
 Follow the instructions provided on the official [composer website](https://getcomposer.org/download/) to download and install composer package manager. Once installed, it's advisable to move the composer executable to the /usr/local/bin/ directory so that it can be easily accessed from anywhere in your terminal. To do so, use the following commands:
 

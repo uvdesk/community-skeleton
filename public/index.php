@@ -15,7 +15,7 @@ return function (array $context) {
     }
 
     // Only attempt to set permissions if we're NOT in Docker
-    if (!isRunningInDocker()) {
+    if (! isRunningInDocker()) {
         $basePath = dirname(__DIR__);
         $files = [
             'env'        => $basePath . '/.env',

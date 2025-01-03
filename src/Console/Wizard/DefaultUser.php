@@ -280,7 +280,7 @@ class DefaultUser extends Command
                 $output->writeln(sprintf("      <comment>Warning</comment>: %sPassword cannot be left blank", $confirmDialog ? 'Confirm ' : ''));
             } else if (false == $confirmDialog && (strlen($password) < 8 || strlen($password) > 32)) {
                 $warningFlag = true;
-                // Sanatize password and compare if they match
+                // Sanitize password and compare if they match
                 $output->writeln("      <comment>Warning</comment>: Password needs to be 8-32 characters long");
                 $password = null;
             }
