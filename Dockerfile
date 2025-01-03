@@ -3,7 +3,7 @@ LABEL maintainer="support@uvdesk.com"
 
 ENV GOSU_VERSION=1.11
 
-# Install base supplimentary packages
+# Install base supplementary packages
 RUN apt-get update && apt-get -y upgrade \
     && apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:ondrej/php \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \

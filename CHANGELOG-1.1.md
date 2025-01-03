@@ -3,23 +3,23 @@ CHANGELOG for 1.1.x
 
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
-* 1.1.7
+* 1.1.7 (2025-01-03)
     * Features & Enhancements:
+       - Microsoft modern app support added (For Mailbox).
        - Added Marketing module.
        - Added OTP option for customers to login.
        - Round robin ticket assignment.
-       - Microsoft modern app support added.
+       - Added a New language he (Hebrew).
+       - Default read/write permission added for some required files during install.
        - Added option for selecting and save country for ticket.
-       - Showing customer email along with name in side filters ticket list. (To avoid confusion in case multiple customers name same).
+       - Showing customer email along with name in side filters ticket list. (To avoid confusion in case multiple customers having same name).
        - Attachments renaming true so actual name will not show (For security purpose).
        -  In case of multiple attachments with ticket reply now added cross button for each attachment, So that user can remove a particular attachment before reply instead of removing all with single button.
-       - Made updates in installation part. 
-       - Refactoring on code end.
+       - Made updates in installation part (for database connection related issues)
+       - Refactoring on code end for main and other dependent repository.
 
     * Issue Fixes:
-
         #### Issue Fixed in * [**Core Framework**][1]
-
         - Issue #508 #549 - Filter issue resolved for customer filtering.
         - Issue #552 - In agent activity option: date filter should be select correct date format.
         - Issue #524 - ticket is in trashed folder and we will reply from the admin then it should not send mail to the customer.
@@ -43,7 +43,6 @@ This changelog references any relevant changes introduced in 1.1 minor versions.
         - Lang select snippets position issue resolved on dashboard.
 
         #### Issue Fixed in * [**support-center-bundle**][2]
-
         - Issue #538 - Tag line is not translated in other languages except the english.
         - Made required message field in ticket creation form on front end.
         - Issue #228 - front website cookies policy Popup issue if switch language in arabic.

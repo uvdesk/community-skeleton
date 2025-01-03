@@ -66,7 +66,7 @@ class ConfigureHelpdesk extends AbstractController
         switch (strtolower($request->request->get('specification'))) {
             case 'php-version':
                 $response = [
-                    'status' => version_compare(phpversion(), '7.0.0', '<') ? false : true,
+                    'status'  => version_compare(phpversion(), '7.0.0', '<') ? false : true,
                     'version' => sprintf('%s.%s.%s', PHP_MAJOR_VERSION, PHP_MINOR_VERSION, PHP_RELEASE_VERSION),
                 ];
 
@@ -145,10 +145,10 @@ class ConfigureHelpdesk extends AbstractController
         
         try {
             $connectionUrl = strtr(self::DB_URL_TEMPLATE, [
-                '[host]' => $request->request->get('serverName'), 
-                '[port]' => $request->request->get('serverPort'), 
-                '[user]' => $request->request->get('username'), 
-                '[password]' => $request->request->get('password'), 
+                '[host]'     => $request->request->get('serverName'),
+                '[port]'     => $request->request->get('serverPort'),
+                '[user]'     => $request->request->get('username'),
+                '[password]' => $request->request->get('password'),
             ]);
 
             if ($request->request->get('serverVersion') != null) {
@@ -169,26 +169,29 @@ class ConfigureHelpdesk extends AbstractController
             // Check if database exists
             $createDatabase = (bool) $request->request->get('createDatabase');
 
-            if (!in_array($request->request->get('database'), $databaseConnection->getSchemaManager()->listDatabases()) && false == $createDatabase) {
+            if (
+                ! in_array($request->request->get('database'), $databaseConnection->getSchemaManager()->listDatabases()) 
+                && false == $createDatabase
+            ) {
                 return new JsonResponse([
-                    'status' => false,
+                    'status'  => false,
                     'message' => "The requested database was not found."
                 ]);
             }
 
             // Storing database configuration to session.
             $_SESSION['DB_CONFIG'] = [
-                'host' => $request->request->get('serverName'),
-                'port' => $request->request->get('serverPort'),
-                'version' => $request->request->get('serverVersion'),
-                'username' => $request->request->get('username'),
-                'password' => $request->request->get('password'),
-                'database' => $request->request->get('database'),
+                'host'           => $request->request->get('serverName'),
+                'port'           => $request->request->get('serverPort'),
+                'version'        => $request->request->get('serverVersion'),
+                'username'       => $request->request->get('username'),
+                'password'       => $request->request->get('password'),
+                'database'       => $request->request->get('database'),
                 'createDatabase' => $createDatabase,
             ];
         } catch (\Exception $e) {
             return new JsonResponse([
-                'status' => false,
+                'status'  => false,
                 'message' => "Failed to establish a connection with database server."
             ]);
         }
@@ -205,8 +208,8 @@ class ConfigureHelpdesk extends AbstractController
         // unset($_SESSION['USER_DETAILS']);
 
         $_SESSION['USER_DETAILS'] = [
-            'name' => $request->request->get('name'),
-            'email' => $request->request->get('email'),
+            'name'     => $request->request->get('name'),
+            'email'    => $request->request->get('email'),
             'password' => $request->request->get('password'),
         ];
 
@@ -219,24 +222,24 @@ class ConfigureHelpdesk extends AbstractController
             session_start();
         }
 
-        $database_host = $_SESSION['DB_CONFIG']['host'];
-        $database_port = $_SESSION['DB_CONFIG']['port'];
+        $database_host    = $_SESSION['DB_CONFIG']['host'];
+        $database_port    = $_SESSION['DB_CONFIG']['port'];
         $database_version = $_SESSION['DB_CONFIG']['version'];
-        $database_user = $_SESSION['DB_CONFIG']['username'];
-        $database_pass = $_SESSION['DB_CONFIG']['password'];
-        $database_name = $_SESSION['DB_CONFIG']['database'];
+        $database_user    = $_SESSION['DB_CONFIG']['username'];
+        $database_pass    = $_SESSION['DB_CONFIG']['password'];
+        $database_name    = $_SESSION['DB_CONFIG']['database'];
 
         $create_database = $_SESSION['DB_CONFIG']['createDatabase'];
 
         try {
             $connectionUrl = strtr(self::DB_URL_TEMPLATE, [
-                '[host]' => $database_host, 
-                '[port]' => $database_port, 
-                '[user]' => $database_user, 
-                '[password]' => $database_pass, 
+                '[host]'     => $database_host,
+                '[port]'     => $database_port,
+                '[user]'     => $database_user,
+                '[password]' => $database_pass,
             ]);
 
-            if (!empty($database_version)) {
+            if (! empty($database_version)) {
                 $connectionUrl .= "?serverVersion=$database_version";
             }
 
@@ -252,7 +255,7 @@ class ConfigureHelpdesk extends AbstractController
             }
 
             // Check if database exists
-            if (!in_array($database_name, $databaseConnection->getSchemaManager()->listDatabases())) {
+            if (! in_array($database_name, $databaseConnection->getSchemaManager()->listDatabases())) {
                 if (false == $create_database) {
                     throw new \Exception('Database does not exist.');
                 }
@@ -262,11 +265,11 @@ class ConfigureHelpdesk extends AbstractController
             }
 
             $connectionUrl = strtr(self::DB_URL_TEMPLATE . "/[database]", [
-                '[host]' => $database_host, 
-                '[port]' => $database_port, 
-                '[user]' => $database_user, 
-                '[password]' => $database_pass, 
-                '[database]' => $database_name, 
+                '[host]'     => $database_host,
+                '[port]'     => $database_port,
+                '[user]'     => $database_user,
+                '[password]' => $database_pass,
+                '[database]' => $database_name,
             ]);
 
             if (!empty($database_version)) {
@@ -279,8 +282,8 @@ class ConfigureHelpdesk extends AbstractController
 
             $returnCode = $application->run(new ArrayInput([
                 'command' => 'uvdesk_wizard:env:update', 
-                'name' => 'DATABASE_URL', 
-                'value' => $connectionUrl
+                'name'    => 'DATABASE_URL', 
+                'value'   => $connectionUrl
             ]), new NullOutput());
     
             if (0 === $returnCode) {
@@ -288,7 +291,7 @@ class ConfigureHelpdesk extends AbstractController
             }
         } catch (\Exception $e) {
             return new JsonResponse([
-                'status' => false,
+                'status'  => false,
                 'message' => "An unexpected error occurred: " . $e->getMessage(), 
             ]);
         }
@@ -314,7 +317,7 @@ class ConfigureHelpdesk extends AbstractController
         $application->setAutoExit(false);
 
         $resultCode = $application->run(new ArrayInput([
-            'command' => 'doctrine:fixtures:load',
+            'command'  => 'doctrine:fixtures:load',
             '--append' => true,
         ]), new NullOutput());
 
@@ -332,7 +335,7 @@ class ConfigureHelpdesk extends AbstractController
 
         $role = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_SUPER_ADMIN');
         $userInstance = $entityManager->getRepository(UserInstance::class)->findOneBy([
-            'isActive' => true,
+            'isActive'    => true,
             'supportRole' => $role,
         ]);
             
@@ -361,7 +364,7 @@ class ConfigureHelpdesk extends AbstractController
 
                 $user
                     ->setFirstName($username[0])
-                    ->setLastName(!empty($username[1]) ? $username[1] : '')
+                    ->setLastName(! empty($username[1]) ? $username[1] : '')
                     ->setPassword($encodedPassword)
                     ->setIsEnabled(true);
                 
@@ -404,7 +407,7 @@ class ConfigureHelpdesk extends AbstractController
                 }
                 
                 $_SESSION['PREFIXES_DETAILS'] = [
-                    'member' => $request->request->get('member-prefix'),
+                    'member'   => $request->request->get('member-prefix'),
                     'customer' => $request->request->get('customer-prefix'),
                 ];
 

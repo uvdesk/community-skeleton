@@ -50,8 +50,8 @@ class ExceptionSubscriber implements EventSubscriberInterface
 
 			if (!empty($this->container->get('security.token_storage')->getToken()->getUser()) && $this->container->get('security.token_storage')->getToken()->getUser() != "anon.") {
 				$template = $this->twig->render('errors/error.html.twig', [
-					'code' => 403,
-					'message' => 'Access Forbidden',
+					'code'        => 403,
+					'message'     => 'Access Forbidden',
 					'description' => 'You are not authorized to access this page.',
 				]);
 	
@@ -60,16 +60,16 @@ class ExceptionSubscriber implements EventSubscriberInterface
 		} else {
 			if ($exception instanceof NotFoundHttpException || $exception->getCode() == 404) {
 				$template = $this->twig->render('errors/error.html.twig', [
-					'code' => 404,
-					'message' => 'Page not Found',
+					'code'        => 404,
+					'message'     => 'Page not Found',
 					'description' => 'We were not able to find the page you are looking for.',
 				]);
 	
 				$event->setResponse(new Response($template, 404));
 			} else {
 				$template = $this->twig->render('errors/error.html.twig', [
-					'message' => 'Internal Server Error',
-					'code' => 500,
+					'message'     => 'Internal Server Error',
+					'code'        => 500,
 					'description' => 'Something has gone wrong on the server. Please try again later.',
 				]);
 	
