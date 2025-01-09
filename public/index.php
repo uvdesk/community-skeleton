@@ -8,9 +8,8 @@ return function (array $context) {
     // Function to check if we're running inside a Docker container
     function isRunningInDocker(): bool {
         return (
-            file_exists('/.dockerenv') || // Check for Docker environment file
-            (getenv('DOCKER_CONTAINER') !== false) || // Check for Docker environment variable
-            strpos(file_get_contents('/proc/1/cgroup'), 'docker') !== false // Check cgroup
+            file_exists('/.dockerenv') 
+            || (getenv('DOCKER_CONTAINER') !== false)
         );
     }
 
