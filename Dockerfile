@@ -3,7 +3,7 @@ LABEL maintainer="akshay.kumar758@webkul.com"
 
 ENV GOSU_VERSION 1.11
 
-RUN adduser uvdesk -q --disabled-password --gecos ""
+RUN useradd -m -s /bin/bash uvdesk
 
 # Install base supplimentary packages
 RUN apt-get update && apt-get -y upgrade \
