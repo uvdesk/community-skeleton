@@ -22,6 +22,7 @@ return function (array $context) {
             'config'     => $basePath . '/config',
             'public'     => $basePath . '/public',
             'migrations' => $basePath . '/migrations',
+            'packages'   => $basePath . '/config/packages/uvdesk.yaml',
         ];
 
         foreach ($files as $key => $file) {
