@@ -24,14 +24,20 @@ class BaseController extends AbstractController
             $ownerSupportRole = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_SUPER_ADMIN');
             $administratorSupportRole = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_ADMIN');
 
-            if (!empty($ownerSupportRole) || !empty($administratorSupportRole)) {
+            if (
+                ! empty($ownerSupportRole) 
+                || ! empty($administratorSupportRole)
+            ) {
                 $userInstanceRepository = $entityManager->getRepository(UserInstance::class);
                 
                 // If support roles are present, we'll check if any users exists with the administrator role.
                 $owners = $userInstanceRepository->findBySupportRole($ownerSupportRole);
                 $administrators = $userInstanceRepository->findBySupportRole($administratorSupportRole);
 
-                if (!empty($owners) || !empty($administrators)) {
+                if (
+                    ! empty($owners) 
+                    || ! empty($administrators)
+                ) {
                     $availableBundles = array_keys($kernel->getBundles());
                     $websiteRepository = $entityManager->getRepository(Website::class);
 
@@ -39,7 +45,7 @@ class BaseController extends AbstractController
                     if (in_array('UVDeskSupportCenterBundle', $availableBundles)) {
                         $supportCenterWebsite = $websiteRepository->findOneByCode('knowledgebase');
 
-                        if (!empty($supportCenterWebsite)) {
+                        if (! empty($supportCenterWebsite)) {
                             return $this->redirectToRoute('helpdesk_knowledgebase', [], 301);
                         }
                     }
@@ -47,7 +53,7 @@ class BaseController extends AbstractController
                     // Redirect user to back panel
                     $helpdeskWebsite = $websiteRepository->findOneByCode('helpdesk');
 
-                    if (!empty($helpdeskWebsite)) {
+                    if (! empty($helpdeskWebsite)) {
                         return $this->redirectToRoute('helpdesk_member_handle_login');
                     }
                 }

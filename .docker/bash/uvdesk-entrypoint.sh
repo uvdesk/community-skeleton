@@ -1,16 +1,11 @@
 #!/bin/bash
 
 # Output color codes
-# https://en.wikipedia.org/wiki/ANSI_escape_code
-
 declare -r COLOR_NC='\033[0m'
 declare -r COLOR_RED='\033[0;31m'
 declare -r COLOR_GREEN='\033[0;32m'
-declare -r COLOR_LIGHT_GREEN='\033[1;32m'
 declare -r COLOR_YELLOW='\033[1;33m'
-declare -r COLOR_LIGHT_YELLOW='\033[0;33m'
 declare -r COLOR_BLUE='\033[0;34m'
-declare -r COLOR_LIGHT_BLUE='\033[1;34m'
 
 service mysql stop;
 usermod -d /var/lib/mysql/ mysql;
@@ -49,7 +44,23 @@ service apache2 restart && service mysql restart;
 
 chown uvdesk:uvdesk /var/www/uvdesk/.env;
 
-# Step down from sudo to uvdesk
-/usr/local/bin/gosu uvdesk "$@"
+# Start services
+echo -e "${COLOR_BLUE}Starting services...${COLOR_NC}"
+service apache2 restart && service mysql restart
 
-exec "$@"
+# Setup MySQL if environment variables are provided
+if [[ ! -z "$MYSQL_USER" && ! -z "$MYSQL_PASSWORD" && ! -z "$MYSQL_DATABASE" && ! -z "$MYSQL_ROOT_PASSWORD" ]]; then
+    if ! setup_mysql; then
+        echo -e "${COLOR_RED}MySQL setup failed${COLOR_NC}"
+        exit 1
+    fi
+else
+    echo -e "${COLOR_YELLOW}Skipping MySQL setup - required environment variables not set${COLOR_NC}"
+fi
+
+# Execute the command
+if [ "$(id -u)" = "0" ] && [ ! -z "$APP_USER" ]; then
+    exec gosu $APP_USER "$@"
+else
+    exec "$@"
+fi

@@ -22,7 +22,10 @@ class ImageManager extends BaseImageManager
         $domain = $data['siteUrl'];
         $imageUrl = $data['imageUrl'];
 
-        if (filter_var($imageUrl, FILTER_VALIDATE_URL)) {
+        if (
+            filter_var($imageUrl, FILTER_VALIDATE_URL)
+            && filter_var($domain, FILTER_VALIDATE_URL)
+        ) {
             return $this->initFromUrl($driver, $imageUrl, $domain);
         }
 
@@ -40,21 +43,26 @@ class ImageManager extends BaseImageManager
      */
     public function initFromUrl($driver, $imageUrl, $domain)
     {
-        $options = [
-            'http' => [
-                'method'           => 'GET',
-                'protocol_version' => 1.1,
-                'header'           => "Accept-language: en\r\n" .
-                    "Domain: $domain\r\n" .
-                    "User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36\r\n",
-            ],
-        ];
+        try {
+            $options = [
+                'http' => [
+                    'method'           => 'GET',
+                    'protocol_version' => 1.1,
+                    'header'           => "Accept-language: en\r\n" .
+                        "Domain: $domain\r\n" .
+                        "User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36\r\n",
+                ],
+            ];
 
-        $context = stream_context_create($options);
-        $data = @file_get_contents($imageUrl, false, $context);
+            $context = stream_context_create($options);
 
-        if ($data) {
-            return $driver->decoder->initFromBinary($data);
+            $data = @file_get_contents($imageUrl, false, $context);
+
+            if ($data) {
+                return $driver->decoder->initFromBinary($data);
+            }
+        } catch (\Exception $e) {
+            throw new NotReadableException('Error:  (' . $e . ').');
         }
 
         throw new NotReadableException('Unable to init from given URL (' . $imageUrl . ').');

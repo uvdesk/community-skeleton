@@ -32,6 +32,7 @@
     <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/pl.svg" alt="Polish" width="24" height="24">
     <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/tr.svg" alt="Turkish" width="24" height="24">
     <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/cn.svg" alt="Chinese" width="24" height="24">
+    <img class="flag-img" src="https://flagicons.lipis.dev/flags/4x3/br.svg" alt="Brazil" width="24" height="24">
 </p>
 
 [Uvdesk community helpdesk][1] project skeleton packaged along with the bare essential utilities and tools to build and customize your own helpdesk solutions.
@@ -123,7 +124,7 @@ Requirements
 
 * **OS**: Ubuntu 16.04 LTS or higher / Windows 7 or Higher (WAMP / XAMPP).
 * **SERVER**: Apache 2 or NGINX.
-* **RAM**: 4 GB or higher.
+* **RAM**: 4GB or higher.
 * **PHP**: 8.1
 * **Processor**: Clock Cycle 1 Ghz or higher.
 * **For MySQL users**: 5.7.23 or higher.

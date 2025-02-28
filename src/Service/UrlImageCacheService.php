@@ -24,7 +24,7 @@ class UrlImageCacheService
         $cachePath = $this->cacheDir . '/' . $cacheKey . '.png';
 
         // Ensure the cache directory exists
-        if (!is_dir($this->cacheDir)) {
+        if (! is_dir($this->cacheDir)) {
             mkdir($this->cacheDir, 0775, true);
         }
 

@@ -65,7 +65,10 @@ class MigrateDatabase extends Command
                 ->compareMigrations($output)
                 ->getLatestMigrationVersion(new BufferedOutput());
             
-            if (('0' != $currentMigrationVersion && $currentMigrationVersion != $latestMigrationVersion) || ($currentMigrationVersion != $latestMigrationVersion)) {
+            if (
+                ('0' != $currentMigrationVersion && $currentMigrationVersion != $latestMigrationVersion) 
+                || ($currentMigrationVersion != $latestMigrationVersion)
+            ) {
                 $this->migrateDatabaseToLatestVersion(new NullOutput());
             }
         } catch (NoChangesDetected $e) {
@@ -80,8 +83,8 @@ class MigrateDatabase extends Command
         $command = $this->getApplication()->find('doctrine:migrations:version');
         ($consoleOptions = new ConsoleOptions([
             'command' => 'migrations:version',
-            '--add' => true,
-            '--all' => true,
+            '--add'   => true,
+            '--all'   => true,
             '--quiet' => true
         ]))->setInteractive(false);
 

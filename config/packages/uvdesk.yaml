@@ -1,5 +1,5 @@
 parameters:
-    app_locales: en|fr|it|de|da|ar|es|tr|zh|pl
+    app_locales: en|fr|it|de|da|ar|es|tr|zh|pl|he|pt_BR
     
     # Default Assets
     assets_default_agent_profile_image_path: 'bundles/uvdeskcoreframework/images/uv-avatar-batman.png'
@@ -19,6 +19,8 @@ uvdesk:
     site_url: 'localhost:8000'
     upload_manager:
         id: Webkul\UVDesk\CoreFrameworkBundle\FileSystem\UploadManagers\Localhost
+    
+    support_email: ~
     
     # Default resources
     default:

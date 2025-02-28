@@ -5,11 +5,6 @@ uvdesk_mailbox:
         # delimiter: '<-- Please add content above this line -->'
         # enable_delimiter: true
 
-    # Specify id of the mailbox you want to use as default for sending emails when no other "configured" mailbox is found.
-    # Applies to all emails sent through the system & in cases of tickets where the original source mailbox of the created
-    # ticket is no longer available.
-    default_mailbox: ~
-
     # Configure your mailboxes here
     mailboxes: ~
         # default:

@@ -1,33 +1,34 @@
 FROM ubuntu:latest
-LABEL maintainer="akshay.kumar758@webkul.com"
+LABEL maintainer="support@uvdesk.com"
 
-ENV GOSU_VERSION 1.11
+ENV GOSU_VERSION=1.11
 
-RUN adduser uvdesk -q --disabled-password --gecos ""
-
-# Install base supplimentary packages
+# Install base supplementary packages
 RUN apt-get update && apt-get -y upgrade \
     && apt-get update && apt-get install -y software-properties-common && add-apt-repository -y ppa:ondrej/php \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
+    	adduser \
         curl \
         wget \
         git \
         unzip \
         apache2 \
         mysql-server \
-        php7.4 \
-        libapache2-mod-php7.4 \
-        php7.4-common \
-        php7.4-xml \
-        php7.4-imap \
-        php7.4-mysql \
-        php7.4-mailparse \
+        php8.1 \
+        libapache2-mod-php8.1 \
+        php8.1-common \
+        php8.1-xml \
+        php8.1-imap \
+        php8.1-mysql \
+        php8.1-mailparse \
         ca-certificates; \
     if ! command -v gpg; then \
 		apt-get install -y --no-install-recommends gnupg2 dirmngr; \
 	elif gpg --version | grep -q '^gpg (GnuPG) 1\.'; then \
 		apt-get install -y --no-install-recommends gnupg-curl; \
 	fi;
+	
+RUN adduser uvdesk -q --disabled-password --gecos ""
 
 COPY ./.docker/config/apache2/env /etc/apache2/envvars
 COPY ./.docker/config/apache2/httpd.conf /etc/apache2/apache2.conf
@@ -37,7 +38,7 @@ COPY . /var/www/uvdesk/
 
 RUN \
     # Update apache configurations
-    a2enmod php7.4 rewrite; \
+    a2enmod php8.1 rewrite; \
     chmod +x /usr/local/bin/uvdesk-entrypoint.sh; \
     # Install gosu for stepping-down from root to a non-privileged user during container startup
     dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')"; \
@@ -73,6 +74,20 @@ RUN \
         /var/www/bin \
         /var/www/html \
         /var/www/uvdesk/.docker;
+
+# Set permissions for all required files, including .env
+RUN \
+    chmod -R 775 /var/www/uvdesk/var \
+                 /var/www/uvdesk/config \
+                 /var/www/uvdesk/public \
+                 /var/www/uvdesk/migrations; \
+    chown -R uvdesk:uvdesk /var/www; \
+    chown -R uvdesk:uvdesk /var/www/uvdesk/.env
+
+# Install Composer dependencies
+RUN cd /var/www/uvdesk/ && composer install --no-dev --optimize-autoloader
+
+# Ensure correct ownership for www-data user
 
 # Change working directory to uvdesk source
 WORKDIR /var/www

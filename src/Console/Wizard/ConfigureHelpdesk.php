@@ -58,17 +58,44 @@ class ConfigureHelpdesk extends Command
         $this->consoleOutput = $output;
         $this->questionHelper = $this->getHelper('question');
         $this->projectDirectory = $this->container->getParameter('kernel.project_dir');
+        
+        $env = $this->projectDirectory.'/.env';
+        $var = $this->projectDirectory.'/var';
+        $config = $this->projectDirectory.'/config';
+        $public = $this->projectDirectory.'/public';
+        $migrations = $this->projectDirectory.'/migrations';
+
+        $files = [
+            'env'        => $env,
+            'var'        => $var,
+            'config'     => $config,
+            'public'     => $public,
+            'migrations' => $migrations,
+        ];
+
+        foreach ($files as $file) {
+            if (file_exists($file)) {
+                chmod($file, 0775);
+            }
+        }
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->write([self::MCH, self::CLS]);
         $output->writeln("\n<comment>  Examining helpdesk setup for any configuration issues:</comment>\n");
-
         list($db_host, $db_port, $db_name, $db_user, $db_password) = $this->getUpdatedDatabaseCredentials();
+        
 
         // Check 1: Verify database connection
         $output->writeln("  [-] Establishing a connection with database server");
+
+        if (extension_loaded('redis')) {
+            $output->writeln("\n<fg=red;>  [x] Redis extension is loaded");
+            $output->writeln("\n     Please check this <href=https://github.com/uvdesk/community-skeleton/issues/364#issuecomment-780486976>link</> for Redis configuration instructions, in case there is an issue <comment>(connection refused) </comment>while connecting to database.
+     You can add your Redis server host details in the Setup.php file instead of the default port as mentioned in the link.If there are no issues, you can simply 
+     ignore this message.</>\n\n");
+        }
 
         list($isServerAccessible, $isDatabaseAccessible) = $this->refreshDatabaseConnection($db_host, $db_port, $db_name, $db_user, $db_password);
 
@@ -420,15 +447,15 @@ class ConfigureHelpdesk extends Command
     private function refreshDatabaseConnection($host, $port, $name, $user, $password)
     {
         $response = [
-            'isServerAccessible' => true,
+            'isServerAccessible'   => true,
             'isDatabaseAccessible' => true,
         ];
 
         $entityManager = EntityManager::create([
-            'driver' => 'pdo_mysql',
-            "host" => $host,
-            "port" => $port,
-            'user' => $user,
+            'driver'   => 'pdo_mysql',
+            "host"     => $host,
+            "port"     => $port,
+            'user'     => $user,
             'password' => $password,
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
         
@@ -444,7 +471,7 @@ class ConfigureHelpdesk extends Command
             }
         }
 
-        if (!in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
+        if (! in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
             $response['isDatabaseAccessible'] = false;
         }
 
@@ -465,10 +492,10 @@ class ConfigureHelpdesk extends Command
     private function createDatabase($host, $port, $name, $user, $password)
     {
         $entityManager = EntityManager::create([
-            'driver' => 'pdo_mysql',
-            "host" => $host,
-            "port" => $port,
-            'user' => $user,
+            'driver'   => 'pdo_mysql',
+            "host"     => $host,
+            "port"     => $port,
+            'user'     => $user,
             'password' => $password,
         ], Setup::createAnnotationMetadataConfiguration(['src/Entity'], false));
         
@@ -482,7 +509,7 @@ class ConfigureHelpdesk extends Command
             }
         }
 
-        if (!in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
+        if (! in_array($name, $databaseConnection->getSchemaManager()->listDatabases())) {
             try {
                 // Create database
                 $databaseConnection->getSchemaManager()->createDatabase($databaseConnection->getDatabasePlatform()->quoteSingleIdentifier($name));
@@ -565,7 +592,7 @@ class ConfigureHelpdesk extends Command
             $this->consoleOutput->write(false == $flag ? [self::MCA, self::CLL] : [self::MCA, self::CLL, self::MCA, self::CLL]);
 
             if (empty($input) && false == $nullable && empty($default)) {
-                if (!empty($default)) {
+                if (! empty($default)) {
                     $input = $default;
                 } else if (false == $nullable) {
                     $flag = true;

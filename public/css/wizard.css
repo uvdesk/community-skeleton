@@ -194,53 +194,140 @@ a.prev {
     /* text-align: center; */
 }
 
-/* Wizard Header */
-.wizard-box-lt {
-    display: table;
-    position: fixed;
-    width: 500px;
-    min-height: 600px;
-    top: 0;
-    bottom: 0;
-    height: 100%;
+.installation-wizard-container {
+    display: flex;
+    align-items: stretch;
+    min-height: 100vh;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview {
+    flex: 1;
+    color: #ffffff;
+    max-width: 500px;
     background-image: -moz-linear-gradient(90deg, #7c70f4 0%, #ba81f1 100%);
     background-image: -webkit-linear-gradient(90deg, #7c70f4 0%, #ba81f1 100%);
     background-image: -ms-linear-gradient(90deg, #7c70f4 0%, #ba81f1 100%);
-    z-index: 2;
-    
+    position: relative;
+    min-height: 620px;
 }
 
-.wizard-box-lt .uvdesk-logo {
-    width: 215px;
-    line-height: 1em;
-    overflow: hidden;
-    margin: 70px auto 10px;
+.installation-wizard-container .installation-wizard-steps-overview-details {
+    flex: 2;
+    display: flex;
+    align-items: center;
 }
 
-.wizard-box-lt h1 {
-    font-size: 2em;
-    font-weight: bold;
-    line-height: 1.4em;
-}
-
-.wizard-box-lt .line-break {
-    height: 1px;
-    width: 40px;
-    background: #b5b5b5;
-    margin: 10px auto 20px;
-}
-
-/* Wizard Container */
-.wizard-box-rt {
+/* Installation Wizard Steps Overview */
+.installation-wizard-container .installation-wizard-steps-overview .installation-wizard-steps-overview-container {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     position: absolute;
-    height: 100%;
-    padding: 130px 60px 60px 560px;
-    display: table;
-    z-index: 1;
-    
+    top: 50%;
+    margin-top: -50%;
 }
 
-.wizard-box-rt h2 {
+.installation-wizard-container .installation-wizard-steps-overview  .uvdesk-logo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview  .uvdesk-logo svg {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview  .uvdesk-logo p {
+    color: #DAC1FA;
+    font-size: 12px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist {
+    /* width: fit-content; */
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist li .node {
+    background: #FFFFFE;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    position: relative;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist li .node .inner-circle {
+    position: absolute;
+    background: #FFFFFE;
+    border-radius: 50%;
+    height: 10px;
+    width: 10px;
+    top: 50%;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist li .node .outer-circle {
+    position: absolute;
+    background: #D3D3D3;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist li.active-node .node .outer-circle {
+    position: absolute;
+    background: #7C6AF7;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview .installation-progress-checklist li.check .node .outer-circle {
+    display: inline-block;
+    transform: rotate(45deg);
+    height: 14px;
+    width: 6px;
+    border-bottom: 3px solid #7B70F4;
+    border-right: 3px solid #7B70F4;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -4px;
+    position: absolute;
+    z-index: 1;
+    border-radius: 12%;
+    background: #ffffff;
+}
+
+/* Installation Wizard Steps Overview Details */
+
+.installation-wizard-steps-overview-details {
+    position: relative;
+}
+
+.installation-wizard-steps-overview-details-container {
+    padding: 60px;
+}
+
+.installation-wizard-container .installation-wizard-steps-overview-details h2 {
     color: #333333;
     font-size: 24px;
     font-weight: 400;
@@ -248,31 +335,33 @@ a.prev {
     margin: 0;
     margin-bottom: 20px;
 }
-.wizard-box-rt p{
+
+.installation-wizard-container .installation-wizard-steps-overview-details p {
     line-height: 1.5;
 }
 
-.wizard-box-rt .line-break {
+/* Wizard Header */
+.installation-wizard-steps-overview-details .line-break {
     height: 1px;
     background: #b5b5b5;
-    margin: 30px 0px 40px;
+    margin: 20px 0px 20px;
 }
 
-.wizard-box-rt form {
+.installation-wizard-steps-overview-details form {
     text-align: left;
 }
 
-.wizard-box-rt form .form-label {
+.installation-wizard-steps-overview-details form .form-label {
     display:block;
     margin-bottom: 10px;
 }
 
-.wizard-box-rt form .form-content {
+.installation-wizard-steps-overview-details form .form-content {
     display: inline-block;
     vertical-align: top;
 }
 
-.wizard-box-rt form .wizard-form-info {
+.installation-wizard-steps-overview-details form .wizard-form-info {
     display: inline-block;
     font-size: 14px;
     color: #6F6F6F !important;
@@ -281,13 +370,13 @@ a.prev {
     margin-left: 10px;
 }
 
-.wizard-box-rt form .wizard-form-notice {
+.installation-wizard-steps-overview-details form .wizard-form-notice {
     display: block;
     font-size: 14px;
     color: #FF5656 !important;
 }
 
-.wizard-box-rt form input {
+.installation-wizard-steps-overview-details form input {
     width: 280px;
     height: 40px;
     border: solid 1px #B1B1AE;
@@ -306,11 +395,11 @@ input[type = 'checkbox'] {
     width: 15px !important;
   }
 
-.wizard-box-rt form .form-field {
+.installation-wizard-steps-overview-details form .form-field {
     margin-bottom: 20px;
 }
 
-.wizard-box-rt form .form-field:last-child {
+.installation-wizard-steps-overview-details form .form-field:last-child {
     margin-bottom: unset;
 }
 
@@ -388,12 +477,8 @@ ul.button-groups > li:last-child {
 }
 
 .wizard-svg-icon-criteria-checklist {
-    width: 1em;
-    height: 1.4em;
     position: relative;
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 6px;
+    margin-right: 1em;
 }
 
 .wizard-svg-icon-criteria-checklist svg {
@@ -413,11 +498,16 @@ ul.button-groups > li:last-child {
 }
 
 .criteria-checklist {
+    line-height: 1.4em;
     padding: 20px 0px 35px 0px;
 }
 
-.wizard-box-rt .criteria-checklist li {
-    padding-top: 10px;
+.criteria-checklist li {
+    margin-bottom: 10px;
+}
+
+.criteria-checklist li:last-child {
+    margin-bottom: unset;
 }
 
 #wizardSetupNavigation button .processing-request, #wizard-finalizeInstall .installation-progress-loader {
@@ -456,10 +546,12 @@ ul.button-groups > li:last-child {
 #systemCriteria-PHPExtensions-Details,
 #systemCriteria-PHPPermissionConfigfiles-Details {
     margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .PHPExtensions-toggle-details, .PHPVersion-toggle-details, .PHPExeTime-toggle-details,
-.PHPPermissionEnvfile-toggle-details, .PHPPermissionConfigfiles-toggle-details {
+.PHPPermissionEnvfile-toggle-details, .PHPPermissionConfigfiles-toggle-details, .PHPEnableRedis-toggle-details {
     cursor: pointer;
     color: #9272F8;
     text-decoration: underline;
@@ -477,12 +569,6 @@ ul.button-groups > li:last-child {
 
 #systemCriteria-Details a {
     color: #9272F8
-}
-
-
-.extension-info-container, .version-info-container, .execution-info-container,
-.permission-info-container, .permissionConfigfiles-info-container {
-    margin-bottom: 10px;
 }
 
 input[type = 'checkbox'] {
@@ -580,18 +666,8 @@ input[type = 'checkbox'] {
     background: #FFFFFE;
 }
  
-.progress-bar li p {
-    margin-left: 40px;
-    margin-top: -23px;   
-     
-}
- 
 li {
      list-style: none;
-}
-
-.fetching-details label {
-     margin-top: 5px;
 }
 
 .lg-icon {
