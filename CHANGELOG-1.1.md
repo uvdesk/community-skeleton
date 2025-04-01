@@ -3,6 +3,15 @@ CHANGELOG for 1.1.x
 
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
+* 1.1.8
+    * Updates
+        - Docker file updates.
+        - Added portuguese translation lang.
+
+    * Issue Fixes:
+      - Check removed for docker running env.
+      - Enabling permission for the uvdesk.yaml file for saving email setting in case not having read/write permission.
+
 * 1.1.7 (2025-01-03)
     * Features & Enhancements:
        - Microsoft modern app support added (For Mailbox).
