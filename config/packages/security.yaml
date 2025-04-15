@@ -74,4 +74,6 @@ security:
         - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/create-ticket, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/forgot-password, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
         - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/update-credentials, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
-        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/, roles: ROLE_CUSTOMER }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/ticket/intermediate/public-access/read-only, roles: [IS_AUTHENTICATED_REMEMBERED, IS_AUTHENTICATED_ANONYMOUSLY, ROLE_CUSTOMER_READ_ONLY]  }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/ticket/view, roles: [ROLE_CUSTOMER, ROLE_CUSTOMER_READ_ONLY] }
+        - { path: /%uvdesk_site_path.knowledgebase_customer_prefix%/, roles: [ROLE_CUSTOMER] }
