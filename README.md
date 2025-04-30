@@ -61,9 +61,9 @@ Getting Started
 About
 -----------------
 
-Build on top of [symfony](https://symfony.com/) and [backbone.js](https://backbonejs.org/), uvdesk community is a service oriented, event driven extensible opensource helpdesk system that can be used by your organization to provide efficient support to your clients effortlessly whichever way you imagine.
+Build on top of [symfony](https://symfony.com/) and [backbone.js](https://backbonejs.org/), UVdesk Community is an open-source, service-oriented, and event-driven helpdesk system designed for easy customization and seamless client support. Its extensible architecture allows organizations to deliver efficient, tailored customer service with minimal effort.
 
-The standard distribution comes packaged along with the following helpdesk packages to cover a wide range of use-cases and requirements:
+The standard distribution includes a comprehensive set of helpdesk packages to support a wide range of use cases and operational needs.
 
   * [**Core Framework**][2] - At the heart of the helpdesk system, the core framework consists of all the necessary apis required by your project and dependent packages to keep things running smoothly
 
@@ -91,7 +91,9 @@ Features
 * Block Spam
 * [Agent Activity][29]
 * [Marketing Announcement][30]
+* [Marketing Modules][35]
 * [Kudos][31]
+* [Microsoft Apps][36]
 * reCAPTCHA option
 * Standard automated workflows
 * Notes for agents
@@ -141,13 +143,11 @@ The installation process is broken down into two distinct steps:
 
 ### Setting up your helpdesk project
 
-In this step of the installation process, you'll be downloading the helpdesk project skeleton and installing all of its dependent components.
+In this step, you'll download the Helpdesk project skeleton and install its dependencies.
 
-As per your convenience, you can choose to either use composer for download the project and install all its dependencies automatically or directly download the project archive that comes pre-packaged with all of the project dependencies already installed.
+You can either use Composer to download and install everything automatically, or download a pre-packaged archive that includes all dependencies. We recommend using Composer whenever possible for easier updates and better dependency management. However, if you're on a system with limited resources (e.g., shared hosting), the archive download may be more reliable.
 
-We recommend using composer over direct download whenever possible. However, if your system does not have enough ram to execute composer operations properly (for example: installing on a shared host with limited system resources), we suggest using the direct download method instead to mitigate these kind of issues.
-
-Irrespective of the method you use, the process to configuring your helpdesk remains the same.
+Regardless of the method you choose, the configuration process for Helpdesk remains the same.
 
 #### Composer
 
@@ -314,3 +314,6 @@ Support this project by becoming a sponsor. Your logo will show up here with a l
 [32]: https://www.uvdesk.com/en/blog/language-translation-in-uvdesk-open-source-helpdesk/
 [33]: https://github.com/uvdesk/community-skeleton/wiki/Vagrant-Virtual-Machine-Environment
 [34]: https://github.com/uvdesk/community-skeleton/wiki/Docker-Persistent-Container
+[35]: https://www.uvdesk.com/en/blog/marketing-module/
+[36]: https://www.uvdesk.com/en/how-to-integrate-microsoft-app-to-your-opensource-uvdesk/
+
