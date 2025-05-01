@@ -83,36 +83,36 @@ Features
 ----------------
 
 * [Translation Support (Multilingual)][32]
-* Unlimited Agents, Group, Team, Customers, Tickets etc
+* Unlimited agents, groups, teams, customers, tickets, and more.
 * Agent Privileges
-* No limit on the number of Mailbox/Email integration
-* Saved Replies for common queries
-* Filter based on ticket status, Id, agent, customer, etc
+* No limit on the number of mailbox/email integrations.
+* Saved Replies – Quickly respond to frequent questions.
+* Filter tickets by status, ID, agent, customer, and more.
 * Block Spam
 * [Agent Activity][29]
 * [Marketing Announcement][30]
 * [Marketing Modules][35]
 * [Kudos][31]
 * [Microsoft Apps][36]
-* reCAPTCHA option
-* Standard automated workflows
-* Notes for agents
-* Custom branding
-* Change logo & favicon
-* Broadcasting message
-* Ticket Forwarding
-* Prepared Response
-* Email Notification
-* Effective search
-* User Friendly Web Installer
-* Add multiple attachments
-* Powerful Knowledgebase/Faq (article, category & folder)
-* Ticket types, Multiple Tags
-* Email Templates
-* [API][16]-[Doc][25]
-* Edit/delete/pinned ticket and thread
-* Add a collaborator and much more.
-* Check Apps [here.][26]
+* reCAPTCHA option.
+* Standard automated workflows.
+* Notes for agents.
+* Custom branding.
+* Change logo & favicon.
+* Broadcasting message.
+* Ticket Forwarding.
+* Prepared Response.
+* Email Notification.
+* Effective search.
+* User Friendly Web Installer.
+* Supports multiple attachments.
+* A powerful knowledge base and FAQ system—organize content by articles, categories, and folders.
+* Ticket types, Multiple Tags.
+* Email Templates.
+* [API Bundle][16] and [Documentation][25]
+* Edit/Delete/Pinned ticket and thread.
+* Easily add collaborators and unlock even more capabilities.
+* [Explore Apps][26]
 
 Documentation
 --------------
