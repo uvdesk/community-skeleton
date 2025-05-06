@@ -40,6 +40,7 @@
         "symfony/security-bundle": "*",
         "symfony/serializer": "*",
         "symfony/string": "*",
+        "symfony/swiftmailer-bundle": "^3.5",
         "symfony/translation": "*",
         "symfony/twig-bundle": "*",
         "symfony/validator": "*",
