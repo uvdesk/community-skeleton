@@ -7,4 +7,5 @@ return [
     Webkul\UVDesk\MailboxBundle\UVDeskMailboxBundle::class => ['all' => true],
     Webkul\UVDesk\SupportCenterBundle\UVDeskSupportCenterBundle::class => ['all' => true],
     Webkul\UVDesk\ApiBundle\UVDeskApiBundle::class => ['all' => true],
+    Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['all' => true],
 ];
