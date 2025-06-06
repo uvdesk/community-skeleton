@@ -24,6 +24,7 @@ RUN apt-get update && \
         php8.1-imap \
         php8.1-mysql \
         php8.1-mailparse \
+        php8.1-curl \
         ca-certificates \
         gnupg2 dirmngr && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
@@ -73,14 +74,13 @@ RUN chown -R uvdesk:uvdesk /var/www/uvdesk && \
                  /var/www/uvdesk/config \
                  /var/www/uvdesk/public \
                  /var/www/uvdesk/migrations && \
-    chown uvdesk:www-data /var/www/uvdesk/.env && \
-    chmod 664 /var/www/uvdesk/.env
+                 /var/www/uvdesk/.env
 
 # Install Composer dependencies
-RUN cd /var/www/uvdesk/ && composer install --no-dev --optimize-autoloader
+RUN cd /var/www/uvdesk/ && composer install --optimize-autoloader
 
 # Set working directory
-WORKDIR /var/www
+WORKDIR /var/www/uvdesk
 
 # Entry point for the container
 ENTRYPOINT ["/usr/local/bin/uvdesk-entrypoint.sh"]

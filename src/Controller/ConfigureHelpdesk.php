@@ -96,6 +96,11 @@ class ConfigureHelpdesk extends AbstractController
                 break;
             case 'php-envfile-permission':
                     $filename =  $kernel->getProjectDir().'/.env';
+                    
+                    if (!is_writable($filename)) {
+                        @chmod($filename, 0666);
+                    }
+
                     $response['status'] = is_writable($filename) ? true : false;
    
                     if ($response['status']) {
@@ -107,8 +112,14 @@ class ConfigureHelpdesk extends AbstractController
                 break;
             case 'php-configfiles-permission':
                     $configfiles_status = array_map(function ($configfile) use ($kernel) {
+                        $filename = $kernel->getProjectDir().'/config/packages/'.$configfile['name'].'.yaml';
+                        
+                        if (!is_writable($filename)) {
+                            @chmod($filename, 0666);
+                        }
+
                         return [
-                            $configfile['name'] => is_writable($kernel->getProjectDir().'/config/packages/'.$configfile['name'].'.yaml') ,
+                            $configfile['name'] => is_writable($filename) ,
                         ];
                     }, self::$requiredConfigfiles);
    
