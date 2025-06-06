@@ -73,7 +73,7 @@ RUN chown -R uvdesk:uvdesk /var/www/uvdesk && \
     chmod -R 775 /var/www/uvdesk/var \
                  /var/www/uvdesk/config \
                  /var/www/uvdesk/public \
-                 /var/www/uvdesk/migrations && \
+                 /var/www/uvdesk/migrations \
                  /var/www/uvdesk/.env
 
 # Install Composer dependencies
