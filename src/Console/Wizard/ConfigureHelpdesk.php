@@ -4,7 +4,6 @@ namespace App\Console\Wizard;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
-use Doctrine\DBAL\DBALException;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
@@ -244,8 +243,9 @@ class ConfigureHelpdesk extends Command
 
                         $output->writeln("  <info>[v]</info> Database successfully migrated to the latest migration version <comment>$latestMigrationVersion</comment> to <info>$latestMigrationVersion</info>.\n");
                     } catch (\Exception $e) {
+                        $errorMessage = $e->getMessage();
                         $output->writeln([
-                            "\n  <fg=red;>[x]</> Unable to successfully migrate to latest database schematic version.",
+                            "\n  <fg=red;>[x]</> Unable to successfully migrate to latest database schematic version.($errorMessage)",
                             "\n  Exiting evaluation process.\n"
                         ]);
         
@@ -274,18 +274,20 @@ class ConfigureHelpdesk extends Command
 
         // Check 3: Check if super admin account exists
         $output->writeln("  [-] Checking if an active super admin account exists");
-
+        $userInstance = null;
         $database = new \PDO("mysql:host=$db_host:$db_port;dbname=$db_name", $db_user, $db_password);
 
         $supportRoleQuery = $database->query("SELECT * FROM uv_support_role WHERE code = 'ROLE_SUPER_ADMIN'");
         $supportRole = $supportRoleQuery->fetch(\PDO::FETCH_ASSOC);
 
-        $userInstanceQuery = $database->query("SELECT * FROM uv_user_instance WHERE supportRole_id = " . $supportRole['id']);
+        $userInstanceQuery = $database->prepare("SELECT * FROM uv_user_instance WHERE supportRole_id = :supportRoleId");
+        $userInstanceQuery->execute(['supportRoleId' => (int) $supportRole['id']]);
         $userInstance = $userInstanceQuery->fetch(\PDO::FETCH_ASSOC);
 
         // Get user based on the user instance
         if ($userInstance) {
-            $userQuery = $database->query("SELECT * FROM uv_user WHERE id = " . $userInstance['user_id']);
+            $userQuery = $database->prepare("SELECT * FROM uv_user WHERE id = :userId");
+            $userQuery->execute(['userId' => (int) $userInstance['user_id']]);
             $user = $userQuery->fetch(\PDO::FETCH_ASSOC);
             $this->userInstance = $user;
         }
@@ -344,9 +346,10 @@ class ConfigureHelpdesk extends Command
 
                     $output->writeln("  <info>[v]</info> User account created successfully.\n");
                 } catch (ProcessFailedException $e) {
+                    $errorMessage = $e->getMessage();
                     // Do nothing ...
                     $output->writeln([
-                        "  <fg=red;>[x]</> An unexpected error occurred while creating the user account.\n",
+                        "  <fg=red;>[x]</> An unexpected error occurred while creating the user account($errorMessage).\n",
                         "\n  Exiting evaluation process.\n"
                     ]);
 
@@ -465,8 +468,7 @@ class ConfigureHelpdesk extends Command
             try {
                 $databaseConnection->connect();
                 $response['isServerAccessible'] = true;
-
-            } catch (\Doctrine\DBAL\DBALException $e) {
+            } catch (\Exception $e) {
                 return false;
             }
         }

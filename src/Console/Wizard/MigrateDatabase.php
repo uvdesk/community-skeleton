@@ -6,14 +6,11 @@ use Doctrine\DBAL\DBALException;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Output\NullOutput;
-use Symfony\Component\Console\Question\Question;
-use Doctrine\DBAL\Migrations\MigrationException;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Console\Input\ArrayInput as ConsoleOptions;
-use Doctrine\Migrations\Exception\UnknownMigrationVersion;
 use Doctrine\Migrations\Generator\Exception\NoChangesDetected;
 
 class MigrateDatabase extends Command
@@ -51,7 +48,7 @@ class MigrateDatabase extends Command
         // Get the current database migration version
         try {
             $currentMigrationVersion = $this->getLatestMigrationVersion(new BufferedOutput());
-        } catch (UnknownMigrationVersion $e) {
+        } catch (\Exception $e) {
             // Fresh setup. No initial migration version defined.
             $currentMigrationVersion = 0;
         }
@@ -64,9 +61,12 @@ class MigrateDatabase extends Command
             $latestMigrationVersion = $this
                 ->compareMigrations($output)
                 ->getLatestMigrationVersion(new BufferedOutput());
-            
+
             if (
-                ('0' != $currentMigrationVersion && $currentMigrationVersion != $latestMigrationVersion) 
+                (
+                    '0' != $currentMigrationVersion
+                    && $currentMigrationVersion != $latestMigrationVersion
+                )
                 || ($currentMigrationVersion != $latestMigrationVersion)
             ) {
                 $this->migrateDatabaseToLatestVersion(new NullOutput());
@@ -150,7 +150,7 @@ class MigrateDatabase extends Command
         $databaseConnection = $this->entityManager->getConnection();
 
         if (false === $databaseConnection->isConnected()) {
-            try {    
+            try {
                 $databaseConnection->connect();
             } catch (DBALException $e) {
                 return false;
