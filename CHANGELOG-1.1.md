@@ -5,10 +5,12 @@ This changelog references any relevant changes introduced in 1.1 minor versions.
 
 * 1.1.8
     * Updates
-        - Docker file updates.
-        - Added portuguese translation lang.
+        - Dockerfile updates.
+        - Added Portuguese translation language.
+        - Updated code related to Doctrine Migrations package update.
 
     * Issue Fixes:
+      - Issue #805 - Resolved an issue encountered during migration execution
       - Check removed for docker running env.
       - Enabling permission for the uvdesk.yaml file for saving email setting in case not having read/write permission.
 
