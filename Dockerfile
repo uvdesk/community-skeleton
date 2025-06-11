@@ -68,6 +68,12 @@ RUN wget -O /usr/local/bin/composer.php "https://getcomposer.org/installer" && \
     chmod +x /usr/local/bin/composer && \
     rm -f /usr/local/bin/composer.php
 
+# Set working directory
+WORKDIR /var/www/uvdesk
+
+# Install Composer dependencies
+RUN cd /var/www/uvdesk/ && composer install
+
 # Set correct permissions for UVDesk files
 RUN chown -R uvdesk:uvdesk /var/www/uvdesk && \
     chmod -R 775 /var/www/uvdesk/var \
@@ -76,11 +82,8 @@ RUN chown -R uvdesk:uvdesk /var/www/uvdesk && \
                  /var/www/uvdesk/migrations \
                  /var/www/uvdesk/.env
 
-# Install Composer dependencies
-RUN cd /var/www/uvdesk/ && composer install --optimize-autoloader
-
-# Set working directory
-WORKDIR /var/www/uvdesk
+RUN composer dump-autoload --optimize && \
+    php bin/console cache:clear --env=prod --no-debug || true
 
 # Entry point for the container
 ENTRYPOINT ["/usr/local/bin/uvdesk-entrypoint.sh"]
