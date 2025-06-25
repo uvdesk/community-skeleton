@@ -198,14 +198,6 @@ http(s)://example.com/public
 
 After opening your project in the web browser, you will be greeted by the web installer which will guide you in configuring your project.
 
-#### ☁️ Deploy UVdesk on the Cloud with Amazon AMI
-
-Easily launch UVdesk on the cloud using our pre-configured Amazon Machine Image (AMI), available directly from the AWS Marketplace:
-
-👉 [**Launch UVdesk on AWS**](https://aws.amazon.com/marketplace/pp/prodview-c4pibdsnipim4)
-
-This AMI offers a quick and hassle-free way to set up UVdesk on a secure, scalable AWS environment. Perfect for both production deployments and testing purposes, with no need for manual configuration.
-
 ##### Run project on localhost (dev mode)
 ```bash
 php bin/console server:run
@@ -216,6 +208,14 @@ php bin/console server:run
 ```bash
 php bin/console c:c
 ```
+
+#### ☁️ Deploy UVdesk on the Cloud with Amazon AMI
+
+Easily launch UVdesk on the cloud using our pre-configured Amazon Machine Image (AMI), available directly from the AWS Marketplace:
+
+👉 [**Launch UVdesk on AWS**](https://aws.amazon.com/marketplace/pp/prodview-c4pibdsnipim4)
+
+This AMI offers a quick and hassle-free way to set up UVdesk on a secure, scalable AWS environment. Perfect for both production deployments and testing purposes, with no need for manual configuration.
 
 **How to log in as admin/agent:**
 
