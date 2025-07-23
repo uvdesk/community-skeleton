@@ -13,6 +13,7 @@ This changelog references any relevant changes introduced in 1.1 minor versions.
       - Issue #805 - Resolved an issue encountered during migration execution
       - Check removed for docker running env.
       - Enabling permission for the uvdesk.yaml file for saving email setting in case not having read/write permission.
+      - Remember me key feature is functional now.
 
 * 1.1.7 (2025-01-03)
     * Features & Enhancements:

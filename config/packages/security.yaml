@@ -40,6 +40,12 @@ security:
             logout:
                 path: helpdesk_member_handle_logout
                 target: helpdesk_member_handle_login
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800       # 7 days
+                path: /
+                name: REMEMBERME
+                remember_me_parameter: _remember_me
         
         uvdesk_api:
             pattern: ^/api
