@@ -3,7 +3,7 @@ CHANGELOG for 1.1.x
 
 This changelog references any relevant changes introduced in 1.1 minor versions.
 
-* 1.1.8
+* 1.1.8 (2025-09-19)
     * Updates
         - Dockerfile updates.
         - Added Portuguese translation language.
