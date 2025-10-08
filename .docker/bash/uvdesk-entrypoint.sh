@@ -22,10 +22,19 @@ if [[ ! -z "$MYSQL_USER" && ! -z "$MYSQL_PASSWORD" && ! -z "$MYSQL_DATABASE" ]];
         # Create default database if not found and grant non-root user all privileges to that database
         # Note: Grant privileges will create user if it doesn't exists prior to mysql 8
         mysql -u root -e "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE";
-        mysql -u root -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* To '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
+	# Check if the mysql version is 8 or greater
+	mysql_version="$(mysql --version | awk '{print $3}' | cut -c1)"
+	if [[ "$mysql_version" -ge 8 ]]; then
+	    mysql -u root -e "CREATE USER IF NOT EXISTS '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
+	    mysql -u root -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost'";
+	else
+            mysql -u root -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* To '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
+	fi
 
         # Update root user credentials
-        mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD'";
+	if [[ ! -z "$MYSQL_ROOT_PASSWORD" ]]; then
+            mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD'";
+	fi
 
         # Create new mysql configuration files (root & uvdesk)
         rm -f /etc/mysql/my.cnf /home/uvdesk/.my.cnf \
