@@ -25,7 +25,9 @@ if [[ ! -z "$MYSQL_USER" && ! -z "$MYSQL_PASSWORD" && ! -z "$MYSQL_DATABASE" ]];
         mysql -u root -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* To '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
 
         # Update root user credentials
-        mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD'";
+	if [[ ! -z "$MYSQL_ROOT_PASSWORD" ]]; then
+            mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD'";
+	fi
 
         # Create new mysql configuration files (root & uvdesk)
         rm -f /etc/mysql/my.cnf /home/uvdesk/.my.cnf \
