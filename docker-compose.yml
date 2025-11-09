@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: uvdesk_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: uvdesk@2025
+      MYSQL_DATABASE: uvdesk
+      MYSQL_USER: uvdesk
+      MYSQL_PASSWORD: uvdesk@2025
+    volumes:
+      - uvdesk_db_data:/var/lib/mysql
+    networks:
+      - uvdesk_net
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-puvdesk@2025"]
+      timeout: 20s
+      retries: 10
+
+  php:
+    build: .
+    container_name: uvdesk_app
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+      - ./apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+    environment:
+      DATABASE_URL: "mysql://uvdesk:uvdesk@2025@db:3306/uvdesk?serverVersion=8.0&charset=utf8mb4"
+      APP_ENV: prod
+      APP_SECRET: change_this_to_a_random_secret
+    networks:
+      - uvdesk_net
+
+networks:
+  uvdesk_net:
+    driver: bridge
+
+volumes:
+  uvdesk_db_data:
