@@ -20,9 +20,12 @@ if [[ ! -z "$MYSQL_USER" && ! -z "$MYSQL_PASSWORD" && ! -z "$MYSQL_DATABASE" ]];
         # Mysql is up and running with default configuration
 
         # Create default database if not found and grant non-root user all privileges to that database
-        # Note: Grant privileges will create user if it doesn't exists prior to mysql 8
+        # MySQL 8 no longer supports creating a user through GRANT ... IDENTIFIED BY.
         mysql -u root -e "CREATE DATABASE IF NOT EXISTS $MYSQL_DATABASE";
-        mysql -u root -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* To '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
+        mysql -u root -e "CREATE USER IF NOT EXISTS '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
+        mysql -u root -e "ALTER USER '$MYSQL_USER'@'localhost' IDENTIFIED BY '$MYSQL_PASSWORD'";
+        mysql -u root -e "GRANT ALL PRIVILEGES ON $MYSQL_DATABASE.* TO '$MYSQL_USER'@'localhost'";
+        mysql -u root -e "FLUSH PRIVILEGES";
 
         # Update root user credentials
         mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '$MYSQL_ROOT_PASSWORD'";
