@@ -20,48 +20,38 @@ class BaseController extends AbstractController
     public function base(EntityManagerInterface $entityManager, KernelInterface $kernel)
     {
         try {
-            // For a quick check we'll just see if support roles have been defined.
-            $ownerSupportRole = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_SUPER_ADMIN');
-            $administratorSupportRole = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_ADMIN');
+            $supportRoleRepository = $entityManager->getRepository(SupportRole::class);
+            $ownerSupportRole = $supportRoleRepository->findOneByCode('ROLE_SUPER_ADMIN');
+            $administratorSupportRole = $supportRoleRepository->findOneByCode('ROLE_ADMIN');
 
-            if (
-                ! empty($ownerSupportRole) 
-                || ! empty($administratorSupportRole)
-            ) {
+            if (!empty($ownerSupportRole) || !empty($administratorSupportRole)) {
                 $userInstanceRepository = $entityManager->getRepository(UserInstance::class);
-                
-                // If support roles are present, we'll check if any users exists with the administrator role.
-                $owners = $userInstanceRepository->findBySupportRole($ownerSupportRole);
-                $administrators = $userInstanceRepository->findBySupportRole($administratorSupportRole);
 
-                if (
-                    ! empty($owners) 
-                    || ! empty($administrators)
-                ) {
+                $owners = !empty($ownerSupportRole) ? $userInstanceRepository->findBySupportRole($ownerSupportRole) : [];
+                $administrators = !empty($administratorSupportRole) ? $userInstanceRepository->findBySupportRole($administratorSupportRole) : [];
+
+                if (!empty($owners) || !empty($administrators)) {
                     $availableBundles = array_keys($kernel->getBundles());
                     $websiteRepository = $entityManager->getRepository(Website::class);
 
-                    // Redirect user to front panel
-                    if (in_array('UVDeskSupportCenterBundle', $availableBundles)) {
+                    if (in_array('UVDeskSupportCenterBundle', $availableBundles, true)) {
                         $supportCenterWebsite = $websiteRepository->findOneByCode('knowledgebase');
 
-                        if (! empty($supportCenterWebsite)) {
+                        if (!empty($supportCenterWebsite)) {
                             return $this->redirectToRoute('helpdesk_knowledgebase', [], 301);
                         }
                     }
 
-                    // Redirect user to back panel
                     $helpdeskWebsite = $websiteRepository->findOneByCode('helpdesk');
 
-                    if (! empty($helpdeskWebsite)) {
+                    if (!empty($helpdeskWebsite)) {
                         return $this->redirectToRoute('helpdesk_member_handle_login');
                     }
                 }
             }
-        } catch (\Exception $e) {
-            // ...
+        } catch (\Throwable $e) {
         }
-        
-        return $this->forward(ConfigureHelpdesk::class . "::load");
+
+        return $this->forward(ConfigureHelpdesk::class . '::load');
     }
 }
