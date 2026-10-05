@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTDXHTML1.0Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="en">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html;" charset="UTF-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta name="robots" content="INDEX,FOLLOW" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="icon" sizes="15x15" href="{{ asset('favicon.ico') }}">
+		<link rel="icon" sizes="16x16" href="{{ asset('favicon.ico') }}">
 		<link rel="canonical" href="{{ path('helpdesk_knowledgebase') }}">
 		<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" media="all" />
 
@@ -45,8 +45,8 @@
 				margin: 14px 0px 20px;
 			}
 			.uv-logo {
-    			height: 70px;
- 				display: table-cell;
+				height: 70px;
+				display: table-cell;
 			}
 		</style>
 	</head>
@@ -58,9 +58,9 @@
 		<div class="uv-box-server-error">
 			<div class="uv-box-server-error-lt">
 				{% if websiteDetails %}
-					<a class="uv-logo" href="{{ '/en/member/' in currentPath  ? path('helpdesk_member_dashboard') : (websiteDetails ? path('helpdesk_knowledgebase') : app.request.scheme ~'://' ~ app.request.httpHost ) }}">
+					<a class="uv-logo" href="{{ '/en/member/' in currentPath ? path('helpdesk_member_dashboard') : (websiteDetails ? path('helpdesk_knowledgebase') : app.request.scheme ~ '://' ~ app.request.httpHost) }}">
 						{% if websiteDetails.logo %}
-							<img src="{{ app.request.scheme ~'://' ~ app.request.httpHost ~ asset('') }}{{ websiteDetails.logo }}" title="{{ websiteDetails.name }}">
+							<img src="{{ app.request.scheme ~ '://' ~ app.request.httpHost ~ asset('') }}{{ websiteDetails.logo }}" title="{{ websiteDetails.name }}">
 						{% else %}
 							<svg xmlns="http://www.w3.org/2000/svg" width="122" height="48" viewBox="0 0 122 48">
 								<defs>
@@ -84,32 +84,28 @@
 				{% endif %}
 
 				<div class="uv-box-block">
-					<p class="uv-error-title">
+					<div class="uv-error-title">
 						{% if code == 404 %}
-							<span>404</span>
-							- {{ 'Page not found'|trans }}
+							<p><span>404</span> - {{ 'Page not found'|trans }}</p>
 							<p>{{ 'We were not able to find the page you are looking for.'|trans }}</p>
 						{% elseif code == 403 %}
-							<span>403</span>
-							- {{ 'Forbidden'|trans }}
+							<p><span>403</span> - {{ 'Forbidden'|trans }}</p>
 							<p>{{ 'You don’t have the necessary permissions to access this Web page :('|trans }}</p>
 						{% elseif code == 500 %}
-							<span>500</span>
-							- {{ 'Internal server error'|trans }}
+							<p><span>500</span> - {{ 'Internal server error'|trans }}</p>
 							<p>{{ "Our system has goofed up for a while, but good part is it won't last long"|trans }}</p>
 						{% else %}
-							<span>{{ code }}</span>
-							- {{ 'Unknown Error'|trans }}
+							<p><span>{{ code }}</span> - {{ 'Unknown Error'|trans }}</p>
 							<p>{{ 'We are quite confused about how did you land here:/'|trans }}</p>
 						{% endif %}
-					</p>
+					</div>
 				</div>
 
 				<div class="uv-box-block">
 					<p>{{ 'Few of the links which may help you to get back on the track:'|trans }}</p>
 					
 					<ul>
-						<li><a href="{{ '/en/member/' in currentPath  ? path('helpdesk_member_dashboard') : (websiteDetails ? path('helpdesk_knowledgebase') : app.request.scheme ~'://' ~ app.request.httpHost ) }}">{{ 'Home'|trans }}</a></li>
+						<li><a href="{{ '/en/member/' in currentPath ? path('helpdesk_member_dashboard') : (websiteDetails ? path('helpdesk_knowledgebase') : app.request.scheme ~ '://' ~ app.request.httpHost) }}">{{ 'Home'|trans }}</a></li>
 
 						{% if websiteDetails is defined and websiteDetails is not empty %}
 							<li><a href="{{ path('helpdesk_knowledgebase') }}">{{ 'Support'|trans }}</a></li>
@@ -121,14 +117,14 @@
 			<div class="uv-box-server-error-rt">
 				{% if code in [404, 500, 403] %}
 					{% if code == 404 %}
-							<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/404.png') }}" alt="{{ code }}" />
+						<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/404.png') }}" alt="{{ code }}" />
 					{% elseif code == 500 %}
-							<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/500.png') }}" alt="{{ code }}" />
+						<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/500.png') }}" alt="{{ code }}" />
 					{% else %}
-							<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/403.png') }}" alt="{{ code }}" />
+						<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/403.png') }}" alt="{{ code }}" />
 					{% endif %}
 				{% else %}
-						<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/unkown-error.png') }}" alt="{{ code }}" />
+					<img class="error-grooves" src="{{ asset('bundles/uvdeskcoreframework/images/unkown-error.png') }}" alt="{{ code }}" />
 				{% endif %}
 			</div>
 			
