@@ -32,7 +32,8 @@ RUN apt-get update && \
 # Create a non-root user for UVDesk
 RUN adduser uvdesk --disabled-password --gecos ""
 
-# Copy Apache configuration files
+RUN adduser uvdesk -q --disabled-password --gecos ""
+
 COPY ./.docker/config/apache2/env /etc/apache2/envvars
 COPY ./.docker/config/apache2/httpd.conf /etc/apache2/apache2.conf
 COPY ./.docker/config/apache2/vhost.conf /etc/apache2/sites-available/000-default.conf
