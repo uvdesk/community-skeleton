@@ -5,12 +5,7 @@
 
 declare -r COLOR_NC='\033[0m'
 declare -r COLOR_RED='\033[0;31m'
-declare -r COLOR_GREEN='\033[0;32m'
-declare -r COLOR_LIGHT_GREEN='\033[1;32m'
-declare -r COLOR_YELLOW='\033[1;33m'
 declare -r COLOR_LIGHT_YELLOW='\033[0;33m'
-declare -r COLOR_BLUE='\033[0;34m'
-declare -r COLOR_LIGHT_BLUE='\033[1;34m'
 
 # Restart apache & mysql server
 service apache2 restart && service mysql restart;
