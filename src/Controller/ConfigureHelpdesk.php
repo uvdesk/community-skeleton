@@ -230,6 +230,30 @@ class ConfigureHelpdesk extends AbstractController
             session_start();
         }
 
+        // Refuse to rewrite the database configuration once the helpdesk has already
+        // been installed. Without this guard the installation wizard endpoints remain
+        // reachable by unauthenticated users and can repoint DATABASE_URL to an
+        // attacker controlled server, leading to a full application takeover.
+        try {
+            $entityManager = $this->getDoctrine()->getManager();
+            $superAdminRole = $entityManager->getRepository(SupportRole::class)->findOneByCode('ROLE_SUPER_ADMIN');
+
+            if (! empty($superAdminRole)) {
+                $existingSuperAdmin = $entityManager->getRepository(UserInstance::class)->findOneBy([
+                    'supportRole' => $superAdminRole,
+                ]);
+
+                if (! empty($existingSuperAdmin)) {
+                    return new JsonResponse([
+                        'status'  => false,
+                        'message' => 'Application is already configured.',
+                    ], 403);
+                }
+            }
+        } catch (\Exception $e) {
+            // Database not configured yet. Continue with first time installation.
+        }
+
         $database_host    = $_SESSION['DB_CONFIG']['host'];
         $database_port    = $_SESSION['DB_CONFIG']['port'];
         $database_version = $_SESSION['DB_CONFIG']['version'];
